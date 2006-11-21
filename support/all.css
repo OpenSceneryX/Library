@@ -2,20 +2,17 @@ body {
   font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
   padding: 0px;
   margin: 0px;
+  color: #333333;
 }
 
 h1 {
-  display: block;
-  background-color: #3333aa;
-  color: #ffffff;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0px 0px 10px 0px;
+  margin: 0px;
 }
 
 h2 {
-  padding-top:10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #cccccc;
 }
 
 img {
@@ -30,12 +27,26 @@ img.screenshot {
 }
 
 p {
-  color: #444444;
 }
 
 p.virtualPath {
   background-color: #ccccff;
   padding: 5px;
+}
+
+p#version {
+  padding: 0px;
+  margin: 0px;
+}
+
+div#header {
+  display: block;
+  background-color: #3333aa;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 div#content {
@@ -46,7 +57,7 @@ div#content {
 
 div#footer {
   clear: both;
-  border-top: 1px dotted #777777;
+  border-top: 1px dotted #cccccc;
   margin-left: 10px;
   margin-right: 10px;
   padding-top: 10px;

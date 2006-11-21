@@ -8,9 +8,10 @@ import os
 import shutil
 import re
 import urllib
+import classes
 
 
-def handleObject(dirpath, filename, destinationRoot, libraryFileHandle, htmlIndexFileHandle):
+def handleObject(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -48,20 +49,20 @@ def handleObject(dirpath, filename, destinationRoot, libraryFileHandle, htmlInde
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
-    libraryFileHandle.write("EXPORT openscenery/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT opensceneryx/" + virtualPath + " placeholder.obj\n")
 
 
 
 
-
-def handleFacade(dirpath, filename, destinationRoot, libraryFileHandle, htmlIndexFileHandle):
+def handleFacade(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   print "facades not handled yet: " + os.path.join(dirpath, filename)
 
 
 
 
 
-def handleForest(dirpath, filename, destinationRoot, libraryFileHandle, htmlIndexFileHandle):
+def handleForest(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -93,7 +94,8 @@ def handleForest(dirpath, filename, destinationRoot, libraryFileHandle, htmlInde
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
-    libraryFileHandle.write("EXPORT openscenery/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT opensceneryx/" + virtualPath + " placeholder.for\n")
 
 
 
@@ -197,14 +199,15 @@ def handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, suffix)
   htmlIndexFileHandle.write("<li><a href='doc/" + urllib.pathname2url(title) + ".html" + "'>" + title + "</a></li>")
   
   htmlFileHandle = open(destinationRoot + "/doc/" + title + ".html", "w")
-  htmlFileHandle.write("<html><head><title>OpenScenery Object Library for X-Plane - " + title + "</title>\n")
+  htmlFileHandle.write("<html><head><title>OpenSceneryX Object Library for X-Plane - " + title + "</title>\n")
   htmlFileHandle.write("<link rel='stylesheet' href='../doc/all.css' type='text/css'>\n")
   htmlFileHandle.write("<body>\n")
-  htmlFileHandle.write("<h1>OpenScenery Object Library for X-Plane</h1>\n")
+  htmlFileHandle.write("<div id='header'>\n")
+  htmlFileHandle.write("<h1>OpenSceneryX Object Library for X-Plane</h1>\n")
+  htmlFileHandle.write("<p id='version'>Version: " + classes.Configuration.versionNumber + " - " + classes.Configuration.versionDate + "</p>\n")
+  htmlFileHandle.write("</div>\n")
   htmlFileHandle.write("<div id='content'>\n")
-
   htmlFileHandle.write("<h2>" + title + "</h2>\n")
-
   htmlFileHandle.write("<p class='virtualPath'>\n")
   for virtualPath in virtualPaths:
     htmlFileHandle.write(virtualPath + "<br />\n")
