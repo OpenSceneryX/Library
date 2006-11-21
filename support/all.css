@@ -1,0 +1,95 @@
+body {
+  font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  display: block;
+  background-color: #3333aa;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+  padding-top:10px;
+}
+
+img {
+  padding: 1px;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+img.screenshot {
+  float: right;
+  margin-right: 0px;
+}
+
+p {
+  color: #444444;
+}
+
+p.virtualPath {
+  background-color: #ccccff;
+  padding: 5px;
+}
+
+div#content {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+
+div#footer {
+  clear: both;
+  border-top: 1px dotted #777777;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  color: #777777;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+ul.mainItemDetails {
+}
+
+ul.secondaryItemDetails {
+  font-size: 0.8em;
+}
+
+ul.dimensions {
+ width: 50px;
+ height: 61px;
+ background: url(cube.gif);
+ margin-top: 20px;
+ margin-left: 50px;
+ padding: 0;
+ position: relative;
+}
+
+ul.dimensions li {
+  white-space: nowrap;
+  font-size: 0.7em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  position: absolute;
+}
+
+ul.dimensions li#width {left: 35px; top: -10px;}
+ul.dimensions li#height {right: 55px; top: 25px; text-align: right;}
+ul.dimensions li#depth {left: 50px; top: 40px;}
+
+span.fieldTitle {
+  font-weight: bold;
+}
+
+span.fieldValue {
+}
+
