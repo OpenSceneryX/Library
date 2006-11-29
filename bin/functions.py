@@ -11,16 +11,16 @@ import urllib
 import classes
 
 
-def handleObject(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
   print "Handling object: " + objectSourcePath
   
   # Set up paths and copy files
-  if not os.path.isdir(os.path.join(destinationRoot, parts[2])): os.makedirs(os.path.join(destinationRoot, parts[2]))
-  if not copySupportFiles(dirpath, destinationRoot, parts): return
-  shutil.copyfile(objectSourcePath, os.path.join(destinationRoot, parts[2], filename))
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
   # Open the object
   file = open(objectSourcePath, "r")
@@ -36,42 +36,42 @@ def handleObject(dirpath, filename, destinationRoot, libraryFileHandle, libraryP
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
       if os.path.isfile(textureFile):
-        shutil.copyfile(textureFile, os.path.join(destinationRoot, parts[2], result.group(1)))
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
      
     result = litTexturePattern.match(line)
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
       if os.path.isfile(textureFile):
-        shutil.copyfile(textureFile, os.path.join(destinationRoot, parts[2], result.group(1)))
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, ".obj")
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".obj")
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
     libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
-    libraryPlaceholderFileHandle.write("EXPORT opensceneryx/" + virtualPath + " placeholder.obj\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 
 
 
 
-def handleFacade(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   print "facades not handled yet: " + os.path.join(dirpath, filename)
 
 
 
 
 
-def handleForest(dirpath, filename, destinationRoot, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
   print "Handling forest: " + objectSourcePath
   
   # Set up paths and copy files
-  if not os.path.isdir(os.path.join(destinationRoot, parts[2])): os.makedirs(os.path.join(destinationRoot, parts[2]))
-  if not copySupportFiles(dirpath, destinationRoot, parts): return
-  shutil.copyfile(objectSourcePath, os.path.join(destinationRoot, parts[2], filename))
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
   # Open the object
   file = open(objectSourcePath, "r")
@@ -86,22 +86,22 @@ def handleForest(dirpath, filename, destinationRoot, libraryFileHandle, libraryP
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
       if os.path.isfile(textureFile):
-        shutil.copyfile(textureFile, os.path.join(destinationRoot, parts[2], result.group(1)))
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
         break
 
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, ".for")
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".for")
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
     libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
-    libraryPlaceholderFileHandle.write("EXPORT opensceneryx/" + virtualPath + " placeholder.for\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 
 
 
 
 
-def copySupportFiles(dirpath, destinationRoot, parts):
+def copySupportFiles(dirpath, parts):
   if not os.path.isfile(os.path.join(dirpath, "info.txt")):
     print "  ERROR: No info.txt file found - object excluded"
     return 0
@@ -110,8 +110,8 @@ def copySupportFiles(dirpath, destinationRoot, parts):
     print "  ERROR: No screenshot.jpg file found - object excluded"
     return 0
 
-  shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(destinationRoot, parts[2], "info.txt"))
-  shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(destinationRoot, parts[2], "screenshot.jpg"))
+  shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
+  shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
 
   return 1
   
@@ -119,7 +119,7 @@ def copySupportFiles(dirpath, destinationRoot, parts):
   
   
   
-def handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, suffix):
+def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
    # open the info file
   file = open(os.path.join(dirpath, "info.txt"))
   infoFileContents = file.readlines()
@@ -196,16 +196,11 @@ def handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, suffix)
       print "  Additional virtual path added: " + result.group(1) + suffix
       continue
 
-  htmlIndexFileHandle.write("<li><a href='doc/" + urllib.pathname2url(title) + ".html" + "'>" + title + "</a></li>")
+
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title) + ".html" + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a></li>")
   
-  htmlFileHandle = open(destinationRoot + "/doc/" + title + ".html", "w")
-  htmlFileHandle.write("<html><head><title>OpenSceneryX Object Library for X-Plane - " + title + "</title>\n")
-  htmlFileHandle.write("<link rel='stylesheet' href='../doc/all.css' type='text/css'>\n")
-  htmlFileHandle.write("<body>\n")
-  htmlFileHandle.write("<div id='header'>\n")
-  htmlFileHandle.write("<h1>OpenSceneryX Object Library for X-Plane</h1>\n")
-  htmlFileHandle.write("<p id='version'>Version: " + classes.Configuration.versionNumber + " - " + classes.Configuration.versionDate + "</p>\n")
-  htmlFileHandle.write("</div>\n")
+  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + title + ".html", "w")
+  writeHTMLHeader(htmlFileHandle, "")
   htmlFileHandle.write("<div id='content'>\n")
   htmlFileHandle.write("<h2>" + title + "</h2>\n")
   htmlFileHandle.write("<p class='virtualPath'>\n")
@@ -229,15 +224,60 @@ def handleInfoFile(dirpath, destinationRoot, htmlIndexFileHandle, parts, suffix)
     htmlFileHandle.write("</li>\n")
 
   htmlFileHandle.write("</ul>\n")
-
   htmlFileHandle.write("</div>")
 
-  file = open("trunk/support/_footer.html", "r")
-  fileContents = file.read()
-  file.close()
-  htmlFileHandle.write(fileContents)
+  writeHTMLFooter(htmlFileHandle, "")
 
-  htmlFileHandle.write("</body></html>")
   htmlFileHandle.close()
   
   return virtualPaths
+
+
+
+
+
+def writeHTMLHeader(fileHandle, documentationPath):
+  fileHandle.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n")
+  fileHandle.write("          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n")
+  fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane</title>\n")
+  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n")
+  fileHandle.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>")
+  fileHandle.write("</head>\n")
+  fileHandle.write("<body>\n")
+  fileHandle.write("<div id='header'>\n")
+  fileHandle.write("<h1>OpenSceneryX Object Library for X-Plane</h1>  \n")
+  fileHandle.write("<p id='version'><strong>Library Version:</strong> " + classes.Configuration.versionNumber + " - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n")
+  fileHandle.write("</div>\n")
+
+
+
+
+
+
+def writeHTMLFooter(fileHandle, documentationPath):
+  fileHandle.write("<div id='footer'>")
+  fileHandle.write("<div style='float:left;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
+  fileHandle.write("The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence.")
+  fileHandle.write("<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>")
+  fileHandle.write("<Work rdf:about=''>")
+  fileHandle.write("<license rdf:resource='http://creativecommons.org/licenses/by-nc-nd/2.5/' />")
+  fileHandle.write("<dc:type rdf:resource='http://purl.org/dc/dcmitype/InteractiveResource' />")
+  fileHandle.write("</Work>")
+  fileHandle.write("<License rdf:about='http://creativecommons.org/licenses/by-nc-nd/2.5/'>")
+  fileHandle.write("<permits rdf:resource='http://web.resource.org/cc/Reproduction'/>")
+  fileHandle.write("<permits rdf:resource='http://web.resource.org/cc/Distribution'/>")
+  fileHandle.write("<requires rdf:resource='http://web.resource.org/cc/Notice'/>")
+  fileHandle.write("<requires rdf:resource='http://web.resource.org/cc/Attribution'/>")
+  fileHandle.write("<prohibits rdf:resource='http://web.resource.org/cc/CommercialUse'/>")
+  fileHandle.write("</License></rdf:RDF> --></div>")
+  fileHandle.write("</body></html>")
+
+
+
+
+
+
+def writeLibraryHeader(fileHandle):
+  fileHandle.write("A\n")
+  fileHandle.write("800\n")
+  fileHandle.write("LIBRARY\n")
