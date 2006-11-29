@@ -1,0 +1,9 @@
+Title: Animated Windsock
+=====================
+Author: psiteo
+URL: http://forums.x-plane.org/index.php?showuser=113
+Height: 4m
+Width: 1m
+Depth: 4m
+=====================
+Description: An animated windsock that droops realistically as the windspeed drops.
