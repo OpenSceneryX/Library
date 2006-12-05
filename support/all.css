@@ -41,6 +41,7 @@ img.screenshot {
 
 img.icon {
   border: none;
+  vertical-align: bottom;
 }
 
 p {
@@ -54,7 +55,7 @@ p.warning {
 
 p.virtualPath {
   background-color: #ccf;
-  padding: 0.5em;
+  padding: 0.25em 0.5em 0.25em 0.5em;
 }
 
 p#version {
@@ -126,8 +127,8 @@ ul.dimensions {
  width: 50px;
  height: 61px;
  background: url(cube.gif);
- margin-top: 20px;
- margin-left: 50px;
+ background-repeat: no-repeat;
+ margin: 1em 0 1em 5em;
  padding: 0;
  position: relative;
 }
@@ -142,7 +143,7 @@ ul.dimensions li {
   position: absolute;
 }
 
-ul.dimensions li#width {left: 35px; top: -10px;}
+ul.dimensions li#width {left: 35px; top: -15px;}
 ul.dimensions li#height {right: 55px; top: 25px; text-align: right;}
 ul.dimensions li#depth {left: 50px; top: 40px;}
 

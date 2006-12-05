@@ -112,7 +112,7 @@ def copySupportFiles(dirpath, parts):
 
   shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
   shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
-
+      
   return 1
   
   
@@ -197,7 +197,10 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
       continue
 
 
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title) + ".html" + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a></li>")
+  if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
+    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + title + " Tutorial.pdf")
+
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title + ".html") + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a></li>")
   
   htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + title + ".html", "w")
   writeHTMLHeader(htmlFileHandle, "")
@@ -223,6 +226,8 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
     htmlFileHandle.write("</ul>\n")
     htmlFileHandle.write("</li>\n")
 
+  if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")): htmlFileHandle.write("<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n")
+    
   htmlFileHandle.write("</ul>\n")
   htmlFileHandle.write("</div>")
 
