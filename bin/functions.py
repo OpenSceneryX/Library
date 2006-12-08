@@ -198,9 +198,17 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
 
 
   if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
+    tutorial = 1
     shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + title + " Tutorial.pdf")
-
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title + ".html") + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a></li>")
+  else:
+    tutorial = 0
+    
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title + ".html") + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a>")
+  
+  if (tutorial):
+    htmlIndexFileHandle.write(" <img class='attributeicon' src='doc/tutorial.gif'>")
+  
+  htmlIndexFileHandle.write("</li>")
   
   htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + title + ".html", "w")
   writeHTMLHeader(htmlFileHandle, "")

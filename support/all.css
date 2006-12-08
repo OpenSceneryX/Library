@@ -44,6 +44,11 @@ img.icon {
   vertical-align: bottom;
 }
 
+img.attributeicon{
+  border: none;
+  vertical-align: top;
+}
+
 p {
 }
 
