@@ -5,7 +5,7 @@ Email: xpo@denmeul.nl
 Width: 26m
 Depth: 62.3m
 Height: 70.9m
-Export: objects/regions/western_europe/churches/europe_medieval_large
+Export: objects/regions/western_europe/religious/church_medieval_large
 Revision: $Revision$
 Date: $Date$
 =====================

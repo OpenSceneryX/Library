@@ -1,0 +1,8 @@
+Title: Nissen Hut
+=====================
+Author: Austin Goudge
+Email: austin@goudges.com
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A World War II Nissen Hut, as used by the RAF.  These are still found around old RAF airfields.

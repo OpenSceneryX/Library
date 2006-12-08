@@ -2,5 +2,6 @@ Title: Animated Hangar
 =====================
 Author: psiteo
 URL: http://forums.x-plane.org/index.php?showuser=113
+Export: objects/airport/buildings/hangars/animated_open_close
 =====================
 Description: An animated hangar that opens at 0900 and closes at 1700 local.

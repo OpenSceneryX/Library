@@ -1,0 +1,8 @@
+Title: Picnic Table
+=====================
+Author: Austin Goudge
+Email: austin@goudges.com
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Picnic table.
