@@ -1,0 +1,9 @@
+Title: Chain Fence
+=====================
+Author: Jonathan Harris
+URL: http://marginal.org.uk/x-planescenery
+Email: x-plane@marginal.org.uk
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A chain-link fence. Suitable for fencing large areas efficiently.
