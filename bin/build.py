@@ -94,12 +94,12 @@ for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
 htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Facades</h3>\n")
-#htmlIndexFileHandle.write("<ul class='facades'>\n")
+htmlIndexFileHandle.write("<ul class='facades'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
    for filename in filenames:
      if (filename == "facade.fac"):
        functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle)
-#htmlIndexFileHandle.write("</ul>\n")
+htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Forests</h3>\n")
 htmlIndexFileHandle.write("<ul class='forests'>\n")

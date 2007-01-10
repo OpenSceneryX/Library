@@ -56,7 +56,39 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
-  print "facades not handled yet: " + os.path.join(dirpath, filename)
+  objectSourcePath = os.path.join(dirpath, filename)
+  parts = dirpath.split("/", 2)
+
+  print "Handling facade: " + objectSourcePath
+  
+  # Set up paths and copy files
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
+
+  # Open the object
+  file = open(objectSourcePath, "r")
+  objectFileContents = file.readlines()
+  file.close()
+
+  # Define the regex patterns:
+  texturePattern = re.compile("TEXTURE\s+(.*)")
+
+  for line in objectFileContents:
+    result = texturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+        break
+
+  # Handle the info.txt file
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".fac")
+  
+  # Write to the library.txt file
+  for virtualPath in virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 
 
 
