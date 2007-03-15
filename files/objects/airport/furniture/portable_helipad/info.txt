@@ -1,0 +1,9 @@
+Title: Helicopter landing pad
+=====================
+Author: psiteo
+URL: http://forums.x-plane.org/index.php?showuser=113
+Height: 0.6m
+Width: 4m
+Depth: 5.56m
+=====================
+Description: A helicopter pad to practice landing and take off, for light helos like the Jetranger.
