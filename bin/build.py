@@ -68,6 +68,8 @@ htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w"
 functions.writeHTMLHeader(htmlIndexFileHandle, "doc/")
 htmlDeveloperFileHandle = open(classes.Configuration.osxFolder + "/doc/DeveloperInstructions.html", "w")
 functions.writeHTMLHeader(htmlDeveloperFileHandle, "")
+htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
+functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "")
 
 
 print "------------------------"
@@ -139,6 +141,11 @@ fileContents = file.read()
 file.close()
 htmlDeveloperFileHandle.write(fileContents)
 
+file = open("trunk/support/_releasenotes.html", "r")
+fileContents = file.read()
+file.close()
+htmlReleaseNotesFileHandle.write(fileContents)
+
 
 
 
@@ -146,6 +153,7 @@ print "------------------------"
 print "Finishing and closing files"
 functions.writeHTMLFooter(htmlIndexFileHandle, "doc/")
 functions.writeHTMLFooter(htmlDeveloperFileHandle, "")
+functions.writeHTMLFooter(htmlReleaseNotesFileHandle, "")
 htmlIndexFileHandle.close()
 htmlDeveloperFileHandle.close()
 libraryFileHandle.close()

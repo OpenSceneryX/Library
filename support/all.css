@@ -211,6 +211,14 @@ a.tooltip:hover span {
 	max-width: 200px;
 }
 
+p#version {
+  color: #ccf;
+}
+
+p#version a {
+  color: #ccf;
+}
+
 
 /*Credits: Dynamic Drive CSS Library */
 /*URL: http://www.dynamicdrive.com/style/ */

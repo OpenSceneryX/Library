@@ -291,7 +291,7 @@ def writeHTMLHeader(fileHandle, documentationPath):
   fileHandle.write("<body>\n")
   fileHandle.write("<div id='header'>\n")
   fileHandle.write("<h1>OpenSceneryX Object Library for X-Plane</h1>  \n")
-  fileHandle.write("<p id='version'><strong>Library Version:</strong> " + classes.Configuration.versionNumber + " - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n")
+  fileHandle.write("<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n")
   fileHandle.write("</div>\n")
 
 
