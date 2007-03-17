@@ -11,7 +11,7 @@ import urllib
 import classes
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -45,7 +45,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".obj")
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".obj", authors)
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
@@ -55,7 +55,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -83,7 +83,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         break
 
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".fac")
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".fac", authors)
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
@@ -94,7 +94,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -122,7 +122,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         break
 
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".for")
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".for", authors)
   
   # Write to the library.txt file
   for virtualPath in virtualPaths:
@@ -151,7 +151,7 @@ def copySupportFiles(dirpath, parts):
   
   
   
-def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
+def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix, authors):
    # open the info file
   file = open(os.path.join(dirpath, "info.txt"))
   infoFileContents = file.readlines()
@@ -190,6 +190,8 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
     result = authorPattern.match(line)
     if result:
       author = result.group(1)
+      if not author in authors:
+        authors.append(author)
       continue
       
     result = emailPattern.match(line)

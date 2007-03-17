@@ -87,12 +87,14 @@ shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceh
 shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 
+authors = []
+
 htmlIndexFileHandle.write("<h3>Objects</h3>\n")
 htmlIndexFileHandle.write("<ul class='objects'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
    for filename in filenames:
      if (filename == "object.obj"):
-       functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle)
+       functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
 htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Facades</h3>\n")
@@ -100,7 +102,7 @@ htmlIndexFileHandle.write("<ul class='facades'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
    for filename in filenames:
      if (filename == "facade.fac"):
-       functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle)
+       functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
 htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Forests</h3>\n")
@@ -108,7 +110,7 @@ htmlIndexFileHandle.write("<ul class='forests'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/forests"):
    for filename in filenames:
      if (filename == "forest.for"):
-       functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle)
+       functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
 htmlIndexFileHandle.write("</ul>\n")
 htmlIndexFileHandle.write("</div>\n")
 
@@ -132,7 +134,7 @@ htmlIndexFileHandle.write("<h3>X-Plane Scenery Developers</h3>\n")
 htmlIndexFileHandle.write("<p>If you are a scenery developer, see <a href='doc/DeveloperInstructions.html'>this page for instructions on how to reference the library in your work</a>.</p>\n")
 
 htmlIndexFileHandle.write("<h2>Contributors</h2>\n")
-htmlIndexFileHandle.write("<p>Thank you to everyone who has contributed so far!  If you would like to contribute some of your own objects to the library, visit <a href='http://svn.x-plugins.com/xplane/wiki/Scenery/Library'>the project pages</a> or <a href='http://forums.x-plane.org/index.php?showuser=2431'>contact me at the .org</a></p>\n")
+htmlIndexFileHandle.write("<p>A big thank you to the following people who have contributed to the library: " + ", ".join(authors[:-1]) + " and " + authors[-1] + ". If you would like to contribute some of your own objects to the library, visit <a href='http://svn.x-plugins.com/xplane/wiki/Scenery/Library'>the project pages</a> or <a href='http://forums.x-plane.org/index.php?showuser=2431'>contact me at the .org</a></p>\n")
 htmlIndexFileHandle.write("</div>\n")
 
 
