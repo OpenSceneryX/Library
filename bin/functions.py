@@ -11,7 +11,7 @@ import urllib
 import classes
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -44,18 +44,22 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       if os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 
+  # Create an instance of the SceneryObject class
+  sceneryObject = classes.SceneryObject(parts[2], filename)
+  objects.append(sceneryObject)
+  
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".obj", authors)
+  handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors)
   
   # Write to the library.txt file
-  for virtualPath in virtualPaths:
-    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -82,19 +86,23 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
         break
 
+  # Create an instance of the SceneryObject class
+  sceneryObject = classes.SceneryObject(parts[2], filename)
+  facades.append(sceneryObject)
+  
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".fac", authors)
+  handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors)
   
   # Write to the library.txt file
-  for virtualPath in virtualPaths:
-    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 
 
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split("/", 2)
 
@@ -121,12 +129,16 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
         break
 
+  # Create an instance of the SceneryObject class
+  sceneryObject = classes.SceneryObject(parts[2], filename)
+  forests.append(sceneryObject)
+  
   # Handle the info.txt file
-  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".for", authors)
+  handleInfoFile(dirpath, parts, ".for", sceneryObject, authors)
   
   # Write to the library.txt file
-  for virtualPath in virtualPaths:
-    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 
 
@@ -151,7 +163,7 @@ def copySupportFiles(dirpath, parts):
   
   
   
-def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix, authors):
+def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
    # open the info file
   file = open(os.path.join(dirpath, "info.txt"))
   infoFileContents = file.readlines()
@@ -171,104 +183,91 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix, authors):
   descriptionPattern = re.compile("Description:\s+(.*)")
 
   # Define the variables to capture the data
-  virtualPaths = [parts[2] + suffix]
-  title = ""
-  author = ""
-  email = ""
-  url = ""
-  width = ""
-  height = ""
-  depth = ""
-  description = ""
+  sceneryObject.virtualPaths.append(parts[2] + suffix)
   
   for line in infoFileContents:
     result = titlePattern.match(line)
     if result:
-      title = result.group(1)
+      sceneryObject.title = result.group(1)
       continue
 
     result = authorPattern.match(line)
     if result:
-      author = result.group(1)
-      if not author in authors:
-        authors.append(author)
+      sceneryObject.author = result.group(1)
+      if not sceneryObject.author in authors:
+        authors.append(sceneryObject.author)
       continue
       
     result = emailPattern.match(line)
     if result:
-      email = result.group(1)
+      sceneryObject.email = result.group(1)
       continue
       
     result = urlPattern.match(line)
     if result:
-      url = result.group(1)
+      sceneryObject.url = result.group(1)
       continue
       
     result = widthPattern.match(line)
     if result:
-      width = result.group(1)
+      sceneryObject.width = result.group(1)
       continue
 
     result = heightPattern.match(line)
     if result:
-      height = result.group(1)
+      sceneryObject.height = result.group(1)
       continue
 
     result = depthPattern.match(line)
     if result:
-      depth = result.group(1)
+      sceneryObject.depth = result.group(1)
       continue
 
     result = descriptionPattern.match(line)
     if result:
-      description = result.group(1)
+      sceneryObject.description = result.group(1)
       continue
 
     result = exportPattern.match(line)
     if result:
-      virtualPaths.append(result.group(1) + suffix)
+      sceneryObject.virtualPaths.append(result.group(1) + suffix)
       print "  Additional virtual path added: " + result.group(1) + suffix
       continue
 
-
   if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
-    tutorial = 1
-    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + title + " Tutorial.pdf")
-  else:
-    tutorial = 0
+    sceneryObject.tutorial = 1
+    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
     
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title + ".html") + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a>")
-  
-  if (tutorial):
-    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-  
-  htmlIndexFileHandle.write("</li>")
-  
-  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + title + ".html", "w")
+  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + ".html", "w")
   writeHTMLHeader(htmlFileHandle, "")
   htmlFileHandle.write("<div id='content'>\n")
-  htmlFileHandle.write("<h2>" + title + "</h2>\n")
+  htmlFileHandle.write("<h2>" + sceneryObject.title + "</h2>\n")
   htmlFileHandle.write("<p class='virtualPath'>\n")
-  for virtualPath in virtualPaths:
+  for virtualPath in sceneryObject.virtualPaths:
     htmlFileHandle.write(virtualPath + "<br />\n")
   htmlFileHandle.write("</p>\n")
   htmlFileHandle.write("<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n")
   htmlFileHandle.write("<ul class='mainItemDetails'>\n")
-  if (not author == ""): htmlFileHandle.write("<li><span class='fieldTitle'>Author:</span> <span class='fieldValue'>" + author + "</span></li>\n")
-  if (not email == ""): htmlFileHandle.write("<li><span class='fieldTitle'>Email:</span> <span class='fieldValue'><a href='mailto:" + email + "'>" + email + "</a></span></li>\n")
-  if (not url == ""): htmlFileHandle.write("<li><span class='fieldTitle'>URL:</span> <span class='fieldValue'><a href='" + url + "'>" + url + "</a></span></li>\n")
-  if (not description == ""): htmlFileHandle.write("<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + description + "</span></li>\n")
+  if (not sceneryObject.author == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Author:</span> <span class='fieldValue'>" + sceneryObject.author + "</span></li>\n")
+  if (not sceneryObject.email == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span></li>\n")
+  if (not sceneryObject.url == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>URL:</span> <span class='fieldValue'><a href='" + sceneryObject.url + "'>" + sceneryObject.url + "</a></span></li>\n")
+  if (not sceneryObject.description == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n")
   
-  if (not width == "" and not height == "" and not depth == ""):
+  if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
     htmlFileHandle.write("<li><span class='fieldTitle'>Dimensions:</span>\n")
     htmlFileHandle.write("<ul class='dimensions'>\n")
-    htmlFileHandle.write("<li id='width'><span class='fieldTitle'>w:</span> " + width + "</li>\n")
-    htmlFileHandle.write("<li id='height'><span class='fieldTitle'>h:</span> " + height + "</li>\n")
-    htmlFileHandle.write("<li id='depth'><span class='fieldTitle'>d:</span> " + depth + "</li>\n")
+    htmlFileHandle.write("<li id='width'><span class='fieldTitle'>w:</span> " + sceneryObject.width + "</li>\n")
+    htmlFileHandle.write("<li id='height'><span class='fieldTitle'>h:</span> " + sceneryObject.height + "</li>\n")
+    htmlFileHandle.write("<li id='depth'><span class='fieldTitle'>d:</span> " + sceneryObject.depth + "</li>\n")
     htmlFileHandle.write("</ul>\n")
     htmlFileHandle.write("</li>\n")
 
-  if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")): htmlFileHandle.write("<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n")
+  if (sceneryObject.tutorial):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n")
     
   htmlFileHandle.write("</ul>\n")
   htmlFileHandle.write("</div>")
@@ -276,8 +275,6 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix, authors):
   writeHTMLFooter(htmlFileHandle, "")
 
   htmlFileHandle.close()
-  
-  return virtualPaths
 
 
 

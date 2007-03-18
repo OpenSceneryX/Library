@@ -8,6 +8,7 @@ import os
 import sys
 import shutil
 import classes
+import urllib
 
 
 print "\n========================"
@@ -74,9 +75,6 @@ functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "")
 
 print "------------------------"
 print "Copying files"
-htmlIndexFileHandle.write("<div id='toc'>\n")
-htmlIndexFileHandle.write("<h2>Index</h2>\n")
-
 shutil.copyfile("trunk/support/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 shutil.copyfile("trunk/support/cube.gif", classes.Configuration.osxFolder + "/doc/cube.gif")
 shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxFolder + "/doc/bullet_object.gif")
@@ -88,29 +86,57 @@ shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceh
 shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 
 authors = []
+objects = []
+facades = []
+forests = []
 
-htmlIndexFileHandle.write("<h3>Objects</h3>\n")
-htmlIndexFileHandle.write("<ul class='objects'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
    for filename in filenames:
      if (filename == "object.obj"):
-       functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
-htmlIndexFileHandle.write("</ul>\n")
+       functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors)
        
-htmlIndexFileHandle.write("<h3>Facades</h3>\n")
-htmlIndexFileHandle.write("<ul class='facades'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
    for filename in filenames:
      if (filename == "facade.fac"):
-       functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
-htmlIndexFileHandle.write("</ul>\n")
+       functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors)
        
-htmlIndexFileHandle.write("<h3>Forests</h3>\n")
-htmlIndexFileHandle.write("<ul class='forests'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/forests"):
    for filename in filenames:
      if (filename == "forest.for"):
-       functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle, authors)
+       functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors)
+
+//authors.sort()
+objects.sort()
+facades.sort()
+forests.sort()
+
+htmlIndexFileHandle.write("<div id='toc'>\n")
+htmlIndexFileHandle.write("<h2>Index</h2>\n")
+htmlIndexFileHandle.write("<h3>Objects</h3>\n")
+htmlIndexFileHandle.write("<ul class='objects'>\n")
+for sceneryObject in objects:
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+  if (sceneryObject.tutorial):
+    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+  htmlIndexFileHandle.write("</li>")
+htmlIndexFileHandle.write("</ul>\n")
+
+htmlIndexFileHandle.write("<h3>Facades</h3>\n")
+htmlIndexFileHandle.write("<ul class='facades'>\n")
+for sceneryObject in facades:
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+  if (sceneryObject.tutorial):
+    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+  htmlIndexFileHandle.write("</li>")
+htmlIndexFileHandle.write("</ul>\n")
+
+htmlIndexFileHandle.write("<h3>Forests</h3>\n")
+htmlIndexFileHandle.write("<ul class='forests'>\n")
+for sceneryObject in forests:
+  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+  if (sceneryObject.tutorial):
+    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+htmlIndexFileHandle.write("</li>")
 htmlIndexFileHandle.write("</ul>\n")
 htmlIndexFileHandle.write("</div>\n")
 
