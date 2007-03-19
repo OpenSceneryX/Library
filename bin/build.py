@@ -105,7 +105,7 @@ for (dirpath, dirnames, filenames) in os.walk("trunk/files/forests"):
      if (filename == "forest.for"):
        functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors)
 
-//authors.sort()
+# authors.sort()
 objects.sort()
 facades.sort()
 forests.sort()
