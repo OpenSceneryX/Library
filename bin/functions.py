@@ -239,7 +239,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
     
   htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "")
+  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
   htmlFileHandle.write("<div id='content'>\n")
   htmlFileHandle.write("<h2>" + sceneryObject.title + "</h2>\n")
   htmlFileHandle.write("<p class='virtualPath'>\n")
@@ -280,7 +280,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 
 
-def writeHTMLHeader(fileHandle, documentationPath):
+def writeHTMLHeader(fileHandle, documentationPath, title):
   fileHandle.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n")
   fileHandle.write("          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n")
   fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane</title>\n")
@@ -289,7 +289,7 @@ def writeHTMLHeader(fileHandle, documentationPath):
   fileHandle.write("</head>\n")
   fileHandle.write("<body>\n")
   fileHandle.write("<div id='header'>\n")
-  fileHandle.write("<h1>OpenSceneryX Object Library for X-Plane</h1>  \n")
+  fileHandle.write("<h1>" + title + "</h1>\n")
   fileHandle.write("<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n")
   fileHandle.write("</div>\n")
 

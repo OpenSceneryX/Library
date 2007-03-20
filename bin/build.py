@@ -38,18 +38,7 @@ if update == "" or update == "Y" or update == "y":
 print "------------------------"
 print "Creating release paths"
 print "svn mkdir tags/" + classes.Configuration.versionNumber
-
-if not os.path.isdir("tags/" + classes.Configuration.versionNumber):
-  os.mkdir("tags/" + classes.Configuration.versionNumber)
-if not os.path.isdir(classes.Configuration.osxFolder):
-  os.mkdir(classes.Configuration.osxFolder)
-if not os.path.isdir(classes.Configuration.osxFolder + "/doc"):
-  os.mkdir(classes.Configuration.osxFolder + "/doc")
-if not os.path.isdir(classes.Configuration.osxPlaceholderFolder):
-  os.mkdir(classes.Configuration.osxPlaceholderFolder)
-if not os.path.isdir(classes.Configuration.osxPlaceholderFolder + "/opensceneryx"):
-  os.mkdir(classes.Configuration.osxPlaceholderFolder + "/opensceneryx")
-
+classes.Configuration.makeFolders()
 # status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
 
 
@@ -66,11 +55,11 @@ functions.writeLibraryHeader(libraryPlaceholderFileHandle)
 print "------------------------"
 print "Creating HTML files"
 htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-functions.writeHTMLHeader(htmlIndexFileHandle, "doc/")
-htmlDeveloperFileHandle = open(classes.Configuration.osxFolder + "/doc/DeveloperInstructions.html", "w")
-functions.writeHTMLHeader(htmlDeveloperFileHandle, "")
+functions.writeHTMLHeader(htmlIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane")
 htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "")
+functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
+functions.writeHTMLHeader(htmlDeveloperFileHandle, "doc/", "OpenSceneryX Developer Pack")
 
 
 print "------------------------"
@@ -84,6 +73,9 @@ shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxFolder + 
 shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
+
+shutil.copyfile("trunk/support/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
+shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxDeveloperPackFolder + "/doc/somerights20.png")
 
 authors = []
 objects = []
@@ -141,31 +133,18 @@ htmlIndexFileHandle.write("</ul>\n")
 htmlIndexFileHandle.write("</div>\n")
 
 
-htmlIndexFileHandle.write("<div id='content'>\n")
-htmlIndexFileHandle.write("<p>The OpenSceneryX project is a library of scenery objects for <a class='tooltip shaded' href='#'>X-Plane v8.50 and above<span>Note that the Placeholder Library requires <strong>X-Plane v8.60</strong>, see the X-Plane Scenery Developers section for more details</span></a>.  It is a collaborative effort by members of the <a href='http://www.x-plane.org'>X-Plane.org</a> community and the aim is to provide a good range of scenery components for authors to use in their scenery packages.</p>\n")
+authors = ", ".join(authors[:-1]) + " and " + authors[-1]
 
-
-htmlIndexFileHandle.write("<h2>Installation</h2>\n")
-htmlIndexFileHandle.write("<p>If you're reading this you have already completed the first step by unzipping the package. You will have a folder titled <tt>OpenSceneryX-" + classes.Configuration.versionNumber + "</tt> in which you found this ReadMe file.  Now do the following:</p>\n")
-htmlIndexFileHandle.write("<ol><li>Locate your X-Plane folder on your hard disk.  In Windows, this is likely to be <tt>C:\Program Files\X-Plane</tt> or <tt>C:\Program Files\X-System</tt> or similar. On the Mac, it is likely to be <tt>X-Plane</tt> or <tt>X-System</tt> in your <tt>Applications</tt> folder. Note that the X-Plane folder may have the version appended (e.g. <tt>X-Plane 8.50</tt>).</li>\n")
-htmlIndexFileHandle.write("<li>Open the <tt>Custom Scenery</tt> folder inside your <tt>X-Plane</tt> folder.</li>\n")
-htmlIndexFileHandle.write("<li>Copy the <tt>OpenSceneryX-" + classes.Configuration.versionNumber + "</tt> folder into the <tt>Custom Scenery</tt> folder.</li>\n")
-htmlIndexFileHandle.write("<li>If you have installed OpenSceneryX before, please delete the old folder - It is definitely not advisable to keep more than one version of OpenSceneryX installed.</li>\n")
-htmlIndexFileHandle.write("</ol>\n")
-
-htmlIndexFileHandle.write("<h2>Use</h2>\n")
-htmlIndexFileHandle.write("<h3>Normal X-Plane Users</h3>\n")
-htmlIndexFileHandle.write("<p>If you are a standard user of X-Plane, then you don't do anything else. Installing this library does nothing <strong>on it's own</strong> to the simulator - you won't see new objects dotted about, you won't see any changes to your default scenery, you won't see any new options in X-Plane.  However, scenery packages developed by other people can now use the objects in this library, so if you have installed any scenery package marked 'Requires OpenSceneryX' then that package will come alive with objects.</p>\n")
-htmlIndexFileHandle.write("<h3>X-Plane Scenery Developers</h3>\n")
-htmlIndexFileHandle.write("<p>If you are a scenery developer, see <a href='doc/DeveloperInstructions.html'>this page for instructions on how to reference the library in your work</a>.</p>\n")
-
-htmlIndexFileHandle.write("<h2>Contributors</h2>\n")
-htmlIndexFileHandle.write("<p>A big thank you to the following people who have contributed to the library: " + ", ".join(authors[:-1]) + " and " + authors[-1] + ". If you would like to contribute some of your own objects to the library, visit <a href='http://svn.x-plugins.com/xplane/wiki/Scenery/Library'>the project pages</a> or <a href='http://forums.x-plane.org/index.php?showuser=2431'>contact me at the .org</a></p>\n")
-htmlIndexFileHandle.write("</div>\n")
-
+file = open("trunk/support/_index.html", "r")
+fileContents = file.read()
+fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
+fileContents = fileContents.replace("${authors}", authors)
+file.close()
+htmlIndexFileHandle.write(fileContents)
 
 file = open("trunk/support/_developerinstructions.html", "r")
 fileContents = file.read()
+fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
 file.close()
 htmlDeveloperFileHandle.write(fileContents)
 
@@ -180,7 +159,7 @@ htmlReleaseNotesFileHandle.write(fileContents)
 print "------------------------"
 print "Finishing and closing files"
 functions.writeHTMLFooter(htmlIndexFileHandle, "doc/")
-functions.writeHTMLFooter(htmlDeveloperFileHandle, "")
+functions.writeHTMLFooter(htmlDeveloperFileHandle, "doc/")
 functions.writeHTMLFooter(htmlReleaseNotesFileHandle, "")
 htmlIndexFileHandle.close()
 htmlDeveloperFileHandle.close()

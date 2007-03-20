@@ -17,14 +17,34 @@ class Configuration:
   versionNumber = ""
   versionDate = datetime.datetime.now().strftime("%c")
   
-  def setVersionTag(cls, versionTag):
-    cls.versionTag = versionTag
-    cls.versionNumber = string.replace(cls.versionTag, "-", ".")
-    cls.osxFolder = "tags/" + cls.versionNumber + "/OpenSceneryX-" + cls.versionNumber
-    cls.osxPlaceholderFolder = "tags/" + cls.versionNumber + "/OpenSceneryX-Placeholder-" + cls.versionNumber
+  def setVersionTag(self, versionTag):
+    self.versionTag = versionTag
+    self.versionNumber = string.replace(self.versionTag, "-", ".")
+    self.releaseFolder = "tags/" + self.versionNumber
+    self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
+    self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
+    self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
+
+  def makeFolders(self):
+    if not os.path.isdir(self.releaseFolder):
+      os.mkdir(self.releaseFolder)
+    if not os.path.isdir(self.osxFolder):
+      os.mkdir(self.osxFolder)
+    if not os.path.isdir(self.osxFolder + "/doc"):
+      os.mkdir(self.osxFolder + "/doc")
+    if not os.path.isdir(self.osxDeveloperPackFolder):
+      os.mkdir(self.osxDeveloperPackFolder)
+    if not os.path.isdir(self.osxDeveloperPackFolder + "/doc"):
+      os.mkdir(self.osxDeveloperPackFolder + "/doc")
+    if not os.path.isdir(self.osxPlaceholderFolder):
+      os.mkdir(self.osxPlaceholderFolder)
+    if not os.path.isdir(self.osxPlaceholderFolder + "/opensceneryx"):
+      os.mkdir(self.osxPlaceholderFolder + "/opensceneryx")
 
   setVersionTag = classmethod(setVersionTag)
+  makeFolders = classmethod(makeFolders)
   
+
 
 #
 # Class to hold information about an X-Plane scenery object
