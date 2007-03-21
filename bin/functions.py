@@ -21,41 +21,41 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
   # Handle the info.txt file
-  if handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors):
-    objects.append(sceneryObject)
+  if not handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors): return
+  
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
-    # Set up paths and copy files
-    if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
-    if not copySupportFiles(dirpath, parts): return
-    shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
-  
-    # Open the object
-    file = open(objectSourcePath, "r")
-    objectFileContents = file.readlines()
-    file.close()
-  
-    # Define the regex patterns:
-    texturePattern = re.compile("TEXTURE\s+(.*)")
-    litTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-  
-    for line in objectFileContents:
-      result = texturePattern.match(line)
-      if result:
-        textureFile = os.path.join(dirpath, result.group(1))
-        if os.path.isfile(textureFile):
-          shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-       
-      result = litTexturePattern.match(line)
-      if result:
-        textureFile = os.path.join(dirpath, result.group(1))
-        if os.path.isfile(textureFile):
-          shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-  
-    # Write to the library.txt file
-    for virtualPath in sceneryObject.virtualPaths:
-      libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-      libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-  
+  objects.append(sceneryObject)
+
+  # Open the object
+  file = open(objectSourcePath, "r")
+  objectFileContents = file.readlines()
+  file.close()
+
+  # Define the regex patterns:
+  texturePattern = re.compile("TEXTURE\s+(.*)")
+  litTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
+
+  for line in objectFileContents:
+    result = texturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+     
+    result = litTexturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+
+  # Write to the library.txt file
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+
 
 
 
@@ -69,34 +69,34 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   sceneryObject = classes.SceneryObject(parts[2], filename)
   
   # Handle the info.txt file
-  if handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors):
-    facades.append(sceneryObject)
+  if not handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors): return
+  
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
+  
+  facades.append(sceneryObject)
 
-    # Set up paths and copy files
-    if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
-    if not copySupportFiles(dirpath, parts): return
-    shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
-  
-    # Open the object
-    file = open(objectSourcePath, "r")
-    objectFileContents = file.readlines()
-    file.close()
-  
-    # Define the regex patterns:
-    texturePattern = re.compile("TEXTURE\s+(.*)")
-  
-    for line in objectFileContents:
-      result = texturePattern.match(line)
-      if result:
-        textureFile = os.path.join(dirpath, result.group(1))
-        if os.path.isfile(textureFile):
-          shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-          break
-  
-    # Write to the library.txt file
-    for virtualPath in sceneryObject.virtualPaths:
-      libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-      libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+  # Open the object
+  file = open(objectSourcePath, "r")
+  objectFileContents = file.readlines()
+  file.close()
+
+  # Define the regex patterns:
+  texturePattern = re.compile("TEXTURE\s+(.*)")
+
+  for line in objectFileContents:
+    result = texturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+        break
+
+  # Write to the library.txt file
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 
 
 
@@ -112,34 +112,34 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
   # Handle the info.txt file
-  if handleInfoFile(dirpath, parts, ".for", sceneryObject, authors):
-    forests.append(sceneryObject)
+  if not handleInfoFile(dirpath, parts, ".for", sceneryObject, authors): return
   
-    # Set up paths and copy files
-    if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
-    if not copySupportFiles(dirpath, parts): return
-    shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
-  
-    # Open the object
-    file = open(objectSourcePath, "r")
-    objectFileContents = file.readlines()
-    file.close()
-  
-    # Define the regex patterns:
-    texturePattern = re.compile("TEXTURE\s+(.*)")
-  
-    for line in objectFileContents:
-      result = texturePattern.match(line)
-      if result:
-        textureFile = os.path.join(dirpath, result.group(1))
-        if os.path.isfile(textureFile):
-          shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-          break
-  
-    # Write to the library.txt file
-    for virtualPath in sceneryObject.virtualPaths:
-      libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-      libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
+
+  forests.append(sceneryObject)
+
+  # Open the object
+  file = open(objectSourcePath, "r")
+  objectFileContents = file.readlines()
+  file.close()
+
+  # Define the regex patterns:
+  texturePattern = re.compile("TEXTURE\s+(.*)")
+
+  for line in objectFileContents:
+    result = texturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+        break
+
+  # Write to the library.txt file
+  for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 
 
 
@@ -153,6 +153,8 @@ def copySupportFiles(dirpath, parts):
   if not os.path.isfile(os.path.join(dirpath, "screenshot.jpg")):
     print "  ERROR: No screenshot.jpg file found - object excluded"
     return 0
+
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
 
   shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
   shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
