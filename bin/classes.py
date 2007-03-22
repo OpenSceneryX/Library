@@ -57,8 +57,11 @@ class SceneryObject:
     self.fileName = fileName
     self.title =""
     self.author = ""
+    self.textureAuthor = ""
     self.email = ""
+    self.textureEmail = ""
     self.url = ""
+    self.textureUrl = ""
     self.height = ""
     self.width = ""
     self.depth = ""

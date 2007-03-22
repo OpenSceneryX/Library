@@ -177,8 +177,11 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   exportPattern = re.compile("Export:\s+(.*)")
   titlePattern = re.compile("Title:\s+(.*)")
   authorPattern = re.compile("Author:\s+(.*)")
+  textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
   emailPattern = re.compile("Email:\s+(.*)")
+  textureEmailPattern = re.compile("Email, texture:\s+(.*)")
   urlPattern = re.compile("URL:\s+(.*)")
+  textureUrlPattern = re.compile("URL, texture:\s+(.*)")
   widthPattern = re.compile("Width:\s+(.*)")
   heightPattern = re.compile("Height:\s+(.*)")
   depthPattern = re.compile("Depth:\s+(.*)")
@@ -206,14 +209,31 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
         authors.append(sceneryObject.author)
       continue
       
+    result = textureAuthorPattern.match(line)
+    if result:
+      sceneryObject.textureAuthor = result.group(1)
+      if not sceneryObject.textureAuthor in authors:
+        authors.append(sceneryObject.textureAuthor)
+      continue
+      
     result = emailPattern.match(line)
     if result:
       sceneryObject.email = result.group(1)
       continue
       
+    result = textureEmailPattern.match(line)
+    if result:
+      sceneryObject.textureEmail = result.group(1)
+      continue
+      
     result = urlPattern.match(line)
     if result:
       sceneryObject.url = result.group(1)
+      continue
+      
+    result = textureUrlPattern.match(line)
+    if result:
+      sceneryObject.textureUrl = result.group(1)
       continue
       
     result = widthPattern.match(line)
@@ -262,6 +282,12 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     htmlFileHandle.write("<li><span class='fieldTitle'>Email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span></li>\n")
   if (not sceneryObject.url == ""):
     htmlFileHandle.write("<li><span class='fieldTitle'>URL:</span> <span class='fieldValue'><a href='" + sceneryObject.url + "'>" + sceneryObject.url + "</a></span></li>\n")
+  if (not sceneryObject.textureAuthor == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Author (texture):</span> <span class='fieldValue'>" + sceneryObject.textureAuthor + "</span></li>\n")
+  if (not sceneryObject.textureEmail == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>Email (texture):</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span></li>\n")
+  if (not sceneryObject.textureUrl == ""):
+    htmlFileHandle.write("<li><span class='fieldTitle'>URL (texture):</span> <span class='fieldValue'><a href='" + sceneryObject.textureUrl + "'>" + sceneryObject.textureUrl + "</a></span></li>\n")
   if (not sceneryObject.description == ""):
     htmlFileHandle.write("<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n")
   
