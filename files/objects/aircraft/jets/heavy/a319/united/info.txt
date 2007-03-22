@@ -4,6 +4,8 @@ Author: Air Northwest
 URL: http://www.airnorthwest.net
 Author, texture: Conan Davis (Vivar)
 URL, texture: http://forums.x-plane.org/index.php?showuser=4112
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export: objects/aircraft/livery/united/a319
 Revision: $Revision$
 Date: $Date$
