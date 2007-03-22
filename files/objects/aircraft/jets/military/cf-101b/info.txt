@@ -1,0 +1,16 @@
+Title: CF-101B Voodoo
+=====================
+Author: Jacques Brault
+URL: http://forums.x-plane.org/index.php?showuser=6528
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: After the Avro arrow was cancelled in 1960, Canada started to equip with Bomarc surface to air missiles. There were toughts in those days that missiles meant the end of the manned interceptor.
+
+When Canada realized this would not be the case, the country needed a fast interceptor on very short notice so the choice would be within whatever would be available immediately.
+
+On 12 June 1961, an agreement was reached with the US government and 66 - F-101Bs were transferred to the RCAF, starting as of 13 November of the same year. Between '69 and '71, 56 more upgraded versions joined the ranks.
+
+This is roughly how Canada transitioned from a brand new indigenous advanced design towards a much less capable "used" plane.
