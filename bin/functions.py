@@ -27,29 +27,39 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   if not copySupportFiles(dirpath, parts): return
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
-  objects.append(sceneryObject)
-
   # Open the object
-  file = open(objectSourcePath, "r")
+  file = open(objectSourcePath, "rU")
   objectFileContents = file.readlines()
   file.close()
 
   # Define the regex patterns:
   texturePattern = re.compile("TEXTURE\s+(.*)")
   litTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-
+  foundTexture = 0
+  
   for line in objectFileContents:
     result = texturePattern.match(line)
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
-      if os.path.isfile(textureFile):
+      if (result.group(1) == ""):
+        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+      elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+      else:
+        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        return
      
     result = litTexturePattern.match(line)
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
       if os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+      else:
+        print "  ERROR: Cannot find LIT texture - object excluded (" + textureFile + ")"
+        return
+
+  # Object is valid, append it to the list
+  objects.append(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
@@ -75,10 +85,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   if not copySupportFiles(dirpath, parts): return
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
   
-  facades.append(sceneryObject)
-
   # Open the object
-  file = open(objectSourcePath, "r")
+  file = open(objectSourcePath, "rU")
   objectFileContents = file.readlines()
   file.close()
 
@@ -89,9 +97,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
     result = texturePattern.match(line)
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
-      if os.path.isfile(textureFile):
+      if (result.group(1) == ""):
+        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+      elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
         break
+      else:
+        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        return
+
+  # Facade is valid, append it to the list
+  facades.append(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
@@ -118,10 +134,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   if not copySupportFiles(dirpath, parts): return
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
-  forests.append(sceneryObject)
-
   # Open the object
-  file = open(objectSourcePath, "r")
+  file = open(objectSourcePath, "rU")
   objectFileContents = file.readlines()
   file.close()
 
@@ -132,9 +146,17 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
     result = texturePattern.match(line)
     if result:
       textureFile = os.path.join(dirpath, result.group(1))
-      if os.path.isfile(textureFile):
+      if (result.group(1) == ""):
+        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+      elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
         break
+      else:
+        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        return
+
+  # Forest is valid, append it to the list
+  forests.append(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
