@@ -1,6 +1,7 @@
 Title: Husky A-1A (yellow, skis)
 =====================
 Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Revision: $Revision$
 Date: $Date$

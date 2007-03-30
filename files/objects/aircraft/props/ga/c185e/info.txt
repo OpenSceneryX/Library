@@ -1,10 +1,8 @@
 Title: Cessna Skywagon C185E
 =====================
 Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
-Width: 
-Depth: 
-Height: 
 Revision: $Revision$
 Date: $Date$
 =====================

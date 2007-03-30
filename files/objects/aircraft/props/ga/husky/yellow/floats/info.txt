@@ -1,6 +1,7 @@
 Title: Husky A-1A (yellow, floats)
 =====================
 Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Revision: $Revision$
 Date: $Date$

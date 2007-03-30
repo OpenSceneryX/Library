@@ -1,6 +1,7 @@
 Title: Convair CV-440 Linjeflyg
 =====================
 Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export: objects/aircraft/livery/linjeflyg/cv440
 Revision: $Revision$
