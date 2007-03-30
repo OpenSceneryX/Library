@@ -109,6 +109,8 @@ ul {
 }
 
 div#toc ul {
+  font-size: 0.7em;
+  line-height: 2.0em;
 	margin: 0 0 1em 1em;
 	padding: 0 0 0 0;
   list-style-type: disc;
