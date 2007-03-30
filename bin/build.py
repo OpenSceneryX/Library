@@ -88,6 +88,7 @@ shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxWebs
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxWebsiteFolder + "/doc/somerights20.png")
 shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxWebsiteFolder + "/doc/pdf.gif")
 shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxWebsiteFolder + "/doc/tutorial.gif")
+shutil.copyfile("trunk/support/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 
 authors = []
 objects = []
