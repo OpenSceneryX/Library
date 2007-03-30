@@ -176,10 +176,13 @@ def copySupportFiles(dirpath, parts):
     print "  ERROR: No screenshot.jpg file found - object excluded"
     return 0
 
-  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): 
+    os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+    os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
   shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
   shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
+  shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
       
   return 1
   
@@ -311,77 +314,85 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
     sceneryObject.tutorial = 1
     shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
-    
-  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
-  htmlFileHandle.write("<div id='content'>\n")
-  htmlFileHandle.write("<h2>" + sceneryObject.title + "</h2>\n")
-  htmlFileHandle.write("<p class='virtualPath'>\n")
-  for virtualPath in sceneryObject.virtualPaths:
-    htmlFileHandle.write(virtualPath + "<br />\n")
-  htmlFileHandle.write("</p>\n")
-  htmlFileHandle.write("<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n")
-  htmlFileHandle.write("<ul class='mainItemDetails'>\n")
-  if (not sceneryObject.author == ""):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Original Author:</span> ")
-    if (not sceneryObject.url == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='" + sceneryObject.url + "'>" + sceneryObject.author + "</a></span>")
-      if (not sceneryObject.email == ""):
-        htmlFileHandle.write(", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>")
-    elif (not sceneryObject.email == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>")
-    else:
-      htmlFileHandle.write("<span class='fieldValue'>" + sceneryObject.author + "</span>")
+    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
 
-    htmlFileHandle.write("</li>\n")
+
+  htmlFileContent = ""
+  htmlFileContent += "<div id='content'>\n"
+  htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
+  htmlFileContent += "<p class='virtualPath'>\n"
+  for virtualPath in sceneryObject.virtualPaths:
+    htmlFileContent += virtualPath + "<br />\n"
+  htmlFileContent += "</p>\n"
+  htmlFileContent += "<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n"
+  htmlFileContent += "<ul class='mainItemDetails'>\n"
+  if (not sceneryObject.author == ""):
+    htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
+    if (not sceneryObject.url == ""):
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "'>" + sceneryObject.author + "</a></span>"
+      if (not sceneryObject.email == ""):
+        htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
+    elif (not sceneryObject.email == ""):
+      htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
+    else:
+      htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
+
+    htmlFileContent += "</li>\n"
     
   if (not sceneryObject.textureAuthor == ""):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Original Texture Author:</span> ")
+    htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
     if (not sceneryObject.textureUrl == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "'>" + sceneryObject.textureAuthor + "</a></span>")
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "'>" + sceneryObject.textureAuthor + "</a></span>"
       if (not sceneryObject.textureEmail == ""):
-        htmlFileHandle.write(", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>")
+        htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
     elif (not sceneryObject.textureEmail == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>")
+      htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
     else:
-      htmlFileHandle.write("<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>")
+      htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
 
-    htmlFileHandle.write("</li>\n")
+    htmlFileContent += "</li>\n"
     
   if (not sceneryObject.conversionAuthor == ""):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Object Conversion By:</span> ")
+    htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
     if (not sceneryObject.conversionUrl == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "'>" + sceneryObject.conversionAuthor + "</a></span>")
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "'>" + sceneryObject.conversionAuthor + "</a></span>"
       if (not sceneryObject.conversionEmail == ""):
-        htmlFileHandle.write(", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>")
+        htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
     elif (not sceneryObject.conversionEmail == ""):
-      htmlFileHandle.write("<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>")
+      htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
     else:
-      htmlFileHandle.write("<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>")
+      htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
 
-    htmlFileHandle.write("</li>\n")
+    htmlFileContent += "</li>\n"
 
-      
   if (not sceneryObject.description == ""):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n")
+    htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
   
   if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Dimensions:</span>\n")
-    htmlFileHandle.write("<ul class='dimensions'>\n")
-    htmlFileHandle.write("<li id='width'><span class='fieldTitle'>w:</span> " + sceneryObject.width + "</li>\n")
-    htmlFileHandle.write("<li id='height'><span class='fieldTitle'>h:</span> " + sceneryObject.height + "</li>\n")
-    htmlFileHandle.write("<li id='depth'><span class='fieldTitle'>d:</span> " + sceneryObject.depth + "</li>\n")
-    htmlFileHandle.write("</ul>\n")
-    htmlFileHandle.write("</li>\n")
+    htmlFileContent += "<li><span class='fieldTitle'>Dimensions:</span>\n"
+    htmlFileContent += "<ul class='dimensions'>\n"
+    htmlFileContent += "<li id='width'><span class='fieldTitle'>w:</span> " + sceneryObject.width + "</li>\n"
+    htmlFileContent += "<li id='height'><span class='fieldTitle'>h:</span> " + sceneryObject.height + "</li>\n"
+    htmlFileContent += "<li id='depth'><span class='fieldTitle'>d:</span> " + sceneryObject.depth + "</li>\n"
+    htmlFileContent += "</ul>\n"
+    htmlFileContent += "</li>\n"
 
   if (sceneryObject.tutorial):
-    htmlFileHandle.write("<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n")
+    htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n"
     
-  htmlFileHandle.write("</ul>\n")
-  htmlFileHandle.write("</div>")
+  htmlFileContent += "</ul>\n"
+  htmlFileContent += "</div>"
 
+  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + ".html", "w")
+  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+  htmlFileHandle.write(htmlFileContent)
   writeHTMLFooter(htmlFileHandle, "")
-
+  htmlFileHandle.close()
+  
+  htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/" + sceneryObject.title + ".html", "w")
+  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+  htmlFileHandle.write(htmlFileContent)
+  writeHTMLFooter(htmlFileHandle, "")
   htmlFileHandle.close()
   
   return 1
@@ -427,6 +438,38 @@ def writeHTMLFooter(fileHandle, documentationPath):
   fileHandle.write("</body></html>")
 
 
+
+
+def writeHTMLTOC(fileHandle, objects, facades, forests):
+  fileHandle.write("<div id='toc'>\n")
+  fileHandle.write("<h2>Index</h2>\n")
+  fileHandle.write("<h3>Objects</h3>\n")
+  fileHandle.write("<ul class='objects'>\n")
+  for sceneryObject in objects:
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    if (sceneryObject.tutorial):
+      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+    fileHandle.write("</li>")
+  fileHandle.write("</ul>\n")
+  
+  fileHandle.write("<h3>Facades</h3>\n")
+  fileHandle.write("<ul class='facades'>\n")
+  for sceneryObject in facades:
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    if (sceneryObject.tutorial):
+      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+    fileHandle.write("</li>")
+  fileHandle.write("</ul>\n")
+  
+  fileHandle.write("<h3>Forests</h3>\n")
+  fileHandle.write("<ul class='forests'>\n")
+  for sceneryObject in forests:
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    if (sceneryObject.tutorial):
+      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+  fileHandle.write("</li>")
+  fileHandle.write("</ul>\n")
+  fileHandle.write("</div>\n")
 
 
 

@@ -24,6 +24,7 @@ class Configuration:
     self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
     self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
     self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
+    self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
 
   def makeFolders(self):
     if not os.path.isdir(self.releaseFolder):
@@ -40,6 +41,10 @@ class Configuration:
       os.mkdir(self.osxPlaceholderFolder)
     if not os.path.isdir(self.osxPlaceholderFolder + "/opensceneryx"):
       os.mkdir(self.osxPlaceholderFolder + "/opensceneryx")
+    if not os.path.isdir(self.osxWebsiteFolder):
+      os.mkdir(self.osxWebsiteFolder)
+    if not os.path.isdir(self.osxWebsiteFolder + "/doc"):
+      os.mkdir(self.osxWebsiteFolder + "/doc")
 
   setVersionTag = classmethod(setVersionTag)
   makeFolders = classmethod(makeFolders)

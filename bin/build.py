@@ -27,9 +27,9 @@ classes.Configuration.setVersionTag(versionTag)
 
 os.chdir("../..")
 
-update = raw_input("Do you want to update the 'files' directory from the repository before release? [Y/n]: ")
+update = raw_input("Do you want to update the 'files' directory from the repository before release? [y/N]: ")
 
-if update == "" or update == "Y" or update == "y":
+if update == "Y" or update == "y":
   print "Would svn update trunk/files"
 #   svn update trunk/files
 
@@ -60,6 +60,10 @@ htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/Releas
 functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
 htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
 functions.writeHTMLHeader(htmlDeveloperFileHandle, "doc/", "OpenSceneryX Developer Pack")
+htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
+functions.writeHTMLHeader(htmlWebIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane")
+htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
+functions.writeHTMLHeader(htmlWebReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
 
 
 print "------------------------"
@@ -77,6 +81,13 @@ shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceh
 shutil.copyfile("trunk/support/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxDeveloperPackFolder + "/doc/somerights20.png")
 shutil.copyfile("trunk/support/requires_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/requires_opensceneryx_logo.gif")
+
+shutil.copyfile("trunk/support/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
+shutil.copyfile("trunk/support/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
+shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxWebsiteFolder + "/doc/bullet_object.gif")
+shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxWebsiteFolder + "/doc/somerights20.png")
+shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxWebsiteFolder + "/doc/pdf.gif")
+shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxWebsiteFolder + "/doc/tutorial.gif")
 
 authors = []
 objects = []
@@ -103,36 +114,8 @@ objects.sort()
 facades.sort()
 forests.sort()
 
-htmlIndexFileHandle.write("<div id='toc'>\n")
-htmlIndexFileHandle.write("<h2>Index</h2>\n")
-htmlIndexFileHandle.write("<h3>Objects</h3>\n")
-htmlIndexFileHandle.write("<ul class='objects'>\n")
-for sceneryObject in objects:
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
-  if (sceneryObject.tutorial):
-    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-  htmlIndexFileHandle.write("</li>")
-htmlIndexFileHandle.write("</ul>\n")
-
-htmlIndexFileHandle.write("<h3>Facades</h3>\n")
-htmlIndexFileHandle.write("<ul class='facades'>\n")
-for sceneryObject in facades:
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
-  if (sceneryObject.tutorial):
-    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-  htmlIndexFileHandle.write("</li>")
-htmlIndexFileHandle.write("</ul>\n")
-
-htmlIndexFileHandle.write("<h3>Forests</h3>\n")
-htmlIndexFileHandle.write("<ul class='forests'>\n")
-for sceneryObject in forests:
-  htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
-  if (sceneryObject.tutorial):
-    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-htmlIndexFileHandle.write("</li>")
-htmlIndexFileHandle.write("</ul>\n")
-htmlIndexFileHandle.write("</div>\n")
-
+functions.writeHTMLTOC(htmlIndexFileHandle, objects, facades, forests)
+functions.writeHTMLTOC(htmlWebIndexFileHandle, objects, facades, forests)
 
 authors = ", ".join(authors[:-1]) + " and " + authors[-1]
 
@@ -153,8 +136,14 @@ file = open("trunk/support/_releasenotes.html", "r")
 fileContents = file.read()
 file.close()
 htmlReleaseNotesFileHandle.write(fileContents)
+htmlWebReleaseNotesFileHandle.write(fileContents)
 
-
+file = open("trunk/support/_webindex.html", "r")
+fileContents = file.read()
+fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
+fileContents = fileContents.replace("${authors}", authors)
+file.close()
+htmlWebIndexFileHandle.write(fileContents)
 
 
 print "------------------------"
@@ -162,11 +151,12 @@ print "Finishing and closing files"
 functions.writeHTMLFooter(htmlIndexFileHandle, "doc/")
 functions.writeHTMLFooter(htmlDeveloperFileHandle, "doc/")
 functions.writeHTMLFooter(htmlReleaseNotesFileHandle, "")
+functions.writeHTMLFooter(htmlWebIndexFileHandle, "doc/")
 htmlIndexFileHandle.close()
 htmlDeveloperFileHandle.close()
 libraryFileHandle.close()
 libraryPlaceholderFileHandle.close()
-
+htmlWebIndexFileHandle.close()
 
 
 print "------------------------"
