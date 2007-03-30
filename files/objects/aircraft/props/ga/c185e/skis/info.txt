@@ -1,0 +1,8 @@
+Title: Cessna Skywagon C185E (skis)
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Cessna Skywagon C185E with skis.

@@ -1,0 +1,13 @@
+Title: Dash 8 Air Canada Jazz Red
+=====================
+Author: Phill Scott
+Email: phill_scott@hotmail.com
+Author, texture: Conan Davis (Vivar)
+URL, texture: http://forums.x-plane.org/index.php?showuser=4112
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/livery/air_canada/jazz_red/dash8
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Dash 8 in Air Canada Jazz red livery.

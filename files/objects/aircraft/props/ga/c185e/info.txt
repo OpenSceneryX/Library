@@ -1,0 +1,11 @@
+Title: Cessna Skywagon C185E
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Width: 
+Depth: 
+Height: 
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Cessna Skywagon C185E with wheels.

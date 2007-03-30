@@ -1,0 +1,8 @@
+Title: Convair R4Y-1 
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Convair R4Y-1 - U.S. Navy.

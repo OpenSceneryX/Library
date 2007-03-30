@@ -1,0 +1,8 @@
+Title: Piper Super Cub (FluBag, skis)
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Piper Super Cub with skis. FluBag skin of a swiss flight school.

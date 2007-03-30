@@ -1,0 +1,8 @@
+Title: Husky A-1A National Air Tour 2003
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Aviat Husky A-1A with wheels. National Air Tour 2003 skin.

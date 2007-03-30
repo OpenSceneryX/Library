@@ -1,0 +1,8 @@
+Title: Piper Super Cub
+=====================
+Author: Shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Piper Super Cub with wheels. Original Cub yellow skin.
