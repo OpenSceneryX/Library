@@ -37,7 +37,7 @@ if update == "" or update == "Y" or update == "y":
 
 print "------------------------"
 print "Creating release paths"
-print "svn mkdir tags/" + classes.Configuration.versionNumber
+# print "svn mkdir tags/" + classes.Configuration.versionNumber
 classes.Configuration.makeFolders()
 # status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
 
@@ -76,6 +76,7 @@ shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceh
 
 shutil.copyfile("trunk/support/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxDeveloperPackFolder + "/doc/somerights20.png")
+shutil.copyfile("trunk/support/requires_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/requires_opensceneryx_logo.gif")
 
 authors = []
 objects = []
