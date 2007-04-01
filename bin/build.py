@@ -80,7 +80,7 @@ shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceh
 
 shutil.copyfile("trunk/support/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxDeveloperPackFolder + "/doc/somerights20.png")
-shutil.copyfile("trunk/support/requires_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/requires_opensceneryx_logo.gif")
+shutil.copyfile("trunk/support/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.gif")
 
 shutil.copyfile("trunk/support/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
 shutil.copyfile("trunk/support/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
