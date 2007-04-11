@@ -227,7 +227,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
       
     result = titlePattern.match(line)
     if result:
-      sceneryObject.title = result.group(1)
+      sceneryObject.title = result.group(1).replace("\"", "'")
       continue
 
     result = authorPattern.match(line)
