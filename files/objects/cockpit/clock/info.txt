@@ -1,9 +1,0 @@
-Title: Clock
-=====================
-Author: 'psiteo'
-URL: http://forums.x-plane.org/index.php?showuser=113
-Animated: True
-Revision: $Revision$
-Date: $Date$
-=====================
-Description: A clock for use in the cockpit that animates, displaying local and zulu time.
