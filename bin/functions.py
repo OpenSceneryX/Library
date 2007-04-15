@@ -20,11 +20,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors): return
   
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  # Copy the object file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
   # Open the object
@@ -78,14 +80,16 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
   
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors): return
   
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  # Copy the facade file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
   
-  # Open the object
+  # Open the facade
   file = open(objectSourcePath, "rU")
   objectFileContents = file.readlines()
   file.close()
@@ -127,11 +131,13 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".for", sceneryObject, authors): return
   
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  # Copy the forest file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
   # Open the object
@@ -305,7 +311,6 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     result = exportPattern.match(line)
     if result:
       sceneryObject.virtualPaths.append(result.group(1) + suffix)
-      print "  Additional virtual path added: " + result.group(1) + suffix
       continue
 
     result = descriptionPattern.match(line)
