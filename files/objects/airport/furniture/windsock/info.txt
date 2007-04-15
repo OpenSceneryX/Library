@@ -1,10 +1,11 @@
-Title: Windsock (animated)
+Title: Windsock
 =====================
 Author: psiteo
 URL: http://forums.x-plane.org/index.php?showuser=113
 Height: 4m
 Width: 1m
 Depth: 4m
+Animated: True
 Revision: $Revision$
 Date: $Date$
 =====================

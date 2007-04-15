@@ -215,6 +215,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   depthPattern = re.compile("Depth:\s+(.*)")
   descriptionPattern = re.compile("Description:\s+(.*)")
   excludePattern = re.compile("Exclude:\s+(.*)")
+  animatedPattern = re.compile("Animated:\s+(.*)")
   
   # Define the variables to capture the data
   sceneryObject.virtualPaths.append(parts[2] + suffix)
@@ -294,6 +295,11 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     result = depthPattern.match(line)
     if result:
       sceneryObject.depth = result.group(1)
+      continue
+
+    result = animatedPattern.match(line)
+    if result:
+      sceneryObject.animated = (result.group(1) == "True" or result.group(1) == "Yes")
       continue
 
     result = exportPattern.match(line)
@@ -447,17 +453,24 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<ul class='objects'>\n")
   for sceneryObject in objects:
     fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-    fileHandle.write("</li>")
+
+    if (sceneryObject.animated):
+      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>")
+
+    fileHandle.write("\n</li>\n")
   fileHandle.write("</ul>\n")
   
   fileHandle.write("<h3>Facades</h3>\n")
   fileHandle.write("<ul class='facades'>\n")
   for sceneryObject in facades:
     fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+
     fileHandle.write("</li>")
   fileHandle.write("</ul>\n")
   
@@ -465,9 +478,11 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<ul class='forests'>\n")
   for sceneryObject in forests:
     fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-  fileHandle.write("</li>")
+
+    fileHandle.write("</li>")
   fileHandle.write("</ul>\n")
   fileHandle.write("</div>\n")
 

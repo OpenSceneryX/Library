@@ -76,6 +76,8 @@ shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxFold
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxFolder + "/doc/somerights20.png")
 shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxFolder + "/doc/pdf.gif")
 shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxFolder + "/doc/tutorial.gif")
+shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxFolder + "/doc/animated.gif")
+
 shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
@@ -90,6 +92,7 @@ shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxWebs
 shutil.copyfile("trunk/support/somerights20.png", classes.Configuration.osxWebsiteFolder + "/doc/somerights20.png")
 shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxWebsiteFolder + "/doc/pdf.gif")
 shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxWebsiteFolder + "/doc/tutorial.gif")
+shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxWebsiteFolder + "/doc/animated.gif")
 shutil.copyfile("trunk/support/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 
 authors = []

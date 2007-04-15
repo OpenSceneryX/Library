@@ -46,7 +46,8 @@ img.icon {
 
 img.attributeicon{
   border: none;
-  vertical-align: top;
+  vertical-align: bottom;
+  margin: 0px 0px 5px 0px;
 }
 
 p {
