@@ -9,8 +9,11 @@
   <ol>
     <li>Download and install the main OpenSceneryX library (from <a href="http://www.opensceneryx.com">here</a>).</li>
     <li>Once you have installed the library, 'opensceneryx' will appear in the drop-down menu on the right hand side in <a href="http://marginal.org.uk/x-planescenery/">OverlayEditor</a>.</li>
-    <li>Select this option and all the objects in the library are listed. You can select one and click the '+' sign to add it to your scenery in the normal way.</li>
+    <li>Select 'opensceneryx' and all the objects in the library are listed. You can select one and click the '+' sign to add it to your scenery in the normal way.</li>
   </ol>
+  <p>Note that some objects are found in several places in the library.  A good example are the aircraft - They are organised both by type and by livery, so the same 747 might be found as:<br />
+  <tt>objects/aircraft/jets/heavy/b747-400/air-canada</tt> and also <tt>objects/aircraft/livery/air_canada/b747-400</tt>. <br />
+  This is to help you when building scenery, if you know you want some Air Canada aircraft you can see all types listed together, but if you know you want a 747-400 you can see all the liveries listed together.  Don't worry about using the same object from different paths, X-Plane only loads the object once.</p>
 
   <h3>What You Need To Do When Distributing Your Scenery</h3>
   <p>The main problem you have is that if your users install your scenery package and your package references OpenSceneryX, then if a user doesn't have OpenSceneryX installed X-Plane will display an 'unable to locate object definition' error on startup and then quit.</p>
