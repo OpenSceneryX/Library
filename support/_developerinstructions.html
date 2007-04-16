@@ -25,10 +25,6 @@
   &lt;img src="enhancedby_opensceneryx_logo.gif" alt="Enhanced by OpenSceneryX" style="border: none;" /&gt;
 &lt;/a&gt;</pre></p>
   <p>However, inevitably some users will forget to download it, misunderstand or simply ignore the instructions, so to avoid X-Plane throwing up errors, we have produced an empty version of the library, with invisible placeholder objects instead of the real objects.  This is called the <strong>Placeholder Library</strong>. The idea is that you include the placeholder library inside your scenery package, so X-Plane will not complain when it can't find OpenSceneryX.  Your scenery package will load correctly, but no OpenSceneryX objects will be seen.  Note that the placeholder library is very small so it will not noticeably increase the size of your scenery package.</p>
-  <p class="warning">Note 1: Please do not distribute the full version of OpenSceneryX with your scenery package.  If scenery authors do this, users will end up with multiple different versions of OpenSceneryX on their machines, and it will become a nightmare to maintain and manage. Please only distribute the placeholder library (n.b. Additionally, if you are a commercial developer, you would be breaking the licence by including OpenSceneryX in your package). </p>
-  <br />
-  <p class="warning">Note 2: The placeholder library will only work on <strong>X-Plane v8.60 and above</strong>.  It uses a new feature of v8.60 that allows us to reduce the priority of the placeholder objects so that they are only used if the full package is missing.  The main OpenSceneryX package should work on v8.50 and above, so if you want to distribute your scenery to v8.50 users, do not include the placeholder library and ensure they install the full library.</p>
-  <br />
   <p>To include the placeholder library in your package:</p>
   <ol>
     <li>Locate the folder titled <tt>OpenSceneryX-Placeholder-${version}</tt>, contained in this developer pack.</li>
@@ -38,4 +34,11 @@
 
   <h3>What You Need To Do if a New Version of OpenSceneryX is Released</h3>
   <p>So a new version of OpenSceneryX comes out and you want to upgrade your scenery package to use it?  Well, if you don't want to use any of the new objects in the new version, you don't need to do anything at all. <strong>We guarantee that any future version of OpenSceneryX will be backward-compatible</strong>, so new releases will not break your existing scenery package.  If you do want to use some of the new objects, just replace the <tt>library.txt</tt> file and <tt>opensceneryx</tt> folder inside your package with the new ones from the OpenSceneryX placeholder package and you're ready to go.
+
+  <h3>Important Notes</h3>
+  <p class="warning">Note 1: Please do not distribute the full version of OpenSceneryX with your scenery package.  If scenery authors do this, users will end up with multiple different versions of OpenSceneryX on their machines, and it will become a nightmare to maintain and manage. Please only distribute the placeholder library (n.b. Additionally, if you are a commercial developer, you would be <strong>breaking the licence</strong> by including OpenSceneryX in your package). </p>
+  <br />
+  <p class="warning">Note 2: Please do not physically copy objects out of the library into your own packages, unless you specifically ask the authors of those objects for permission.  If you include individual objects without asking permission, you are <strong>breaking copyright law</strong>.</p>
+  <br />
+  <p class="warning">Note 3: The placeholder library will only work on <strong>X-Plane v8.60 and above</strong>.  It uses a new feature of v8.60 that allows us to reduce the priority of the placeholder objects so that they are only used if the full package is missing.  The main OpenSceneryX package should work on v8.50 and above, so if you want to distribute your scenery to v8.50 users, do not include the placeholder library and ensure they install the full library.</p>
 </div>
