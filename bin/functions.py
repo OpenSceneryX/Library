@@ -9,6 +9,7 @@ import shutil
 import re
 import urllib
 import classes
+import fnmatch
 
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
@@ -456,6 +457,7 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<h2>Index</h2>\n")
   fileHandle.write("<h3>Objects</h3>\n")
   fileHandle.write("<ul class='objects'>\n")
+  
   for sceneryObject in objects:
     fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
     
@@ -498,3 +500,11 @@ def writeLibraryHeader(fileHandle):
   fileHandle.write("A\n")
   fileHandle.write("800\n")
   fileHandle.write("LIBRARY\n")
+
+
+
+def matchesAny(name, tests):
+  for test in tests:
+    if fnmatch.fnmatch(name, test):
+      return True
+  return False

@@ -99,23 +99,27 @@ authors = []
 objects = []
 facades = []
 forests = []
+dirsToSkip = [".svn"]
 
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
-   for filename in filenames:
-     if (filename == "object.obj"):
-       functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors)
+  dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
+  for filename in filenames:
+    if (filename == "object.obj"):
+      functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors)
        
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
-   for filename in filenames:
-     if (filename == "facade.fac"):
-       functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors)
+  dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
+  for filename in filenames:
+    if (filename == "facade.fac"):
+      functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors)
        
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/forests"):
-   for filename in filenames:
-     if (filename == "forest.for"):
-       functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors)
+  dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
+  for filename in filenames:
+    if (filename == "forest.for"):
+      functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors)
 
-# authors.sort()
+authors.sort()
 objects.sort()
 facades.sort()
 forests.sort()
