@@ -1,0 +1,13 @@
+Title: DC-9-10 Northwest Airlines (1989-2003 livery)
+=====================
+Author: Air Northwest
+URL: http://www.airnorthwest.net
+Author, texture: Conan Davis (Vivar)
+URL, texture: http://forums.x-plane.org/index.php?showuser=4112
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/livery/northwest/historical/1989-2003/dc-9-10
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A DC-9-10 in Northwest Airlines historical livery used from 1989-2003.

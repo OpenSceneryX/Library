@@ -1,0 +1,12 @@
+Title: B747-400 Air Pacific (Fiji)
+=====================
+Author: X-Plane Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Reuben Horsley
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/livery/air_pacific/fiji/b747-400
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 747-400 in Air Pacific livery (Fiji variant).

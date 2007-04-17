@@ -1,0 +1,12 @@
+Title: B747-400 Singapore (1000th 747)
+=====================
+Author: X-Plane Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Reuben Horsley
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/livery/singapore/1000/b747-400
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 747-400 in Singapore livery, 1000th 747 variant.

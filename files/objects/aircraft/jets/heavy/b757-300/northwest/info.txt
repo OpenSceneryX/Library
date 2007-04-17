@@ -1,0 +1,13 @@
+Title: B757-300 Northwest Airlines
+=====================
+Author: Air Northwest
+URL: http://www.airnorthwest.net
+Author, texture: Conan Davis (Vivar)
+URL, texture: http://forums.x-plane.org/index.php?showuser=4112
+Author, conversion: Conan Davis (Vivar)
+URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/livery/northwest/b757-300
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 757-300 in Northwest Airlines livery.
