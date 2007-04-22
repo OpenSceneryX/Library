@@ -1,0 +1,10 @@
+Title: King Air B200
+=====================
+Author: X-Plane Stock Aircraft Fleet
+URL: http://www.x-plane.com/
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Hawker Beechcraft King Air B200.

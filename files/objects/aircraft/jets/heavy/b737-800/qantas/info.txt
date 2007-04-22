@@ -1,0 +1,13 @@
+Title: B737-800 Qantas
+=====================
+Author: Benedikt Stratmann
+URL: http://www.stratmann-web.net/
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export: objects/aircraft/jets/heavy/b737
+Export: objects/aircraft/jets/heavy/b737-800
+Export: objects/aircraft/livery/qantas/b737-800
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 737-800 in Qantas livery.

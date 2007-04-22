@@ -1,0 +1,14 @@
+Title: B757-200 American Airlines
+=====================
+Author: X-Plane Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Drew Elkin
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export: objects/aircraft/jets/heavy/b757
+Export: objects/aircraft/jets/heavy/b757-200
+Export: objects/aircraft/livery/american_airlines/b757-200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 757-200 in American Airlines Livery.

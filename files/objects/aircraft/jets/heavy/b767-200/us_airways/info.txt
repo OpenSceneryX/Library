@@ -1,0 +1,14 @@
+Title: B767-200 US Airways
+=====================
+Author: X-Plane Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Drew Elkin
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export: objects/aircraft/jets/heavy/b767
+Export: objects/aircraft/jets/heavy/b767-200
+Export: objects/aircraft/livery/us_airways/b767-200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 767-200 in US Airways Livery.
