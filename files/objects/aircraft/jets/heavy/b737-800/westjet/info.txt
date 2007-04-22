@@ -4,6 +4,8 @@ Author: Benedikt Stratmann
 URL: http://www.stratmann-web.net/
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/jets/heavy/b737
+Export: objects/aircraft/jets/heavy/b737-800
 Export: objects/aircraft/livery/westjet/b737-800
 Revision: $Revision$
 Date: $Date$

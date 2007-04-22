@@ -6,6 +6,7 @@ Author, texture: Conan Davis (Vivar)
 URL, texture: http://forums.x-plane.org/index.php?showuser=4112
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export: objects/aircraft/jets/heavy/a320
 Export: objects/aircraft/livery/northwest/a320
 Revision: $Revision$
 Date: $Date$
