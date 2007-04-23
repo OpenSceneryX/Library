@@ -5,7 +5,6 @@ URL: http://www.xplanefreeware.net/
 Author, texture: Reuben Horsley
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
-Export: objects/aircraft/livery/boeing/b747-400
 Revision: $Revision$
 Date: $Date$
 =====================
