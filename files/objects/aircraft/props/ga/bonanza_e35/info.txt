@@ -1,0 +1,10 @@
+Title: Beech Bonanza E-35
+=====================
+Author: Heinz Dziurowitz
+URL: http://forums.x-plane.org/index.php?showuser=1728
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Beech Bonanza E-35.

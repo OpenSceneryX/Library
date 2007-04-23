@@ -1,0 +1,13 @@
+Title: MD90-50 American Airlines
+=====================
+Author: Jose Antonio Sanchez-Duran
+URL: http://www.californiaair.net/
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export: objects/aircraft/jets/heavy/md90
+Export: objects/aircraft/jets/heavy/md90-50
+Export: objects/aircraft/livery/american_airlines/md90-50
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An MD90-50 in American Airlines Livery.
