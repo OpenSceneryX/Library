@@ -1,4 +1,4 @@
-Title: Cessna Skywagon C180J (skis)
+Title: Cessna Skywagon 180J (skis)
 =====================
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
@@ -6,4 +6,4 @@ Email: snow@fischer-bayern.de
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Cessna Skywagon C180J with skis.
+Description: Cessna Skywagon 180J with skis.

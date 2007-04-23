@@ -1,4 +1,4 @@
-Title: Cessna C182M
+Title: Cessna 182M
 =====================
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
@@ -6,4 +6,4 @@ Email: snow@fischer-bayern.de
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Cessna C182M.
+Description: Cessna 182M.

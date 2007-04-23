@@ -2,7 +2,7 @@ Title: B727-200 United
 =====================
 Author: X-Plane Freeware Project
 URL: http://www.xplanefreeware.net/
-Author, texture: Drew Elkins
+Author, texture: Drew Elkin
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export: objects/aircraft/jets/heavy/b727

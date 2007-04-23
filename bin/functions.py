@@ -508,3 +508,11 @@ def matchesAny(name, tests):
     if fnmatch.fnmatch(name, test):
       return True
   return False
+
+
+def caseinsensitive_sort(stringList):
+    """case-insensitive string comparison sort
+    usage: stringList = caseinsensitive_sort(stringList)"""
+    tupleList = [(x.lower(), x) for x in stringList]
+    tupleList.sort()
+    stringList[:] = [x[1] for x in tupleList]
