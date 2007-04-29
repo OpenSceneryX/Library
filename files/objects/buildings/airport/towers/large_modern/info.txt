@@ -1,0 +1,14 @@
+Title: Control Tower, Large Modern
+=====================
+Author: @lex
+Email: afriqs@yahoo.fr
+URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
+URL: http://forums.x-plane.org/index.php?showuser=5732
+URL: http://afriqs.free.fr/xplane/index.php
+Width: 10.8m
+Depth: 10.8m
+Height: 17.6m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A large round modern concrete and glass airport control tower.
