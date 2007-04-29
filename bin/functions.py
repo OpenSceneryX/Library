@@ -185,6 +185,7 @@ def copySupportFiles(dirpath, parts):
 
   if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): 
     os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2])): 
     os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
   shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
