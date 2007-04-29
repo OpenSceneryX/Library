@@ -1,4 +1,4 @@
-Title: ASR-11 Radar Tower
+Title: Radar Tower, ASR-11
 =====================
 Author: Tom Kyle
 URL: http://www.x-scenery.com
