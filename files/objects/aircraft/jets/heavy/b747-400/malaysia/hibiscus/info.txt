@@ -5,8 +5,8 @@ URL: http://www.xplanefreeware.net/
 Author, texture: Dhruv Kalra
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
-Export: objects/aircraft/jets/heavy/b747-400
 Export: objects/aircraft/livery/malaysia/hibiscus/b747-400
 Revision: $Revision$
 Date: $Date$

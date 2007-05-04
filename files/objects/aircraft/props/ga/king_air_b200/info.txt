@@ -5,6 +5,7 @@ Author: X-Plane Stock Aircraft Fleet
 URL: http://www.x-plane.com/
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================

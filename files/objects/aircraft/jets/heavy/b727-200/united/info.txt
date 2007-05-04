@@ -5,8 +5,8 @@ URL: http://www.xplanefreeware.net/
 Author, texture: Drew Elkin
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b727
-Export: objects/aircraft/jets/heavy/b727-200
 Export: objects/aircraft/livery/united/b727-200
 Revision: $Revision$
 Date: $Date$

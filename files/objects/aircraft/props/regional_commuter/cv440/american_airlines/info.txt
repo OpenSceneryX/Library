@@ -3,6 +3,7 @@ Title: Convair CV-440 American Airlines
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
+Export Propagate: 1
 Export: objects/aircraft/livery/american_airlines/cv440
 Revision: $Revision$
 Date: $Date$

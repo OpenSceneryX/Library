@@ -224,6 +224,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   descriptionPattern = re.compile("Description:\s+(.*)")
   excludePattern = re.compile("Exclude:\s+(.*)")
   animatedPattern = re.compile("Animated:\s+(.*)")
+  exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
   
   # Define the variables to capture the data
   sceneryObject.virtualPaths.append(parts[2] + suffix)
@@ -313,6 +314,19 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     result = exportPattern.match(line)
     if result:
       sceneryObject.virtualPaths.append(result.group(1) + suffix)
+      continue
+
+    result = exportPropagatePattern.match(line)
+    if result:
+      # Work with the first virtual path only, this is the one generated from the file hierarchy
+      virtualPathParts = sceneryObject.virtualPaths[0].split("/")
+      sceneryObject.exportPropagate = int(result.group(1))
+      # Only do anything if the value of exportPropagate is valid
+      if sceneryObject.exportPropagate < len(virtualPathParts):
+        # Iterate from the value of exportPropagate up to the length of the path, publishing the object to every parent between
+        for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
+          sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
+          
       continue
 
     result = descriptionPattern.match(line)

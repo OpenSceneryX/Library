@@ -77,6 +77,7 @@ class SceneryObject:
     self.virtualPaths = []
     self.tutorial = 0
     self.animated = 0
+    self.exportPropagate = -1
 
   def getFilePath(self):
     return os.path.join(self.filePathRoot, self.fileName)

@@ -4,8 +4,8 @@ Author: X-Plane Freeware Project
 URL: http://www.xplanefreeware.net/
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
-Export: objects/aircraft/jets/heavy/b767-300ER
 Export: objects/aircraft/livery/air_canada/b767-300ER
 Revision: $Revision$
 Date: $Date$

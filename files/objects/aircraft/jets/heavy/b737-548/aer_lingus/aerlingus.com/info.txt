@@ -4,8 +4,8 @@ Author: Cormac Shaw
 URL: http://homepage.mac.com/cormacshaw/xpih/
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
-Export: objects/aircraft/jets/heavy/b737-548
 Export: objects/aircraft/livery/aer_lingus/aerlingus.com/b737-548
 Revision: $Revision$
 Date: $Date$

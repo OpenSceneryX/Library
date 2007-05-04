@@ -5,8 +5,8 @@ URL: http://www.xplanefreeware.net/
 Author, texture: Peter Meininger
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b727
-Export: objects/aircraft/jets/heavy/b727-200
 Export: objects/aircraft/livery/delta/b727-200
 Revision: $Revision$
 Date: $Date$

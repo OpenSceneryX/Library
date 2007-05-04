@@ -4,6 +4,7 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
