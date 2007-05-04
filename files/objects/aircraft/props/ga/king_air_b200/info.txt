@@ -1,5 +1,6 @@
 Title: King Air B200
 =====================
+Exclude: Cannot determine the original author
 Author: X-Plane Stock Aircraft Fleet
 URL: http://www.x-plane.com/
 Author, conversion: Planebuilder

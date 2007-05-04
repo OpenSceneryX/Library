@@ -1,6 +1,6 @@
 Title: A330 US Airways
 =====================
-Author: X-Plane Stock Aircraft Fleet
+Author: Sergio Santagada
 URL: http://www.x-plane.com/
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
