@@ -3,6 +3,8 @@ Title: Embraer 170 House
 Author: Christian Rivière
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export: objects/aircraft/jets/regional_commuter/embraer-170/us_airways
+Export: objects/aircraft/jets/regional_commuter/embraer-170/united
 Revision: $Revision$
 Date: $Date$
 =====================
