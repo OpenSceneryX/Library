@@ -21,12 +21,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
-
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors): return
   
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Copy the object file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
@@ -36,31 +36,64 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   file.close()
 
   # Define the regex patterns:
-  texturePattern = re.compile("TEXTURE\s+(.*)")
-  litTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-  foundTexture = 0
+  v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
+  v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+  v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
+  textureFound = 0
   
   for line in objectFileContents:
-    result = texturePattern.match(line)
+    result = v7TexturePattern.match(line)
     if result:
+      textureFound = 1
+      textureFile = os.path.join(dirpath, result.group(1) + ".png")
+      litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
+      if (result.group(1) == ""):
+        print "  WARNING: Object (v7) specifies a blank texture - valid but may not be as intended"
+      elif os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + ".png"))
+        if os.path.isfile(litTextureFile):
+          shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + "LIT.png"))
+      else:
+        print "  ERROR: Cannot find texture - object (v7) excluded (" + textureFile + ")"
+        return
+      
+      # Break loop as soon as we find a v7 texture, need look no further
+      break
+
+    result = v8TexturePattern.match(line)
+    if result:
+      textureFound = textureFound + 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+        print "  WARNING: Object (v8) specifies a blank texture - valid but may not be as intended"
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        print "  ERROR: Cannot find texture - object (v8) excluded (" + textureFile + ")"
         return
-     
-    result = litTexturePattern.match(line)
+        
+      # Break loop if we've found both v8 textures
+      if textureFound == 2:
+        break
+
+    result = v8LitTexturePattern.match(line)
     if result:
+      textureFound = textureFound + 1
       textureFile = os.path.join(dirpath, result.group(1))
       if os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find LIT texture - object excluded (" + textureFile + ")"
+        print "  ERROR: Cannot find LIT texture - object (v8) excluded (" + textureFile + ")"
         return
 
+      # Break loop if we've found both v8 textures
+      if textureFound == 2:
+        break
+
+  if textureFound == 0:
+    print "  ERROR: No texture line in file - this error must be corrected"
+    return
+    
   # Object is valid, append it to the list
   objects.append(sceneryObject)
 
@@ -81,12 +114,12 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
   
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
-
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors): return
   
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Copy the facade file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
   
@@ -96,21 +129,29 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   file.close()
 
   # Define the regex patterns:
-  texturePattern = re.compile("TEXTURE\s+(.*)")
-
+  v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+  textureFound = 0
+  
   for line in objectFileContents:
-    result = texturePattern.match(line)
+    result = v8TexturePattern.match(line)
     if result:
+      textureFound = 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+        print "  WARNING: Facade specifies a blank texture - valid but may not be as intended"
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-        break
       else:
-        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        print "  ERROR: Cannot find texture - facade excluded (" + textureFile + ")"
         return
 
+      # Break loop as soon as we find a texture, need look no further
+      break
+
+  if not textureFound:
+    print "  ERROR: No texture line in file - this error must be corrected"
+    return
+    
   # Facade is valid, append it to the list
   facades.append(sceneryObject)
 
@@ -132,12 +173,12 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
-  # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
-
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".for", sceneryObject, authors): return
   
+  # Set up paths and copy files
+  if not copySupportFiles(dirpath, parts): return
+
   # Copy the forest file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
 
@@ -147,21 +188,29 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   file.close()
 
   # Define the regex patterns:
-  texturePattern = re.compile("TEXTURE\s+(.*)")
-
+  v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+  textureFound = 0
+  
   for line in objectFileContents:
-    result = texturePattern.match(line)
+    result = v8TexturePattern.match(line)
     if result:
+      textureFound = 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Object specifies a blank texture - valid but may not be as intended"
+        print "  WARNING: Forest specifies a blank texture - valid but may not be as intended"
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
-        break
       else:
-        print "  ERROR: Cannot find texture - object excluded (" + textureFile + ")"
+        print "  ERROR: Cannot find texture - forest excluded (" + textureFile + ")"
         return
 
+      # Break loop as soon as we find a texture, need look no further
+      break
+
+  if not textureFound:
+    print "  ERROR: No texture line in file - this error must be corrected"
+    return
+    
   # Forest is valid, append it to the list
   forests.append(sceneryObject)
 
@@ -200,13 +249,15 @@ def copySupportFiles(dirpath, parts):
   
 def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
    # open the info file
+  if not os.path.isfile(os.path.join(dirpath, "info.txt")):
+    print "  ERROR: No info.txt file found - object excluded"
+    return 0
+    
   file = open(os.path.join(dirpath, "info.txt"))
   infoFileContents = file.readlines()
   file.close()
   
   # define the regex patterns:
-  texturePattern = re.compile("TEXTURE\s+(.*)")
-  litTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
   exportPattern = re.compile("Export:\s+(.*)")
   titlePattern = re.compile("Title:\s+(.*)")
   authorPattern = re.compile("Author:\s+(.*)")
