@@ -7,8 +7,8 @@ URL: http://forums.x-plane.org/index.php?showuser=5732
 URL: http://afriqs.free.fr/xplane/index.php
 Width: 10.8m
 Depth: 10.8m
-Height: 17.6m
+Height: 18m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A large round modern concrete and glass airport control tower.
+Description: A large round modern concrete and glass airport control tower, nicer than the default one.
