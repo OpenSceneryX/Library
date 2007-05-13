@@ -1,0 +1,15 @@
+Title: Small Radar Dish
+=====================
+Author: @lex
+Email: afriqs@yahoo.fr
+URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
+URL: http://forums.x-plane.org/index.php?showuser=5732
+URL: http://afriqs.free.fr/xplane/index.php
+Width: 10.5m
+Depth: 10.5m
+Height: 9m
+Animated: True
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A radar with two antennas rotating at different speeds.

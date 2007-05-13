@@ -1,0 +1,12 @@
+Title: Embraer 170 US Airways Express
+=====================
+Author: Christian Rivière
+Author, texture: Mertzen
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
+Export: objects/aircraft/livery/us_airways/embraer-170
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Embraer 170 in US Airways Express livery.
