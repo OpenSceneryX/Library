@@ -14,18 +14,21 @@ import fnmatch
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
   objectSourcePath = os.path.join(dirpath, filename)
-  parts = dirpath.split("/", 2)
+  parts = dirpath.split(os.sep, 2)
 
   print "Handling object: " + objectSourcePath
   
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
+  # Locate and check whether the support files exist 
+  if not checkSupportFiles(dirpath, sceneryObject): return
+  
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors): return
   
   # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  if not copySupportFiles(dirpath, parts, sceneryObject): return
 
   # Copy the object file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -107,18 +110,21 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors):
   objectSourcePath = os.path.join(dirpath, filename)
-  parts = dirpath.split("/", 2)
+  parts = dirpath.split(os.sep, 2)
 
   print "Handling facade: " + objectSourcePath
 
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
   
+  # Locate and check whether the support files exist 
+  if not checkSupportFiles(dirpath, sceneryObject): return
+  
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors): return
   
   # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  if not copySupportFiles(dirpath, parts, sceneryObject): return
 
   # Copy the facade file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -166,18 +172,21 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors):
   objectSourcePath = os.path.join(dirpath, filename)
-  parts = dirpath.split("/", 2)
+  parts = dirpath.split(os.sep, 2)
 
   print "Handling forest: " + objectSourcePath
   
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
 
+  # Locate and check whether the support files exist 
+  if not checkSupportFiles(dirpath, sceneryObject): return
+  
   # Handle the info.txt file
   if not handleInfoFile(dirpath, parts, ".for", sceneryObject, authors): return
   
   # Set up paths and copy files
-  if not copySupportFiles(dirpath, parts): return
+  if not copySupportFiles(dirpath, parts, sceneryObject): return
 
   # Copy the forest file
   shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -223,37 +232,50 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def copySupportFiles(dirpath, parts):
-  if not os.path.isfile(os.path.join(dirpath, "info.txt")):
+def checkSupportFiles(dirpath, sceneryObject):
+  # Locate the info file. If it isn't in the current directory, walk up the folder structure looking for one in all parent
+  # folders
+  dirPathParts = dirpath.split(os.sep)
+  for i in range(len(dirPathParts), 0, -1):
+    if os.path.isfile(os.path.join(os.sep.join(dirPathParts[0:i]), "info.txt")):
+      sceneryObject.infoFilePath = os.path.join(os.sep.join(dirPathParts[0:i]), "info.txt")
+      break
+
+  if sceneryObject.infoFilePath == "":
     print "  ERROR: No info.txt file found - object excluded"
     return 0
     
-  if not os.path.isfile(os.path.join(dirpath, "screenshot.jpg")):
+  # Locate the screenshot file. If it isn't in the current directory, walk up the folder structure looking for one in all # parent folders
+  for i in range(len(dirPathParts), 0, -1):
+    if os.path.isfile(os.path.join(os.sep.join(dirPathParts[0:i]), "screenshot.jpg")):
+      sceneryObject.screenshotFilePath = os.path.join(os.sep.join(dirPathParts[0:i]), "screenshot.jpg")
+      break
+
+  if sceneryObject.screenshotFilePath == "":
     print "  ERROR: No screenshot.jpg file found - object excluded"
     return 0
+  
+  return 1
 
+
+
+  
+def copySupportFiles(dirpath, parts, sceneryObject):
   if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): 
     os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
   if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2])): 
     os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
-  shutil.copyfile(os.path.join(dirpath, "info.txt"), os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
-  shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
-  shutil.copyfile(os.path.join(dirpath, "screenshot.jpg"), os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
+  shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
+  shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
+  shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
       
   return 1
   
   
   
-  
-  
 def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
-   # open the info file
-  if not os.path.isfile(os.path.join(dirpath, "info.txt")):
-    print "  ERROR: No info.txt file found - object excluded"
-    return 0
-    
-  file = open(os.path.join(dirpath, "info.txt"))
+  file = open(sceneryObject.infoFilePath)
   infoFileContents = file.readlines()
   file.close()
   
@@ -391,8 +413,8 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     
   if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
     sceneryObject.tutorial = 1
-    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
-    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + "/doc/" + sceneryObject.title + " Tutorial.pdf")
+    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + " Tutorial.pdf")
+    shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
 
 
   htmlFileContent = ""
@@ -461,13 +483,13 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   htmlFileContent += "</ul>\n"
   htmlFileContent += "</div>"
 
-  htmlFileHandle = open(classes.Configuration.osxFolder + "/doc/" + sceneryObject.title + ".html", "w")
+  htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
   writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
   htmlFileHandle.write(htmlFileContent)
   writeHTMLFooter(htmlFileHandle, "")
   htmlFileHandle.close()
   
-  htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/" + sceneryObject.title + ".html", "w")
+  htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
   writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
   htmlFileHandle.write(htmlFileContent)
   writeHTMLFooter(htmlFileHandle, "")

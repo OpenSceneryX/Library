@@ -78,6 +78,8 @@ class SceneryObject:
     self.tutorial = 0
     self.animated = 0
     self.exportPropagate = -1
+    self.infoFilePath = ""
+    self.screenshotFilePath = ""
 
   def getFilePath(self):
     return os.path.join(self.filePathRoot, self.fileName)
