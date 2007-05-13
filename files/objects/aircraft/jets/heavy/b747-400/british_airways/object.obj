@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		../../../../aircraft/jets/heavy/b747-400/british_airways/747_BA_OBJ.png
-TEXTURE_LIT	../../../../aircraft/jets/heavy/b747-400/british_airways/747_BA_OBJ_LIT.png
+TEXTURE		747_BA_OBJ.png
+TEXTURE_LIT	747_BA_OBJLIT.png
 POINT_COUNTS	5060 0 0 18594
 
 VT	  -0.0340    0.5740    7.6410	-1.000  0.000  0.000	0.001  0.1289
