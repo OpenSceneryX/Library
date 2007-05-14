@@ -1,6 +1,6 @@
 Title: B727-200 United
 =====================
-Author: X-Plane Freeware Project
+Author: X-Plane&reg; Freeware Project
 URL: http://www.xplanefreeware.net/
 Author, texture: Drew Elkin
 Author, conversion: Planebuilder

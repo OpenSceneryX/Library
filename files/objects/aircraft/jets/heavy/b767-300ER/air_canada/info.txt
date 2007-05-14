@@ -1,6 +1,6 @@
 Title: B767-300ER Air Canada
 =====================
-Author: X-Plane Freeware Project
+Author: X-Plane&reg; Freeware Project
 URL: http://www.xplanefreeware.net/
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112

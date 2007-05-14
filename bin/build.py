@@ -55,17 +55,17 @@ functions.writeLibraryHeader(libraryPlaceholderFileHandle)
 print "------------------------"
 print "Creating HTML files"
 htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-functions.writeHTMLHeader(htmlIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane")
+functions.writeHTMLHeader(htmlIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane&reg;")
 htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
 htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
 functions.writeHTMLHeader(htmlDeveloperFileHandle, "doc/", "OpenSceneryX Developer Pack")
 htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
-functions.writeHTMLHeader(htmlDeveloperReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+functions.writeHTMLHeader(htmlDeveloperReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
 htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
-functions.writeHTMLHeader(htmlWebIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane")
+functions.writeHTMLHeader(htmlWebIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane&reg;")
 htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
-functions.writeHTMLHeader(htmlWebReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+functions.writeHTMLHeader(htmlWebReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
 
 
 print "------------------------"

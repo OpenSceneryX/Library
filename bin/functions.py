@@ -484,13 +484,13 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   htmlFileContent += "</div>"
 
   htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
   htmlFileHandle.write(htmlFileContent)
   writeHTMLFooter(htmlFileHandle, "")
   htmlFileHandle.close()
   
   htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane")
+  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
   htmlFileHandle.write(htmlFileContent)
   writeHTMLFooter(htmlFileHandle, "")
   htmlFileHandle.close()
@@ -504,7 +504,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 def writeHTMLHeader(fileHandle, documentationPath, title):
   fileHandle.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n")
   fileHandle.write("          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n")
-  fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane</title>\n")
+  fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane&reg;</title>\n")
   fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n")
   fileHandle.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>")
   fileHandle.write("</head>\n")
