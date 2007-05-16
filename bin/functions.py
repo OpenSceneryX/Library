@@ -104,6 +104,9 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   for virtualPath in sceneryObject.virtualPaths:
     libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+  for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 
 
 
@@ -163,6 +166,9 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+  for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
     libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 
@@ -225,6 +231,9 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+  for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
     libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
     libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 
@@ -298,8 +307,9 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   excludePattern = re.compile("Exclude:\s+(.*)")
   animatedPattern = re.compile("Animated:\s+(.*)")
   exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
+  exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
   
-  # Define the variables to capture the data
+  # Add the file path to the virtual paths
   sceneryObject.virtualPaths.append(parts[2] + suffix)
   
   for line in infoFileContents:
@@ -399,7 +409,11 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
         # Iterate from the value of exportPropagate up to the length of the path, publishing the object to every parent between
         for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
           sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
-          
+      continue
+
+    result = exportDeprecatedPattern.match(line)
+    if result:
+      sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
       continue
 
     result = descriptionPattern.match(line)
@@ -420,10 +434,17 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   htmlFileContent = ""
   htmlFileContent += "<div id='content'>\n"
   htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
-  htmlFileContent += "<p class='virtualPath'>\n"
+  htmlFileContent += "<div class='virtualPath'>\n"
+  htmlFileContent += "<h3>Virtual Paths</h3>\n"
   for virtualPath in sceneryObject.virtualPaths:
     htmlFileContent += virtualPath + "<br />\n"
-  htmlFileContent += "</p>\n"
+  htmlFileContent += "</div>\n"
+  if (not sceneryObject.deprecatedVirtualPaths == []):
+    htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
+    htmlFileContent += "<h3>Deprecated Paths</h3>\n"
+    for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+      htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
+    htmlFileContent += "</div>\n"
   htmlFileContent += "<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n"
   htmlFileContent += "<ul class='mainItemDetails'>\n"
   if (not sceneryObject.author == ""):

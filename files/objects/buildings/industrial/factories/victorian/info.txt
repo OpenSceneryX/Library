@@ -5,7 +5,7 @@ Email: mr3d@talk21.com
 Width: 23.1m
 Depth: 66.3m
 Height: 63.3m
-Export Deprecated: objects/buildings/industrial/factory_smoky
+Export Deprecated v1.3.0: objects/buildings/industrial/factory_smoky
 Revision: $Revision$
 Date: $Date$
 =====================

@@ -6,7 +6,7 @@ Width: 13.6m
 Depth: 25.9m
 Height: 30m
 Export: objects/regions/western_europe/religious/church_medieval_small
-Export Deprecated: objects/buildings/religious/church_medieval_small
+Export Deprecated v1.3.0: objects/buildings/religious/church_medieval_small
 Revision: $Revision$
 Date: $Date$
 =====================

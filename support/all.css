@@ -61,8 +61,16 @@ p.warning {
   padding: 0.5em;
 }
 
-p.virtualPath {
-  background-color: #ccf;
+div.virtualPath {
+  display: block;
+  background-color: #cfc;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+div.deprecatedVirtualPath {
+  margin-top: 0.2em;
+  display: block;
+  background-color: #fcc;
   padding: 0.25em 0.5em 0.25em 0.5em;
 }
 

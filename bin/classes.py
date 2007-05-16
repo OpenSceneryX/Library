@@ -80,6 +80,7 @@ class SceneryObject:
     self.exportPropagate = -1
     self.infoFilePath = ""
     self.screenshotFilePath = ""
+    self.deprecatedVirtualPaths = []
 
   def getFilePath(self):
     return os.path.join(self.filePathRoot, self.fileName)
