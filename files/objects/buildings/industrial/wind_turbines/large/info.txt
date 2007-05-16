@@ -9,6 +9,7 @@ Width: 38m
 Depth: 18m
 Height: 65m
 Animated: True
+Export Deprecated: objects/buildings/industrial/wind_turbine
 Revision: $Revision$
 Date: $Date$
 =====================

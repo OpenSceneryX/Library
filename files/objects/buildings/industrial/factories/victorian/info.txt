@@ -1,11 +1,12 @@
-Title: Smoky Factory
+Title: Victorian Smoky Factory
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
 Width: 23.1m
 Depth: 66.3m
 Height: 63.3m
+Export Deprecated: objects/buildings/industrial/factory_smoky
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Old smoky mill.
+Description: Victorian smoky mill.
