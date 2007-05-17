@@ -6,6 +6,7 @@ Email: mapson@satx.rr.com
 Width: 17.0m
 Height: 20.0m
 Depth: 17.0m
+Animated: True
 Revision: $Revision$
 Date: $Date$
 =====================
