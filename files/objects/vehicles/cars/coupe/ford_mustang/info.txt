@@ -1,0 +1,10 @@
+Title: Car, Ford Mustang
+=====================
+Author: Tom Kyle
+URL: http://www.x-scenery.com
+Email: mapson@satx.rr.com
+Export objects/vehicles/cars
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Yellow Ford Mustang car.

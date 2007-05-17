@@ -1,0 +1,9 @@
+Title: Water Tower, Spherical, Red and White
+=====================
+Author: Tom Kyle
+URL: http://www.x-scenery.com
+Email: mapson@satx.rr.com
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Spherical water tower painted red and white for visibility.
