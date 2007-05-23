@@ -1,0 +1,8 @@
+Title: Airbus Beluga 2
+=====================
+Author: The Beluga Project
+URL: http://www.belugaproject.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: The Beluga is an oversized cargo plane that flies parts between the Airbus facilities throughout Europe.  Airbus has a fleet of five.
