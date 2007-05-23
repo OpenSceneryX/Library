@@ -10,7 +10,6 @@ import re
 import urllib
 import classes
 import fnmatch
-#import curses
 import pcrt
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
@@ -634,25 +633,17 @@ def displayMessage(message, type="message"):
   if (type == "error"):
     pcrt.fg(pcrt.RED)
     print "ERROR: " + message,
-    #classes.Configuration.stdscr.addstr("ERROR: " + message, curses.color_pair(1))
   elif (type == "warning"):
     pcrt.fg(pcrt.YELLOW)
     print "WARNING: " + message,
-    #classes.Configuration.stdscr.addstr("WARNING: " + message, curses.color_pair(2))
   elif (type == "note"):
     pcrt.fg(pcrt.CYAN)
     print "NOTE: " + message,
-    #classes.Configuration.stdscr.addstr("NOTE: " + message, curses.color_pair(3))
   elif (type == "message"):
     pcrt.fg(pcrt.WHITE)
     print message,
-    #classes.Configuration.stdscr.addstr(message, curses.color_pair(0))
-    
-  #classes.Configuration.stdscr.refresh()
+
 
 
 def getInput(message, maxSize):
   return raw_input(message)
-
-  #displayMessage("Enter the release tag (e.g. 1.0.1): ")
-  #return classes.Configuration.stdscr.getstr(maxSize)
