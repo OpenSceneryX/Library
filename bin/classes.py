@@ -7,6 +7,7 @@
 import datetime
 import string
 import os
+import sys
 
 #
 # Class to hold configuration values
@@ -25,7 +26,7 @@ class Configuration:
     self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
     self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
     self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
-
+    
   def makeFolders(self):
     if not os.path.isdir(self.releaseFolder):
       os.mkdir(self.releaseFolder)
@@ -87,3 +88,12 @@ class SceneryObject:
 
   def __cmp__(self, other):
     return cmp(self.title, other.title)
+
+#
+# A general build error
+#
+class BuildError(Exception):
+  def __init__(self, value):
+    self.value = value
+  def __str__(self):
+    return repr(self.value)

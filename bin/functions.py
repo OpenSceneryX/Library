@@ -10,13 +10,14 @@ import re
 import urllib
 import classes
 import fnmatch
-
+#import curses
+import pcrt
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
-  print "Handling object: " + objectSourcePath
+  displayMessage("Handling object: " + objectSourcePath + "\n")
   
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
@@ -51,13 +52,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       textureFile = os.path.join(dirpath, result.group(1) + ".png")
       litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
       if (result.group(1) == ""):
-        print "  WARNING: Object (v7) specifies a blank texture - valid but may not be as intended"
+        displayMessage("Object (v7) specifies a blank texture - valid but may not be as intended\n", "warning")
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + ".png"))
         if os.path.isfile(litTextureFile):
           shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + "LIT.png"))
       else:
-        print "  ERROR: Cannot find texture - object (v7) excluded (" + textureFile + ")"
+        displayMessage("Cannot find texture - object (v7) excluded (" + textureFile + ")\n", "error")
         return
       
       # Break loop as soon as we find a v7 texture, need look no further
@@ -68,11 +69,11 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       textureFound = textureFound + 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Object (v8) specifies a blank texture - valid but may not be as intended"
+        displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find texture - object (v8) excluded (" + textureFile + ")"
+        displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
         return
         
       # Break loop if we've found both v8 textures
@@ -86,7 +87,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       if os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find LIT texture - object (v8) excluded (" + textureFile + ")"
+        displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
         return
 
       # Break loop if we've found both v8 textures
@@ -94,7 +95,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
         break
 
   if textureFound == 0:
-    print "  ERROR: No texture line in file - this error must be corrected"
+    displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
   # Object is valid, append it to the list
@@ -115,7 +116,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
-  print "Handling facade: " + objectSourcePath
+  displayMessage("Handling facade: " + objectSourcePath + "\n")
 
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
@@ -147,18 +148,18 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       textureFound = 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Facade specifies a blank texture - valid but may not be as intended"
+        displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find texture - facade excluded (" + textureFile + ")"
+        displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
         return
 
       # Break loop as soon as we find a texture, need look no further
       break
 
   if not textureFound:
-    print "  ERROR: No texture line in file - this error must be corrected"
+    displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
   # Facade is valid, append it to the list
@@ -180,7 +181,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
-  print "Handling forest: " + objectSourcePath
+  displayMessage("Handling forest: " + objectSourcePath + "\n")
   
   # Create an instance of the SceneryObject class
   sceneryObject = classes.SceneryObject(parts[2], filename)
@@ -212,18 +213,18 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       textureFound = 1
       textureFile = os.path.join(dirpath, result.group(1))
       if (result.group(1) == ""):
-        print "  WARNING: Forest specifies a blank texture - valid but may not be as intended"
+        displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
       elif os.path.isfile(textureFile):
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
-        print "  ERROR: Cannot find texture - forest excluded (" + textureFile + ")"
+        displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
         return
 
       # Break loop as soon as we find a texture, need look no further
       break
 
   if not textureFound:
-    print "  ERROR: No texture line in file - this error must be corrected"
+    displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
   # Forest is valid, append it to the list
@@ -251,7 +252,8 @@ def checkSupportFiles(dirpath, sceneryObject):
       break
 
   if sceneryObject.infoFilePath == "":
-    print "  ERROR: No info.txt file found - object excluded"
+    # displayMessage("No info.txt file found - object excluded", "error")
+    displayMessage("No info.txt file found - object excluded\n", "error")
     return 0
     
   # Locate the screenshot file. If it isn't in the current directory, walk up the folder structure looking for one in all # parent folders
@@ -261,7 +263,7 @@ def checkSupportFiles(dirpath, sceneryObject):
       break
 
   if sceneryObject.screenshotFilePath == "":
-    print "  ERROR: No screenshot.jpg file found - object excluded"
+    displayMessage("No screenshot.jpg file found - object excluded\n", "error")
     return 0
   
   return 1
@@ -315,7 +317,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   for line in infoFileContents:
     result = excludePattern.match(line)
     if result:
-      print "  EXCLUDED, reason: " + result.group(1)
+      displayMessage("EXCLUDED, reason: " + result.group(1) + "\n", "note")
       return 0
       
     result = titlePattern.match(line)
@@ -604,7 +606,6 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
 
 
 
-
 def writeLibraryHeader(fileHandle):
   fileHandle.write("A\n")
   fileHandle.write("800\n")
@@ -619,9 +620,39 @@ def matchesAny(name, tests):
   return False
 
 
+
 def caseinsensitive_sort(stringList):
-    """case-insensitive string comparison sort
-    usage: stringList = caseinsensitive_sort(stringList)"""
-    tupleList = [(x.lower(), x) for x in stringList]
-    tupleList.sort()
-    stringList[:] = [x[1] for x in tupleList]
+  """case-insensitive string comparison sort
+  usage: stringList = caseinsensitive_sort(stringList)"""
+  tupleList = [(x.lower(), x) for x in stringList]
+  tupleList.sort()
+  stringList[:] = [x[1] for x in tupleList]
+
+
+
+def displayMessage(message, type="message"):
+  if (type == "error"):
+    pcrt.fg(pcrt.RED)
+    print "ERROR: " + message,
+    #classes.Configuration.stdscr.addstr("ERROR: " + message, curses.color_pair(1))
+  elif (type == "warning"):
+    pcrt.fg(pcrt.YELLOW)
+    print "WARNING: " + message,
+    #classes.Configuration.stdscr.addstr("WARNING: " + message, curses.color_pair(2))
+  elif (type == "note"):
+    pcrt.fg(pcrt.CYAN)
+    print "NOTE: " + message,
+    #classes.Configuration.stdscr.addstr("NOTE: " + message, curses.color_pair(3))
+  elif (type == "message"):
+    pcrt.fg(pcrt.WHITE)
+    print message,
+    #classes.Configuration.stdscr.addstr(message, curses.color_pair(0))
+    
+  #classes.Configuration.stdscr.refresh()
+
+
+def getInput(message, maxSize):
+  return raw_input(message)
+
+  #displayMessage("Enter the release tag (e.g. 1.0.1): ")
+  #return classes.Configuration.stdscr.getstr(maxSize)
