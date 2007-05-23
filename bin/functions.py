@@ -451,7 +451,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   if (not sceneryObject.author == ""):
     htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
     if (not sceneryObject.url == ""):
-      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "'>" + sceneryObject.author + "</a></span>"
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' target='_blank'>" + sceneryObject.author + "</a></span>"
       if (not sceneryObject.email == ""):
         htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
     elif (not sceneryObject.email == ""):
@@ -464,7 +464,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   if (not sceneryObject.textureAuthor == ""):
     htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
     if (not sceneryObject.textureUrl == ""):
-      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "'>" + sceneryObject.textureAuthor + "</a></span>"
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' target='_blank'>" + sceneryObject.textureAuthor + "</a></span>"
       if (not sceneryObject.textureEmail == ""):
         htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
     elif (not sceneryObject.textureEmail == ""):
@@ -477,7 +477,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   if (not sceneryObject.conversionAuthor == ""):
     htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
     if (not sceneryObject.conversionUrl == ""):
-      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "'>" + sceneryObject.conversionAuthor + "</a></span>"
+      htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' target='_blank'>" + sceneryObject.conversionAuthor + "</a></span>"
       if (not sceneryObject.conversionEmail == ""):
         htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
     elif (not sceneryObject.conversionEmail == ""):
@@ -543,8 +543,8 @@ def writeHTMLHeader(fileHandle, documentationPath, title):
 
 def writeHTMLFooter(fileHandle, documentationPath):
   fileHandle.write("<div id='footer'>")
-  fileHandle.write("<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
-  fileHandle.write("The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence.")
+  fileHandle.write("<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
+  fileHandle.write("The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence.")
   fileHandle.write("<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>")
   fileHandle.write("<Work rdf:about=''>")
   fileHandle.write("<license rdf:resource='http://creativecommons.org/licenses/by-nc-nd/2.5/' />")
