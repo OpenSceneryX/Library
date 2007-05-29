@@ -262,8 +262,7 @@ def checkSupportFiles(dirpath, sceneryObject):
       break
 
   if sceneryObject.screenshotFilePath == "":
-    displayMessage("No screenshot.jpg file found - object excluded\n", "error")
-    return 0
+    displayMessage("No screenshot.jpg file found - using default\n", "note")
   
   return 1
 
@@ -277,9 +276,11 @@ def copySupportFiles(dirpath, parts, sceneryObject):
     os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
   shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
-  shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
-  shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
-      
+  
+  if (sceneryObject.screenshotFilePath != ""):
+    shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
+    shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
+  
   return 1
   
   
@@ -446,7 +447,10 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
       htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
     htmlFileContent += "</div>\n"
-  htmlFileContent += "<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n"
+  if (sceneryObject.screenshotFilePath != ""):
+    htmlFileContent += "<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n"
+  else:
+    htmlFileContent += "<img class='screenshot' src='screenshot_missing.png'>\n"
   htmlFileContent += "<ul class='mainItemDetails'>\n"
   if (not sceneryObject.author == ""):
     htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
@@ -569,7 +573,12 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<ul class='objects'>\n")
   
   for sceneryObject in objects:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
+    if (sceneryObject.screenshotFilePath != ""):
+      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
+    else:
+      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
+    fileHandle.write("</a>")
     
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
@@ -583,7 +592,12 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<h3>Facades</h3>\n")
   fileHandle.write("<ul class='facades'>\n")
   for sceneryObject in facades:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
+    if (sceneryObject.screenshotFilePath != ""):
+      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
+    else:
+      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
+    fileHandle.write("</a>")
     
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
@@ -594,7 +608,12 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<h3>Forests</h3>\n")
   fileHandle.write("<ul class='forests'>\n")
   for sceneryObject in forests:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span></a>")
+    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
+    if (sceneryObject.screenshotFilePath != ""):
+      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
+    else:
+      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
+    fileHandle.write("</a>")
 
     if (sceneryObject.tutorial):
       fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")

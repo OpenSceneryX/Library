@@ -89,6 +89,7 @@ try:
     shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxFolder + "/doc/pdf.gif")
     shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxFolder + "/doc/tutorial.gif")
     shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxFolder + "/doc/animated.gif")
+    shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxFolder + "/doc/screenshot_missing.png")
     
     shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
     shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
@@ -106,6 +107,7 @@ try:
     shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxWebsiteFolder + "/doc/tutorial.gif")
     shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxWebsiteFolder + "/doc/animated.gif")
     shutil.copyfile("trunk/support/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
+    shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxWebsiteFolder + "/doc/screenshot_missing.png")
     
     authors = []
     objects = []
