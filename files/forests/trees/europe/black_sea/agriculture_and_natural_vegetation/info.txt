@@ -1,0 +1,9 @@
+Title: European Forest, Black Sea, agricultural with natural vegetation
+=====================
+Author: alpilotx
+URL: http://www.alpilotx.de/
+Author, texture: Albert Laubi and Sergio Santagada
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Agricultural but mostly natural vegetation for use in the Black Sea region of Europe.  See <a href='http://www.alpilotx.de/documentation.html'>this page</a> for a map of the european areas.

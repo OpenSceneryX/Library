@@ -1,0 +1,9 @@
+Title: European Forest, Alpine, Olive
+=====================
+Author: alpilotx
+URL: http://www.alpilotx.de/
+Author, texture: Albert Laubi and Sergio Santagada
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A forest of trees.  See <a href='http://www.alpilotx.de/documentation.html'>this page</a> for a map of the european areas.
