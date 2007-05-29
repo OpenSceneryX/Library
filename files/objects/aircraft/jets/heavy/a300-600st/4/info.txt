@@ -1,4 +1,4 @@
-Title: Airbus Beluga 4
+Title: A300-600ST (Beluga) 4
 =====================
 Author: The Beluga Project
 URL: http://www.belugaproject.de
