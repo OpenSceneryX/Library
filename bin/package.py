@@ -39,6 +39,15 @@ for (dirpath, dirnames, filenames) in os.walk("OpenSceneryX-" + classes.Configur
     
 tar.close()
 
+tar = tarfile.TarFile('OpenSceneryX-Website-' + classes.Configuration.versionNumber + ".tar", "w")
+
+for (dirpath, dirnames, filenames) in os.walk("OpenSceneryX-Website-" + classes.Configuration.versionNumber):
+  for filename in filenames:
+    path = os.path.join(dirpath, filename)
+    tar.add(path)
+    
+tar.close()
+
 print "------------------------"
 print "Complete"
 print "========================"
