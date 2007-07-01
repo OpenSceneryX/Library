@@ -1,0 +1,11 @@
+Title: Learjet 60
+=====================
+Author: Andrew Rerecich
+URL: http://www.x-plane.org/home/arerecich/
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Learjet 60.
