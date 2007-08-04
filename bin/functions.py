@@ -70,6 +70,9 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       if (result.group(1) == ""):
         displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
       elif os.path.isfile(textureFile):
+        destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:result.group(1).rfind("/")]) 
+        if not os.path.isdir(destinationTexturePath): 
+          os.makedirs(destinationTexturePath)
         shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
         displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
