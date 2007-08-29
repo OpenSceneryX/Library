@@ -72,8 +72,11 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
       elif os.path.isfile(textureFile):
         destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:result.group(1).rfind("/")]) 
         if not os.path.isdir(destinationTexturePath): 
+          # Create destination texture path if it doesn't already exist
           os.makedirs(destinationTexturePath)
-        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+        if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1))):
+          # Copy texture if it doesn't already exist
+          shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
       else:
         displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
         return
