@@ -1,0 +1,53 @@
+/*
+  CSS Template Classes to support FCKEditor Collapso plugin
+  These classes should be modified for the look and feel of the public site
+  Copyright (c) 2007 Psycle Interactive Ltd.
+  $Revision: 5557 $
+*/
+
+.expanderIndependent {
+	clear:both;
+	margin:0px 0px 15px 0px;
+}
+
+.expanderLinked {
+	clear:both;
+	margin:0px 0px 15px 0px;
+}
+
+.expanderHeading {
+	clear:both;
+	margin:1px 0px 0px 0px;
+	padding:5px 40px 5px 10px;
+	position:relative;
+}
+
+.expanderHeading img {
+	position:absolute;
+	display:block;
+	cursor:pointer;
+	right:5px;
+	top:2px;
+}
+
+.expanderHeading a {
+	cursor:pointer;
+}
+
+.expanderContent {
+	background-color:#C0C0C0;
+	clear:both;
+	padding:10px 0px 0px 10px;
+}
+
+.linkMore {
+	color:#FF0000;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+.linkLess {
+	color:#FF0000;
+	text-decoration:underline;
+	cursor:pointer;
+}

@@ -538,6 +538,10 @@ def writeHTMLHeader(fileHandle, documentationPath, title):
   fileHandle.write("          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n")
   fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane&reg;</title>\n")
   fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n")
+  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n")
+  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "collapso.css' type='text/css'/>\n")
+  fileHandle.write("<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n")
+  fileHandle.write("<script type='text/javascript' src='" + documentationPath + "collapso.js'></script>\n")
   fileHandle.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>")
   fileHandle.write("</head>\n")
   fileHandle.write("<body>\n")
@@ -574,7 +578,10 @@ def writeHTMLFooter(fileHandle, documentationPath):
 
 def writeHTMLTOC(fileHandle, objects, facades, forests):
   fileHandle.write("<div id='toc'>\n")
-  fileHandle.write("<h2>Index</h2>\n")
+  fileHandle.write("<h2>Contents</h2>\n")
+  fileHandle.write("<div class='tabber'>\n")
+  
+  fileHandle.write("<div class='tabberTab'>\n")
   fileHandle.write("<h3>Objects</h3>\n")
   fileHandle.write("<ul class='objects'>\n")
   
@@ -594,7 +601,9 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
 
     fileHandle.write("\n</li>\n")
   fileHandle.write("</ul>\n")
+  fileHandle.write("</div>\n")
   
+  fileHandle.write("<div class='tabberTab'>\n")
   fileHandle.write("<h3>Facades</h3>\n")
   fileHandle.write("<ul class='facades'>\n")
   for sceneryObject in facades:
@@ -610,7 +619,9 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
 
     fileHandle.write("</li>")
   fileHandle.write("</ul>\n")
+  fileHandle.write("</div>\n")
   
+  fileHandle.write("<div class='tabberTab'>\n")
   fileHandle.write("<h3>Forests</h3>\n")
   fileHandle.write("<ul class='forests'>\n")
   for sceneryObject in forests:
@@ -627,6 +638,9 @@ def writeHTMLTOC(fileHandle, objects, facades, forests):
     fileHandle.write("</li>")
   fileHandle.write("</ul>\n")
   fileHandle.write("</div>\n")
+  fileHandle.write("</div>\n")
+  fileHandle.write("</div>\n")
+
 
 
 

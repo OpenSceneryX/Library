@@ -57,7 +57,7 @@ p {
 
 p.warning {
   background-color: #fcc;
-  color: ff0000;
+  color: #ff0000;
   padding: 0.5em;
 }
 
@@ -120,7 +120,7 @@ ul {
 div#toc ul {
   font-size: 0.7em;
   line-height: 2.0em;
-	margin: 0 0 1em 1em;
+	margin: 0 0 1em 0;
 	padding: 0 0 0 0;
   list-style-type: disc;
 }
