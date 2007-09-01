@@ -8,6 +8,8 @@ import datetime
 import string
 import os
 import sys
+import re
+
 
 #
 # Class to hold configuration values
@@ -88,6 +90,64 @@ class SceneryObject:
 
   def __cmp__(self, other):
     return cmp(self.title, other.title)
+
+
+#
+# Class to hold information about a category
+#
+class SceneryCategory:
+  "A scenery documentation category"
+  
+  def __init__(self, filePathRoot):
+    self.filePathRoot = filePathRoot
+    self.title = ""
+    self.childSceneryCategories = []
+    self.childSceneryObjects = []
+    
+    if filePathRoot == "":
+      self.title = "Root"
+    else:
+      file = open(os.path.join(filePathRoot, "category.txt"))
+      fileContents = file.readlines()
+      file.close()
+    
+      # define the regex patterns:
+      titlePattern = re.compile("Title:\s+(.*)")
+      
+      for line in fileContents:
+        result = titlePattern.match(line)
+        if result:
+          self.title = result.group(1).replace("\"", "'")
+          continue
+
+    
+  def addSceneryCategory(self, sceneryCategory):
+    self.childSceneryCategories.append(sceneryCategory)
+
+  def addSceneryObject(self, sceneryObject):
+    self.childSceneryObjects.append(sceneryObject)
+
+  def getSceneryObjects(self, recursive):
+    # Clone our own list of objects
+    result = self.childSceneryObjects[:]
+    # Merge with objects from children
+    if recursive:
+      for sceneryCategory in self.childSceneryCategories:
+        result = map(None, result, sceneryCategory.getSceneryObjects(recursive))
+      
+    return result
+    
+  def sort(self):
+    self.childSceneryCategories.sort()
+    self.childSceneryObjects.sort()
+    
+    for sceneryCategory in self.childSceneryCategories:
+      sceneryCategory.sort()
+      
+  def __cmp__(self, other):
+    return cmp(self.title, other.title)
+
+
 
 #
 # A general build error

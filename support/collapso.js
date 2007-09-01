@@ -10,7 +10,7 @@ var classHeading = 'expanderHeading';
 var classContent = 'expanderContent';
 var classMore = 'expanderMore';
 
-var divPadding = 10;
+var divPadding = 0;
 
 var altExpand = 'Expand';
 var altCollapse = 'Collapse';

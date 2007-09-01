@@ -12,7 +12,45 @@ import classes
 import fnmatch
 import pcrt
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors):
+
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors):
+  contents = os.listdir(dirPath)
+  
+  # Handle category descriptor first, if present
+  if "category.txt" in contents:
+    currentCategory = handleCategory(dirPath, currentCategory)
+  
+  for item in contents:
+    fullPath = os.path.join(dirPath, item)
+    
+    if (item == "object.obj"):
+      handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+      continue
+    elif (item == "facade.fac"):
+      handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+      continue
+    elif (item == "forest.for"):
+      handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+      continue
+    elif (item == "category.txt"):
+      # Do nothing
+      continue
+    elif os.path.isdir(fullPath):
+      if not item == ".svn":
+        handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors)
+
+
+
+def handleCategory(dirpath, currentCategory):
+  # Create an instance of the SceneryCategory class
+  sceneryCategory = classes.SceneryCategory(dirpath)
+  currentCategory.addSceneryCategory(sceneryCategory)
+  
+  return sceneryCategory
+  
+  
+
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
@@ -103,8 +141,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
     displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
-  # Object is valid, append it to the list
-  objects.append(sceneryObject)
+  # Object is valid, add it to the current category
+  currentCategory.addSceneryObject(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
@@ -117,7 +155,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
@@ -167,8 +205,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
     displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
-  # Facade is valid, append it to the list
-  facades.append(sceneryObject)
+  # Facade is valid, append it to the current category
+  currentCategory.addSceneryObject(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
@@ -182,7 +220,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
   objectSourcePath = os.path.join(dirpath, filename)
   parts = dirpath.split(os.sep, 2)
 
@@ -232,8 +270,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
     displayMessage("No texture line in file - this error must be corrected\n", "error")
     return
     
-  # Forest is valid, append it to the list
-  forests.append(sceneryObject)
+  # Forest is valid, append it to the current category
+  currentCategory.addSceneryObject(sceneryObject)
 
   # Write to the library.txt file
   for virtualPath in sceneryObject.virtualPaths:
@@ -516,15 +554,15 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   htmlFileContent += "</div>"
 
   htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
+  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
   htmlFileHandle.write(htmlFileContent)
-  writeHTMLFooter(htmlFileHandle, "")
+  htmlFileHandle.write(getHTMLFooter(""))
   htmlFileHandle.close()
   
   htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  writeHTMLHeader(htmlFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
+  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
   htmlFileHandle.write(htmlFileContent)
-  writeHTMLFooter(htmlFileHandle, "")
+  htmlFileHandle.write(getHTMLFooter(""))
   htmlFileHandle.close()
   
   return 1
@@ -533,121 +571,141 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 
 
-def writeHTMLHeader(fileHandle, documentationPath, title):
-  fileHandle.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n")
-  fileHandle.write("          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n")
-  fileHandle.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane&reg;</title>\n")
-  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n")
-  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n")
-  fileHandle.write("<link rel='stylesheet' href='" + documentationPath + "collapso.css' type='text/css'/>\n")
-  fileHandle.write("<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n")
-  fileHandle.write("<script type='text/javascript' src='" + documentationPath + "collapso.js'></script>\n")
-  fileHandle.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>")
-  fileHandle.write("</head>\n")
-  fileHandle.write("<body>\n")
-  fileHandle.write("<div id='header'>\n")
-  fileHandle.write("<h1>" + title + "</h1>\n")
-  fileHandle.write("<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n")
-  fileHandle.write("</div>\n")
+def getHTMLHeader(documentationPath, title):
+  result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+  result += "          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+  result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane&reg;</title>\n"
+  result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
+  result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
+  result += "<link rel='stylesheet' href='" + documentationPath + "collapso.css' type='text/css'/>\n"
+  result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
+  result += "<script type='text/javascript' src='" + documentationPath + "collapso.js'></script>\n"
+  result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>"
+  result += "</head>\n"
+  result += "<body>\n"
+  result += "<div id='header'>\n"
+  result += "<h1>" + title + "</h1>\n"
+  result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n"
+  result += "</div>\n"
+  return result
 
 
 
 
 
-
-def writeHTMLFooter(fileHandle, documentationPath):
-  fileHandle.write("<div id='footer'>")
-  fileHandle.write("<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
-  fileHandle.write("The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence.")
-  fileHandle.write("<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>")
-  fileHandle.write("<Work rdf:about=''>")
-  fileHandle.write("<license rdf:resource='http://creativecommons.org/licenses/by-nc-nd/2.5/' />")
-  fileHandle.write("<dc:type rdf:resource='http://purl.org/dc/dcmitype/InteractiveResource' />")
-  fileHandle.write("</Work>")
-  fileHandle.write("<License rdf:about='http://creativecommons.org/licenses/by-nc-nd/2.5/'>")
-  fileHandle.write("<permits rdf:resource='http://web.resource.org/cc/Reproduction'/>")
-  fileHandle.write("<permits rdf:resource='http://web.resource.org/cc/Distribution'/>")
-  fileHandle.write("<requires rdf:resource='http://web.resource.org/cc/Notice'/>")
-  fileHandle.write("<requires rdf:resource='http://web.resource.org/cc/Attribution'/>")
-  fileHandle.write("<prohibits rdf:resource='http://web.resource.org/cc/CommercialUse'/>")
-  fileHandle.write("</License></rdf:RDF> --></div>")
-  fileHandle.write("</body></html>")
-
-
+def getHTMLFooter(documentationPath):
+  result = "<div id='footer'>"
+  result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>"
+  result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
+  result += "<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>"
+  result += "<Work rdf:about=''>"
+  result += "<license rdf:resource='http://creativecommons.org/licenses/by-nc-nd/2.5/' />"
+  result += "<dc:type rdf:resource='http://purl.org/dc/dcmitype/InteractiveResource' />"
+  result += "</Work>"
+  result += "<License rdf:about='http://creativecommons.org/licenses/by-nc-nd/2.5/'>"
+  result += "<permits rdf:resource='http://web.resource.org/cc/Reproduction'/>"
+  result += "<permits rdf:resource='http://web.resource.org/cc/Distribution'/>"
+  result += "<requires rdf:resource='http://web.resource.org/cc/Notice'/>"
+  result += "<requires rdf:resource='http://web.resource.org/cc/Attribution'/>"
+  result += "<prohibits rdf:resource='http://web.resource.org/cc/CommercialUse'/>"
+  result += "</License></rdf:RDF> --></div>"
+  result += "</body></html>"
+  return result
 
 
-def writeHTMLTOC(fileHandle, objects, facades, forests):
-  fileHandle.write("<div id='toc'>\n")
-  fileHandle.write("<h2>Contents</h2>\n")
-  fileHandle.write("<div class='tabber'>\n")
+
+def getHTMLTOC(rootCategory):
+  result = "<div id='toc'>\n"
+  result += "<h2>Contents</h2>\n"
+  result += "<div class='tabber'>\n"
   
-  fileHandle.write("<div class='tabberTab'>\n")
-  fileHandle.write("<h3>Objects</h3>\n")
-  fileHandle.write("<ul class='objects'>\n")
-  
-  for sceneryObject in objects:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
-    if (sceneryObject.screenshotFilePath != ""):
-      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
-    else:
-      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
-    fileHandle.write("</a>")
+  for mainSceneryCategory in rootCategory.childSceneryCategories:
+    result += "<div class='tabberTab'>\n"
+    result += "<h3>" + mainSceneryCategory.title + "</h3>\n"
     
-    if (sceneryObject.tutorial):
-      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-
-    if (sceneryObject.animated):
-      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>")
-
-    fileHandle.write("\n</li>\n")
-  fileHandle.write("</ul>\n")
-  fileHandle.write("</div>\n")
-  
-  fileHandle.write("<div class='tabberTab'>\n")
-  fileHandle.write("<h3>Facades</h3>\n")
-  fileHandle.write("<ul class='facades'>\n")
-  for sceneryObject in facades:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
-    if (sceneryObject.screenshotFilePath != ""):
-      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
+    if len(mainSceneryCategory.childSceneryCategories) > 0:
+      result += "<div class='expanderLinked'>\n"
+      for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
+        result += "<div class='expanderHeading'>\n"
+        result += subSceneryCategory.title
+        result += "</div>\n"
+        result += "<div class='expanderContent'>\n"
+        
+        result += "<ul class='inline'>\n"
+        # result += "<ul class='" + mainSceneryCategory.title.lower() + "'>\n"
+        
+        if len(subSceneryCategory.childSceneryCategories) > 0:
+          for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
+            result += "<li><a href='doc/c_" + subsubSceneryCategory.title + "'>" + subsubSceneryCategory.title + "</a>"
+  #           sceneryObjects = subsubSceneryCategory.getSceneryObjects(1)
+  #           for sceneryObject in sceneryObjects:
+  #             if (sceneryObject.screenshotFilePath != ""):
+  #               result += "<a class='hoverimage nounderline' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' class='miniobjecticon' />"
+  #               result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
+  #             else:
+  #               result += "<a class='hoverimage nounderline' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'><img src='doc/screenshot_missing.png' class='miniobjecticon' />"
+  #               result += "<span><img src='doc/screenshot_missing.png' /></span>"
+  #             result += "</a>"
+  # 
+            result += "</li>\n"
+        else:
+          sceneryObjects = subSceneryCategory.getSceneryObjects(1)
+          for sceneryObject in sceneryObjects:
+            result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title
+            if (sceneryObject.screenshotFilePath != ""):
+              result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
+            else:
+              result += "<span><img src='doc/screenshot_missing.png' /></span>"
+            result += "</a>"
+           
+            if (sceneryObject.tutorial):
+              result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
+        
+            if (sceneryObject.animated):
+              result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
+        
+            result += "</li>\n"
+        
+        result += "</ul>\n"
+        result += "</div>\n"
+        
+      result += "</div>\n"
+        
     else:
-      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
-    fileHandle.write("</a>")
+      result += "<ul class='" + mainSceneryCategory.title.lower() + "'>\n"
+      sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
+      for sceneryObject in sceneryObjects:
+        result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title
+        if (sceneryObject.screenshotFilePath != ""):
+          result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
+        else:
+          result += "<span><img src='doc/screenshot_missing.png' /></span>"
+        result += "</a>"
+       
+        if (sceneryObject.tutorial):
+          result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
     
-    if (sceneryObject.tutorial):
-      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
+        if (sceneryObject.animated):
+          result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
+    
+        result += "</li>\n"
+        
+      result += "</ul>\n"
 
-    fileHandle.write("</li>")
-  fileHandle.write("</ul>\n")
-  fileHandle.write("</div>\n")
-  
-  fileHandle.write("<div class='tabberTab'>\n")
-  fileHandle.write("<h3>Forests</h3>\n")
-  fileHandle.write("<ul class='forests'>\n")
-  for sceneryObject in forests:
-    fileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title)
-    if (sceneryObject.screenshotFilePath != ""):
-      fileHandle.write("<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>")
-    else:
-      fileHandle.write("<span><img src='doc/screenshot_missing.png' /></span>")
-    fileHandle.write("</a>")
+    result += "</div>\n"
+    
+  result += "</div>\n"
+  result += "</div>\n"
 
-    if (sceneryObject.tutorial):
-      fileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
-
-    fileHandle.write("</li>")
-  fileHandle.write("</ul>\n")
-  fileHandle.write("</div>\n")
-  fileHandle.write("</div>\n")
-  fileHandle.write("</div>\n")
+  return result
 
 
 
-
-def writeLibraryHeader(fileHandle):
-  fileHandle.write("A\n")
-  fileHandle.write("800\n")
-  fileHandle.write("LIBRARY\n")
+def getLibraryHeader():
+  result = "A\n"
+  result += "800\n"
+  result += "LIBRARY\n"
+  return result
 
 
 

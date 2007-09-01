@@ -18,7 +18,7 @@
 .expanderHeading {
 	clear:both;
 	margin:1px 0px 0px 0px;
-	padding:5px 40px 5px 10px;
+	padding:5px 40px 0px 0px;
 	position:relative;
 }
 
@@ -35,9 +35,8 @@
 }
 
 .expanderContent {
-	background-color:#C0C0C0;
 	clear:both;
-	padding:10px 0px 0px 10px;
+	padding:0px 0px 0px 0px;
 }
 
 .linkMore {

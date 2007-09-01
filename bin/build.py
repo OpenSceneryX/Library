@@ -59,25 +59,25 @@ try:
     functions.displayMessage("Creating library.txt\n")
     libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
     libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
-    functions.writeLibraryHeader(libraryFileHandle)
-    functions.writeLibraryHeader(libraryPlaceholderFileHandle)
+    libraryFileHandle.write(functions.getLibraryHeader())
+    libraryPlaceholderFileHandle.write(functions.getLibraryHeader())
     
     
     
     functions.displayMessage("------------------------\n")
     functions.displayMessage("Creating HTML files\n")
     htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-    functions.writeHTMLHeader(htmlIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane&reg;")
+    htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;"))
     htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-    functions.writeHTMLHeader(htmlReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
+    htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
     htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
-    functions.writeHTMLHeader(htmlDeveloperFileHandle, "doc/", "OpenSceneryX Developer Pack")
+    htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack"))
     htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
-    functions.writeHTMLHeader(htmlDeveloperReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
+    htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
     htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
-    functions.writeHTMLHeader(htmlWebIndexFileHandle, "doc/", "OpenSceneryX Object Library for X-Plane&reg;")
+    htmlWebIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;"))
     htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
-    functions.writeHTMLHeader(htmlWebReleaseNotesFileHandle, "", "OpenSceneryX Object Library for X-Plane&reg;")
+    htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
     
     
     functions.displayMessage("------------------------\n")
@@ -128,36 +128,16 @@ try:
     shutil.copyfile("trunk/support/minus.gif", classes.Configuration.osxWebsiteFolder + "/minus.gif")
     
     authors = []
-    objects = []
-    facades = []
-    forests = []
-    dirsToSkip = [".svn"]
+    rootCategory = classes.SceneryCategory("")
     
-    for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
-      dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
-      for filename in filenames:
-        if (filename == "object.obj"):
-          functions.handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, objects, authors)
-           
-    for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
-      dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
-      for filename in filenames:
-        if (filename == "facade.fac"):
-          functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, facades, authors)
-           
-    for (dirpath, dirnames, filenames) in os.walk("trunk/files/forests"):
-      dirnames[:] = [ name for name in dirnames if not functions.matchesAny(name, dirsToSkip) ]
-      for filename in filenames:
-        if (filename == "forest.for"):
-          functions.handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, forests, authors)
+    functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors)
     
     functions.caseinsensitive_sort(authors)
-    objects.sort()
-    facades.sort()
-    forests.sort()
+    rootCategory.sort()
     
-    functions.writeHTMLTOC(htmlIndexFileHandle, objects, facades, forests)
-    functions.writeHTMLTOC(htmlWebIndexFileHandle, objects, facades, forests)
+    toc = functions.getHTMLTOC(rootCategory)
+    htmlIndexFileHandle.write(toc)
+    htmlWebIndexFileHandle.write(toc)
     
     authors = ", ".join(authors[:-1]) + " and " + authors[-1]
     
@@ -191,10 +171,10 @@ try:
     
     functions.displayMessage("------------------------\n")
     functions.displayMessage("Finishing and closing files\n")
-    functions.writeHTMLFooter(htmlIndexFileHandle, "doc/")
-    functions.writeHTMLFooter(htmlDeveloperFileHandle, "doc/")
-    functions.writeHTMLFooter(htmlReleaseNotesFileHandle, "")
-    functions.writeHTMLFooter(htmlWebIndexFileHandle, "doc/")
+    htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
+    htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
+    htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
+    htmlWebIndexFileHandle.write(functions.getHTMLFooter("doc/"))
     htmlIndexFileHandle.close()
     htmlDeveloperFileHandle.close()
     libraryFileHandle.close()

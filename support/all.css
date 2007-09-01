@@ -50,6 +50,14 @@ img.attributeicon{
   margin: 0px 0px 5px 0px;
 }
 
+img.miniobjecticon {
+  border: none;
+  margin: 0;
+  padding: 0 1px 0 0;
+  width: 1em;
+  height: 1em;
+}
+
 p {
   padding: 0 0 1em 0;
   margin: 0;
@@ -118,22 +126,44 @@ ul {
 }
 
 div#toc ul {
-  font-size: 0.7em;
-  line-height: 2.0em;
-	margin: 0 0 1em 0;
-	padding: 0 0 0 0;
-  list-style-type: disc;
 }
 
+ul.inline {
+  font-size: 0.7em;
+  line-height: 2.0em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.inline li { display: inline; }
+ul.inline li:after { content: ","; } 
+ul.inline li:last-child:after { content: "."; }
+
 div#toc ul.objects {
+  font-size: 0.7em;
+  line-height: 2.0em;
+	margin: 0 0 1em 2em;
+	padding: 1em 0 0 0;
+  list-style-type: disc;
   list-style-image: url(bullet_object.gif);
 }
 
 div#toc ul.facades {
+  font-size: 0.7em;
+  line-height: 2.0em;
+	margin: 0 0 1em 2em;
+	padding: 1em 0 0 0;
+  list-style-type: disc;
   list-style-image: url(bullet_object.gif);
 }
 
 div#toc ul.forests {
+  font-size: 0.7em;
+  line-height: 2.0em;
+	margin: 0 0 1em 2em;
+	padding: 1em 0 0 0;
+  list-style-type: disc;
   list-style-image: url(bullet_object.gif);
 }
 
