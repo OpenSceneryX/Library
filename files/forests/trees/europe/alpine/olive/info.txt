@@ -1,4 +1,5 @@
 Title: European Forest, Alpine, Olive
+Short Title: Olive
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

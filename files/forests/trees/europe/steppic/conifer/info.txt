@@ -1,4 +1,5 @@
 Title: European Forest, Steppic, Conifer
+Short Title: Conifer
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

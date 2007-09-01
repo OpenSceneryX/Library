@@ -1,4 +1,5 @@
 Title: European Heathland, Alpine
+Short Title: Heathland
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

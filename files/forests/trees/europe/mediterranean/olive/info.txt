@@ -1,4 +1,5 @@
 Title: European Forest, Mediterranean, Olive
+Short Title: Olive
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

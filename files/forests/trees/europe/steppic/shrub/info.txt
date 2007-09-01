@@ -1,4 +1,5 @@
 Title: European Shrubland, Steppic
+Short Title: Shrubland
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

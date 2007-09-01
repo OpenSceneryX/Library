@@ -1,4 +1,5 @@
 Title: European Forest, Atlantic, Broad Leaf
+Short Title: Broad Leaf
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

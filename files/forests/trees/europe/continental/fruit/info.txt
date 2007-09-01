@@ -1,4 +1,5 @@
 Title: European Forest, Continental, Fruit
+Short Title: Fruit
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

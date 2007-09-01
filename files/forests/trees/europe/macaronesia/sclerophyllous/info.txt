@@ -1,4 +1,5 @@
 Title: European Forest, Macaronesia, Sclerophyllous
+Short Title: Sclerophyllous
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

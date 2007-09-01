@@ -1,4 +1,5 @@
 Title: European Shrubland, Alpine
+Short Title: Shrubland
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

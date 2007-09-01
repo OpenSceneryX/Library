@@ -1,4 +1,5 @@
 Title: European Pasture, Black Sea
+Short Title: Pasture
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

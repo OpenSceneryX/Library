@@ -1,4 +1,5 @@
 Title: European Forest, Atlantic, agricultural with natural vegetation
+Short Title: Agricultural with natural vegetation
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

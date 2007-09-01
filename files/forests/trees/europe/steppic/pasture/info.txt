@@ -1,4 +1,5 @@
 Title: European Pasture, Steppic
+Short Title: Pasture
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/

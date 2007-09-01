@@ -1,4 +1,5 @@
 Title: Boat Forest, Dense
+Short Title: Dense
 =====================
 Author: Denmeul
 Email: xpo@denmeul.nl

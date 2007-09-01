@@ -1,4 +1,5 @@
 Title: European Forest, Pannonian, Mixed
+Short Title: Mixed
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/
