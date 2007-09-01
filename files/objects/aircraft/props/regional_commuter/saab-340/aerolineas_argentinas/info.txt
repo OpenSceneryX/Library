@@ -1,0 +1,10 @@
+Title: Saab 340 Aerolineas Argentinas
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/aerolineas_argentinas/saab-340
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Saab 340 in Aerolineas Argentinas livery.

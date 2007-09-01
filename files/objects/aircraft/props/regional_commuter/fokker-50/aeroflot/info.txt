@@ -1,0 +1,10 @@
+Title: Fokker 50 Aeroflot
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/aeroflot/fokker-50
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Fokker 50 in Aeroflot livery.

@@ -1,0 +1,10 @@
+Title: BAE Avro RJ70 Air France
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/air_france/avro-rj70
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A BAE Avro RJ70 in Air France livery.
