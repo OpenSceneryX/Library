@@ -13,6 +13,43 @@ import fnmatch
 import pcrt
 
 
+def buildCategoryLandingPages(sceneryCategory, depth):
+  # Only build landing pages where depth >= 3
+  if depth >= 3:
+    # Build a landing page
+    htmlFileContent = ""
+    htmlFileContent += "<div id='content'>\n"
+    htmlFileContent += "<h2>" + sceneryCategory.title + " Variants</h2>\n"
+    
+    for sceneryObject in sceneryCategory.getSceneryObjects(1):
+      htmlFileContent += "<h3><a href='" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "</a></h3><a href='" + urllib.pathname2url(sceneryObject.title + ".html") + "' class='nounderline'>"
+      if (sceneryObject.screenshotFilePath != ""):
+        htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' />"
+      else:
+        htmlFileContent += "<img src='screenshot_missing.png' />"
+      htmlFileContent += "</a>\n"
+      
+    htmlFileContent += "</div>\n"
+
+    htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
+    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+    htmlFileHandle.write(htmlFileContent)
+    htmlFileHandle.write(getHTMLFooter(""))
+    htmlFileHandle.close()
+
+    htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
+    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+    htmlFileHandle.write(htmlFileContent)
+    htmlFileHandle.write(getHTMLFooter(""))
+    htmlFileHandle.close()
+
+  # Recurse
+  children = sceneryCategory.childSceneryCategories
+  for childCategory in children:
+    buildCategoryLandingPages(childCategory, depth + 1)
+    
+    
+
 def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors):
   contents = os.listdir(dirPath)
   
@@ -639,18 +676,18 @@ def getHTMLTOC(rootCategory):
           # We have another level of categorisation, show a category list where each link takes the user to a
           # landing page for that category
           for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-            result += "<li><a href='doc/c_" + subsubSceneryCategory.title + "'>" + subsubSceneryCategory.title + "</a>"
-            result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif'><span>Multiple variations available</span></a>"
+            result += "<li><a href='doc/c_" + subsubSceneryCategory.title + ".html'>" + subsubSceneryCategory.title + "</a>"
+            result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif'><span>Multiple variants available</span></a>"
             result += "</li>\n"
   
           # Also show the list of objects directly in this category
           sceneryObjects = subSceneryCategory.getSceneryObjects(0)
-          result += iterateSceneryObjects(sceneryObjects)
+          result += getHTMLSceneryObjects(sceneryObjects)
           
         else:
           # No more category levels, show the list of objects
           sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-          result += iterateSceneryObjects(sceneryObjects)
+          result += getHTMLSceneryObjects(sceneryObjects)
 
         result += "</ul>\n"
         
@@ -658,7 +695,7 @@ def getHTMLTOC(rootCategory):
       # No categorisation, show the list of objects
       result += "<ul class='inline'>\n"
       sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
-      result += iterateSceneryObjects(sceneryObjects)        
+      result += getHTMLSceneryObjects(sceneryObjects)        
       result += "</ul>\n"
 
     result += "</div>\n"
@@ -670,7 +707,7 @@ def getHTMLTOC(rootCategory):
 
 
 
-def iterateSceneryObjects(sceneryObjects):
+def getHTMLSceneryObjects(sceneryObjects):
   result = ""
   for sceneryObject in sceneryObjects:
     result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.shortTitle

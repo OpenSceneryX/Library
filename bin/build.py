@@ -136,6 +136,7 @@ try:
     
     functions.caseinsensitive_sort(authors)
     rootCategory.sort()
+    functions.buildCategoryLandingPages(rootCategory, 0)
     
     toc = functions.getHTMLTOC(rootCategory)
     htmlIndexFileHandle.write(toc)
