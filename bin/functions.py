@@ -337,6 +337,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   # define the regex patterns:
   exportPattern = re.compile("Export:\s+(.*)")
   titlePattern = re.compile("Title:\s+(.*)")
+  shortTitlePattern = re.compile("Short Title:\s+(.*)")
   authorPattern = re.compile("Author:\s+(.*)")
   textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
   conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
@@ -367,6 +368,12 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
     result = titlePattern.match(line)
     if result:
       sceneryObject.title = result.group(1).replace("\"", "'")
+      if (sceneryObject.shortTitle == ""): sceneryObject.shortTitle = sceneryObject.title
+      continue
+
+    result = shortTitlePattern.match(line)
+    if result:
+      sceneryObject.shortTitle = result.group(1).replace("\"", "'")
       continue
 
     result = authorPattern.match(line)
@@ -624,17 +631,13 @@ def getHTMLTOC(rootCategory):
     result += "<h3>" + mainSceneryCategory.title + "</h3>\n"
     
     if len(mainSceneryCategory.childSceneryCategories) > 0:
-      result += "<div class='expanderLinked'>\n"
       for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
-        result += "<div class='expanderHeading'>\n"
-        result += subSceneryCategory.title
-        result += "</div>\n"
-        result += "<div class='expanderContent'>\n"
-        
+        result += "<h4>" + subSceneryCategory.title + "</h4>\n"
         result += "<ul class='inline'>\n"
-        # result += "<ul class='" + mainSceneryCategory.title.lower() + "'>\n"
         
         if len(subSceneryCategory.childSceneryCategories) > 0:
+          # We have another level of categorisation, show a category list where each link takes the user to a
+          # landing page for that category
           for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
             result += "<li><a href='doc/c_" + subsubSceneryCategory.title + "'>" + subsubSceneryCategory.title + "</a>"
   #           sceneryObjects = subsubSceneryCategory.getSceneryObjects(1)
@@ -649,9 +652,10 @@ def getHTMLTOC(rootCategory):
   # 
             result += "</li>\n"
         else:
+          # No more category levels, show the list of objects using their short titles
           sceneryObjects = subSceneryCategory.getSceneryObjects(1)
           for sceneryObject in sceneryObjects:
-            result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title
+            result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.shortTitle
             if (sceneryObject.screenshotFilePath != ""):
               result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
             else:
@@ -667,12 +671,10 @@ def getHTMLTOC(rootCategory):
             result += "</li>\n"
         
         result += "</ul>\n"
-        result += "</div>\n"
-        
-      result += "</div>\n"
         
     else:
-      result += "<ul class='" + mainSceneryCategory.title.lower() + "'>\n"
+      # No categorisation, show the list of objects using their full titles
+      result += "<ul class='inline'>\n"
       sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
       for sceneryObject in sceneryObjects:
         result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title

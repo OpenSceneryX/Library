@@ -64,6 +64,7 @@ class SceneryObject:
     self.filePathRoot = filePathRoot
     self.fileName = fileName
     self.title =""
+    self.shortTitle = ""
     self.author = ""
     self.textureAuthor = ""
     self.conversionAuthor = ""
