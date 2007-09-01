@@ -1,0 +1,10 @@
+Title: A380 Air Canada
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/air_canada/a380
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 380 in Air Canada livery.

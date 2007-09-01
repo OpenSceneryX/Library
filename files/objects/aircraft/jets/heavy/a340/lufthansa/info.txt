@@ -1,0 +1,10 @@
+Title: A340 Lufthansa
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/lufthansa/a340
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 340 in Lufthansa livery.

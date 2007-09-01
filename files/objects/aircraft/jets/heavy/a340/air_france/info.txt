@@ -1,0 +1,10 @@
+Title: A340 Air France
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/air_france/a340
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 340 in Air France livery.

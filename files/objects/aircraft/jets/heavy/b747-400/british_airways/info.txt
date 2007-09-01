@@ -1,14 +1,11 @@
 Title: B747-400 British Airways
 =====================
-Author: X-Plane&reg; Freeware Project
-URL: http://www.xplanefreeware.net/
-Author, texture: David Hossack
-Author, conversion: Planebuilder
-URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/british_airways/b747-400
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Boeing 747-400 in British Airways Livery.
+Description: A Boeing 747-400 in British Airways livery.

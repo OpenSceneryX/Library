@@ -1,0 +1,11 @@
+Title: MD90-50 Lufthansa
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/md90
+Export: objects/aircraft/livery/lufthansa/md90-50
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An MD90-50 in Lufthansa livery.
