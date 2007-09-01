@@ -640,58 +640,25 @@ def getHTMLTOC(rootCategory):
           # landing page for that category
           for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
             result += "<li><a href='doc/c_" + subsubSceneryCategory.title + "'>" + subsubSceneryCategory.title + "</a>"
-  #           sceneryObjects = subsubSceneryCategory.getSceneryObjects(1)
-  #           for sceneryObject in sceneryObjects:
-  #             if (sceneryObject.screenshotFilePath != ""):
-  #               result += "<a class='hoverimage nounderline' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' class='miniobjecticon' />"
-  #               result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
-  #             else:
-  #               result += "<a class='hoverimage nounderline' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'><img src='doc/screenshot_missing.png' class='miniobjecticon' />"
-  #               result += "<span><img src='doc/screenshot_missing.png' /></span>"
-  #             result += "</a>"
-  # 
+            result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif'><span>Multiple variations available</span></a>"
             result += "</li>\n"
+  
+          # Also show the list of objects directly in this category
+          sceneryObjects = subSceneryCategory.getSceneryObjects(0)
+          result += iterateSceneryObjects(sceneryObjects)
+          
         else:
-          # No more category levels, show the list of objects using their short titles
+          # No more category levels, show the list of objects
           sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-          for sceneryObject in sceneryObjects:
-            result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.shortTitle
-            if (sceneryObject.screenshotFilePath != ""):
-              result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
-            else:
-              result += "<span><img src='doc/screenshot_missing.png' /></span>"
-            result += "</a>"
-           
-            if (sceneryObject.tutorial):
-              result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
-        
-            if (sceneryObject.animated):
-              result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
-        
-            result += "</li>\n"
-        
+          result += iterateSceneryObjects(sceneryObjects)
+
         result += "</ul>\n"
         
     else:
-      # No categorisation, show the list of objects using their full titles
+      # No categorisation, show the list of objects
       result += "<ul class='inline'>\n"
       sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
-      for sceneryObject in sceneryObjects:
-        result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title
-        if (sceneryObject.screenshotFilePath != ""):
-          result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
-        else:
-          result += "<span><img src='doc/screenshot_missing.png' /></span>"
-        result += "</a>"
-       
-        if (sceneryObject.tutorial):
-          result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
-    
-        if (sceneryObject.animated):
-          result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
-    
-        result += "</li>\n"
-        
+      result += iterateSceneryObjects(sceneryObjects)        
       result += "</ul>\n"
 
     result += "</div>\n"
@@ -699,6 +666,28 @@ def getHTMLTOC(rootCategory):
   result += "</div>\n"
   result += "</div>\n"
 
+  return result
+
+
+
+def iterateSceneryObjects(sceneryObjects):
+  result = ""
+  for sceneryObject in sceneryObjects:
+    result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.shortTitle
+    if (sceneryObject.screenshotFilePath != ""):
+      result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
+    else:
+      result += "<span><img src='doc/screenshot_missing.png' /></span>"
+    result += "</a>"
+   
+    if (sceneryObject.tutorial):
+      result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
+
+    if (sceneryObject.animated):
+      result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
+
+    result += "</li>\n"
+    
   return result
 
 

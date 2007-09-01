@@ -28,6 +28,16 @@ h3 {
   font-size: 1.1em;
 }
 
+h4 {
+  padding: 0;
+  margin: 0 0 0.2em 0;
+  font-size: 1em;
+}
+
+div#toc h4 {
+  padding-top: 0.5em;
+}
+
 img {
   padding: 1px;
   border: 1px solid black;
@@ -134,11 +144,13 @@ ul.inline {
   list-style: none;
   margin: 0;
   padding: 0;
+  list-style-type: disc;
+  list-style-image: url(bullet_object.gif);
 }
 
 ul.inline li { display: inline; }
-ul.inline li:after { content: ","; } 
-ul.inline li:last-child:after { content: "."; }
+ul.inline li:after { content: " | "; } 
+ul.inline li:last-child:after { content: ""; }
 
 div#toc ul.objects {
   font-size: 0.7em;
