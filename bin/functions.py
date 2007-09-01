@@ -32,13 +32,13 @@ def buildCategoryLandingPages(sceneryCategory, depth):
     htmlFileContent += "</div>\n"
 
     htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants"))
     htmlFileHandle.write(htmlFileContent)
     htmlFileHandle.write(getHTMLFooter(""))
     htmlFileHandle.close()
 
     htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+    htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants"))
     htmlFileHandle.write(htmlFileContent)
     htmlFileHandle.write(getHTMLFooter(""))
     htmlFileHandle.close()
@@ -598,13 +598,13 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
   htmlFileContent += "</div>"
 
   htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
   htmlFileHandle.write(htmlFileContent)
   htmlFileHandle.write(getHTMLFooter(""))
   htmlFileHandle.close()
   
   htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
-  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;"))
+  htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
   htmlFileHandle.write(htmlFileContent)
   htmlFileHandle.write(getHTMLFooter(""))
   htmlFileHandle.close()
@@ -615,10 +615,13 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 
 
-def getHTMLHeader(documentationPath, title):
+def getHTMLHeader(documentationPath, mainTitle, titleSuffix):
   result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
   result += "          \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-  result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>OpenSceneryX Library for X-Plane&reg;</title>\n"
+  result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
+  if titleSuffix != "":
+    result += " - " + titleSuffix
+  result += "</title>\n"
   result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
   result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
   result += "<link rel='stylesheet' href='" + documentationPath + "collapso.css' type='text/css'/>\n"
@@ -628,7 +631,7 @@ def getHTMLHeader(documentationPath, title):
   result += "</head>\n"
   result += "<body>\n"
   result += "<div id='header'>\n"
-  result += "<h1>" + title + "</h1>\n"
+  result += "<h1>" + mainTitle + "</h1>\n"
   result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n"
   result += "</div>\n"
   return result
