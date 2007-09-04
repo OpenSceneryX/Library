@@ -1,0 +1,11 @@
+Title: Shipping Container, 53'
+=====================
+Author: Luke173
+URL: http://forums.x-plane.org/index.php?showuser=7280
+Height: 2.6m (8' 6")
+Width: 2.4m (8')
+Depth: 16.2m (53')
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 53' shipping container.
