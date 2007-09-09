@@ -1,6 +1,6 @@
 Title: Hangar, Art Deco
 =====================
-Author: Tom Kyle
+Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Revision: $Revision$

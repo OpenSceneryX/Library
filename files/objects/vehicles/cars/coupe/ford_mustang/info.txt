@@ -1,6 +1,6 @@
 Title: Car, Ford Mustang
 =====================
-Author: Tom Kyle
+Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Export: objects/vehicles/cars

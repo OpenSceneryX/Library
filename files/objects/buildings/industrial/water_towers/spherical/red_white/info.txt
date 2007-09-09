@@ -1,6 +1,6 @@
 Title: Water Tower, Spherical, Red and White
 =====================
-Author: Tom Kyle
+Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Revision: $Revision$

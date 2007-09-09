@@ -1,6 +1,6 @@
 Title: Radar Tower, ASR-11
 =====================
-Author: Tom Kyle
+Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Width: 17.0m
