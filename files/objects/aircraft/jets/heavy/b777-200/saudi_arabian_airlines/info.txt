@@ -1,0 +1,13 @@
+Title: B777-200 Saudi Arabian Airlines
+=====================
+Author: X-Plane&reg; Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, conversion: Jochen Haink
+URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b777
+Export: objects/aircraft/livery/saudi_arabian_airlines/b777-200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 777-200 in Saudi Arabian Airlines livery.
