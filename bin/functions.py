@@ -642,20 +642,9 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix):
 
 def getHTMLFooter(documentationPath):
   result = "<div id='footer'>"
-  result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>"
-  result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
-  result += "<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>"
-  result += "<Work rdf:about=''>"
-  result += "<license rdf:resource='http://creativecommons.org/licenses/by-nc-nd/2.5/' />"
-  result += "<dc:type rdf:resource='http://purl.org/dc/dcmitype/InteractiveResource' />"
-  result += "</Work>"
-  result += "<License rdf:about='http://creativecommons.org/licenses/by-nc-nd/2.5/'>"
-  result += "<permits rdf:resource='http://web.resource.org/cc/Reproduction'/>"
-  result += "<permits rdf:resource='http://web.resource.org/cc/Distribution'/>"
-  result += "<requires rdf:resource='http://web.resource.org/cc/Notice'/>"
-  result += "<requires rdf:resource='http://web.resource.org/cc/Attribution'/>"
-  result += "<prohibits rdf:resource='http://web.resource.org/cc/CommercialUse'/>"
-  result += "</License></rdf:RDF> --></div>"
+  result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png'/></a></div>"
+  result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
+  result += "</div>"
   result += "</body></html>"
   return result
 

@@ -138,6 +138,15 @@ class SceneryCategory:
       
     return result
     
+  def getSceneryObjectCount(self, recursive):
+    result = len(self.childSceneryObjects)
+    
+    if recursive:
+      for sceneryCategory in self.childSceneryCategories:
+        result = result + sceneryCategory.getSceneryObjectCount(recursive)
+    
+    return result
+    
   def sort(self):
     self.childSceneryCategories.sort()
     self.childSceneryObjects.sort()
