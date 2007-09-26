@@ -9,18 +9,17 @@ LOD 8000.000000
 SCALE_X 1024
 SCALE_Y 1024
 
-SPACING 45.0 45.0
-RANDOM 20.0 20.0
+SPACING 130.00 130.00
+RANDOM 65.00 65.00
 
-# low-left coord tex size center percentage    ----height----
-# tree   s     t     w     y     offset     occurrence  min    max    quads  type  name
+#	low-left	tex size	center	percent	--height--
+# tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-TREE   640   768   128   96   64   3   6   12   2   0   Cc9
-TREE   384   384   128   127   64   2   14   19   2   0   Ma3
-TREE   512   768   128   96   64   10   8   12   2   0   Ma9
-TREE   512   384   128   128   64   1   9   12   2   0   Me1
-TREE   832   768   64   95   32   8   4   6   2   0   Sa2
-TREE   896   768   64   95   32   6   5   9   2   0   Sa3
-TREE   0   0   2   1   1   70   0.1   0.1   0   0   bla
+TREE	640	768	128	96	64	12	6	12	2	0	Cc9
+TREE	384	384	128	127	64	7	14	19	2	0	Ma3
+TREE	512	768	128	96	64	30	8	12	2	0	Ma9
+TREE	512	384	128	128	64	3	9	12	2	0	Me1
+TREE	832	768	64	95	32	28	4	6	2	0	Sa2
+TREE	896	768	64	95	32	20	5	9	2	0	Sa3
 
 SKIP_SURFACE water
