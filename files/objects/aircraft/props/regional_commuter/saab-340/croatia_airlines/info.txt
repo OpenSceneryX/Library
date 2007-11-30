@@ -1,0 +1,12 @@
+Title: Saab 340 Croatia Airlines
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Ket
+URL, texture: http://forums.x-plane.org/index.php?showuser=42104
+Export Propagate: 1
+Export: objects/aircraft/livery/croatia_airlines/saab-340
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Saab 340 in Croatia Airlines livery.

@@ -1,0 +1,13 @@
+Title: B747-400 Croatia Airlines
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Ket
+URL, texture: http://forums.x-plane.org/index.php?showuser=42104
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b747
+Export: objects/aircraft/livery/croatia_airlines/b747-400
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 747-400 in Croatia Airlines livery.

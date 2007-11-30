@@ -1,9 +1,7 @@
 Title: A320 United (1993-2004 livery)
 =====================
-Author: X-Plane&reg; Freeware Project
-URL: http://www.xplanefreeware.net/
-Author, conversion: Jochen Haink
-URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
 Export: objects/aircraft/livery/united/historical/1993-2004/a320
 Revision: $Revision$
 Date: $Date$

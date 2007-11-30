@@ -1,0 +1,10 @@
+Title: ATR 42 Iberia
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/iberia/atr-42
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An ATR 42 in Iberia livery.

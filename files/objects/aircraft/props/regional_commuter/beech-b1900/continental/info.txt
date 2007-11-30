@@ -1,0 +1,13 @@
+Title: B1900D Continental Connection
+=====================
+Exclude: No permission from Efrain or Brian yet
+Author: Efrain Hernandez
+Author: B D Ford
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Export Propagate: 1
+Export: objects/aircraft/livery/continental/b1900d
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A B1900D in Continental Connection livery.

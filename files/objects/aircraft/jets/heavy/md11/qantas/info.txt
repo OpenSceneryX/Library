@@ -1,0 +1,10 @@
+Title: MD11 Qantas
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/qantas/md11
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An MD11 in Qantas livery.

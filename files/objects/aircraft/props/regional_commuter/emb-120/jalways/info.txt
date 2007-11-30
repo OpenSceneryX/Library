@@ -1,0 +1,10 @@
+Title: Embraer EMB 120 JALways
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Export: objects/aircraft/livery/jalways/emb-120
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Embraer EMB 120 in JALways livery.
