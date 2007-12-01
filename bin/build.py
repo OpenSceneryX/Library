@@ -99,8 +99,6 @@ try:
     shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxFolder + "/doc/animated.gif")
     shutil.copyfile("trunk/support/variations.gif", classes.Configuration.osxFolder + "/doc/variations.gif")
     shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxFolder + "/doc/screenshot_missing.png")
-    shutil.copyfile("trunk/support/plus.gif", classes.Configuration.osxFolder + "/doc/plus.gif")
-    shutil.copyfile("trunk/support/minus.gif", classes.Configuration.osxFolder + "/doc/minus.gif")
     
     shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
     shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
@@ -113,8 +111,6 @@ try:
     shutil.copyfile("trunk/support/collapso.js", classes.Configuration.osxDeveloperPackFolder + "/doc/collapso.js")
     shutil.copyfile("trunk/support/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
     shutil.copyfile("trunk/support/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.gif")
-    shutil.copyfile("trunk/support/plus.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/plus.gif")
-    shutil.copyfile("trunk/support/minus.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/minus.gif")
     
     shutil.copyfile("trunk/support/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
     shutil.copyfile("trunk/support/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
@@ -130,8 +126,6 @@ try:
     shutil.copyfile("trunk/support/variations.gif", classes.Configuration.osxWebsiteFolder + "/doc/variations.gif")
     shutil.copyfile("trunk/support/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
     shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxWebsiteFolder + "/doc/screenshot_missing.png")
-    shutil.copyfile("trunk/support/plus.gif", classes.Configuration.osxWebsiteFolder + "/plus.gif")
-    shutil.copyfile("trunk/support/minus.gif", classes.Configuration.osxWebsiteFolder + "/minus.gif")
     
     authors = []
     rootCategory = classes.SceneryCategory("")
