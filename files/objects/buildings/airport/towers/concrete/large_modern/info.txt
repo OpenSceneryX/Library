@@ -5,9 +5,9 @@ Email: afriqs@yahoo.fr
 URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
 URL: http://forums.x-plane.org/index.php?showuser=5732
 URL: http://afriqs.free.fr/xplane/index.php
-Width: 10.8m
-Depth: 10.8m
-Height: 18m
+Width: 24.5m
+Depth: 24.5m
+Height: 40m
 Export: objects/buildings/airport/towers/large_modern
 Revision: $Revision$
 Date: $Date$

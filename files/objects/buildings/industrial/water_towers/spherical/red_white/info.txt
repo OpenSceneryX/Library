@@ -3,6 +3,9 @@ Title: Water Tower, Spherical, Red and White
 Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
+Width: 23m
+Depth: 23m
+Height: 40m
 Revision: $Revision$
 Date: $Date$
 =====================
