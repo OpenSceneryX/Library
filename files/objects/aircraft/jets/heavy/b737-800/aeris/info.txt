@@ -1,7 +1,8 @@
 Title: B737-800 Aeris
 =====================
-Author: X-Plane&reg; Freeware Project
-URL: http://www.xplanefreeware.net/
+Author: Benedikt Stratmann
+URL: http://www.stratmann-web.net/
+Author, texture: Atypik Design
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
