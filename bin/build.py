@@ -70,18 +70,24 @@ try:
     
     functions.displayMessage("------------------------\n")
     functions.displayMessage("Creating HTML files\n")
+    
     htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
     htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", ""))
     htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
     htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+    jsVersionInfoFileHandle = open(classes.Configuration.osxFolder + "/doc/versionInfo.js", "w")
+
     htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
     htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", ""))
     htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
     htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+    jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
+    
     htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
     htmlWebIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", ""))
     htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
     htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+    jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
     
     
     functions.displayMessage("------------------------\n")
@@ -171,6 +177,15 @@ try:
     file.close()
     htmlWebIndexFileHandle.write(fileContents)
     
+    file = open("trunk/support/_versionInfo.js", "r")
+    fileContents = file.read()
+    fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
+    fileContents = fileContents.replace("${versionDate}", classes.Configuration.versionDate)
+    file.close()
+    jsVersionInfoFileHandle.write(fileContents)
+    jsDeveloperVersionInfoFileHandle.write(fileContents)
+    jsWebVersionInfoFileHandle.write(fileContents)
+    
     
     functions.displayMessage("------------------------\n")
     functions.displayMessage("Finishing and closing files\n")
@@ -178,11 +193,15 @@ try:
     htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
     htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
     htmlWebIndexFileHandle.write(functions.getHTMLFooter("doc/"))
+    
     htmlIndexFileHandle.close()
     htmlDeveloperFileHandle.close()
     libraryFileHandle.close()
     libraryPlaceholderFileHandle.close()
     htmlWebIndexFileHandle.close()
+    jsVersionInfoFileHandle.close()
+    jsDeveloperVersionInfoFileHandle.close()
+    jsWebVersionInfoFileHandle.close()
     
     
     functions.displayMessage("------------------------\n")

@@ -628,15 +628,14 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix):
   result += "</title>\n"
   result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
   result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
-  result += "<link rel='stylesheet' href='" + documentationPath + "collapso.css' type='text/css'/>\n"
+  result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
   result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
-  result += "<script type='text/javascript' src='" + documentationPath + "collapso.js'></script>\n"
   result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>"
   result += "</head>\n"
   result += "<body>\n"
   result += "<div id='header'>\n"
   result += "<h1>" + mainTitle + "</h1>\n"
-  result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'>" + classes.Configuration.versionNumber + "</a> - <strong>Built on: </strong>" + classes.Configuration.versionDate + "</p>\n"
+  result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a> - <strong>Built on: </strong><script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
   result += "</div>\n"
   return result
 
