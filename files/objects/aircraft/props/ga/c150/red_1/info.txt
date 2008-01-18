@@ -1,0 +1,9 @@
+Title: Cessna 150 Red Variant 1
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A red Cessna 150.
