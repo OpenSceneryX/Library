@@ -1,0 +1,9 @@
+Title: Tug, Large
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A large tug suitable for pulling heavies.
