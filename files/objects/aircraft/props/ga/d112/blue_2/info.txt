@@ -1,0 +1,9 @@
+Title: Jodel D112 Blue Variant 2
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A blue Jodel D112.

@@ -1,0 +1,9 @@
+Title: Robin HR200 Red Variant 4
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A red Robin HR200.
