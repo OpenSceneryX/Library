@@ -1,0 +1,7 @@
+Title: Hangar, Metal, Maintenance
+=====================
+Author: Bob Feaver
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Large modern maintenance hangar with metal sides, red roof, one large door and two smaller doors.

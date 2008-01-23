@@ -1,0 +1,7 @@
+Title: Hangar, Metal, Small, Striped Door
+=====================
+Author: Bob Feaver
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Small modern hangar with metal sides, red roof and one striped aircraft door.

@@ -1,0 +1,7 @@
+Title: Hangar, Metal, Medium
+=====================
+Author: Bob Feaver
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Medium-sized modern hangar with metal sides, red roof and one aircraft door.

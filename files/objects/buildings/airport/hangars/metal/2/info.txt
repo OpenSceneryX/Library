@@ -1,0 +1,7 @@
+Title: Hangar, Metal, Long, Asymmetrical Roof
+=====================
+Author: Bob Feaver
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Long modern hangar with metal sides, red asymmetrical roof and four aircraft doors.
