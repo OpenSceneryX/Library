@@ -3,7 +3,8 @@ Short Title: Olive
 =====================
 Author: alpilotx
 URL: http://www.alpilotx.de/
-Author, texture: Albert Laubi and Sergio Santagada
+Author, texture: Albert Laubi
+Author, texture: Sergio Santagada
 Revision: $Revision$
 Date: $Date$
 =====================
