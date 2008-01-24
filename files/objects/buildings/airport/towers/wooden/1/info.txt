@@ -1,0 +1,11 @@
+Title: Control Tower, Small Wooden
+=====================
+Author: Tony Brown
+Email: aebrown1013@gmail.com
+Height: 33m
+Width: 18m
+Depth: 18m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description:	Air traffic control tower with stairs up the side, originally from Plymouth City Airport, UK but with insignia removed.

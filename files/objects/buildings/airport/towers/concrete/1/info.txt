@@ -8,7 +8,8 @@ URL: http://afriqs.free.fr/xplane/index.php
 Width: 24.5m
 Depth: 24.5m
 Height: 40m
-Export: objects/buildings/airport/towers/large_modern
+Export Deprecated v1.6.0: objects/buildings/airport/towers/large_modern
+Export Deprecated v1.6.0: objects/buildings/airport/towers/concrete/large_modern
 Revision: $Revision$
 Date: $Date$
 =====================
