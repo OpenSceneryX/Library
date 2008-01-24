@@ -1,0 +1,12 @@
+Title: Ambulance, Military
+=====================
+Author: Tony Brown
+Email: aebrown1013@gmail.com
+Height: 6.1m
+Width: 11.3m
+Depth: 5m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Military ambulance.

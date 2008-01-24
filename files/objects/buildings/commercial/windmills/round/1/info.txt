@@ -9,6 +9,7 @@ Width: 19m
 Depth: 10m
 Height: 23m
 Export Deprecated v1.3.0: objects/buildings/commercial/windmill
+Export Propagate: 3
 Animated: True
 Revision: $Revision$
 Date: $Date$
