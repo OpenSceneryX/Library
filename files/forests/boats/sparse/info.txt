@@ -1,9 +1,0 @@
-Title: Boat Forest, Sparse
-Short Title: Sparse
-=====================
-Author: Denmeul
-Email: xpo@denmeul.nl
-Revision: $Revision$
-Date: $Date$
-=====================
-Description: A forest with boat images to jazz up your fresh water lakes and coastal areas.

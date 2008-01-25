@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../dense/sail.png
+TEXTURE ../1/sail.png
 
 LOD 5000.000000
 
