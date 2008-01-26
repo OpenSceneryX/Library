@@ -1,6 +1,7 @@
 Title: Hangar, Metal, Long, Asymmetrical Roof
 =====================
 Author: Bob Feaver
+URL: http://forums.x-plane.org/index.php?showuser=7029
 Revision: $Revision$
 Date: $Date$
 =====================
