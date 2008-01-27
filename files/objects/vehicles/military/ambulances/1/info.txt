@@ -1,5 +1,6 @@
 Title: Ambulance, Military
 =====================
+Exclude: Not added because model is overly complex - Seems to be three overlayed objects and UV is not editable in Blender either
 Author: Tony Brown
 Email: aebrown1013@gmail.com
 Height: 6.1m
