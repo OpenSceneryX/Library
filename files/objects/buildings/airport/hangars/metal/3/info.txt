@@ -2,6 +2,9 @@ Title: Hangar, Metal, Long with Office
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
+Width: 17.9m
+Depth: 61.1m
+Height: 7.6m
 Revision: $Revision$
 Date: $Date$
 =====================

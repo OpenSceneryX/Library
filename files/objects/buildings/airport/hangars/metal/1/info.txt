@@ -2,6 +2,9 @@ Title: Hangar, Metal, Long, Symmetrical Roof
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
+Width: 15.3m
+Depth: 34.4m
+Height: 5.9m
 Revision: $Revision$
 Date: $Date$
 =====================
