@@ -9,11 +9,10 @@
 }
 
 /*--------------------------------------------------
-  .tabber = before the tabber interface is set up
+  .tabber = before the tabber interface is set upm, defined in the page
+            so that the tabber doesn't show then hide
   .tabberlive = after the tabber interface is set up
   --------------------------------------------------*/
-.tabber {
-}
 .tabberlive {
  margin-top:1em;
 }
