@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		../../../../shared_textures/bertrand_augras/aeroflot/texture.png
-TEXTURE_LIT	../../../../shared_textures/bertrand_augras/aeroflot/texture_LIT.png
+TEXTURE		../../../../../shared_textures/bertrand_augras/aeroflot/texture.png
+TEXTURE_LIT	../../../../../shared_textures/bertrand_augras/aeroflot/texture_LIT.png
 POINT_COUNTS	361 0 0 966
 
 VT	  -2.8871    0.0647    7.3879	 0.000  1.000 -0.000	0.2967 0.1615
