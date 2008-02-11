@@ -1,4 +1,4 @@
-Title: Chain Fence (small)
+Title: Chain Fence, Open
 =====================
 Author: Jonathan Harris
 URL: http://marginal.org.uk/x-planescenery
@@ -6,4 +6,4 @@ Email: x-plane@marginal.org.uk
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A chain-link fence. Suitable for small (ie <20m) lengths.
+Description: A chain-link fence using an open facade so a gap will be present between the last node and the first.
