@@ -1,0 +1,8 @@
+Title: Crane
+=====================
+Author: Luke173
+URL: http://forums.x-plane.org/index.php?showuser=7280
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A large construction crane.
