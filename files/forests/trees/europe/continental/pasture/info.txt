@@ -1,7 +1,7 @@
 Title: European Pasture, Continental
 Short Title: Pasture
 =====================
-Author: alpilotx
+Author: Andras Fabian
 URL: http://www.alpilotx.de/
 Author, texture: Albert Laubi
 Author, texture: Sergio Santagada

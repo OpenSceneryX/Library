@@ -4,23 +4,25 @@ FOREST
 
 TEXTURE ../../../Euro_trees.png
 
-LOD 8000.000000
+LOD 15000.000000
 
 SCALE_X 1024
 SCALE_Y 1024
 
-SPACING 10.00 10.00
-RANDOM 3.00 3.00
+SPACING 8.00 8.00
+RANDOM 7.00 7.00
 
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-TREE	448	896	64	64	32	10	6	9	2	0	Mb1
-TREE	832	768	64	95	32	3	4	6	2	0	Sa2
-TREE	128	896	64	64	32	11	4	7	2	0	Sb2
-TREE	64	864	64	32	32	5	3	4	1	0	Sb3
-TREE	128	864	64	31	32	20	3	4	1	0	Sc1
-TREE	384	896	64	64	32	50	6	10	2	0	Sc3
-TREE	960	768	64	96	32	1	9	9	1	0	Sd3
+TREE	1	960	64	64	38	23	4	7	2	0	SClaur1
+TREE	68	960	64	64	32	23	4	7	2	0	SClaur2
+TREE	137	960	68	64	34	23	5	8	2	0	SClaur3
+TREE	443	765	79	96	39	2	8	13	2	0	BRspec2
+TREE	176	896	63	55	31	10	4	6	2	0	SHconi2
+TREE	78	896	50	64	25	4	4	6	2	0	SHdeci2s
+TREE	64	864	64	32	32	6	2	2	2	0	SHdeci3
+TREE	130	864	64	31	32	6	2	2	2	0	SHscle1
+TREE	197	864	59	29	30	3	2	2	2	0	SHscle2
 
 SKIP_SURFACE water

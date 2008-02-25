@@ -1,7 +1,7 @@
 Title: European Forest, Black Sea, Fruit
 Short Title: Fruit
 =====================
-Author: alpilotx
+Author: Andras Fabian
 URL: http://www.alpilotx.de/
 Author, texture: Albert Laubi
 Author, texture: Sergio Santagada

@@ -1,7 +1,7 @@
 Title: European Forest, Steppic, Olive
 Short Title: Olive
 =====================
-Author: alpilotx
+Author: Andras Fabian
 URL: http://www.alpilotx.de/
 Author, texture: Albert Laubi
 Author, texture: Sergio Santagada

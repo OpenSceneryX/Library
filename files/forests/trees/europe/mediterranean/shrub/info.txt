@@ -1,7 +1,7 @@
 Title: European Shrubland, Mediterranean
 Short Title: Shrubland
 =====================
-Author: alpilotx
+Author: Andras Fabian
 URL: http://www.alpilotx.de/
 Author, texture: Albert Laubi
 Author, texture: Sergio Santagada

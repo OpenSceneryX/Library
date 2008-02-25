@@ -4,20 +4,21 @@ FOREST
 
 TEXTURE ../../../Euro_trees.png
 
-LOD 8000.000000
+LOD 15000.000000
 
 SCALE_X 1024
 SCALE_Y 1024
 
-SPACING 12.00 18.00
-RANDOM 0.00 0.00
+SPACING 18.00 18.00
+RANDOM 2.00 2.00
 
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-TREE	0	640	127	126	64	50	9	12	2	0	Pa1
-TREE	128	640	127	126	64	49	9	12	2	0	Pa2
-TREE	768	512	128	128	64	0.6	16	25	2	0	Bb5
-TREE	576	0	64	127	32	0.4	27	35	2	0	Bc1
+TREE	211	640	116	123	58	50	9	12	2	0	FRmalu1
+TREE	330	640	118	126	59	48.4	8	11	2	0	FRmalu2
+TREE	481	512	94	127	47	0.6	19	24	2	0	BRacer
+TREE	768	512	104	128	52	0.6	17	22	2	0	BRcarp
+TREE	982	0	42	144	21	0.4	26	32	2	0	BRpopu2
 
 SKIP_SURFACE water

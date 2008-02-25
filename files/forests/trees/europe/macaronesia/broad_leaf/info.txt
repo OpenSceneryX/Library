@@ -1,7 +1,7 @@
 Title: European Forest, Macaronesia, Broad Leaf
 Short Title: Broad Leaf
 =====================
-Author: alpilotx
+Author: Andras Fabian
 URL: http://www.alpilotx.de/
 Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
