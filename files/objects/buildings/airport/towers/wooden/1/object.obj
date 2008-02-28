@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		plymouth.png
-TEXTURE_LIT	plymouth_LIT.png
 POINT_COUNTS	2208 0 1 4506
 
 VT	   1.9974    6.5991   -2.9527	 0.000  0.000 -1.000	0.0    0.0   
