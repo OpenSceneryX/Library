@@ -149,7 +149,11 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			if (result.group(1) == ""):
 				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
-				destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:result.group(1).rfind("/")]) 
+				lastSlash = result.group(1).rfind("/")
+				if (lastSlash > -1):
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:lastSlash])
+				else:
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2])
 				if not os.path.isdir(destinationTexturePath): 
 					# Create destination texture path if it doesn't already exist
 					os.makedirs(destinationTexturePath)
