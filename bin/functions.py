@@ -772,12 +772,15 @@ def displayMessage(message, type="message"):
 	if (type == "error"):
 		pcrt.fg(pcrt.RED)
 		print "ERROR: " + message,
+		pcrt.fg(pcrt.WHITE)
 	elif (type == "warning"):
 		pcrt.fg(pcrt.YELLOW)
 		print "WARNING: " + message,
+		pcrt.fg(pcrt.WHITE)
 	elif (type == "note"):
 		pcrt.fg(pcrt.CYAN)
 		print "NOTE: " + message,
+		pcrt.fg(pcrt.WHITE)
 	elif (type == "message"):
 		pcrt.fg(pcrt.WHITE)
 		print message,
