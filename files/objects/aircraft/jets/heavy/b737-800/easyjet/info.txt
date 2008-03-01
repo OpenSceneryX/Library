@@ -1,4 +1,4 @@
-Title: B737-800 Easyjet
+Title: B737-800 easyJet
 =====================
 Author: Benedikt Stratmann
 URL: http://www.stratmann-web.net/
@@ -11,4 +11,4 @@ Export: objects/aircraft/livery/easyjet/b737-800
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Boeing 737-800 in Easyjet livery.
+Description: A Boeing 737-800 in easyJet livery.
