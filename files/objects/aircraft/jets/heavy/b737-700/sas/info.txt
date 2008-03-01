@@ -1,0 +1,13 @@
+Title: B737-700 SAS
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b737
+Export: objects/aircraft/livery/sas/b737-700
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 737-700 in SAS livery.

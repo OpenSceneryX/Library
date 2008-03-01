@@ -1,0 +1,12 @@
+Title: MD11 SunExpress
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/livery/sunexpress/md11
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An MD11 in SunExpress livery.

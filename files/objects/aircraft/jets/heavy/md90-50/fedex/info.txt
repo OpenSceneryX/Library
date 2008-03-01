@@ -1,0 +1,13 @@
+Title: MD90-50 FedEx
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/md90
+Export: objects/aircraft/livery/fedex/md90-50
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An MD90-50 in FedEx livery.

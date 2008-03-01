@@ -1,0 +1,12 @@
+Title: Dornier D328 Meridiana
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/livery/meridiana/dornier-d328
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Dornier D328 in Meridiana livery.

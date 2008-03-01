@@ -1,0 +1,13 @@
+Title: B757-200 PrivatAir
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b757
+Export: objects/aircraft/livery/privatair/b757-200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 757-200 in PrivatAir livery.

@@ -1,0 +1,12 @@
+Title: BAE Avro RJ70 DHL
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/livery/dhl/avro-rj70
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A BAE Avro RJ70 in DHL livery.

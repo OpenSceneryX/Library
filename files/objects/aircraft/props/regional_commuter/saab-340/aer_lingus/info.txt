@@ -1,0 +1,12 @@
+Title: Saab 340 Aer Lingus
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/livery/aer_lingus/saab-340
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Saab 340 in Aer Lingus livery.

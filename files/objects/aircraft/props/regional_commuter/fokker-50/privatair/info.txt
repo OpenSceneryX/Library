@@ -1,0 +1,12 @@
+Title: Fokker 50 PrivatAir
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
+Export Propagate: 1
+Export: objects/aircraft/livery/privatair/fokker-50
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Fokker 50 in PrivatAir livery.
