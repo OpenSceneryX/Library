@@ -1,10 +1,9 @@
 Title: B747-400 Singapore
 =====================
-Author: Morton Melhuus
-Author: Matt Moriarty
-Author, texture: David Hossack
-Author, conversion: Jochen Haink
-URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Falcon
+URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/singapore/b747-400
