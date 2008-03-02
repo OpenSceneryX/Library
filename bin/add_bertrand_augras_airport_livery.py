@@ -82,7 +82,7 @@ try:
 			fullAeroflotPath = "trunk/" + filesFolder + "/" + aircraftPath + "/aeroflot"
 			
 			if os.path.isdir(fullDestinationPath):
-				functions.displayMessage(fullDestinationPath + " already exists, skipping\n", "note")
+				functions.displayMessage(fullDestinationPath + " already exists, skipping\n", "warning")
 			else:
 				# Create the destination folder
 				os.mkdir(fullDestinationPath)
