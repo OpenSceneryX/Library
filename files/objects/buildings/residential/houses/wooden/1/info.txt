@@ -1,0 +1,8 @@
+Title: House, Wooden, Single Storey, Small, Blue
+=====================
+Author: nickster
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A single-storey small blue wooden house.

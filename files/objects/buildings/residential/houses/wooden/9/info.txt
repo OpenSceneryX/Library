@@ -1,0 +1,8 @@
+Title: House, Wooden, Two Storey, Large, White
+=====================
+Author: nickster
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A two storey large white wooden house with a garage.
