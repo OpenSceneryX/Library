@@ -89,12 +89,16 @@ class SceneryObject:
 		self.infoFilePath = ""
 		self.screenshotFilePath = ""
 		self.deprecatedVirtualPaths = []
+		self.sceneryTextures = []
 
 	def getFilePath(self):
 		return os.path.join(self.filePathRoot, self.fileName)
 
 	def __cmp__(self, other):
 		return cmp(self.title, other.title)
+	
+	def getDocumentationFileName(self):
+		return self.title + ".html"
 
 
 #
@@ -161,6 +165,16 @@ class SceneryCategory:
 	def __cmp__(self, other):
 		return cmp(self.title, other.title)
 
+
+#
+# Class to hold information about a texture
+#
+class SceneryTexture:
+	"A scenery texture"
+	
+	def __init__(self, filePath):
+		self.fileName = os.path.basename(filePath)
+		self.sceneryObjects = []
 
 
 #

@@ -135,13 +135,25 @@ try:
 		
 		authors = []
 		rootCategory = classes.SceneryCategory("")
+		# 'textures' contains a dictionary where the key is the texture filepath
+		# and the value is a SceneryTexture object
+		textures = {}
 		
-		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors)
+		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures)
 		
 		functions.caseinsensitive_sort(authors)
 		rootCategory.sort()
+		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Building Category Landing Pages\n")
 		functions.buildCategoryLandingPages(rootCategory, 0)
 		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Building Object Documentation\n")
+		functions.buildDocumentation(rootCategory, 0)
+		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Building ancilliary files\n")
 		toc = functions.getHTMLTOC(rootCategory)
 		htmlIndexFileHandle.write(toc)
 		htmlWebIndexFileHandle.write(toc)

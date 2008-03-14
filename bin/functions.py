@@ -26,7 +26,7 @@ def buildCategoryLandingPages(sceneryCategory, depth):
 		htmlFileContent += "<h2>" + sceneryCategory.title + " Variants</h2>\n"
 		
 		for sceneryObject in sceneryCategory.getSceneryObjects(1):
-			htmlFileContent += "<h3><a href='" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.title + "</a></h3><a href='" + urllib.pathname2url(sceneryObject.title + ".html") + "' class='nounderline'>"
+			htmlFileContent += "<h3><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h3><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
 			if (sceneryObject.screenshotFilePath != ""):
 				htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' />"
 			else:
@@ -54,7 +54,7 @@ def buildCategoryLandingPages(sceneryCategory, depth):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures):
 	contents = os.listdir(dirPath)
 	
 	# Handle category descriptor first, if present
@@ -65,20 +65,20 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures)
 
 
 
@@ -91,7 +91,7 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -127,11 +127,21 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		result = v7TexturePattern.match(line)
 		if result:
 			textureFound = 1
-			textureFile = os.path.join(dirpath, result.group(1) + ".png")
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1) + ".png"))
 			litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
 			if (result.group(1) == ""):
 				displayMessage("Object (v7) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + ".png"))
 				if os.path.isfile(litTextureFile):
 					shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + "LIT.png"))
@@ -145,10 +155,20 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		result = v8TexturePattern.match(line)
 		if result:
 			textureFound = textureFound + 1
-			textureFile = os.path.join(dirpath, result.group(1))
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
 				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+				
 				lastSlash = result.group(1).rfind("/")
 				if (lastSlash > -1):
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:lastSlash])
@@ -171,8 +191,18 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		result = v8LitTexturePattern.match(line)
 		if result:
 			textureFound = textureFound + 1
-			textureFile = os.path.join(dirpath, result.group(1))
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
@@ -201,7 +231,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -235,10 +265,20 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		result = v8TexturePattern.match(line)
 		if result:
 			textureFound = 1
-			textureFile = os.path.join(dirpath, result.group(1))
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
 				displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
@@ -267,7 +307,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -301,10 +341,20 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		result = v8TexturePattern.match(line)
 		if result:
 			textureFound = 1
-			textureFile = os.path.join(dirpath, result.group(1))
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
 				displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
 			elif os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+				
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
@@ -537,21 +587,38 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 		# Default is to append to the description
 		sceneryObject.description += "<p>" + line + "</p>"
 		
-		
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + " Tutorial.pdf")
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
+	
+	return 1
 
 
+
+def buildDocumentation(sceneryCategory, depth):
+	for sceneryObject in sceneryCategory.getSceneryObjects(0):
+		writeHTMLDocFile(sceneryObject)
+		
+	# Recurse
+	children = sceneryCategory.childSceneryCategories
+	for childCategory in children:
+		buildDocumentation(childCategory, depth + 1)
+
+
+
+def writeHTMLDocFile(sceneryObject):
 	htmlFileContent = ""
 	htmlFileContent += "<div id='content'>\n"
 	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
 	htmlFileContent += "<h3>Virtual Paths</h3>\n"
+	
 	for virtualPath in sceneryObject.virtualPaths:
 		htmlFileContent += virtualPath + "<br />\n"
+		
 	htmlFileContent += "</div>\n"
+	
 	if (not sceneryObject.deprecatedVirtualPaths == []):
 		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
 		htmlFileContent += "<h3>Deprecated Paths</h3>\n"
@@ -559,10 +626,12 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
 	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(parts[2], "screenshot.jpg") + "'>\n"
+		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "'>\n"
 	else:
 		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png'>\n"
+
 	htmlFileContent += "<ul class='mainItemDetails'>\n"
+	
 	if (not sceneryObject.author == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
 		if (not sceneryObject.url == ""):
@@ -573,7 +642,6 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
-
 		htmlFileContent += "</li>\n"
 		
 	if (not sceneryObject.textureAuthor == ""):
@@ -586,7 +654,6 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
-
 		htmlFileContent += "</li>\n"
 		
 	if (not sceneryObject.conversionAuthor == ""):
@@ -599,7 +666,6 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
-
 		htmlFileContent += "</li>\n"
 
 	if (not sceneryObject.description == ""):
@@ -616,25 +682,32 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 	if (sceneryObject.tutorial):
 		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n"
+	
+	for texture in sceneryObject.sceneryTextures:
+		if len(texture.sceneryObjects) > 1:
+			# This scenery object shares a texture with other objects
+			htmlFileContent += "<li><span class='fieldTitle'>Texture '" + texture.fileName + "' shared with:</span>"
+			htmlFileContent += "<ul>"
+			for sharedTextureObject in texture.sceneryObjects:
+				htmlFileContent += "<li><span class='fieldValue'><a href='" + sharedTextureObject.getDocumentationFileName() + "'>" + sharedTextureObject.title + "</a></span></li>"
+			htmlFileContent += "</ul></li>"
 		
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "</div>"
 
-	htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
+	htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
 	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
 	htmlFileHandle.write(htmlFileContent)
 	htmlFileHandle.write(getHTMLFooter(""))
 	htmlFileHandle.close()
 	
-	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.title + ".html", "w")
+	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
 	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
 	htmlFileHandle.write(htmlFileContent)
 	htmlFileHandle.write(getHTMLFooter(""))
 	htmlFileHandle.close()
 	
 	return 1
-
-
 
 
 
@@ -724,7 +797,7 @@ def getHTMLTOC(rootCategory):
 def getHTMLSceneryObjects(sceneryObjects):
 	result = ""
 	for sceneryObject in sceneryObjects:
-		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.title + ".html") + "'>" + sceneryObject.shortTitle
+		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle
 		if (sceneryObject.screenshotFilePath != ""):
 			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
 		else:
