@@ -1,6 +1,7 @@
 Title: House, Wooden, Single Storey, Medium, Pink
 =====================
-Author: nickster
+Author: Nick Ward
+Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Revision: $Revision$
 Date: $Date$
