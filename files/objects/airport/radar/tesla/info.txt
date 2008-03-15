@@ -1,0 +1,9 @@
+Title: Radar, TESLA
+=====================
+Author: ROMELLA
+URL: http://forums.x-plane.org/index.php?showuser=37063
+Animated: True
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A TESLA radar installation.
