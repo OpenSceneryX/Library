@@ -94,35 +94,18 @@ try:
 		functions.displayMessage("Copying files\n")
 		shutil.copyfile("trunk/support/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 		shutil.copyfile("trunk/support/tabbo.css", classes.Configuration.osxFolder + "/doc/tabbo.css")
-		shutil.copyfile("trunk/support/collapso.css", classes.Configuration.osxFolder + "/doc/collapso.css")
 		shutil.copyfile("trunk/support/tabbo.js", classes.Configuration.osxFolder + "/doc/tabbo.js")
-		shutil.copyfile("trunk/support/collapso.js", classes.Configuration.osxFolder + "/doc/collapso.js")
-		shutil.copyfile("trunk/support/cube.gif", classes.Configuration.osxFolder + "/doc/cube.gif")
-		shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxFolder + "/doc/bullet_object.gif")
 		shutil.copyfile("trunk/support/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
-		shutil.copyfile("trunk/support/pdf.gif", classes.Configuration.osxFolder + "/doc/pdf.gif")
-		shutil.copyfile("trunk/support/tutorial.gif", classes.Configuration.osxFolder + "/doc/tutorial.gif")
-		shutil.copyfile("trunk/support/animated.gif", classes.Configuration.osxFolder + "/doc/animated.gif")
-		shutil.copyfile("trunk/support/variations.gif", classes.Configuration.osxFolder + "/doc/variations.gif")
-		shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxFolder + "/doc/screenshot_missing.png")
-		
-		shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
-		shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
-		shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 		
 		shutil.copyfile("trunk/support/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile("trunk/support/tabbo.css", classes.Configuration.osxDeveloperPackFolder + "/doc/tabbo.css")
-		shutil.copyfile("trunk/support/collapso.css", classes.Configuration.osxDeveloperPackFolder + "/doc/collapso.css")
 		shutil.copyfile("trunk/support/tabbo.js", classes.Configuration.osxDeveloperPackFolder + "/doc/tabbo.js")
-		shutil.copyfile("trunk/support/collapso.js", classes.Configuration.osxDeveloperPackFolder + "/doc/collapso.js")
 		shutil.copyfile("trunk/support/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
 		shutil.copyfile("trunk/support/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.gif")
 		
 		shutil.copyfile("trunk/support/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
 		shutil.copyfile("trunk/support/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
-		shutil.copyfile("trunk/support/collapso.css", classes.Configuration.osxWebsiteFolder + "/doc/collapso.css")
 		shutil.copyfile("trunk/support/tabbo.js", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.js")
-		shutil.copyfile("trunk/support/collapso.js", classes.Configuration.osxWebsiteFolder + "/doc/collapso.js")
 		shutil.copyfile("trunk/support/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
 		shutil.copyfile("trunk/support/bullet_object.gif", classes.Configuration.osxWebsiteFolder + "/doc/bullet_object.gif")
 		shutil.copyfile("trunk/support/cc_logo.png", classes.Configuration.osxWebsiteFolder + "/doc/cc_logo.png")
@@ -132,6 +115,10 @@ try:
 		shutil.copyfile("trunk/support/variations.gif", classes.Configuration.osxWebsiteFolder + "/doc/variations.gif")
 		shutil.copyfile("trunk/support/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 		shutil.copyfile("trunk/support/screenshot_missing.png", classes.Configuration.osxWebsiteFolder + "/doc/screenshot_missing.png")
+		
+		shutil.copyfile("trunk/support/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
+		shutil.copyfile("trunk/support/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
+		shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 		
 		authors = []
 		rootCategory = classes.SceneryCategory("")
@@ -155,7 +142,6 @@ try:
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building ancilliary files\n")
 		toc = functions.getHTMLTOC(rootCategory)
-		htmlIndexFileHandle.write(toc)
 		htmlWebIndexFileHandle.write(toc)
 		
 		authors = ", ".join(authors[:-1]) + " and " + authors[-1]

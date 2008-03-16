@@ -35,12 +35,6 @@ def buildCategoryLandingPages(sceneryCategory, depth):
 			
 		htmlFileContent += "</div>\n"
 
-		htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants"))
-		htmlFileHandle.write(htmlFileContent)
-		htmlFileHandle.write(getHTMLFooter(""))
-		htmlFileHandle.close()
-
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
 		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants"))
 		htmlFileHandle.write(htmlFileContent)
@@ -420,7 +414,6 @@ def copySupportFiles(dirpath, parts, sceneryObject):
 	shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
 	
 	if (sceneryObject.screenshotFilePath != ""):
-		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "screenshot.jpg"))
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
 	
 	return 1
@@ -589,7 +582,6 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 		
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
-		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.title + " Tutorial.pdf")
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
 	
 	return 1
@@ -695,12 +687,6 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "</div>"
 
-	htmlFileHandle = open(classes.Configuration.osxFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
-	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
-	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.write(getHTMLFooter(""))
-	htmlFileHandle.close()
-	
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
 	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
 	htmlFileHandle.write(htmlFileContent)
