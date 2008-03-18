@@ -33,11 +33,11 @@ def buildCategoryLandingPages(sceneryCategory, depth):
 				htmlFileContent += "<img src='screenshot_missing.png' />"
 			htmlFileContent += "</a>\n"
 			
-		htmlFileContent += "</div>\n"
-
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants"))
+		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True))
 		htmlFileHandle.write(htmlFileContent)
+		htmlFileHandle.write(getHTMLSponsoredLinks())
+		htmlFileHandle.write("</div>\n")
 		htmlFileHandle.write(getHTMLFooter(""))
 		htmlFileHandle.close()
 
@@ -685,11 +685,13 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "</ul></li>"
 		
 	htmlFileContent += "</ul>\n"
-	htmlFileContent += "</div>"
+	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>";
 
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
-	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title))
+	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, 1))
 	htmlFileHandle.write(htmlFileContent)
+	htmlFileHandle.write(getHTMLSponsoredLinks())
+	htmlFileHandle.write("</div>")
 	htmlFileHandle.write(getHTMLFooter(""))
 	htmlFileHandle.close()
 	
@@ -697,7 +699,7 @@ def writeHTMLDocFile(sceneryObject):
 
 
 
-def getHTMLHeader(documentationPath, mainTitle, titleSuffix):
+def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
 	result += "					 \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
@@ -712,13 +714,68 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix):
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<div id='header'>\n"
+	if includeSearch:
+		result += "<div style='float:right;'>"
+		result += "<!-- SiteSearch Google -->"
+		result += "<form method='get' action='http://www.google.com/custom' target='_top'>"
+		result += "<table border='0' bgcolor='#3333aa'>"
+		result += "<tr><td nowrap='nowrap' valign='top' align='left' height='32'>"
+		result += "</td>"
+		result += "<td nowrap='nowrap'>"
+		result += "<input type='hidden' name='domains' value='www.opensceneryx.com'></input>"
+		result += "<label for='sbi' style='display: none'>Enter your search terms</label>"
+		result += "<input type='text' name='q' size='31' maxlength='255' value='' id='sbi'></input>"
+		result += "<label for='sbb' style='display: none'>Submit search form</label>"
+		result += "<input type='submit' name='sa' value='Google Search' id='sbb'></input>"
+		result += "</td></tr>"
+		result += "<tr>"
+		result += "<td>&nbsp;</td>"
+		result += "<td nowrap='nowrap'>"
+		result += "<table>"
+		result += "<tr>"
+		result += "<td>"
+		result += "<input type='radio' name='sitesearch' value='' checked id='ss0'></input>"
+		result += "<label for='ss0' title='Search the Web'><font size='-1' color='#ffffff'>Web</font></label></td>"
+		result += "<td>"
+		result += "<input type='radio' name='sitesearch' value='www.opensceneryx.com' id='ss1'></input>"
+		result += "<label for='ss1' title='Search www.opensceneryx.com'><font size='-1' color='#ffffff'>www.opensceneryx.com</font></label></td>"
+		result += "</tr>"
+		result += "</table>"
+		result += "<input type='hidden' name='client' value='pub-5631233433203577'></input>"
+		result += "<input type='hidden' name='forid' value='1'></input>"
+		result += "<input type='hidden' name='ie' value='ISO-8859-1'></input>"
+		result += "<input type='hidden' name='oe' value='ISO-8859-1'></input>"
+		result += "<input type='hidden' name='safe' value='active'></input>"
+		result += "<input type='hidden' name='cof' value='GALT:#3333AA;GL:1;DIV:#3333AA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:3333AA;ALC:3333AA;LC:3333AA;T:000000;GFNT:3333AA;GIMP:3333AA;LH:50;LW:230;L:http://www.opensceneryx.com/extras/osx.gif;S:http://www.opensceneryx.com;FORID:1'></input>"
+		result += "<input type='hidden' name='hl' value='en'></input>"
+		result += "</td></tr></table>"
+		result += "</form>"
+		result += "<!-- SiteSearch Google -->"
+		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
 	result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a> - <strong>Built on: </strong><script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
 	result += "</div>\n"
+	result += "<div style='clear:both;'>&nbsp;</div>"
+
 	return result
 
 
 
+def getHTMLSponsoredLinks():
+	result = "<div id='google' style='display:block; height: 30px; background-color: #3333aa;'>"
+	result += "<script type='text/javascript'><!--"
+	result += "google_ad_client = 'pub-5631233433203577';"
+	result += "/* 728x15, created 18/03/08 */"
+	result += "google_ad_slot = '0268115694';"
+	result += "google_ad_width = 728;"
+	result += "google_ad_height = 30;"
+	result += "//-->"
+	result += "</script>"
+	result += "<script type='text/javascript'"
+	result += "src='http://pagead2.googlesyndication.com/pagead/show_ads.js'>"
+	result += "</script>"
+	result += "</div>"
+	return result
 
 
 def getHTMLFooter(documentationPath):

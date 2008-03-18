@@ -72,21 +72,21 @@ try:
 		functions.displayMessage("Creating HTML files\n")
 		
 		htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", False))
 		htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", "", False))
 		jsVersionInfoFileHandle = open(classes.Configuration.osxFolder + "/doc/versionInfo.js", "w")
 
 		htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
-		htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", ""))
+		htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", "", False))
 		htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
-		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", "", False))
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
 		
 		htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
-		htmlWebIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+		htmlWebIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", True))
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
-		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", ""))
+		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", "", True))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
 		
 		
@@ -163,9 +163,9 @@ try:
 		file = open("trunk/support/_releasenotes.html", "r")
 		fileContents = file.read()
 		file.close()
-		htmlReleaseNotesFileHandle.write(fileContents)
-		htmlDeveloperReleaseNotesFileHandle.write(fileContents)
-		htmlWebReleaseNotesFileHandle.write(fileContents)
+		htmlReleaseNotesFileHandle.write("<div id='content'>" + fileContents + "</div>")
+		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'>" + fileContents + "</div>")
+		htmlWebReleaseNotesFileHandle.write("<div id='content'>" + fileContents + functions.getHTMLSponsoredLinks() + "</div>")
 		
 		file = open("trunk/support/_webindex.html", "r")
 		fileContents = file.read()
@@ -190,6 +190,7 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
+		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
 		htmlWebIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		
 		htmlIndexFileHandle.close()
