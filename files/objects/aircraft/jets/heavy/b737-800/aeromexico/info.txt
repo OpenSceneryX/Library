@@ -1,0 +1,15 @@
+Title: B737-800 Aeromexico
+=====================
+Author: Benedikt Stratmann
+URL: http://www.stratmann-web.net/
+Author, conversion: Jochen Haink
+URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
+Author, texture: Hector Tanus
+URL, texture: http://forums.x-plane.org/index.php?showuser=6458
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b737
+Export: objects/aircraft/livery/aeromexico/b737-800
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 737-800 in Aeromexico livery.

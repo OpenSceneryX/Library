@@ -1,0 +1,14 @@
+Title: A320 Frontier (Cougar)
+=====================
+Author: X-Plane&reg; Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, conversion: Jochen Haink
+URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
+Author, texture: Hector Tanus
+URL, texture: http://forums.x-plane.org/index.php?showuser=6458
+Export Propagate: 1
+Export: objects/aircraft/livery/frontier/cougar/a320
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 320 in Frontier livery, Cougar variant.
