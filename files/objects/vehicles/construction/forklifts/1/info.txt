@@ -1,0 +1,8 @@
+Title: Fork Lift
+=====================
+Author: Reuben Mowbray
+Email: reubenm@xplanefreeware.net
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Yellow fork lift truck.
