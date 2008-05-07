@@ -18,6 +18,8 @@
 		<li>Modified the texture for the fences, changing it from an indexed-colour PNG to an RGB PNG and adding an alpha channel corresponding to the background colour.  Some users were having issues with this texture displaying badly.</li>
 		<li>Modified the small airport containers, they were partly underground.</li>
 		<li>Fixed the LearJet 60 so that its orientation is correct</li>
+		<li>Scaled down the texture size on the container and railings</li>
+		<li>Fixed all the texture dimensions (power of 2) on the animals</li>
 	</ul>
 </li>
 <li>Other changes:
@@ -26,7 +28,8 @@
 		<li>The documentation for each object now contains a list of all other objects that share a texture with it.  This is useful for careful selection of objects to improve frame-rates.  Thanks go to amerrir for this suggestion.</li>
 		<li>Re-structured the buildings and structures section of the documentation, because we're getting quite a few objects here now</li>
 		<li>The web documentation now includes a Google search box for searching the site</li>
-		<li>The web documentation now has discreet Google sponsored links, to help pay for the web server and future source code server.</li>
+		<li>The web documentation now has discreet Google sponsored links, to help pay for the web server and future source code server.<br/>
+		<small><strong>Note from the maintainer:</strong> <em>Please don't shout at me for this, I categorically state that the library will never in any way be commercial, I just need some financial help with the hosting.</em></small></li>
 	</ul>
 </li>
 </ul>
@@ -90,6 +93,7 @@
 <li>Other changes:
 	<ul>
 		<li>Objects with multiple authors are now handled more elegantly - The author lines can be repeated in the info files and this is now parsed correctly and displayed in the documentation.</li>
+		<li>Deprecated paths are now marked as such in the library for future use by authoring applications.</li>
 	</ul>
 </li>
 </ul>
