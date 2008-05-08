@@ -1,0 +1,10 @@
+Title: A6M 'Zero'
+=====================
+Author: Jacques Brault
+URL: http://forums.x-plane.org/index.php?showuser=6528
+Author, conversion: Ralf Kutscher
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An A6M 'Zero' in Imperial Japanese Navy Air Service livery.
