@@ -63,8 +63,8 @@ try:
 		functions.displayMessage("Creating library.txt\n")
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader())
-		libraryPlaceholderFileHandle.write(functions.getLibraryHeader())
+		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
+		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag))
 		
 		
 		

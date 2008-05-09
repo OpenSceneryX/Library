@@ -864,10 +864,13 @@ def getHTMLSceneryObjects(sceneryObjects):
 
 
 
-def getLibraryHeader():
+def getLibraryHeader(versionTag):
 	result = "A\n"
 	result += "800\n"
 	result += "LIBRARY\n"
+	result += "\n"
+	result += "# Version: v" + versionTag + "\n"
+	result += "\n"
 	return result
 
 
