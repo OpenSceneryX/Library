@@ -1,0 +1,10 @@
+Title: F-16C Fighting Falcon, USAF
+=====================
+Author: Jacques Brault
+URL: http://forums.x-plane.org/index.php?showuser=6528
+Author, conversion: Ralf Kutscher
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An F-16C Fighting Falcon in USAF livery.
