@@ -3,7 +3,7 @@ Title: Convair C-131 "Samaritan"
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
-Export Propagate: 1
+Export Propagate: 3
 Revision: $Revision$
 Date: $Date$
 =====================

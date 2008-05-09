@@ -3,7 +3,7 @@ Title: Supermarine Spitfire, RAF
 Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
-Export Propagate: 1
+Export Propagate: 3
 Revision: $Revision$
 Date: $Date$
 =====================

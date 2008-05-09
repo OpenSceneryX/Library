@@ -5,7 +5,7 @@ URL: http://www.stratmann-web.net/
 Author, texture: Atypik Design
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
-Export Propagate: 1
+Export Propagate: 3
 Export: objects/aircraft/jets/military/b737
 Revision: $Revision$
 Date: $Date$
