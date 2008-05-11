@@ -762,17 +762,16 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 
 
 def getHTMLSponsoredLinks():
-	result = "<div id='google' style='display:block; height: 30px; background-color: #3333aa;'>"
-	result += "<script type='text/javascript'><!--"
-	result += "google_ad_client = 'pub-5631233433203577';"
-	result += "/* 728x15, created 18/03/08 */"
-	result += "google_ad_slot = '0268115694';"
-	result += "google_ad_width = 728;"
-	result += "google_ad_height = 30;"
-	result += "//-->"
-	result += "</script>"
-	result += "<script type='text/javascript'"
-	result += "src='http://pagead2.googlesyndication.com/pagead/show_ads.js'>"
+	result = "<div id='google' style='display:block; height: 30px; background-color: #3333aa;'>\n"
+	result += "<script type='text/javascript'><!--\n"
+	result += "google_ad_client = 'pub-5631233433203577';\n"
+	result += "/* 728x15, created 18/03/08 */\n"
+	result += "google_ad_slot = '0268115694';\n"
+	result += "google_ad_width = 728;\n"
+	result += "google_ad_height = 30;\n"
+	result += "//-->\n"
+	result += "</script>\n"
+	result += "<script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'>\n"
 	result += "</script>"
 	result += "</div>"
 	return result
