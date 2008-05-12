@@ -710,7 +710,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 	result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
-	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>"
+	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<div id='header'>\n"

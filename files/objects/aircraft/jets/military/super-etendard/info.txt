@@ -1,4 +1,4 @@
-Title: Mirage IIIE, French Air Force
+Title: Super Étendard, Aviation Navale
 =====================
 Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
@@ -7,4 +7,4 @@ Export Propagate: 3
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Mirage IIIE in French Air Force livery.
+Description: A Super Étendard in Aviation Navale livery.

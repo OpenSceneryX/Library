@@ -1,6 +1,6 @@
 Title: Embraer 170 House
 =====================
-Author: Christian Rivière
+Author: Christian Rivi√®re
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Revision: $Revision$
