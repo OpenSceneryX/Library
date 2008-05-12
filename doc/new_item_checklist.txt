@@ -1,0 +1,17 @@
+Checklist for New Items
+=======================
+
+0. Investigate copyright
+
+1. Check object origin (tip of nose for aircraft) on all LOD layers
+
+2. Check object size
+
+3. Check orientation (0 degrees) on all LOD layers
+
+4. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
+
+5. Check texture size and check powers of 2, scale down if appropriate
+
+6. Run textures through Ping
+

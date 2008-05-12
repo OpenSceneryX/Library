@@ -1,0 +1,50 @@
+Release Howto
+=============
+
+1. Update release notes to include version and date
+
+2. Check "Enhanced By" logo is at correct version number
+
+3. Clean target folder and build library
+
+4. Create a copy of the built folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
+
+5. Run Manifester on built folder and save manifext.xml
+
+6. Run Packager
+
+7. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
+
+8. Upload zips into /new/
+
+9. Upload manifest.xml into /new/
+
+10. Copy /index.html into /old/
+
+11. Extract website zip on site into /new/
+
+12. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+
+13. Copy /index_offline.html over /index.html
+
+14. Move /doc/, /facades/, /forests/, /manifest.xml, /objects/ and /repository/ into /old/
+
+15. Copy /downloads/ into /old/
+
+16. Move /new/OpenSceneryX-x.x.x/ to /repository/
+
+17. Move contents of /new/OpenSceneryX-Website-x.x.x/ to /
+
+18. Move /new/manifest.xml to /
+
+19. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+
+20. chgrp -R www *
+
+21. Ensure /versioninfo has the latest information about the installer in it.
+
+22. Move /new/index.html over /index.html
+
+23. Upload the monolithic zip file 'OpenSceneryX.zip' into /new/
+
+24. When upload complete, move /new/OpenSceneryX.zip to /downloads/
