@@ -121,7 +121,7 @@ try:
 		shutil.copyfile("trunk/support/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 		
 		authors = []
-		rootCategory = classes.SceneryCategory("")
+		rootCategory = classes.SceneryCategory("", None)
 		# 'textures' contains a dictionary where the key is the texture filepath
 		# and the value is a SceneryTexture object
 		textures = {}
@@ -133,7 +133,7 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Category Landing Pages\n")
-		functions.buildCategoryLandingPages(rootCategory, 0)
+		functions.buildCategoryLandingPages(rootCategory)
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Object Documentation\n")

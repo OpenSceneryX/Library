@@ -90,12 +90,16 @@ class SceneryObject:
 		self.screenshotFilePath = ""
 		self.deprecatedVirtualPaths = []
 		self.sceneryTextures = []
+		self.sceneryCategory = None
 
 	def getFilePath(self):
 		return os.path.join(self.filePathRoot, self.fileName)
 
 	def __cmp__(self, other):
-		return cmp(self.title, other.title)
+		if (isinstance(other, SceneryObject)): 
+			return cmp(self.title, other.title)
+		else:
+			return cmp(self.title, other)
 	
 	def getDocumentationFileName(self):
 		return self.title + ".html"
@@ -107,14 +111,18 @@ class SceneryObject:
 class SceneryCategory:
 	"A scenery documentation category"
 	
-	def __init__(self, filePathRoot):
+	def __init__(self, filePathRoot, parentSceneryCategory):
 		self.filePathRoot = filePathRoot
 		self.title = ""
+		self.url = None
 		self.childSceneryCategories = []
 		self.childSceneryObjects = []
+		self.parentSceneryCategory = parentSceneryCategory
+		self.calculateDepth()
 		
-		if filePathRoot == "":
-			self.title = "Root"
+		if parentSceneryCategory == None:
+			self.title = "Home"
+			self.url = "/"
 		else:
 			file = open(os.path.join(filePathRoot, "category.txt"))
 			fileContents = file.readlines()
@@ -129,12 +137,18 @@ class SceneryCategory:
 					self.title = result.group(1).replace("\"", "'")
 					continue
 
+			# Categories of depth 4 or more have landing pages (this will change one day)
+			if (self.depth >= 4):
+				self.url = "/doc/c_" + self.title + ".html"
+
 		
 	def addSceneryCategory(self, sceneryCategory):
 		self.childSceneryCategories.append(sceneryCategory)
+		sceneryCategory.parentSceneryCategory = self
 
 	def addSceneryObject(self, sceneryObject):
 		self.childSceneryObjects.append(sceneryObject)
+		sceneryObject.sceneryCategory = self
 
 	def getSceneryObjects(self, recursive):
 		# Clone our own list of objects
@@ -154,7 +168,29 @@ class SceneryCategory:
 				result = result + sceneryCategory.getSceneryObjectCount(recursive)
 		
 		return result
+	
+	def getAncestors(self, includeSelf):
+		result = []
 		
+		if (includeSelf):
+			currentSceneryCategory = self
+		else:
+			currentSceneryCategory = self.parentSceneryCategory
+		
+		while (currentSceneryCategory != None):
+			result.append(currentSceneryCategory)
+			currentSceneryCategory = currentSceneryCategory.parentSceneryCategory
+		
+		return result
+	
+	def calculateDepth(self):
+		self.depth = 0
+		currentSceneryCategory = self
+		
+		while (currentSceneryCategory != None):
+			self.depth = self.depth + 1
+			currentSceneryCategory = currentSceneryCategory.parentSceneryCategory
+	
 	def sort(self):
 		self.childSceneryCategories.sort()
 		self.childSceneryObjects.sort()
@@ -163,7 +199,10 @@ class SceneryCategory:
 			sceneryCategory.sort()
 			
 	def __cmp__(self, other):
-		return cmp(self.title, other.title)
+		if (isinstance(other, SceneryCategory)): 
+			return cmp(self.title, other.title)
+		else:
+			return cmp(self.title, other)
 
 
 #

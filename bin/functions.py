@@ -17,11 +17,24 @@ import fnmatch
 import pcrt
 
 
-def buildCategoryLandingPages(sceneryCategory, depth):
-	# Only build landing pages where depth >= 3
-	if depth >= 3:
-		# Build a landing page
+def buildCategoryLandingPages(sceneryCategory):
+	# Only build landing pages where depth >= 4
+	if sceneryCategory.depth >= 4:
 		htmlFileContent = ""
+		
+		htmlFileContent += "<div id='breadcrumbs'>\n"
+		htmlFileContent += "<ul class='inline'>"
+		
+		sceneryCategoryAncestors = sceneryCategory.getAncestors(0)
+		for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
+			if (sceneryCategoryAncestor.url != None):
+				htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>"
+			else:
+				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>"
+		htmlFileContent += "<li>" + sceneryCategory.title + "</li>"
+		htmlFileContent += "</ul>\n"
+		htmlFileContent += "</div>\n"
+
 		htmlFileContent += "<div id='content'>\n"
 		htmlFileContent += "<h2>" + sceneryCategory.title + " Variants</h2>\n"
 		
@@ -44,7 +57,7 @@ def buildCategoryLandingPages(sceneryCategory, depth):
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
 	for childCategory in children:
-		buildCategoryLandingPages(childCategory, depth + 1)
+		buildCategoryLandingPages(childCategory)
 		
 		
 
@@ -78,7 +91,7 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 
 def handleCategory(dirpath, currentCategory):
 	# Create an instance of the SceneryCategory class
-	sceneryCategory = classes.SceneryCategory(dirpath)
+	sceneryCategory = classes.SceneryCategory(dirpath, currentCategory)
 	currentCategory.addSceneryCategory(sceneryCategory)
 	
 	return sceneryCategory
@@ -210,7 +223,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
-	# Object is valid, add it to the current category
+	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
 	# Write to the library.txt file
@@ -221,6 +234,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+
 
 
 
@@ -601,6 +615,20 @@ def buildDocumentation(sceneryCategory, depth):
 
 def writeHTMLDocFile(sceneryObject):
 	htmlFileContent = ""
+	
+	htmlFileContent += "<div id='breadcrumbs'>\n"
+	htmlFileContent += "<ul class='inline'>"
+	
+	sceneryCategoryAncestors = sceneryObject.sceneryCategory.getAncestors(1)
+	for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
+		if (sceneryCategoryAncestor.url != None):
+			htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>"
+		else:
+			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>"
+	htmlFileContent += "<li>" + sceneryObject.title + "</li>"
+	htmlFileContent += "</ul>\n"
+	htmlFileContent += "</div>\n"
+	
 	htmlFileContent += "<div id='content'>\n"
 	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
@@ -735,7 +763,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 
 
 def getHTMLSponsoredLinks():
-	result = "<div id='google' style='display:block; height: 30px; background-color: #3333aa;'>\n"
+	result = "<div id='google'>\n"
 	result += "<script type='text/javascript'><!--\n"
 	result += "google_ad_client = 'pub-5631233433203577';\n"
 	result += "/* 728x15, created 18/03/08 */\n"
@@ -783,7 +811,7 @@ def getHTMLTOC(rootCategory):
 					# We have another level of categorisation, show a category list where each link takes the user to a
 					# landing page for that category
 					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-						result += "<li><a href='doc/c_" + subsubSceneryCategory.title + ".html'>" + subsubSceneryCategory.title + "</a>"
+						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title + "</a>"
 						result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif'><span>Multiple variants available</span></a>"
 						result += "</li>\n"
 	
