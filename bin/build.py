@@ -163,9 +163,9 @@ try:
 		file = open("trunk/support/_releasenotes.html", "r")
 		fileContents = file.read()
 		file.close()
-		htmlReleaseNotesFileHandle.write("<div id='content'>" + fileContents + "</div>")
-		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'>" + fileContents + "</div>")
-		htmlWebReleaseNotesFileHandle.write("<div id='content'>" + fileContents + functions.getHTMLSponsoredLinks() + "</div>")
+		htmlReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
+		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
+		htmlWebReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + functions.getHTMLSponsoredLinks() + "</div>")
 		
 		file = open("trunk/support/_webindex.html", "r")
 		fileContents = file.read()

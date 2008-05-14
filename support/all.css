@@ -302,6 +302,9 @@ p#version a {
   color: #ccf;
 }
 
+.hide {
+	display: none;
+}
 
 /*Credits: Dynamic Drive CSS Library */
 /*URL: http://www.dynamicdrive.com/style/ */

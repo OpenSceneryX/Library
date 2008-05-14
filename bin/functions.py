@@ -36,6 +36,7 @@ def buildCategoryLandingPages(sceneryCategory):
 		htmlFileContent += "</div>\n"
 
 		htmlFileContent += "<div id='content'>\n"
+		htmlFileContent += "<a name='content'></a>\n"
 		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
 		
 		# Sub-categories in this category
@@ -645,6 +646,7 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "</div>\n"
 	
 	htmlFileContent += "<div id='content'>\n"
+	htmlFileContent += "<a name='content'></a>\n"
 	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
 	htmlFileContent += "<h3>Virtual Paths</h3>\n"
@@ -756,6 +758,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "</head>\n"
 	result += "<body>\n"
+	result += "<p class='hide'><a href='#content' accesskey='2'>Skip to main content</a></p>\n"
 	result += "<div id='header'>\n"
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
