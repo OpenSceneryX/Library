@@ -18,8 +18,8 @@ import pcrt
 
 
 def buildCategoryLandingPages(sceneryCategory):
-	# Only build landing pages where depth >= 4
-	if sceneryCategory.depth >= 4:
+	# Only build landing pages where depth >= 2
+	if sceneryCategory.depth >= 2:
 		htmlFileContent = ""
 		
 		htmlFileContent += "<div id='breadcrumbs'>\n"
@@ -36,16 +36,31 @@ def buildCategoryLandingPages(sceneryCategory):
 		htmlFileContent += "</div>\n"
 
 		htmlFileContent += "<div id='content'>\n"
-		htmlFileContent += "<h2>" + sceneryCategory.title + " Variants</h2>\n"
+		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
 		
-		for sceneryObject in sceneryCategory.getSceneryObjects(1):
-			htmlFileContent += "<h3><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h3><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
-			if (sceneryObject.screenshotFilePath != ""):
-				htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' />"
-			else:
-				htmlFileContent += "<img src='screenshot_missing.png' />"
-			htmlFileContent += "</a>\n"
-			
+		# Sub-categories in this category
+		if len(sceneryCategory.childSceneryCategories) > 0:
+			htmlFileContent += "<h3>Sub-categories</h3>\n"
+			for childSceneryCategory in sceneryCategory.childSceneryCategories:
+				htmlFileContent += "<h4 class='inline'><a href='" + childSceneryCategory.url + "'>" + childSceneryCategory.title + "</a></h4>\n"
+		
+			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
+
+		# Objects in this category
+		if len(sceneryCategory.getSceneryObjects(0)) > 0:
+			htmlFileContent += "<h3>Objects</h3>\n"
+			for sceneryObject in sceneryCategory.getSceneryObjects(0):
+				htmlFileContent += "<div class='thumbnailcontainer'>\n"
+				htmlFileContent += "<h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
+				if (sceneryObject.screenshotFilePath != ""):
+					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' />"
+				else:
+					htmlFileContent += "<img src='screenshot_missing.png' />"
+				htmlFileContent += "</a>\n"
+				htmlFileContent += "</div>\n"
+	
+			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
+		
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
 		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True))
 		htmlFileHandle.write(htmlFileContent)

@@ -38,6 +38,11 @@ div#toc h4 {
   padding-top: 0.5em;
 }
 
+h4.inline {
+	display:inline;
+	padding-right: 1em;
+}
+
 img {
   padding: 1px;
   border: 1px solid black;
@@ -90,6 +95,12 @@ div.deprecatedVirtualPath {
   display: block;
   background-color: #fcc;
   padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+div.thumbnailcontainer {
+	float: left;
+	min-height: 300px;
+	padding-right: 1em;
 }
 
 p#version {

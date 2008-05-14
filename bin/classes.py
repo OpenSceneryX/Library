@@ -137,9 +137,7 @@ class SceneryCategory:
 					self.title = result.group(1).replace("\"", "'")
 					continue
 
-			# Categories of depth 4 or more have landing pages (this will change one day)
-			if (self.depth >= 4):
-				self.url = "/doc/c_" + self.title + ".html"
+			self.url = "/doc/c_" + self.title + ".html"
 
 		
 	def addSceneryCategory(self, sceneryCategory):
