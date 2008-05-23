@@ -822,7 +822,7 @@ def getHTMLTOC(rootCategory):
 		
 		if len(mainSceneryCategory.childSceneryCategories) > 0:
 			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
-				result += "<h4>" + subSceneryCategory.title + "</h4>\n"
+				result += "<h4><a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a></h4>\n"
 				result += "<ul class='inline'>\n"
 				
 				if len(subSceneryCategory.childSceneryCategories) > 0:

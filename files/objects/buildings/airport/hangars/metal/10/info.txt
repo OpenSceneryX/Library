@@ -1,0 +1,10 @@
+Title: Hangar, metal, long, thin
+=====================
+Author: Bob Feaver
+URL: http://forums.x-plane.org/index.php?showuser=7029
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A long thin modern metal hangar.

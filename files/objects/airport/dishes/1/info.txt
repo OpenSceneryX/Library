@@ -1,0 +1,8 @@
+Title: Dish, radio
+=====================
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A radio dish.

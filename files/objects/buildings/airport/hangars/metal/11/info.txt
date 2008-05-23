@@ -1,0 +1,10 @@
+Title: Hangar, metal, double
+=====================
+Author: Bob Feaver
+URL: http://forums.x-plane.org/index.php?showuser=7029
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A modern double metal hangar.

@@ -99,8 +99,12 @@ div.deprecatedVirtualPath {
 
 div.thumbnailcontainer {
 	float: left;
-	min-height: 300px;
+	height: 250px;
 	padding-right: 1em;
+}
+
+div.thumbnailcontainer img {
+	max-height: 200px;
 }
 
 p#version {

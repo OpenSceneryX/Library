@@ -1,10 +1,11 @@
-Title: Barrier, portable
+Title: Barrier, metal, portable
 =====================
 Author: Luke173
 URL: http://forums.x-plane.org/index.php?showuser=7280
 Height: 0.8m
 Width: 1.4m
 Depth: 0.2m
+Export Deprecated v1.8.5: objects/furniture/barriers/portable
 Revision: $Revision$
 Date: $Date$
 =====================

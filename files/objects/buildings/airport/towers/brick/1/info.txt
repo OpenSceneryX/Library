@@ -1,0 +1,8 @@
+Title: Tower, Brick, with rotating beacon
+=====================
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A brick control tower with a rotating beacon.
