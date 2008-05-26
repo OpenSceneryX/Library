@@ -1,0 +1,11 @@
+Title: Picnic Table
+=====================
+Author: Austin Goudge
+Email: austin@goudges.com
+Width: 1.5m
+Depth: 1.5m
+Height: 0.7m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Picnic table.

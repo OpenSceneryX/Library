@@ -1,0 +1,11 @@
+Title: Smoky Factory
+=====================
+Author: mr 3D
+Email: mr3d@talk21.com
+Width: 23.1m
+Depth: 66.3m
+Height: 63.3m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Old smoky mill.

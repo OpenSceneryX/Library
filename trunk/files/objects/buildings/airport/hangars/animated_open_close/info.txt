@@ -1,0 +1,12 @@
+Title: Hangar (animated)
+=====================
+Author: psiteo
+URL: http://forums.x-plane.org/index.php?showuser=113
+Export: objects/airport/buildings/hangars/animated_open_close
+Width: 29.1m
+Depth: 16.6m
+Height: 8.3m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An animated hangar that opens at 0900 and closes at 1700 local.

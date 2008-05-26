@@ -1,0 +1,38 @@
+<div id="content">
+  <p>The OpenSceneryX project is a library of scenery objects for <a class="tooltip shaded" href="#">X-Plane v8.50 and above<span>Note that the Placeholder Library requires <strong>X-Plane v8.60</strong></span></a>.  It is a collaborative effort by members of the <a href="http://www.x-plane.org">X-Plane.org</a> community and the aim is to provide a good range of scenery components for authors to use in their scenery packages.</p>
+  <p>This is the Developer Pack, which is only to be used by scenery developers who want to use OpenSceneryX with their own projects. If you are not a scenery developer and have mistakenly downloaded this pack, you can <a href="http://www.opensceneryx.com">download the full library from here</a>.</p>
+
+  <h2>Instructions for Scenery Developers</h2>
+  <p>First, an important note regarding the licence:  Because you will be <strong>referencing</strong> rather than <strong>copying</strong> objects in the library, you do not need to contact anyone or get permission from anyone to use this library with your own sceneries, whether commercial or not.</p>
+
+  <h3>An Incredibly Quick Tutorial Using OverlayEditor</h3>
+  <ol>
+    <li>Download and install the main OpenSceneryX library (from <a href="http://www.opensceneryx.com">here</a>).</li>
+    <li>Once you have installed the library, 'opensceneryx' will appear in the drop-down menu on the right hand side in <a href="http://marginal.org.uk/x-planescenery/">OverlayEditor</a>.</li>
+    <li>Select this option and all the objects in the library are listed. You can select one and click the '+' sign to add it to your scenery in the normal way.</li>
+  </ol>
+
+  <h3>What You Need To Do When Distributing Your Scenery</h3>
+  <p>The main problem you have is that if your users install your scenery package and your package references OpenSceneryX, then if a user doesn't have OpenSceneryX installed X-Plane will display an 'unable to locate object definition' error on startup and then quit.</p>
+  <p>To solve this problem, naturally you will want to instruct your users to install OpenSceneryX, and the best way to do this is to link to <a href="http://www.opensceneryx.com">the OpenSceneryX website</a>.  You can let your users know that your package uses OpenSceneryX by including our logo in your documentation too:</p>
+  <p><a href="http://www.opensceneryx.com" class="nounderline"><img src="OpenSceneryX-Placeholder-${version}/enhancedby_opensceneryx_logo.gif" alt="Enhanced by OpensceneryX" class="icon" /></a></p>
+  <p>The logo can be found in the <tt>OpenSceneryX-Placeholder-${version}</tt> folder and the HTML code to insert it is:
+  <pre>
+&lt;a href="http://www.opensceneryx.com"&gt;
+  &lt;img src="enhancedby_opensceneryx_logo.gif" alt="Enhanced by OpenSceneryX" style="border: none;" /&gt;
+&lt;/a&gt;</pre></p>
+  <p>However, inevitably some users will forget to download it, misunderstand or simply ignore the instructions, so to avoid X-Plane throwing up errors, we have produced an empty version of the library, with invisible placeholder objects instead of the real objects.  This is called the <strong>Placeholder Library</strong>. The idea is that you include the placeholder library inside your scenery package, so X-Plane will not complain when it can't find OpenSceneryX.  Your scenery package will load correctly, but no OpenSceneryX objects will be seen.  Note that the placeholder library is very small so it will not noticeably increase the size of your scenery package.</p>
+  <p class="warning">Note 1: Please do not distribute the full version of OpenSceneryX with your scenery package.  If scenery authors do this, users will end up with multiple different versions of OpenSceneryX on their machines, and it will become a nightmare to maintain and manage. Please only distribute the placeholder library (n.b. Additionally, if you are a commercial developer, you would be breaking the licence by including OpenSceneryX in your package). </p>
+  <br />
+  <p class="warning">Note 2: The placeholder library will only work on <strong>X-Plane v8.60 and above</strong>.  It uses a new feature of v8.60 that allows us to reduce the priority of the placeholder objects so that they are only used if the full package is missing.  The main OpenSceneryX package should work on v8.50 and above, so if you want to distribute your scenery to v8.50 users, do not include the placeholder library and ensure they install the full library.</p>
+  <br />
+  <p>To include the placeholder library in your package:</p>
+  <ol>
+    <li>Locate the folder titled <tt>OpenSceneryX-Placeholder-${version}</tt>, contained in this developer pack.</li>
+    <li>Copy the <strong>contents</strong> of this folder into your scenery package folder.</li>
+  </ol>
+  <p>It's as simple as that!  There are only two problems you may come across:  Firstly, please ensure that the version of the placeholder library you include with your scenery is the same as the version of the full library you built your scenery with, otherwise users may get 'unable to locate object definition' errors on X-Plane startup.  Secondly, if you are building a scenery package <strong>that is also a library</strong>, you will have produced your own <tt>library.txt</tt> file.  In this case, simply copy-and-paste the contents of the <tt>OpenSceneryX-Placeholder-${version}/library.txt</tt> file into yours, instead of copying the whole file.</p>
+
+  <h3>What You Need To Do if a New Version of OpenSceneryX is Released</h3>
+  <p>So a new version of OpenSceneryX comes out and you want to upgrade your scenery package to use it?  Well, if you don't want to use any of the new objects in the new version, you don't need to do anything at all. <strong>We guarantee that any future version of OpenSceneryX will be backward-compatible</strong>, so new releases will not break your existing scenery package.  If you do want to use some of the new objects, just replace the <tt>library.txt</tt> file and <tt>opensceneryx</tt> folder inside your package with the new ones from the OpenSceneryX placeholder package and you're ready to go.
+</div>

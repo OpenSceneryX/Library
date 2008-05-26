@@ -1,0 +1,11 @@
+Title: Piper Cheyenne II
+=====================
+Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
+Email: snow@fischer-bayern.de
+Author, texture: Conan Davis (Vivar)
+URL, texture: http://forums.x-plane.org/index.php?showuser=4112
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Piper Cheyenne II with livery by Conan Davis.

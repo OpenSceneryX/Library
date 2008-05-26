@@ -1,0 +1,9 @@
+Title: Cessna Skywagon C180J (floats)
+=====================
+Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Cessna Skywagon C180J with floats.

@@ -1,0 +1,9 @@
+Title: Piper Cheyenne II (Med Aero)
+=====================
+Author: Shadetreemicro.com
+URL: http://www.shadetreemicro.com
+Email: snow@fischer-bayern.de
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Piper Cheyenne II - "Med Aero" livery.

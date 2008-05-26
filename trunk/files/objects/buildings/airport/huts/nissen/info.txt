@@ -1,0 +1,11 @@
+Title: Nissen Hut
+=====================
+Author: Austin Goudge
+Email: austin@goudges.com
+Width: 5.2m
+Depth: 10m
+Height: 2.8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A World War II Nissen Hut, as used by the RAF.  These are still found around old RAF airfields.

@@ -1,0 +1,12 @@
+Title: Church, Small Medieval European
+=====================
+Author: Denmeul
+Email: xpo@denmeul.nl
+Width: 13.6m
+Depth: 25.9m
+Height: 30m
+Export: objects/regions/western_europe/religious/church_medieval_small
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: West-European style small church
