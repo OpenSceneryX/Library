@@ -9,7 +9,7 @@ Release Howto
 
 4. Create a copy of the built folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
 
-5. Run Manifester on built folder and save manifext.xml
+5. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
 
 6. Run Packager
 
@@ -33,7 +33,7 @@ Release Howto
 
 16. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-17. Move contents of /new/OpenSceneryX-Website-x.x.x/ to /
+17. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
 18. Move /new/manifest.xml to /
 
