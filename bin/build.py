@@ -94,12 +94,12 @@ for (dirpath, dirnames, filenames) in os.walk("trunk/files/objects"):
 htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Facades</h3>\n")
-#htmlIndexFileHandle.write("<ul class='facades'>\n")
+htmlIndexFileHandle.write("<ul class='facades'>\n")
 for (dirpath, dirnames, filenames) in os.walk("trunk/files/facades"):
    for filename in filenames:
      if (filename == "facade.fac"):
        functions.handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle)
-#htmlIndexFileHandle.write("</ul>\n")
+htmlIndexFileHandle.write("</ul>\n")
        
 htmlIndexFileHandle.write("<h3>Forests</h3>\n")
 htmlIndexFileHandle.write("<ul class='forests'>\n")
@@ -112,7 +112,7 @@ htmlIndexFileHandle.write("</div>\n")
 
 
 htmlIndexFileHandle.write("<div id='content'>\n")
-htmlIndexFileHandle.write("<p>The OpenSceneryX project is a library of scenery objects for <a class='tooltip' href='#'>X-Plane v8.50 and above<span>Note that the Placeholder Library requires <strong>X-Plane v8.60</strong>, see the X-Plane Scenery Developers section for more details</span></a>.  It is a collaborative effort by members of the <a href='http://www.x-plane.org'>X-Plane.org</a> community and the aim is to provide a good range of scenery components for authors to use in their scenery packages.</p>\n")
+htmlIndexFileHandle.write("<p>The OpenSceneryX project is a library of scenery objects for <a class='tooltip shaded' href='#'>X-Plane v8.50 and above<span>Note that the Placeholder Library requires <strong>X-Plane v8.60</strong>, see the X-Plane Scenery Developers section for more details</span></a>.  It is a collaborative effort by members of the <a href='http://www.x-plane.org'>X-Plane.org</a> community and the aim is to provide a good range of scenery components for authors to use in their scenery packages.</p>\n")
 
 
 htmlIndexFileHandle.write("<h2>Installation</h2>\n")

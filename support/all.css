@@ -12,8 +12,8 @@ h1 {
 }
 
 h2 {
-  padding-top: 0.5em;
-  margin-top: 0;
+  padding: 0.5em 0 0 0;
+  margin: 0 0 1em 0;
   border-bottom: 1px solid #ccc;
 }
 
@@ -50,6 +50,8 @@ img.attributeicon{
 }
 
 p {
+  padding: 0 0 1em 0;
+  margin: 0;
 }
 
 p.warning {
@@ -76,8 +78,7 @@ div#header {
 }
 
 div#content {
-  margin-left: 2em;
-  margin-right: 2em;
+  margin: 1em 2em 0 2em;
   padding-bottom: 1em;
 }
 
@@ -100,8 +101,11 @@ div#footer {
   padding-bottom: 1em;
   color: #777;
   font-size: 0.8em;
-  text-align: center;
+  text-align: left;
   line-height: normal;
+}
+
+ul {
 }
 
 div#toc ul {
@@ -170,38 +174,41 @@ a.nounderline {
   border-bottom: none;
 }
 
+a.shaded {
+	background-color: #eef;
+}
+
 a.tooltip {
 	position: relative; 
-	background-color: #eef;
 	font-style: italic;
 	color: #000;
 	text-decoration: none;
 	cursor: default;
   border-bottom: none;
-}
-
-a.tooltip span {
-	display: none;
 	z-index: 0;
-	line-height: normal;
 }
 
 a.tooltip:hover {
   font-size: 100%;  /* IE/Win requires some link change on hover in order to show the tooltips */
+  z-index: 50;
+}
+
+a.tooltip span {
+	display: none;
+	line-height: normal;
 }
 
 a.tooltip:hover span {
 	display: block !important;
 	position: absolute;
-	top: 5px; 
-	left: 40px; 
+	top: 2em; 
+	left: 0;
 	border: 1px solid #33a;
 	background-color: #ddf; 
 	color: #000;
-	padding: 5px;
-	font-size: .8em;
-	width: 200px;
-  z-index: 50;
+	padding: 0.5em;
+	font-size: 0.8em;
+	max-width: 200px;
 }
 
 
@@ -229,7 +236,6 @@ a.tooltip:hover span {
 }
 
 .hoverimage span img{ /*CSS for enlarged image*/
-  /* max-width: 200px; */
 }
 
 .hoverimage:hover span{ /*CSS for enlarged image on hover*/

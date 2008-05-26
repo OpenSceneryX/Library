@@ -56,7 +56,39 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, htmlIndexFileHandle):
-  print "facades not handled yet: " + os.path.join(dirpath, filename)
+  objectSourcePath = os.path.join(dirpath, filename)
+  parts = dirpath.split("/", 2)
+
+  print "Handling facade: " + objectSourcePath
+  
+  # Set up paths and copy files
+  if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
+  if not copySupportFiles(dirpath, parts): return
+  shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
+
+  # Open the object
+  file = open(objectSourcePath, "r")
+  objectFileContents = file.readlines()
+  file.close()
+
+  # Define the regex patterns:
+  texturePattern = re.compile("TEXTURE\s+(.*)")
+
+  for line in objectFileContents:
+    result = texturePattern.match(line)
+    if result:
+      textureFile = os.path.join(dirpath, result.group(1))
+      if os.path.isfile(textureFile):
+        shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+        break
+
+  # Handle the info.txt file
+  virtualPaths = handleInfoFile(dirpath, htmlIndexFileHandle, parts, ".fac")
+  
+  # Write to the library.txt file
+  for virtualPath in virtualPaths:
+    libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + os.path.join(parts[2], filename) + "\n")
+    libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 
 
 
@@ -206,7 +238,7 @@ def handleInfoFile(dirpath, htmlIndexFileHandle, parts, suffix):
   htmlIndexFileHandle.write("<li><a class='hoverimage' href='doc/" + urllib.pathname2url(title + ".html") + "'>" + title + "<span><img src='" + os.path.join(parts[2], "screenshot.jpg") + "' /></span></a>")
   
   if (tutorial):
-    htmlIndexFileHandle.write(" <img class='attributeicon' src='doc/tutorial.gif'>")
+    htmlIndexFileHandle.write(" <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>")
   
   htmlIndexFileHandle.write("</li>")
   
@@ -269,7 +301,7 @@ def writeHTMLHeader(fileHandle, documentationPath):
 
 def writeHTMLFooter(fileHandle, documentationPath):
   fileHandle.write("<div id='footer'>")
-  fileHandle.write("<div style='float:left;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
+  fileHandle.write("<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "somerights20.png'/></a></div>")
   fileHandle.write("The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/2.5/'>Creative Commons Attribution-Noncommercial-No Derivative Works 2.5  License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence.")
   fileHandle.write("<!-- <rdf:RDF xmlns='http://web.resource.org/cc/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>")
   fileHandle.write("<Work rdf:about=''>")
