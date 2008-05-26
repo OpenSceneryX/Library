@@ -1,9 +1,0 @@
-Title: Piper Super Cub (FluBag, floats)
-=====================
-Author: Shadetreemicro.com
-URL: http://www.shadetreemicro.com
-Email: snow@fischer-bayern.de
-Revision: $Revision$
-Date: $Date$
-=====================
-Description: Piper Super Cub with floats. FluBag skin of a swiss flight school.

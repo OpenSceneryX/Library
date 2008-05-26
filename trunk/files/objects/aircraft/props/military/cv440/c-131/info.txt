@@ -1,9 +1,0 @@
-Title: Convair C-131 "Samaritan"
-=====================
-Author: Shadetreemicro.com
-URL: http://www.shadetreemicro.com
-Email: snow@fischer-bayern.de
-Revision: $Revision$
-Date: $Date$
-=====================
-Description: Convair C-131 "Samaritan" - U.S. Air Force.
