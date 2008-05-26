@@ -28,10 +28,10 @@ def buildCategoryLandingPages(sceneryCategory):
 		sceneryCategoryAncestors = sceneryCategory.getAncestors(0)
 		for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
 			if (sceneryCategoryAncestor.url != None):
-				htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>"
+				htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
 			else:
-				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>"
-		htmlFileContent += "<li>" + sceneryCategory.title + "</li>"
+				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
+		htmlFileContent += "<li>" + sceneryCategory.title + "</li>\n"
 		htmlFileContent += "</ul>\n"
 		htmlFileContent += "</div>\n"
 
@@ -63,7 +63,7 @@ def buildCategoryLandingPages(sceneryCategory):
 			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
 		
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True))
+		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
 		htmlFileHandle.write(htmlFileContent)
 		htmlFileHandle.write(getHTMLSponsoredLinks())
 		htmlFileHandle.write("</div>\n")
@@ -638,10 +638,10 @@ def writeHTMLDocFile(sceneryObject):
 	sceneryCategoryAncestors = sceneryObject.sceneryCategory.getAncestors(1)
 	for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
 		if (sceneryCategoryAncestor.url != None):
-			htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>"
+			htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
 		else:
-			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>"
-	htmlFileContent += "<li>" + sceneryObject.title + "</li>"
+			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
+	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "</div>\n"
 	
@@ -733,7 +733,7 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>";
 
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
-	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, 1))
+	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
 	htmlFileHandle.write(getHTMLSponsoredLinks())
 	htmlFileHandle.write("</div>")
@@ -744,7 +744,7 @@ def writeHTMLDocFile(sceneryObject):
 
 
 
-def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
+def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, includeTabbo):
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
 	result += "					 \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
@@ -752,9 +752,13 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 		result += " - " + titleSuffix
 	result += "</title>\n"
 	result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
-	result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
+	result += "<!--[if gt IE 6.5]>\n"
+	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
+	result += "<![endif]-->\n"
+	if includeTabbo:
+		result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
+		result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
-	result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
 	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "</head>\n"
 	result += "<body>\n"
@@ -762,6 +766,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch):
 	result += "<div id='header'>\n"
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
+		result += "Search OpenSceneryx:<br />\n"
 		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
