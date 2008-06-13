@@ -72,7 +72,7 @@ try:
 			treeFileContents = file.read()
 			file.close()
 			
-			treeFileContents = texturePattern.sub(r"TEXTURE ../../\1", treeFileContents)
+			treeFileContents = texturePattern.sub(r"TEXTURE ../../../\1", treeFileContents)
 			
 			file = open(dest, "w")
 			file.write(treeFileContents)
