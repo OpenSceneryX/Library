@@ -770,6 +770,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
+		result += "<input type='hidden' name='ie' value='UTF-8' />\n"
 		result += "<input type='text' name='q' size='31' />\n"
 		result += "<input type='submit' name='sa' value='Search' />\n"
 		result += "</div>\n"
