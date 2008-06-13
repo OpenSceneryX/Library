@@ -15,7 +15,7 @@ RANDOM 60.00 60.00
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-TREE	416	128	64	128	32	4	20	29	2	0	COpinu8
+TREE	416	128	64	127	32	4	20	29	2	0	COpinu8
 TREE	0	508	118	127	59	18	19	24	2	0	BRfagu1
 TREE	234	512	118	127	59	10	19	24	2	0	BRquer1
 TREE	481	512	94	127	47	20	19	24	2	0	BRacer

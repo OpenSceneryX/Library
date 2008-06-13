@@ -16,8 +16,8 @@ RANDOM 8.00 8.00
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
 TREE	354	256	128	116	69	4	16	21	2	0	COpinm4
-TREE	416	128	64	128	32	3	20	29	2	0	COpinu8
-TREE	486	128	45	128	23	3	18	26	2	0	COpinu9
+TREE	416	128	64	127	32	3	20	29	2	0	COpinu8
+TREE	486	128	45	127	23	3	18	26	2	0	COpinu9
 TREE	822	768	63	96	32	6	9	13	2	0	COcypr1
 TREE	886	768	64	96	32	7	7	12	2	0	COcypr2
 TREE	443	765	79	96	39	5	8	13	2	0	BRspec2

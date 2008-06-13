@@ -9,8 +9,8 @@ LOD 15000.000000
 SCALE_X 1024
 SCALE_Y 1024
 
-SPACING 17.00 17.00
-RANDOM 8.00 8.00
+SPACING 16.00 16.00
+RANDOM 7.00 7.00
 
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
@@ -35,6 +35,6 @@ TREE	320	864	44	95	23	0.5	6	8	2	0	SHcact4
 TREE	660	864	98	64	49	6	3	3	2	0	SHcact5
 TREE	130	864	64	31	32	12	2	2	2	0	SHscle1
 TREE	197	864	59	29	30	12	2	2	2	0	SHscle2
-TREE	904	384	120	127	58	0.5	11	14	2	0	SC0
+TREE	901	512	120	127	58	0.5	11	14	2	0	SC0
 
 SKIP_SURFACE water

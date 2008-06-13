@@ -16,10 +16,10 @@ RANDOM 50.00 50.00
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
 TREE	0	508	118	127	59	12	19	24	2	0	BRfagu1
-TREE	0	638	78	127	38	30	15	22	2	0	BRbetu2
+TREE	0	639	78	127	39	30	15	22	2	0	BRbetu2
 TREE	481	512	94	127	47	18	19	24	2	0	BRacer
-TREE	145	638	63	127	32	12	16	23	2	0	BRpopu1
-TREE	239	0	63	128	32	8	18	27	2	0	COabie7
+TREE	145	639	63	127	32	12	16	23	2	0	BRpopu1
+TREE	239	0	63	127	32	8	18	27	2	0	COabie7
 TREE	524	768	95	94	47	10	6	9	2	0	SHdeci1l
 TREE	622	768	74	95	33	10	6	9	2	0	SHdeci2l
 

@@ -10,7 +10,7 @@ SCALE_X 1024
 SCALE_Y 1024
 
 SPACING 16.00 16.00
-RANDOM 4.00 4.00
+RANDOM 2.00 2.00
 
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name

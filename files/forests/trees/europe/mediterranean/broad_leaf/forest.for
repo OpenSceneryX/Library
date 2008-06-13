@@ -15,7 +15,7 @@ RANDOM 8.00 8.00
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-TREE	768	512	104	128	52	10	17	22	2	0	BRcarp
+TREE	768	512	104	127	52	10	17	22	2	0	BRcarp
 TREE	524	768	95	94	47	8	6	9	2	0	SHdeci1l
 TREE	257	384	128	123	64	27	14	18	2	0	SCquer1
 TREE	517	384	137	122	76	27	13	17	2	0	SCquer3
