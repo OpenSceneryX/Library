@@ -54,9 +54,9 @@ def buildCategoryLandingPages(sceneryCategory):
 				htmlFileContent += "<div class='thumbnailcontainer'>\n"
 				htmlFileContent += "<h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
 				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' />"
+					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot' />"
 				else:
-					htmlFileContent += "<img src='screenshot_missing.png' />"
+					htmlFileContent += "<img src='screenshot_missing.png' alt='Screenshot Missing' />"
 				htmlFileContent += "</a>\n"
 				htmlFileContent += "</div>\n"
 	
@@ -663,9 +663,9 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
 	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "'>\n"
+		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot' />\n"
 	else:
-		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png'>\n"
+		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png' alt='Screenshot Missing' />\n"
 
 	htmlFileContent += "<ul class='mainItemDetails'>\n"
 	
@@ -758,6 +758,13 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	if includeTabbo:
 		result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
 		result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
+		result += "<style type='text/css'>\n"
+		result += "	/* Defined in the page so that the tabber doesn't show then hide */\n"
+		result += "	.tabber {\n"
+	 	result += "		display:none;\n"
+		result += "	}\n"
+		result += "</style>\n"
+
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
 	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "</head>\n"
@@ -804,7 +811,7 @@ def getHTMLSponsoredLinks():
 
 def getHTMLFooter(documentationPath):
 	result = "<div id='footer'>"
-	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png'/></a></div>"
+	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
 	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
 	result += "</div>"
 	result += "<script src='http://www.google-analytics.com/urchin.js' type='text/javascript'></script>"
@@ -836,7 +843,7 @@ def getHTMLTOC(rootCategory):
 					# landing page for that category
 					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
 						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title + "</a>"
-						result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif'><span>Multiple variants available</span></a>"
+						result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></a>"
 						result += "</li>\n"
 	
 					# Also show the list of objects directly in this category
@@ -871,16 +878,16 @@ def getHTMLSceneryObjects(sceneryObjects):
 	for sceneryObject in sceneryObjects:
 		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle
 		if (sceneryObject.screenshotFilePath != ""):
-			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' /></span>"
+			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot' /></span>"
 		else:
-			result += "<span><img src='doc/screenshot_missing.png' /></span>"
+			result += "<span><img src='doc/screenshot_missing.png' alt='Screenshot Missing' /></span>"
 		result += "</a>"
 	 
 		if (sceneryObject.tutorial):
-			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif'><span>Tutorial available</span></a>"
+			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif' alt='Tutorial Available' /><span>Tutorial available</span></a>"
 
 		if (sceneryObject.animated):
-			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif'><span>Animated</span></a>"
+			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif' alt='Animated' /><span>Animated</span></a>"
 
 		result += "</li>\n"
 		
