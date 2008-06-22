@@ -32,6 +32,7 @@ class Configuration:
 		self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
 		self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
+		self.supportFolder = "trunk/support"
 		
 	def makeFolders(self):
 		if not os.path.isdir(self.releaseFolder):
@@ -67,6 +68,12 @@ class SceneryObject:
 	def __init__(self, filePathRoot, fileName):
 		self.filePathRoot = filePathRoot
 		self.fileName = fileName
+		self.infoFilePath = ""
+		self.screenshotFilePath = ""
+		self.logoFileName = ""
+
+		self.sceneryCategory = None
+		
 		self.title =""
 		self.shortTitle = ""
 		self.author = ""
@@ -81,16 +88,18 @@ class SceneryObject:
 		self.height = ""
 		self.width = ""
 		self.depth = ""
+		self.note = ""
 		self.description = ""
+		
 		self.virtualPaths = []
-		self.tutorial = 0
-		self.animated = 0
-		self.exportPropagate = -1
-		self.infoFilePath = ""
-		self.screenshotFilePath = ""
 		self.deprecatedVirtualPaths = []
 		self.sceneryTextures = []
-		self.sceneryCategory = None
+		
+		self.tutorial = 0
+		self.animated = 0
+		
+		self.exportPropagate = -1
+
 
 	def getFilePath(self):
 		return os.path.join(self.filePathRoot, self.fileName)

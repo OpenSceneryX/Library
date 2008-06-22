@@ -54,9 +54,9 @@ def buildCategoryLandingPages(sceneryCategory):
 				htmlFileContent += "<div class='thumbnailcontainer'>\n"
 				htmlFileContent += "<h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
 				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot' />"
+					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle + "' />"
 				else:
-					htmlFileContent += "<img src='screenshot_missing.png' alt='Screenshot Missing' />"
+					htmlFileContent += "<img src='screenshot_missing.png' alt='No Screenshot Available' />"
 				htmlFileContent += "</a>\n"
 				htmlFileContent += "</div>\n"
 	
@@ -408,8 +408,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def checkSupportFiles(dirpath, sceneryObject):
-	# Locate the info file. If it isn't in the current directory, walk up the folder structure looking for one in all parent
-	# folders
+	# Locate the info file. If it isn't in the current directory, walk up the folder structure 
+	# looking for one in all parent folders
 	dirPathParts = dirpath.split(os.sep)
 	for i in range(len(dirPathParts), 0, -1):
 		if os.path.isfile(os.path.join(os.sep.join(dirPathParts[0:i]), "info.txt")):
@@ -417,11 +417,11 @@ def checkSupportFiles(dirpath, sceneryObject):
 			break
 
 	if sceneryObject.infoFilePath == "":
-		# displayMessage("No info.txt file found - object excluded", "error")
 		displayMessage("No info.txt file found - object excluded\n", "error")
 		return 0
 		
-	# Locate the screenshot file. If it isn't in the current directory, walk up the folder structure looking for one in all # parent folders
+	# Locate the screenshot file. If it isn't in the current directory, walk up the folder
+	# structure looking for one in all parent folders
 	for i in range(len(dirPathParts), 0, -1):
 		if os.path.isfile(os.path.join(os.sep.join(dirPathParts[0:i]), "screenshot.jpg")):
 			sceneryObject.screenshotFilePath = os.path.join(os.sep.join(dirPathParts[0:i]), "screenshot.jpg")
@@ -429,7 +429,7 @@ def checkSupportFiles(dirpath, sceneryObject):
 
 	if sceneryObject.screenshotFilePath == "":
 		displayMessage("No screenshot.jpg file found - using default\n", "note")
-	
+
 	return 1
 
 
@@ -446,6 +446,15 @@ def copySupportFiles(dirpath, parts, sceneryObject):
 	if (sceneryObject.screenshotFilePath != ""):
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
 	
+	# Copy the logo file.  Logos are used to 'brand' objects that are from a specific
+	# collection.  Therefore they are all stored in a single folder (in support) so they
+	# can be shared across all the objects in the collection.
+	if (sceneryObject.logoFileName != ""):
+		if not os.path.isfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName)):
+			displayMessage("Logo file couldn't be found (" + sceneryObject.logoFileName + "), omitting\n", "warning")
+		else:
+			shutil.copyfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName), os.path.join(classes.Configuration.osxWebsiteFolder, "doc", sceneryObject.logoFileName))
+
 	return 1
 	
 	
@@ -476,6 +485,8 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 	animatedPattern = re.compile("Animated:\s+(.*)")
 	exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
 	exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
+	logoPattern = re.compile("Logo:\s+(.*)")
+	notePattern = re.compile("Note:\s+(.*)")
 	
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[2] + suffix)
@@ -602,12 +613,23 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
 
+		result = logoPattern.match(line)
+		if result:
+			sceneryObject.logoFileName = result.group(1)
+			continue
+
+		result = notePattern.match(line)
+		if result:
+			sceneryObject.note = result.group(1)
+			continue
+
 		result = descriptionPattern.match(line)
 		if result:
 			sceneryObject.description = "<p>" + result.group(1) + "</p>"
 			continue
 
-		# Default is to append to the description
+		# Default is to append to the description.  This handles any amount of extra text
+		# at the end of the file 
 		sceneryObject.description += "<p>" + line + "</p>"
 		
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
@@ -632,6 +654,7 @@ def buildDocumentation(sceneryCategory, depth):
 def writeHTMLDocFile(sceneryObject):
 	htmlFileContent = ""
 	
+	# Breadcrumbs
 	htmlFileContent += "<div id='breadcrumbs'>\n"
 	htmlFileContent += "<ul class='inline'>"
 	
@@ -645,6 +668,7 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "</div>\n"
 	
+	# Content
 	htmlFileContent += "<div id='content'>\n"
 	htmlFileContent += "<a name='content'></a>\n"
 	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
@@ -656,6 +680,7 @@ def writeHTMLDocFile(sceneryObject):
 		
 	htmlFileContent += "</div>\n"
 	
+	# Paths
 	if (not sceneryObject.deprecatedVirtualPaths == []):
 		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
 		htmlFileContent += "<h3>Deprecated Paths</h3>\n"
@@ -663,10 +688,17 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
 	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot' />\n"
+		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle + "' />\n"
 	else:
-		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png' alt='Screenshot Missing' />\n"
+		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png' alt='No Screenshot Available' />\n"
 
+	# Logo
+	if (sceneryObject.logoFileName != ""):
+		htmlFileContent += "<div class='objectlogocontainer'>\n"
+		htmlFileContent += "<img src='" + sceneryObject.logoFileName + "' alt='Object branding logo' />\n"		
+		htmlFileContent += "</div>\n"
+
+	# Main information
 	htmlFileContent += "<ul class='mainItemDetails'>\n"
 	
 	if (not sceneryObject.author == ""):
@@ -707,6 +739,9 @@ def writeHTMLDocFile(sceneryObject):
 
 	if (not sceneryObject.description == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
+
+	if (not sceneryObject.note == ""):
+		htmlFileContent += "<li class='note'><span class='fieldTitle'>Important Note:</span> <span class='fieldValue'>" + sceneryObject.note + "</span></li>\n"
 	
 	if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Dimensions:</span>\n"
@@ -878,11 +913,14 @@ def getHTMLSceneryObjects(sceneryObjects):
 	for sceneryObject in sceneryObjects:
 		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle
 		if (sceneryObject.screenshotFilePath != ""):
-			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot' /></span>"
+			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle + "' /></span>"
 		else:
-			result += "<span><img src='doc/screenshot_missing.png' alt='Screenshot Missing' /></span>"
+			result += "<span><img src='doc/screenshot_missing.png' alt='No Screenshot Available' /></span>"
 		result += "</a>"
 	 
+		if (sceneryObject.note != ""):
+			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></a>"
+
 		if (sceneryObject.tutorial):
 			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif' alt='Tutorial Available' /><span>Tutorial available</span></a>"
 
