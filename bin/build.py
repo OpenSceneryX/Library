@@ -119,6 +119,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.lin", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.lin")
 		
 		authors = []
 		rootCategory = classes.SceneryCategory("", None)

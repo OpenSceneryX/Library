@@ -1,0 +1,8 @@
+Title: Runway Closed
+=====================
+Author: Sevo
+URL: http://forums.x-plane.org/index.php?showuser=52068
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Runway closed markings.

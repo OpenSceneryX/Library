@@ -96,6 +96,9 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		elif (item == "forest.for"):
 			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
 			continue
+		elif (item == "line.lin"):
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
@@ -405,6 +408,78 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
+
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+	objectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 2)
+
+	displayMessage("Handling line: " + objectSourcePath + "\n")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.SceneryObject(parts[2], filename)
+	
+	# Locate and check whether the support files exist 
+	if not checkSupportFiles(dirpath, sceneryObject): return
+	
+	# Handle the info.txt file
+	if not handleInfoFile(dirpath, parts, ".lin", sceneryObject, authors): return
+	
+	# Set up paths and copy files
+	if not copySupportFiles(dirpath, parts, sceneryObject): return
+
+	# Copy the facade file
+	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
+	
+	# Open the facade
+	file = open(objectSourcePath, "rU")
+	objectFileContents = file.readlines()
+	file.close()
+
+	# Define the regex patterns:
+	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+	textureFound = 0
+	
+	for line in objectFileContents:
+		result = v8TexturePattern.match(line)
+		if result:
+			textureFound = 1
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+			if (result.group(1) == ""):
+				displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
+			elif os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+
+				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+			else:
+				displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
+				return
+
+			# Break loop as soon as we find a texture, need look no further
+			break
+
+	if not textureFound:
+		displayMessage("No texture line in file - this error must be corrected\n", "error")
+		return
+		
+	# Line is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 
 
 def checkSupportFiles(dirpath, sceneryObject):
