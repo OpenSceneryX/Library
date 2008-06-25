@@ -940,7 +940,11 @@ def getHTMLTOC(rootCategory):
 	result += "<div class='tabber'>\n"
 	
 	for mainSceneryCategory in rootCategory.childSceneryCategories:
-		result += "<div class='tabberTab'>\n"
+		if (mainSceneryCategory.title == "Objects"):
+			result += "<div class='tabberTab tabbertabdefault'>\n"
+		else:
+			result += "<div class='tabberTab'>\n"
+			
 		result += "<h3>" + mainSceneryCategory.title + "</h3>\n"
 		
 		if len(mainSceneryCategory.childSceneryCategories) > 0:
