@@ -1,9 +1,9 @@
-Title: DC-3
+Title: C-47 USAF
 =====================
 Author: amerrir
 URL: http://forums.x-plane.org/index.php?showuser=14498
-Export Propagate: 1
+Export Propagate: 3
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A DC-3 in generic livery.
+Description: A C-47 in USAF livery.  The C-47 was a military version of the DC-3.
