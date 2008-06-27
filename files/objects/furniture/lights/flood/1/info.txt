@@ -1,0 +1,12 @@
+Title: Floodlight
+=====================
+Author: Barry Roberts
+URL: http://forums.x-plane.org/index.php?showuser=3376
+Height: 16.3m
+Width: 1.6m
+Depth: 2.04m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A floodlight, 2 lamps at 70 degrees to one another.

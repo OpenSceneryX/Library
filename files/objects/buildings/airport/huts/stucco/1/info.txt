@@ -1,0 +1,11 @@
+Title: Hut, stucco
+=====================
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 10m
+Depth: 10m
+Height: 4.15m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A small stucco building.
