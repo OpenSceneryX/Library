@@ -1,0 +1,11 @@
+Title: Hangar, rusty metal, open front and back
+=====================
+Author: Omer
+URL: http://forums.x-plane.org/index.php?showuser=4840
+Width: 15.1m
+Height: 5.5m
+Depth: 10.1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A rusty metal hangar, open front and back.
