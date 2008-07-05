@@ -1,0 +1,11 @@
+Title: Chair, plastic, white
+=====================
+Author: Barry Roberts
+URL: http://forums.x-plane.org/index.php?showuser=3376
+Width: 0.7m
+Height: 1.2m
+Depth: 0.7m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white plastic chair.
