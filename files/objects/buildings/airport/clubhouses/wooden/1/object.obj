@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../hangars/metal/CKN4_Texture.png
+TEXTURE		../../../../../shared_textures/bob_feaver/CKN4_Texture.png
 POINT_COUNTS	88 0 0 108
 
 VT	  -6.2630    3.3500   -1.2756	-0.365  0.909 -0.204	0.4892 0.8167

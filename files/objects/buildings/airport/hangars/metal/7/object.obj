@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../CKN4_Texture.png
+TEXTURE		../../../../../shared_textures/bob_feaver/CKN4_Texture.png
 POINT_COUNTS	42 0 0 54
 
 VT	   7.6652    4.2599   -7.5768	 0.013  0.000 -1.000	0.9999 0.7477
