@@ -7,7 +7,7 @@ Release Howto
 
 3. Clean target folder and build library
 
-4. Create a copy of the built folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
+4. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
 
 5. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
 
@@ -19,32 +19,34 @@ Release Howto
 
 9. Upload manifest.xml into /new/
 
-10. Copy /index.html into /old/
+10. Clear /old
 
-11. Extract website zip on site into /new/
+11. Copy /index.html into /old/
 
-12. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+12. Extract website zip on site into /new/
 
-13. Copy /index_offline.html over /index.html
+13. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-14. Move /doc/, /facades/, /forests/, /manifest.xml, /objects/ and /repository/ into /old/
+14. Copy /index_offline.html over /index.html
 
-15. Copy /downloads/ into /old/
+15. Move /doc/, /facades/, /forests/, /lines/, /manifest.xml, /objects/ and /repository/ into /old/
 
-16. Move /new/OpenSceneryX-x.x.x/ to /repository/
+16. Copy /downloads/ into /old/
 
-17. Move /new/OpenSceneryX-Website-x.x.x/* to /
+17. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-18. Move /new/manifest.xml to /
+18. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-19. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+19. Move /new/manifest.xml to /
 
-20. chgrp -R www *
+20. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-21. Ensure /versioninfo has the latest information about the installer in it.
+21. Remove old /new/OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-22. Move /new/index.html over /index.html
+22. chgrp -R www *
 
-23. Upload the monolithic zip file 'OpenSceneryX.zip' into /new/
+23. Ensure /versioninfo has the latest information about the installer in it.
 
-24. When upload complete, move /new/OpenSceneryX.zip to /downloads/
+24. Upload the monolithic zip file 'OpenSceneryX.zip' into /new/
+
+25. When upload complete, move /new/OpenSceneryX.zip to /downloads/
