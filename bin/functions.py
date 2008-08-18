@@ -54,7 +54,7 @@ def buildCategoryLandingPages(sceneryCategory):
 				htmlFileContent += "<div class='thumbnailcontainer'>\n"
 				htmlFileContent += "<h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
 				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle + "' />"
+					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' />"
 				else:
 					htmlFileContent += "<img src='screenshot_missing.png' alt='No Screenshot Available' />"
 				htmlFileContent += "</a>\n"
@@ -763,7 +763,7 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
 	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle + "' />\n"
+		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
 	else:
 		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png' alt='No Screenshot Available' />\n"
 
@@ -779,7 +779,7 @@ def writeHTMLDocFile(sceneryObject):
 	if (not sceneryObject.author == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
 		if (not sceneryObject.url == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' target='_blank'>" + sceneryObject.author + "</a></span>"
+			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' onclick='window.open(this.href);return false;'>" + sceneryObject.author + "</a></span>"
 			if (not sceneryObject.email == ""):
 				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
 		elif (not sceneryObject.email == ""):
@@ -791,7 +791,7 @@ def writeHTMLDocFile(sceneryObject):
 	if (not sceneryObject.textureAuthor == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
 		if (not sceneryObject.textureUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' target='_blank'>" + sceneryObject.textureAuthor + "</a></span>"
+			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.textureAuthor + "</a></span>"
 			if (not sceneryObject.textureEmail == ""):
 				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
 		elif (not sceneryObject.textureEmail == ""):
@@ -803,7 +803,7 @@ def writeHTMLDocFile(sceneryObject):
 	if (not sceneryObject.conversionAuthor == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
 		if (not sceneryObject.conversionUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' target='_blank'>" + sceneryObject.conversionAuthor + "</a></span>"
+			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.conversionAuthor + "</a></span>"
 			if (not sceneryObject.conversionEmail == ""):
 				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
 		elif (not sceneryObject.conversionEmail == ""):
@@ -828,7 +828,7 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "</li>\n"
 
 	if (sceneryObject.tutorial):
-		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' target='_blank'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' target='_blank'>View Tutorial</a></span></li>\n"
+		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
 	
 	for texture in sceneryObject.sceneryTextures:
 		if len(texture.sceneryObjects) > 1:
@@ -884,7 +884,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
 		result += "Search OpenSceneryx:<br />\n"
-		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
+		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' onclick='window.open(this.href);return false;'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
 		result += "<input type='hidden' name='ie' value='UTF-8' />\n"
@@ -921,8 +921,8 @@ def getHTMLSponsoredLinks():
 
 def getHTMLFooter(documentationPath):
 	result = "<div id='footer'>"
-	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
-	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' target='_blank'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
+	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
+	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work under the licence."
 	result += "</div>"
 	result += "<script src='http://www.google-analytics.com/urchin.js' type='text/javascript'></script>"
 	result += "<script type='text/javascript'>"
@@ -992,7 +992,7 @@ def getHTMLSceneryObjects(sceneryObjects):
 	for sceneryObject in sceneryObjects:
 		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle
 		if (sceneryObject.screenshotFilePath != ""):
-			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle + "' /></span>"
+			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' /></span>"
 		else:
 			result += "<span><img src='doc/screenshot_missing.png' alt='No Screenshot Available' /></span>"
 		result += "</a>"

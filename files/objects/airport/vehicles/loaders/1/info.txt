@@ -8,6 +8,6 @@ Export: objects/collections/xsim/fedex_loader
 Revision: $Revision$
 Date: $Date$
 =====================
-Note: For the animation in this object to work, an additional plugin (Developed by Sandy Barbour) must be installed.  Please visit <a href='http://www.xpluginsdk.org/misc_plugins.htm' target='_blank'>this page on Sandy's Website</a> and download and install the 'CustomSBDatarefs004' plugin.
+Note: For the animation in this object to work, an additional plugin (Developed by Sandy Barbour) must be installed.  Please visit <a href='http://www.xpluginsdk.org/misc_plugins.htm' onclick='window.open(this.href);return false;'>this page on Sandy's Website</a> and download and install the 'CustomSBDatarefs004' plugin.
 =====================
 Description: An animated FedEx loader with worker loading boxes.
