@@ -1,0 +1,9 @@
+Title: Tower, stone, blue roof
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A substantial stone airport control tower, 4 storey, with blue roof.

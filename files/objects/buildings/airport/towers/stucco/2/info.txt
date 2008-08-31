@@ -1,0 +1,9 @@
+Title: Tower, stucco, old
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An old stucco airport control tower, 3 storey, with attached small building.
