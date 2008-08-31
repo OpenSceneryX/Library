@@ -700,12 +700,12 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 		result = descriptionPattern.match(line)
 		if result:
-			sceneryObject.description = "<p>" + result.group(1) + "</p>"
+			sceneryObject.description = result.group(1)
 			continue
 
 		# Default is to append to the description.  This handles any amount of extra text
 		# at the end of the file 
-		sceneryObject.description += "<p>" + line + "</p>"
+		sceneryObject.description += line
 		
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
