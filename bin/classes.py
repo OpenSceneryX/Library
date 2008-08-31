@@ -99,6 +99,9 @@ class SceneryObject:
 		self.animated = 0
 		
 		self.exportPropagate = -1
+		
+		self.creationDate = None
+		self.modificationDate = None
 
 
 	def getFilePath(self):
