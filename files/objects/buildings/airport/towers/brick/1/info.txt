@@ -2,6 +2,9 @@ Title: Tower, Brick, with rotating beacon
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 14.5m
+Height: 8.8m
+Depth: 18.2m
 Revision: $Revision$
 Date: $Date$
 =====================

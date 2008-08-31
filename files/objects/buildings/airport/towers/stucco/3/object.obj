@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/nick_ward/towers-nw.png
-TEXTURE_LIT	../../../../../shared_textures/nick_ward/towers-nw_LIT.png
 POINT_COUNTS	192 0 0 330
 
 VT	  -1.7515    0.0000  -19.9098	 0.000  0.000 -1.000	0.2805 0.1201

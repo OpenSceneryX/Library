@@ -3,6 +3,9 @@ Title: Tower, stone, blue roof
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
+Width: 20.3m
+Height: 16.6m
+Depth: 27.3m
 Revision: $Revision$
 Date: $Date$
 =====================

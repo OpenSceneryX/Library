@@ -1,10 +1,10 @@
-Title: Control Tower, Small Wooden
+Title: Tower, Small Wooden
 =====================
 Author: Tony Brown
 Email: aebrown1013@gmail.com
-Height: 33m
-Width: 18m
-Depth: 18m
+Height: 12.9m
+Width: 9.3m
+Depth: 12.2m
 Revision: $Revision$
 Date: $Date$
 =====================
