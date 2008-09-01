@@ -884,7 +884,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
 		result += "Search OpenSceneryx:<br />\n"
-		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' onclick='window.open(this.href);return false;'>\n"
+		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
 		result += "<input type='hidden' name='ie' value='UTF-8' />\n"
