@@ -2,6 +2,9 @@ Title: Fork Lift
 =====================
 Author: Reuben Mowbray
 Email: reubenm@xplanefreeware.net
+Width: 2.5m
+Height: 3m
+Depth: 4.5m
 Revision: $Revision$
 Date: $Date$
 =====================
