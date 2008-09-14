@@ -1,0 +1,19 @@
+Title: Austin's Red House
+=====================
+Author: Austin Goudge
+URL: http://forums.x-plane.org/index.php?showuser=2431
+Email: austin@goudges.com
+Author, texture: A. Photographer
+URL, texture: http://www.photographerswebsite.com
+Email, texture: a@photographer.com
+Author, conversion: A. Convertor
+URL, conversion: http://www.convertorswebsite.com
+Email, conversion: a@convertor.com
+Width: 20m
+Depth: 10m
+Height: 5m
+Animated: Yes
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An animated red house with a purple roof that swivels to face the wind direction except on Tuesdays. Based on my own house with subtle differences to do with the animation and colour.

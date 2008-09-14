@@ -1,0 +1,19 @@
+Title: Title of the object (note that this may be changed by the library maintainer)
+=====================
+Author: The name of the original author of the object, or alias if they prefer.  If the model was converted to X-Plane format then the *original* author goes here. This line is mandatory. In the case of a conversion from an X-Plane aircraft, then the aircraft author's name goes here.
+URL: The URL of original author's website.  If they don't have one, a good alternative is a link to their x-plane.org profile, e.g.: http://forums.x-plane.org/index.php?showuser=2431.  Delete this line if no website is available.
+Email: The original author's email address. Note that this will be published on the OpenSceneryX website so they must give permission for this, otherwise delete this line.
+Author, texture: If there is a separate author (or copyright owner) for the texture, put their name here otherwise delete this line.
+URL, texture: The URL for the texture's author.  Delete this line if not applicable.
+Email, texture: The email address for the texture's author (please ensure they give permission to publish this).  Delete this line if not applicable.
+Author, conversion: The name of the person who converted (and possibly modified) the object for X-Plane.  Delete this line if not applicable.
+URL, conversion: The URL for the conversion author.  Delete this line if not applicable.
+Email, conversion: The email address for the conversion author (please ensure they give permission to publish this).  Delete this line if not applicable.
+Width: The width of the object, include the abbreviated units (e.g. 10m, 10ft).
+Depth: The depth of the object, include the abbreviated units (e.g. 10m, 10ft).
+Height: The height of the object, include the abbreviated units (e.g. 10m, 10ft).
+Animated: Either "Yes" or delete this line if not animated.
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A description of the object.  Include any useful information including (if you wish) information about any real-world object the object may be based on.  As a minimum, just describe the physical features of the object.  URLs are allowed if desired e.g. <a href='http://forums.x-plane.org/index.php?showuser=2431'>aussi's X-Plane Profile</a>.
