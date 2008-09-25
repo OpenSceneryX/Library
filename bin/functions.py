@@ -990,12 +990,7 @@ def getHTMLTOC(rootCategory):
 def getHTMLSceneryObjects(sceneryObjects):
 	result = ""
 	for sceneryObject in sceneryObjects:
-		result += "<li><a class='hoverimage' href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle
-		if (sceneryObject.screenshotFilePath != ""):
-			result += "<span><img src='" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' /></span>"
-		else:
-			result += "<span><img src='doc/screenshot_missing.png' alt='No Screenshot Available' /></span>"
-		result += "</a>"
+		result += "<li><a href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle + "</a>"
 	 
 		if (sceneryObject.note != ""):
 			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></a>"
