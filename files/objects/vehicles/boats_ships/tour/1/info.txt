@@ -1,0 +1,13 @@
+Title: Tour Boat 'Seaadventure'
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 10m
+Depth: 28m
+Height: 10.8m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A glass-bottomed catamaran.

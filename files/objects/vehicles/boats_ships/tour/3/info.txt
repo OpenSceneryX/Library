@@ -1,0 +1,13 @@
+Title: Tour Boat 'Submarine Vision'
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 9.3m
+Depth: 28.2m
+Height: 9.8m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A glass-bottomed tour boat.

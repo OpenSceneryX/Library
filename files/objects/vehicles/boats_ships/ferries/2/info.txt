@@ -1,0 +1,12 @@
+Title: Ferry 'Mercedes del Mar', open doors
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 31m
+Depth: 162m
+Height: 32m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Mercedes del Mar is one of the ferries of ISCOMAR which travel between Mallorca and Valencia or Barcelona and also Ibiza and Menorca. It carries 400 cars and 635 passengers. It has two motors with 9000 hp each.  This version has open doors for use in port.

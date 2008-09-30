@@ -1,0 +1,13 @@
+Title: Sailing boat, Medium, 1
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 3.4m
+Depth: 12m
+Height: 12m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A medium sized sailing boat, sails up.

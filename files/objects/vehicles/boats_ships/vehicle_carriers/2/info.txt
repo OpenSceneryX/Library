@@ -1,0 +1,14 @@
+Title: Vehicle Carrier 'Galaxy Leader', open doors
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Depth: 203m
+Width: 43m
+Height: 47m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Galaxy Leader is one of the biggest vehicle carriers. Japan-based Nippon Yusen Kaisha or NYK Line is one of the largest shipping companies in the world. It is a core Mitsubishi company. This version has open loading doors for use in port.
+
+Speed: 20 kts, tonnage: 42,000 gross register tons (GRT).

@@ -1,0 +1,13 @@
+Title: Motor Cruiser, Small
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 3.3m
+Depth: 11m
+Height: 1.4m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A small motor cruiser.

@@ -1,0 +1,18 @@
+Title: Cruise Ship 'Aida Bella'
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Author, texture: Birger Christiansen
+URL, texture: http://www.erdbeerenberg.de
+Email, texture: erdbeerenberg@googlemail.com
+Depth: 254m
+Width: 32m
+Height: 46m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: AIDA bella is a cruise ship from the big AIDA fleet, finished 2008, operated by AIDA Cruises. Built at Meyer Werft shipyard in Papenburg, Germany, she is a sister ship to AIDAdiva and AIDAluna. The ship has a passenger capacity of over 2,000 and features a nude sun deck area at the rear of the ship.
+
+1.025 cabins, power 24.800 kw, homeport Genua, speed: 21.8 kts, tonnage: 68,500 gross register tons (GRT).

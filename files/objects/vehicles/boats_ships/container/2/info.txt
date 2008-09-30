@@ -1,0 +1,15 @@
+Title: MV Containerships VII, with cranes
+=====================
+Author: Dieter Rosenkranz
+URL: http://www.helgo11335.de
+Email: d_rosenkranz@wanadoo.es
+Width: 26m
+Depth: 190m
+Height: 42m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Containerships Group is a door-to-door short sea carrier providing regular services linking key industrial and retail customers in Finland, Russia, Scandinavia, Eastern Europe, the Baltic States and Western Europe via ports in the Baltic, North Sea and UK areas.  This version has deck cranes.
+
+Built: 2002, DWT: 13965, TEU: 966, service speed: 21 kts, ice class: 1A.
