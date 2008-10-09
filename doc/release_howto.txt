@@ -27,7 +27,7 @@ Release Howto
 
 13. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-14. Copy /index_offline.html over /index.html
+14. Copy /index-sitedown.html over /index.html
 
 15. Move /doc/, /facades/, /forests/, /lines/, /manifest.xml, /objects/ and /repository/ into /old/
 

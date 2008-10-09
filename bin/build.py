@@ -115,6 +115,10 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/note.gif", classes.Configuration.osxWebsiteFolder + "/doc/note.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 		shutil.copyfile(classes.Configuration.supportFolder + "/screenshot_missing.png", classes.Configuration.osxWebsiteFolder + "/doc/screenshot_missing.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/index-sitedown.html", classes.Configuration.osxWebsiteFolder + "/index-sitedown.html")
+		shutil.copyfile(classes.Configuration.supportFolder + "/errordoc.html", classes.Configuration.osxWebsiteFolder + "/errordoc.html")
+		shutil.copyfile(classes.Configuration.supportFolder + "/google09f5d478fb9c9dd9.html", classes.Configuration.osxWebsiteFolder + "/google09f5d478fb9c9dd9.html")
+		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
 		
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
