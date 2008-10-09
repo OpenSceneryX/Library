@@ -1,0 +1,11 @@
+Title: USA Forest, Great Plains Steppe, Mixed Sparse
+Short Title: Mixed Sparse
+=====================
+Author: Andras Fabian
+URL: http://www.alpilotx.de/
+Author, texture: Albert Laubi
+Author, texture: Sergio Santagada
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A forest of trees.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the USA areas.

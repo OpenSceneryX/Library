@@ -50,8 +50,10 @@ try:
 		
 		if (europeUS == "e"):
 			mappingFile = "europe_forest_mapping.txt"
+			continentTitle = "European"
 		else:
 			mappingFile = "us_forest_mapping.txt"
+			continentTitle = "USA"
 		
 		file = open("trunk" + os.sep + "bin" + os.sep + mappingFile)
 		mappingFileContents = file.readlines()
@@ -74,10 +76,42 @@ try:
 			
 			treeFileContents = texturePattern.sub(r"TEXTURE ../../../\1", treeFileContents)
 			
+			destFileParts = dest.split("/")
+			
+			# Create destination folders
+			destFolder = "/".join(destFileParts[:-1])
+			if not os.path.isdir(destFolder):
+				os.makedirs(destFolder)
+
+			# Create category file
+			categoryFile = "/".join(destFileParts[:-2]) + "/category.txt"
+			regionTitle = destFileParts[-3].replace("_", " ").title()
+			file = open(categoryFile, "w")
+			file.write("Title: " + continentTitle + ", " + regionTitle + "\n")
+			file.write("=====================\n\n")
+			file.close()
+			
+			# Create forest file
 			file = open(dest, "w")
 			file.write(treeFileContents)
 			file.close()
-			# shutil.copyfile(src, dest)
+			
+			# Create info file
+			infoFile = "/".join(destFileParts[:-1]) + "/info.txt"
+			treeType = destFileParts[-2].replace("_", " ").title()
+			file = open(infoFile, "w")
+			file.write("Title: " + continentTitle + " Forest, " + regionTitle + ", " + treeType + "\n")
+			file.write("Short Title: " + treeType + "\n")
+			file.write("=====================\n")
+			file.write("Author: Andras Fabian\n")
+			file.write("URL: http://www.alpilotx.de/\n")
+			file.write("Author, texture: Albert Laubi\n")
+			file.write("Author, texture: Sergio Santagada\n")
+			file.write("Revision: $Revision$\n")
+			file.write("Date: $Date$\n")
+			file.write("=====================\n")
+			file.write("Description: A forest of trees.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the " + continentTitle + " areas.\n")
+			file.close()
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")
