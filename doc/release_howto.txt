@@ -7,8 +7,6 @@ Release Howto
 
 3. Clean target folder and build library
 
-5. Run 
-
 4. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
 
 5. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
@@ -49,10 +47,8 @@ Release Howto
 
 23. Ensure /versioninfo has the latest information about the installer in it.
 
-24. Upload the monolithic zip file 'OpenSceneryX.zip' into /new/
+24. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-25. When upload complete, move /new/OpenSceneryX.zip to /downloads/
+25. Run 'python sitemap_gen.py --config=config.xml' 
 
-26. Run sitemap_gen.py --config=config.xml 
-
-27. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/
+26. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/
