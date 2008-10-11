@@ -1,4 +1,4 @@
-Title: Loader, FedEx, animated - Xsim
+Title: Loader, FedEx - Xsim
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com

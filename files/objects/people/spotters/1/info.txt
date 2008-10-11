@@ -1,4 +1,4 @@
-Title: Plane Spotter, animated - Xsim
+Title: Plane Spotter - Xsim
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
