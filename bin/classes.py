@@ -53,6 +53,8 @@ class Configuration:
 			os.mkdir(self.osxWebsiteFolder)
 		if not os.path.isdir(self.osxWebsiteFolder + "/doc"):
 			os.mkdir(self.osxWebsiteFolder + "/doc")
+		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
+			os.mkdir(self.osxWebsiteFolder + "/extras")
 
 	setVersionTag = classmethod(setVersionTag)
 	makeFolders = classmethod(makeFolders)

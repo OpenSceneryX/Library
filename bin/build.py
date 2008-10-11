@@ -119,6 +119,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/errordoc.html", classes.Configuration.osxWebsiteFolder + "/errordoc.html")
 		shutil.copyfile(classes.Configuration.supportFolder + "/google09f5d478fb9c9dd9.html", classes.Configuration.osxWebsiteFolder + "/google09f5d478fb9c9dd9.html")
 		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
+		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
+		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.gif")
 		
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
