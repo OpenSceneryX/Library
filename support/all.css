@@ -1,41 +1,41 @@
 body {
-  font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
-  padding: 0;
-  margin: 0;
-  color: #333;
-  line-height: 1.5em;
+	font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
+	padding: 0;
+	margin: 0;
+	color: #333;
+	line-height: 1.5em;
 }
 
 h1 {
-  font-size: 2em;
-  display: inline;
+	font-size: 2em;
+	display: inline;
 }
 
 h2 {
-  padding: 0.5em 0 0 0;
-  margin: 0 0 1em 0;
-  border-bottom: 1px solid #ccc;
+	padding: 0.5em 0 0 0;
+	margin: 0 0 1em 0;
+	border-bottom: 1px solid #ccc;
 }
 
 div#toc h2 {
-  padding-top: 0.5em;
-  border-bottom: 1px solid #fff;
+	padding-top: 0.5em;
+	border-bottom: 1px solid #fff;
 }
 
 h3 {
-  padding: 0;
-  margin: 0 0 0.3em 0;
-  font-size: 1.1em;
+	padding: 0;
+	margin: 0 0 0.3em 0;
+	font-size: 1.1em;
 }
 
 h4 {
-  padding: 0;
-  margin: 0 0 0.2em 0;
-  font-size: 1em;
+	padding: 0;
+	margin: 0 0 0.2em 0;
+	font-size: 1em;
 }
 
 div#toc h4 {
-  padding-top: 0.5em;
+	padding-top: 0.5em;
 }
 
 h4.inline {
@@ -44,57 +44,57 @@ h4.inline {
 }
 
 img {
-  padding: 1px;
-  border: 1px solid black;
-  margin: 5px;
+	padding: 1px;
+	border: 1px solid black;
+	margin: 5px;
 }
 
 img.screenshot {
-  float: right;
-  margin-right: 0px;
+	float: right;
+	margin-right: 0px;
 }
 
 img.icon {
-  border: none;
-  vertical-align: bottom;
+	border: none;
+	vertical-align: bottom;
 }
 
 img.attributeicon{
-  border: none;
-  vertical-align: bottom;
-  margin: 0px 0px 5px 0px;
+	border: none;
+	vertical-align: bottom;
+	margin: 0px 0px 5px 0px;
 }
 
 img.miniobjecticon {
-  border: none;
-  margin: 0;
-  padding: 0 1px 0 0;
-  width: 1em;
-  height: 1em;
+	border: none;
+	margin: 0;
+	padding: 0 1px 0 0;
+	width: 1em;
+	height: 1em;
 }
 
 p {
-  padding: 0 0 1em 0;
-  margin: 0;
+	padding: 0 0 1em 0;
+	margin: 0;
 }
 
 p.warning {
-  background-color: #fcc;
-  color: #ff0000;
-  padding: 0.5em;
+	background-color: #fcc;
+	color: #ff0000;
+	padding: 0.5em;
 }
 
 div.virtualPath {
-  display: block;
-  background-color: #cfc;
-  padding: 0.25em 0.5em 0.25em 0.5em;
+	display: block;
+	background-color: #cfc;
+	padding: 0.25em 0.5em 0.25em 0.5em;
 }
 
 div.deprecatedVirtualPath {
-  margin-top: 0.2em;
-  display: block;
-  background-color: #fcc;
-  padding: 0.25em 0.5em 0.25em 0.5em;
+	margin-top: 0.2em;
+	display: block;
+	background-color: #fcc;
+	padding: 0.25em 0.5em 0.25em 0.5em;
 }
 
 div.thumbnailcontainer {
@@ -118,34 +118,34 @@ div.objectlogocontainer img {
 }
 
 p#version {
-  padding: 0.5em 0 0 0;
-  margin: 0;
+	padding: 0.5em 0 0 0;
+	margin: 0;
 }
 
 div#header {
-  display: block;
-  background-color: #33a;
-  color: #fff;
-  padding: 1em 1em 1em 2em;
+	display: block;
+	background-color: #33a;
+	color: #fff;
+	padding: 1em 1em 1em 2em;
 }
 
 div#content {
-  margin: 0.5em 2em 0 2em;
-  padding-bottom: 1em;
+	margin: 0.5em 2em 0 2em;
+	padding-bottom: 1em;
 }
 
 div#breadcrumbs {
-  margin: 0.5em 2em 0 2em;
+	margin: 0.5em 2em 0 2em;
 }
 
 div#toc {
-  font-size: 0.9em;
-  float:right;
-  width: 270px;
-  background-color: #ccf;
-  margin: 1em 1em 1em 0;
-  border-left: 10px solid #fff;
-  padding: 0 0.5em 0.5em 1em;
+	font-size: 0.9em;
+	float:right;
+	width: 270px;
+	background-color: #ccf;
+	margin: 1em 1em 1em 0;
+	border-left: 10px solid #fff;
+	padding: 0 0.5em 0.5em 1em;
 }
 
 div#google {
@@ -157,16 +157,20 @@ div#google {
 }
 
 div#footer {
-  clear: both;
-  border-top: 1px dotted #ccc;
-  margin-left: 2em;
-  margin-right: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  color: #777;
-  font-size: 0.8em;
-  text-align: left;
-  line-height: normal;
+	clear: both;
+	border-top: 1px dotted #ccc;
+	margin-left: 2em;
+	margin-right: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #777;
+	font-size: 0.8em;
+	text-align: left;
+	line-height: normal;
+}
+
+div.clear {
+	clear:both;
 }
 
 ul {
@@ -176,11 +180,11 @@ div#toc ul {
 }
 
 ul.inline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  list-style-type: disc;
-  list-style-image: url(bullet_object.gif);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style-type: disc;
+	list-style-image: url(bullet_object.gif);
 }
 
 ul.inline li { display: inline; }
@@ -188,39 +192,39 @@ ul.inline li:after { content: " | "; }
 ul.inline li:last-child:after { content: ""; }
 
 div#breadcrumbs ul.inline {
-  line-height: 2.0em;
+	line-height: 2.0em;
 }
 
 div#toc ul.inline {
-  font-size: 0.7em;
-  line-height: 2.0em;
+	font-size: 0.7em;
+	line-height: 2.0em;
 }
 
 div#toc ul.objects {
-  font-size: 0.7em;
-  line-height: 2.0em;
+	font-size: 0.7em;
+	line-height: 2.0em;
 	margin: 0 0 1em 2em;
 	padding: 1em 0 0 0;
-  list-style-type: disc;
-  list-style-image: url(bullet_object.gif);
+	list-style-type: disc;
+	list-style-image: url(bullet_object.gif);
 }
 
 div#toc ul.facades {
-  font-size: 0.7em;
-  line-height: 2.0em;
+	font-size: 0.7em;
+	line-height: 2.0em;
 	margin: 0 0 1em 2em;
 	padding: 1em 0 0 0;
-  list-style-type: disc;
-  list-style-image: url(bullet_object.gif);
+	list-style-type: disc;
+	list-style-image: url(bullet_object.gif);
 }
 
 div#toc ul.forests {
-  font-size: 0.7em;
-  line-height: 2.0em;
+	font-size: 0.7em;
+	line-height: 2.0em;
 	margin: 0 0 1em 2em;
 	padding: 1em 0 0 0;
-  list-style-type: disc;
-  list-style-image: url(bullet_object.gif);
+	list-style-type: disc;
+	list-style-image: url(bullet_object.gif);
 }
 
 ul.mainItemDetails {
@@ -231,7 +235,7 @@ ul.mainItemDetails li.note {
 }
 
 ul.secondaryItemDetails {
-  font-size: 0.8em;
+	font-size: 0.8em;
 }
 
 ul.dimensions {
@@ -245,34 +249,43 @@ ul.dimensions {
 }
 
 ul.dimensions li {
-  white-space: nowrap;
-  font-size: 0.7em;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: block;
-  position: absolute;
+	white-space: nowrap;
+	font-size: 0.7em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	position: absolute;
 }
 
 ul.dimensions li#width {left: 35px; top: -15px;}
 ul.dimensions li#height {right: 55px; top: 25px; text-align: right;}
 ul.dimensions li#depth {left: 50px; top: 40px;}
 
-span.fieldTitle {
-  font-weight: bold;
+.fieldTitle {
+	font-weight: bold;
 }
 
-span.fieldValue {
+.fieldValue {
 }
 
 a {
-  color: #33a;
-  text-decoration: none;
-  border-bottom: 1px dashed #aab;
+	color: #33a;
+	text-decoration: none;
+	border-bottom: 1px dashed #aab;
 }
 
 a.nounderline {
-  border-bottom: none;
+	border-bottom: none;
+}
+
+h1 a {
+	border-bottom: none;
+	color: white;
+}
+
+h2 a {
+	border-bottom: none;
 }
 
 a.shaded {
@@ -285,13 +298,13 @@ a.tooltip {
 	color: #000;
 	text-decoration: none;
 	cursor: default;
-  border-bottom: none;
+	border-bottom: none;
 	z-index: 0;
 }
 
 a.tooltip:hover {
-  font-size: 100%;  /* IE/Win requires some link change on hover in order to show the tooltips */
-  z-index: 50;
+	font-size: 100%;	/* IE/Win requires some link change on hover in order to show the tooltips */
+	z-index: 50;
 }
 
 a.tooltip span {
@@ -313,11 +326,11 @@ a.tooltip:hover span {
 }
 
 p#version {
-  color: #ccf;
+	color: #ccf;
 }
 
 p#version a {
-  color: #ccf;
+	color: #ccf;
 }
 
 .hide {
@@ -328,30 +341,46 @@ p#version a {
 /*URL: http://www.dynamicdrive.com/style/ */
 
 .hoverimage {
-  position: relative;
-  z-index: 0;
+	position: relative;
+	z-index: 0;
 }
 
 .hoverimage:hover {
-  background-color: transparent;
-  z-index: 50;
+	background-color: transparent;
+	z-index: 50;
 }
 
 .hoverimage span{ /*CSS for enlarged image*/
-  position: fixed;
-  background-color: #fff;
-  padding: 0;
-  right: -1000px;
-  visibility: hidden;
-  color: black;
-  text-decoration: none;
+	position: fixed;
+	background-color: #fff;
+	padding: 0;
+	right: -1000px;
+	visibility: hidden;
+	color: black;
+	text-decoration: none;
 }
 
 .hoverimage span img{ /*CSS for enlarged image*/
 }
 
 .hoverimage:hover span{ /*CSS for enlarged image on hover*/
-  visibility: visible;
-  top: 7em;
-  right: 310px; /*position where enlarged image should offset horizontally */
+	visibility: visible;
+	top: 7em;
+	right: 310px; /*position where enlarged image should offset horizontally */
+}
+
+.formLeft {
+	width: 300px;
+	float: left;
+	clear: left;
+	text-align: right;
+	padding-right: 15px;
+	white-space: nowrap;
+	min-width: 5em;
+}
+
+.formRight {
+	width: 400px;
+	float: left;
+	min-width: 5em;
 }
