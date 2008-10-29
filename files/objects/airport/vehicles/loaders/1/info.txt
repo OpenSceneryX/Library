@@ -5,6 +5,7 @@ Email: mr3d@talk21.com
 Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/fedex_loader
+Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
