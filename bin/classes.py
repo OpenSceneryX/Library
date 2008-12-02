@@ -19,12 +19,13 @@ import re
 # Class to hold configuration values
 #
 class Configuration:
-	"Generic container for shared variables."
+	"""Generic container for shared variables."""
 	versionTag = ""
 	versionNumber = ""
 	versionDate = datetime.datetime.now().strftime("%c")
 	
 	def setVersionTag(self, versionTag):
+		""" Set up the configuration """
 		self.versionTag = versionTag
 		self.versionNumber = string.replace(self.versionTag, "-", ".")
 		self.releaseFolder = "tags/" + self.versionNumber
@@ -35,6 +36,7 @@ class Configuration:
 		self.supportFolder = "trunk/support"
 		
 	def makeFolders(self):
+		""" Create any folders that need creating """
 		if not os.path.isdir(self.releaseFolder):
 			os.mkdir(self.releaseFolder)
 		if not os.path.isdir(self.osxFolder):
@@ -65,7 +67,7 @@ class Configuration:
 # Class to hold information about an X-Plane scenery object
 #
 class SceneryObject:
-	"An X-Plane scenery object"
+	"""An X-Plane scenery object"""
 	
 	def __init__(self, filePathRoot, fileName):
 		self.filePathRoot = filePathRoot
@@ -107,15 +109,18 @@ class SceneryObject:
 
 
 	def getFilePath(self):
+		""" Get the full file path to this SceneryObject """
 		return os.path.join(self.filePathRoot, self.fileName)
 
 	def __cmp__(self, other):
+		""" Standard compare method for sorting - compare titles """
 		if (isinstance(other, SceneryObject)): 
 			return cmp(self.title, other.title)
 		else:
 			return cmp(self.title, other)
 	
 	def getDocumentationFileName(self):
+		""" Get the filename of this SceneryObject's documentation file """
 		return self.title + ".html"
 
 
@@ -123,7 +128,7 @@ class SceneryObject:
 # Class to hold information about a category
 #
 class SceneryCategory:
-	"A scenery documentation category"
+	"""A scenery documentation category"""
 	
 	def __init__(self, filePathRoot, parentSceneryCategory):
 		self.filePathRoot = filePathRoot
@@ -155,14 +160,18 @@ class SceneryCategory:
 
 		
 	def addSceneryCategory(self, sceneryCategory):
+		""" Add a sub SceneryCategory to this category """
 		self.childSceneryCategories.append(sceneryCategory)
 		sceneryCategory.parentSceneryCategory = self
 
 	def addSceneryObject(self, sceneryObject):
+		""" Add a SceneryObject to this category """
 		self.childSceneryObjects.append(sceneryObject)
 		sceneryObject.sceneryCategory = self
 
 	def getSceneryObjects(self, recursive):
+		""" Get our list of SceneryObjects, recursively if desired """
+		
 		# Clone our own list of objects
 		result = self.childSceneryObjects[:]
 		# Merge with objects from children
@@ -173,6 +182,7 @@ class SceneryCategory:
 		return result
 		
 	def getSceneryObjectCount(self, recursive):
+		""" Get the number of SceneryObjects in this category, recursively if desired """
 		result = len(self.childSceneryObjects)
 		
 		if recursive:
@@ -182,6 +192,7 @@ class SceneryCategory:
 		return result
 	
 	def getAncestors(self, includeSelf):
+		""" Get a list of our ancestors, with the root category at the end of the list """
 		result = []
 		
 		if (includeSelf):
@@ -196,6 +207,7 @@ class SceneryCategory:
 		return result
 	
 	def calculateDepth(self):
+		""" Calculate our depth down the category tree """
 		self.depth = 0
 		currentSceneryCategory = self
 		
@@ -204,6 +216,7 @@ class SceneryCategory:
 			currentSceneryCategory = currentSceneryCategory.parentSceneryCategory
 	
 	def sort(self):
+		""" Sort our children, both SceneryCategories and SceneryObjects """
 		self.childSceneryCategories.sort()
 		self.childSceneryObjects.sort()
 		
@@ -211,6 +224,7 @@ class SceneryCategory:
 			sceneryCategory.sort()
 			
 	def __cmp__(self, other):
+		""" Standard compare method for sorting - compares titles """
 		if (isinstance(other, SceneryCategory)): 
 			return cmp(self.title, other.title)
 		else:
@@ -221,7 +235,7 @@ class SceneryCategory:
 # Class to hold information about a texture
 #
 class SceneryTexture:
-	"A scenery texture"
+	"""A scenery texture"""
 	
 	def __init__(self, filePath):
 		self.fileName = os.path.basename(filePath)

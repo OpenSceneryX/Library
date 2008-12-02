@@ -18,6 +18,8 @@ import pcrt
 
 
 def buildCategoryLandingPages(sceneryCategory):
+	""" Build all the documentation landing pages for SceneryCategories """
+	
 	# Only build landing pages where depth >= 2
 	if sceneryCategory.depth >= 2:
 		htmlFileContent = ""
@@ -78,6 +80,8 @@ def buildCategoryLandingPages(sceneryCategory):
 		
 
 def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures):
+	""" Parse the contents of a library folder """
+	
 	contents = os.listdir(dirPath)
 	
 	# Handle category descriptor first, if present
@@ -109,7 +113,8 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 
 
 def handleCategory(dirpath, currentCategory):
-	# Create an instance of the SceneryCategory class
+	""" Create an instance of the SceneryCategory class """
+	
 	sceneryCategory = classes.SceneryCategory(dirpath, currentCategory)
 	currentCategory.addSceneryCategory(sceneryCategory)
 	
@@ -118,6 +123,8 @@ def handleCategory(dirpath, currentCategory):
 	
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+	""" Create an instance of the SceneryObject class for a .obj """
+	
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -259,6 +266,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+	""" Create an instance of the SceneryObject class for a .fac """
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -335,6 +344,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+	""" Create an instance of the SceneryObject class for a .for """
+	
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -410,6 +421,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+	""" Create an instance of the SceneryObject class for a .lin """
+	
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
@@ -483,6 +496,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 
 def checkSupportFiles(dirpath, sceneryObject):
+	""" Check that the info file and screenshot files are present """
+	
 	# Locate the info file. If it isn't in the current directory, walk up the folder structure 
 	# looking for one in all parent folders
 	dirPathParts = dirpath.split(os.sep)
@@ -511,11 +526,14 @@ def checkSupportFiles(dirpath, sceneryObject):
 
 	
 def copySupportFiles(dirpath, parts, sceneryObject):
+	""" Copy the support files from the source to the destination """
+	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): 
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[2]))
 	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2])): 
 		os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
+	# Copy the info file
 	shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
 	
 	if (sceneryObject.screenshotFilePath != ""):
@@ -535,6 +553,8 @@ def copySupportFiles(dirpath, parts, sceneryObject):
 	
 	
 def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
+	""" Parse the contents of the info file, storing the results in the SceneryObject """
+	
 	file = open(sceneryObject.infoFilePath)
 	infoFileContents = file.readlines()
 	file.close()
@@ -566,23 +586,28 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[2] + suffix)
 	
+	# Begin parsing
 	for line in infoFileContents:
+		# Check for exclusion
 		result = excludePattern.match(line)
 		if result:
 			displayMessage("EXCLUDED, reason: " + result.group(1) + "\n", "note")
 			return 0
-			
+		
+		# Title
 		result = titlePattern.match(line)
 		if result:
 			sceneryObject.title = result.group(1).replace("\"", "'")
 			if (sceneryObject.shortTitle == ""): sceneryObject.shortTitle = sceneryObject.title
 			continue
 
+		# Short title
 		result = shortTitlePattern.match(line)
 		if result:
 			sceneryObject.shortTitle = result.group(1).replace("\"", "'")
 			continue
 
+		# Main author
 		result = authorPattern.match(line)
 		if result:
 			if sceneryObject.author == "":
@@ -593,7 +618,8 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-			
+		
+		# Texture author
 		result = textureAuthorPattern.match(line)
 		if result:
 			if sceneryObject.textureAuthor == "":
@@ -605,6 +631,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 				authors.append(result.group(1))
 			continue
 			
+		# Conversion author
 		result = conversionAuthorPattern.match(line)
 		if result:
 			if sceneryObject.conversionAuthor == "":
@@ -615,62 +642,74 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-			
+		
+		# Main author email
 		result = emailPattern.match(line)
 		if result:
 			sceneryObject.email = result.group(1)
 			continue
-			
+		
+		# Texture author email
 		result = textureEmailPattern.match(line)
 		if result:
 			sceneryObject.textureEmail = result.group(1)
 			continue
-			
+		
+		# Conversion author email
 		result = conversionEmailPattern.match(line)
 		if result:
 			sceneryObject.conversionEmail = result.group(1)
 			continue
-			
+		
+		# Main author URL
 		result = urlPattern.match(line)
 		if result:
 			sceneryObject.url = result.group(1)
 			continue
-			
+		
+		# Texture author URL
 		result = textureUrlPattern.match(line)
 		if result:
 			sceneryObject.textureUrl = result.group(1)
 			continue
-			
+		
+		# Conversion author URL
 		result = conversionUrlPattern.match(line)
 		if result:
 			sceneryObject.conversionUrl = result.group(1)
 			continue
-			
+		
+		# Width
 		result = widthPattern.match(line)
 		if result:
 			sceneryObject.width = result.group(1)
 			continue
-
+		
+		# Height
 		result = heightPattern.match(line)
 		if result:
 			sceneryObject.height = result.group(1)
 			continue
-
+		
+		# Depth
 		result = depthPattern.match(line)
 		if result:
 			sceneryObject.depth = result.group(1)
 			continue
-
+		
+		# Animated
 		result = animatedPattern.match(line)
 		if result:
 			sceneryObject.animated = (result.group(1) == "True" or result.group(1) == "Yes")
 			continue
-
+		
+		# Additional export path
 		result = exportPattern.match(line)
 		if result:
 			sceneryObject.virtualPaths.append(result.group(1) + suffix)
 			continue
-
+		
+		# Export propagation
 		result = exportPropagatePattern.match(line)
 		if result:
 			# Work with the first virtual path only, this is the one generated from the file hierarchy
@@ -682,22 +721,26 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 				for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
 					sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
 			continue
-
+		
+		# Export deprecation
 		result = exportDeprecatedPattern.match(line)
 		if result:
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
-
+		
+		# Branding logo
 		result = logoPattern.match(line)
 		if result:
 			sceneryObject.logoFileName = result.group(1)
 			continue
-
+		
+		# Notes
 		result = notePattern.match(line)
 		if result:
 			sceneryObject.note = result.group(1)
 			continue
-
+		
+		# Description
 		result = descriptionPattern.match(line)
 		if result:
 			sceneryObject.description = result.group(1)
@@ -706,7 +749,8 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 		# Default is to append to the description.  This handles any amount of extra text
 		# at the end of the file 
 		sceneryObject.description += line
-		
+	
+	# Handle the tutorial if present
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
@@ -716,6 +760,8 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 
 
 def buildDocumentation(sceneryCategory, depth):
+	""" Build the documentation for the library.  All folders will have been parsed by this point """
+	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
 		writeHTMLDocFile(sceneryObject)
 		
@@ -727,6 +773,7 @@ def buildDocumentation(sceneryCategory, depth):
 
 
 def writeHTMLDocFile(sceneryObject):
+	""" Write a documentation file for the given SceneryObject to disk """
 	htmlFileContent = ""
 	
 	# Breadcrumbs
@@ -776,6 +823,7 @@ def writeHTMLDocFile(sceneryObject):
 	# Main information
 	htmlFileContent += "<ul class='mainItemDetails'>\n"
 	
+	# Author
 	if (not sceneryObject.author == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
 		if (not sceneryObject.url == ""):
@@ -788,6 +836,7 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
 		htmlFileContent += "</li>\n"
 		
+	# Texture author
 	if (not sceneryObject.textureAuthor == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
 		if (not sceneryObject.textureUrl == ""):
@@ -800,6 +849,7 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
 		htmlFileContent += "</li>\n"
 		
+	# Conversion author
 	if (not sceneryObject.conversionAuthor == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
 		if (not sceneryObject.conversionUrl == ""):
@@ -811,13 +861,16 @@ def writeHTMLDocFile(sceneryObject):
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
 		htmlFileContent += "</li>\n"
-
+	
+	# Description
 	if (not sceneryObject.description == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
-
+		
+	# Note
 	if (not sceneryObject.note == ""):
 		htmlFileContent += "<li class='note'><span class='fieldTitle'>Important Note:</span> <span class='fieldValue'>" + sceneryObject.note + "</span></li>\n"
 	
+	# Dimensions
 	if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Dimensions:</span>\n"
 		htmlFileContent += "<ul class='dimensions'>\n"
@@ -827,9 +880,11 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "</ul>\n"
 		htmlFileContent += "</li>\n"
 
+	# Tutorial
 	if (sceneryObject.tutorial):
 		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
 	
+	# Texture references
 	for texture in sceneryObject.sceneryTextures:
 		if len(texture.sceneryObjects) > 1:
 			# This scenery object shares a texture with other objects
@@ -842,6 +897,7 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>";
 
+	# Write the file contents
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
 	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
@@ -855,6 +911,8 @@ def writeHTMLDocFile(sceneryObject):
 
 
 def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, includeTabbo):
+	""" Get the standard header for all documentation files """
+	
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
 	result += "					 \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
@@ -904,6 +962,8 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 
 
 def getHTMLSponsoredLinks():
+	""" Get the sponsored links area """
+	
 	result = "<div id='google'>\n"
 	result += "<script type='text/javascript'><!--\n"
 	result += "google_ad_client = 'pub-5631233433203577';\n"
@@ -920,6 +980,8 @@ def getHTMLSponsoredLinks():
 
 
 def getHTMLFooter(documentationPath):
+	""" Get the standard footer for all documentation files """
+	
 	result = "<div id='footer'>"
 	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
 	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence."
@@ -935,6 +997,8 @@ def getHTMLFooter(documentationPath):
 
 
 def getHTMLTOC(rootCategory):
+	""" Get the table of contents for the home page """
+	
 	result = "<div id='toc'>\n"
 	result += "<h2>Contents</h2>\n"
 	result += "<div class='tabber'>\n"
@@ -988,6 +1052,8 @@ def getHTMLTOC(rootCategory):
 
 
 def getHTMLSceneryObjects(sceneryObjects):
+	""" Display a group of scenery objects in the Table of Contents """
+	
 	result = ""
 	for sceneryObject in sceneryObjects:
 		result += "<li><a href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle + "</a>"
@@ -1008,6 +1074,8 @@ def getHTMLSceneryObjects(sceneryObjects):
 
 
 def getLibraryHeader(versionTag):
+	""" Get the standard library.txt header """
+	
 	result = "A\n"
 	result += "800\n"
 	result += "LIBRARY\n"
@@ -1019,6 +1087,8 @@ def getLibraryHeader(versionTag):
 
 
 def matchesAny(name, tests):
+	""" Utility function to find whether a given string is found in a list """
+	
 	for test in tests:
 		if fnmatch.fnmatch(name, test):
 			return True
@@ -1027,8 +1097,8 @@ def matchesAny(name, tests):
 
 
 def caseinsensitive_sort(stringList):
-	"""case-insensitive string comparison sort
-	usage: stringList = caseinsensitive_sort(stringList)"""
+	""" Case-insensitive string comparison sort. usage: stringList = caseinsensitive_sort(stringList) """
+	
 	tupleList = [(x.lower(), x) for x in stringList]
 	tupleList.sort()
 	stringList[:] = [x[1] for x in tupleList]
@@ -1036,6 +1106,8 @@ def caseinsensitive_sort(stringList):
 
 
 def displayMessage(message, type="message"):
+	""" Display a message to the user of a given type (determines message colour) """
+	
 	if (type == "error"):
 		pcrt.fg(pcrt.RED)
 		print "ERROR: " + message,
@@ -1055,4 +1127,6 @@ def displayMessage(message, type="message"):
 
 
 def getInput(message, maxSize):
+	""" Get some input from the user """
+	
 	return raw_input(message)
