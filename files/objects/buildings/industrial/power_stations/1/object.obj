@@ -3341,8 +3341,8 @@ TRIS	0 8184
 LIGHT_NAMED	obs_red_night		 -26.6026   68.8472  -47.7282
 LIGHT_NAMED	obs_red_night		 -26.8026   81.1533  -47.9282
 LIGHT_NAMED	obs_red_night		 -26.8026   88.9482  -47.9282
-smoke_white 0.0203 62.2255 0.0596 3.0
-smoke_white 0.0207 62.2255 0.0596 2.0
+smoke_white	 -25.7603  104.4340  -44.4841	4.00
+smoke_white	 -27.4438  103.3950  -43.1747	3.00
 LIGHT_NAMED	obs_red_night		 -26.8026   96.4701  -47.9282
 
 # Built with Blender 2.45. Exported with XPlane2Blender 3.08.

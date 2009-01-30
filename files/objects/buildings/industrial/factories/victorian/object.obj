@@ -541,8 +541,8 @@ IDX	398
 IDX	396
 IDX	398
 IDX	399
-smoke_black 0.0203   62.2255    0.0596 11.0
-smoke_black 0.0207   62.2255    0.0596 7.0
+smoke_white 0.0203 62.2255 0.0596 3.0
+smoke_white 0.0207 62.2255 0.0596 2.0
 TRIS	0 1230
 ATTR_shiny_rat	 0.500
 TRIS	1230 6
