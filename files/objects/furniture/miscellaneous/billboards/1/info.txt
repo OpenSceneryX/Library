@@ -10,4 +10,5 @@ Date: $Date$
 =====================
 Note: Requires X-Plane 9 for the animation to work on this object
 =====================
-Description: An animated billboard. Part of the Xsim collection of objects.
+Description: An animated billboard, part of the Xsim collection of objects.  The billboard cycles through a series of three images: An advert for the movie "Trainspotting"; an advert for easyJet and an advert for the movie "Fight Club".<br /><br />
+Trainspotting image Copyright &copy; 1996 Polygram Films all rights reserved. Fight Club image Copyright &copy; 1999 20th Century Fox all rights reserved.
