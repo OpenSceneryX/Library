@@ -1,0 +1,13 @@
+Title: Movie Screen, Drive-in
+=====================
+Author: Daveduck
+URL: http://forums.x-plane.org/index.php?showuser=6024
+Width: 36.2m
+Depth: 6.2mm
+Height: 29.3m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A drive-in movie theatre screen showing an image from "The Aviator".<br/><br/>
+There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>
+Image from "The Aviator" Copyright &copy; Warner Bros. Pictures 2004 all rights reserved.
