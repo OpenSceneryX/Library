@@ -920,6 +920,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += " - " + titleSuffix
 	result += "</title>\n"
 	result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
+	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "<!--[if gt IE 6.5]>\n"
 	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
 	result += "<![endif]-->\n"
@@ -934,7 +935,6 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "</style>\n"
 
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
-	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<p class='hide'><a href='#content' accesskey='2'>Skip to main content</a></p>\n"
