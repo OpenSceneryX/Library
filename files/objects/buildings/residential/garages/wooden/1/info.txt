@@ -3,6 +3,9 @@ Title: Garage, Wooden, Single Storey, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
+Width: 8m
+Depth: 7.5m
+Height: 5m
 Revision: $Revision$
 Date: $Date$
 =====================

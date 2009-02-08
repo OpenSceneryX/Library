@@ -3,6 +3,9 @@ Title: House, Wooden, Single Storey, Large, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
+Width: 8.6m
+Depth: 12m
+Height: 5.6m
 Revision: $Revision$
 Date: $Date$
 =====================
