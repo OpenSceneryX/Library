@@ -15,6 +15,7 @@ import urllib
 import classes
 import fnmatch
 import pcrt
+import sys
 
 
 def buildCategoryLandingPages(sceneryCategory):
@@ -128,19 +129,19 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
-	displayMessage("Handling object: " + objectSourcePath + "\n")
+	displayMessage(".")
 	
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[2], filename)
 
 	# Locate and check whether the support files exist 
-	if not checkSupportFiles(dirpath, sceneryObject): return
+	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Handle the info.txt file
-	if not handleInfoFile(dirpath, parts, ".obj", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
 	
 	# Set up paths and copy files
-	if not copySupportFiles(dirpath, parts, sceneryObject): return
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -163,6 +164,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1) + ".png"))
 			litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
 			if (result.group(1) == ""):
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Object (v7) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
 			
@@ -179,6 +181,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if os.path.isfile(litTextureFile):
 					shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1) + "LIT.png"))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - object (v7) excluded (" + textureFile + ")\n", "error")
 				return
 			
@@ -190,6 +193,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			textureFound = textureFound + 1
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
 			
@@ -214,6 +218,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					# Copy texture if it doesn't already exist
 					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
 				return
 				
@@ -238,6 +243,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
 				return
 
@@ -246,6 +252,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				break
 
 	if textureFound == 0:
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
@@ -271,19 +278,19 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
-	displayMessage("Handling facade: " + objectSourcePath + "\n")
+	displayMessage(".")
 
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[2], filename)
 	
 	# Locate and check whether the support files exist 
-	if not checkSupportFiles(dirpath, sceneryObject): return
+	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Handle the info.txt file
-	if not handleInfoFile(dirpath, parts, ".fac", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
 	
 	# Set up paths and copy files
-	if not copySupportFiles(dirpath, parts, sceneryObject): return
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -303,6 +310,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			textureFound = 1
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
 			
@@ -317,6 +325,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
 				return
 
@@ -324,6 +333,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			break
 
 	if not textureFound:
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
@@ -349,19 +359,19 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
-	displayMessage("Handling forest: " + objectSourcePath + "\n")
+	displayMessage(".")
 	
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[2], filename)
 
 	# Locate and check whether the support files exist 
-	if not checkSupportFiles(dirpath, sceneryObject): return
+	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Handle the info.txt file
-	if not handleInfoFile(dirpath, parts, ".for", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
 	
 	# Set up paths and copy files
-	if not copySupportFiles(dirpath, parts, sceneryObject): return
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -381,6 +391,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			textureFound = 1
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
 			elif os.path.isfile(textureFile):
 			
@@ -395,6 +406,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
 				return
 
@@ -402,6 +414,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			break
 
 	if not textureFound:
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
@@ -426,19 +439,19 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 2)
 
-	displayMessage("Handling line: " + objectSourcePath + "\n")
+	displayMessage(".")
 
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[2], filename)
 	
 	# Locate and check whether the support files exist 
-	if not checkSupportFiles(dirpath, sceneryObject): return
+	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Handle the info.txt file
-	if not handleInfoFile(dirpath, parts, ".lin", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
 	
 	# Set up paths and copy files
-	if not copySupportFiles(dirpath, parts, sceneryObject): return
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[2], filename))
@@ -458,6 +471,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			textureFound = 1
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if (result.group(1) == ""):
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
 			
@@ -472,6 +486,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
+				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
 				return
 
@@ -479,6 +494,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			break
 
 	if not textureFound:
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
@@ -495,7 +511,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 
 
-def checkSupportFiles(dirpath, sceneryObject):
+def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 	""" Check that the info file and screenshot files are present """
 	
 	# Locate the info file. If it isn't in the current directory, walk up the folder structure 
@@ -507,6 +523,7 @@ def checkSupportFiles(dirpath, sceneryObject):
 			break
 
 	if sceneryObject.infoFilePath == "":
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No info.txt file found - object excluded\n", "error")
 		return 0
 		
@@ -518,6 +535,7 @@ def checkSupportFiles(dirpath, sceneryObject):
 			break
 
 	if sceneryObject.screenshotFilePath == "":
+		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No screenshot.jpg file found - using default\n", "note")
 
 	return 1
@@ -525,7 +543,7 @@ def checkSupportFiles(dirpath, sceneryObject):
 
 
 	
-def copySupportFiles(dirpath, parts, sceneryObject):
+def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[2])): 
@@ -544,6 +562,7 @@ def copySupportFiles(dirpath, parts, sceneryObject):
 	# can be shared across all the objects in the collection.
 	if (sceneryObject.logoFileName != ""):
 		if not os.path.isfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName)):
+			displayMessage("\n" + objectSourcePath + "\n")
 			displayMessage("Logo file couldn't be found (" + sceneryObject.logoFileName + "), omitting\n", "warning")
 		else:
 			shutil.copyfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName), os.path.join(classes.Configuration.osxWebsiteFolder, "doc", sceneryObject.logoFileName))
@@ -552,7 +571,7 @@ def copySupportFiles(dirpath, parts, sceneryObject):
 	
 	
 	
-def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
 	file = open(sceneryObject.infoFilePath)
@@ -591,6 +610,7 @@ def handleInfoFile(dirpath, parts, suffix, sceneryObject, authors):
 		# Check for exclusion
 		result = excludePattern.match(line)
 		if result:
+			displayMessage("\n" + objectSourcePath + "\n")
 			displayMessage("EXCLUDED, reason: " + result.group(1) + "\n", "note")
 			return 0
 		
@@ -1124,6 +1144,7 @@ def displayMessage(message, type="message"):
 		pcrt.fg(pcrt.WHITE)
 		print message,
 
+	sys.stdout.flush()
 
 
 def getInput(message, maxSize):
