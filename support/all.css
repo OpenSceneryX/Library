@@ -137,6 +137,11 @@ div#header {
 }
 
 div#content {
+	margin: 0.5em 1em 0 2em;
+	padding-bottom: 1em;
+}
+
+div#homecontent {
 	margin: 0.5em 320px 0 2em;
 	padding-bottom: 1em;
 }
@@ -157,10 +162,11 @@ div#toc {
 
 div#google {
  display: block;
- height: 2em;
+ height: 30px;
  background-color: #3333aa;
  padding-top: 0.5em;
  padding-left: 0.4em;
+ min-width: 800px;
 }
 
 div#footer {
