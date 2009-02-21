@@ -1,0 +1,12 @@
+Title: Office, wooden, derelict
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 16m
+Depth: 8m
+Height: 5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Small old white wood-built 1-storey office building in poor condition.

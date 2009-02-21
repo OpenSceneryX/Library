@@ -1,0 +1,12 @@
+Title: Terminal, brick
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 18m
+Depth: 12m
+Height: 4m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A small terminal (or office) building, 1 storey, red brick, flat roof.

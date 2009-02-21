@@ -1,0 +1,12 @@
+Title: Hangar, fabric-covered, blue and white, open
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 16m
+Depth: 16m
+Height: 7m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Fabric-covered, metal-frame airplane shelter. Blue and white. Original is at CYPA.

@@ -1,0 +1,12 @@
+Title: Shed, fabric-covered, blue and white
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 17m
+Depth: 14m
+Height: 8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Fabric-covered, metal-frame building. Blue w/white top. Original is at CAP5 (Victoria Airport Water Aerodrome)
