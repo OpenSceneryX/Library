@@ -1,4 +1,4 @@
-Title: Tanker, Medium, Total fuel
+Title: Tanker, Medium, Total 1
 =====================
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
