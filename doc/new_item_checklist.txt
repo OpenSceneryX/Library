@@ -15,3 +15,4 @@ Checklist for New Items
 
 6. Run textures through Ping
 
+7. If info.txt has been supplied, check line endings are UNIX
