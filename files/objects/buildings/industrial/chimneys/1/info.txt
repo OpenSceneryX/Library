@@ -1,0 +1,11 @@
+Title: Chimney, 50m, white smoke
+=====================
+Author: Daniel Leygnat
+URL: http://forums.x-plane.org/index.php?showuser=3031
+Width: 6m
+Depth: 6m
+Height: 50m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: 50m chimney emitting white smoke.

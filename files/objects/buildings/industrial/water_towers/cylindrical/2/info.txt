@@ -1,0 +1,11 @@
+Title: Water Tower, Cylindrical, 15m
+=====================
+Author: Daniel Leygnat
+URL: http://forums.x-plane.org/index.php?showuser=3031
+Width: 8m
+Depth: 8m
+Height: 15m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Cylindrical water tower, white.
