@@ -940,7 +940,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += " - " + titleSuffix
 	result += "</title>\n"
 	result += "<link rel='stylesheet' href='" + documentationPath + "all.css' type='text/css'/>\n"
-	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>"
+	result += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n"
 	result += "<!--[if gt IE 6.5]>\n"
 	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
 	result += "<![endif]-->\n"
