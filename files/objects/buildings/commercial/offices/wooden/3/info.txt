@@ -1,0 +1,15 @@
+Title: Office Complex, Wooden, on Pilings
+=====================
+Author: Daveduck
+URL: http://forums.x-plane.org/index.php?showuser=6024
+Author, texture: yewenyi
+URL, texture: http://flickr.com/photos/yewenyi/
+Width: 15.7m
+Depth: 21m
+Height: 9m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A wooden office complex raised on pilings.<br/><br/>
+There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>
+You must include this license with any distribution.
