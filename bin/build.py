@@ -92,15 +92,19 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
+		
+		# Main OSX Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
 		
+		# Developer Pack Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.gif")
 		
+		# Website Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxWebsiteFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
@@ -113,19 +117,29 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/animated.gif", classes.Configuration.osxWebsiteFolder + "/doc/animated.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/variations.gif", classes.Configuration.osxWebsiteFolder + "/doc/variations.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/note.gif", classes.Configuration.osxWebsiteFolder + "/doc/note.gif")
-		shutil.copyfile(classes.Configuration.supportFolder + "/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 		shutil.copyfile(classes.Configuration.supportFolder + "/screenshot_missing.png", classes.Configuration.osxWebsiteFolder + "/doc/screenshot_missing.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_1.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_1.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_2.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_2.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_3.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_3.png")
+
+		shutil.copyfile(classes.Configuration.supportFolder + "/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 		shutil.copyfile(classes.Configuration.supportFolder + "/index-sitedown.html", classes.Configuration.osxWebsiteFolder + "/index-sitedown.html")
 		shutil.copyfile(classes.Configuration.supportFolder + "/errordoc.html", classes.Configuration.osxWebsiteFolder + "/errordoc.html")
 		shutil.copyfile(classes.Configuration.supportFolder + "/google09f5d478fb9c9dd9.html", classes.Configuration.osxWebsiteFolder + "/google09f5d478fb9c9dd9.html")
 		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
+		
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.gif")
 		
+		# Placeholder Library Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.lin", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.lin")
+		
+		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Building Library\n")
 		
 		authors = []
 		rootCategory = classes.SceneryCategory("", None)
