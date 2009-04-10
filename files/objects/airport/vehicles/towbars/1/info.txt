@@ -1,0 +1,12 @@
+Title: Pushback towbars
+=====================
+Author: Dave Morley
+URL: http://www.xplanelanguedoc.com
+Email: davemorley_27@mac.com
+Width: 3.6m
+Height: 0.6m
+Depth: 6m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A pair of unattached pushback towbars, one orange one blue.
