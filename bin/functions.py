@@ -55,22 +55,22 @@ def buildCategoryLandingPages(sceneryCategory):
 			htmlFileContent += "<h3>Objects</h3>\n"
 			for sceneryObject in sceneryCategory.getSceneryObjects(0):
 				htmlFileContent += "<div class='thumbnailcontainer'>\n"
-				htmlFileContent += "<h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.title + "</a></h4><a href='" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "' class='nounderline'>"
+				htmlFileContent += "<h4><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.title + "</a></h4><a href='/" + sceneryObject.filePathRoot + "/index.html' class='nounderline'>"
 				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='../" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' />"
+					htmlFileContent += "<img src='/" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' />"
 				else:
-					htmlFileContent += "<img src='screenshot_missing.png' alt='No Screenshot Available' />"
+					htmlFileContent += "<img src='/doc/screenshot_missing.png' alt='No Screenshot Available' />"
 				htmlFileContent += "</a>\n"
 				htmlFileContent += "</div>\n"
 	
 			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
 		
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
-		htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
+		htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
 		htmlFileHandle.write(htmlFileContent)
 		htmlFileHandle.write(getHTMLSponsoredLinks())
 		htmlFileHandle.write("</div>\n")
-		htmlFileHandle.write(getHTMLFooter(""))
+		htmlFileHandle.write(getHTMLFooter("/doc/"))
 		htmlFileHandle.close()
 
 	# Recurse
@@ -830,9 +830,9 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
 	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='../" + os.path.join(sceneryObject.filePathRoot, "screenshot.jpg") + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
+		htmlFileContent += "<img class='screenshot' src='/" + sceneryObject.filePathRoot + "/screenshot.jpg" + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
 	else:
-		htmlFileContent += "<img class='screenshot' src='screenshot_missing.png' alt='No Screenshot Available' />\n"
+		htmlFileContent += "<img class='screenshot' src='/doc/screenshot_missing.png' alt='No Screenshot Available' />\n"
 
 	# Logo
 	if (sceneryObject.logoFileName != ""):
@@ -902,7 +902,7 @@ def writeHTMLDocFile(sceneryObject):
 
 	# Tutorial
 	if (sceneryObject.tutorial):
-		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.pathname2url(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
+		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
 	
 	# Texture references
 	for texture in sceneryObject.sceneryTextures:
@@ -911,19 +911,19 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<li><span class='fieldTitle'>Texture '" + texture.fileName + "' shared with:</span>"
 			htmlFileContent += "<ul>"
 			for sharedTextureObject in texture.sceneryObjects:
-				htmlFileContent += "<li><span class='fieldValue'><a href='" + sharedTextureObject.getDocumentationFileName() + "'>" + sharedTextureObject.title + "</a></span></li>"
+				htmlFileContent += "<li><span class='fieldValue'><a href='/" + sharedTextureObject.filePathRoot + "/index.html'>" + sharedTextureObject.title + "</a></span></li>"
 			htmlFileContent += "</ul></li>"
 		
 	htmlFileContent += "</ul>\n"
 	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>";
 
 	# Write the file contents
-	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + sceneryObject.getDocumentationFileName(), "w")
-	htmlFileHandle.write(getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
+	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
+	htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
 	htmlFileHandle.write(getHTMLSponsoredLinks())
 	htmlFileHandle.write("</div>")
-	htmlFileHandle.write(getHTMLFooter(""))
+	htmlFileHandle.write(getHTMLFooter("/doc/"))
 	htmlFileHandle.close()
 	
 	return 1
@@ -1076,7 +1076,7 @@ def getHTMLSceneryObjects(sceneryObjects):
 	
 	result = ""
 	for sceneryObject in sceneryObjects:
-		result += "<li><a href='doc/" + urllib.pathname2url(sceneryObject.getDocumentationFileName()) + "'>" + sceneryObject.shortTitle + "</a>"
+		result += "<li><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.shortTitle + "</a>"
 	 
 		if (sceneryObject.note != ""):
 			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></a>"

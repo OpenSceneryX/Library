@@ -84,9 +84,9 @@ try:
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
 		
 		htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
-		htmlWebIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", True, True))
+		htmlWebIndexFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", True, True))
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
-		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
+		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
 		
 		
@@ -211,8 +211,8 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
-		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
-		htmlWebIndexFileHandle.write(functions.getHTMLFooter("doc/"))
+		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
+		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
 		
 		htmlIndexFileHandle.close()
 		htmlDeveloperFileHandle.close()
