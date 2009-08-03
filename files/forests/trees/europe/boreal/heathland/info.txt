@@ -1,4 +1,4 @@
-Title: European Heathland, Boreal
+Title: European Forest, Boreal, Heathland
 Short Title: Heathland
 =====================
 Author: Andras Fabian
@@ -8,4 +8,4 @@ Author, texture: Sergio Santagada
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A forest of trees.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the european areas.
+Description: A forest of trees.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the European areas.

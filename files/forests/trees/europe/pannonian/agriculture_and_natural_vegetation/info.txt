@@ -1,5 +1,5 @@
-Title: European Forest, Pannonian, agricultural with natural vegetation
-Short Title: Agricultural with natural vegetation
+Title: European Forest, Pannonian, Agriculture And Natural Vegetation
+Short Title: Agriculture And Natural Vegetation
 =====================
 Author: Andras Fabian
 URL: http://www.alpilotx.de/
@@ -8,4 +8,4 @@ Author, texture: Sergio Santagada
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Agricultural but mostly natural vegetation for use in the Pannonian area of Europe.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the european areas.
+Description: A forest of trees.  See <a href='http://www.alpilotx.de/mambo/index.php?option=com_content&task=view&id=34&Itemid=43' onclick='window.open(this.href);return false;'>this page</a> for documentation containing a map of the European areas.

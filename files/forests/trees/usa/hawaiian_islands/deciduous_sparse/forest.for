@@ -1,0 +1,13 @@
+A
+800
+FOREST
+
+TEXTURE ../../../unknown.png
+
+LOD 15000.000000
+
+SCALE_X 1024
+SCALE_Y 1024
+
+
+SKIP_SURFACE water
