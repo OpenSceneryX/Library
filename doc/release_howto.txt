@@ -15,40 +15,42 @@ Release Howto
 
 7. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
-8. Upload zips into /new/
+8. Zip manifest.xml
 
-9. Upload manifest.xml into /new/
+9. Upload zips into /new/
 
-10. Clear /old
+10. Upload manifest.xml.zip into /new/
 
-11. Copy /index.html into /old/
+11. Clear /old
 
-12. Extract website zip on site into /new/
+12. Copy /index.html into /old/
 
-13. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+13. Extract website zip on site into /new/
 
-14. Copy /index-sitedown.html over /index.html
+14. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-15. Move /doc/, /facades/, /forests/, /lines/, /manifest.xml, /objects/ and /repository/ into /old/
+15. Copy /index-sitedown.html over /index.html
 
-16. Copy /downloads/ into /old/
+16. Move /doc/, /facades/, /forests/, /lines/, /manifest.xml.zip, /objects/ and /repository/ into /old/
 
-17. Move /new/OpenSceneryX-x.x.x/ to /repository/
+17. Copy /downloads/ into /old/
 
-18. Move /new/OpenSceneryX-Website-x.x.x/* to /
+18. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-19. Move /new/manifest.xml to /
+19. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-20. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+20. Move /new/manifest.xml.zip to /
 
-21. Remove old /new/OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+21. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-22. chgrp -R www *
+22. Remove old /new/OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-23. Ensure /versioninfo has the latest information about the installer in it.
+23. chgrp -R www *
 
-24. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+24. Ensure /versioninfo has the latest information about the installer in it.
 
-25. Run 'python sitemap_gen.py --config=config.xml' 
+25. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-26. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/
+26. Run 'python sitemap_gen.py --config=config.xml' 
+
+27. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/
