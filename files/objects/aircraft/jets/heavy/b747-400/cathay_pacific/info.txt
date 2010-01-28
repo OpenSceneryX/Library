@@ -2,6 +2,7 @@ Title: B747-400 Cathay Pacific
 =====================
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/cathay_pacific/b747-400

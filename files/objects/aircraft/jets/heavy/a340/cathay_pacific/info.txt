@@ -2,6 +2,7 @@ Title: A340 Cathay Pacific
 =====================
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/livery/cathay_pacific/a340
 Revision: $Revision$

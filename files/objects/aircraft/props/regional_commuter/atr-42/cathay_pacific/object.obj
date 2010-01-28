@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		../../../../../shared_textures/bertrand_augras/cathay_pacific/texture.png
-TEXTURE_LIT	../../../../../shared_textures/bertrand_augras/cathay_pacific/texture_LIT.png
+TEXTURE		../../../../../shared_textures/james_green/cathay_pacific/texture.png
+TEXTURE_LIT	../../../../../shared_textures/james_green/cathay_pacific/texture_LIT.png
 POINT_COUNTS	3096 0 0 10341
 
 VT	   1.1898    1.7532    6.5407	 0.976 -0.154  0.154	0.7572 0.3417
