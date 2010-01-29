@@ -1,0 +1,12 @@
+Title: Fire Engine, Large, Orange
+=====================
+Author: Darragh Hickey
+URL: http://forums.x-plane.org/index.php?showuser=1182
+Email: darragh.hickey@gmail.com
+Width: 3.4m
+Depth: 12m
+Height: 3.4m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A standard Airport Fire Tender based (loosely) on one of the Timoney appliances in Dublin Airport.
