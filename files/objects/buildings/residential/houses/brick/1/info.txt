@@ -1,0 +1,13 @@
+Title: House, Brick, Single Storey, Large
+=====================
+Author: Barry Roberts
+URL: http://web.me.com/broberts03/Scenery/Scenery/Scenery.html
+Email: smithysvca@netspace.net.au
+Author, texture: Barry Roberts
+Width: 23m
+Depth: 14m
+Height: 4m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A medium to large brick modern Australian house.
