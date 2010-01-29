@@ -7,12 +7,20 @@ Checklist for New Items
 
 2. Check object size
 
-3. Check orientation (0 degrees) on all LOD layers
+3. Check orientation (pointing North) on all LOD layers
 
-4. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
+4. Convert to v8 format?
 
-5. Check texture size and check powers of 2, scale down if appropriate
+5. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
 
-6. Run textures through Ping
+6. Check texture size and check powers of 2, scale down if appropriate
 
-7. If info.txt has been supplied, check line endings are UNIX
+7. Run textures through Ping
+
+8. If info.txt has been supplied, check line endings are UNIX
+
+9. Add to release notes
+
+10. Tweet
+
+11. Commit
