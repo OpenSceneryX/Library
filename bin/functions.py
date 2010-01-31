@@ -323,7 +323,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+				lastSlash = result.group(1).rfind("/")
+				if (lastSlash > -1):
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:lastSlash])
+				else:
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2])
+				if not os.path.isdir(destinationTexturePath): 
+					# Create destination texture path if it doesn't already exist
+					os.makedirs(destinationTexturePath)
+				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1))):
+					# Copy texture if it doesn't already exist
+					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
@@ -403,8 +413,18 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
-				
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+
+				lastSlash = result.group(1).rfind("/")
+				if (lastSlash > -1):
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:lastSlash])
+				else:
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2])
+				if not os.path.isdir(destinationTexturePath): 
+					# Create destination texture path if it doesn't already exist
+					os.makedirs(destinationTexturePath)
+				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1))):
+					# Copy texture if it doesn't already exist
+					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
@@ -484,7 +504,17 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+				lastSlash = result.group(1).rfind("/")
+				if (lastSlash > -1):
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)[0:lastSlash])
+				else:
+					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[2])
+				if not os.path.isdir(destinationTexturePath): 
+					# Create destination texture path if it doesn't already exist
+					os.makedirs(destinationTexturePath)
+				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1))):
+					# Copy texture if it doesn't already exist
+					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
