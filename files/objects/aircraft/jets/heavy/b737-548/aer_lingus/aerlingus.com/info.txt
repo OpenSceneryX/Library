@@ -1,7 +1,7 @@
 Title: B737-548 Aerlingus.com
 =====================
 Author: Cormac Shaw
-URL: http://homepage.mac.com/cormacshaw/xpih/
+URL: http://www.xpih.net
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1

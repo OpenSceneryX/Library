@@ -1,7 +1,7 @@
 Title: Tanker, Medium, Texaco
 =====================
 Author: Cormac Shaw
-URL: http://homepage.mac.com/cormacshaw/xpih/
+URL: http://www.xpih.net
 Width: 2.25m
 Depth: 9.3m
 Height: 3.2m
