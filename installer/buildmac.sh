@@ -2,7 +2,7 @@
 
 echo
 echo ------------------------
-echo Compressing Windows Installer
+echo Compressing Mac Installer
 echo ------------------------
 echo
 
@@ -10,5 +10,5 @@ echo
 # Mac OS 10.4 and earlier: export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export COPYFILE_DISABLE=true
 
-cd Builds\ -\ Installer.rbvcp/Windows/
-zip -r ../../OpenSceneryX\ Installer\ Windows.zip OpenSceneryX\ Installer
+cd Builds\ -\ Installer.rbvcp/Mac\ OS\ X\ \(Universal\)/
+zip -r ../../OpenSceneryX\ Installer\ Mac.zip OpenSceneryX\ Installer.app
