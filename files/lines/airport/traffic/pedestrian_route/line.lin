@@ -1,0 +1,11 @@
+A
+850
+LINE_PAINT
+
+TEXTURE pedestrian.png
+LOD 1000
+TEX_WIDTH 128
+SCALE 1 8
+S_OFFSET 0		  0	 64      128
+
+LAYER_GROUP markings -1

@@ -1,0 +1,14 @@
+A
+850
+LINE_PAINT
+
+TEXTURE ../../../shared_textures/cormac_shaw/xpih_lines_02.png
+LOD 3000
+TEX_WIDTH 256
+SCALE 2.0 2.0
+S_OFFSET 0		  0	 24	 48
+S_OFFSET 1		 96	112	128
+
+LAYER_GROUP runways +5
+
+MIRROR

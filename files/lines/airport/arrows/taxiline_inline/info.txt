@@ -1,0 +1,11 @@
+Title: Taxiway Direction Arrow, Inline
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 0.75m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An arrow with pointer only, approx 1m long, to be used as an inline directional indicator for taxiway centrelines. Typically used on centrelines within stands used for entrance/exit only. When placing, ensure your custom line is between 2-6m long so that the whole arrow appears but is not repeated (unless repetition is desired!).
+
+This line is drawn at the 'Markings 0' level so that its black and yellow elements integrate correctly with the default taxiway centreline graphics.

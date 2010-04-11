@@ -1,0 +1,11 @@
+Title: Pedestrian Only Route
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 'Pedestrians Only' ground marking repeating every 8m along the line path. Typically used to indicate a reserved path for passengers to take to/from aircraft on an apron.
+
+This line is drawn at the 'Markings -1' level.

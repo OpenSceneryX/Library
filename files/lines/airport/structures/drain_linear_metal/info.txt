@@ -1,0 +1,11 @@
+Title: Drain Channel, Metal
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 0.375m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A dark metal storm drain channel. 
+
+This line is drawn at the 'Runways +5' level so should appear above all runway/taxiway surfaces but below any 'painted' markings.

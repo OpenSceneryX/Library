@@ -1,0 +1,12 @@
+A
+850
+LINE_PAINT
+
+TEXTURE ../../../shared_textures/cormac_shaw/xpih_lines_03.png
+LOD 3000
+TEX_WIDTH 256
+SCALE 3 6
+S_OFFSET 0		  0	 32	 64
+S_OFFSET 1		 64	 96	128
+
+LAYER_GROUP markings 0

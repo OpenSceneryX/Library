@@ -1,0 +1,49 @@
+Title: Location Taxiway Sign Border
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 0.2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A yellow, painted line (10cm wide) to provide the yellow border for the black background of a ground taxiway location sign. 
+
+This polygon is drawn at an appropriate level relative to other OpenSceneryX ground taxiway sign components according to the following hierarcy:
+
+Level Markings +3 : All Glyphs / Characters
+                    Taxisign Border Yellow (line)
+
+Level Markings +2 : Background Red, Background Yellow, 
+                    Background Yellow_Disc
+
+Level Markings +1 : Background Black, Background Black_Disc
+                    Background Black_Square, Background Yellow_Square
+
+Level Markings  0 : Taxiline Inline Arrow (line), Taxiline End Arrow (line)
+
+Suggested component combinations:
+
+Mandatory Sign: White Glyphs/Characters + 
+                Background Red
+
+Direction Sign: Black Glyphs/Characters +
+                Background Yellow Square 
+
+                OR 
+
+                Black Glyphs/Characters +
+                Background Yellow +
+                Background Black
+
+Location Sign : Yellow Glyphs/Characters +
+                Background Black Square +
+                Background Yellow Square
+
+                OR
+
+                Yellow Glyphs/Characters +
+                Taxisign Border Yellow (line) +
+                Background Black
+
+Stand ID Sign : Yellow Glyphs/Characters +
+                Background Black Square
