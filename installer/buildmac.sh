@@ -11,4 +11,4 @@ echo
 export COPYFILE_DISABLE=true
 
 cd Builds\ -\ Installer.rbvcp/Mac\ OS\ X\ \(Universal\)/
-zip -r ../../OpenSceneryX\ Installer\ Mac.zip OpenSceneryX\ Installer.app
+zip -r ../../OpenSceneryX-Installer-Mac.zip OpenSceneryX\ Installer.app

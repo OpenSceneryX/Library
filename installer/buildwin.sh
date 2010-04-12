@@ -11,4 +11,4 @@ echo
 export COPYFILE_DISABLE=true
 
 cd Builds\ -\ Installer.rbvcp/Windows/
-zip -r ../../OpenSceneryX\ Installer\ Windows.zip OpenSceneryX\ Installer
+zip -r ../../OpenSceneryX-Installer-Windows.zip OpenSceneryX\ Installer

@@ -11,4 +11,4 @@ echo
 export COPYFILE_DISABLE=true
 
 cd Builds\ -\ Installer.rbvcp/Linux/
-tar -czvf ../../OpenSceneryX\ Installer\ Linux.tgz OpenSceneryX\ Installer
+tar -czvf ../../OpenSceneryX-Installer-Linux.tgz OpenSceneryX\ Installer
