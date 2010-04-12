@@ -1,0 +1,8 @@
+Title: Ground traffic marking - Zebra Crossing (no black)
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A ground traffic marking depicting a zebra pedestrian crossing with white stripes only over the underlying surface. Stripes are 600mm wide and 600mm apart.

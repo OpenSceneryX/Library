@@ -1,0 +1,12 @@
+Title: Apron Fuel Hydrant Hatch
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An access hatch for an in-ground fuel hydrant with surrounding yellow warning marking.
+
+This draped polygon uses the NOWRAP texture command so that the texture will fill what ever size you make the polygon without repeating. A realistic size would be about 1.5m across for th whole polygon, including tranparent section (use the developer's 10m grid polygon also available in this library to aid placement).
+
+This polygon is drawn at the 'Runways +5' level so should appear above all runway/taxiway surfaces but below any 'painted' markings.

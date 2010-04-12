@@ -1,0 +1,8 @@
+A
+850
+DRAPED_POLYGON
+
+LAYER_GROUP runways +5
+TEXTURE_NOWRAP fuel_hydrant_hatch.png
+SURFACE concrete
+SCALE 1.5 1.5

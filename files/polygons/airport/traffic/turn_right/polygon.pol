@@ -1,0 +1,8 @@
+A
+850
+DRAPED_POLYGON
+
+LAYER_GROUP markings -1
+TEXTURE_NOWRAP traffic_text.png
+SURFACE asphalt
+SCALE 4.5 4.5

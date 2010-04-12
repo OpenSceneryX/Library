@@ -1,0 +1,8 @@
+A
+850
+DRAPED_POLYGON
+
+LAYER_GROUP markings -1
+TEXTURE zebra.png
+SURFACE asphalt
+SCALE 0.6 1.2

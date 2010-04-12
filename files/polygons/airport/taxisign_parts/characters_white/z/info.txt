@@ -1,0 +1,50 @@
+Title: Mandatory Taxiway Sign Glyph, Z
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white 'Z' character for use in mandatory taxiway signs. 
+
+This polygon is drawn at an appropriate level relative to other OpenSceneryX ground taxiway sign components according to the following hierarcy:
+
+Level Markings +3 : All Glyphs / Characters
+                    Taxisign Border Yellow (line)
+                    
+Level Markings +2 : Background Red, Background Yellow, 
+                    Background Yellow_Disc
+                    
+Level Markings +1 : Background Black, Background Black_Disc
+                    Background Black_Square, Background Yellow_Square
+
+Level Markings  0 : Taxiline Inline Arrow (line), Taxiline End Arrow (line)
+
+
+Suggested component combinations:
+
+Mandatory Sign: White Glyphs/Characters + 
+                Background Red
+
+Direction Sign: Black Glyphs/Characters +
+                Background Yellow Square 
+                
+                OR 
+                
+                Black Glyphs/Characters +
+                Background Yellow +
+                Background Black
+
+
+Location Sign : Yellow Glyphs/Characters +
+                Background Black Square +
+                Background Yellow Square
+                
+                OR
+                
+                Yellow Glyphs/Characters +
+                Taxisign Border Yellow (line) +
+		Background Black
+		
+Stand ID Sign : Yellow Glyphs/Characters +
+                Background Black Square

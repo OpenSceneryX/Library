@@ -1,0 +1,8 @@
+A
+850
+DRAPED_POLYGON
+
+LAYER_GROUP runways +5
+TEXTURE_NOWRAP manhole_square.png
+SURFACE concrete
+SCALE 1.8 1.8

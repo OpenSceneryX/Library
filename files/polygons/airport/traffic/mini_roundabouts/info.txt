@@ -1,0 +1,13 @@
+Title: Ground traffic marking - Mini-Roundabout
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 5.5m
+Depth: 5.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white surface marking depicting a mini-roundabout.
+
+This polygon uses the NOWRAP texture command so that the texture will fill what ever size you make the polygon without repeating. The polygon should be sized so that the whole polygon, including transparency, is square and 3.5 - 5.5m wide (use the developer's 10m grid polygon also available in this library to aid placement).
+

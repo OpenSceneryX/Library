@@ -1,0 +1,13 @@
+Title: Ground traffic marking - Slow
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 8m
+Depth: 2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white surface marking depicting an inline 'Slow' traffic lane instruction.
+
+This polygon uses the NOWRAP texture command so that the texture will fill what ever size you make the polygon without repeating. The polygon should be sized so that the whole polygon, including transparency, four times wider than it is tall and the letters within it are 1.6 - 3.2m tall (use the developer's 10m grid polygon also available in this library to aid placement).
+

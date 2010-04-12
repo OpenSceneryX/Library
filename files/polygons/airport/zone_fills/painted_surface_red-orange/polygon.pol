@@ -1,0 +1,8 @@
+A
+850
+DRAPED_POLYGON
+
+LAYER_GROUP runways -1
+TEXTURE painted_surface.png
+SURFACE shoulder
+SCALE 2.5 2.5
