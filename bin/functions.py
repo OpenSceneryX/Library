@@ -1066,16 +1066,8 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "<!--[if gt IE 6.5]>\n"
 	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
 	result += "<![endif]-->\n"
-	if includeTabbo:
-		result += "<link rel='stylesheet' href='" + documentationPath + "tabbo.css' type='text/css'/>\n"
-		result += "<script type='text/javascript' src='" + documentationPath + "tabbo.js'></script>\n"
-		result += "<style type='text/css'>\n"
-		result += "	/* Defined in the page so that the tabber doesn't show then hide */\n"
-		result += "	.tabber {\n"
-	 	result += "		display:none;\n"
-		result += "	}\n"
-		result += "</style>\n"
-
+	result += "<script type='text/javascript' src='http://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
+	result += "<script type='text/javascript' src='" + documentationPath + "scripts.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
 	result += "</head>\n"
 	result += "<body>\n"
@@ -1143,39 +1135,39 @@ def getHTMLTOC(rootCategory):
 	
 	result = "<div id='toc'>\n"
 	result += "<h2>Contents</h2>\n"
-	result += "<div class='tabber'>\n"
+	result += "<ul id='menu1' class='menu noaccordion'>\n"
 	
 	for mainSceneryCategory in rootCategory.childSceneryCategories:
-		if (mainSceneryCategory.title == "Objects"):
-			result += "<div class='tabberTab tabbertabdefault'>\n"
-		else:
-			result += "<div class='tabberTab'>\n"
-			
-		result += "<h3>" + mainSceneryCategory.title + "</h3>\n"
-		
+		result += "<li>\n"
+		result += "<a href='#'>" + mainSceneryCategory.title + "</a>\n"
+		result += "<ul class='hide'>\n"
+
 		if len(mainSceneryCategory.childSceneryCategories) > 0:
 			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
-				result += "<h4><a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a></h4>\n"
-				result += "<ul class='inline'>\n"
-				
-				if len(subSceneryCategory.childSceneryCategories) > 0:
-					# We have another level of categorisation, show a category list where each link takes the user to a
-					# landing page for that category
-					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title + "</a>"
-						result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></a>"
-						result += "</li>\n"
-	
-					# Also show the list of objects directly in this category
-					sceneryObjects = subSceneryCategory.getSceneryObjects(0)
-					result += getHTMLSceneryObjects(sceneryObjects)
-					
-				else:
-					# No more category levels, show the list of objects
-					sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-					result += getHTMLSceneryObjects(sceneryObjects)
+				result += "<li>\n"
 
-				result += "</ul>\n"
+				result += "<a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a>\n"
+				#result += "<ul>\n"
+				
+				#if len(subSceneryCategory.childSceneryCategories) > 0:
+				#	# We have another level of categorisation, show a category list where each link takes the user to a
+				#	# landing page for that category
+				#	for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
+				#		result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title + "</a>"
+				#		result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></a>"
+				#		result += "</li>\n"
+	
+				#	# Also show the list of objects directly in this category
+				#	sceneryObjects = subSceneryCategory.getSceneryObjects(0)
+				#	result += getHTMLSceneryObjects(sceneryObjects)
+					
+				#else:
+				#	# No more category levels, show the list of objects
+				#	sceneryObjects = subSceneryCategory.getSceneryObjects(1)
+				#	result += getHTMLSceneryObjects(sceneryObjects)
+
+				#result += "</ul>\n"
+				result += "</li>\n"
 				
 		else:
 			# No categorisation, show the list of objects
@@ -1184,9 +1176,45 @@ def getHTMLTOC(rootCategory):
 			result += getHTMLSceneryObjects(sceneryObjects)				 
 			result += "</ul>\n"
 
-		result += "</div>\n"
+		result += "</ul>\n"
+		result += "</li>\n"
 		
+	result += "</ul>\n"
+	
+	result += "<div id='twitter'>\n"
+	result += "<script src='http://widgets.twimg.com/j/2/widget.js'></script>\n"
+	result += "<script>\n"
+	result += "new TWTR.Widget({\n"
+	result += "  version: 2,\n"
+	result += "  type: 'profile',\n"
+	result += "  rpp: 4,\n"
+	result += "  interval: 6000,\n"
+	result += "  width: 'auto',\n"
+	result += "  height: 300,\n"
+	result += "  theme: {\n"
+	result += "    shell: {\n"
+	result += "      background: '#eeeeff',\n"
+	result += "      color: '#333333'\n"
+	result += "    },\n"
+	result += "    tweets: {\n"
+	result += "      background: '#eeeeff',\n"
+	result += "      color: '#333333',\n"
+	result += "      links: '#4aed05'\n"
+	result += "    }\n"
+	result += "  },\n"
+	result += "  features: {\n"
+	result += "    scrollbar: false,\n"
+	result += "    loop: false,\n"
+	result += "    live: false,\n"
+	result += "    hashtags: true,\n"
+	result += "    timestamp: true,\n"
+	result += "    avatars: false,\n"
+	result += "    behavior: 'all'\n"
+	result += "  }\n"
+	result += "}).render().setUser('opensceneryx').start();\n"
+	result += "</script>\n"
 	result += "</div>\n"
+
 	result += "</div>\n"
 
 	return result

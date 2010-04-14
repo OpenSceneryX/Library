@@ -159,8 +159,8 @@ div#toc {
 	width: 270px;
 	background-color: #ccf;
 	margin: 1em 1em 1em 0;
-	border-left: 10px solid #fff;
-	padding: 0 0.5em 0.5em 1em;
+	border-left: 1em solid #fff;
+	padding: 0.5em;
 }
 
 div#google {
@@ -183,6 +183,13 @@ div#footer {
 	font-size: 0.8em;
 	text-align: left;
 	line-height: normal;
+}
+
+div#twitter {
+	padding-top: 3em;
+}
+div#twitter a {
+	border-bottom: none;
 }
 
 div.clear {
@@ -214,33 +221,6 @@ div#breadcrumbs ul.inline {
 div#toc ul.inline {
 	font-size: 0.7em;
 	line-height: 2.0em;
-}
-
-div#toc ul.objects {
-	font-size: 0.7em;
-	line-height: 2.0em;
-	margin: 0 0 1em 2em;
-	padding: 1em 0 0 0;
-	list-style-type: disc;
-	list-style-image: url(bullet_object.gif);
-}
-
-div#toc ul.facades {
-	font-size: 0.7em;
-	line-height: 2.0em;
-	margin: 0 0 1em 2em;
-	padding: 1em 0 0 0;
-	list-style-type: disc;
-	list-style-image: url(bullet_object.gif);
-}
-
-div#toc ul.forests {
-	font-size: 0.7em;
-	line-height: 2.0em;
-	margin: 0 0 1em 2em;
-	padding: 1em 0 0 0;
-	list-style-type: disc;
-	list-style-image: url(bullet_object.gif);
 }
 
 ul.mainItemDetails {
@@ -399,4 +379,47 @@ p#version a {
 	width: 400px;
 	float: left;
 	min-width: 5em;
+}
+
+/* Collapsing menu */
+
+ul.menu, ul.menu ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.menu a {
+  display: block;
+  text-decoration: none;	
+}
+
+ul.menu li {
+  margin-top: 1px;
+}
+
+ul.menu li a {
+  background: #444;
+  color: #fff;	
+  padding: 0.5em;
+  border: none;
+}
+
+ul.menu li a:hover {
+  background: #000;
+}
+
+ul.menu li ul li a {
+  background: #eeeeff;
+  color: #000;
+  padding-left: 20px;
+  border-bottom: none;
+}
+
+ul.menu li ul li a:hover {
+  background: #3333b4;
+  color: #fff;
+  border-left: 5px #444 solid;
+  padding-left: 15px;
+  border-bottom: none;
 }

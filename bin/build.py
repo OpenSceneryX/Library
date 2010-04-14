@@ -109,6 +109,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxWebsiteFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.js", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.js")
+		shutil.copyfile(classes.Configuration.supportFolder + "/scripts.js", classes.Configuration.osxWebsiteFolder + "/doc/scripts.js")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/bullet_object.gif", classes.Configuration.osxWebsiteFolder + "/doc/bullet_object.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxWebsiteFolder + "/doc/cc_logo.png")
