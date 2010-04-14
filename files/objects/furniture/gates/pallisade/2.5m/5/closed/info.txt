@@ -1,0 +1,12 @@
+Title: Gate, Green Steel Pallisade, 1m x 2.5m, Closed
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 1.2m
+Depth: 0.1m
+Height: 2.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A green steel pallisade-style gate in closed position. 1 metres wide, 2.5 metres high.
+

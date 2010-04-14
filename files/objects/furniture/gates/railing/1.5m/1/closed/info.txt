@@ -1,0 +1,12 @@
+Title: Gate, Black Steel Railing, 3m x 2.5m, Closed
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 3.2m
+Depth: 0.1m
+Height: 2.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A black steel railing gate in closed position. 3 metres wide, 2.5 metres high.
+
