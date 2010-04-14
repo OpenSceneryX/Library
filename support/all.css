@@ -99,12 +99,15 @@ div.deprecatedVirtualPath {
 
 div.thumbnailcontainer {
 	float: left;
-	height: 250px;
+	height: 275px;
+	width: 300px;
 	padding-right: 1em;
+	text-align: center;
 }
 
 div.thumbnailcontainer img {
 	max-height: 200px;
+	margin: 0;
 }
 
 div.objectlogocontainer {
