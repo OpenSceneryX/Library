@@ -288,28 +288,27 @@ a.shaded {
 	background-color: #eef;
 }
 
-a.tooltip {
+span.tooltip {
 	position: relative; 
 	font-style: italic;
 	color: #000;
 	text-decoration: none;
 	cursor: default;
-	border-bottom: none;
 	z-index: 0;
 }
 
-a.tooltip:hover {
+span.tooltip:hover {
 	font-size: 100%;	/* IE/Win requires some link change on hover in order to show the tooltips */
 	z-index: 50;
 }
 
-a.tooltip span {
+span.tooltip span {
 	display: none;
 	line-height: normal;
 }
 
-a.tooltip:hover span {
-	display: block !important;
+span.tooltip:hover span {
+	display: block;
 	position: absolute;
 	top: 2em; 
 	left: 0;
@@ -398,6 +397,7 @@ ul.menu li {
   margin-top: 1px;
 }
 
+/* Top level items */
 ul.menu li a {
   background: #444;
   color: #fff;	
@@ -409,17 +409,28 @@ ul.menu li a:hover {
   background: #000;
 }
 
+/* Level 1 items */
 ul.menu li ul li a {
   background: #eeeeff;
   color: #000;
-  padding-left: 20px;
+  border-left: 0.25em #444 solid;
+  padding-left: 0.75em;
   border-bottom: none;
 }
 
 ul.menu li ul li a:hover {
   background: #3333b4;
   color: #fff;
-  border-left: 5px #444 solid;
-  padding-left: 15px;
-  border-bottom: none;
+}
+
+/* Level 2 items */
+ul.menu li ul li ul li a {
+  border-left: 0.5em #444 solid;
+  padding-left: 1.25em;
+}
+
+/* Level 3 items */
+ul.menu li ul li ul li ul li a {
+  border-left: 0.75em #444 solid;
+  padding-left: 1.5em;
 }

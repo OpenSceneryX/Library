@@ -1133,40 +1133,51 @@ def getHTMLFooter(documentationPath):
 def getHTMLTOC(rootCategory):
 	""" Get the table of contents for the home page """
 	
+	menuIndex = 0
+	
 	result = "<div id='toc'>\n"
 	result += "<h2>Contents</h2>\n"
-	result += "<ul id='menu1' class='menu noaccordion'>\n"
+	result += "<ul id='menu0' class='menu noaccordion'>\n"
 	
 	for mainSceneryCategory in rootCategory.childSceneryCategories:
+		# Top-level types of item
 		result += "<li>\n"
 		result += "<a href='#'>" + mainSceneryCategory.title + "</a>\n"
-		result += "<ul class='hide'>\n"
+		result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
+		menuIndex = menuIndex + 1
 
 		if len(mainSceneryCategory.childSceneryCategories) > 0:
 			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
+				# First level categories
 				result += "<li>\n"
-
-				result += "<a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a>\n"
-				#result += "<ul>\n"
+				result += "<a href='#'>" + subSceneryCategory.title + "</a>\n"
+				result += "<ul>\n"
+				#result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
+				#menuIndex = menuIndex + 1
+				# result += "<a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a>\n"
+				# result += "<ul>\n"
 				
-				#if len(subSceneryCategory.childSceneryCategories) > 0:
-				#	# We have another level of categorisation, show a category list where each link takes the user to a
-				#	# landing page for that category
-				#	for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-				#		result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title + "</a>"
-				#		result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></a>"
-				#		result += "</li>\n"
+				if len(subSceneryCategory.childSceneryCategories) > 0:
+					# We have another level of categorisation, show a category list where each link takes the user to a
+					# landing page for that category
+				
+					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
+						# Second level categories
+						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title
+						result += " <span class='tooltip'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></span>"
+						result += "</a>"
+						result += "</li>\n"
 	
-				#	# Also show the list of objects directly in this category
-				#	sceneryObjects = subSceneryCategory.getSceneryObjects(0)
-				#	result += getHTMLSceneryObjects(sceneryObjects)
+					# Also show the list of objects directly in this category
+					sceneryObjects = subSceneryCategory.getSceneryObjects(0)
+					result += getHTMLSceneryObjects(sceneryObjects)
 					
-				#else:
-				#	# No more category levels, show the list of objects
-				#	sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-				#	result += getHTMLSceneryObjects(sceneryObjects)
+				else:
+					# No more category levels, show the list of objects
+					sceneryObjects = subSceneryCategory.getSceneryObjects(1)
+					result += getHTMLSceneryObjects(sceneryObjects)
 
-				#result += "</ul>\n"
+				result += "</ul>\n"
 				result += "</li>\n"
 				
 		else:
@@ -1226,17 +1237,18 @@ def getHTMLSceneryObjects(sceneryObjects):
 	
 	result = ""
 	for sceneryObject in sceneryObjects:
-		result += "<li><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.shortTitle + "</a>"
+		result += "<li><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.shortTitle
 	 
 		if (sceneryObject.note != ""):
-			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></a>"
+			result += " <span class='tooltip'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></span>"
 
 		if (sceneryObject.tutorial):
-			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/tutorial.gif' alt='Tutorial Available' /><span>Tutorial available</span></a>"
+			result += " <span class='tooltip'><img class='attributeicon' src='doc/tutorial.gif' alt='Tutorial Available' /><span>Tutorial available</span></span>"
 
 		if (sceneryObject.animated):
-			result += " <a class='tooltip' href='#'><img class='attributeicon' src='doc/animated.gif' alt='Animated' /><span>Animated</span></a>"
+			result += " <span class='tooltip'><img class='attributeicon' src='doc/animated.gif' alt='Animated' /><span>Animated</span></span>"
 
+		result += "</a>"
 		result += "</li>\n"
 		
 	return result
