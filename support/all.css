@@ -382,8 +382,19 @@ p#version a {
 
 /* Collapsing menu */
 
+a.foldable {
+	background-image: url('plus.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 2em ! important;
+}
+
+a.folded {
+	background-image: url('minus.png');
+}
+
 ul.menu, ul.menu ul {
-  list-style-type:none;
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -399,32 +410,34 @@ ul.menu li {
 
 /* Top level items */
 ul.menu li a {
-  background: #444;
+	background-color: #444;
   color: #fff;	
   padding: 0.5em;
   border: none;
 }
 
 ul.menu li a:hover {
-  background: #000;
+	background-color: #000;
 }
 
 /* Level 1 items */
 ul.menu li ul li a {
-  background: #eeeeff;
-  color: #000;
+	background-color: #676767;
+  color: #FFF;
   border-left: 0.25em #444 solid;
   padding-left: 0.75em;
   border-bottom: none;
 }
 
 ul.menu li ul li a:hover {
-  background: #3333b4;
+	background-color: #3333b4;
   color: #fff;
 }
 
 /* Level 2 items */
 ul.menu li ul li ul li a {
+	background-color: #eeeeff;
+  color: #000;
   border-left: 0.5em #444 solid;
   padding-left: 1.25em;
 }

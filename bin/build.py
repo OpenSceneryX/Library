@@ -122,6 +122,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_1.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_1.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_2.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_2.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_3.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_3.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/plus.png", classes.Configuration.osxWebsiteFolder + "/doc/plus.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/minus.png", classes.Configuration.osxWebsiteFolder + "/doc/minus.png")
 
 		shutil.copyfile(classes.Configuration.supportFolder + "/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
 		shutil.copyfile(classes.Configuration.supportFolder + "/index-sitedown.html", classes.Configuration.osxWebsiteFolder + "/index-sitedown.html")
