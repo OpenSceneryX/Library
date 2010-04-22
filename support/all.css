@@ -383,7 +383,7 @@ p#version a {
 /* Collapsing menu */
 
 a.foldable {
-	background-image: url('plus.png');
+	background-image: url('minus.png');
 	background-repeat: no-repeat;
 	background-position: right;
 	padding-right: 2em ! important;

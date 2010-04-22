@@ -53,16 +53,19 @@ function initMenus() {
 			var parentULID = this.parentNode.parentNode.id;
 
 			if($('#' + parentULID).hasClass('noaccordion')) {
+				$(this).toggleClass('folded');
 				checkElement.slideToggle('normal');
 				return false;
 			}
 			if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+				$(this).removeClass('folded');
 				if($('#' + parentULID).hasClass('collapsible')) {
 					$('#' + parentULID + ' ul:visible').slideUp('normal');
 				}
 				return false;
 			}
 			if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+				$(this).addClass('folded');
 				$('#' + parentULID + ' ul:visible').slideUp('normal');
 				checkElement.slideDown('normal');
 				return false;
