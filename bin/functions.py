@@ -65,7 +65,7 @@ def buildCategoryLandingPages(sceneryCategory):
 	
 			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
 		
-		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + "doc" + os.sep + "c_" + sceneryCategory.title + ".html", "w")
+		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url, "w")
 		htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
 		htmlFileHandle.write(htmlFileContent)
 		htmlFileHandle.write(getHTMLSponsoredLinks())
@@ -1278,7 +1278,7 @@ def matchesAny(name, tests):
 
 
 
-def caseinsensitive_sort(stringList):
+def caseinsensitiveSort(stringList):
 	""" Case-insensitive string comparison sort. usage: stringList = caseinsensitive_sort(stringList) """
 	
 	tupleList = [(x.lower(), x) for x in stringList]

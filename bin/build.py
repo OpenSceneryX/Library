@@ -152,7 +152,7 @@ try:
 		
 		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures)
 		
-		functions.caseinsensitive_sort(authors)
+		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
 		
 		functions.displayMessage("------------------------\n")

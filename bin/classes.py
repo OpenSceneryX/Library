@@ -11,7 +11,6 @@
 import datetime
 import string
 import os
-import sys
 import re
 
 
@@ -156,7 +155,8 @@ class SceneryCategory:
 					self.title = result.group(1).replace("\"", "'")
 					continue
 
-			self.url = "/doc/c_" + self.title + ".html"
+			parts = filePathRoot.split(os.sep, 2)
+			self.url = os.path.join('/', parts[2], 'index.html')
 
 		
 	def addSceneryCategory(self, sceneryCategory):
