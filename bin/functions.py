@@ -959,7 +959,7 @@ def writeHTMLDocFile(sceneryObject):
 	# Logo
 	if (sceneryObject.logoFileName != ""):
 		htmlFileContent += "<div class='objectlogocontainer'>\n"
-		htmlFileContent += "<img src='" + sceneryObject.logoFileName + "' alt='Object branding logo' />\n"		
+		htmlFileContent += "<img src='/doc/" + sceneryObject.logoFileName + "' alt='Object branding logo' />\n"
 		htmlFileContent += "</div>\n"
 
 	# Main information
