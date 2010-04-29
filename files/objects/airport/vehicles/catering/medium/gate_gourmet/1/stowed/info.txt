@@ -1,0 +1,13 @@
+Title: Catering Loader Truck Gate Gourmet, stowed 
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 2.25m
+Depth: 7.8m
+Height: 3.8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A mid-sized airport catering truck in the stowed position in Gate Gourmet markings.
+
+The vehicle has a modified half-size drivers cab on a Mercedes 2-axle chassis allowing access to low-silled aircraft. Loader is in the lowered, stowed position.

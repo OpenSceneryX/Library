@@ -1,0 +1,13 @@
+Title: Catering Loader Truck red, 4.0m 
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 2.25m
+Depth: 7.8m
+Height: 6.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A mid-sized airport catering truck with platform raised to 4.0m in red markings.
+
+The vehicle has a modified half-size drivers cab on a Mercedes 2-axle chassis allowing access to low-silled aircraft. Loader platform is raised to 4.0m, suitable for aircraft types B757, A310.

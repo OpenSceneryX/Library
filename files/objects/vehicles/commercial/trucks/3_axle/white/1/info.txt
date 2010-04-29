@@ -1,0 +1,11 @@
+Title: Commercial Box Truck, 3-Axle Mercedes, White
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 2.4m
+Depth: 8.8m
+Height: 3.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A large-sized commercial box truck with rear lift on a Mercedes 3-axle chassis in generic white colours.

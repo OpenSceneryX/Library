@@ -1,0 +1,13 @@
+Title: Ford Transit box truck, green 
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Width: 1.7m
+Depth: 5.6m
+Height: 2.9m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Ford Transit box truck with airside vehcile beacon in green markings.
+
+This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
