@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		../../../../../../shared_textures/cormac_shaw/vehicles/aerlingus/xpih_grndserv02.png
-TEXTURE_LIT	../../../../../../shared_textures/cormac_shaw/vehicles/aerlingus/xpih_grndserv02_LIT.png
+TEXTURE		../../../../../../shared_textures/cormac_shaw/vehicles/aer_lingus/xpih_grndserv02.png
+TEXTURE_LIT	../../../../../../shared_textures/cormac_shaw/vehicles/aer_lingus/xpih_grndserv02_LIT.png
 POINT_COUNTS	1241 0 6 2925
 
 VT	   0.8220    1.9840    1.2715	 1.000  0.000  0.000	0.7598 0.2773

@@ -1,0 +1,12 @@
+Title: Church, wooden, onion dome
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 12m
+Depth: 20m
+Height: 20m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Small white church with dome. Typical of small-town Canada.

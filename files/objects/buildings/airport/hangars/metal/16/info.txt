@@ -1,0 +1,12 @@
+Title: Hangar, metal, white and grey
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 17m
+Depth: 11m
+Height: 6m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Small white metal hangar with grey trim. Original at Melfort, Sask.

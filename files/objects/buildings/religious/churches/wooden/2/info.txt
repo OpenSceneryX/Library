@@ -1,0 +1,12 @@
+Title: Church, wooden, spire
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 11m
+Depth: 20m
+Height: 21m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Small white church with spire. Typical of small-town Canada.
