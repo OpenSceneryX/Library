@@ -673,9 +673,6 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2])): 
 		os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[2]))
 
-	# Copy the info file
-	shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxFolder, parts[2], "info.txt"))
-	
 	if (sceneryObject.screenshotFilePath != ""):
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[2], "screenshot.jpg"))
 	
