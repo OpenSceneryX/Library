@@ -9,11 +9,18 @@ Release Howto
 
 4. Clean target folder and build library
 
-5. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file.
+  $ python build.py
+
+5. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file:
+
+  $ export COPYFILE_DISABLE=true
+  $ zip -r OpenSceneryX.zip OpenSceneryX
 
 6. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
 
 7. Run Packager
+
+  $ python package.py
 
 8. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
@@ -27,15 +34,15 @@ Release Howto
 
 13. Copy /index.html into /old/
 
-14. Extract website zip on site into /new/
+14. Copy /downloads/ into /old/
 
-15. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+15. Extract website zip on site into /new/
 
-16. Copy /index-sitedown.html over /index.html
+16. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-17. Move /doc/, /facades/, /forests/, /lines/, /manifest.xml.zip, /objects/ and /repository/ into /old/
+17. Copy /index-sitedown.html over /index.html
 
-18. Copy /downloads/ into /old/
+18. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml.zip, /objects/ and /repository/ into /old/
 
 19. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
@@ -45,16 +52,16 @@ Release Howto
 
 22. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-23. Remove old /new/OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+23. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-24. chgrp -R www *
+24. Ensure /versioninfo has the latest information about the installer in it.
 
-25. Ensure /versioninfo has the latest information about the installer in it.
+25. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-26. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+26. Go to http://www.neuroticweb.com/recursos/sitemap/ and generate a sitemap (Deprecated: run 'python sitemap_gen.py --config=config.xml')
 
-27. Run 'python sitemap_gen.py --config=config.xml' 
+27. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/, log in to Webmaster tools and resubmit sitemap
 
-28. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/
+28. Create new section in release note for next changes
 
-29. Create new section in release note for next changes
+29. Promotion
