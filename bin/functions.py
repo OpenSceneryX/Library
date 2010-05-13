@@ -1134,7 +1134,8 @@ def getHTMLTOC(rootCategory):
 	
 	result = "<div id='toc'>\n"
 	result += "<h2>Contents</h2>\n"
-	result += "<ul id='menu0' class='menu noaccordion'>\n"
+	result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
+	menuIndex = menuIndex + 1
 	
 	for mainSceneryCategory in rootCategory.childSceneryCategories:
 		# Top-level types of item
@@ -1190,8 +1191,8 @@ def getHTMLTOC(rootCategory):
 	result += "</ul>\n"
 	
 	result += "<div id='twitter'>\n"
-	result += "<script src='http://widgets.twimg.com/j/2/widget.js'></script>\n"
-	result += "<script>\n"
+	result += "<script src='http://widgets.twimg.com/j/2/widget.js' type='text/javascript'></script>\n"
+	result += "<script type='text/javascript'>\n"
 	result += "new TWTR.Widget({\n"
 	result += "  version: 2,\n"
 	result += "  type: 'profile',\n"
