@@ -7827,9 +7827,9 @@ ANIM_end
 
 ATTR_LOD	1000 4000
 ####_alpha
-LIGHT_NAMED	Light			  -0.9830   20.5160   -1.2820
-LIGHT_NAMED	Light			   5.9620   20.5160   -1.2820
-LIGHT_NAMED	Light			   5.9620   20.5160    5.5780
-LIGHT_NAMED	Light			  -0.9320   20.5160    5.5780
+LIGHT_NAMED	obs_red_night			  -0.9830   20.5160   -1.2820
+LIGHT_NAMED	obs_red_night			   5.9620   20.5160   -1.2820
+LIGHT_NAMED	obs_red_night			   5.9620   20.5160    5.5780
+LIGHT_NAMED	obs_red_night			  -0.9320   20.5160    5.5780
 
 # Built with Blender 2.43. Exported with XPlane2Blender 2.36.
