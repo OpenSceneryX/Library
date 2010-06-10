@@ -69,7 +69,7 @@ try:
 		
 		
 		functions.displayMessage("------------------------\n")
-		functions.displayMessage("Creating HTML files\n")
+		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
 		htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
 		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", False, False))
@@ -88,7 +88,11 @@ try:
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
-		
+
+		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
+		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
+		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "", "1.0")
+		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "doc/ReleaseNotes.html", "0.9")
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
@@ -157,11 +161,11 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Category Landing Pages\n")
-		functions.buildCategoryLandingPages(rootCategory)
+		functions.buildCategoryLandingPages(sitemapXMLFileHandle, rootCategory)
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Object Documentation\n")
-		functions.buildDocumentation(rootCategory, 0)
+		functions.buildDocumentation(sitemapXMLFileHandle, rootCategory, 0)
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building ancilliary files\n")
@@ -216,12 +220,15 @@ try:
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
 		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
-		
+
+		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
+
 		htmlIndexFileHandle.close()
 		htmlDeveloperFileHandle.close()
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
 		htmlWebIndexFileHandle.close()
+		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()

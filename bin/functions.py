@@ -18,13 +18,14 @@ import pcrt
 import sys
 
 
-def buildCategoryLandingPages(sceneryCategory):
+def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
 	
 	# Only build landing pages where depth >= 2
 	if sceneryCategory.depth >= 2:
 		htmlFileContent = ""
-		
+
+		# Breadcrumbs
 		htmlFileContent += "<div id='breadcrumbs'>\n"
 		htmlFileContent += "<ul class='inline'>"
 		
@@ -38,6 +39,7 @@ def buildCategoryLandingPages(sceneryCategory):
 		htmlFileContent += "</ul>\n"
 		htmlFileContent += "</div>\n"
 
+		# Content
 		htmlFileContent += "<div id='content'>\n"
 		htmlFileContent += "<a name='content'></a>\n"
 		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
@@ -73,10 +75,13 @@ def buildCategoryLandingPages(sceneryCategory):
 		htmlFileHandle.write(getHTMLFooter("/doc/"))
 		htmlFileHandle.close()
 
+		# XML sitemap entry
+		writeXMLSitemapEntry(sitemapXMLFileHandle, "doc" + sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
+		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
 	for childCategory in children:
-		buildCategoryLandingPages(childCategory)
+		buildCategoryLandingPages(sitemapXMLFileHandle, childCategory)
 		
 		
 
@@ -898,16 +903,17 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 
 
-def buildDocumentation(sceneryCategory, depth):
+def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
 		writeHTMLDocFile(sceneryObject)
+		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryObject.filePathRoot + "/index.html", "0.5")
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
 	for childCategory in children:
-		buildDocumentation(childCategory, depth + 1)
+		buildDocumentation(sitemapXMLFileHandle, childCategory, depth + 1)
 
 
 
@@ -1047,6 +1053,19 @@ def writeHTMLDocFile(sceneryObject):
 	
 	return 1
 
+
+def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
+	""" Write an entry for the sceneryObject into the sitemap XML file """
+	xmlContent = "<url>"
+	xmlContent += "<loc>http://www.opensceneryx.com/" + path + "</loc>"
+	#xmlContent += "<lastmod>2005-01-01</lastmod>"
+	#xmlContent += "<changefreq>monthly</changefreq>"
+	xmlContent += "<priority>" + priority + "</priority>"
+	xmlContent += "</url>\n"
+
+	sitemapXMLFileHandle.write(xmlContent)
+	
+	return 1
 
 
 def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, includeTabbo):
@@ -1251,6 +1270,20 @@ def getHTMLSceneryObjects(sceneryObjects):
 		
 	return result
 
+
+def getXMLSitemapHeader():
+	""" Get the standard sitemap header """
+
+	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+	result += "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+	return result
+
+
+def getXMLSitemapFooter():
+	""" Get the standard sitemap footer """
+
+	result = "</urlset>\n"
+	return result
 
 
 def getLibraryHeader(versionTag):
