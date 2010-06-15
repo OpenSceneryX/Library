@@ -11,6 +11,8 @@ Checklist for New Items
 
 4. Convert to v8 format?
 
+5. If there are ground shadows, check they have poly_offset set (in Blender, click the 'Tiles' button)
+
 5. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
 
 6. Check texture size and check powers of 2, scale down if appropriate
