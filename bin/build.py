@@ -169,8 +169,6 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building ancilliary files\n")
-		toc = functions.getHTMLTOC(rootCategory)
-		htmlWebIndexFileHandle.write(toc)
 		
 		authors = ", ".join(authors[:-1]) + " and " + authors[-1]
 		
@@ -202,6 +200,7 @@ try:
 		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
 		file.close()
 		htmlWebIndexFileHandle.write(fileContents)
+		htmlWebIndexFileHandle.write(functions.getHTMLTOC(rootCategory))
 		
 		file = open(classes.Configuration.supportFolder + "/_versionInfo.js", "r")
 		fileContents = file.read()
@@ -219,6 +218,7 @@ try:
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
+		htmlWebIndexFileHandle.write(functions.getHTMLSponsoredLinks())
 		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())

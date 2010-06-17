@@ -64,14 +64,12 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 					htmlFileContent += "<img src='/doc/screenshot_missing.png' alt='No Screenshot Available' />"
 				htmlFileContent += "</a>\n"
 				htmlFileContent += "</div>\n"
-	
-			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
 		
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url, "w")
 		htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
 		htmlFileHandle.write(htmlFileContent)
-		htmlFileHandle.write(getHTMLSponsoredLinks())
 		htmlFileHandle.write("</div>\n")
+		htmlFileHandle.write(getHTMLSponsoredLinks())
 		htmlFileHandle.write(getHTMLFooter("/doc/"))
 		htmlFileHandle.close()
 
@@ -1040,14 +1038,13 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "</ul></li>"
 		
 	htmlFileContent += "</ul>\n"
-	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>";
 
 	# Write the file contents
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
 	htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.write(getHTMLSponsoredLinks())
 	htmlFileHandle.write("</div>")
+	htmlFileHandle.write(getHTMLSponsoredLinks())
 	htmlFileHandle.write(getHTMLFooter("/doc/"))
 	htmlFileHandle.close()
 	
@@ -1114,7 +1111,8 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 def getHTMLSponsoredLinks():
 	""" Get the sponsored links area """
 	
-	result = "<div id='google'>\n"
+	result = "<div style='clear:both;'>&nbsp;</div>\n"
+	result += "<div id='google'>\n"
 	result += "<script type='text/javascript'><!--\n"
 	result += "google_ad_client = 'pub-5631233433203577';\n"
 	result += "/* 728x15, created 18/03/08 */\n"
@@ -1132,7 +1130,8 @@ def getHTMLSponsoredLinks():
 def getHTMLFooter(documentationPath):
 	""" Get the standard footer for all documentation files """
 	
-	result = "<div id='footer'>"
+	result = "<div style='clear:both;'>&nbsp;</div>\n"
+	result += "<div id='footer'>"
 	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
 	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence."
 	result += "</div>"

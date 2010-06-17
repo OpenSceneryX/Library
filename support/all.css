@@ -145,6 +145,7 @@ div#content {
 }
 
 div#homecontent {
+	float: left;
 	margin: 0.5em 320px 0 2em;
 	padding-bottom: 1em;
 }
@@ -155,12 +156,12 @@ div#breadcrumbs {
 
 div#toc {
 	font-size: 0.9em;
-	float:right;
 	width: 270px;
 	background-color: #ccf;
 	margin: 1em 1em 1em 0;
-	border-left: 1em solid #fff;
 	padding: 0.5em;
+	position: absolute;
+	right: 0;
 }
 
 div#google {
