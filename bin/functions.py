@@ -74,7 +74,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		htmlFileHandle.close()
 
 		# XML sitemap entry
-		writeXMLSitemapEntry(sitemapXMLFileHandle, "doc" + sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
+		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
@@ -906,7 +906,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
 		writeHTMLDocFile(sceneryObject)
-		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryObject.filePathRoot + "/index.html", "0.5")
+		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
@@ -1054,7 +1054,7 @@ def writeHTMLDocFile(sceneryObject):
 def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
 	""" Write an entry for the sceneryObject into the sitemap XML file """
 	xmlContent = "<url>"
-	xmlContent += "<loc>http://www.opensceneryx.com/" + path + "</loc>"
+	xmlContent += "<loc>http://www.opensceneryx.com" + path + "</loc>"
 	#xmlContent += "<lastmod>2005-01-01</lastmod>"
 	#xmlContent += "<changefreq>monthly</changefreq>"
 	xmlContent += "<priority>" + priority + "</priority>"
@@ -1274,7 +1274,7 @@ def getXMLSitemapHeader():
 	""" Get the standard sitemap header """
 
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+	result += "<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
 	return result
 
 
