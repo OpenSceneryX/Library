@@ -1,0 +1,29 @@
+Future Ideas List
+=================
+
+Installer
+---------
+
+o Detect version of X-Plane installed and install DDS textures if X-Plane 9 detected
+
+o Detect which objects are used in the user's installed scenery packages, and only install those
+
+o Split library into multiple, optional packages
+
+
+Library
+-------
+
+o Split library into multiple, optional packages
+
+
+Website
+-------
+
+√ Build script should build sitemap.xml
+
+o Add 'last modified' date handling to build script?
+
+o Promote latest objects, possibly with screenshots
+
+o Handle formatted info.txt content better (e.g. Cormac's comments)
