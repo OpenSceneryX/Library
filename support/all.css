@@ -59,10 +59,16 @@ img.icon {
 	vertical-align: bottom;
 }
 
-img.attributeicon{
+img.attributeicon {
 	border: none;
 	vertical-align: bottom;
 	margin: 0px 0px 5px 0px;
+}
+
+img.downloadicon {
+	border: none;
+	vertical-align: middle;
+	margin: 0px 0.5em 0.5em 0px;
 }
 
 img.miniobjecticon {
@@ -447,4 +453,9 @@ ul.menu li ul li ul li a {
 ul.menu li ul li ul li ul li a {
   border-left: 0.75em #444 solid;
   padding-left: 1.5em;
+}
+
+/* Downloads */
+ul.downloads li {
+	list-style-type: none;
 }

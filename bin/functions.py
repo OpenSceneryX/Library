@@ -1158,7 +1158,7 @@ def getHTMLTOC(rootCategory):
 	for mainSceneryCategory in rootCategory.childSceneryCategories:
 		# Top-level types of item
 		result += "<li>\n"
-		result += "<a href='#' class='foldable'>" + mainSceneryCategory.title + "</a>\n"
+		result += "<a href='" + mainSceneryCategory.url + "' class='foldable'>" + mainSceneryCategory.title + "</a>\n"
 		result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion hide'>\n"
 		menuIndex = menuIndex + 1
 
@@ -1166,7 +1166,7 @@ def getHTMLTOC(rootCategory):
 			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
 				# First level categories
 				result += "<li>\n"
-				result += "<a href='#' class='foldable'>" + subSceneryCategory.title + "</a>\n"
+				result += "<a href='" + subSceneryCategory.url + "' class='foldable'>" + subSceneryCategory.title + "</a>\n"
 				result += "<ul>\n"
 				#result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
 				#menuIndex = menuIndex + 1
