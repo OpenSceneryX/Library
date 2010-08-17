@@ -27,3 +27,5 @@ o Add 'last modified' date handling to build script?
 o Promote latest objects, possibly with screenshots
 
 o Handle formatted info.txt content better (e.g. Cormac's comments)
+
+o Provide hierarchical listing page of every object

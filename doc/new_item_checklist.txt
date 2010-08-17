@@ -21,8 +21,10 @@ Checklist for New Items
 
 8. If info.txt has been supplied, check line endings are UNIX
 
-9. Add to release notes
+9. Build library
 
-10. Tweet
+10. Add to release notes
 
-11. Commit
+11. Tweet
+
+12. Commit
