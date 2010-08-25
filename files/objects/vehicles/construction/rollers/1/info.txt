@@ -1,0 +1,11 @@
+Title: Road roller, Ingersoll-Rand
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+Width: 2.4m
+Depth: 6.5m
+Height: 3.7m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Road roller, Ingersoll-Rand PT-240R

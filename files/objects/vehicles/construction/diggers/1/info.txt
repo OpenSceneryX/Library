@@ -1,0 +1,11 @@
+Title: Bobcat Skid Steer with Shovel
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+Width: 1.7m
+Depth: 4m
+Height: 2.4m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Skid-steer Bobcat S220 with shovel

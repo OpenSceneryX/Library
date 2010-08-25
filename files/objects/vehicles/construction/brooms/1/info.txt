@@ -1,0 +1,11 @@
+Title: CAT Skid Steer with Broom
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+Width: 2.4m
+Depth: 4m
+Height: 2.2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Skid-steer CAT 226B with rotary broom
