@@ -1,0 +1,11 @@
+Title: Radar, spherical
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+Width: 14m
+Depth: 14m
+Height: 30m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Typical spherical radar ball.
