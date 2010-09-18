@@ -1,0 +1,13 @@
+Title: Mosque
+=====================
+Author: shilova
+URL: http://forums.x-plane.org/index.php?showuser=68419
+Author, texture: openfootage.net
+URL, texture: http://www.openfootage.net
+Width: 10.6m
+Depth: 22.4m
+Height: 16.8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A fictional, small western mosque.
