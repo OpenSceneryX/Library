@@ -88,8 +88,6 @@ try:
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
-		htmlWebTocFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/toc.html", "w")
-		htmlWebTocFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Table of Contents", "", True, True))
 
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
@@ -213,8 +211,7 @@ try:
 		jsVersionInfoFileHandle.write(fileContents)
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
-
-		htmlWebTocFileHandle.write(functions.getHTMLContentTree(rootCategory))
+		
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Finishing and closing files\n")
@@ -224,8 +221,6 @@ try:
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
 		htmlWebIndexFileHandle.write(functions.getHTMLSponsoredLinks())
 		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
-		htmlWebTocFileHandle.write(functions.getHTMLSponsoredLinks())
-		htmlWebTocFileHandle.write(functions.getHTMLFooter("/doc/"))
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
@@ -234,7 +229,6 @@ try:
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
 		htmlWebIndexFileHandle.close()
-		htmlWebTocFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()

@@ -1178,12 +1178,12 @@ def getHTMLTOC(rootCategory):
 					# landing page for that category
 				
 					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-							# Second level categories
-							result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title
-							result += " <span class='tooltip'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></span>"
-							result += "</a>"
-							result += "</li>\n"
-							
+						# Second level categories
+						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title
+						result += " <span class='tooltip'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></span>"
+						result += "</a>"
+						result += "</li>\n"
+	
 					# Also show the list of objects directly in this category
 					sceneryObjects = subSceneryCategory.getSceneryObjects(0)
 					result += getHTMLSceneryObjects(sceneryObjects)
@@ -1207,7 +1207,7 @@ def getHTMLTOC(rootCategory):
 		result += "</li>\n"
 		
 	result += "</ul>\n"
-
+	
 	result += "<div id='twitter'>\n"
 	result += "<script src='http://widgets.twimg.com/j/2/widget.js' type='text/javascript'></script>\n"
 	result += "<script type='text/javascript'>\n"
@@ -1246,10 +1246,6 @@ def getHTMLTOC(rootCategory):
 
 	return result
 
-
-def getHTMLContentTree(rootCategory):
-	result = ""
-	return result
 
 
 def getHTMLSceneryObjects(sceneryObjects):
