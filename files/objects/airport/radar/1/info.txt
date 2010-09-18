@@ -3,6 +3,7 @@ Title: Radar Tower, ASR-11
 Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
+Export Deprecated v1.12.0: objects/airport/radar/asr11
 Width: 17.0m
 Height: 20.0m
 Depth: 17.0m
