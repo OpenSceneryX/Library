@@ -17,7 +17,7 @@ Checklist for New Items
 
 6. Check texture size and check powers of 2, scale down if appropriate
 
-7. Run textures through Ping
+7. Run textures through PNGCrusher
 
 8. If info.txt has been supplied, check line endings are UNIX
 
