@@ -24,7 +24,9 @@ Release Howto
 
 8. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
-9. Zip manifest.xml
+9. Zip manifest.xml using the command line
+
+	$ zip manifest.xml.zip manifest.xml
 
 10. Upload zips into /new/
 
