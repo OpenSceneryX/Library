@@ -1,4 +1,4 @@
-Title: Tower, Brick, with rotating beacon
+Title: Tower, brick, with rotating beacon
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621

@@ -1,4 +1,4 @@
-Title: Hangar, Small, Brick, end door
+Title: Hangar, brick, small, end door
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
