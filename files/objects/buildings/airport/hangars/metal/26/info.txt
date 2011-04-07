@@ -1,0 +1,12 @@
+Title: Hangar, metal, large
+=====================
+Author: Barry Roberts
+URL: http://forums.x-plane.org/index.php?showuser=3376
+Email: smithysvca@netspace.net.au
+Width: 63m
+Depth: 48m
+Height: 14m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Large metal hanger
