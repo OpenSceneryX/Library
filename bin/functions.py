@@ -161,6 +161,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
 	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 	v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
+	v8NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -256,6 +257,26 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			# Break loop if we've found both v8 textures
 			if textureFound == 2:
 				break
+
+		result = v8NormalTexturePattern.match(line)
+		if result:
+			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+			if os.path.isfile(textureFile):
+			
+				# Look for the texture in the texture Dictionary, create a new one if not found
+				texture = textures.get(textureFile)
+				if (texture == None):
+					texture = classes.SceneryTexture(textureFile)
+					textures[textureFile] = texture
+				
+				texture.sceneryObjects.append(sceneryObject)
+				sceneryObject.sceneryTextures.append(texture)
+
+				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
+			else:
+				displayMessage("\n" + objectSourcePath + "\n")
+				displayMessage("Cannot find NORMAL texture - object (v8) excluded (" + textureFile + ")\n", "error")
+				return
 
 	if textureFound == 0:
 		displayMessage("\n" + objectSourcePath + "\n")
@@ -1142,7 +1163,7 @@ def getHTMLFooter(documentationPath):
 	
 	result += "<div style='margin-top:1em;'>"
 	result += "<div style='float:left; margin-right:1em;'><div style='margin:5px; padding: 1px; width: 88px; text-align: center;'><form action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='J3H6VKZD86BJN'><input type='image' src='https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online.' style=></form></div></div>"
-	result += "<div style='margin: 5px; padding: 1px;'>If you use OpenSceneryX, please consider giving a donation to offset the direct costs such as hosting and domain names.</div>"
+	result += "<div style='margin: 5px; padding: 1px;'>OpenSceneryX is free for everyone to use.  However, if you do use it, please consider giving a donation to offset the direct costs such as hosting and domain names.</div>"
 	result += "</div>"
 	
 	result += "</div>"
