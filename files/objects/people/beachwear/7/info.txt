@@ -1,0 +1,14 @@
+Title: Woman, bikini, lying under parasol
+=====================
+Author: fasm
+URL: http://www.fasm.name/
+http://forums.x-plane.org/index.php?showuser=2767
+Email: fasm@wanadoo.fr
+Width: 2m
+Depth: 2m
+Height: 2m
+Animated: no
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Woman under a beach umbrella

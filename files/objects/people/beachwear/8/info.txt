@@ -1,0 +1,13 @@
+Title: Man and woman lying under parasol
+=====================
+Author: fasm
+URL: http://www.fasm.name/
+Email: fasm@wanadoo.fr
+Width: 2m
+Depth: 2m
+Height: 2m
+Animated: no
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Couple under a beach umbrella. male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a> 

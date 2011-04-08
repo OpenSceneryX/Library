@@ -1,0 +1,14 @@
+Title: Woman, bikini, sitting
+=====================
+Author: fasm
+URL: http://www.fasm.name/
+http://forums.x-plane.org/index.php?showuser=2767
+Email: fasm@wanadoo.fr
+Width: 1m
+Depth: 1m
+Height: 2m
+Animated: no
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Sitting woman
