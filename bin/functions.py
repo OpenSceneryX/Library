@@ -628,11 +628,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 
 
 
@@ -1132,9 +1132,21 @@ def getHTMLFooter(documentationPath):
 	
 	result = "<div style='clear:both;'>&nbsp;</div>\n"
 	result += "<div id='footer'>"
+	
+	result += "<div>"
 	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
-	result += "The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence."
+	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
 	result += "</div>"
+
+	result += "<div style='clear:both;'>&nbsp;</div>\n"
+	
+	result += "<div style='margin-top:1em;'>"
+	result += "<div style='float:left; margin-right:1em;'><div style='margin:5px; padding: 1px; width: 88px; text-align: center;'><form action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='J3H6VKZD86BJN'><input type='image' src='https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online.' style=></form></div></div>"
+	result += "<div style='margin: 5px; padding: 1px;'>If you use OpenSceneryX, please consider giving a donation to offset the direct costs such as hosting and domain names.</div>"
+	result += "</div>"
+	
+	result += "</div>"
+	
 	result += "<script src='http://www.google-analytics.com/urchin.js' type='text/javascript'></script>"
 	result += "<script type='text/javascript'>"
 	result += "_uacct = 'UA-4008328-4';"
