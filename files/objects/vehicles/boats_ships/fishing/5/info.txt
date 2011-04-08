@@ -1,0 +1,14 @@
+Title: Fishing boat, small
+=====================
+Author: fasm
+URL: http://www.fasm.name/
+http://forums.x-plane.org/index.php?showuser=2767
+Email: fasm@wanadoo.fr
+Width: 2m
+Depth: 4m
+Height: 2m
+Animated: no
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: small fishing boat. Male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a>.

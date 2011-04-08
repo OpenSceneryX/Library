@@ -1,0 +1,14 @@
+Title: Canoe, outrigger, empty
+=====================
+Author: fasm
+URL: http://www.fasm.name/
+http://forums.x-plane.org/index.php?showuser=2767
+Email: fasm@wanadoo.fr
+Width: 2m
+Depth: 3m
+Height: 2m
+Animated: yes
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Outrigger canoe, empty
