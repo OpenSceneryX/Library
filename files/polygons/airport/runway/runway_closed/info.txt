@@ -1,0 +1,8 @@
+Title: Runway closed
+=====================
+Author: Nick Ward
+Email: nward@sasktel.net
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Runway closed ground marking
