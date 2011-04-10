@@ -140,6 +140,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.gif")
 		
 		# Placeholder Library Folder
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
