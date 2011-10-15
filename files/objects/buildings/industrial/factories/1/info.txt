@@ -1,4 +1,4 @@
-Title: Factory, Victorian
+Title: Factory, Old Brick
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
@@ -6,7 +6,8 @@ Width: 23.1m
 Depth: 66.3m
 Height: 63.3m
 Export Deprecated v1.3.0: objects/buildings/industrial/factory_smoky
+Export Deprecated v1.12.0: objects/buildings/industrial/factories/victorian
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Victorian smoky mill.
+Description: Victorian-style smoky mill.
