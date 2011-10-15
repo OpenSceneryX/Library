@@ -2,7 +2,7 @@ Title: A320 America West
 =====================
 Author: XPFW
 Author, conversion: Jeff Mueller
-Author, texture: joyfulsongster
+Author, texture: Jeff Mueller
 URL: http://www.xplanefreeware.net
 Export: objects/aircraft/livery/america_west/a320
 Width: 34.3m
