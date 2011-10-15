@@ -1,0 +1,14 @@
+Title: Floodlight 2
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Height: 21.1m
+Width: 3.2m
+Depth: 3.2m
+Export Propagate: 2
+Export: objects/airport/furniture/lights/flood/2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A floodlight, 2 lamps at 70 degrees to one another.
