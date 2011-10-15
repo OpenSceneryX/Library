@@ -1,0 +1,15 @@
+Title: Loader, Grey - Xsim
+=====================
+Author: mr 3D
+Author, texture: Jeff Mueller
+Email: mr3d@talk21.com
+Animated: True
+Logo: xsim.jpg
+Export: objects/collections/xsim/loader_grey
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Note: For the animation in this object to work, an additional plugin (Developed by Sandy Barbour) must be installed.  Please visit <a href='http://www.xpluginsdk.org/misc_plugins.htm' onclick='window.open(this.href);return false;'>this page on Sandy's Website</a> and download and install the 'CustomSBDatarefs004' plugin.
+=====================
+Description: An animated baggage loader with worker loading baggage.
