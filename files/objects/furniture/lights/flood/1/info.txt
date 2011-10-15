@@ -1,4 +1,4 @@
-Title: Floodlight
+Title: Floodlight 1
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
@@ -6,6 +6,7 @@ Height: 16.3m
 Width: 1.6m
 Depth: 2.04m
 Export Propagate: 2
+Export: objects/airport/furniture/lights/flood/1
 Revision: $Revision$
 Date: $Date$
 =====================
