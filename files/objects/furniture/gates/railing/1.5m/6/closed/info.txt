@@ -9,4 +9,3 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A green steel railing gate in closed position. 1 metres wide, 2.5 metres high.
-

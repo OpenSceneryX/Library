@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A Ford Transit box truck with airside vehcile beacon in Servisair markings.
-
 This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

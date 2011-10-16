@@ -9,4 +9,3 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A grey chainlink gate in full open position. 1 metre wide, 2.5 metres high.
-

@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A large-sized airport catering truck in the stowed position in green markings.
-
 The vehicle is based on a Mercedes 3-axle chassis with a full size cab. The capacity and configuration is optimised for use with mid to large size airliners. Loader is in the lowered, stowed position.

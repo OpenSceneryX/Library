@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A large-sized airport catering truck with platform raised to 5.0m in LSG Sky Chefs markings.
-
 The vehicle is based on a Mercedes 3-axle chassis with a full size cab. The capacity and configuration is optimised for use with mid to large size airliners. Loader platform is raised to 5.0m, suitable for aircraft types B747, B777, A380(lower).

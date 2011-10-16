@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A mid-sized airport catering truck with platform raised to 2.3m in red markings.
-
 The vehicle has a modified half-size drivers cab on a Mercedes 2-axle chassis allowing access to low-silled aircraft. Loader platform is raised to 2.3m, suitable for aircraft types MD-80/90, B717, EMB-170/190.

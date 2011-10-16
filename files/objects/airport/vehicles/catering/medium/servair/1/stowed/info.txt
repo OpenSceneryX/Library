@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A mid-sized airport catering truck in the stowed position in Servair markings.
-
 The vehicle has a modified half-size drivers cab on a Mercedes 2-axle chassis allowing access to low-silled aircraft. Loader is in the lowered, stowed position.

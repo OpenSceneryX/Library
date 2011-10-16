@@ -9,4 +9,3 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A red and white movable wooden barricade for closed taxiways and aprons areas. Unlit.
-

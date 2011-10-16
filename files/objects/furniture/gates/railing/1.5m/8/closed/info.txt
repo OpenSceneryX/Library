@@ -9,4 +9,3 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A grey steel railing double gate in closed position. 5 metres wide, 2.5 metres high.
-

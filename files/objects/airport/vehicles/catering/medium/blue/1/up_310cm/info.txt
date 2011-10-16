@@ -9,5 +9,4 @@ Revision: $Revision$
 Date: $Date$
 =====================
 Description: A mid-sized airport catering truck with platform raised to 3.1m in blue markings.
-
 The vehicle has a modified half-size drivers cab on a Mercedes 2-axle chassis allowing access to low-silled aircraft. Loader platform is raised to 3.1m, suitable for aircraft types B737, A320, Tu-154.

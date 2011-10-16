@@ -1,21 +1,11 @@
 Title: Traffic Cone, Large, Red and White
 =====================
-
 Author: Cormac Shaw
-
 URL: http://www.xpih.net
-
 Width: 0.6m
-
 Depth: 0.6m
-
 Height: 0.85m
-
 Revision: $Revision$
-
 Date: $Date$
-
 =====================
-
 Description: A large red and white traffic cone.
-
