@@ -1,9 +1,10 @@
 Title: A320 America West
 =====================
 Author: XPFW
-Author, conversion: Jeff Mueller
-Author, texture: Jeff Mueller
 URL: http://www.xplanefreeware.net
+Author, conversion: Jeff Mueller
+Author, texture: benghurk
+Author, texture: Jeff Mueller
 Export: objects/aircraft/livery/america_west/a320
 Width: 34.3m
 Depth: 37.9m
