@@ -6,7 +6,7 @@ Author, texture: Jeff Mueller
 URL: http://www.xplanefreeware.net
 Export: objects/aircraft/livery/america_west/a320
 Width: 34.3m
-Length: 37.9m
+Depth: 37.9m
 Height: 12m
 Revision: $Revision$
 Date: $Date$
