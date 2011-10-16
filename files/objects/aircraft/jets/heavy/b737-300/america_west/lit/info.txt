@@ -1,0 +1,16 @@
+Title: B737-300 America West
+=====================
+Author: XPFW
+URL: http://www.xplanefreeware.net
+Author, conversion: Jeff Mueller
+Author, texture: Vincent McMahon
+Author, texture: Jeff Mueller
+Export: objects/aircraft/jets/heavy/b737-300/america_west
+Export: objects/aircraft/livery/america_west/b737-300
+Width: 31.1m
+Depth: 34.5m
+Height: 11m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Boeing 737-300 with America West final livery. This airline was merged into US Airways in 2005, so this livery is now historical.
