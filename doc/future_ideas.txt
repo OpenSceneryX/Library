@@ -22,10 +22,17 @@ Website
 
 √ Build script should build sitemap.xml
 
+o Obfuscation of email addresses on site 
+
 o Add 'last modified' date handling to build script?
 
 o Promote latest objects, possibly with screenshots
 
+o The sub-categories section of category landing pages should be better - Perhaps there should be an image for each category?
+
 o Handle formatted info.txt content better (e.g. Cormac's comments)
 
-o Provide hierarchical listing page of every object.  We'll need a new data stucture for this, reflecting the virtual path structure.  
+o Provide hierarchical listing page of every object, in same order as shown in Overlay Editor.  We'll need a new data stucture for this, reflecting the virtual path structure.  
+
+o Mark whether an object has a lit texture
+
