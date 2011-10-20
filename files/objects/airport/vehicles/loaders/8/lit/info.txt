@@ -1,0 +1,11 @@
+Title: Loader, Groundforce, partially raised, lit
+=====================
+Author: Ron Somerville
+Author, texture: Ron Somerville
+Author, texture: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=5515
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Airport 'Groundforce' branded beltloader/conveyor for loading baggage. Belt in partially raised position, suitable for Boeing 757 or 767.
