@@ -37,6 +37,11 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
 		htmlFileContent += "<li>" + sceneryCategory.title + "</li>\n"
 		htmlFileContent += "</ul>\n"
+		
+		htmlFileContent += "<div id='share'>\n"
+		htmlFileContent += getShareLinks(0)
+		htmlFileContent += "</div>\n"
+		
 		htmlFileContent += "</div>\n"
 
 		# Content
@@ -952,6 +957,11 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
 	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
 	htmlFileContent += "</ul>\n"
+
+	htmlFileContent += "<div id='share'>\n"
+	htmlFileContent += getShareLinks(0)
+	htmlFileContent += "</div>\n"
+
 	htmlFileContent += "</div>\n"
 	
 	# Content
@@ -1128,6 +1138,21 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	return result
 
 
+def getBreadcrumbs(pageTitle):
+	result = "<div id='breadcrumbs'>\n"
+	result += "<ul class='inline'>"
+	
+	result += "<li><a href='/'>Home</a></li>\n"
+	result += "<li>" + pageTitle + "</li>\n"
+	result += "</ul>\n"
+
+	result += "<div id='share'>\n"
+	result += getShareLinks(0)
+	result += "</div>\n"
+
+	result += "</div>\n"
+	return result
+	
 
 def getHTMLSponsoredLinks():
 	""" Get the sponsored links area """
@@ -1279,6 +1304,34 @@ def getHTMLTOC(rootCategory):
 
 	return result
 
+
+def getShareLinks(large):
+	result = '<!-- AddThis Button BEGIN -->\n'
+	if (large):
+		result += '<div class="addthis_toolbox addthis_default_style addthis_32x32_style">\n'
+	else:
+		result += '<div class="addthis_toolbox addthis_default_style ">\n'
+	result += '<a class="addthis_button_preferred_1"></a>\n'
+	result += '<a class="addthis_button_preferred_2"></a>\n'
+	result += '<a class="addthis_button_preferred_3"></a>\n'
+	result += '<a class="addthis_button_preferred_4"></a>\n'
+	result += '<a class="addthis_button_compact"></a>\n'
+	result += '<a class="addthis_counter addthis_bubble_style"></a>\n'
+	result += '</div>\n'
+	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
+	result += '<!-- AddThis Button END -->\n'
+
+	result = '<!-- AddThis Button BEGIN -->\n'
+	result += '<div class="addthis_toolbox addthis_default_style ">\n'
+	result += '<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>\n'
+	result += '<a class="addthis_button_tweet"></a>\n'
+	result += '<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>\n'
+	result += '<a class="addthis_counter addthis_pill_style"></a>\n'
+	result += '</div>\n'
+	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
+	result += '<!-- AddThis Button END -->\n'
+
+	return result
 
 
 def getHTMLSceneryObjects(sceneryObjects):

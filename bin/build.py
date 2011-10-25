@@ -87,6 +87,7 @@ try:
 		htmlWebIndexFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", True, True))
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
+		htmlWebReleaseNotesFileHandle.write(functions.getBreadcrumbs("Release Notes"))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
 
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
@@ -162,7 +163,7 @@ try:
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
 		
-		functions.displayMessage("------------------------\n")
+		functions.displayMessage("\n------------------------\n")
 		functions.displayMessage("Building Category Landing Pages\n")
 		functions.buildCategoryLandingPages(sitemapXMLFileHandle, rootCategory)
 		
@@ -201,6 +202,7 @@ try:
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
 		fileContents = fileContents.replace("${authors}", authors)
 		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
+		fileContents = fileContents.replace("${sharelinks}", functions.getShareLinks(1))
 		file.close()
 		htmlWebIndexFileHandle.write(fileContents)
 		htmlWebIndexFileHandle.write(functions.getHTMLTOC(rootCategory))

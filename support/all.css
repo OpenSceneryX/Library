@@ -146,6 +146,7 @@ div#header {
 }
 
 div#content {
+	clear:both;
 	margin: 0.5em 1em 0 2em;
 	padding-bottom: 1em;
 }
@@ -169,6 +170,20 @@ div#toc {
 	position: absolute;
 	right: 0;
 }
+
+div#homeshare {
+	float: right;
+}
+
+div#share {
+	float: right;
+}
+
+div#homeshare a,
+div#share a {
+	border-bottom: none;
+}
+
 
 div#google {
  display: block;
@@ -223,6 +238,8 @@ ul.inline li:last-child:after { content: ""; }
 
 div#breadcrumbs ul.inline {
 	line-height: 2.0em;
+	float: left;
+	display: inline;
 }
 
 div#toc ul.inline {
