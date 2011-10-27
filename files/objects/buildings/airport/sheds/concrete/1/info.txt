@@ -1,0 +1,11 @@
+Title: Shed, cargo, concrete
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Width: 27m
+Height: 7.0m
+Depth: 52m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A concrete cargo building with loading docks.
