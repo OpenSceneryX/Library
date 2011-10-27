@@ -21,7 +21,7 @@ class Configuration:
 	"""Generic container for shared variables."""
 	versionTag = ""
 	versionNumber = ""
-	versionDate = datetime.datetime.now().strftime("%c")
+	versionDate = datetime.datetime.now().strftime("%a, %d %b %Y")
 	
 	def setVersionTag(self, versionTag):
 		""" Set up the configuration """
