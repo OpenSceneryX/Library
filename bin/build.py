@@ -41,6 +41,8 @@ try:
 		
 		classes.Configuration.setVersionTag(versionTag)
 		
+		functions.growlRegister()
+
 		os.chdir("../..")
 		
 		update = functions.getInput("Do you want to update the \'files\' directory from the repository before release? [y/N]: ", 1)
@@ -242,6 +244,8 @@ try:
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")
 		functions.displayMessage("========================\n")
+		
+		functions.growlNotify("OpenSceneryX build completed")
 		
 	except classes.BuildError, e:
 		exceptionMessage = e.value

@@ -18,6 +18,7 @@ import pcrt
 import sys
 
 
+
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
 	
@@ -1131,7 +1132,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<script type='text/javascript' src='http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
-	result += "<p id='version'><strong>Library Version:</strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a> - <strong>Built on: </strong><script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
+	result += "<p id='version'><strong>Latest version </strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a>, <script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
 	result += "</div>\n"
 	result += "<div style='clear:both;'>&nbsp;</div>"
 
@@ -1429,3 +1430,19 @@ def getInput(message, maxSize):
 	""" Get some input from the user """
 	
 	return raw_input(message)
+
+
+def growlRegister():
+	""" Register the application with Growl """
+	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so use growlnotify
+	# instead for the moment.  growlnotify doesn't need a separate registration call so do nothing
+	# here.
+
+
+def growlNotify(message = ""):
+	""" Send a growl notification """
+	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so just make a system
+	# call to growlnotify for the moment.  Note that growlnotify (command line growl interface) must
+	# be installed.
+	
+	os.system('growlnotify -name "OpenSceneryX Build Script" --image "../support/x.gif" --message "' + message + '"')
