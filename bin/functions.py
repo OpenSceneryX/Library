@@ -1132,7 +1132,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<script type='text/javascript' src='http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
-	result += "<p id='version'><strong>Latest version </strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a>, <script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
+	result += "<p id='version'><strong>Latest version </strong> <a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a> <script type='text/javascript'>document.write(osxVersionDate);</script></p>\n"
 	result += "</div>\n"
 	result += "<div style='clear:both;'>&nbsp;</div>"
 
@@ -1411,6 +1411,7 @@ def displayMessage(message, type="message"):
 		pcrt.fg(pcrt.RED)
 		print "ERROR: " + message,
 		pcrt.fg(pcrt.WHITE)
+		growlNotify("Error: " + message)
 	elif (type == "warning"):
 		pcrt.fg(pcrt.YELLOW)
 		print "WARNING: " + message,
@@ -1444,5 +1445,4 @@ def growlNotify(message = ""):
 	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so just make a system
 	# call to growlnotify for the moment.  Note that growlnotify (command line growl interface) must
 	# be installed.
-	
-	os.system('growlnotify -name "OpenSceneryX Build Script" --image "../support/x.gif" --message "' + message + '"')
+	os.system('growlnotify -name "OpenSceneryX Build Script" --image "' + os.path.join(classes.Configuration.supportFolder, "x_print.png") + '" --message "' + message + '"')
