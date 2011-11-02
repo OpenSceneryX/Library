@@ -1,0 +1,12 @@
+Title: Baggage cart, covered, closed, single, blue
+=====================
+Author: Ron Somerville
+URL: http://forums.x-plane.org/index.php?showuser=5515
+Export Propagate: 2
+Width: 2.0m
+Height: 2.0m
+Depth: 4.2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A closed, single, blue, covered baggage cart with blue curtains.
