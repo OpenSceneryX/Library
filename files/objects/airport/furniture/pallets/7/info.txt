@@ -1,0 +1,12 @@
+Title: Pallet, Ryobi®
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Export Propagate: 2
+Width: 1.21m
+Height: 1.67m
+Depth: 1.64m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A stacked pallet with boxes of merchandise for cargo areas.
