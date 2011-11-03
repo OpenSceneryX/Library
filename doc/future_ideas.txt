@@ -36,3 +36,4 @@ o Provide hierarchical listing page of every object, in same order as shown in O
 
 o Mark whether an object has a lit texture
 
+o 3D renderer for x-plane .obj files
