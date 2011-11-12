@@ -13,18 +13,20 @@ Checklist for New Items
 
 5. Remove any baked-in ground shadows
 
-6. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
+6. Check lit texture - new submissions shouldn't have baked in spill lighting effects, illuminated windows etc are ok
 
-7. Check texture size and check powers of 2, scale down if appropriate
+7. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
 
-8. Run textures through ImageOptim
+8. Check texture size and check powers of 2, scale down if appropriate
 
-9. If info.txt has been supplied, check line endings are UNIX
+9. Run textures through ImageOptim
 
-10. Build library
+10. If info.txt has been supplied, check line endings are UNIX
 
-11. Add to release notes
+11. Build library
 
-12. Tweet
+12. Add to release notes
 
-13. Commit
+13. Tweet
+
+14. Commit
