@@ -1,0 +1,14 @@
+Title: Cessna Citation X, lit
+=====================
+Author: Brett Sumpter
+URL: http://forums.x-plane.org/index.php?showuser=2346
+Author, texture: audiotracker
+Author, texture: Jeff Mueller
+Export Propagate: 1
+Width: 20.3m
+Height: 5.6m
+Depth: 22.57m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Cessna Citation X corporate jet.
