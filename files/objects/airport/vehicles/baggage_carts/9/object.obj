@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		../../../../shared_textures/jeff_mueller/Baggage_cart_colors.PNG
-TEXTURE_LIT	../../../../shared_textures/jeff_mueller/Baggage_cart_colors_LIT.PNG
 POINT_COUNTS	7997 0 0 10302
 
 VT	  -0.7959    0.3462    1.7007	-0.003  0.705  0.709	0.6978 0.6034

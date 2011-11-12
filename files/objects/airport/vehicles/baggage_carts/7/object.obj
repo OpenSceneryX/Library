@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		baggagecart_RS_gray.png
-TEXTURE_LIT	baggagecart_RS_gray_LIT.png
 POINT_COUNTS	516 0 0 918
 
 VT	   0.7620    0.5031   -1.5240	 0.000 -1.000 -0.000	1.0    1.0   

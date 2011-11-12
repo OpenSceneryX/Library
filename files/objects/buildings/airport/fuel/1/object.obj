@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		fueltank-h.png
-TEXTURE_LIT	fueltank-h_LIT.png
 POINT_COUNTS	2766 0 0 6651
 
 VT	   6.0000    1.2618    1.4489	 1.000  0.000 -0.000	 0.2697  0.2930

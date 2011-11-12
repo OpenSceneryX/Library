@@ -1,0 +1,12 @@
+Title: A320 Frontier (Penguins)
+=====================
+Author: Christian Rivière
+URL: http://forums.x-plane.org/index.php?showuser=6871
+Author, conversion: Jeff Mueller
+Author, texture: benghurk
+Author, texture: Jeff Mueller
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 320 in Frontier livery, penguins variant, unlit.

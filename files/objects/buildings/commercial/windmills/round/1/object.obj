@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		wind_mill.png
-TEXTURE_LIT	wind_mill_LIT.png
 POINT_COUNTS	6873 0 0 8268
 
 VT	   0.8514   11.8455    3.0060	 0.653  0.312  0.383	0.7639 0.418 

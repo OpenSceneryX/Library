@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		pallet_stacking_boxes.PNG
-TEXTURE_LIT	pallet_stacking_boxes_LIT.PNG
 POINT_COUNTS	1811 0 0 3630
 
 VT	   0.3223    0.0000    0.5688	 0.000 -1.000  0.000	 0.0000  0.0000

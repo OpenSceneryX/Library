@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		crossbow_pallet.PNG
-TEXTURE_LIT	crossbow_pallet_LIT.PNG
 POINT_COUNTS	1940 0 0 3726
 
 VT	   0.5588    0.0000    0.6211	 0.000 -1.000  0.000	 0.4395  0.0564
