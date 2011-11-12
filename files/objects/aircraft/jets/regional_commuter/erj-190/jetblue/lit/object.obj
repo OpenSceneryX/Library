@@ -2,8 +2,8 @@ A
 800
 OBJ
 
-TEXTURE		ERJ-190JetBluestatic_RS.png
-TEXTURE_LIT	ERJ-190JetBluestatic_RS_LIT.png
+TEXTURE		../ERJ-190JetBluestatic_RS.png
+TEXTURE_LIT	../ERJ-190JetBluestatic_RS_LIT.png
 POINT_COUNTS	6312 0 0 22536
 
 VT	  -1.7805    2.2685   17.9694	 0.095 -0.077  0.992	0.0    0.1289
