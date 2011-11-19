@@ -5,6 +5,8 @@ Email: afriqs@yahoo.fr
 URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
 URL: http://forums.x-plane.org/index.php?showuser=5732
 URL: http://afriqs.free.fr/xplane/index.php
+Author, Texture: @lex
+Author, Texture: Jeff Mueller
 Width: 24.5m
 Depth: 24.5m
 Height: 40m

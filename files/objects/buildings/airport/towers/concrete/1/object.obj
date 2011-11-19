@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		ctrl_tower.png
+TEXTURE_LIT		ctrl_tower_LIT.png
 POINT_COUNTS	773 32 0 1642
 
 VT	   8.1481   33.1838    2.6495	 0.831  0.000  0.556	0.703  0.9934
