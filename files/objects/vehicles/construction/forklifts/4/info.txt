@@ -1,0 +1,12 @@
+Title: Fork Lift, small, white
+=====================
+Author: Ron Somerville
+URL: http://forums.x-plane.org/index.php?showuser=5515
+Width: 1.1m
+Height: 1.9m
+Depth: 3.1m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A small white fork lift truck.
