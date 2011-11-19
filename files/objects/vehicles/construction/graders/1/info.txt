@@ -5,6 +5,7 @@ Email: nward@sasktel.net
 Width: 2.8m
 Depth: 10m
 Height: 3.5m
+Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================

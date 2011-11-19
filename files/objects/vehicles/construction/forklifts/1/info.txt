@@ -1,10 +1,11 @@
-Title: Fork Lift
+Title: Fork Lift, large, yellow
 =====================
 Author: Reuben Mowbray
 Email: reubenm@xplanefreeware.net
 Width: 2.5m
 Height: 3m
 Depth: 4.5m
+Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
