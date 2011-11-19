@@ -1003,10 +1003,10 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
 		if (not sceneryObject.url == ""):
 			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' onclick='window.open(this.href);return false;'>" + sceneryObject.author + "</a></span>"
-			if (not sceneryObject.email == ""):
-				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
-		elif (not sceneryObject.email == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
+			#if (not sceneryObject.email == ""):
+			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
+		#elif (not sceneryObject.email == ""):
+		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
 		htmlFileContent += "</li>\n"
@@ -1016,10 +1016,10 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
 		if (not sceneryObject.textureUrl == ""):
 			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.textureAuthor + "</a></span>"
-			if (not sceneryObject.textureEmail == ""):
-				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
-		elif (not sceneryObject.textureEmail == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
+			#if (not sceneryObject.textureEmail == ""):
+			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
+		#elif (not sceneryObject.textureEmail == ""):
+		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
 		htmlFileContent += "</li>\n"
@@ -1029,10 +1029,10 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
 		if (not sceneryObject.conversionUrl == ""):
 			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.conversionAuthor + "</a></span>"
-			if (not sceneryObject.conversionEmail == ""):
-				htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
-		elif (not sceneryObject.conversionEmail == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
+			#if (not sceneryObject.conversionEmail == ""):
+			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
+		#elif (not sceneryObject.conversionEmail == ""):
+		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
 		else:
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
 		htmlFileContent += "</li>\n"
