@@ -1,0 +1,13 @@
+Title: Tank, fuel, 15m wide
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Export: objects/buildings/airport/fuel/4
+Width: 15.2m
+Depth: 15.2m
+Height: 9.1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Fuel tank.
