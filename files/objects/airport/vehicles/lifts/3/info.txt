@@ -1,0 +1,12 @@
+Title: Cargo lift, partially raised, one container
+=====================
+Author: Ron Somerville
+URL: http://forums.x-plane.org/index.php?showuser=5515
+Width: 3.7m
+Depth: 8.9m
+Height: 5.6m
+Export Propagate: 2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A partially raised cargo lift with one container on board.
