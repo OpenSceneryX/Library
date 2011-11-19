@@ -1,0 +1,12 @@
+Title: Dassault Falcon 7X, blue stripe livery
+=====================
+Author: Christian Riviere
+URL: http://forums.x-plane.org/index.php?showuser=6871
+Export Propagate: 1
+Width: 27.3m
+Height: 7.9m
+Depth: 26.6m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Dassault Falcon 7X in a blue stripe livery.
