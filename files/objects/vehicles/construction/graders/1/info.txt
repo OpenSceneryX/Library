@@ -1,4 +1,4 @@
-Title: Road grader, Volvo
+Title: Road grader, Volvo®
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
@@ -9,4 +9,4 @@ Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Road grader, Volvo G970
+Description: Road grader, Volvo® G970

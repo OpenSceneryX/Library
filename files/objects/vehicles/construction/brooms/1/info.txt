@@ -1,4 +1,4 @@
-Title: CAT Skid Steer with Broom
+Title: CAT® Skid Steer with Broom
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
@@ -9,4 +9,4 @@ Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Skid-steer CAT 226B with rotary broom
+Description: Skid-steer CAT® 226B with rotary broom

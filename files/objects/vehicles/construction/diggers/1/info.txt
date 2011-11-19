@@ -1,4 +1,4 @@
-Title: Bobcat Skid Steer with Shovel
+Title: Bobcat® Skid Steer with Shovel
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
@@ -9,4 +9,4 @@ Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Skid-steer Bobcat S220 with shovel
+Description: Skid-steer Bobcat® S220 with shovel

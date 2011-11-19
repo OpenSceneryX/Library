@@ -1,4 +1,4 @@
-Title: Road roller, Ingersoll-Rand
+Title: Road roller, Ingersoll-Rand®
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
@@ -9,4 +9,4 @@ Export Propagate: 2
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Road roller, Ingersoll-Rand PT-240R
+Description: Road roller, Ingersoll-Rand® PT-240R
