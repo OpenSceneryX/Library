@@ -1,4 +1,4 @@
-Title: Shed, cargo, concrete
+Title: Cargo terminal, small concrete
 =====================
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
@@ -8,4 +8,4 @@ Depth: 52m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A concrete cargo building with loading docks.
+Description: A small concrete cargo terminal with loading docks.
