@@ -1,0 +1,13 @@
+Title: Luggage, dark blue, upright
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Width: 0.26m
+Depth: 0.85m
+Height: 0.62m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A dark blue suitcase, upright.

@@ -1,0 +1,13 @@
+Title: Luggage, brown, flat
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Width: 0.62m
+Depth: 0.86m
+Height: 0.26m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A brown suitcase, flat on the ground.

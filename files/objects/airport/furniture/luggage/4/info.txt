@@ -1,0 +1,13 @@
+Title: Luggage, grey, upright
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Width: 0.4m
+Depth: 1m
+Height: 0.65m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A grey suitcase, upright.
