@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		LightLarge.png
-TEXTURE_LIT	LightLarge_LIT.png
 POINT_COUNTS	152 0 4 264
 
 VT	   0.1576   -0.0080   -0.2354	 0.000 -1.000 -0.000	0.0215 -0.0019
