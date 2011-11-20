@@ -1,4 +1,4 @@
-Title: Truck, 4-Axle, UPS
+Title: Truck, UPS®
 =====================
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
@@ -10,4 +10,4 @@ Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: An articulated truck in DHL markings.
+Description: An articulated truck in UPS® markings.
