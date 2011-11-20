@@ -3,7 +3,7 @@ Title: Car, Ford Mustang
 Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
-Export Propagate: 2
+Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================

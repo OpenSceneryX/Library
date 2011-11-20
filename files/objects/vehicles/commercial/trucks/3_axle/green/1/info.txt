@@ -5,6 +5,7 @@ URL: http://www.xpih.net
 Width: 2.4m
 Depth: 8.8m
 Height: 3.5m
+Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
