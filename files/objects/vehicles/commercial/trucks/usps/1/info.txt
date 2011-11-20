@@ -1,0 +1,13 @@
+Title: Truck, USPS®
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Email: joyfulsongster@hotmail.com
+Width: 2.8m
+Depth: 22m
+Height: 4.1m
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An articulated truck in United States Postal Service markings.
