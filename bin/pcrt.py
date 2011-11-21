@@ -2,7 +2,7 @@
 ######################################################################
 #
 #   Module:  pcrt
-#   Version: $Id: pcrt.py,v 1.1.1.1 2003/10/20 18:59:50 jsc Exp $
+#   Version: $Id$
 #   Author:  Jeffrey Clement <jclement@bluesine.com>
 #   Targets: Win32, Unix
 #   Web:     http://jclement.ca/
