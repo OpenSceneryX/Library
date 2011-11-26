@@ -167,7 +167,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
 	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 	v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-	v8NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
+	v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -264,7 +264,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			if textureFound == 2:
 				break
 
-		result = v8NormalTexturePattern.match(line)
+		result = v9NormalTexturePattern.match(line)
 		if result:
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if os.path.isfile(textureFile):
