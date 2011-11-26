@@ -281,7 +281,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[2], result.group(1)))
 			else:
 				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find NORMAL texture - object (v8) excluded (" + textureFile + ")\n", "error")
+				displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
 				return
 
 	if textureFound == 0:
