@@ -1,0 +1,5 @@
+repo: 58340a7610ae3944336677239f07b6d9edad3ca5
+node: 14391a6a052c2b7d564ab6778726cf5117d4aed0
+branch: pyfpdf
+latesttag: null
+latesttagdistance: 41
