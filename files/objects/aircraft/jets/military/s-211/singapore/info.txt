@@ -1,0 +1,14 @@
+Title: Aermacchi S-211, Singapore Air Force
+=====================
+Author: Davide De Marchi
+URL: http://forums.x-plane.org/index.php?showuser=55064
+Author, conversion: Robin Tannahill
+URL, conversion: http://forums.x-plane.org/index.php?showuser=99351
+Width: 8m
+Depth: 10m
+Height: 4m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Aermacchi S-211 in Singapore Air Force colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Aermacchi_S-211' onclick='window.open(this.href);return false;'>Wikipedia</a>.

@@ -1,0 +1,14 @@
+Title: Blackburn Buccanneer S2, RAF Camo
+=====================
+Author: Davide De Marchi
+URL: http://forums.x-plane.org/index.php?showuser=55064
+Author, conversion: Robin Tannahill
+URL, conversion: http://forums.x-plane.org/index.php?showuser=99351
+Width: 13m
+Depth: 19m
+Height: 5m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Buccanneer S2 in RAF camoflaged colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Blackburn_Buccaneer' onclick='window.open(this.href);return false;'>Wikipedia</a>.
