@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: latin-1 -*-
+# -*- coding: UTF-8 -*-
 # ******************************************************************************
 # * Software: FPDF for python                                                  *
 # * Version:  1.54b                                                            *
@@ -619,7 +619,7 @@ class FPDF:
             #Go to next line
             self.y+=h
             if(ln==1):
-                self.x=self.l_margin
+                self.ln()
         else:
             self.x+=w
 
@@ -725,7 +725,7 @@ class FPDF:
             self.cell(w,h,substr(s,j,i-j),b,2,align,fill)
         else:
             ret.append(substr(s,j,i-j))
-        self.x=self.l_margin
+        self.ln()
         return ret
 
     def write(self, h,txt,link=''):
@@ -751,7 +751,7 @@ class FPDF:
                 j=i
                 l=0
                 if(nl==1):
-                    self.x=self.l_margin
+                    self.ln()
                     w=self.w-self.r_margin-self.x
                     wmax=(w-2*self.c_margin)*1000.0/self.font_size
                 nl+=1
@@ -764,7 +764,7 @@ class FPDF:
                 if(sep==-1):
                     if(self.x>self.l_margin):
                         #Move to next line
-                        self.x=self.l_margin
+                        self.ln()
                         self.y+=h
                         w=self.w-self.r_margin-self.x
                         wmax=(w-2*self.c_margin)*1000.0/self.font_size
@@ -781,7 +781,7 @@ class FPDF:
                 j=i
                 l=0
                 if(nl==1):
-                    self.x=self.l_margin
+                    self.ln()
                     w=self.w-self.r_margin-self.x
                     wmax=(w-2*self.c_margin)*1000.0/self.font_size
                 nl+=1
@@ -853,7 +853,7 @@ class FPDF:
 
     def set_y(self, y):
         "Set y position and reset x"
-        self.x=self.l_margin
+        self.ln()
         if(y>=0):
             self.y=y
         else:
@@ -1430,9 +1430,9 @@ class FPDF:
             char_space = code[i+1];
             # check whether it is a valid digit
             if not char_bar in bar_char.keys():
-                raise RuntimeError ('Caractér "%s" inválido para el código de barras I25: ' % char_bar)
+                raise RuntimeError ('CaractÃ©r "%s" invÃ¡lido para el cÃ³digo de barras I25: ' % char_bar)
             if not char_space in bar_char.keys():
-                raise RuntimeError ('Caractér "%s" inválido para el código de barras I25: ' % char_space)
+                raise RuntimeError ('CaractÃ©r "%s" invÃ¡lido para el cÃ³digo de barras I25: ' % char_space)
 
             # create a wide/narrow-sequence (first digit=bars, second digit=spaces)
             seq = ''
@@ -1513,7 +1513,7 @@ class FPDF:
             char_bar = code[i];
 
             if not char_bar in bar_char.keys():
-                raise RuntimeError ('Caracter "%s" inválido para el código de barras' % char_bar)
+                raise RuntimeError ('Caracter "%s" invÃ¡lido para el cÃ³digo de barras' % char_bar)
 
             seq= ''
             for s in xrange(0, len(bar_char[char_bar])):
