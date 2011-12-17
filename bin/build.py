@@ -18,6 +18,12 @@ except:
 	sys.exit()
 	
 try:
+	import Image
+
+except ImportError:
+	Image = None
+
+try:
 	# Include common functions
 	import os
 	import shutil
@@ -28,31 +34,29 @@ try:
 	showTraceback = 0
 	
 	try:
+		functions.growlRegister()
+
 		functions.displayMessage("========================\n")
 		functions.displayMessage("OpenSceneryX Release\n")
 		functions.displayMessage("========================\n")
 		
 		if not os.path.isdir("../files") or not os.path.isdir("../../tags"):
-			raise classes.BuildError("Error: This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library")
+			functions.displayMessage("This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library\n", "error")
+			sys.exit()
 		
 		versionTag = ""
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the release tag (e.g. 1.0.1): ", 10)
 		
-		classes.Configuration.setVersionTag(versionTag)
-		
-		functions.growlRegister()
-
 		os.chdir("../..")
 		
-		update = functions.getInput("Do you want to update the \'files\' directory from the repository before release? [y/N]: ", 1)
+		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
-		if update == "Y" or update == "y":
-			print "Would svn update trunk/files"
-		#		svn update trunk/files
+		classes.Configuration.init(versionTag, buildPDF)
 		
-		
-		
+		if Image is None:
+			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed.\n", "error")
+					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
 		# print "svn mkdir tags/" + classes.Configuration.versionNumber
@@ -91,12 +95,16 @@ try:
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
 		htmlWebReleaseNotesFileHandle.write(functions.getBreadcrumbs("Release Notes"))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
+		
+		htmlWebTocFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/toc.html", "w")
+		htmlWebTocFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Table of Contents", "", True, True))
+		htmlWebTocFileHandle.write(functions.getBreadcrumbs("Table of Contents"))
 
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/doc/ReleaseNotes.html", "0.9")
-		
+				
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
 		
@@ -109,7 +117,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.gif")
+		shutil.copyfile(classes.Configuration.supportFolder + "/pdf.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/pdf.gif")
+		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
 		
 		# Website Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
@@ -140,7 +149,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
 		
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
-		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.gif", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.gif")
+		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.png")
 		
 		# Placeholder Library Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
@@ -153,14 +162,17 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Library\n")
-		
+
 		authors = []
 		rootCategory = classes.SceneryCategory("", None)
 		# 'textures' contains a dictionary where the key is the texture filepath
 		# and the value is a SceneryTexture object
 		textures = {}
 		
-		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures)
+		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
+		toc = []
+		
+		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
 		
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -217,6 +229,8 @@ try:
 		jsVersionInfoFileHandle.write(fileContents)
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
+
+		htmlWebTocFileHandle.write(functions.getHTMLContentTree(toc))
 		
 		
 		functions.displayMessage("------------------------\n")
@@ -227,6 +241,8 @@ try:
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
 		htmlWebIndexFileHandle.write(functions.getHTMLSponsoredLinks())
 		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
+		htmlWebTocFileHandle.write(functions.getHTMLSponsoredLinks())
+		htmlWebTocFileHandle.write(functions.getHTMLFooter("/doc/"))
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
@@ -235,11 +251,14 @@ try:
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
 		htmlWebIndexFileHandle.close()
+		htmlWebTocFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
 		
+		functions.closePDF(classes.Configuration.osxDeveloperPackFolder + "/doc/Reference.pdf")
+
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")

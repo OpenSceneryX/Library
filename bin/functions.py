@@ -16,7 +16,13 @@ import classes
 import fnmatch
 import pcrt
 import sys
+import random
 
+try:
+	import Image
+
+except ImportError:
+	Image = None
 
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
@@ -89,9 +95,20 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc):
 	""" Parse the contents of a library folder """
-	
+
+	# This code works if we need a hierarchical structure. toc must be a dictionary
+	# 'subtoc' must be passed into the handleFolder call below rather than 'toc' too
+	#if (dirPath != "trunk/files"):
+	#	# Create a sub-dictionary for this folder
+	#	subtoc = {}
+	#	parts = dirPath.rsplit(os.sep, 1)
+	#	toc[parts[1]] = subtoc
+	#else:
+	#	# Don't store top-level folder in toc (/files)
+	#	subtoc = toc
+
 	contents = os.listdir(dirPath)
 	
 	# Handle category descriptor first, if present
@@ -102,26 +119,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
 
 
 
@@ -135,7 +152,7 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -292,6 +309,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
+	toc.append(sceneryObject)
+
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -305,7 +324,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -383,6 +402,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
+	toc.append(sceneryObject)
+
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -396,7 +417,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .for """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -474,6 +495,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
+	toc.append(sceneryObject)
+
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -486,7 +509,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -564,6 +587,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
+	toc.append(sceneryObject)
+
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -574,7 +599,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -651,6 +676,8 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
+
+	toc.append(sceneryObject)
 
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
@@ -934,10 +961,20 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
 		writeHTMLDocFile(sceneryObject)
 		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
+		writePDFEntry(sceneryObject)
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
+
+	newPage = False
+	
 	for childCategory in children:
+		if (depth == 0):
+			writePDFSectionHeading(childCategory.title, newPage)
+			newPage = True
+		elif (depth > 0):	
+			writePDFTOCEntry(childCategory.title, depth)
+			
 		buildDocumentation(sitemapXMLFileHandle, childCategory, depth + 1)
 
 
@@ -1210,6 +1247,7 @@ def getHTMLTOC(rootCategory):
 	menuIndex = 0
 	
 	result = "<div id='toc'>\n"
+	
 	result += "<h2>Contents</h2>\n"
 	result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
 	menuIndex = menuIndex + 1
@@ -1334,6 +1372,66 @@ def getShareLinks(large):
 
 	return result
 
+# The code below will output a hierarchical list using <ul>s.  It assumes toc is
+# a dictionary
+#def getHTMLContentTree(toc):
+#	result = ""
+#
+#	# Content
+#	result += "<div id='content'>\n"
+#	result += "<a name='content'></a>\n"
+#	result += "<div id='contents'>\n"
+#	result += "<h2>Table of Contents</h2>\n"
+#
+#	result += getHTMLContentItem(toc)
+#
+#	result += "</div>\n"
+#	result += "</div>\n"
+#
+#	return result
+#
+#def getHTMLContentItem(toc):
+#	result = ""
+#
+#	if type(toc) is dict and len(toc.keys()) > 0:
+#		result += "<ul>\n"
+#
+#		keys = toc.keys()
+#		sort_nicely(keys)
+#		for key in keys:
+#			result += "<li>" + key + "\n"
+#			result += getHTMLContentItem(toc[key])
+#			result += "</li>\n"
+#
+#		result += "</ul>\n"
+#
+#	return result
+
+def getHTMLContentTree(toc):
+	result = ""
+
+	# Content
+	result += "<div id='content'>\n"
+	result += "<a name='content'></a>\n"
+	result += "<div id='contents'>\n"
+	result += "<h2>Table of Contents</h2>\n"
+	result += "<ul>\n"
+
+	virtualPaths = []
+
+	for sceneryObject in toc:
+		for virtualPath in sceneryObject.virtualPaths:
+			virtualPaths.append(virtualPath)
+
+	for virtualPath in virtualPaths:
+		result += "<li>" + virtualPath + "</li>\n"
+
+	result += "</ul>\n"
+	result += "</div>\n"
+	result += "</div>\n"
+
+	return result
+
 
 def getHTMLSceneryObjects(sceneryObjects):
 	""" Display a group of scenery objects in the Table of Contents """
@@ -1403,6 +1501,26 @@ def caseinsensitiveSort(stringList):
 	stringList[:] = [x[1] for x in tupleList]
 
 
+""" The following three functions are by Ned Batchelder and provide natural-order sorting
+    http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
+def tryint(s):
+    try:
+        return int(s)
+    except:
+        return s
+     
+def alphanum_key(s):
+    """ Turn a string into a list of string and number chunks.
+        "z23a" -> ["z", 23, "a"]
+    """
+    return [ tryint(c) for c in re.split('([0-9]+)', s) ]
+
+def sort_nicely(l):
+    """ Sort the given list in the way that humans expect.
+    """
+    l.sort(key=alphanum_key)
+
+
 
 def displayMessage(message, type="message"):
 	""" Display a message to the user of a given type (determines message colour) """
@@ -1446,3 +1564,116 @@ def growlNotify(message = ""):
 	# call to growlnotify for the moment.  Note that growlnotify (command line growl interface) must
 	# be installed.
 	os.system('growlnotify -name "OpenSceneryX Build Script" --image "' + os.path.join(classes.Configuration.supportFolder, "x_print.png") + '" --message "' + message + '"')
+
+
+def writePDFSectionHeading(title, newPageBefore = 0):
+	""" Write a section heading to the PDF """
+	
+	if (not classes.Configuration.buildPDF): return;
+
+	pdf = classes.Configuration.developerPDF
+
+	if (newPageBefore): pdf.add_page()
+
+	pdf.set_font("Arial", "B", 16)
+	pdf.set_text_color(0)
+	pdf.cell(0, 6, title, 0, 1)
+
+	writePDFTOCEntry(title, 0)
+
+
+def writePDFText(text):
+	""" Write some text to a PDF """
+	
+	if (not classes.Configuration.buildPDF): return;
+	
+	pdf = classes.Configuration.developerPDF
+
+	pdf.columns = 1
+	pdf.set_font("Arial", "", 10)
+	pdf.multi_cell(0, 5, text, 0, 'J', 0, False)
+	
+
+def writePDFEntry(sceneryObject):
+	""" Write an entry to a PDF """
+	
+	if (not classes.Configuration.buildPDF): return;
+
+	# Check for PIL
+	if Image is None: return;
+	
+	pdf = classes.Configuration.developerPDF
+	
+	pdf.columns = 2
+	imageMaxDimension = 20
+	fontSize = 7
+	lineHeight = 1.5
+	
+	# First check the image dimensions - we may need to force a new page if this image is too large
+	image = Image.open(sceneryObject.screenshotFilePath)
+	imageOriginalWidth, imageOriginalHeight = image.size
+	
+	if (imageOriginalWidth > imageOriginalHeight):
+		imageScaleFactor = imageMaxDimension / float(imageOriginalWidth)
+	else:
+		imageScaleFactor = imageMaxDimension / float(imageOriginalHeight)
+		
+	imageFinalHeight = imageOriginalHeight * imageScaleFactor
+	imageFinalWidth = imageOriginalWidth * imageScaleFactor
+	
+	# Start a new column now if the image or the virtual path list are going to go beyond the page
+	# break trigger region
+	if (pdf.get_y() + max(imageFinalHeight, (len(sceneryObject.virtualPaths) + 1) * 2 * lineHeight) > pdf.page_break_trigger): pdf.new_column()
+	
+	# Store the starting Y location
+	startY = pdf.get_y()
+	startPage = pdf.page
+	startColumn = pdf.current_column
+	
+	# Image
+	pdf.image(sceneryObject.screenshotFilePath, pdf.get_x(), pdf.get_y(), imageFinalWidth, imageFinalHeight)
+
+	# Title
+	pdf.set_font("Arial", "B", fontSize)
+	pdf.set_text_color(0)
+	pdf.cell(imageMaxDimension)
+	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1)
+	
+	# Virtual paths
+	pdf.set_font("Arial", "", fontSize)
+	virtualPathIndex = 1
+	for virtualPath in sceneryObject.virtualPaths:
+		if (virtualPathIndex == 2): pdf.set_text_color(128)
+		pdf.cell(imageMaxDimension, lineHeight)
+		pdf.cell(0, lineHeight, virtualPath, 0, 1)
+		virtualPathIndex += 1
+
+	# Ensure the next item starts after the image
+	imageBottom = startY + imageFinalHeight + lineHeight
+	if (pdf.page == startPage and pdf.current_column == startColumn and pdf.get_y() < imageBottom):
+		pdf.ln(imageBottom - pdf.get_y())
+	else:
+		pdf.ln(lineHeight)
+
+
+def writePDFTOCEntry(title, depth):
+	""" Write a PDF TOC entry """
+	
+	if (not classes.Configuration.buildPDF): return;
+
+	pdf = classes.Configuration.developerPDF
+	pdf.toc_entry(title, depth)
+
+
+def closePDF(path):
+	""" Close and save a PDF file """
+
+	if (not classes.Configuration.buildPDF): return;
+
+	pdf = classes.Configuration.developerPDF
+	pdf.columns = 1
+	
+	pdf.set_text_color(0)
+	pdf.insert_toc(2, 16, 8, 'Arial', 'Table of Contents')
+	pdf.output(path, "F")
+	

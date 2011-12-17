@@ -10,6 +10,8 @@ Release Howto
 4. Clean target folder and build library
 
   $ python build.py
+  
+  ENSURE 'y' is selected for 'Build PDF'
 
 5. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file:
 

@@ -12,7 +12,10 @@ import datetime
 import string
 import os
 import re
+import traceback
 
+from pyfpdf import FPDF
+from pyfpdf.TOC import TOC
 
 #
 # Class to hold configuration values
@@ -23,7 +26,7 @@ class Configuration:
 	versionNumber = ""
 	versionDate = datetime.datetime.now().strftime("%a, %d %b %Y")
 	
-	def setVersionTag(self, versionTag):
+	def init(self, versionTag, buildPDF):
 		""" Set up the configuration """
 		self.versionTag = versionTag
 		self.versionNumber = string.replace(self.versionTag, "-", ".")
@@ -33,6 +36,8 @@ class Configuration:
 		self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
 		self.supportFolder = "trunk/support"
+		self.buildPDF = buildPDF
+		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "Developer Reference", self.versionNumber)
 		
 	def makeFolders(self):
 		""" Create any folders that need creating """
@@ -56,8 +61,8 @@ class Configuration:
 			os.mkdir(self.osxWebsiteFolder + "/doc")
 		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
 			os.mkdir(self.osxWebsiteFolder + "/extras")
-
-	setVersionTag = classmethod(setVersionTag)
+		
+	init = classmethod(init)
 	makeFolders = classmethod(makeFolders)
 	
 
@@ -240,6 +245,135 @@ class SceneryTexture:
 	def __init__(self, filePath):
 		self.fileName = os.path.basename(filePath)
 		self.sceneryObjects = []
+
+
+#
+# Subclass of TOC to handle our bespoke header and footer
+#
+class OpenSceneryXPDF(TOC):
+	""" Subclass of PDF to customise OpenSceneryX PDF output """
+	columns = 2
+	current_column = 1
+	column_gutter = 3
+	
+	def __init__(self, orientation="P", unit="mm", format="A4", title="", version="", columns=2):
+		""" Custom constructor """
+		
+		# Call superclass constructor
+		TOC.__init__(self, orientation, unit, format)
+		
+		# Create an alias for the total number of pages in the document
+		self.alias_nb_pages()
+
+		self.title = title
+		self.version = "Version: " + version
+		self.columns = columns
+		
+		# Generate title page
+		self.add_page()
+		
+		# Image
+		imagewidth = 50.8  # 2 inches
+		pagewidth = self.w - self.r_margin - self.x
+		xpos = (pagewidth - imagewidth) / 2.0 + self.l_margin
+		self.image(Configuration.supportFolder + "/opensceneryx_print.png", xpos, 100, imagewidth, 0, "PNG", "http://www.opensceneryx.com")
+		
+		# Text
+		self.set_y(120)
+		self.set_font("Arial", "B", 16)
+		self.cell(0, 10, self.title, 0, 1, "C")
+		self.set_font("Arial", "B", 10)
+		self.cell(0, 10, self.version, 0, 1, "C")
+				
+		# Generate first normal page
+		self.add_page()
+
+		self.start_page_nums()
+
+
+	def get_column_x(self):
+		available_width = self.w - self.l_margin - self.r_margin - ((self.columns - 1) * self.column_gutter)
+		column_width = available_width / float(self.columns)
+		
+		return self.l_margin + ((self.current_column - 1) * (column_width + self.column_gutter))
+
+		
+	def ln(self, h=''):
+		""" Overridden to use column x rather than page x """
+		
+		self.x=self.get_column_x()
+		if(isinstance(h, basestring)):
+			self.y+=self.lasth
+		else:
+			self.y+=h
+
+
+	def cell(self, w, h=0, txt='', border=0, ln=0, align='', fill=0, link=''):
+		""" Overridden to start next column if appropriate """
+		
+		if (self.y + h > self.page_break_trigger and not self.in_footer):
+			if (self.current_column < self.columns):
+				# Column break
+				self.current_column += 1
+				self.x=self.get_column_x()
+				self.y=self.t_margin + 15
+			else:
+				# Page break
+				self.current_column = 1
+				self.x=self.get_column_x()
+			
+		TOC.cell(self, w, h, txt, border, ln, align, fill, link)
+		
+		
+	def add_page(self, orientation=''):
+		""" Overridden to handle columns on new page """
+
+		self.current_column = 1
+		self.x=self.get_column_x()
+		self.y=self.t_margin + 15
+		TOC.add_page(self, orientation)
+	
+	
+	def new_column(self):
+	
+		if (self.current_column < self.columns):
+			self.current_column += 1
+			self.x=self.get_column_x()
+			self.y=self.t_margin + 15
+		else:
+			self.add_page()
+			
+
+	def header(self):
+		""" Custom header """
+		
+		# Don't output on the first page
+		if (self.page_no() == 1): return;
+		
+		# Image
+		self.image(Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "http://www.opensceneryx.com")
+
+		# Text
+		self.set_font("Arial", "B", 8)
+		self.set_y(self.t_margin + 2.3)
+		self.set_x(self.l_margin + 5)
+		self.cell(0, 0, self.title)
+		self.cell(0, 0, self.version, 0, 0, "R")
+		
+		# Line break, to ensure the page content starts in the correct place
+		self.ln(15)
+
+
+	def footer(self):
+		""" Custom footer """
+
+		# Don't output on the first page
+		if (self.page_no() == 1): return;
+		if (self.in_toc == 1): return;
+		
+		self.set_font("Arial", "B", 8)
+		self.set_y(-self.b_margin)
+		self.cell(0, 0, "Page %s" % self.num_page_no(), 0, 0, "R")
 
 
 #
