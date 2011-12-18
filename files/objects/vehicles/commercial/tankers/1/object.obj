@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		tanker_oil.png
-TEXTURE_LIT	tanker_oil_LIT.png
 POINT_COUNTS	1059 0 0 1989
 
 VT	   1.0432    2.9700    2.5520	 0.000  1.000 -0.000	0.8007 0.6422

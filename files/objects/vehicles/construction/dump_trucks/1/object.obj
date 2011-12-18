@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		truck_gravel.png
-TEXTURE_LIT	truck_gravel_LIT.png
 POINT_COUNTS	891 0 0 1677
 
 VT	  -1.2000    0.4523    0.0000	 0.000  0.000 -1.000	0.4001 0.5795

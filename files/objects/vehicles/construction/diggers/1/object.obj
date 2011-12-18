@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		skidsteer-Bobcat.png
-TEXTURE_LIT	skidsteer-Bobcat_LIT.png
 POINT_COUNTS	2423 0 0 4524
 
 VT	  -0.6285    0.4400    4.1148	 0.000 -0.961  0.276	0.6827 0.0573

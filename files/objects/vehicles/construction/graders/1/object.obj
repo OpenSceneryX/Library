@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		grader_volvo.png
-TEXTURE_LIT	grader_volvo_LIT.png
 POINT_COUNTS	2786 0 0 4932
 
 VT	  -0.7273    3.4100    6.6394	 0.000  1.000 -0.000	0.9257 0.9819

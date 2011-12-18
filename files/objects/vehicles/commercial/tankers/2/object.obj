@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		tanker_water.png
-TEXTURE_LIT	tanker_water_LIT.png
 POINT_COUNTS	1351 0 0 2508
 
 VT	  -0.4500    0.0000    4.5327	 0.000 -1.000 -0.000	0.661  0.029 

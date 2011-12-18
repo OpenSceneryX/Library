@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		roller_tyres.png
-TEXTURE_LIT	roller_tyres_LIT.png
 POINT_COUNTS	1020 0 0 1950
 
 VT	  -1.0200    3.6600    5.3469	 0.000  1.000 -0.000	0.2251 0.5281

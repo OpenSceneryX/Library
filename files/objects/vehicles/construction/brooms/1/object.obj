@@ -3,7 +3,6 @@ A
 OBJ
 
 TEXTURE		skidsteer-Cat.png
-TEXTURE_LIT	skidsteer-Cat_LIT.png
 POINT_COUNTS	592 0 0 1092
 
 VT	  -0.4554    2.2000    3.0079	 0.000  1.000 -0.000	0.5142 0.7886
