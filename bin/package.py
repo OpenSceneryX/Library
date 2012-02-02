@@ -25,7 +25,7 @@ versionTag = ""
 while versionTag == "":
   versionTag = raw_input("Enter the release tag (e.g. 1.0.1): ")
 
-classes.Configuration.setVersionTag(versionTag)
+classes.Configuration.init(versionTag, False)
 
 os.chdir("../..")
 os.chdir(classes.Configuration.releaseFolder)
