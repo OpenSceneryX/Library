@@ -10,5 +10,5 @@ echo
 # Mac OS 10.4 and earlier: export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export COPYFILE_DISABLE=true
 
-cd Builds\ -\ Installer.rbvcp/Mac\ OS\ X\ \(Universal\)/
+cd Builds\ -\ Installer.rbvcp/Mac\ OS\ X\ \(Intel\)/
 zip -r ../../OpenSceneryX-Installer-Mac.zip OpenSceneryX\ Installer.app
