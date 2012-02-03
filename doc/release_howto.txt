@@ -26,19 +26,25 @@ Release Howto
 
 8. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
+	$ zip OpenSceneryX-x.x.x.tar.zip OpenSceneryX-x.x.x.tar
+	$ zip OpenSceneryX-Website-x.x.x.tar.zip OpenSceneryX-Website-x.x.x.tar
+	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
+
 9. Zip manifest.xml using the command line
 
 	$ zip manifest.xml.zip manifest.xml
 
-10. Upload zips into /new/
+10. Clear /new and /old
 
-11. Upload manifest.xml.zip into /new/
+11. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
 
-12. Clear /old
+12. Upload manifest.xml.zip and manifest.xml into /new/
 
 13. Copy /index.html into /old/
 
 14. Copy /downloads/ into /old/
+
+----------------------------------------------
 
 15. Extract website zip on site into /new/
 
@@ -46,13 +52,13 @@ Release Howto
 
 17. Copy /index-sitedown.html over /index.html
 
-18. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml.zip, /objects/ and /repository/ into /old/
+18. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
 
 19. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
 20. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-22. Move /new/manifest.xml.zip to /
+21. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
 22. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
@@ -62,10 +68,8 @@ Release Howto
 
 25. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-26. Go to http://www.neuroticweb.com/recursos/sitemap/ and generate a sitemap (Deprecated: run 'python sitemap_gen.py --config=config.xml')
+26. Log in to Google Webmaster tools and resubmit sitemap
 
-27. Upload sitemap.xml from OpenSceneryX-Website-x.x.x/, log in to Webmaster tools and resubmit sitemap
+27. Create new section in release note for next changes
 
-28. Create new section in release note for next changes
-
-29. Promotion
+28. Promotion
