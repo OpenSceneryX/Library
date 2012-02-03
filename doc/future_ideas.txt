@@ -10,6 +10,8 @@ o Detect which objects are used in the user's installed scenery packages, and on
 
 o Split library into multiple, optional packages
 
+o User agent should include platform
+
 
 Library
 -------
@@ -34,11 +36,13 @@ o Handle formatted info.txt content better (e.g. Cormac's comments)
 
 o Provide hierarchical listing page of every object, in same order as shown in Overlay Editor.  We'll need a new data stucture for this, reflecting the virtual path structure.  
 
-o Provide PDF of all objects with screenshots and info
-
 o Mark whether an object has a lit texture
 
 o 3D renderer for x-plane .obj files
+
+o Social sharing links on blog
+
+o Paypal donation on blog
 
 
 Developer Pack
