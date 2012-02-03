@@ -4,7 +4,7 @@ Future Ideas List
 Installer
 ---------
 
-o Detect version of X-Plane installed and install DDS textures if X-Plane 9 detected
+o Handle both PNG and DDS textures when present
 
 o Detect which objects are used in the user's installed scenery packages, and only install those
 
@@ -21,8 +21,6 @@ o Split library into multiple, optional packages
 
 Website
 -------
-
-√ Build script should build sitemap.xml
 
 o Obfuscation of email addresses on site 
 
