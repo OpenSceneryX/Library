@@ -1,0 +1,17 @@
+Title: B777-200ER Delta
+=====================
+Author: Alex Unruh
+URL: http://www.xpjets.com/
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b777
+Export: objects/aircraft/livery/delta/b777-200er
+Width: 60m
+Depth: 63m
+Height: 19.1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 777-200ER in Delta livery.
