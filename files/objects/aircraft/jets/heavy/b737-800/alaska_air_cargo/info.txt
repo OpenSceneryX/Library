@@ -1,0 +1,17 @@
+Title: B737-800 Alaska Air Cargo
+=====================
+Author: X-Plane&reg; Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Kaphias
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Export: objects/aircraft/livery/alaska_air_cargo/b737-800
+Width: 34m
+Depth: 39m
+Height: 12.2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 737-800 in Alaska Air Cargo livery.
