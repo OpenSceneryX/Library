@@ -1,0 +1,18 @@
+Title: B737-800 Delta
+=====================
+Author: X-Plane&reg; Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, texture: Nilsh
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b737
+Export: objects/aircraft/livery/delta/b737-800
+Width: 34m
+Depth: 39m
+Height: 12.2m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 737-800 in Delta livery.
