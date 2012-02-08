@@ -9,4 +9,4 @@ Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: An Airbus 320 in Frontier livery, penguins variant, unlit.
+Description: An Airbus 320 in Frontier livery, penguins variant.

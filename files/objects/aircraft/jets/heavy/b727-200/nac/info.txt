@@ -11,4 +11,4 @@ Export: objects/aircraft/livery/nac/b727-200
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Boeing 727 aircraft with NAC livery.  Unlit textures still provide night shadow.
+Description: A Boeing 727 aircraft with NAC livery.

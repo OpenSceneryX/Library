@@ -1,4 +1,4 @@
-Title: Taxiway Closed Barricade, Wooden, Unlit
+Title: Taxiway Closed Barricade, Wooden
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
@@ -8,4 +8,4 @@ Height: 0.75m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A red and white movable wooden barricade for closed taxiways and aprons areas. Unlit.
+Description: A red and white movable wooden barricade for closed taxiways and aprons areas.
