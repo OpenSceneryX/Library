@@ -1,0 +1,17 @@
+Title: B767-400 Delta
+=====================
+Author: X-Plane&reg; Freeware Project
+URL: http://www.xplanefreeware.net/
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Export: objects/aircraft/jets/heavy/b767
+Export: objects/aircraft/livery/delta/b767-400
+Width: 51m
+Depth: 62m
+Height: 16.7m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Boeing 767-400 in Delta livery.
