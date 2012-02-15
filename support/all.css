@@ -90,6 +90,11 @@ p.warning {
 	padding: 0.5em;
 }
 
+p.footnote {
+	font-size: 0.7em;
+	line-height: 1.25em;
+}
+
 div.virtualPath {
 	display: block;
 	background-color: #cfc;
