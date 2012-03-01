@@ -1151,6 +1151,18 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "<script type='text/javascript' src='http://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "scripts.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
+
+	result += "<script type='text/javascript'>\n"
+	result += "var _gaq = _gaq || [];\n"
+	result += "_gaq.push(['_setAccount', 'UA-4008328-4']);\n"
+	result += "_gaq.push(['_trackPageview']);\n"
+	result += "(function() {\n"
+	result += "var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n"
+	result += "ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n"
+	result += "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n"
+	result += "})();\n"
+	result += "</script>\n"
+
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<p class='hide'><a href='#content' accesskey='2'>Skip to main content</a></p>\n"
@@ -1231,11 +1243,6 @@ def getHTMLFooter(documentationPath):
 
 	result += "</div>"
 	
-	result += "<script src='http://www.google-analytics.com/urchin.js' type='text/javascript'></script>"
-	result += "<script type='text/javascript'>"
-	result += "_uacct = 'UA-4008328-4';"
-	result += "urchinTracker();"
-	result += "</script>"
 	result += "</body></html>"
 	return result
 
