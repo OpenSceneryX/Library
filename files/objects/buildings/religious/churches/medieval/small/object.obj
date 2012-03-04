@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		../large/church.png
-TEXTURE_LIT	../large/church_LIT.png
 POINT_COUNTS	114 0 0 156
 
 VT	  -0.4660    9.1098    1.7268	 0.000  1.000 -0.000	0.4912 0.6301

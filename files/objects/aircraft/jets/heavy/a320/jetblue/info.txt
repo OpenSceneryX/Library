@@ -1,0 +1,18 @@
+Title: A320 Jetblue
+=====================
+Author: Christian Riviere
+Author, texture: shizumaat
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Export: objects/aircraft/livery/jetblue/a320
+Export Deprecated v2.1.0: objects/aircraft/jets/heavy/a320/jetblue/lit
+Export Deprecated v2.1.0: objects/aircraft/jets/heavy/a320/jetblue/unlit
+Width: 34m
+Depth: 37m
+Height: 11.6m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Airbus 320 in Jetblue livery.
