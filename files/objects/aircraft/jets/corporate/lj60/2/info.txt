@@ -1,0 +1,17 @@
+Title: Learjet 60, blue
+=====================
+Author: Dr. Jose Antonio Sanchez-Duran
+Author: Andrew Santorelli
+URL: http://www.CaliforniaAir.net
+Author, texture: William Bigio
+Author, texture: Bernie Fritts
+URL, texture: http://www.CaliforniaAir.net
+Email: nyankfan04@x-plane.org
+Author, conversion: Jeff Mueller
+URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
+Email, conversion: joyfulsongster@hotmail.com
+Export Propagate: 1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Learjet 60 in blue livery.

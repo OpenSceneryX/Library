@@ -1,4 +1,4 @@
-Title: Learjet 60
+Title: Learjet 60, white
 =====================
 Author: Andrew Rerecich
 URL: http://www.x-plane.org/home/arerecich/
@@ -8,4 +8,4 @@ Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Learjet 60.
+Description: A Learjet 60 in plain white livery.
