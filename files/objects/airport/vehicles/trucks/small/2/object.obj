@@ -3,6 +3,7 @@ A
 OBJ
 
 TEXTURE		carttractor.png
+TEXTURE_LIT		carttractor_LIT.png
 POINT_COUNTS	1627 0 0 2583
 
 VT	   0.7000    0.7485    0.9969	 1.000  0.000 -0.000	0.8146 0.6349
