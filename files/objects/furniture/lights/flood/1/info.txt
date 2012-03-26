@@ -6,6 +6,7 @@ Height: 16.3m
 Width: 1.6m
 Depth: 2.04m
 Export: objects/airport/furniture/lights/flood/1
+Export: objects/furniture/lights/flood
 Revision: $Revision$
 Date: $Date$
 =====================
