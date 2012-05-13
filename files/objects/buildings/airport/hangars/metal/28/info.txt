@@ -1,0 +1,12 @@
+Title: Hanger, metal, large with workshop
+=====================
+Author: Barry Roberts
+URL: http://forums.x-plane.org/index.php?showuser=3376
+Email: xplanebaz@aapt.net.au
+Width: 43m
+Depth: 28m
+Height: 17m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Mid to large hanger with doors at each end.
