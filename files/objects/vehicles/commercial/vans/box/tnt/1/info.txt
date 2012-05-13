@@ -1,4 +1,4 @@
-Title: Commercial Ford Transit box truck, TNT 
+Title: Box van, Ford Transit, TNT®
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
@@ -9,5 +9,5 @@ Export Propagate: 1
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A Ford Transit box commercial truck in TNT markings.
+Description: A Ford Transit box commercial truck in TNT® markings.
 This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
