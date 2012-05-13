@@ -3,6 +3,8 @@ A
 OBJ
 
 TEXTURE		tree.png
+
+ATTR_no_blend
 POINT_COUNTS	16 0 1 24
 
 VT	   0.0000   30.0000   15.0000	 1.000 -0.000 -0.000	0.0    1.0   
