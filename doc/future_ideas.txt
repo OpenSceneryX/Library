@@ -8,6 +8,23 @@ o Handle both PNG and DDS textures when present
 
 o Detect which objects are used in the user's installed scenery packages, and only install those
 
+  - Get server manifest full list
+  
+  - Parse DSFs & build list of used files if option selected
+  
+  - Reduce server manifest list to just those files required
+   
+  - Compare with local manifest
+  
+  - Generate library.txt file
+  
+  - Add in standard files like Readme
+  
+  - Problem - DSF only contains references to .obj, .fac etc, not the textures they use.  Will need
+    to build a more extended manifest file containing all referenced files
+  
+  - Check it works after changing X-Plane folders
+
 o Split library into multiple, optional packages
 
 o User agent should include platform
@@ -32,18 +49,7 @@ o The sub-categories section of category landing pages should be better - Perhap
 
 o Handle formatted info.txt content better (e.g. Cormac's comments)
 
-o Provide hierarchical listing page of every object, in same order as shown in Overlay Editor.  We'll need a new data stucture for this, reflecting the virtual path structure.  
-
 o Mark whether an object has a lit texture
 
 o 3D renderer for x-plane .obj files
 
-o Social sharing links on blog
-
-o Paypal donation on blog
-
-
-Developer Pack
---------------
-
-o Add instructions for WED
