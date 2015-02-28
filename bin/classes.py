@@ -30,12 +30,12 @@ class Configuration:
 		""" Set up the configuration """
 		self.versionTag = versionTag
 		self.versionNumber = string.replace(self.versionTag, "-", ".")
-		self.releaseFolder = "tags/" + self.versionNumber
+		self.releaseFolder = "builds/" + self.versionNumber
 		self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
 		self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
 		self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
-		self.supportFolder = "trunk/support"
+		self.supportFolder = "support"
 		self.buildPDF = buildPDF
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "Developer Reference", self.versionNumber)
 		
@@ -161,7 +161,7 @@ class SceneryCategory:
 					continue
 
 			parts = filePathRoot.split(os.sep, 2)
-			self.url = os.path.join('/', parts[2], 'index.html')
+			self.url = os.path.join('/', parts[1], 'index.html')
 
 		
 	def addSceneryCategory(self, sceneryCategory):
