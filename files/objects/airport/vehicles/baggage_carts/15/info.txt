@@ -1,0 +1,12 @@
+Title: Baggage cart, open both sides, with baggage
+=====================
+Author: Jeff Mueller
+URL: http://forums.x-plane.org/index.php?showuser=92790
+Export Propagate: 2
+Width: 1.7m
+Height: 1.9m
+Depth: 4.1m
+Revision: $Revision: 792 $
+Date: $Date: 2012-02-23 19:44:55 +0000 (Thu, 23 Feb 2012) $
+=====================
+Description: A baggage cart, open both sides, with baggage.
