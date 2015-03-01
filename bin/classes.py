@@ -62,6 +62,14 @@ class Configuration:
 		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
 			os.mkdir(self.osxWebsiteFolder + "/extras")
 		
+		if os.path.lexists('builds/latest'):
+			os.unlink('builds/latest')
+		if os.path.lexists('builds/latest-website'):
+			os.unlink('builds/latest-website')
+			
+		os.symlink(self.versionNumber, 'builds/latest')
+		os.symlink(self.versionNumber + "/OpenSceneryX-Website-" + self.versionNumber, 'builds/latest-website')
+		
 	init = classmethod(init)
 	makeFolders = classmethod(makeFolders)
 	
