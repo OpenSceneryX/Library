@@ -1,0 +1,12 @@
+Title: Beech B1900 Air New Zealand
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Cameron Jenkins
+URL, texture: http://forums.x-plane.org/index.php?showuser=249936
+Export Propagate: 1
+Export: objects/aircraft/livery/air_new_zealand/beech-b1900
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An Beech B1900 in Air New Zealand livery.
