@@ -160,7 +160,7 @@ class SceneryCategory:
 					self.title = result.group(1).replace("\"", "'")
 					continue
 
-			parts = filePathRoot.split(os.sep, 2)
+			parts = filePathRoot.split(os.sep, 1)
 			self.url = os.path.join('/', parts[1], 'index.html')
 
 		
