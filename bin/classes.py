@@ -145,6 +145,12 @@ class Polygon(SceneryObject):
 	def __init__(self, filePathRoot, fileName):
 		super(Polygon, self).__init__(filePathRoot, fileName)
 		
+		self.scaleH = ""
+		self.scaleV = ""
+		self.layerGroupName = ""
+		self.layerGroupOffset = ""
+		self.surfaceName = ""
+		
 
 #
 # Class to hold information about a category
