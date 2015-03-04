@@ -20,7 +20,7 @@ from pyfpdf.TOC import TOC
 #
 # Class to hold configuration values
 #
-class Configuration:
+class Configuration(object):
 	"""Generic container for shared variables."""
 	versionTag = ""
 	versionNumber = ""
@@ -78,7 +78,7 @@ class Configuration:
 #
 # Class to hold information about an X-Plane scenery object
 #
-class SceneryObject:
+class SceneryObject(object):
 	"""An X-Plane scenery object"""
 	
 	def __init__(self, filePathRoot, fileName):
@@ -137,9 +137,19 @@ class SceneryObject:
 
 
 #
+# Class to hold information about an X-Plane polygon
+#
+class Polygon(SceneryObject):
+	"""An X-Plane Polygon"""
+	
+	def __init__(self, filePathRoot, fileName):
+		super(Polygon, self).__init__(filePathRoot, fileName)
+		
+
+#
 # Class to hold information about a category
 #
-class SceneryCategory:
+class SceneryCategory(object):
 	"""A scenery documentation category"""
 	
 	def __init__(self, filePathRoot, parentSceneryCategory):
@@ -247,7 +257,7 @@ class SceneryCategory:
 #
 # Class to hold information about a texture
 #
-class SceneryTexture:
+class SceneryTexture(object):
 	"""A scenery texture"""
 	
 	def __init__(self, filePath):

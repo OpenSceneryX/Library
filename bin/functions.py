@@ -608,7 +608,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	displayMessage(".")
 
 	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
+	sceneryObject = classes.Polygon(parts[1], filename)
 	
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
@@ -629,46 +629,71 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 	# Define the regex patterns:
 	v8TexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
+	scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
+	layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
+	surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
 	textureFound = 0
+	scaleFound = 0
+	layerGroupFound = 0
+	surfaceFound = 0
 	
 	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
+		if not textureFound:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
 			
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
 				
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath): 
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath): 
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop as soon as we find a texture, need look no further
-			break
-
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
+					return
+					
+		if not scaleFound:
+			result = scalePattern.match(line)
+			if result:
+				sceneryObject.scaleH = result.group(1)
+				sceneryObject.scaleV = result.group(2)
+				scaleFound = 1
+		
+		if not layerGroupFound:
+			result = layerGroupPattern.match(line)
+			if result:
+				sceneryObject.layerGroupName = result.group(1)
+				sceneryObject.layerGroupOffset = result.group(2)
+				layerGroupFound = 1
+		
+		if not surfaceFound:
+			result = surfacePattern.match(line)
+			if result:
+				sceneryObject.surfaceName = result.group(1)
+				surfaceFound = 1
+		
+			
 	if not textureFound:
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
@@ -1092,6 +1117,13 @@ def writeHTMLDocFile(sceneryObject):
 		htmlFileContent += "</ul>\n"
 		htmlFileContent += "</li>\n"
 
+	# Polygon Specific
+	if isinstance(sceneryObject, classes.Polygon):
+		htmlFileContent += "<li><span class='fieldTitle'>Texture Scale:</span> <span class='fieldValue'>h: " + sceneryObject.scaleH + "m, v: " + sceneryObject.scaleV + "m</span></li>\n"
+		htmlFileContent += "<li><span class='fieldTitle'>Layer Group:</span> <span class='fieldValue'>" + sceneryObject.layerGroupName + "</span></li>\n"
+		htmlFileContent += "<li><span class='fieldTitle'>Layer Offset:</span> <span class='fieldValue'>" + sceneryObject.layerGroupOffset + "</span></li>\n"
+		htmlFileContent += "<li><span class='fieldTitle'>Surface Type:</span> <span class='fieldValue'>" + sceneryObject.surfaceName + "</span></li>\n"
+		
 	# Tutorial
 	if (sceneryObject.tutorial):
 		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
