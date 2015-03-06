@@ -1,0 +1,8 @@
+Title: Asphalt border
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Rough asphalt edge useful for making boundaries between asphalt and other surfaces look more natural. 
