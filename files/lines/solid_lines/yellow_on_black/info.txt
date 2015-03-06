@@ -1,7 +1,8 @@
-Title: Keep Clear Boundary Line, Yellow with black outline
+Title: Solid line, yellow with black outline
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
+Export: lines/airport/zone_outlines/yellow_on_black
 Width: 0.4m
 Revision: $Revision$
 Date: $Date$
