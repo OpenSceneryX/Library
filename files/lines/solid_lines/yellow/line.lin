@@ -2,7 +2,7 @@ A
 850
 LINE_PAINT
 
-TEXTURE ../../../shared_textures/cormac_shaw/xpih_lines_01.png
+TEXTURE ../../shared_textures/cormac_shaw/xpih_lines_01.png
 LOD 3000
 TEX_WIDTH 256
 SCALE 3.2 3.2
