@@ -1,4 +1,4 @@
-Title: Wind Turbine
+Title: Wind Turbine, 3-bladed, 65m
 =====================
 Author: @lex
 Email: afriqs@yahoo.fr
@@ -9,6 +9,7 @@ Width: 38m
 Depth: 18m
 Height: 65m
 Animated: True
+Export Deprecated v2.1.0: objects/buildings/industrial/wind_turbines/large
 Export Deprecated v1.3.0: objects/buildings/industrial/wind_turbine
 Revision: $Revision$
 Date: $Date$
