@@ -1,0 +1,12 @@
+Title: Wind turbine, 6-bladed, 100m
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 86.5m
+Depth: 21.4m
+Height: 100m
+Animated: True
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An animated 6-bladed wind turbine on a 100m high pedestal with blades in 3 pairs of 2.
