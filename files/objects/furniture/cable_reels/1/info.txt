@@ -5,7 +5,6 @@ URL: http://forums.x-plane.org/index.php?showuser=146200
 Width: 0.7m
 Depth: 0.7m
 Height: 0.4m
-Animated: True
 Revision: $Revision$
 Date: $Date$
 =====================
