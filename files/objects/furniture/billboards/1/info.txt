@@ -5,6 +5,7 @@ Email: mr3d@talk21.com
 Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/billboard
+Export Deprecated v2.1.0: objects/furniture/miscellaneous/billboards/1
 Revision: $Revision$
 Date: $Date$
 =====================

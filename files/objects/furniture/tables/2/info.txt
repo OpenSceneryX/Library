@@ -5,7 +5,8 @@ Email: austin@goudges.com
 Width: 1.5m
 Depth: 1.5m
 Height: 0.7m
+Export Deprecated v2.1.0: objects/furniture/miscellaneous/picnic_table
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: Picnic table.
+Description: A wooden picnic table with classic 'X' shaped cross-section.

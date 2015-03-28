@@ -5,6 +5,7 @@ URL: http://forums.x-plane.org/index.php?showuser=6024
 Width: 36.2m
 Depth: 6.2m
 Height: 29.3m
+Export Deprecated v2.1.0: objects/furniture/miscellaneous/video_screens/1
 Revision: $Revision$
 Date: $Date$
 =====================
