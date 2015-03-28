@@ -1,0 +1,12 @@
+Title: Beer keg, aluminium
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 0.5m
+Depth: 0.5m
+Height: 0.4m
+Animated: True
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An aluminium beer keg or barrel.
