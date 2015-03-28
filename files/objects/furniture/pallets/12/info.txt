@@ -1,0 +1,11 @@
+Title: Pallets, empty
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 4.3m
+Depth: 2.2m
+Height: 0.4m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Three empty wooden pallets, scattered around.
