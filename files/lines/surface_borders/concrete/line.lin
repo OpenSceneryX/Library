@@ -1,0 +1,13 @@
+A
+850
+LINE_PAINT
+
+TEXTURE concreteborder.png
+LOD 3000
+TEX_WIDTH 32
+SCALE 2	2
+S_OFFSET 0		  0	 16	32
+
+LAYER_GROUP runways 3
+
+MIRROR

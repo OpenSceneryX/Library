@@ -1,0 +1,11 @@
+Title: Pallets, empty, stacked
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 2.5m
+Depth: 1.2m
+Height: 1.5m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Two stacks of empty wooden pallets.

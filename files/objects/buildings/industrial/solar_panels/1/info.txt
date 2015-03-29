@@ -1,0 +1,11 @@
+Title: Solar Panel, 3 panels
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 7.75m
+Depth: 1.8m
+Height: 1.8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A set of 3 solar panels angled at 45 degrees.
