@@ -1,75 +1,81 @@
 Release Howto
 =============
 
-1. Update release notes to include version and date
+1. Check the build for missing virtual paths
 
-2. Update "Enhanced By" logo to correct version number
+  $ python check.py
 
-3. Commit release changes and tag
+2. Create release branch
 
-4. Clean target folder and build library
+3. Update release notes to include version and date
+
+4. Update "Enhanced By" logo to correct version number
+
+5. Commit release changes, tag and merge release changes back into develop
+
+6. Clean target folder and build library
 
   $ python build.py
   
   ENSURE 'y' is selected for 'Build PDF'
 
-5. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file:
+7. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file:
 
   $ export COPYFILE_DISABLE=true
   $ zip -r OpenSceneryX.zip OpenSceneryX
 
-6. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
+8. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
 
-7. Run Packager
+9. Run Packager
 
   $ python package.py
 
-8. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
+10. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
 	$ zip OpenSceneryX-x.x.x.tar.zip OpenSceneryX-x.x.x.tar
 	$ zip OpenSceneryX-Website-x.x.x.tar.zip OpenSceneryX-Website-x.x.x.tar
 	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
 
-9. Zip manifest.xml using the command line
+11. Zip manifest.xml using the command line
 
 	$ zip manifest.xml.zip manifest.xml
 
-10. Clear /new and /old
+12. Clear /new and /old
 
-11. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
+13. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
 
-12. Upload manifest.xml.zip and manifest.xml into /new/
+14. Upload manifest.xml.zip and manifest.xml into /new/
 
-13. Copy /index.html into /old/
+15. Copy /index.html into /old/
 
-14. Copy /downloads/ into /old/
+16. Copy /downloads/ into /old/
 
 ----------------------------------------------
 
-15. Extract website zip on site into /new/
+17. Extract website zip on site into /new/
 
-16. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+18. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-17. Copy /index-sitedown.html over /index.html
+19. Copy /index-sitedown.html over /index.html
 
-18. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
+20. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
 
-19. Move /new/OpenSceneryX-x.x.x/ to /repository/
+21. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-20. Move /new/OpenSceneryX-Website-x.x.x/* to /
+22. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-21. Move /new/manifest.xml.zip and /new/manifest.xml to /
+23. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
-22. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+24. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-23. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+25. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-24. Ensure /versioninfo has the latest information about the installer in it.
+26. Ensure /versioninfo has the latest information about the installer in it.
 
-25. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+27. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-26. Log in to Google Webmaster tools and resubmit sitemap
+28. Log in to Google Webmaster tools and resubmit sitemap
 
-27. Create new section in release note for next changes
+29. Create new section in release note for next changes
 
-28. Promotion
+30. Promotion

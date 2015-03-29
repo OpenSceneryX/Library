@@ -40,22 +40,22 @@ try:
 		functions.displayMessage("OpenSceneryX Release\n")
 		functions.displayMessage("========================\n")
 		
-		if not os.path.isdir("../files") or not os.path.isdir("../../tags"):
-			functions.displayMessage("This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library\n", "error")
+		if not os.path.isdir("../files") or not os.path.isdir("../builds"):
+			functions.displayMessage("This script must be run from the 'bin' directory inside a full checkout of the scenery library\n", "error")
 			sys.exit()
 		
 		versionTag = ""
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the release tag (e.g. 1.0.1): ", 10)
 		
-		os.chdir("../..")
+		os.chdir("..")
 		
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
 		classes.Configuration.init(versionTag, buildPDF)
 		
 		if Image is None:
-			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed.\n", "error")
+			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed ('pip install pil').\n", "error")
 					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
@@ -172,7 +172,7 @@ try:
 		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
 		toc = []
 		
-		functions.handleFolder("trunk/files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
 		
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()

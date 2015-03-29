@@ -1,4 +1,4 @@
-Title: Shipping Container, 40'
+Title: Shipping container, 12m
 =====================
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
@@ -9,4 +9,4 @@ Height: 2.6m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A standard 40' shipping container, blue.
+Description: A standard 12m (40') shipping container, blue.

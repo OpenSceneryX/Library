@@ -1,0 +1,17 @@
+Title: Wind Turbine, 3-bladed, 60m
+=====================
+Author: @lex
+Email: afriqs@yahoo.fr
+URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
+URL: http://forums.x-plane.org/index.php?showuser=5732
+URL: http://afriqs.free.fr/xplane/index.php
+Width: 38m
+Depth: 18m
+Height: 60m
+Animated: True
+Export Deprecated v2.1.0: objects/buildings/industrial/wind_turbines/large
+Export Deprecated v1.3.0: objects/buildings/industrial/wind_turbine
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: An animated 3-bladed wind turbine on a 60m pedestal which faces the local wind and rotates at constant speed.

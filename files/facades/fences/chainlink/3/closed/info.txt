@@ -1,0 +1,8 @@
+Title: Chain fence, closed
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A chain-link fence using a closed facade so there are no gaps in the ring.

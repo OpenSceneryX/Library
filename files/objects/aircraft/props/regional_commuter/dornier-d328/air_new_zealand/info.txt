@@ -1,0 +1,12 @@
+Title: Dornier D328 Air New Zealand
+=====================
+Author: Bertrand Augras
+URL: http://forums.x-plane.org/index.php?showuser=3814
+Author, texture: Cameron Jenkins
+URL, texture: http://forums.x-plane.org/index.php?showuser=249936
+Export Propagate: 1
+Export: objects/aircraft/livery/air_new_zealand/dornier-d328
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Dornier D328 in Air New Zealand livery.

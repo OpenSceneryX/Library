@@ -1,0 +1,12 @@
+Title: Shipping container, 6m, white and yellow
+=====================
+Author: Sergio Català
+URL: http://forums.x-plane.org/index.php?showuser=146200
+Width: 2.4m
+Depth: 6m
+Height: 2.6m
+Export Propagate: 3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A standard 6m (20') shipping container, white and yellow with a side door.

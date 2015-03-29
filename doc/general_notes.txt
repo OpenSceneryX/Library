@@ -1,0 +1,4 @@
+General Notes
+=============
+
+OpenSceneryX font (for header, 'X', 'Enhanced By…' etc.) is Book Antiqua Bold

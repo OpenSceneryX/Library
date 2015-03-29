@@ -20,7 +20,7 @@ from pyfpdf.TOC import TOC
 #
 # Class to hold configuration values
 #
-class Configuration:
+class Configuration(object):
 	"""Generic container for shared variables."""
 	versionTag = ""
 	versionNumber = ""
@@ -30,12 +30,12 @@ class Configuration:
 		""" Set up the configuration """
 		self.versionTag = versionTag
 		self.versionNumber = string.replace(self.versionTag, "-", ".")
-		self.releaseFolder = "tags/" + self.versionNumber
+		self.releaseFolder = "builds/" + self.versionNumber
 		self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
 		self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
 		self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
-		self.supportFolder = "trunk/support"
+		self.supportFolder = "support"
 		self.buildPDF = buildPDF
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "Developer Reference", self.versionNumber)
 		
@@ -62,6 +62,14 @@ class Configuration:
 		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
 			os.mkdir(self.osxWebsiteFolder + "/extras")
 		
+		if os.path.lexists('builds/latest'):
+			os.unlink('builds/latest')
+		if os.path.lexists('builds/latest-website'):
+			os.unlink('builds/latest-website')
+			
+		os.symlink(self.versionNumber, 'builds/latest')
+		os.symlink(self.versionNumber + "/OpenSceneryX-Website-" + self.versionNumber, 'builds/latest-website')
+		
 	init = classmethod(init)
 	makeFolders = classmethod(makeFolders)
 	
@@ -70,7 +78,7 @@ class Configuration:
 #
 # Class to hold information about an X-Plane scenery object
 #
-class SceneryObject:
+class SceneryObject(object):
 	"""An X-Plane scenery object"""
 	
 	def __init__(self, filePathRoot, fileName):
@@ -129,9 +137,25 @@ class SceneryObject:
 
 
 #
+# Class to hold information about an X-Plane polygon
+#
+class Polygon(SceneryObject):
+	"""An X-Plane Polygon"""
+	
+	def __init__(self, filePathRoot, fileName):
+		super(Polygon, self).__init__(filePathRoot, fileName)
+		
+		self.scaleH = ""
+		self.scaleV = ""
+		self.layerGroupName = ""
+		self.layerGroupOffset = ""
+		self.surfaceName = ""
+		
+
+#
 # Class to hold information about a category
 #
-class SceneryCategory:
+class SceneryCategory(object):
 	"""A scenery documentation category"""
 	
 	def __init__(self, filePathRoot, parentSceneryCategory):
@@ -160,8 +184,8 @@ class SceneryCategory:
 					self.title = result.group(1).replace("\"", "'")
 					continue
 
-			parts = filePathRoot.split(os.sep, 2)
-			self.url = os.path.join('/', parts[2], 'index.html')
+			parts = filePathRoot.split(os.sep, 1)
+			self.url = os.path.join('/', parts[1], 'index.html')
 
 		
 	def addSceneryCategory(self, sceneryCategory):
@@ -239,7 +263,7 @@ class SceneryCategory:
 #
 # Class to hold information about a texture
 #
-class SceneryTexture:
+class SceneryTexture(object):
 	"""A scenery texture"""
 	
 	def __init__(self, filePath):

@@ -1,0 +1,11 @@
+Title: Barrier, Concrete, Red and White, 7.3m
+=====================
+Author: Geoffrey Hargreaves
+URL: http://forums.x-plane.org/index.php?showuser=140438
+Width: 0.6m
+Depth: 7.3m
+Height: 1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A red and white concrete crash barrier, 7.3m long.
