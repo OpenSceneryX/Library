@@ -1,6 +1,10 @@
 Release Howto
 =============
 
+0. Check the build for missing virtual paths
+
+  $ python check.py
+
 1. Update release notes to include version and date
 
 2. Update "Enhanced By" logo to correct version number
