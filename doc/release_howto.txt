@@ -74,15 +74,19 @@ Release Howto
 
 27. Ensure /versioninfo has the latest information about the installer in it.
 
-28. Log into Cloudflare and clear all caches.
+28. Correct ownership of folder structure
 
-29. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+  $ chown -R apache:apache public_html
+  
+29. Log into Cloudflare and clear all caches.
 
-30. Log in to Google Webmaster tools and resubmit sitemap
+30. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-31. Create new section in release note for next changes
+31. Log in to Google Webmaster tools and resubmit sitemap
 
-32. Promotion:
+32. Create new section in release note for next changes
+
+33. Promotion:
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Post a new reply to x-plane.org main OpenSceneryX thread
