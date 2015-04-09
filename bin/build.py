@@ -216,7 +216,6 @@ try:
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
 		fileContents = fileContents.replace("${authors}", authors)
 		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
-		fileContents = fileContents.replace("${sharelinks}", functions.getShareLinks(1))
 		file.close()
 		htmlWebIndexFileHandle.write(fileContents)
 		htmlWebIndexFileHandle.write(functions.getHTMLTOC(rootCategory))

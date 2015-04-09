@@ -45,14 +45,9 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		htmlFileContent += "<li>" + sceneryCategory.title + "</li>\n"
 		htmlFileContent += "</ul>\n"
 		
-		htmlFileContent += "<div id='share'>\n"
-		htmlFileContent += getShareLinks(0)
-		htmlFileContent += "</div>\n"
-		
 		htmlFileContent += "</div>\n"
 
 		# Content
-		htmlFileContent += "<div id='content'>\n"
 		htmlFileContent += "<a name='content'></a>\n"
 		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
 		
@@ -78,11 +73,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 				htmlFileContent += "</div>\n"
 		
 		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url, "w")
-		htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
 		htmlFileHandle.write(htmlFileContent)
-		htmlFileHandle.write("</div>\n")
-		htmlFileHandle.write(getHTMLSponsoredLinks())
-		htmlFileHandle.write(getHTMLFooter("/doc/"))
 		htmlFileHandle.close()
 
 		# XML sitemap entry
@@ -1021,14 +1012,9 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
 	htmlFileContent += "</ul>\n"
 
-	htmlFileContent += "<div id='share'>\n"
-	htmlFileContent += getShareLinks(0)
-	htmlFileContent += "</div>\n"
-
 	htmlFileContent += "</div>\n"
 	
 	# Content
-	htmlFileContent += "<div id='content'>\n"
 	htmlFileContent += "<a name='content'></a>\n"
 	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
@@ -1142,11 +1128,7 @@ def writeHTMLDocFile(sceneryObject):
 
 	# Write the file contents
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
-	htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.write("</div>")
-	htmlFileHandle.write(getHTMLSponsoredLinks())
-	htmlFileHandle.write(getHTMLFooter("/doc/"))
 	htmlFileHandle.close()
 	
 	return 1
@@ -1227,10 +1209,6 @@ def getBreadcrumbs(pageTitle):
 	result += "<li><a href='/'>Home</a></li>\n"
 	result += "<li>" + pageTitle + "</li>\n"
 	result += "</ul>\n"
-
-	result += "<div id='share'>\n"
-	result += getShareLinks(0)
-	result += "</div>\n"
 
 	result += "</div>\n"
 	return result
@@ -1355,34 +1333,6 @@ def getHTMLTOC(rootCategory):
 	return result
 
 
-def getShareLinks(large):
-	result = '<!-- AddThis Button BEGIN -->\n'
-	if (large):
-		result += '<div class="addthis_toolbox addthis_default_style addthis_32x32_style">\n'
-	else:
-		result += '<div class="addthis_toolbox addthis_default_style ">\n'
-	result += '<a class="addthis_button_preferred_1"></a>\n'
-	result += '<a class="addthis_button_preferred_2"></a>\n'
-	result += '<a class="addthis_button_preferred_3"></a>\n'
-	result += '<a class="addthis_button_preferred_4"></a>\n'
-	result += '<a class="addthis_button_compact"></a>\n'
-	result += '<a class="addthis_counter addthis_bubble_style"></a>\n'
-	result += '</div>\n'
-	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
-	result += '<!-- AddThis Button END -->\n'
-
-	result = '<!-- AddThis Button BEGIN -->\n'
-	result += '<div class="addthis_toolbox addthis_default_style ">\n'
-	result += '<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>\n'
-	result += '<a class="addthis_button_tweet"></a>\n'
-	result += '<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>\n'
-	result += '<a class="addthis_counter addthis_pill_style"></a>\n'
-	result += '</div>\n'
-	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
-	result += '<!-- AddThis Button END -->\n'
-
-	return result
-
 # The code below will output a hierarchical list using <ul>s.  It assumes toc is
 # a dictionary
 #def getHTMLContentTree(toc):
@@ -1422,7 +1372,6 @@ def getHTMLContentTree(toc):
 	result = ""
 
 	# Content
-	result += "<div id='content'>\n"
 	result += "<a name='content'></a>\n"
 	result += "<div id='contents'>\n"
 	result += "<h2>Table of Contents</h2>\n"
@@ -1438,7 +1387,6 @@ def getHTMLContentTree(toc):
 		result += "<li>" + virtualPath + "</li>\n"
 
 	result += "</ul>\n"
-	result += "</div>\n"
 	result += "</div>\n"
 
 	return result
