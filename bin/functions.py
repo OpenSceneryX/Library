@@ -46,14 +46,13 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		htmlFileContent += "</ul>\n"
 		
 		htmlFileContent += "</div>\n"
+		htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
 
 		# Content
-		htmlFileContent += "<a name='content'></a>\n"
-		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
 		
 		# Sub-categories in this category
 		if len(sceneryCategory.childSceneryCategories) > 0:
-			htmlFileContent += "<h3>Sub-categories</h3>\n"
+			htmlFileContent += "<h2>Sub-categories</h2>\n"
 			for childSceneryCategory in sceneryCategory.childSceneryCategories:
 				htmlFileContent += "<h4 class='inline'><a href='" + childSceneryCategory.url + "'>" + childSceneryCategory.title + "</a></h4>\n"
 		
@@ -61,7 +60,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 		# Objects in this category
 		if len(sceneryCategory.getSceneryObjects(0)) > 0:
-			htmlFileContent += "<h3>Objects</h3>\n"
+			htmlFileContent += "<h2>Objects</h2>\n"
 			for sceneryObject in sceneryCategory.getSceneryObjects(0):
 				htmlFileContent += "<div class='thumbnailcontainer'>\n"
 				htmlFileContent += "<h4><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.title + "</a></h4><a href='/" + sceneryObject.filePathRoot + "/index.html' class='nounderline'>"
@@ -1013,12 +1012,11 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "</ul>\n"
 
 	htmlFileContent += "</div>\n"
+	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
 	
 	# Content
-	htmlFileContent += "<a name='content'></a>\n"
-	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
-	htmlFileContent += "<h3>Virtual Paths</h3>\n"
+	htmlFileContent += "<h2>Virtual Paths</h2>\n"
 	
 	for virtualPath in sceneryObject.virtualPaths:
 		htmlFileContent += virtualPath + "<br />\n"
@@ -1028,7 +1026,7 @@ def writeHTMLDocFile(sceneryObject):
 	# Paths
 	if (not sceneryObject.deprecatedVirtualPaths == []):
 		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
-		htmlFileContent += "<h3>Deprecated Paths</h3>\n"
+		htmlFileContent += "<h2>Deprecated Paths</h2>\n"
 		for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
@@ -1206,11 +1204,13 @@ def getBreadcrumbs(pageTitle):
 	result = "<div id='breadcrumbs'>\n"
 	result += "<ul class='inline'>"
 	
-	result += "<li><a href='/'>Home</a></li>\n"
+	result += "<li><a href='/catalogue'>Catalogue</a></li>\n"
 	result += "<li>" + pageTitle + "</li>\n"
 	result += "</ul>\n"
 
 	result += "</div>\n"
+	result += "<div style='clear:both;'>&nbsp;</div>"
+
 	return result
 	
 
@@ -1256,140 +1256,6 @@ def getHTMLFooter(documentationPath):
 	result += "</body></html>"
 	return result
 
-
-
-def getHTMLTOC(rootCategory):
-	""" Get the table of contents for the home page """
-	
-	menuIndex = 0
-	
-	result = "<div id='toc'>\n"
-	
-	result += "<h2>Contents</h2>\n"
-	result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
-	menuIndex = menuIndex + 1
-	
-	for mainSceneryCategory in rootCategory.childSceneryCategories:
-		# Top-level types of item
-		result += "<li>\n"
-		result += "<a href='" + mainSceneryCategory.url + "' class='foldable'>" + mainSceneryCategory.title + "</a>\n"
-		result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion hide'>\n"
-		menuIndex = menuIndex + 1
-
-		if len(mainSceneryCategory.childSceneryCategories) > 0:
-			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
-				# First level categories
-				result += "<li>\n"
-				result += "<a href='" + subSceneryCategory.url + "' class='foldable'>" + subSceneryCategory.title + "</a>\n"
-				result += "<ul>\n"
-				#result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
-				#menuIndex = menuIndex + 1
-				# result += "<a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a>\n"
-				# result += "<ul>\n"
-				
-				if len(subSceneryCategory.childSceneryCategories) > 0:
-					# We have another level of categorisation, show a category list where each link takes the user to a
-					# landing page for that category
-				
-					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-						# Second level categories
-						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title
-						result += " <span class='tooltip'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></span>"
-						result += "</a>"
-						result += "</li>\n"
-	
-					# Also show the list of objects directly in this category
-					sceneryObjects = subSceneryCategory.getSceneryObjects(0)
-					result += getHTMLSceneryObjects(sceneryObjects)
-					
-				else:
-					# No more category levels, show the list of objects
-					sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-					result += getHTMLSceneryObjects(sceneryObjects)
-
-				result += "</ul>\n"
-				result += "</li>\n"
-				
-		else:
-			# No categorisation, show the list of objects
-			result += "<ul class='inline'>\n"
-			sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
-			result += getHTMLSceneryObjects(sceneryObjects)				 
-			result += "</ul>\n"
-
-		result += "</ul>\n"
-		result += "</li>\n"
-		
-	result += "</ul>\n"
-	
-	
-	result += "<div id='twitter'>\n"
-	result += "<a class='twitter-timeline' href='https://twitter.com/opensceneryx' data-widget-id='582596353081126912'>Tweets by @opensceneryx</a>"
-	result += "<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>\n"
-	result += "</div>\n"
-
-	result += "</div>\n"
-
-	return result
-
-
-# The code below will output a hierarchical list using <ul>s.  It assumes toc is
-# a dictionary
-#def getHTMLContentTree(toc):
-#	result = ""
-#
-#	# Content
-#	result += "<div id='content'>\n"
-#	result += "<a name='content'></a>\n"
-#	result += "<div id='contents'>\n"
-#	result += "<h2>Table of Contents</h2>\n"
-#
-#	result += getHTMLContentItem(toc)
-#
-#	result += "</div>\n"
-#	result += "</div>\n"
-#
-#	return result
-#
-#def getHTMLContentItem(toc):
-#	result = ""
-#
-#	if type(toc) is dict and len(toc.keys()) > 0:
-#		result += "<ul>\n"
-#
-#		keys = toc.keys()
-#		sort_nicely(keys)
-#		for key in keys:
-#			result += "<li>" + key + "\n"
-#			result += getHTMLContentItem(toc[key])
-#			result += "</li>\n"
-#
-#		result += "</ul>\n"
-#
-#	return result
-
-def getHTMLContentTree(toc):
-	result = ""
-
-	# Content
-	result += "<a name='content'></a>\n"
-	result += "<div id='contents'>\n"
-	result += "<h2>Table of Contents</h2>\n"
-	result += "<ul>\n"
-
-	virtualPaths = []
-
-	for sceneryObject in toc:
-		for virtualPath in sceneryObject.virtualPaths:
-			virtualPaths.append(virtualPath)
-
-	for virtualPath in virtualPaths:
-		result += "<li>" + virtualPath + "</li>\n"
-
-	result += "</ul>\n"
-	result += "</div>\n"
-
-	return result
 
 
 def getHTMLSceneryObjects(sceneryObjects):

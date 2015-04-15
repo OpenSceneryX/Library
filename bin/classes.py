@@ -168,8 +168,8 @@ class SceneryCategory(object):
 		self.calculateDepth()
 		
 		if parentSceneryCategory == None:
-			self.title = "Home"
-			self.url = "/"
+			self.title = "Catalogue"
+			self.url = "/catalogue"
 		else:
 			file = open(os.path.join(filePathRoot, "category.txt"))
 			fileContents = file.readlines()

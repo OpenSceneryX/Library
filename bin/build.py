@@ -89,17 +89,9 @@ try:
 		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", False, False))
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
 		
-		htmlWebIndexFileHandle = open(classes.Configuration.osxWebsiteFolder + "/index.html", "w")
-		htmlWebIndexFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", True, True))
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
-		htmlWebReleaseNotesFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", True, True))
-		htmlWebReleaseNotesFileHandle.write(functions.getBreadcrumbs("Release Notes"))
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
 		
-		htmlWebTocFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/toc.html", "w")
-		htmlWebTocFileHandle.write(functions.getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg; - Table of Contents", "", True, True))
-		htmlWebTocFileHandle.write(functions.getBreadcrumbs("Table of Contents"))
-
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
@@ -211,26 +203,16 @@ try:
 		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
 		htmlWebReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + functions.getHTMLSponsoredLinks() + "</div>")
 		
-		file = open(classes.Configuration.supportFolder + "/_webindex.html", "r")
-		fileContents = file.read()
-		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
-		fileContents = fileContents.replace("${authors}", authors)
-		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
-		file.close()
-		htmlWebIndexFileHandle.write(fileContents)
-		htmlWebIndexFileHandle.write(functions.getHTMLTOC(rootCategory))
-		
 		file = open(classes.Configuration.supportFolder + "/_versionInfo.js", "r")
 		fileContents = file.read()
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
 		fileContents = fileContents.replace("${versionDate}", classes.Configuration.versionDate)
+		fileContents = fileContents.replace("${authors}", authors)
+		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
 		file.close()
 		jsVersionInfoFileHandle.write(fileContents)
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
-
-		htmlWebTocFileHandle.write(functions.getHTMLContentTree(toc))
-		
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Finishing and closing files\n")
@@ -238,10 +220,6 @@ try:
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
 		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
-		htmlWebIndexFileHandle.write(functions.getHTMLSponsoredLinks())
-		htmlWebIndexFileHandle.write(functions.getHTMLFooter("/doc/"))
-		htmlWebTocFileHandle.write(functions.getHTMLSponsoredLinks())
-		htmlWebTocFileHandle.write(functions.getHTMLFooter("/doc/"))
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
@@ -249,8 +227,6 @@ try:
 		htmlDeveloperFileHandle.close()
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
-		htmlWebIndexFileHandle.close()
-		htmlWebTocFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
