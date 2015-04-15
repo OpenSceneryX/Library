@@ -185,7 +185,7 @@ class SceneryCategory(object):
 					continue
 
 			parts = filePathRoot.split(os.sep, 1)
-			self.url = os.path.join('/', parts[1], 'index.html')
+			self.url = os.path.join('/', parts[1])
 
 		
 	def addSceneryCategory(self, sceneryCategory):

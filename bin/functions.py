@@ -30,50 +30,25 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	
 	# Only build landing pages where depth >= 2
 	if sceneryCategory.depth >= 2:
-		htmlFileContent = ""
-
-		# Breadcrumbs
-		htmlFileContent += "<div id='breadcrumbs'>\n"
-		htmlFileContent += "<ul class='inline'>"
+		txtFileContent = ""
+		txtFileContent += "Title: " + sceneryCategory.title + "\n"
+		txtFileContent += "===============\n"
 		
-		sceneryCategoryAncestors = sceneryCategory.getAncestors(0)
-		for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
-			if (sceneryCategoryAncestor.url != None):
-				htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
-			else:
-				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
-		htmlFileContent += "<li>" + sceneryCategory.title + "</li>\n"
-		htmlFileContent += "</ul>\n"
-		
-		htmlFileContent += "</div>\n"
-		htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
-
 		# Content
 		
 		# Sub-categories in this category
 		if len(sceneryCategory.childSceneryCategories) > 0:
-			htmlFileContent += "<h2>Sub-categories</h2>\n"
 			for childSceneryCategory in sceneryCategory.childSceneryCategories:
-				htmlFileContent += "<h4 class='inline'><a href='" + childSceneryCategory.url + "'>" + childSceneryCategory.title + "</a></h4>\n"
-		
-			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
+				txtFileContent += "Sub-category: \"" + childSceneryCategory.title + "\" \"" + childSceneryCategory.url + "\"\n"
 
 		# Objects in this category
 		if len(sceneryCategory.getSceneryObjects(0)) > 0:
-			htmlFileContent += "<h2>Objects</h2>\n"
 			for sceneryObject in sceneryCategory.getSceneryObjects(0):
-				htmlFileContent += "<div class='thumbnailcontainer'>\n"
-				htmlFileContent += "<h4><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.title + "</a></h4><a href='/" + sceneryObject.filePathRoot + "/index.html' class='nounderline'>"
-				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='/" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' />"
-				else:
-					htmlFileContent += "<img src='/doc/screenshot_missing.png' alt='No Screenshot Available' />"
-				htmlFileContent += "</a>\n"
-				htmlFileContent += "</div>\n"
-		
-		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url, "w")
-		htmlFileHandle.write(htmlFileContent)
-		htmlFileHandle.close()
+				txtFileContent += "Item: \"" + sceneryObject.title + "\" \"" + sceneryObject.filePathRoot + "\"\n"
+
+		txtFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url + os.sep + "category.txt", "w")
+		txtFileHandle.write(txtFileContent)
+		txtFileHandle.close()
 
 		# XML sitemap entry
 		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
@@ -156,12 +131,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
-	
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
+	
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 
@@ -328,12 +303,12 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
-	
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
+	
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -421,12 +396,12 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
-	
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
+	
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 
@@ -513,12 +488,12 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
-	
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
+	
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -603,12 +578,12 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
-	
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
+	
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -961,6 +936,9 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# at the end of the file 
 		sceneryObject.description += line
 	
+	# Copy the info file
+	shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
+
 	# Handle the tutorial if present
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
@@ -974,7 +952,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		writeHTMLDocFile(sceneryObject)
+		#writeHTMLDocFile(sceneryObject)
 		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
 		writePDFEntry(sceneryObject)
 		
