@@ -131,8 +131,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -270,7 +270,10 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
-			
+
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -303,8 +306,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -364,6 +367,9 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
 	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -396,8 +402,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -457,6 +463,9 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
 	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -488,8 +497,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -549,6 +558,9 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
 	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -578,8 +590,8 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -664,6 +676,9 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
 	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -711,15 +726,20 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 
 
 
-	
-def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
+def createPaths(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[1]))
 	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1]))
+	
+	return 1
 
+
+def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
+	""" Copy the support files from the source to the destination """
+	
 	if (sceneryObject.screenshotFilePath != ""):
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg"))
 	
@@ -776,7 +796,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	
 	for virtualPath in sceneryObject.virtualPaths:
 		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents	
-			
+		
 	# Begin parsing
 	for line in infoFileContents:
 		# Check for exclusion
@@ -924,6 +944,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
+			print result.group(1)
 			sceneryObject.logoFileName = result.group(1)
 			continue
 		
