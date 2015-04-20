@@ -134,9 +134,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
-	
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 
@@ -270,7 +267,10 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
+			
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -306,9 +306,6 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
-	
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -364,6 +361,9 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
+	
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -399,9 +399,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
-	
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 
@@ -457,6 +454,9 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
+	
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -491,9 +491,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
-	
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -549,6 +546,9 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
+	
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -581,9 +581,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Set up paths and copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
-	
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
 	
@@ -664,7 +661,10 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
-	# Line is valid, append it to the current category
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
+	
+	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
 	toc.append(sceneryObject)
@@ -741,7 +741,8 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
 	file = open(sceneryObject.infoFilePath)
-	infoFileContents = file.readlines()
+	websiteInfoFileContents = file.read()
+	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
 	
 	# define the regex patterns:
@@ -771,6 +772,11 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
 	
+	websiteInfoFileContents += "\n"
+	
+	for virtualPath in sceneryObject.virtualPaths:
+		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents	
+			
 	# Begin parsing
 	for line in infoFileContents:
 		# Check for exclusion
@@ -906,6 +912,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 				# Iterate from the value of exportPropagate up to the length of the path, publishing the object to every parent between
 				for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
 					sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
+					websiteInfoFileContents = "Export: " + "/".join(virtualPathParts[0:i]) + suffix + "\n" + websiteInfoFileContents
 			continue
 		
 		# Export deprecation
@@ -936,8 +943,21 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# at the end of the file 
 		sceneryObject.description += line
 	
-	# Copy the info file
-	shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
+	# All Exports go into the website info file
+	
+	# Polygon-specific data
+	if isinstance(sceneryObject, classes.Polygon):
+		websiteInfoFileContents = "Texture Scale H: " + sceneryObject.scaleH + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Texture Scale V: " + sceneryObject.scaleV + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
+	
+	# Copy the info file to the website folder
+	#shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
+	websiteInfoFile = open(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"), "w")
+	websiteInfoFile.write(websiteInfoFileContents)
+	websiteInfoFile.close()
 
 	# Handle the tutorial if present
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
