@@ -944,7 +944,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
-			print result.group(1)
 			sceneryObject.logoFileName = result.group(1)
 			continue
 		
