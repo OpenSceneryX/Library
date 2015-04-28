@@ -201,7 +201,7 @@ try:
 		file.close()
 		htmlReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
 		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
-		htmlWebReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + functions.getHTMLSponsoredLinks() + "</div>")
+		htmlWebReleaseNotesFileHandle.write(fileContents)
 		
 		file = open(classes.Configuration.supportFolder + "/_versionInfo.js", "r")
 		fileContents = file.read()
@@ -219,7 +219,6 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
-		htmlWebReleaseNotesFileHandle.write(functions.getHTMLFooter("/doc/"))
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
