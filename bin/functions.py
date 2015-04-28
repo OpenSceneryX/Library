@@ -30,60 +30,25 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	
 	# Only build landing pages where depth >= 2
 	if sceneryCategory.depth >= 2:
-		htmlFileContent = ""
-
-		# Breadcrumbs
-		htmlFileContent += "<div id='breadcrumbs'>\n"
-		htmlFileContent += "<ul class='inline'>"
+		txtFileContent = ""
+		txtFileContent += "Title: " + sceneryCategory.title + "\n"
+		txtFileContent += "===============\n"
 		
-		sceneryCategoryAncestors = sceneryCategory.getAncestors(0)
-		for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
-			if (sceneryCategoryAncestor.url != None):
-				htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
-			else:
-				htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
-		htmlFileContent += "<li>" + sceneryCategory.title + "</li>\n"
-		htmlFileContent += "</ul>\n"
-		
-		htmlFileContent += "<div id='share'>\n"
-		htmlFileContent += getShareLinks(0)
-		htmlFileContent += "</div>\n"
-		
-		htmlFileContent += "</div>\n"
-
 		# Content
-		htmlFileContent += "<div id='content'>\n"
-		htmlFileContent += "<a name='content'></a>\n"
-		htmlFileContent += "<h2>" + sceneryCategory.title + "</h2>\n"
 		
 		# Sub-categories in this category
 		if len(sceneryCategory.childSceneryCategories) > 0:
-			htmlFileContent += "<h3>Sub-categories</h3>\n"
 			for childSceneryCategory in sceneryCategory.childSceneryCategories:
-				htmlFileContent += "<h4 class='inline'><a href='" + childSceneryCategory.url + "'>" + childSceneryCategory.title + "</a></h4>\n"
-		
-			htmlFileContent += "<div style='clear:both;'>&nbsp;</div>\n"
+				txtFileContent += "Sub-category: \"" + childSceneryCategory.title + "\" \"" + childSceneryCategory.url + "\"\n"
 
 		# Objects in this category
 		if len(sceneryCategory.getSceneryObjects(0)) > 0:
-			htmlFileContent += "<h3>Objects</h3>\n"
 			for sceneryObject in sceneryCategory.getSceneryObjects(0):
-				htmlFileContent += "<div class='thumbnailcontainer'>\n"
-				htmlFileContent += "<h4><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.title + "</a></h4><a href='/" + sceneryObject.filePathRoot + "/index.html' class='nounderline'>"
-				if (sceneryObject.screenshotFilePath != ""):
-					htmlFileContent += "<img src='/" + sceneryObject.filePathRoot + "/screenshot.jpg' alt='Screenshot of " + sceneryObject.shortTitle.replace("'", "&apos;") + "' />"
-				else:
-					htmlFileContent += "<img src='/doc/screenshot_missing.png' alt='No Screenshot Available' />"
-				htmlFileContent += "</a>\n"
-				htmlFileContent += "</div>\n"
-		
-		htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url, "w")
-		htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryCategory.title + " Variants", True, True))
-		htmlFileHandle.write(htmlFileContent)
-		htmlFileHandle.write("</div>\n")
-		htmlFileHandle.write(getHTMLSponsoredLinks())
-		htmlFileHandle.write(getHTMLFooter("/doc/"))
-		htmlFileHandle.close()
+				txtFileContent += "Item: \"" + sceneryObject.title + "\" \"" + sceneryObject.filePathRoot + "\"\n"
+
+		txtFileHandle = open(classes.Configuration.osxWebsiteFolder + sceneryCategory.url + os.sep + "category.txt", "w")
+		txtFileHandle.write(txtFileContent)
+		txtFileHandle.close()
 
 		# XML sitemap entry
 		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
@@ -166,11 +131,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
-	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -305,7 +267,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
+
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -338,11 +306,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
-	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -399,6 +364,12 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
+	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -431,11 +402,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
-	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -492,6 +460,12 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
+	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -523,11 +497,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
-	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -584,6 +555,12 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
+	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
@@ -613,11 +590,8 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Locate and check whether the support files exist 
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
-	
-	# Set up paths and copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	# Set up paths
+	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -699,7 +673,13 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 		
-	# Line is valid, append it to the current category
+	# Handle the info.txt file
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
+	
+	# Copy files
+	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
 	toc.append(sceneryObject)
@@ -746,15 +726,20 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 
 
 
-	
-def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
+def createPaths(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[1]))
 	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1]))
+	
+	return 1
 
+
+def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
+	""" Copy the support files from the source to the destination """
+	
 	if (sceneryObject.screenshotFilePath != ""):
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg"))
 	
@@ -776,7 +761,8 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
 	file = open(sceneryObject.infoFilePath)
-	infoFileContents = file.readlines()
+	websiteInfoFileContents = file.read()
+	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
 	
 	# define the regex patterns:
@@ -806,6 +792,11 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
 	
+	websiteInfoFileContents += "\n"
+	
+	for virtualPath in sceneryObject.virtualPaths:
+		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents	
+		
 	# Begin parsing
 	for line in infoFileContents:
 		# Check for exclusion
@@ -941,6 +932,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 				# Iterate from the value of exportPropagate up to the length of the path, publishing the object to every parent between
 				for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
 					sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
+					websiteInfoFileContents = "Export: " + "/".join(virtualPathParts[0:i]) + suffix + "\n" + websiteInfoFileContents
 			continue
 		
 		# Export deprecation
@@ -971,6 +963,22 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# at the end of the file 
 		sceneryObject.description += line
 	
+	# All Exports go into the website info file
+	
+	# Polygon-specific data
+	if isinstance(sceneryObject, classes.Polygon):
+		websiteInfoFileContents = "Texture Scale H: " + sceneryObject.scaleH + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Texture Scale V: " + sceneryObject.scaleV + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
+		websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
+	
+	# Copy the info file to the website folder
+	#shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
+	websiteInfoFile = open(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"), "w")
+	websiteInfoFile.write(websiteInfoFileContents)
+	websiteInfoFile.close()
+
 	# Handle the tutorial if present
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
@@ -984,7 +992,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		writeHTMLDocFile(sceneryObject)
+		#writeHTMLDocFile(sceneryObject)
 		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
 		writePDFEntry(sceneryObject)
 		
@@ -1021,18 +1029,12 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
 	htmlFileContent += "</ul>\n"
 
-	htmlFileContent += "<div id='share'>\n"
-	htmlFileContent += getShareLinks(0)
 	htmlFileContent += "</div>\n"
-
-	htmlFileContent += "</div>\n"
+	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
 	
 	# Content
-	htmlFileContent += "<div id='content'>\n"
-	htmlFileContent += "<a name='content'></a>\n"
-	htmlFileContent += "<h2>" + sceneryObject.title + "</h2>\n"
 	htmlFileContent += "<div class='virtualPath'>\n"
-	htmlFileContent += "<h3>Virtual Paths</h3>\n"
+	htmlFileContent += "<h2>Virtual Paths</h2>\n"
 	
 	for virtualPath in sceneryObject.virtualPaths:
 		htmlFileContent += virtualPath + "<br />\n"
@@ -1042,7 +1044,7 @@ def writeHTMLDocFile(sceneryObject):
 	# Paths
 	if (not sceneryObject.deprecatedVirtualPaths == []):
 		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
-		htmlFileContent += "<h3>Deprecated Paths</h3>\n"
+		htmlFileContent += "<h2>Deprecated Paths</h2>\n"
 		for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
@@ -1142,11 +1144,7 @@ def writeHTMLDocFile(sceneryObject):
 
 	# Write the file contents
 	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
-	htmlFileHandle.write(getHTMLHeader("/doc/", "OpenSceneryX Object Library for X-Plane&reg;", sceneryObject.title, True, True))
 	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.write("</div>")
-	htmlFileHandle.write(getHTMLSponsoredLinks())
-	htmlFileHandle.write(getHTMLFooter("/doc/"))
 	htmlFileHandle.close()
 	
 	return 1
@@ -1224,15 +1222,13 @@ def getBreadcrumbs(pageTitle):
 	result = "<div id='breadcrumbs'>\n"
 	result += "<ul class='inline'>"
 	
-	result += "<li><a href='/'>Home</a></li>\n"
+	result += "<li><a href='/catalogue'>Catalogue</a></li>\n"
 	result += "<li>" + pageTitle + "</li>\n"
 	result += "</ul>\n"
 
-	result += "<div id='share'>\n"
-	result += getShareLinks(0)
 	result += "</div>\n"
+	result += "<div style='clear:both;'>&nbsp;</div>"
 
-	result += "</div>\n"
 	return result
 	
 
@@ -1278,170 +1274,6 @@ def getHTMLFooter(documentationPath):
 	result += "</body></html>"
 	return result
 
-
-
-def getHTMLTOC(rootCategory):
-	""" Get the table of contents for the home page """
-	
-	menuIndex = 0
-	
-	result = "<div id='toc'>\n"
-	
-	result += "<h2>Contents</h2>\n"
-	result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
-	menuIndex = menuIndex + 1
-	
-	for mainSceneryCategory in rootCategory.childSceneryCategories:
-		# Top-level types of item
-		result += "<li>\n"
-		result += "<a href='" + mainSceneryCategory.url + "' class='foldable'>" + mainSceneryCategory.title + "</a>\n"
-		result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion hide'>\n"
-		menuIndex = menuIndex + 1
-
-		if len(mainSceneryCategory.childSceneryCategories) > 0:
-			for subSceneryCategory in mainSceneryCategory.childSceneryCategories:
-				# First level categories
-				result += "<li>\n"
-				result += "<a href='" + subSceneryCategory.url + "' class='foldable'>" + subSceneryCategory.title + "</a>\n"
-				result += "<ul>\n"
-				#result += "<ul id='menu" + str(menuIndex) + "' class='menu noaccordion'>\n"
-				#menuIndex = menuIndex + 1
-				# result += "<a href='" + subSceneryCategory.url + "'>" + subSceneryCategory.title + "</a>\n"
-				# result += "<ul>\n"
-				
-				if len(subSceneryCategory.childSceneryCategories) > 0:
-					# We have another level of categorisation, show a category list where each link takes the user to a
-					# landing page for that category
-				
-					for subsubSceneryCategory in subSceneryCategory.childSceneryCategories:
-						# Second level categories
-						result += "<li><a href='" + subsubSceneryCategory.url + "'>" + subsubSceneryCategory.title
-						result += " <span class='tooltip'><img class='attributeicon' src='doc/variations.gif' alt='Multiple Variants Available' /><span>Multiple variants available</span></span>"
-						result += "</a>"
-						result += "</li>\n"
-	
-					# Also show the list of objects directly in this category
-					sceneryObjects = subSceneryCategory.getSceneryObjects(0)
-					result += getHTMLSceneryObjects(sceneryObjects)
-					
-				else:
-					# No more category levels, show the list of objects
-					sceneryObjects = subSceneryCategory.getSceneryObjects(1)
-					result += getHTMLSceneryObjects(sceneryObjects)
-
-				result += "</ul>\n"
-				result += "</li>\n"
-				
-		else:
-			# No categorisation, show the list of objects
-			result += "<ul class='inline'>\n"
-			sceneryObjects = mainSceneryCategory.getSceneryObjects(1)
-			result += getHTMLSceneryObjects(sceneryObjects)				 
-			result += "</ul>\n"
-
-		result += "</ul>\n"
-		result += "</li>\n"
-		
-	result += "</ul>\n"
-	
-	
-	result += "<div id='twitter'>\n"
-	result += "<a class='twitter-timeline' href='https://twitter.com/opensceneryx' data-widget-id='582596353081126912'>Tweets by @opensceneryx</a>"
-	result += "<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>\n"
-	result += "</div>\n"
-
-	result += "</div>\n"
-
-	return result
-
-
-def getShareLinks(large):
-	result = '<!-- AddThis Button BEGIN -->\n'
-	if (large):
-		result += '<div class="addthis_toolbox addthis_default_style addthis_32x32_style">\n'
-	else:
-		result += '<div class="addthis_toolbox addthis_default_style ">\n'
-	result += '<a class="addthis_button_preferred_1"></a>\n'
-	result += '<a class="addthis_button_preferred_2"></a>\n'
-	result += '<a class="addthis_button_preferred_3"></a>\n'
-	result += '<a class="addthis_button_preferred_4"></a>\n'
-	result += '<a class="addthis_button_compact"></a>\n'
-	result += '<a class="addthis_counter addthis_bubble_style"></a>\n'
-	result += '</div>\n'
-	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
-	result += '<!-- AddThis Button END -->\n'
-
-	result = '<!-- AddThis Button BEGIN -->\n'
-	result += '<div class="addthis_toolbox addthis_default_style ">\n'
-	result += '<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>\n'
-	result += '<a class="addthis_button_tweet"></a>\n'
-	result += '<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>\n'
-	result += '<a class="addthis_counter addthis_pill_style"></a>\n'
-	result += '</div>\n'
-	result += '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea17cc16db3cebe"></script>\n'
-	result += '<!-- AddThis Button END -->\n'
-
-	return result
-
-# The code below will output a hierarchical list using <ul>s.  It assumes toc is
-# a dictionary
-#def getHTMLContentTree(toc):
-#	result = ""
-#
-#	# Content
-#	result += "<div id='content'>\n"
-#	result += "<a name='content'></a>\n"
-#	result += "<div id='contents'>\n"
-#	result += "<h2>Table of Contents</h2>\n"
-#
-#	result += getHTMLContentItem(toc)
-#
-#	result += "</div>\n"
-#	result += "</div>\n"
-#
-#	return result
-#
-#def getHTMLContentItem(toc):
-#	result = ""
-#
-#	if type(toc) is dict and len(toc.keys()) > 0:
-#		result += "<ul>\n"
-#
-#		keys = toc.keys()
-#		sort_nicely(keys)
-#		for key in keys:
-#			result += "<li>" + key + "\n"
-#			result += getHTMLContentItem(toc[key])
-#			result += "</li>\n"
-#
-#		result += "</ul>\n"
-#
-#	return result
-
-def getHTMLContentTree(toc):
-	result = ""
-
-	# Content
-	result += "<div id='content'>\n"
-	result += "<a name='content'></a>\n"
-	result += "<div id='contents'>\n"
-	result += "<h2>Table of Contents</h2>\n"
-	result += "<ul>\n"
-
-	virtualPaths = []
-
-	for sceneryObject in toc:
-		for virtualPath in sceneryObject.virtualPaths:
-			virtualPaths.append(virtualPath)
-
-	for virtualPath in virtualPaths:
-		result += "<li>" + virtualPath + "</li>\n"
-
-	result += "</ul>\n"
-	result += "</div>\n"
-	result += "</div>\n"
-
-	return result
 
 
 def getHTMLSceneryObjects(sceneryObjects):
