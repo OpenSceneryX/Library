@@ -11,13 +11,13 @@ import zipfile
 import tarfile
 import os
 import classes
-
+import sys
 
 print "\n========================"
 print "OpenSceneryX Packaging"
 print "========================"
 
-if not os.path.isdir("../files") or not os.path.isdir("../../tags"):
+if not os.path.isdir("../files") or not os.path.isdir("../builds"):
   print "Error: This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library\n"
   sys.exit()
 
@@ -27,7 +27,7 @@ while versionTag == "":
 
 classes.Configuration.init(versionTag, False)
 
-os.chdir("../..")
+os.chdir("..")
 os.chdir(classes.Configuration.releaseFolder)
 
 tar = tarfile.TarFile('OpenSceneryX-' + classes.Configuration.versionNumber + ".tar", "w")

@@ -1,6 +1,10 @@
 Release Howto
 =============
 
+0. Pre-build the library
+
+  $ python build.py
+
 1. Check the build for missing virtual paths
 
   $ python check.py
@@ -24,7 +28,7 @@ Release Howto
   $ export COPYFILE_DISABLE=true
   $ zip -r OpenSceneryX.zip OpenSceneryX
 
-8. Run Manifester on built OpenSceneryX-x.x.x folder and save manifext.xml
+8. Run Manifester on built OpenSceneryX-x.x.x folder and save manifest.xml
 
 9. Run Packager
 
@@ -40,7 +44,7 @@ Release Howto
 
 	$ zip manifest.xml.zip manifest.xml
 
-12. Clear /new and /old
+12. Clear /new and /old on the server
 
 13. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
 
@@ -50,32 +54,45 @@ Release Howto
 
 16. Copy /downloads/ into /old/
 
+17. Prepare blog post
+
 ----------------------------------------------
 
-17. Extract website zip on site into /new/
+18. Extract website zip on site into /new/
 
-18. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+19. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-19. Copy /index-sitedown.html over /index.html
+20. Copy /index-sitedown.html over /index.html
 
-20. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
+21. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
 
-21. Move /new/OpenSceneryX-x.x.x/ to /repository/
+22. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-22. Move /new/OpenSceneryX-Website-x.x.x/* to /
+23. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-23. Move /new/manifest.xml.zip and /new/manifest.xml to /
+24. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
-24. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+25. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-25. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+26. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-26. Ensure /versioninfo has the latest information about the installer in it.
+27. Ensure /versioninfo has the latest information about the installer in it.
 
-27. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+28. Correct ownership of folder structure
 
-28. Log in to Google Webmaster tools and resubmit sitemap
+  $ chown -R apache:apache public_html
+  
+29. Log into Cloudflare and clear all caches.
 
-29. Create new section in release note for next changes
+30. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-30. Promotion
+31. Log in to Google Webmaster tools and resubmit sitemap
+
+32. Create new section in release note for next changes
+
+33. Promotion:
+	- Update x-plane.org Download Manager entry
+	- Update first post in x-plane.org main OpenSceneryX thread
+	- Post a new reply to x-plane.org main OpenSceneryX thread
+	- Post an article in the blog
+	- Tweet
