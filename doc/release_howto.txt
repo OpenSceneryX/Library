@@ -1,6 +1,10 @@
 Release Howto
 =============
 
+0. Pre-build the library
+
+  $ python build.py
+
 1. Check the build for missing virtual paths
 
   $ python check.py
