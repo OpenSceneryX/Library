@@ -1,3 +1,4 @@
 User-Agent: *
 Allow: /
-Sitemap: http://www.opensceneryx.com/sitemap.xml
+Sitemap: http://www.opensceneryx.com/sitemap_index.xml
+Sitemap: http://www.opensceneryx.com/library-sitemap.xml
