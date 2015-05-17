@@ -23,75 +23,77 @@ Release Howto
   
   ENSURE 'y' is selected for 'Build PDF'
 
-7. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX' and zip this to create the monolithic zip file:
+7. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX'
+
+8. Zip this to create the monolithic zip file:
 
   $ export COPYFILE_DISABLE=true
   $ zip -r OpenSceneryX.zip OpenSceneryX
 
-8. Run Manifester on built OpenSceneryX-x.x.x folder and save manifest.xml
+9. Run Manifester on built OpenSceneryX-x.x.x folder and save manifest.xml
 
-9. Run Packager
+10. Run Packager
 
   $ python package.py
 
-10. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
+11. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
 	$ zip OpenSceneryX-x.x.x.tar.zip OpenSceneryX-x.x.x.tar
 	$ zip OpenSceneryX-Website-x.x.x.tar.zip OpenSceneryX-Website-x.x.x.tar
 	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
 
-11. Zip manifest.xml using the command line
+12. Zip manifest.xml using the command line
 
 	$ zip manifest.xml.zip manifest.xml
 
-12. Clear /new and /old on the server
+13. Clear /new and /old on the server
 
-13. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
+14. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
 
-14. Upload manifest.xml.zip and manifest.xml into /new/
+15. Upload manifest.xml.zip and manifest.xml into /new/
 
-15. Copy /index.html into /old/
+16. Copy /index.html into /old/
 
-16. Copy /downloads/ into /old/
+17. Copy /downloads/ into /old/
 
-17. Prepare blog post
+18. Prepare blog post while uploads ongoing
 
 ----------------------------------------------
 
-18. Extract website zip on site into /new/
+19. Extract website zip on site into /new/
 
-19. Extract OpenSceneryX-x.x.x.tar.zip into /new/
+20. Extract OpenSceneryX-x.x.x.tar.zip into /new/
 
-20. Copy /index-sitedown.html over /index.html
+21. Copy /index-sitedown.html over /index.html
 
-21. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
+22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
 
-22. Move /new/OpenSceneryX-x.x.x/ to /repository/
+23. Move /new/OpenSceneryX-x.x.x/ to /repository/
 
-23. Move /new/OpenSceneryX-Website-x.x.x/* to /
+24. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-24. Move /new/manifest.xml.zip and /new/manifest.xml to /
+25. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
-25. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+26. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-26. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+27. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
 
-27. Ensure /versioninfo has the latest information about the installer in it.
+28. Ensure /versioninfo has the latest information about the installer in it.
 
-28. Correct ownership of folder structure
+29. Correct ownership of folder structure
 
   $ chown -R apache:apache public_html
   
-29. Log into Cloudflare and clear all caches.
+30. Log into Cloudflare and clear all caches.
 
-30. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+31. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-31. Log in to Google Webmaster tools and resubmit sitemap
+32. Log in to Google Webmaster tools and resubmit sitemap
 
-32. Create new section in release note for next changes
+33. Create new section in release note for next changes
 
-33. Promotion:
-	- Update x-plane.org Download Manager entry
+34. Promotion:
+	- Update x-plane.org Download Manager entry (including Analytics campaign in URLs)
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Post a new reply to x-plane.org main OpenSceneryX thread
 	- Post an article in the blog
