@@ -93,8 +93,8 @@ Release Howto
 33. Create new section in release note for next changes
 
 34. Promotion:
-	- Update x-plane.org Download Manager entry (including Analytics campaign in URLs)
+	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
-	- Post a new reply to x-plane.org main OpenSceneryX thread
+	- Create a new post in the x-plane.org 'News' forum
 	- Post an article in the blog
 	- Tweet
