@@ -73,7 +73,6 @@ try:
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		
 		
-		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
@@ -143,6 +142,14 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.png")
 		
+		# Placeholder items for main package
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.png", classes.Configuration.osxFolder + "/opensceneryx/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxFolder + "/opensceneryx/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxFolder + "/opensceneryx/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.fac", classes.Configuration.osxFolder + "/opensceneryx/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.lin", classes.Configuration.osxFolder + "/opensceneryx/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.pol", classes.Configuration.osxFolder + "/opensceneryx/placeholder.pol")
+
 		# Placeholder Library Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
@@ -219,6 +226,8 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
+
+		functions.writeBackupLibraries(libraryFileHandle)
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 

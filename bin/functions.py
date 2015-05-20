@@ -1257,13 +1257,28 @@ def getLibraryHeader(versionTag, private):
 	result += "# Version: v" + versionTag + "\n"
 	result += "\n"
 	
-	if (private = True):
+	if (private == True):
 		result += "PRIVATE\n\n"
 
 	return result
 
 
+def writeBackupLibraries(libraryFileHandle):
+	""" Read the contents of all the backup libraries and append them to the library file """
+	
+	dirPath = os.path.join(classes.Configuration.supportFolder, "backup_libraries")
+	contents = os.listdir(dirPath)
+	contents.sort()
 
+	for item in contents:
+		fullPath = os.path.join(dirPath, item)
+		
+		file = open(fullPath)
+		libraryFileHandle.write("\n")
+		libraryFileHandle.write(file.read())
+		file.close()
+
+		
 def matchesAny(name, tests):
 	""" Utility function to find whether a given string is found in a list """
 	

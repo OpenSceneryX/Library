@@ -47,6 +47,8 @@ class Configuration(object):
 			os.mkdir(self.osxFolder)
 		if not os.path.isdir(self.osxFolder + "/doc"):
 			os.mkdir(self.osxFolder + "/doc")
+		if not os.path.isdir(self.osxFolder + "/opensceneryx"):
+			os.mkdir(self.osxFolder + "/opensceneryx")
 		if not os.path.isdir(self.osxDeveloperPackFolder):
 			os.mkdir(self.osxDeveloperPackFolder)
 		if not os.path.isdir(self.osxDeveloperPackFolder + "/doc"):

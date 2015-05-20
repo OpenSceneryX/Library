@@ -1,0 +1,5 @@
+# Backup shim library for most well-known libraries
+# Apr 25 2015 - Current maintainer: richard.elliott@btinternet.com
+# Version: v1.7
+
+PRIVATE
