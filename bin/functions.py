@@ -63,17 +63,6 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc):
 	""" Parse the contents of a library folder """
 
-	# This code works if we need a hierarchical structure. toc must be a dictionary
-	# 'subtoc' must be passed into the handleFolder call below rather than 'toc' too
-	#if (dirPath != "trunk/files"):
-	#	# Create a sub-dictionary for this folder
-	#	subtoc = {}
-	#	parts = dirPath.rsplit(os.sep, 1)
-	#	toc[parts[1]] = subtoc
-	#else:
-	#	# Don't store top-level folder in toc (/files)
-	#	subtoc = toc
-
 	contents = os.listdir(dirPath)
 	
 	# Handle category descriptor first, if present
@@ -1218,39 +1207,6 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	return result
 
 
-def getBreadcrumbs(pageTitle):
-	result = "<div id='breadcrumbs'>\n"
-	result += "<ul class='inline'>"
-	
-	result += "<li><a href='/catalogue'>Catalogue</a></li>\n"
-	result += "<li>" + pageTitle + "</li>\n"
-	result += "</ul>\n"
-
-	result += "</div>\n"
-	result += "<div style='clear:both;'>&nbsp;</div>"
-
-	return result
-	
-
-def getHTMLSponsoredLinks():
-	""" Get the sponsored links area """
-	
-	result = "<div style='clear:both;'>&nbsp;</div>\n"
-	result += "<div id='google'>\n"
-	result += "<script type='text/javascript'><!--\n"
-	result += "google_ad_client = 'pub-5631233433203577';\n"
-	result += "/* 728x15, created 18/03/08 */\n"
-	result += "google_ad_slot = '0268115694';\n"
-	result += "google_ad_width = 728;\n"
-	result += "google_ad_height = 30;\n"
-	result += "//-->\n"
-	result += "</script>\n"
-	result += "<script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'>\n"
-	result += "</script>"
-	result += "</div>"
-	return result
-
-
 def getHTMLFooter(documentationPath):
 	""" Get the standard footer for all documentation files """
 	
@@ -1274,28 +1230,6 @@ def getHTMLFooter(documentationPath):
 	result += "</body></html>"
 	return result
 
-
-
-def getHTMLSceneryObjects(sceneryObjects):
-	""" Display a group of scenery objects in the Table of Contents """
-	
-	result = ""
-	for sceneryObject in sceneryObjects:
-		result += "<li><a href='/" + sceneryObject.filePathRoot + "/index.html'>" + sceneryObject.shortTitle
-	 
-		if (sceneryObject.note != ""):
-			result += " <span class='tooltip'><img class='attributeicon' src='doc/note.gif' alt='Important Usage Notes' /><span>There are important usage notes for this object</span></span>"
-
-		if (sceneryObject.tutorial):
-			result += " <span class='tooltip'><img class='attributeicon' src='doc/tutorial.gif' alt='Tutorial Available' /><span>Tutorial available</span></span>"
-
-		if (sceneryObject.animated):
-			result += " <span class='tooltip'><img class='attributeicon' src='doc/animated.gif' alt='Animated' /><span>Animated</span></span>"
-
-		result += "</a>"
-		result += "</li>\n"
-		
-	return result
 
 
 def getXMLSitemapHeader():
