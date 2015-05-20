@@ -1247,7 +1247,7 @@ def getXMLSitemapFooter():
 	return result
 
 
-def getLibraryHeader(versionTag):
+def getLibraryHeader(versionTag, private):
 	""" Get the standard library.txt header """
 	
 	result = "A\n"
@@ -1256,6 +1256,10 @@ def getLibraryHeader(versionTag):
 	result += "\n"
 	result += "# Version: v" + versionTag + "\n"
 	result += "\n"
+	
+	if (private = True):
+		result += "PRIVATE\n\n"
+
 	return result
 
 
