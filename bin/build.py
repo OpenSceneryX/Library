@@ -155,6 +155,13 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.lin")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.pol")
+		# Need to copy them to the placeholder path so that the monolithic zip install works out of the box too
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.png", classes.Configuration.osxFolder + "/opensceneryx/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.obj", classes.Configuration.osxFolder + "/opensceneryx/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.for", classes.Configuration.osxFolder + "/opensceneryx/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/opensceneryx/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/opensceneryx/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/opensceneryx/placeholder.pol")
 
 		# Placeholder Library Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")

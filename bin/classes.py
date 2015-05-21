@@ -51,6 +51,8 @@ class Configuration(object):
 			os.makedirs(self.osxFolder + "/placeholders/invisible")
 		if not os.path.isdir(self.osxFolder + "/placeholders/visible"):
 			os.makedirs(self.osxFolder + "/placeholders/visible")
+		if not os.path.isdir(self.osxFolder + "/opensceneryx"):
+			os.makedirs(self.osxFolder + "/opensceneryx")
 		if not os.path.isdir(self.osxDeveloperPackFolder):
 			os.mkdir(self.osxDeveloperPackFolder)
 		if not os.path.isdir(self.osxDeveloperPackFolder + "/doc"):
