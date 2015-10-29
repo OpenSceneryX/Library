@@ -36,9 +36,8 @@ Release Howto
 
   $ python package.py
 
-11. Zip OpenSceneryX-x.x.x.tar, OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
+11. Zip OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
 
-	$ zip OpenSceneryX-x.x.x.tar.zip OpenSceneryX-x.x.x.tar
 	$ zip OpenSceneryX-Website-x.x.x.tar.zip OpenSceneryX-Website-x.x.x.tar
 	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
 
@@ -48,7 +47,7 @@ Release Howto
 
 13. Clear /new and /old on the server
 
-14. Upload OpenSceneryX-x.x.x.tar.zip, OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
+14. Upload OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
 
 15. Upload manifest.xml.zip and manifest.xml into /new/
 
@@ -56,19 +55,23 @@ Release Howto
 
 17. Copy /downloads/ into /old/
 
-18. Prepare blog post while uploads ongoing
+18. Make a copy of repository/ into new/ on the server
+
+19. Use rsync to upload the new library:
+
+    $ /usr/bin/rsync -arv --checksum OpenSceneryX-2.1.2/ pi-web3:/var/www/austin/new/repository/
+    
+----------------------------------------------
+
+20. Prepare blog post while uploads ongoing
 
 ----------------------------------------------
 
-19. Extract website zip on site into /new/
-
-20. Extract OpenSceneryX-x.x.x.tar.zip into /new/
-
-21. Copy /index-sitedown.html over /index.html
+21. Extract website zip on site into /new/
 
 22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
 
-23. Move /new/OpenSceneryX-x.x.x/ to /repository/
+23. Move /new/repository/ to /repository/
 
 24. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
