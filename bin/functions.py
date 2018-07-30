@@ -1442,7 +1442,7 @@ def writePDFEntry(sceneryObject):
 	pdf.columns = 2
 	imageMaxDimension = 20
 	fontSize = 7
-	lineHeight = 1.5
+	lineHeight = 3
 	
 	# First check the image dimensions - we may need to force a new page if this image is too large
 	if (sceneryObject.screenshotFilePath == ""):
@@ -1466,18 +1466,19 @@ def writePDFEntry(sceneryObject):
 	# break trigger region
 	if (pdf.get_y() + max(imageFinalHeight, (len(sceneryObject.virtualPaths) + 1) * 2 * lineHeight) > pdf.page_break_trigger): pdf.new_column()
 	
-	# Store the starting Y location
+	# Store the starting location
+	startX = pdf.get_x()
 	startY = pdf.get_y()
 	startPage = pdf.page
 	startColumn = pdf.current_column
 	
 	# Image
-	pdf.image(screenshotFilePath, pdf.get_x(), pdf.get_y(), imageFinalWidth, imageFinalHeight)
+	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight)
 
 	# Title
 	pdf.set_font("Arial", "B", fontSize)
 	pdf.set_text_color(0)
-	pdf.cell(imageMaxDimension)
+	pdf.set_x(startX + imageMaxDimension)
 	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1)
 	
 	# Virtual paths
@@ -1485,7 +1486,7 @@ def writePDFEntry(sceneryObject):
 	virtualPathIndex = 1
 	for virtualPath in sceneryObject.virtualPaths:
 		if (virtualPathIndex == 2): pdf.set_text_color(128)
-		pdf.cell(imageMaxDimension, lineHeight)
+		pdf.set_x(startX + imageMaxDimension)
 		pdf.cell(0, lineHeight, virtualPath, 0, 1)
 		virtualPathIndex += 1
 
