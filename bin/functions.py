@@ -761,12 +761,15 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	authorPattern = re.compile("Author:\s+(.*)")
 	textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
 	conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
+	modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
 	emailPattern = re.compile("Email:\s+(.*)")
 	textureEmailPattern = re.compile("Email, texture:\s+(.*)")
 	conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
+	modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
 	urlPattern = re.compile("URL:\s+(.*)")
 	textureUrlPattern = re.compile("URL, texture:\s+(.*)")
 	conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
+	modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
 	widthPattern = re.compile("Width:\s+(.*)")
 	heightPattern = re.compile("Height:\s+(.*)")
 	depthPattern = re.compile("Depth:\s+(.*)")
@@ -844,6 +847,18 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 				authors.append(result.group(1))
 			continue
 		
+		# Modification author
+		result = modificationAuthorPattern.match(line)
+		if result:
+			if sceneryObject.modificationAuthor == "":
+				sceneryObject.modificationAuthor = result.group(1)
+			else:
+				sceneryObject.modificationAuthor = sceneryObject.modificationAuthor + " and " + result.group(1)
+
+			if not result.group(1) in authors:
+				authors.append(result.group(1))
+			continue
+		
 		# Main author email
 		result = emailPattern.match(line)
 		if result:
@@ -862,6 +877,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			sceneryObject.conversionEmail = result.group(1)
 			continue
 		
+		# Modification author email
+		result = modificationEmailPattern.match(line)
+		if result:
+			sceneryObject.modificationEmail = result.group(1)
+			continue
+		
 		# Main author URL
 		result = urlPattern.match(line)
 		if result:
@@ -878,6 +899,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		result = conversionUrlPattern.match(line)
 		if result:
 			sceneryObject.conversionUrl = result.group(1)
+			continue
+		
+		# Modification author URL
+		result = modificationUrlPattern.match(line)
+		if result:
+			sceneryObject.modificationUrl = result.group(1)
 			continue
 		
 		# Width
@@ -1090,6 +1117,18 @@ def writeHTMLDocFile(sceneryObject):
 			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
 		htmlFileContent += "</li>\n"
 	
+	# Modification author
+	if (not sceneryObject.modificationAuthor == ""):
+		htmlFileContent += "<li><span class='fieldTitle'>Modified By:</span> "
+		if (not sceneryObject.modificationUrl == ""):
+			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.modificationUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.modificationAuthor + "</a></span>"
+			#if (not sceneryObject.modificationEmail == ""):
+			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationEmail + "</a></span>"
+		#elif (not sceneryObject.modificationEmail == ""):
+		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationAuthor + "</a></span>"
+		else:
+			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.modificationAuthor + "</span>"
+		htmlFileContent += "</li>\n"
 	# Description
 	if (not sceneryObject.description == ""):
 		htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
