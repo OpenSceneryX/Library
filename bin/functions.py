@@ -1445,7 +1445,13 @@ def writePDFEntry(sceneryObject):
 	lineHeight = 1.5
 	
 	# First check the image dimensions - we may need to force a new page if this image is too large
-	image = Image.open(sceneryObject.screenshotFilePath)
+	if (sceneryObject.screenshotFilePath == ""):
+		screenshotFilePath = "support/screenshot_missing.jpg"
+	else:
+		screenshotFilePath = sceneryObject.screenshotFilePath
+
+	image = Image.open(screenshotFilePath)
+	
 	imageOriginalWidth, imageOriginalHeight = image.size
 	
 	if (imageOriginalWidth > imageOriginalHeight):
@@ -1466,7 +1472,7 @@ def writePDFEntry(sceneryObject):
 	startColumn = pdf.current_column
 	
 	# Image
-	pdf.image(sceneryObject.screenshotFilePath, pdf.get_x(), pdf.get_y(), imageFinalWidth, imageFinalHeight)
+	pdf.image(screenshotFilePath, pdf.get_x(), pdf.get_y(), imageFinalWidth, imageFinalHeight)
 
 	# Title
 	pdf.set_font("Arial", "B", fontSize)
