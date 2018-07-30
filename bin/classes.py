@@ -14,8 +14,7 @@ import os
 import re
 import traceback
 
-from pyfpdf import FPDF
-from pyfpdf.TOC import TOC
+from TOC import TOC
 
 #
 # Class to hold configuration values

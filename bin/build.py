@@ -18,7 +18,7 @@ except:
 	sys.exit()
 	
 try:
-	import Image
+	from PIL import Image
 
 except ImportError:
 	Image = None
@@ -55,7 +55,7 @@ try:
 		classes.Configuration.init(versionTag, buildPDF)
 		
 		if Image is None:
-			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed ('pip install pil').\n", "error")
+			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed ('pip install Pillow').\n", "error")
 					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
