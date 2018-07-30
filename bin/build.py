@@ -55,7 +55,7 @@ try:
 		classes.Configuration.init(versionTag, buildPDF)
 		
 		if Image is None:
-			functions.displayMessage("This script depends on PIL for building the developer documentation.  Please ensure it is installed ('pip install Pillow').\n", "error")
+			functions.displayMessage("This script depends on PIL and fpdf for building the developer documentation.  Please ensure they are installed ('pip install Pillow' and 'pip install fpdf').\n", "error")
 					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
