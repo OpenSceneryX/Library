@@ -69,9 +69,8 @@ try:
 		functions.displayMessage("Creating library.txt\n")
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
-		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag))
-		
+		libraryFileHandle.write(functions.getLibraryHeader(versionTag, False))
+		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		
 		
 		functions.displayMessage("------------------------\n")
@@ -92,7 +91,7 @@ try:
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
 		
-		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/sitemap.xml", "w")
+		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/library-sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/doc/ReleaseNotes.html", "0.9")
@@ -134,22 +133,37 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/minus.png", classes.Configuration.osxWebsiteFolder + "/doc/minus.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/001_52.png", classes.Configuration.osxWebsiteFolder + "/doc/001_52.png")
 
-		shutil.copyfile(classes.Configuration.supportFolder + "/favicon.ico", classes.Configuration.osxWebsiteFolder + "/favicon.ico")
-		shutil.copyfile(classes.Configuration.supportFolder + "/index-sitedown.html", classes.Configuration.osxWebsiteFolder + "/index-sitedown.html")
-		shutil.copyfile(classes.Configuration.supportFolder + "/errordoc.html", classes.Configuration.osxWebsiteFolder + "/errordoc.html")
-		shutil.copyfile(classes.Configuration.supportFolder + "/google09f5d478fb9c9dd9.html", classes.Configuration.osxWebsiteFolder + "/google09f5d478fb9c9dd9.html")
-		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
-		
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.png")
 		
+		# Placeholder items for main package
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.obj", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.for", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.lin", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.png", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.obj", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.for", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.pol")
+		# Need to copy them to the placeholder path so that the monolithic zip install works out of the box too
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.png", classes.Configuration.osxFolder + "/opensceneryx/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.obj", classes.Configuration.osxFolder + "/opensceneryx/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.for", classes.Configuration.osxFolder + "/opensceneryx/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/opensceneryx/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/opensceneryx/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/opensceneryx/placeholder.pol")
+
 		# Placeholder Library Folder
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.lin", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.lin")
-		shutil.copyfile(classes.Configuration.supportFolder + "/placeholder.pol", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.obj", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.obj")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.for", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.for")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.lin", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.lin")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.pol")
 		
 		
 		functions.displayMessage("------------------------\n")
@@ -219,6 +233,8 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
+
+		functions.writeBackupLibraries(libraryFileHandle)
 
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
