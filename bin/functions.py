@@ -1412,7 +1412,7 @@ def writePDFSectionHeading(title, newPageBefore = 0):
 
 	pdf.set_font("Arial", "B", 16)
 	pdf.set_text_color(0)
-	pdf.cell(0, 6, title, 0, 1)
+	pdf.cell(0, 12, title, 0, 1)
 
 	writePDFTOCEntry(title, 0)
 
