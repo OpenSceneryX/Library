@@ -41,6 +41,10 @@ class TOC(FPDF):
 		this.ln(10)
 
 		for t in this._toc:
+			# Create an in-document link.  This does work, but the links don't move when the page is moved at the end of the TOC generation process.
+			tocLink = this.add_link()
+			this.set_link(tocLink, 0, t['p'] + 1)
+
 			#Offset
 			level=t['l']
 			if(level>0):
@@ -51,7 +55,7 @@ class TOC(FPDF):
 			Str=t['t']
 			this.set_font(tocfont,weight,entrySize)
 			strsize=this.get_string_width(Str)
-			this.cell(strsize+2,this.font_size+2,Str)
+			this.cell(strsize+2,this.font_size+2,Str, 0, 0, '', False, tocLink)
 
 			#Filling dots
 			this.set_font(tocfont,'',entrySize)
@@ -62,24 +66,35 @@ class TOC(FPDF):
 			this.cell(w,this.font_size+2,dots,0,0,'R')
 
 			#Page number
-			this.cell(PageCellSize,this.font_size+2,str(t['p']),0,1,'R')
+			this.cell(PageCellSize,this.font_size+2,str(t['p']),0,1,'R', False, tocLink)
 
 		#grab it and move to selected location
 		n=this.page
 		n_toc = n - tocstart + 1
 		last = []
+		lastlinks = []
 
-		#store toc pages
+		# Store TOC pages and page links
 		for i in xrange(tocstart,n+1):
+			# Store page
 			last+=[this.pages[i]]
+			# Store links
+			lastlinks+=[this.page_links[i]]
 
-		#move pages
+		# Move remaining pages and page links
 		for i in xrange(tocstart-1,location-1,-1):
-		#~ for(i=tocstart - 1;i>=location-1;i--)
+			# Move page
 			this.pages[i+n_toc]=this.pages[i]
+			# Move links
+			this.page_links[i+n_toc]=this.page_links[i]
 
-		#Put toc pages at insert point
+		# Put TOC pages and page links at insert point
 		for i in xrange(0,n_toc):
 			this.pages[location + i]=last[i]
+			this.page_links[location + i]=lastlinks[i]
+
+		# Renumber page refererences in all internal links
+		for i in this.links:
+			this.links[i] = [this.links[i][0] + n_toc, this.links[i][1]]
 
 		this.in_toc = 0
