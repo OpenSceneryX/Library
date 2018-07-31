@@ -41,14 +41,14 @@ class TOC(FPDF):
 		this.ln(10)
 
 		for t in this._toc:
-			# Create an in-document link.  This does work, but the links don't move when the page is moved at the end of the TOC generation process.
+			# Create an in-document link
 			tocLink = this.add_link()
 			this.set_link(tocLink, 0, t['p'] + 1)
 
 			#Offset
 			level=t['l']
 			if(level>0):
-				this.cell(level*8)
+				this.cell(level*8, this.font_size+2)
 			weight=''
 			if(level==0):
 				weight='B'
