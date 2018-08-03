@@ -25,10 +25,12 @@ Checklist for New Items
 
 11. If screenshot.jpg has not been supplied, create one
 
-12. Build library
+12. Run screenshot.jpg through 'Process Screenshot' script
 
-13. Add to release notes
+13. Build library
 
-14. Tweet
+14. Add to release notes
 
-15. Commit
+15. Tweet
+
+16. Commit
