@@ -60,7 +60,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -73,26 +73,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc)
 
 
 
@@ -106,7 +106,7 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -273,15 +273,17 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -369,15 +371,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .for """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -465,14 +469,16 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -560,12 +566,15 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -678,9 +687,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -778,6 +789,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	animatedPattern = re.compile("Animated:\s+(.*)")
 	exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
 	exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
+	exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
 	logoPattern = re.compile("Logo:\s+(.*)")
 	notePattern = re.compile("Note:\s+(.*)")
 	
@@ -956,7 +968,13 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if result:
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
-		
+
+		# Export to external library
+		result = exportExternalPattern.match(line)
+		if result:
+			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
+			continue
+
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
@@ -1052,18 +1070,29 @@ def writeHTMLDocFile(sceneryObject):
 	htmlFileContent += "<div class='virtualPath'>\n"
 	htmlFileContent += "<h2>Virtual Paths</h2>\n"
 	
+	# Paths
 	for virtualPath in sceneryObject.virtualPaths:
 		htmlFileContent += virtualPath + "<br />\n"
 		
 	htmlFileContent += "</div>\n"
 	
-	# Paths
+	# Deprecated Paths
 	if (not sceneryObject.deprecatedVirtualPaths == []):
 		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
 		htmlFileContent += "<h2>Deprecated Paths</h2>\n"
 		for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
 		htmlFileContent += "</div>\n"
+
+	# External Paths
+	if (not sceneryObject.externalVirtualPaths == []):
+		htmlFileContent += "<div class='externalVirtualPath'>\n"
+		htmlFileContent += "<h2>3rd Party Library Paths</h2>\n"
+		for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+			htmlFileContent += "<strong>From library" + externalLibrary + "</strong>: " + virtualPath + "<br />\n"
+		htmlFileContent += "</div>\n"
+
+	# Screenshot
 	if (sceneryObject.screenshotFilePath != ""):
 		htmlFileContent += "<img class='screenshot' src='/" + sceneryObject.filePathRoot + "/screenshot.jpg" + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
 	else:
@@ -1286,18 +1315,23 @@ def getXMLSitemapFooter():
 	return result
 
 
-def getLibraryHeader(versionTag, private):
+def getLibraryHeader(versionTag, includeStandard = True, type = ""):
 	""" Get the standard library.txt header """
 	
-	result = "A\n"
-	result += "800\n"
-	result += "LIBRARY\n"
-	result += "\n"
-	result += "# Version: v" + versionTag + "\n"
-	result += "\n"
-	
-	if (private == True):
+	if (includeStandard == True):
+		result = "A\n"
+		result += "800\n"
+		result += "LIBRARY\n"
+		result += "\n"
+		result += "# Version: v" + versionTag + "\n"
+		result += "\n"
+	else:
+		result = "\n"
+
+	if (type == "private"):
 		result += "PRIVATE\n\n"
+	elif (type == "deprecated"):
+		result += "DEPRECATED\n\n"
 
 	return result
 

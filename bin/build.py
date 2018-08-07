@@ -64,15 +64,18 @@ try:
 		# status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
 		
 		
-		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader(versionTag, False))
-		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
+		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
+		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
+		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
+		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True, "private"))
+		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "private"))
+		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
-		
+	
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
@@ -178,7 +181,7 @@ try:
 		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
 		toc = []
 		
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc)
 		
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -233,13 +236,31 @@ try:
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
-
-		functions.writeBackupLibraries(libraryFileHandle)
-
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
 		htmlIndexFileHandle.close()
 		htmlDeveloperFileHandle.close()
+		libraryExternalFileHandle.close()
+		libraryDeprecatedFileHandle.close()
+
+		# Append the deprecated paths to the library
+		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
+		fileContents = file.read()
+		libraryFileHandle.write(fileContents)
+		file.close()
+		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
+
+		# Append the 3rd party paths to the library
+		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
+		fileContents = file.read()
+		libraryFileHandle.write(fileContents)
+		file.close()
+		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
+
+		# Append the backup paths to the library (note this relies on PRIVATE having alreadt been written as part of
+		# the external libraries above)
+		functions.writeBackupLibraries(libraryFileHandle)
+
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
 		sitemapXMLFileHandle.close()
