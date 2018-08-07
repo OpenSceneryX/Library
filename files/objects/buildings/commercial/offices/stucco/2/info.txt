@@ -1,0 +1,12 @@
+Title: Office, stucco, grey roof, 5 floors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 16.5m
+Height: 15m
+Export External RE_Library: RE_Library/Admin/5floor_15x15/white_stucco/Admin_sqr_4
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: White stucco 5 storey office building with grey roof.
