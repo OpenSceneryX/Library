@@ -1,0 +1,12 @@
+Title: ILS Localiser, white
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 1.1m
+Depth: 31.2m
+Height: 3m
+Export External RE_Library: RE_Library/Navaids/Localiser/Type_B/LOC_B_w
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: ILS localiser, white.
