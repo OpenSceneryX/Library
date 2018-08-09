@@ -1,0 +1,12 @@
+Title: VDF / UDF antenna, striped pole, red antennae
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 4m
+Depth: 4m
+Height: 14.4m
+Export External RE_Library: RE_Library/Navaids/VDF_UDF_12m/VDF_UDF_12_s_r
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 14.4m combined VDF and UDF antenna with a red and white striped pole and red antennae.

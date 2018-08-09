@@ -1,0 +1,12 @@
+Title: VDF antenna, red pole, red antennae
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2m
+Depth: 2m
+Height: 4.7m
+Export External RE_Library: RE_Library/Navaids/VDF/VDF_r_r
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 5m VDF antenna with a red pole and red antennae.
