@@ -1,6 +1,6 @@
 /**
  * OpenSceneryX Version information file
- * Copyright (C) 2015 Austin Goudge
+ * Copyright (C) 2018 Austin Goudge
  **/
 
 var osxVersion = '${version}';
