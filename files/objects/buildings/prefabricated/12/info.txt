@@ -1,0 +1,13 @@
+Title: Prefabricated building, red, 42m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 9.8m
+Depth: 42m
+Height: 3.6m
+Export External RE_Library: RE_Library/Prefabs/42m/type_a/Prefab42m_a_red
+Export External RE_Library: RE_Library/Prefabs/42m/type_b/Prefab42m_b_red
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 42m long red prefabricated building.

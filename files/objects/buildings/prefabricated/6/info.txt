@@ -1,0 +1,12 @@
+Title: Prefabricated building, brown, 30m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 9.8m
+Depth: 30m
+Height: 3.6m
+Export External RE_Library: RE_Library/Prefabs/30m/Prefab30m_brn
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 30m long brown prefabricated building.
