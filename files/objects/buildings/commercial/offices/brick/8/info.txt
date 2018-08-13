@@ -5,7 +5,8 @@ URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
 Width: 15m
 Depth: 60m
 Height: 20m
-Export External RE_Library: RE_Library/Admin/4floor_60x20/red_brick/grey_slate/Admin2_1t.obj
+Export External RE_Library: RE_Library/Admin/4floor_60x20/red_brick/grey_slate/Admin2_1t
+Export External RE_Library: RE_Library/GA_Terminal/Red_tile/Brick/GA_terminal_3b
 Revision: $Revision$
 Date: $Date$
 =====================

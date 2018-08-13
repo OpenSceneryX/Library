@@ -6,6 +6,7 @@ Width: 15m
 Depth: 60m
 Height: 20m
 Export External RE_Library: RE_Library/Admin/4floor_60x20/red_brick/red_tile/Admin2_1s
+Export External RE_Library: RE_Library/GA_Terminal/Grey_slate/Brick/GA_terminal_3
 Revision: $Revision$
 Date: $Date$
 =====================
