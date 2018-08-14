@@ -3,6 +3,9 @@ Title: Vehicle Carrier 'Galaxy Leader'
 Author: Dieter Rosenkranz
 URL: http://www.helgo11335.de
 Email: d_rosenkranz@wanadoo.es
+Author, modifications: Florian (PilotFlo)
+Email, modifications: PilotFlo@gmx.net
+URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
 Depth: 191m
 Width: 38m
 Height: 46m

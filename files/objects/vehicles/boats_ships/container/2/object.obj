@@ -4067,3 +4067,10 @@ IDX10	3381 3382 3381 3380 3383 3384 3385 3384 3383 3386
 TRIS	0 6690
 
 # Built with Blender 2.45. Exported with XPlane2Blender 3.09.
+# START Automatically added by add_ship_lights script
+LIGHT_NAMED	ship_nav_left -16.89209938 27.36674881 166.22239685
+LIGHT_NAMED	ship_nav_right 16.97750092 27.4368 166.209198
+LIGHT_NAMED	ship_nav_tail 0.1227001 34.66044998 185.78469849
+LIGHT_NAMED	ship_mast_powered 0.07769966 36.18114853 174.44863892
+LIGHT_NAMED	ship_mast_powered -0.0246 19.72499847 6.38310003
+# END Automatically added by add_ship_lights script

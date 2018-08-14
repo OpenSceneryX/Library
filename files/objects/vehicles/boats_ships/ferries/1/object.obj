@@ -4563,3 +4563,9 @@ IDX	3837
 TRIS	0 7104
 
 # Built with Blender 2.45. Exported with XPlane2Blender 3.09.
+# START Automatically added by add_ship_lights script
+LIGHT_NAMED	ship_nav_tail -10.2536993 10.32874966 152.11000061
+LIGHT_NAMED	ship_mast_powered -0.03000021 30.39310074 27.42824936
+LIGHT_NAMED	ship_nav_left -15.41404915 21.83440018 22.54759979
+LIGHT_NAMED	ship_nav_right 15.39624977 21.69260025 22.55944824
+# END Automatically added by add_ship_lights script
