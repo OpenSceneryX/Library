@@ -6,6 +6,9 @@ Email: d_rosenkranz@wanadoo.es
 Author, texture: Birger Christiansen
 URL, texture: http://www.erdbeerenberg.de
 Email, texture: erdbeerenberg@googlemail.com
+Author, modifications: Florian (PilotFlo)
+Email, modifications: PilotFlo@gmx.net
+URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
 Depth: 254m
 Width: 32m
 Height: 46m
