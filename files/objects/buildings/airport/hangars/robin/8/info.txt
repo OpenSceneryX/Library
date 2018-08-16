@@ -1,0 +1,13 @@
+Title: Hangar, Robin, green, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 19.1m
+Depth: 21.4m
+Height: 7.3m
+Export External RE_Library: RE_Library/Hangars/Robin/profiled/open/Robin_p_o_grn
+Export External RE_Library: RE_Library/Hangars/Robin/squared/open/Robin_s_o_grn
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A green Robin hangar with open doors.
