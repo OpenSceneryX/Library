@@ -9,4 +9,4 @@ Export External RE_Library: RE_Library/Hangars/Bellman/open_one_end/Bellman_o1_b
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A brown Bellman hangar with doors open one end.
+Description: A brown Bellman hangar with doors open at one end.
