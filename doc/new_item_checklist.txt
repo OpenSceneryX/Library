@@ -15,7 +15,7 @@ Checklist for New Items
 
 6. Check lit texture - new submissions shouldn't have baked in spill lighting effects, illuminated windows etc are ok
 
-7. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transarent)
+7. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transparent)
 
 8. Check texture size and check powers of 2, scale down if appropriate
 
@@ -23,10 +23,14 @@ Checklist for New Items
 
 10. If info.txt has been supplied, check line endings are UNIX
 
-11. Build library
+11. If screenshot.jpg has not been supplied, create one
 
-12. Add to release notes
+12. Run screenshot.jpg through 'Process Screenshot' script
 
-13. Tweet
+13. Build library
 
-14. Commit
+14. Add to release notes
+
+15. Tweet
+
+16. Commit

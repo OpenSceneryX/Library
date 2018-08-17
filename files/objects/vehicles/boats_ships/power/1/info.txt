@@ -3,6 +3,9 @@ Title: Motor Cruiser, Large, 1
 Author: Dieter Rosenkranz
 URL: http://www.helgo11335.de
 Email: d_rosenkranz@wanadoo.es
+Author, modifications: Florian (PilotFlo)
+Email, modifications: PilotFlo@gmx.net
+URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
 Width: 5m
 Depth: 20m
 Height: 5m

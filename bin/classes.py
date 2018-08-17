@@ -14,8 +14,7 @@ import os
 import re
 import traceback
 
-from pyfpdf import FPDF
-from pyfpdf.TOC import TOC
+from TOC import TOC
 
 #
 # Class to hold configuration values
@@ -37,7 +36,7 @@ class Configuration(object):
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
 		self.supportFolder = "support"
 		self.buildPDF = buildPDF
-		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "Developer Reference", self.versionNumber)
+		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
 		
 	def makeFolders(self):
 		""" Create any folders that need creating """
@@ -101,12 +100,15 @@ class SceneryObject(object):
 		self.author = ""
 		self.textureAuthor = ""
 		self.conversionAuthor = ""
+		self.modificationAuthor = ""
 		self.email = ""
 		self.textureEmail = ""
 		self.conversionEmail = ""
+		self.modificationEmail = ""
 		self.url = ""
 		self.textureUrl = ""
 		self.conversionUrl = ""
+		self.modificationUrl = ""
 		self.height = ""
 		self.width = ""
 		self.depth = ""
@@ -303,17 +305,19 @@ class OpenSceneryXPDF(TOC):
 		self.add_page()
 		
 		# Image
-		imagewidth = 50.8  # 2 inches
+		imagewidth = self.w
 		pagewidth = self.w - self.r_margin - self.x
 		xpos = (pagewidth - imagewidth) / 2.0 + self.l_margin
-		self.image(Configuration.supportFolder + "/opensceneryx_print.png", xpos, 100, imagewidth, 0, "PNG", "http://www.opensceneryx.com")
+		self.image(Configuration.supportFolder + "/x_banner_print.png", xpos, 100, imagewidth, 0, "PNG", "https://www.opensceneryx.com")
 		
 		# Text
-		self.set_y(120)
+		self.set_text_color(255, 255, 255)
+		self.set_y(113)
 		self.set_font("Arial", "B", 16)
 		self.cell(0, 10, self.title, 0, 1, "C")
 		self.set_font("Arial", "B", 10)
 		self.cell(0, 10, self.version, 0, 1, "C")
+		self.set_text_color(0)
 				
 		# Generate first normal page
 		self.add_page()

@@ -4,30 +4,30 @@ Future Ideas List
 Installer
 ---------
 
-o Handle both PNG and DDS textures when present
+o Handle both PNG and DDS textures when present.
 
-o Detect which objects are used in the user's installed scenery packages, and only install those
+o Detect which objects are used in the user's installed scenery packages, and only install those.
 
-  - Get server manifest full list
+  - Get server manifest full list.
   
-  - Parse DSFs & build list of used files if option selected
+  - Parse DSFs & build list of used files if option selected.
   
-  - Reduce server manifest list to just those files required
+  - Reduce server manifest list to just those files required.
    
-  - Compare with local manifest
+  - Compare with local manifest.
   
-  - Generate library.txt file
+  - Generate library.txt file.
   
-  - Add in standard files like Readme
+  - Add in standard files like Readme.
   
   - Problem - DSF only contains references to .obj, .fac etc, not the textures they use.  Will need
-    to build a more extended manifest file containing all referenced files
+    to build a more extended manifest file containing all referenced files.
   
-  - Check it works after changing X-Plane folders
+  - Check it works after changing X-Plane folders.
 
-o Split library into multiple, optional packages
+o Split library into multiple, optional packages.
 
-o User agent should include platform
+o User agent should include platform.
 
 
 Library
@@ -39,17 +39,18 @@ o Split library into multiple, optional packages
 Website
 -------
 
-o Obfuscation of email addresses on site 
+o Obfuscation of email addresses on site.
 
 o Add 'last modified' date handling to build script?
 
-o Promote latest objects, possibly with screenshots
+o Promote latest objects, possibly with screenshots.
 
-o The sub-categories section of category landing pages should be better - Perhaps there should be an image for each category?
+o The sub-categories section of category landing pages should be better - Perhaps there should be a selection of random images for each category.
 
-o Handle formatted info.txt content better (e.g. Cormac's comments)
+o Handle formatted info.txt content better (e.g. Cormac's comments).
 
-o Mark whether an object has a lit texture
+o Mark whether an object has a lit texture.
 
-o 3D renderer for x-plane .obj files
+o 3D renderer for x-plane .obj files.
 
+o Add more info to facade, forest and line pages in the same way that the polygon and object pages show extended info.
