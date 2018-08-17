@@ -24,12 +24,6 @@ except:
 	sys.exit()
 	
 try:
-	import Image
-
-except ImportError:
-	Image = None
-
-try:
 	# Include common functions
 	import os
 	import shutil
