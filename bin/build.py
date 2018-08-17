@@ -256,6 +256,9 @@ try:
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
 		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Writing Developer PDF\n")
+
 		functions.closePDF(classes.Configuration.osxDeveloperPackFolder + "/doc/Reference.pdf")
 
 		
