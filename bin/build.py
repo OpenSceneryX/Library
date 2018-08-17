@@ -144,12 +144,16 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.lin", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.lin")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.net", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.net")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.str", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.str")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.png", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.obj", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.obj")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.for", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.for")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.lin")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.net", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.net")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.str", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.str")
 		# Need to copy them to the placeholder path so that the monolithic zip install works out of the box too
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.png", classes.Configuration.osxFolder + "/opensceneryx/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.obj", classes.Configuration.osxFolder + "/opensceneryx/placeholder.obj")
@@ -157,6 +161,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/opensceneryx/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.lin", classes.Configuration.osxFolder + "/opensceneryx/placeholder.lin")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/opensceneryx/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.net", classes.Configuration.osxFolder + "/opensceneryx/placeholder.net")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.str", classes.Configuration.osxFolder + "/opensceneryx/placeholder.str")
 
 		# Placeholder Library Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
@@ -165,6 +171,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.fac", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.fac")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.lin", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.lin")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.pol")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.net", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.net")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.str", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.str")
 		
 		
 		functions.displayMessage("------------------------\n")
