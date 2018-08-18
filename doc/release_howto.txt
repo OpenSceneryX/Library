@@ -57,7 +57,7 @@ Release Howto
 
 18. Use rsync to upload the new library:
 
-    $ /usr/bin/rsync -arv --checksum OpenSceneryX-x.x.x/ pi-web3:/var/www/austin/new/repository/
+    $ /usr/bin/rsync -arv --checksum OpenSceneryX-x.x.x/ <server>:/var/www/austin/new/repository/
     
 ----------------------------------------------
 
@@ -67,33 +67,41 @@ Release Howto
 
 20. Extract website zip on site into /new/
 
-21. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /sitemap.xml into /old/
+21. Put site into maintenance mode
 
-22. Move /new/repository/ to /repository/
+  $ mv wp/maintenance-disabled wp/.maintenance
 
-23. Move /new/OpenSceneryX-Website-x.x.x/* to /
+22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /library-sitemap.xml into /old/
 
-24. Move /new/manifest.xml.zip and /new/manifest.xml to /
+23. Move /new/repository/ to /repository/
 
-25. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+24. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-26. Remove old OpenSceneryX-DeveloperPack-y.y.y.zip from /downloads/
+25. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
-27. Ensure /versioninfo has the latest information about the installer in it.
+26. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-28. Correct ownership of folder structure
+27. Move old /downloads/OpenSceneryX-DeveloperPack-y.y.y.zip to /old/downloads/
+
+28. Ensure /versioninfo has the latest information about the installer in it.
+
+29. Correct ownership of folder structure
 
   $ chown -R apache:apache public_html
-  
-29. Log into Cloudflare and clear all caches.
 
-30. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+30. Take site out of maintenance mode
 
-31. Log in to Google Webmaster tools and resubmit sitemap
+  $ mv wp/.maintenance wp/maintenance-disabled
 
-32. Create new section in release note for next changes
+31. Log into Cloudflare and clear all caches.
 
-33. Promotion:
+32. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+
+33. Log in to Google Webmaster tools and resubmit library-sitemap.xml
+
+34. Create new section in release note for next changes
+
+35. Promotion:
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum

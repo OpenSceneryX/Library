@@ -115,11 +115,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
 		
 		# Website Folder
-		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxWebsiteFolder + "/doc/ie7.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.js", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.js")
-		shutil.copyfile(classes.Configuration.supportFolder + "/scripts.js", classes.Configuration.osxWebsiteFolder + "/doc/scripts.js")
+		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/bullet_object.gif", classes.Configuration.osxWebsiteFolder + "/doc/bullet_object.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxWebsiteFolder + "/doc/cc_logo.png")
@@ -132,8 +128,6 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_1.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_1.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_2.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_2.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_3.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_3.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/plus.png", classes.Configuration.osxWebsiteFolder + "/doc/plus.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/minus.png", classes.Configuration.osxWebsiteFolder + "/doc/minus.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/001_52.png", classes.Configuration.osxWebsiteFolder + "/doc/001_52.png")
 
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
