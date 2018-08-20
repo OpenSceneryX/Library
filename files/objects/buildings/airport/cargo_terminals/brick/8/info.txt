@@ -1,0 +1,13 @@
+Title: Cargo terminal, light brick, green features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 33m
+Depth: 55m
+Height: 10m
+Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/green_doors/Cargo_full_os3
+Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/green_doors/Cargo_full_cs3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Light brick cargo terminal building with grey and green roofs and green cargo doors.
