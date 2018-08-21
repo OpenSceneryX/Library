@@ -6,6 +6,7 @@ Email: nward@sasktel.net
 Width: 17m
 Depth: 4m
 Height: 3.5m
+Export Deprecated v2.3.0: objects/buildings/airport/huts/plastic/1
 Revision: $Revision$
 Date: $Date$
 =====================

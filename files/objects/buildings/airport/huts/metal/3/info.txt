@@ -1,4 +1,4 @@
-Title: Shed, metal, fuel storage
+Title: Hut, metal, fuel storage
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
@@ -8,4 +8,4 @@ Height: 2.8m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A metal fuel storage shed.
+Description: A metal fuel storage hut.
