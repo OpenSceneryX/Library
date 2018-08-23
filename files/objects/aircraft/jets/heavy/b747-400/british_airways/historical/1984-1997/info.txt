@@ -1,7 +1,8 @@
 Title: B747-400 British Airways (1984-1997 livery)
 =====================
-Author: Morton Melhuus
+Author: Morten Melhuus
 Author: Matt Moriarty
+URL: http://www.xplanefreeware.net/
 Author, texture: David Hossack
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
