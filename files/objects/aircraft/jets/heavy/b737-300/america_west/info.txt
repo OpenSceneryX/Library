@@ -3,7 +3,6 @@ Title: B737-300 America West
 Author: XPFW
 URL: http://www.xplanefreeware.net
 Author, conversion: Jeff Mueller
-Author, texture: Vincent McMahon
 Author, texture: Jeff Mueller
 Export: objects/aircraft/jets/heavy/b737-300/america_west
 Export: objects/aircraft/livery/america_west/b737-300

@@ -1,6 +1,6 @@
 Title: B747-400 Lufthansa (Star Alliance)
 =====================
-Author: Morton Melhuus
+Author: Morten Melhuus
 Author: Matt Moriarty
 URL: http://www.xplanefreeware.net/
 Author, texture: David Hossack
