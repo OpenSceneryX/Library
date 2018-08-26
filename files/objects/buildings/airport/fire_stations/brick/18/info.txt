@@ -1,0 +1,15 @@
+Title: Fire station, grey brick, four bays and office
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 40m
+Height: 10m
+Export External RE_Library: RE_Library/Fire_station/+office/open/red_doors/block/FS_4bay_off_orc
+Export External RE_Library: RE_Library/Fire_station/+office/closed/red_doors/block/FS_4bay_off_crc
+Export External RE_Library: RE_Library/Fire_station/+office/open/white_doors/block/FS_4bay_off_owc
+Export External RE_Library: RE_Library/Fire_station/+office/closed/white_doors/block/FS_4bay_off_cwc
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A four bay grey brick (breeze block) fire station with red doors and attached red brick office block.
