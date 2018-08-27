@@ -1,0 +1,17 @@
+Title: VCR, octagonal, white, variant 4
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 8.6m
+Depth: 8.6m
+Height: 5.8m
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wdb
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wbb
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wbg
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wdg
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wgb
+Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_wgg
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white, octagonal visual control room, variant 4.

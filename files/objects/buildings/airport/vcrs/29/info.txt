@@ -1,0 +1,17 @@
+Title: VCR, rectangular, white, variant 6
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 6m
+Depth: 5.5m
+Height: 4m
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wdb
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wbb
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wbg
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wdg
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wgb
+Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_wgg
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A white, rectangular visual control room, variant 6.
