@@ -1,14 +1,19 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
-<h3>Version x.x.x xxxx xxx xxxx</h3>
+<h3>Version 2.3.0 xxxx xxx xxxx</h3>
 <ul>
 <li>New scenery objects in this version:
-	<ul>Added most of Einstein's RE Library into OpenSceneryX.  Certain non general-purpose objects that are for specific airports were not included because OpenSceneryX does not contain airport-specific art. Some objects that were very similar to others were merged, for efficiency.</ul>
+	<ul>Incorporated most of <em>RE_Library</em> by Richard C Elliott (<a href="https://forums.x-plane.org/index.php?/profile/389608-einstein/">einstein at the .org</a>) into OpenSceneryX, which is about 900 objects.  Thank you Richard for offering this merge, it is hugely appreciated and expands the scope of OpenSceneryX considerably.
+		<ul>
+			<li><em>IMPORTANT NOTE 1</em>: Certain iconic objects from specific airports were <u>not included</u> because OpenSceneryX, by design, does not contain world-unique objects (for example, the old EGCC Manchester International control tower).  If any designer has used these objects, they will disappear. To fix this, airport designers will need to include these objects directly in their scenery packages. Richard has given permission to use his objects directly in this way (see the documentation in the RE_Library package) but as a courtesy it might be polite to drop him a note to let him know.</li>
+			<li><em>IMPORTANT NOTE 2</em>: Some objects that were very similar to others were merged, for efficiency.</li>
+			<li><em>IMPORTANT NOTE 3</em>: Because OSX requires all vehicles to be facing North with the tip of the nose at the origin, The <em>RE_Library</em> fire engines will change position and orientation.  I'm afraid the only way to sort this out is for airport designers to tweak the placements of these objects and release new versions of their airports.</li>
+		</ul>
 </li>
 <li>No modified scenery objects in this version</li>
 <li>Other changes:
 	<ul>
-		<li>Two invalid lines were fixed in the backup libraries (RE library and wordl2xplane library).</li>
+		<li>Two invalid lines were fixed in the backup libraries (<em>RE_Library</em> and <em>wordl2xplane library</em>).</li>
 		<li>Added support to include external libraries within OpenSceneryX, to enable libraries to be merged.  Items in external libraries are published to their original paths as well as new OpenSceneryX paths.</li>
 		<li>All deprecated paths are now exported into a DEPRECATED section of the library file, so they no longer show up in WED.</li>
 	</ul>
