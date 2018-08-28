@@ -1,0 +1,11 @@
+Title: Fire engine, Supacat SUV600, red + yellow
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2.5m
+Depth: 5.9m
+Height: 2.1m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Supacat SUV600 fire vehicle, based on a Land Rover 6-wheel chassis, in red and yellow livery.
