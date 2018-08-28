@@ -1,0 +1,12 @@
+Title: Fire engine, Panther 6x6, red, HRET
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 3.4m
+Depth: 11.7m
+Height: 3.8m
+Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_6x6_hret/Panther_6x6_hret_red
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Rosenbauer Panther 6-wheel fire engine, in red livery with a high reach extendible turret (HRET).

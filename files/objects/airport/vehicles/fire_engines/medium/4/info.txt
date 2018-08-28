@@ -1,0 +1,12 @@
+Title: Fire engine, Cobra 4x4, yellow
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2.8m
+Depth: 9.9m
+Height: 3.4m
+Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_4x4/Cobra_4x4_yellow
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Carmichael Cobra 4-wheel fire engine, in yellow livery.
