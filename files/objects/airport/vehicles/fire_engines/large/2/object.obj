@@ -2,7 +2,7 @@ A
 800
 OBJ
 
-TEXTURE		../../../../shared_textures/darragh_hickey/R3_Fire_Engine.png
+TEXTURE		../../../../../shared_textures/darragh_hickey/R3_Fire_Engine.png
 POINT_COUNTS	10657 0 0 20496
 
 VT	   0.6969    0.7777   12.0138	 0.000 -1.000 -0.000	0.9541 0.7548
