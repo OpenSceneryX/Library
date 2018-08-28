@@ -3,11 +3,11 @@ Checklist for New Items
 
 0. Investigate copyright
 
-1. Check object origin (tip of nose for aircraft) on all LOD layers
+1. Check object origin - tip of nose for vehicles, centred for most other objects - on all LOD layers
 
 2. Check object size
 
-3. Check orientation (pointing North) on all LOD layers
+3. Check orientation - pointing North - on all LOD layers for vehicles
 
 4. Convert to v8 format?
 
