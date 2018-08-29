@@ -7,6 +7,8 @@ Depth: 60m
 Height: 20m
 Export External RE_Library: RE_Library/Admin/4floor_60x20/red_brick/grey_slate/Admin2_1t
 Export External RE_Library: RE_Library/GA_Terminal/Red_tile/Brick/GA_terminal_3b
+Export External RE_Library: RE_Library/Control_Tower/small_terminal/hex_VCR/Control_admin2_1t_hex
+Export External RE_Library: RE_Library/Control_Tower/small_terminal/oct_VCR/Control_admin2_1t_oct
 Revision: $Revision$
 Date: $Date$
 =====================

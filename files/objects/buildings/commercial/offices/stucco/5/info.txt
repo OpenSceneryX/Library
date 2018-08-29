@@ -1,0 +1,13 @@
+Title: Office, stucco, grey roof, T shaped
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 40m
+Depth: 45m
+Height: 16.5m
+Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_a4
+Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_b4
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A stucco T shaped office building with grey roof.

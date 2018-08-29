@@ -6,6 +6,10 @@ Width: 15m
 Depth: 16.5m
 Height: 15m
 Export External RE_Library: RE_Library/Admin/5floor_15x15/white_stucco/Admin_sqr_4
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_a4
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_a4
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_b4
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_b4
 Revision: $Revision$
 Date: $Date$
 =====================

@@ -8,6 +8,8 @@ Height: 20m
 Export External RE_Library: RE_Library/Admin/4floor_60x20/light_brick/grey_slate/Admin2_3t
 Export External RE_Library: RE_Library/GA_Terminal/Red_tile/Grey_stone/GA_terminal_2b
 Export External RE_Library: RE_Library/GA_Terminal/Red_tile/Block/GA_terminal_4b
+Export External RE_Library: RE_Library/Control_Tower/small_terminal/hex_VCR/Control_admin2_3t_hex
+Export External RE_Library: RE_Library/Control_Tower/small_terminal/oct_VCR/Control_admin2_3t_oct
 Revision: $Revision$
 Date: $Date$
 =====================
