@@ -1,0 +1,12 @@
+Title: Tower, concrete, modern, 40m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 13.8m
+Depth: 13.8m
+Height: 39.7m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGJJ_39m/EGJJ_39m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 40m modern concrete control tower, based on Jersey UK.

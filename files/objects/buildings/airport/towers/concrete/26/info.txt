@@ -1,0 +1,15 @@
+Title: Tower, concrete, modern, 61m, green
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 16m
+Depth: 16m
+Height: 61m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_grn_grn
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_b_grn_grn
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_grn_w
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_b_grn_w
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 61m modern concrete control tower, green, based on Stansted UK.

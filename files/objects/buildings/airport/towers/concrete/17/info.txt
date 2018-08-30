@@ -1,0 +1,13 @@
+Title: Tower, concrete, modern, 53m, brown
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 13.4m
+Depth: 13.4m
+Height: 53m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNX_52m/EGNX_52m_g_brn_w
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNX_52m/EGNX_52m_b_brn_w
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 53m modern concrete control tower, brown, based on East Midlands UK.
