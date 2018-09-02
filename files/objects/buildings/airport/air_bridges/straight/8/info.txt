@@ -1,0 +1,12 @@
+Title: Air bridge section, straight, 7.25m AGL, 28m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2m
+Depth: 28m
+Height: 10.25m
+Export External RE_Library: RE_Library/Terminals/Airbridges/7.25m_agl/28m_length/Airbridge_7.25agl_28m_g
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Standard terminal building block component, air bridge, straight, 7.25m above ground, 28m long.
