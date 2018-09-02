@@ -5,9 +5,18 @@
 # subfolder, and it expects this template info.txt file to be in the same folder. It generates a
 # screenshot if it's a .obj and finally it reports all unique textures used.
 
+# Setup and arguments
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 TEXTUREPATH=$1
 MYDIR=$2
+
+# Functions
+handle_textures () {
+    # Replace the texture reference
+    sed -i '' -E -e "s|TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})|TEXTURE $TEXTUREPATH/\1|" $NEWFILE
+    TEXTUREPATHS+=($(grep -E "TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})" $NEWFILE))
+}
+
 
 if [ -z TEXTUREPATH ]
 then
@@ -48,7 +57,7 @@ TEXTUREPATHS=()
 OLDIFS="$IFS"
 IFS=$'\n'
 
-for F in $(find . -type f -maxdepth 1 -name '*.fac' -o -name '*.for' -o -name '*.lin' -o -name '*.obj' -o -name '*.pol')
+for F in $(find . -type f -maxdepth 1 -name '*.fac' -o -name '*.for' -o -name '*.lin' -o -name '*.obj' -o -name '*.pol' | sort -V)
 do
     FILENAME=$(basename "$F")
 
@@ -61,31 +70,32 @@ do
         *fac)
             NEWFILE=$N/facade.fac
             cp $F $NEWFILE
+            handle_textures
             ;;
         *for)
             NEWFILE=$N/forest.for
             cp $F $NEWFILE
+            handle_textures
             ;;
         *lin)
             NEWFILE=$N/line.lin
             cp $F $NEWFILE
+            handle_textures
             ;;
         *obj)
             NEWFILE=$N/object.obj
             cp $F $NEWFILE
+            handle_textures
             # It's a .obj file, generate screenshot
-            #$SCRIPTDIR/generate_screenshots.sh $MYDIR/$N/
+            $SCRIPTDIR/generate_screenshots.sh $MYDIR/$N/
             ;;
         *pol)
             NEWFILE=$N/polygon.pol
             cp $F $NEWFILE
+            handle_textures
             ;;
         *)
     esac
-
-    # Replace the texture reference
-    sed -i '' -E -e "s|TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})|TEXTURE $TEXTUREPATH/\1|" $NEWFILE
-    TEXTUREPATHS+=($(grep -E "TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})" $NEWFILE))
 
     # Include original filename at beginning of Title line inside info.txt for reference
     sed -i '' -E -e "s|Title: (.*)|Title: ---$FILENAME--- \1|" $N/info.txt
