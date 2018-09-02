@@ -50,7 +50,7 @@ IFS=$'\n'
 
 for F in $(find . -type f -maxdepth 1 -name '*.fac' -o -name '*.for' -o -name '*.lin' -o -name '*.obj' -o -name '*.pol')
 do
-    FILENAME=$(dirname "$F")
+    FILENAME=$(basename "$F")
 
     echo Processing file $F into folder $N/
     
@@ -86,6 +86,9 @@ do
     # Replace the texture reference
     sed -i '' -E -e "s|TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})|TEXTURE $TEXTUREPATH/\1|" $NEWFILE
     TEXTUREPATHS+=($(grep -E "TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})" $NEWFILE))
+
+    # Include original filename at beginning of Title line inside info.txt for reference
+    sed -i '' -E -e "s|Title: (.*)|Title: ---$FILENAME--- \1|" $N/info.txt
 
     N=$(($N+1))
 done
