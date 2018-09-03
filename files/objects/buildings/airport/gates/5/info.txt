@@ -1,0 +1,12 @@
+Title: Gate block, aluminium, 9.5m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 3m
+Depth: 6m
+Height: 9.5m
+Export External RE_Library: RE_Library/Terminals/Gate_block/9.5m/Gateblock_9.5m_a
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Standard terminal building block component, gate block, aluminium, 9.5m high. 
