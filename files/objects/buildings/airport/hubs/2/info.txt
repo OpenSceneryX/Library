@@ -1,0 +1,12 @@
+Title: Hub, brick, octagonal
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 36.2m
+Depth: 36.2m
+Height: 10m
+Export External RE_Library: RE_Library/Terminals/octagon/Octagon_b
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Standard terminal building block component, hub, brick, octagonal. 
