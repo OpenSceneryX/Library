@@ -80,15 +80,15 @@ try:
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
 		htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", False, False))
+		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX", "", False, False))
 		htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes for Latest Version", "", False, False))
+		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsVersionInfoFileHandle = open(classes.Configuration.osxFolder + "/doc/versionInfo.js", "w")
 
 		htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
 		htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", "", False, False))
 		htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
-		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", False, False))
+		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
 		
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
@@ -106,11 +106,13 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxFolder + "/doc/x_banner_web.png")
 		
 		# Developer Pack Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxDeveloperPackFolder + "/doc/x_banner_web.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/pdf.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/pdf.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
 		
