@@ -25,13 +25,13 @@ div#toc h2 {
 
 h3 {
 	padding: 0;
-	margin: 0 0 0.3em 0;
+	margin: 0.3em 0 0.5em 0;
 	font-size: 1.1em;
 }
 
 h4 {
 	padding: 0;
-	margin: 0 0 0.2em 0;
+	margin: 0.1em 0 0.3em 0;
 	font-size: 1em;
 }
 
@@ -493,5 +493,6 @@ ul.downloads li {
 
 ol {
 	margin-top: 0;
-}
+	-webkit-margin-after:0;
+	padding-bottom: 1em;
 }
