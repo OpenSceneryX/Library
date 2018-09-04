@@ -1224,6 +1224,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<p class='hide'><a href='#content' accesskey='2'>Skip to main content</a></p>\n"
+	result += "<img src='" + documentationPath + "x_banner_web.png' class='banner' alt='OpenSceneryX'>\n"
 	result += "<div id='header'>\n"
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
