@@ -1,0 +1,12 @@
+Title: Pier, concrete, 90m, finger
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10m
+Depth: 90m
+Height: 8m
+Export External RE_Library: RE_Library/Terminals/pier/90m/EGGP_type/EGGP_pier
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Standard terminal building block component, pier, concrete, 90m long, finger. 
