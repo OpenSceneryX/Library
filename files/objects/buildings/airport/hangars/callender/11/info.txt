@@ -1,0 +1,12 @@
+Title: Hangar, Callender, black, open both ends
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 38.8m
+Depth: 56.6m
+Height: 10.8m
+Export External RE_Library: RE_Library/Hangars/Callender/open_both_ends/Callender_o2_blk
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A black Callender hangar with doors open at both ends.

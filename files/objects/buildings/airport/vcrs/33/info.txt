@@ -1,0 +1,13 @@
+Title: VCR, rectangular, green, variant 8
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10.6m
+Depth: 9.1m
+Height: 7m
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_gdb
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_gdb
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A green, rectangular visual control room with a rail around the top, variant 8.

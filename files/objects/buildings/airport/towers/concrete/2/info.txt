@@ -1,9 +1,9 @@
-Title: Tower, concrete, large modern with offices
+Title: Tower, concrete, modern, 100m with offices
 =====================
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
 Width: 57m
-Depth: 100m
+Depth: 99m
 Height: 100m
 Revision: $Revision$
 Date: $Date$

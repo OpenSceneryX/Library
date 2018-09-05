@@ -1,0 +1,15 @@
+Title: Fire station, metal, four bays, office and square tower
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 40m
+Height: 13.8m
+Export External RE_Library: RE_Library/Fire_station/sq_tower/open/red_doors/metal/FS_4bay_off_twr_orm
+Export External RE_Library: RE_Library/Fire_station/sq_tower/closed/red_doors/metal/FS_4bay_off_twr_crm
+Export External RE_Library: RE_Library/Fire_station/sq_tower/open/white_doors/metal/FS_4bay_off_twr_owm
+Export External RE_Library: RE_Library/Fire_station/sq_tower/closed/white_doors/metal/FS_4bay_off_twr_cwm
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A four bay metal fire station with red doors and attached red brick office block and square observation tower.

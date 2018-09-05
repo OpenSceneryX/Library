@@ -1,0 +1,13 @@
+Title: Tower, concrete, modern, 55m, grey
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 19.5m
+Depth: 19.5m
+Height: 55.4m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGGP_55m/EGGP_55m_g_gry_w
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGGP_55m/EGGP_55m_b_gry_w
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 55m modern concrete control tower, grey, based on Liverpool John Lennon UK.

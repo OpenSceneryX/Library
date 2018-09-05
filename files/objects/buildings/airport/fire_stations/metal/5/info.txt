@@ -1,0 +1,11 @@
+Title: Fire station, metal, four bays, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 30m
+Height: 8m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A four bay grey metal fire station with open red doors.

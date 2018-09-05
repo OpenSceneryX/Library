@@ -117,6 +117,7 @@ class SceneryObject(object):
 		
 		self.virtualPaths = []
 		self.deprecatedVirtualPaths = []
+		self.externalVirtualPaths = []
 		self.sceneryTextures = []
 		
 		self.tutorial = 0

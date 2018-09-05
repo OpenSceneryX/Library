@@ -1,0 +1,13 @@
+Title: Cargo shed, light brick, 3 yellow doors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 33m
+Depth: 36m
+Height: 10m
+Export External RE_Library: RE_Library/Cargo_terminal/main/open/beige/yellow_doors/Cargo_main_os5
+Export External RE_Library: RE_Library/Cargo_terminal/main/closed/beige/yellow_doors/Cargo_main_cs5
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Light brick cargo shed with three yellow doors.

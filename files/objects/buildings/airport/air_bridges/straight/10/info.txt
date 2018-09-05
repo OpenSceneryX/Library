@@ -1,0 +1,12 @@
+Title: Air bridge section, straight, 5m AGL, 20m long, wide
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 5m
+Depth: 20m
+Height: 8m
+Export External RE_Library: RE_Library/Terminals/Airbridges/Wide/5m_agl/20m_length/Airbridge_W_5agl_20m_g
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Standard terminal building block component, air bridge, straight, 5m above ground, 20m long, extra wide.

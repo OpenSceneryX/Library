@@ -2299,7 +2299,7 @@ EXPORT_BACKUP objects/industrial/tanks/tank475.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/landmarks/UA/Hram-Hram_0.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/landmarks/UA/MON.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/landmarks/UA/armor.obj opensceneryx/placeholder.obj
-XPORT_BACKUP objects/landmarks/UA/spsob.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP objects/landmarks/UA/spsob.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/obstacles/Fuel_Tank.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/obstacles/GSM-tow.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP objects/obstacles/Pylon-Lift.obj opensceneryx/placeholder.obj

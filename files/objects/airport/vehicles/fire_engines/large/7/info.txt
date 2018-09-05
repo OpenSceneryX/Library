@@ -1,0 +1,12 @@
+Title: Fire engine, Cobra 8x8, red + yellow
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2.8m
+Depth: 12m
+Height: 3.3m
+Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_8x8/Cobra_8x8_r-y
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A Carmichael Cobra 8-wheel fire engine, in red and yellow livery.

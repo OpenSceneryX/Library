@@ -1,0 +1,12 @@
+Title: Tower, concrete, modern, 48m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 31m
+Depth: 32m
+Height: 48m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNT_34m/EGNT_46m_plain
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A 48m modern concrete control tower, based on Newcastle UK.

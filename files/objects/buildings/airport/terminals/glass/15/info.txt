@@ -1,0 +1,13 @@
+Title: Terminal, glass
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 184m
+Depth: 85m
+Height: 18.2m
+Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Complete/Cork_complete
+Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Outer_shell/Cork_shell
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Glass terminal building with curved roof. 

@@ -1,0 +1,12 @@
+Title: VCR, rectangular, grey, variant 4
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 5.3m
+Depth: 6.8m
+Height: 3.9m
+Export External RE_Library: RE_Library/VCRs/Type_d/d1/VCRd1_lgg
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A grey, rectangular visual control room, variant 4.

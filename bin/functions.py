@@ -60,7 +60,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -73,26 +73,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc)
 
 
 
@@ -106,7 +106,7 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -273,15 +273,17 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -369,15 +371,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .for """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -465,14 +469,16 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -560,12 +566,15 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -678,9 +687,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -778,6 +789,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	animatedPattern = re.compile("Animated:\s+(.*)")
 	exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
 	exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
+	exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
 	logoPattern = re.compile("Logo:\s+(.*)")
 	notePattern = re.compile("Note:\s+(.*)")
 	
@@ -956,7 +968,13 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if result:
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
-		
+
+		# Export to external library
+		result = exportExternalPattern.match(line)
+		if result:
+			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
+			continue
+
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
@@ -1008,7 +1026,6 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		#writeHTMLDocFile(sceneryObject)
 		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
 		writePDFEntry(sceneryObject)
 		
@@ -1025,157 +1042,6 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 			writePDFTOCEntry(childCategory.title, depth)
 			
 		buildDocumentation(sitemapXMLFileHandle, childCategory, depth + 1)
-
-
-
-def writeHTMLDocFile(sceneryObject):
-	""" Write a documentation file for the given SceneryObject to disk """
-	htmlFileContent = ""
-	
-	# Breadcrumbs
-	htmlFileContent += "<div id='breadcrumbs'>\n"
-	htmlFileContent += "<ul class='inline'>"
-	
-	sceneryCategoryAncestors = sceneryObject.sceneryCategory.getAncestors(1)
-	for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
-		if (sceneryCategoryAncestor.url != None):
-			htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
-		else:
-			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
-	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
-	htmlFileContent += "</ul>\n"
-
-	htmlFileContent += "</div>\n"
-	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
-	
-	# Content
-	htmlFileContent += "<div class='virtualPath'>\n"
-	htmlFileContent += "<h2>Virtual Paths</h2>\n"
-	
-	for virtualPath in sceneryObject.virtualPaths:
-		htmlFileContent += virtualPath + "<br />\n"
-		
-	htmlFileContent += "</div>\n"
-	
-	# Paths
-	if (not sceneryObject.deprecatedVirtualPaths == []):
-		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
-		htmlFileContent += "<h2>Deprecated Paths</h2>\n"
-		for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
-		htmlFileContent += "</div>\n"
-	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='/" + sceneryObject.filePathRoot + "/screenshot.jpg" + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
-	else:
-		htmlFileContent += "<img class='screenshot' src='/doc/screenshot_missing.png' alt='No Screenshot Available' />\n"
-
-	# Logo
-	if (sceneryObject.logoFileName != ""):
-		htmlFileContent += "<div class='objectlogocontainer'>\n"
-		htmlFileContent += "<img src='/doc/" + sceneryObject.logoFileName + "' alt='Object branding logo' />\n"
-		htmlFileContent += "</div>\n"
-
-	# Main information
-	htmlFileContent += "<ul class='mainItemDetails'>\n"
-	
-	# Author
-	if (not sceneryObject.author == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
-		if (not sceneryObject.url == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' onclick='window.open(this.href);return false;'>" + sceneryObject.author + "</a></span>"
-			#if (not sceneryObject.email == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
-		#elif (not sceneryObject.email == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
-		htmlFileContent += "</li>\n"
-		
-	# Texture author
-	if (not sceneryObject.textureAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
-		if (not sceneryObject.textureUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.textureAuthor + "</a></span>"
-			#if (not sceneryObject.textureEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
-		#elif (not sceneryObject.textureEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-		
-	# Conversion author
-	if (not sceneryObject.conversionAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
-		if (not sceneryObject.conversionUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.conversionAuthor + "</a></span>"
-			#if (not sceneryObject.conversionEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
-		#elif (not sceneryObject.conversionEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-	
-	# Modification author
-	if (not sceneryObject.modificationAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Modified By:</span> "
-		if (not sceneryObject.modificationUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.modificationUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.modificationAuthor + "</a></span>"
-			#if (not sceneryObject.modificationEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationEmail + "</a></span>"
-		#elif (not sceneryObject.modificationEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.modificationAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-	# Description
-	if (not sceneryObject.description == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
-		
-	# Note
-	if (not sceneryObject.note == ""):
-		htmlFileContent += "<li class='note'><span class='fieldTitle'>Important Note:</span> <span class='fieldValue'>" + sceneryObject.note + "</span></li>\n"
-	
-	# Dimensions
-	if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Dimensions:</span>\n"
-		htmlFileContent += "<ul class='dimensions'>\n"
-		htmlFileContent += "<li id='width'><span class='fieldTitle'>w:</span> " + sceneryObject.width + "</li>\n"
-		htmlFileContent += "<li id='height'><span class='fieldTitle'>h:</span> " + sceneryObject.height + "</li>\n"
-		htmlFileContent += "<li id='depth'><span class='fieldTitle'>d:</span> " + sceneryObject.depth + "</li>\n"
-		htmlFileContent += "</ul>\n"
-		htmlFileContent += "</li>\n"
-
-	# Polygon Specific
-	if isinstance(sceneryObject, classes.Polygon):
-		htmlFileContent += "<li><span class='fieldTitle'>Texture Scale:</span> <span class='fieldValue'>h: " + sceneryObject.scaleH + "m, v: " + sceneryObject.scaleV + "m</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Layer Group:</span> <span class='fieldValue'>" + sceneryObject.layerGroupName + "</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Layer Offset:</span> <span class='fieldValue'>" + sceneryObject.layerGroupOffset + "</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Surface Type:</span> <span class='fieldValue'>" + sceneryObject.surfaceName + "</span></li>\n"
-		
-	# Tutorial
-	if (sceneryObject.tutorial):
-		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
-	
-	# Texture references
-	for texture in sceneryObject.sceneryTextures:
-		if len(texture.sceneryObjects) > 1:
-			# This scenery object shares a texture with other objects
-			htmlFileContent += "<li><span class='fieldTitle'>Texture '" + texture.fileName + "' shared with:</span>"
-			htmlFileContent += "<ul>"
-			for sharedTextureObject in texture.sceneryObjects:
-				htmlFileContent += "<li><span class='fieldValue'><a href='/" + sharedTextureObject.filePathRoot + "/index.html'>" + sharedTextureObject.title + "</a></span></li>"
-			htmlFileContent += "</ul></li>"
-		
-	htmlFileContent += "</ul>\n"
-
-	# Write the file contents
-	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
-	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.close()
-	
-	return 1
 
 
 def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
@@ -1287,18 +1153,23 @@ def getXMLSitemapFooter():
 	return result
 
 
-def getLibraryHeader(versionTag, private):
+def getLibraryHeader(versionTag, includeStandard = True, type = ""):
 	""" Get the standard library.txt header """
 	
-	result = "A\n"
-	result += "800\n"
-	result += "LIBRARY\n"
-	result += "\n"
-	result += "# Version: v" + versionTag + "\n"
-	result += "\n"
-	
-	if (private == True):
+	if (includeStandard == True):
+		result = "A\n"
+		result += "800\n"
+		result += "LIBRARY\n"
+		result += "\n"
+		result += "# Version: v" + versionTag + "\n"
+		result += "\n"
+	else:
+		result = "\n"
+
+	if (type == "private"):
 		result += "PRIVATE\n\n"
+	elif (type == "deprecated"):
+		result += "DEPRECATED\n\n"
 
 	return result
 

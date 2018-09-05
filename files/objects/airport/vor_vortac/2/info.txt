@@ -1,0 +1,12 @@
+Title: VOR, grey, white antenna
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 30m
+Depth: 30m
+Height: 8.6m
+Export External RE_Library: RE_Library/Navaids/VORs/grey/VOR_ggw
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A grey VOR array with grey hut and white antennae.

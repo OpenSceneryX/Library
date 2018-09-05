@@ -1,0 +1,12 @@
+Title: Office, grey brick, grey roof, 3 floors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 12m
+Depth: 40m
+Height: 15m
+Export External RE_Library: RE_Library/Admin/3floor_15x40/block/Admin_long_2
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Grey brick (breeze-block) office building with grey roof.

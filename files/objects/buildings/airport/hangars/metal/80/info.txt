@@ -1,0 +1,13 @@
+Title: Hangar, metal, green, closed, curved roof, rear extension
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 44m
+Depth: 55m
+Height: 18m
+Export External RE_Library: RE_Library/Hangars/40x50m/curved/closed/rear_ext/green/RE_hangar_crv_40x50_ce3
+Export External RE_Library: RE_Library/Hangars/40x50m/curved/closed/green/RE_hangar_crv_40x50_c3
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A green metal hangar with a curved roof, closed doors and rear extension.

@@ -1,0 +1,13 @@
+Title: Cargo terminal, red and grey brick, blue features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 33m
+Depth: 55m
+Height: 10m
+Export External RE_Library: RE_Library/Cargo_terminal/complete/open/grey/blue_doors/Cargo_full_olb1
+Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/grey/blue_doors/Cargo_full_clb1
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Red and grey brick (breeze-block) cargo terminal building with grey and blue roofs and blue cargo doors.

@@ -1,4 +1,4 @@
-Title: Fire Engine, Large, Yellow
+Title: Fire Engine, Timoney, Yellow
 =====================
 Author: Darragh Hickey
 URL: http://forums.x-plane.org/index.php?showuser=1182
@@ -6,7 +6,7 @@ Email: darragh.hickey@gmail.com
 Width: 3.4m
 Depth: 12m
 Height: 3.4m
-Export Deprecated v2.3.0: objects/airport/vehicles/fire_engines/2
+Export Deprecated v3.0.0: objects/airport/vehicles/fire_engines/2
 Revision: $Revision$
 Date: $Date$
 =====================

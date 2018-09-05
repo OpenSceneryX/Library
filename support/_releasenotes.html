@@ -1,11 +1,26 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
-<h3>Version x.x.x xxxx xxx xxxx</h3>
+<h3>Version 3.0.0 xxxx xxx xxxx</h3>
 <ul>
-<li>No new scenery objects in this version</li>
+<li>New scenery objects in this version:
+	<ul>
+		<li>Incorporated most of <a href="https://forums.x-plane.org/index.php?/files/file/24722-re_library-airport-buildings-and-related-objects/"><em>RE_Library</em></a> by Richard C Elliott (<a href="https://forums.x-plane.org/index.php?/profile/389608-einstein/">einstein at the .org</a>) into OpenSceneryX, which is about 900 objects. There are too many to list individually here, but the collection includes offices, radio installations, vehicles, hangars, fire stations, control towers, terminals and visual control rooms. Thank you Richard for offering this merge, it is hugely appreciated and expands the scope of OpenSceneryX considerably.
+			<ul>
+				<li><strong>IMPORTANT NOTE 1</strong>: Certain iconic objects from specific airports were <u>not included</u> because OpenSceneryX, by design, does not contain world-unique objects (for example, the old EGCC Manchester International control tower).  If any designer has used these objects, they will disappear. To fix this, airport designers will need to include these objects directly in their scenery packages. Richard has given permission to use his objects directly in this way (see the documentation in the <em>RE_Library</em> package) but as a courtesy it might be polite to drop him a note to let him know.</li>
+				<li><strong>IMPORTANT NOTE 2</strong>: Some objects that were very similar to others were merged, for efficiency.</li>
+				<li><strong>IMPORTANT NOTE 3</strong>: Because OSX requires all vehicles to be facing North with the tip of the nose at the origin, The <em>RE_Library</em> fire engines will change position and orientation.  I'm afraid the only way to sort this out is for airport designers to tweak the placements of these objects and release new versions of their airports.</li>
+				<li><strong>IMPORTANT NOTE 4</strong>: Some of the control tower objects in <em>RE_Library</em> were combinations of specific office blocks and specific Visual Control Rooms (VCRs). For efficiency, these have been replaced with the equivalent office blocks (without VCR), so airports that have used these will need to be modified to have a VCR placed on top of the office block. However, this has the added advantage that many more building / VCR combinations are now possible.</li>
+			</ul>
+		</li>
+		<li>Four Supacat SUV600 fire vehicles, based on Land Rover 6x6 chassis.</li>
+	</ul>
+</li>
 <li>No modified scenery objects in this version</li>
 <li>Other changes:
 	<ul>
+		<li>Two invalid lines were fixed in the backup libraries (<em>RE_Library</em> and <em>wordl2xplane library</em>).</li>
+		<li>Added support to include external libraries within OpenSceneryX, to enable libraries to be merged.  Items in external libraries are published to their original paths as well as new OpenSceneryX paths.</li>
+		<li>All deprecated paths are now exported into a DEPRECATED section of the library file, so they no longer show up in WED.</li>
 		<li>Refreshed design and branding in library docs and developer pack docs.</li>
 	</ul>
 </li>
@@ -16,7 +31,7 @@
 <li>No new scenery objects in this version</li>
 <li>Modified scenery objects in this version:
 	<ul>
-		<li>A number of the ships and boats have had real navigation lights added, thanks to PilotFlo from the MarineTrafficX project for supplying these.</li>
+		<li>A number of the ships and boats have had real navigation lights added, thanks to <a href="https://forums.x-plane.org/index.php?/profile/540456-pilotflo/">PilotFlo</a> from the <a href="https://forums.x-plane.org/index.php?/files/file/43684-marinetrafficx/">MarineTrafficX project</a> for supplying these.</li>
 	</ul>
 </li>
 <li>Other changes:
@@ -36,7 +51,7 @@
 <li>No modified scenery objects in this version</li>
 <li>Other changes:
 	<ul>
-		<li>The library now includes the excellent backup library by chris k and einstein, to help reduce problems with missing scenery packages.  The installer has a setting to show visible or invisible placeholders - visible if you want to see that you are missing some libraries, invisible if you prefer not to know.</li>
+		<li>The library now includes the excellent <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/"><em>backup library</em></a> originally by <a href="https://forums.x-plane.org/index.php?/profile/45106-chris-k/">chris k</a> and now maintained by <a href="https://forums.x-plane.org/index.php?/profile/389608-einstein/">einstein</a>, to help reduce problems with missing scenery packages.  The installer has a setting to show visible or invisible placeholders - visible if you want to see that you are missing some libraries, invisible if you prefer not to know.</li>
 		<li>The installer now supports the default Steam X-Plane folder on Mac (which is normally beneath the invisible 'Library' folder).  Click the 'Use Steam' button to set your X-Plane path to this, if the folder exists.</li>
 		<li>The placeholder library (for developers to include in their scenery packages) is now marked as PRIVATE so that scenery editing programs don't show the contents.</li>
 	</ul>
@@ -330,7 +345,7 @@
 		<li>A stucco hut</li>
 		<li>Some more DC-3s and some C-47s in various liveries</li>
 		<li>The first 'line' object has been added to the library - a runway closed 'X' marking.</li>
-		<li>An animated plane spotter from Mr 3D's Xsim collection.<br/><strong>Note: In some cases there are special requirements to get the animation in Xsim objects to work.  See the individual documentation for these objects.</strong></li>
+		<li>An animated plane spotter from Mr 3D's Xsim collection.<br/><strong>IMPORTANT NOTE</strong>: In some cases there are special requirements to get the animation in Xsim objects to work.  See the individual documentation for these objects.</li>
 		<li>An animated FedEx loader with animated worker loading baggage, from the Xsim collection.</li>
 		<li>A baggage cart with animated worker loading baggage, from the Xsim collection.</li>
 		<li>An animated flag, from the Xsim collection.</li>
@@ -463,7 +478,7 @@
 	<ul>
 		<li>A number of airport service vehicles and furniture have been added, including some portable stairs, trucks, a van, two collections of tugs (one very detailed set from the XPushback team), a lift, a GPU and some containers.</li>
 		<li>The remainder of the EDDM B747-400s have been added: Air Canada (historical 1988-1996), British Airways (historical Landor livery), Delta, Lufthansa Star Alliance, Thai Airways and Thai Star Alliance.</li>
-		<li>The remainder of Bertrand's GA aircraft have been added: Jodel D112, Robin DR221, Robin DR400, Robin HR200, Morane-Saulnier MS-880 Rallye, Robin R3000 and Socata TB20.	These are each available in 16 paints and use his clever texture sharing method across all aircraft.</li>
+		<li>The remainder of Bertrand's GA aircraft have been added: Jodel D112, Robin DR221, Robin DR400, Robin HR200, Morane-Saulnier MS-880 Rallye, Robin R3000 and Socata TB20. These are each available in 16 paints and use his clever texture sharing method across all aircraft.</li>
 		<li>A collection of hangars.</li>
 		<li>A dutch windmill.</li>
 		<li>A wooden control tower.</li>
@@ -497,7 +512,7 @@
 <ul>
 <li>New scenery objects in this version:
 	<ul>
-		<li>Bertrand Augras has been hard at work again, this time producing a set of GA aircraft.	The aircraft added so far are: Cessna 150, Cessna 172.	These are each available in 16 paints and use his clever texture sharing method across all aircraft.</li>
+		<li>Bertrand Augras has been hard at work again, this time producing a set of GA aircraft. The aircraft added so far are: Cessna 150, Cessna 172. These are each available in 16 paints and use his clever texture sharing method across all aircraft.</li>
 	</ul>
 </li>
 <li>Modified scenery objects in this version:
@@ -520,7 +535,7 @@
 <ul>
 <li>New scenery objects in this version:
 	<ul>
-		<li>The fabulous EDDM collection of static aircraft (produced by Jochen Haink from the original XPFP aircraft) has been added.	OpenSceneryX doesn't quite contain the full collection of EDDM aircraft because some duplicate Bertrand Augras' aircraft and liveries, even so this is another huge addition of high quality models.	Aircraft types are: A320, A340, B727, B737, B747, B767 and B777 all in various liveries.</li>
+		<li>The fabulous EDDM collection of static aircraft (produced by Jochen Haink from the original XPFP aircraft) has been added. OpenSceneryX doesn't quite contain the full collection of EDDM aircraft because some duplicate Bertrand Augras' aircraft and liveries, even so this is another huge addition of high quality models. Aircraft types are: A320, A340, B727, B737, B747, B767 and B777 all in various liveries.</li>
 		<li>King Air B200</li>
 		<li>53' Shipping container</li>
 		<li>A portable barrier</li>
@@ -532,7 +547,7 @@
 <li>Updated scenery objects in this version:
 	<ul>
 		<li>All of Bertrand's aircraft have been updated to his latest versions, improving the aircraft models, textures and fixing some issues.</li>
-		<li>All alpilotx's forests have been updated from his v1.0 files to his v2.1 files.	 See <a href="http://www.alpilotx.de" onclick='window.open(this.href);return false;'>his site</a> for details of the changes. This update fixes the error that X-Plane 8.61 and above shows when launching with OpenSceneryX installed.</li>
+		<li>All alpilotx's forests have been updated from his v1.0 files to his v2.1 files. See <a href="http://www.alpilotx.de" onclick='window.open(this.href);return false;'>his site</a> for details of the changes. This update fixes the error that X-Plane 8.61 and above shows when launching with OpenSceneryX installed.</li>
 	</ul>
 </li>
 </ul>
@@ -540,10 +555,10 @@
 
 <h3>Version 1.4.0 3rd September 2007</h3>
 <ul>
-<li>Complete re-vamp of documentation system, the index was becoming confusing and unuseable:	 Objects are now categorised (note that this is purely for the documentation, it doesn't affect the use of the library in X-Plane).	 The display is much more compact and is now tabbed to reduce screen space used.	Objects with multiple variants (e.g. aircraft with several liveries) now each have their own page showing the variants.	 For objects with multiple variants, only a single entry is shown in the table of contents now, further reducing the size of the list.</li>
+<li>Complete re-vamp of documentation system, the index was becoming confusing and unuseable: Objects are now categorised (note that this is purely for the documentation, it doesn't affect the use of the library in X-Plane). The display is much more compact and is now tabbed to reduce screen space used. Objects with multiple variants (e.g. aircraft with several liveries) now each have their own page showing the variants. For objects with multiple variants, only a single entry is shown in the table of contents now, further reducing the size of the list.</li>
 <li>New scenery objects in this version:
 	<ul>
-		<li>A huge collection of high-quality aircraft contributed by Bertrand Augras, 17 aircraft types in 11 liveries.	The types are: A310, A320, A340, A380, ATR42, B737, B747, B757, Beech B1900, Dornier D328, Embaer EMB120, Embraer ERJ145, Fokker 50, MD11, MD90, BAE RJ70, Saab 340.	The liveries are: Aeroflot, Aerolineas Argentinas, Air Canada, Air France, Alitalia, British Airways, Emirates, JAL, KLM, Lufthansa and Swiss.	Bertrand has very cleverly shared a single texture (per livery) across all his aircraft, so reducing the load on the graphics card for these aircraft.</li>
+		<li>A huge collection of high-quality aircraft contributed by Bertrand Augras, 17 aircraft types in 11 liveries. The types are: A310, A320, A340, A380, ATR42, B737, B747, B757, Beech B1900, Dornier D328, Embaer EMB120, Embraer ERJ145, Fokker 50, MD11, MD90, BAE RJ70, Saab 340. The liveries are: Aeroflot, Aerolineas Argentinas, Air Canada, Air France, Alitalia, British Airways, Emirates, JAL, KLM, Lufthansa and Swiss. Bertrand has very cleverly shared a single texture (per livery) across all his aircraft, so reducing the load on the graphics card for these aircraft.</li>
 		<li>LearJet 60</li>
 	</ul>
 </li>
@@ -551,7 +566,7 @@
 
 <h3>Version 1.3.0 29th May 2007</h3>
 <ul>
-<li>This version contains some modifications to static aircraft in the library to ensure they all have consistent origins and orientation: Some aircraft had a heading of 0 degrees, some had a heading of 270 degrees, all are now consistently 0 degrees; Some aircraft had their origin at their centre of gravity, some at the tip of the nose and some in arbitrary places, all now have their origins set to the tip of the nose.	 Orientation changes were made to the following aircraft:
+<li>This version contains some modifications to static aircraft in the library to ensure they all have consistent origins and orientation: Some aircraft had a heading of 0 degrees, some had a heading of 270 degrees, all are now consistently 0 degrees; Some aircraft had their origin at their centre of gravity, some at the tip of the nose and some in arbitrary places, all now have their origins set to the tip of the nose. Orientation changes were made to the following aircraft:
 	<ul>
 		<li>B727-200 American, Delta and United</li>
 		<li>B747-400 British Airways</li>
@@ -570,7 +585,7 @@ origin changes were made to the following aircraft:
 		<li>C185E All variants</li>
 		<li>PA18 All variants</li>
 	</ul>
-If you have already used any of these aircraft in a scenery package, please check the positioning as it will have changed.	I apologise for this, but going forward we should use a consistent orientation and origin scheme and it is best to get it right now.</li>
+<strong>IMPORTANT NOTE</strong>: If you have already used any of these aircraft in a scenery package, please check the positioning as it will have changed. I apologise for this, but going forward we should use a consistent orientation and origin scheme and it is best to get it right now.</li>
 <li>New scenery objects in this version:
 	<ul>
 		<li>Small animated radar dish</li>
@@ -593,15 +608,15 @@ If you have already used any of these aircraft in a scenery package, please chec
 
 <h3>Version 1.2.1 5th May 2007</h3>
 <ul>
-<li>Bug fix for missing textures on some objects (all obj v7 objects had a problem, as did some objects that should have been excluded from the library).	 This affected the American Airlines MD-50 and the Embraer 170s.</li>
-<li>Most aircraft are now published to many more virtual paths to allow for lots of choices for randomisation of aircraft.	A few examples: All heavy jets are now published to <tt>objects/aircraft/jets/heavy.obj</tt> to allow the selection of a random heavy from all heavy jets; all jets are now published to <tt>objects/aircraft/jets.obj</tt> to allow the selection of a random jet from all jets; all aircraft are now published to <tt>objects/aircraft.obj</tt> to allow the selection of a random aircraft from all aircraft in the library.	 Some special purpose aircraft (skiplanes, floatplanes) and liveries (historical, manufacturer house colours) are excluded from this.</li>
+<li>Bug fix for missing textures on some objects (all obj v7 objects had a problem, as did some objects that should have been excluded from the library). This affected the American Airlines MD-50 and the Embraer 170s.</li>
+<li>Most aircraft are now published to many more virtual paths to allow for lots of choices for randomisation of aircraft. A few examples: All heavy jets are now published to <tt>objects/aircraft/jets/heavy.obj</tt> to allow the selection of a random heavy from all heavy jets; all jets are now published to <tt>objects/aircraft/jets.obj</tt> to allow the selection of a random jet from all jets; all aircraft are now published to <tt>objects/aircraft.obj</tt> to allow the selection of a random aircraft from all aircraft in the library. Some special purpose aircraft (skiplanes, floatplanes) and liveries (historical, manufacturer house colours) are excluded from this.</li>
 </ul>
 
 <h3>Version 1.2.0 4th May 2007</h3>
 <ul>
 <li>From this version onwards, the library is now distributed using an installer. The installer only downloads new or modified files, so reducing the size and time taken.</li>
 <li>Animated objects are now marked with an icon in the documentation</li>
-<li>Where multiple liveries are available for an aircraft, all appropriate liveries are all now published to the same generic virtual path as well as the livery-specific path.	 This allows authors to pick a generic aircraft and X-Plane&reg; will automatically randomise between the available liveries.	 Some liveries are not included in this - one-offs, house colours and historical colours.</li>
+<li>Where multiple liveries are available for an aircraft, all appropriate liveries are all now published to the same generic virtual path as well as the livery-specific path. This allows authors to pick a generic aircraft and X-Plane&reg; will automatically randomise between the available liveries. Some liveries are not included in this - one-offs, house colours and historical colours.</li>
 <li>New scenery objects in this version:
 	<ul>
 		<li>B747-400 (Multiple liveries)</li>
