@@ -1,0 +1,12 @@
+Title: Awning, metal and glass
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 4m
+Depth: 12m
+Height: 4m
+Export External RE_Library: RE_Library/Terminals/Door_awning/EGGP_awning
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: Metal 4m high awning with glass cover.  Suitable for use outside airport terminals.
