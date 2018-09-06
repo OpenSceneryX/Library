@@ -1,4 +1,4 @@
-Title: Church, stone, light brown, spire, 40m
+Title: Church, stone, green grey, tower and spire, 40m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
@@ -8,4 +8,4 @@ Height: 31m
 Revision: $Revision$
 Date: $Date$
 =====================
-Description: A traditional British style church constructed in light brown stone with a spire. 
+Description: A traditional British style church constructed in green grey stone with a tower and spire. 
