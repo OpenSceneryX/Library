@@ -34,8 +34,6 @@ try:
 	showTraceback = 0
 	
 	try:
-		functions.growlRegister()
-
 		functions.displayMessage("========================\n")
 		functions.displayMessage("OpenSceneryX Release\n")
 		functions.displayMessage("========================\n")
@@ -62,7 +60,7 @@ try:
 		# print "svn mkdir tags/" + classes.Configuration.versionNumber
 		classes.Configuration.makeFolders()
 		# status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
-		
+
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
@@ -285,7 +283,7 @@ try:
 		functions.displayMessage("Complete\n")
 		functions.displayMessage("========================\n")
 		
-		functions.growlNotify("OpenSceneryX build completed")
+		functions.osNotify("OpenSceneryX build completed")
 		
 	except classes.BuildError, e:
 		exceptionMessage = e.value

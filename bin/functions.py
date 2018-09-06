@@ -1245,7 +1245,7 @@ def displayMessage(message, type="message"):
 		pcrt.fg(pcrt.RED)
 		print "ERROR: " + message,
 		pcrt.fg(pcrt.WHITE)
-		growlNotify("Error: " + message)
+		osNotify("Error: " + message)
 	elif (type == "warning"):
 		pcrt.fg(pcrt.YELLOW)
 		print "WARNING: " + message,
@@ -1267,19 +1267,15 @@ def getInput(message, maxSize):
 	return raw_input(message)
 
 
-def growlRegister():
-	""" Register the application with Growl """
-	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so use growlnotify
-	# instead for the moment.  growlnotify doesn't need a separate registration call so do nothing
-	# here.
-
-
-def growlNotify(message = ""):
-	""" Send a growl notification """
-	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so just make a system
-	# call to growlnotify for the moment.  Note that growlnotify (command line growl interface) must
-	# be installed.
-	os.system('growlnotify -name "OpenSceneryX Build Script" --image "' + os.path.join(classes.Configuration.supportFolder, "x_print.png") + '" --message "' + message + '"')
+def osNotify(message = ""):
+	""" Send an operating system notification """
+	# On Mac: Requires terminal-notifier to be installed:
+	# gem install terminal-notifier
+	t = '-title OpenSceneryX Build Script'
+	m = '-message {!r}'.format(message)
+	i = '-appIcon {!r}'.format(os.path.join(classes.Configuration.supportFolder, "x_print.png"))
+	ci = '-contentImage {!r}'.format(os.path.join(classes.Configuration.supportFolder, "x_print.png"))
+	os.system('terminal-notifier {}'.format(' '.join([m, t, i, ci])))
 
 
 def writePDFSectionHeading(title, newPageBefore = 0):
