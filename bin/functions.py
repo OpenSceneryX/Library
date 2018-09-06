@@ -24,6 +24,44 @@ try:
 except ImportError:
 	Image = None
 
+# Global regex patterns
+exportPattern = re.compile("Export:\s+(.*)")
+titlePattern = re.compile("Title:\s+(.*)")
+shortTitlePattern = re.compile("Short Title:\s+(.*)")
+authorPattern = re.compile("Author:\s+(.*)")
+textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
+conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
+modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
+emailPattern = re.compile("Email:\s+(.*)")
+textureEmailPattern = re.compile("Email, texture:\s+(.*)")
+conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
+modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
+urlPattern = re.compile("URL:\s+(.*)")
+textureUrlPattern = re.compile("URL, texture:\s+(.*)")
+conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
+modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
+widthPattern = re.compile("Width:\s+(.*)")
+heightPattern = re.compile("Height:\s+(.*)")
+depthPattern = re.compile("Depth:\s+(.*)")
+descriptionPattern = re.compile("Description:\s+(.*)")
+excludePattern = re.compile("Exclude:\s+(.*)")
+animatedPattern = re.compile("Animated:\s+(.*)")
+exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
+exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
+exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
+logoPattern = re.compile("Logo:\s+(.*)")
+notePattern = re.compile("Note:\s+(.*)")
+# Texture patterns
+v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
+v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
+v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
+v8PolygonTexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
+# Polygon patterns
+scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
+layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
+surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
+
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
@@ -131,11 +169,11 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
-	v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-	v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
+	# Regex patterns
+	global v7TexturePattern
+	global v8TexturePattern
+	global v8LitTexturePattern
+	global v9NormalTexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -308,8 +346,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+	# Regex patterns
+	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -406,8 +444,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+	# Regex patterns
+	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -503,8 +541,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+	# Regex patterns
+	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -599,11 +637,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-	scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
-	layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
-	surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
+	# Regex patterns
+	global v8PolygonTexturePattern
+	global scalePattern
+	global layerGroupPattern
+	global surfacePattern
 	textureFound = 0
 	scaleFound = 0
 	layerGroupFound = 0
@@ -611,7 +649,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	
 	for line in objectFileContents:
 		if not textureFound:
-			result = v8TexturePattern.match(line)
+			result = v8PolygonTexturePattern.match(line)
 			if result:
 				textureFound = 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
@@ -765,34 +803,34 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
 	
-	# define the regex patterns:
-	exportPattern = re.compile("Export:\s+(.*)")
-	titlePattern = re.compile("Title:\s+(.*)")
-	shortTitlePattern = re.compile("Short Title:\s+(.*)")
-	authorPattern = re.compile("Author:\s+(.*)")
-	textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
-	conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
-	modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
-	emailPattern = re.compile("Email:\s+(.*)")
-	textureEmailPattern = re.compile("Email, texture:\s+(.*)")
-	conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
-	modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
-	urlPattern = re.compile("URL:\s+(.*)")
-	textureUrlPattern = re.compile("URL, texture:\s+(.*)")
-	conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
-	modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
-	widthPattern = re.compile("Width:\s+(.*)")
-	heightPattern = re.compile("Height:\s+(.*)")
-	depthPattern = re.compile("Depth:\s+(.*)")
-	descriptionPattern = re.compile("Description:\s+(.*)")
-	excludePattern = re.compile("Exclude:\s+(.*)")
-	animatedPattern = re.compile("Animated:\s+(.*)")
-	exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
-	exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
-	exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
-	logoPattern = re.compile("Logo:\s+(.*)")
-	notePattern = re.compile("Note:\s+(.*)")
-	
+	# Regex patterns
+	global exportPattern
+	global titlePattern
+	global shortTitlePattern
+	global authorPattern
+	global textureAuthorPattern
+	global conversionAuthorPattern
+	global modificationAuthorPattern
+	global emailPattern
+	global textureEmailPattern
+	global conversionEmailPattern
+	global modificationEmailPattern
+	global urlPattern
+	global textureUrlPattern
+	global conversionUrlPattern
+	global modificationUrlPattern
+	global widthPattern
+	global heightPattern
+	global depthPattern
+	global descriptionPattern
+	global excludePattern
+	global animatedPattern
+	global exportPropagatePattern
+	global exportDeprecatedPattern
+	global exportExternalPattern
+	global ogoPattern
+	global notePattern
+
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
 	
