@@ -52,7 +52,6 @@ exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
 logoPattern = re.compile("Logo:\s+(.*)")
 notePattern = re.compile("Note:\s+(.*)")
 # Texture patterns
-v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
 v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
@@ -147,7 +146,7 @@ def handleCategory(dirpath, currentCategory):
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
-	global v7TexturePattern, v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
+	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
@@ -174,36 +173,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	textureFound = 0
 	
 	for line in objectFileContents:
-		result = v7TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1) + ".png"))
-			litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Object (v7) specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
-			
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-				
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1) + ".png"))
-				if os.path.isfile(litTextureFile):
-					shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1) + "LIT.png"))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - object (v7) excluded (" + textureFile + ")\n", "error")
-				return
-			
-			# Break loop as soon as we find a v7 texture, need look no further
-			break
-
 		result = v8TexturePattern.match(line)
 		if result:
 			textureFound = textureFound + 1
