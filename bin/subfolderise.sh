@@ -13,8 +13,8 @@ MYDIR=$2
 # Functions
 handle_textures () {
     # Replace the texture reference
-    sed -i '' -E -e "s|TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})|TEXTURE $TEXTUREPATH/\1|" $NEWFILE
-    TEXTUREPATHS+=($(grep -E "TEXTURE[[:space:]]+.*\/([^/]+\.[A-Za-z]{3})" $NEWFILE))
+    sed -i '' -E -e "s~TEXTURE[[:space:]]+(.*\/|[[:space:]])([A-Za-z0-9_]+\.[A-Za-z]{3})~TEXTURE $TEXTUREPATH/\2~" $NEWFILE
+    TEXTUREPATHS+=($(grep -E "TEXTURE[[:space:]]+(.*\/|[[:space:]])([A-Za-z0-9_]+\.[A-Za-z]{3})" $NEWFILE))
 }
 
 
