@@ -171,8 +171,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	file.close()
 
 	textureFound = 0
+	lineNumber = 1
 	
 	for line in objectFileContents:
+		if lineNumber == 2 and line.startswith("7"):
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("Object v7 not supported\n", "error")
+
 		result = v8TexturePattern.match(line)
 		if result:
 			textureFound = textureFound + 1
@@ -255,6 +260,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
 				return
+
+		lineNumber += 1
 
 	if textureFound == 0:
 		displayMessage("\n" + objectSourcePath + "\n")
