@@ -147,6 +147,8 @@ def handleCategory(dirpath, currentCategory):
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
+	global v7TexturePattern, v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -169,11 +171,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Regex patterns
-	global v7TexturePattern
-	global v8TexturePattern
-	global v8LitTexturePattern
-	global v9NormalTexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -324,6 +321,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .fac """
 
+	global v8TexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -346,8 +345,6 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Regex patterns
-	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -422,6 +419,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .for """
 	
+	global v8TexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -444,8 +443,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Regex patterns
-	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -519,6 +516,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
+	global v8TexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -541,8 +540,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Regex patterns
-	global v8TexturePattern
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -615,6 +612,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
+	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -637,11 +636,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Regex patterns
-	global v8PolygonTexturePattern
-	global scalePattern
-	global layerGroupPattern
-	global surfacePattern
 	textureFound = 0
 	scaleFound = 0
 	layerGroupFound = 0
@@ -798,39 +792,16 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
+	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
+	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
+	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
+	global logoPattern, notePattern
+
 	file = open(sceneryObject.infoFilePath)
 	websiteInfoFileContents = file.read()
 	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
 	
-	# Regex patterns
-	global exportPattern
-	global titlePattern
-	global shortTitlePattern
-	global authorPattern
-	global textureAuthorPattern
-	global conversionAuthorPattern
-	global modificationAuthorPattern
-	global emailPattern
-	global textureEmailPattern
-	global conversionEmailPattern
-	global modificationEmailPattern
-	global urlPattern
-	global textureUrlPattern
-	global conversionUrlPattern
-	global modificationUrlPattern
-	global widthPattern
-	global heightPattern
-	global depthPattern
-	global descriptionPattern
-	global excludePattern
-	global animatedPattern
-	global exportPropagatePattern
-	global exportDeprecatedPattern
-	global exportExternalPattern
-	global ogoPattern
-	global notePattern
-
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
 	
