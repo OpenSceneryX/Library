@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 # Script to build a library release
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
@@ -46,8 +47,6 @@ try:
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the release tag (e.g. 1.0.1): ", 10)
 		
-		os.chdir("..")
-		
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
 		classes.Configuration.init(versionTag, buildPDF)
@@ -57,10 +56,9 @@ try:
 					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
-		# print "svn mkdir tags/" + classes.Configuration.versionNumber
-		classes.Configuration.makeFolders()
-		# status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
 
+		os.chdir("..")
+		classes.Configuration.makeFolders()
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")

@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
 # If this script is used to generate a scenery library other than OpenSceneryX, recognition MUST be given
@@ -1263,7 +1264,7 @@ def writePDFSectionHeading(title, newPageBefore = 0):
 
 	if (newPageBefore): pdf.add_page()
 
-	pdf.set_font("Arial", "B", 16)
+	pdf.set_font("DejaVu", "B", 16)
 	pdf.set_text_color(0)
 	pdf.cell(0, 12, title, 0, 1)
 
@@ -1278,7 +1279,7 @@ def writePDFText(text):
 	pdf = classes.Configuration.developerPDF
 
 	pdf.columns = 1
-	pdf.set_font("Arial", "", 10)
+	pdf.set_font("DejaVu", "", 10)
 	pdf.multi_cell(0, 5, text, 0, 'J', 0, False)
 	
 
@@ -1329,13 +1330,13 @@ def writePDFEntry(sceneryObject):
 	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight)
 
 	# Title
-	pdf.set_font("Arial", "B", fontSize)
+	pdf.set_font("DejaVu", "B", fontSize)
 	pdf.set_text_color(0)
 	pdf.set_x(startX + imageMaxDimension)
 	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1)
 	
 	# Virtual paths
-	pdf.set_font("Arial", "", fontSize)
+	pdf.set_font("DejaVu", "", fontSize)
 	virtualPathIndex = 1
 	for virtualPath in sceneryObject.virtualPaths:
 		if (virtualPathIndex == 2): pdf.set_text_color(128)
@@ -1369,6 +1370,6 @@ def closePDF(path):
 	pdf.columns = 1
 	
 	pdf.set_text_color(0)
-	pdf.insert_toc(2, 16, 8, 'Arial', 'Table of Contents')
+	pdf.insert_toc(2, 16, 8, 'DejaVu', 'Table of Contents')
 	pdf.output(path, "F")
 	
