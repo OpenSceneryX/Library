@@ -1,0 +1,11 @@
+Title: Church, stone, red, spire, 30m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 12.4m
+Depth: 30m
+Height: 21m
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: A traditional British style church constructed in red stone with a spire. 
