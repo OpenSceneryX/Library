@@ -1,0 +1,14 @@
+Title: Church, Large Medieval European
+=====================
+Author: Denmeul
+Email: xpo@denmeul.nl
+Width: 26m
+Depth: 62.3m
+Height: 70.9m
+Export Deprecated v1.3.0: objects/buildings/religious/church_medieval_large
+Export Deprecated v3.0.0: objects/buildings/religious/churches/medieval/large
+Export Deprecated v3.0.0: objects/regions/western_europe/religious/church_medieval_large
+Revision: $Revision$
+Date: $Date$
+=====================
+Description: West-European style large church
