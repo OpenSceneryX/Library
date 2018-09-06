@@ -1,9 +1,8 @@
-Title: Apron Fuel Hydrant Hatch
+Title: Apron Fuel Hydrant Hatch, variant 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
+Export Deprecated v3.0.0: polygons/airport/structures/fuel_hydrant_hatches
 =====================
 Description: An access hatch for an in-ground fuel hydrant with surrounding yellow warning marking.
 
