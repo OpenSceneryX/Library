@@ -1,0 +1,11 @@
+Title: Clubhouse, wooden, Canadian
+=====================
+Author: Lars de Jonge (alias: CCVA022).
+URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
+Email: larsfmdejonge@mail.com.
+Width: 15.55m
+Depth: 12m
+Height: 6.7m
+Since: 3.0.0
+=====================
+Description: All wooden clubhouse with porch.
