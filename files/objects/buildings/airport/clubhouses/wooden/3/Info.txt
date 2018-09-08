@@ -8,4 +8,4 @@ Depth: 12m
 Height: 6.7m
 Since: 3.0.0
 =====================
-Description: All wooden clubhouse with porch.
+Description: All wooden Canadian-style clubhouse with porch.
