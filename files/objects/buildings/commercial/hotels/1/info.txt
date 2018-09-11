@@ -1,0 +1,10 @@
+Title: Hotel, brick
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 75.5m
+Depth: 84.7m
+Height: 16m
+Since: 3.0.0
+=====================
+Description: A brick 'U' shaped hotel building with a flat roof.
