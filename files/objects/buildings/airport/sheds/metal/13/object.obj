@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../../../shared_textures/barry_drake/admin_shed.png
+TEXTURE		../../../../../shared_textures/barry_drake/admin_shed.dds
 POINT_COUNTS	97 0 0 180
 
 VT	   5.8808    1.7826    1.6584	 0.000  0.000  1.000	 0.2870  0.5028
