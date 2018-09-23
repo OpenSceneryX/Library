@@ -1,4 +1,4 @@
-Title: Cone, small, red and white
+Title: Code, small, white
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
@@ -7,4 +7,4 @@ Depth: 0.8m
 Height: 0.6m
 Since: 3.0.0
 =====================
-Description: A small red and white cone.
+Description: A small white cone.
