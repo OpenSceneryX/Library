@@ -1,0 +1,10 @@
+Title: Baggage cart, covered, open one side, with baggage, beige
+=====================
+Author: Lars de Jonge (alias: CCVA022).
+URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
+Email: larsfmdejonge@mail.com.
+Width: 1.4m
+Depth: 3.7m
+Height: 1.8m
+=====================
+Description: Single covered baggage cart with baggage and open left side.
