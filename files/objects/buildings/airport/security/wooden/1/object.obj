@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../../shared_textures/lars_de_jonge/CCVASmallTerminal.png
+TEXTURE		../../../../../shared_textures/lars_de_jonge/CCVASmallTerminal.png
 POINT_COUNTS	35303 0 0 88506
 
 VT	   6.9508    0.5500    4.9884	 1.000  0.000 -0.000	 0.3736  0.5671
