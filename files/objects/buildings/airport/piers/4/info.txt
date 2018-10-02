@@ -6,7 +6,6 @@ Width: 15m
 Depth: 45m
 Height: 10m
 Export External RE_Library: RE_Library/Terminals/pier/45m/sgl_sided/RE_Pier_45m_sgl_a
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, pier, aluminium, 45m long, single sided. 

@@ -6,7 +6,6 @@ Width: 4m
 Depth: 4m
 Height: 12.7m
 Export External RE_Library: RE_Library/Navaids/VDF_12m/VDF_12_s_r
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 12m VDF antenna with a red and white striped pole and red antennae.

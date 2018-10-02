@@ -7,7 +7,6 @@ Depth: 85m
 Height: 18.2m
 Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Complete/Cork_complete
 Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Outer_shell/Cork_shell
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Glass terminal building with curved roof. 

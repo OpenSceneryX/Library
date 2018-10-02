@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/4_bay/open/
 Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/4_bay/closed/Firestation2_L_4_cly
 Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/4_bay/open/Firestation2_R_4_oly
 Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/4_bay/closed/Firestation2_R_4_cly
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay light brick fire station with yellow doors and control tower.

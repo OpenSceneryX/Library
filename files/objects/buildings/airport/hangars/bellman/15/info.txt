@@ -6,7 +6,6 @@ Width: 36m
 Depth: 53m
 Height: 10m
 Export External RE_Library: RE_Library/Hangars/Bellman/open_both_ends/Bellman_o2_grn
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green Bellman hangar with doors open at both ends.

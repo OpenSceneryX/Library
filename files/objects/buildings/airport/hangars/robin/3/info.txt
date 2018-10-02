@@ -7,7 +7,6 @@ Depth: 21.4m
 Height: 7.3m
 Export External RE_Library: RE_Library/Hangars/Robin/profiled/closed/Robin_p_c_grey
 Export External RE_Library: RE_Library/Hangars/Robin/squared/closed/Robin_s_c_grey
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey Robin hangar with closed doors.

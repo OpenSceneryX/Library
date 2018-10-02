@@ -6,7 +6,6 @@ Width: 2.1m
 Depth: 5.6m
 Height: 2.4m
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/small/CommandoFE_r
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A Carmichael Commando 4-wheel fire engine, in red livery.

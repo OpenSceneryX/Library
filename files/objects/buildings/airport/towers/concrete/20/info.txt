@@ -6,7 +6,6 @@ Width: 26.5m
 Depth: 27m
 Height: 57m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGPH_57m/EGPH_57m
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 57m modern concrete control tower, based on Edinburgh UK.

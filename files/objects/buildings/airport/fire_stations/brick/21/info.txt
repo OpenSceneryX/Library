@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/sq_tower/open/red_doors/bric
 Export External RE_Library: RE_Library/Fire_station/sq_tower/closed/red_doors/brick/FS_4bay_off_twr_crb
 Export External RE_Library: RE_Library/Fire_station/sq_tower/open/white_doors/brick/FS_4bay_off_twr_owb
 Export External RE_Library: RE_Library/Fire_station/sq_tower/closed/white_doors/brick/FS_4bay_off_twr_cwb
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay red brick fire station with red doors and attached red brick office block and square observation tower.

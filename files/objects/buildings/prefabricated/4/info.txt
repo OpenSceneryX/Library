@@ -6,7 +6,6 @@ Width: 9.8m
 Depth: 21m
 Height: 3.6m
 Export External RE_Library: RE_Library/Prefabs/21m/Prefab21m_red
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 21m long red prefabricated building.

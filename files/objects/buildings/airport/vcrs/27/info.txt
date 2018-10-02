@@ -6,7 +6,6 @@ Width: 6m
 Depth: 5.5m
 Height: 4m
 Export External RE_Library: RE_Library/VCRs/Type_e/e1/VCRe1_gdb
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green, rectangular visual control room, variant 6.

@@ -6,7 +6,6 @@ Width: 3.4m
 Depth: 10m
 Height: 3.7m
 Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_4x4/Panther_4x4_r-y
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A Rosenbauer Panther 4-wheel fire engine, in red and yellow livery.

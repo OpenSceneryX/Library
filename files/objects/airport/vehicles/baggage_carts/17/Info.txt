@@ -6,5 +6,6 @@ Email: larsfmdejonge@mail.com.
 Width: 1.4m
 Depth: 3.7m
 Height: 1.8m
+Since: 3.0.0
 =====================
 Description: Single covered baggage cart, closed.

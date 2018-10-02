@@ -6,7 +6,6 @@ Width: 2.8m
 Depth: 12m
 Height: 3.3m
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_8x8_hret/Cobra_8x8_hret_y-b
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A Carmichael Cobra 8-wheel fire engine, in yellow and blue livery with a high reach extendible turret (HRET).

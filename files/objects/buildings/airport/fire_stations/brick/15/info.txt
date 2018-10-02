@@ -7,7 +7,6 @@ Depth: 30m
 Height: 8m
 Export External RE_Library: RE_Library/Fire_station/4_bay/closed/red_doors/brick/FS_4bay_crb
 Export External RE_Library: RE_Library/Fire_station/4_bay/closed/white_doors/brick/FS_4bay_cwb
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay red brick fire station with red doors.

@@ -6,7 +6,6 @@ Width: 36.2m
 Depth: 36.2m
 Height: 10m
 Export External RE_Library: RE_Library/Terminals/octagon/Octagon_c
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, hub, metal, octagonal. 

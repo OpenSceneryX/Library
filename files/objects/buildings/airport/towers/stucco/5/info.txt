@@ -6,7 +6,6 @@ Width: 11.4m
 Depth: 10.4m
 Height: 7.9m
 Export External RE_Library: RE_Library/Control_Tower/ex_RAF/7378a/7378a_white
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Former RAF stucco single storey control tower building with octagonal visual control room.

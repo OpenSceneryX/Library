@@ -7,7 +7,6 @@ Depth: 45m
 Height: 16.5m
 Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_a2
 Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_b2
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey brick (breeze block) T shaped office building with grey roof.

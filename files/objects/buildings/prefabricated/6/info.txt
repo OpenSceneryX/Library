@@ -6,7 +6,6 @@ Width: 9.8m
 Depth: 30m
 Height: 3.6m
 Export External RE_Library: RE_Library/Prefabs/30m/Prefab30m_brn
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 30m long brown prefabricated building.

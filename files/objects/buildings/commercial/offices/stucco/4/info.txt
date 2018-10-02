@@ -8,7 +8,6 @@ Height: 20m
 Export External RE_Library: RE_Library/Admin/4floor_60x20/white_stucco/grey_slate/Admin2_4t
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/hex_VCR/Control_admin2_4t_hex
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/oct_VCR/Control_admin2_4t_oct
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: White stucco 4 storey office building with red roof.

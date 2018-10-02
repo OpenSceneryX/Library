@@ -6,7 +6,6 @@ Width: 2m
 Depth: 2m
 Height: 4.7m
 Export External RE_Library: RE_Library/Navaids/VDF/VDF_w_r
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 5m VDF antenna with a white pole and red antennae.

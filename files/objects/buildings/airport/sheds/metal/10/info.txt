@@ -7,7 +7,6 @@ Depth: 20m
 Height: 7.5m
 Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/open/red/Cargo_shed_o4
 Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/open/orange/Cargo_shed_o6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Grey metal cargo shed with red roof and red open doors.

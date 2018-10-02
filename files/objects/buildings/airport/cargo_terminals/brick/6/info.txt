@@ -7,7 +7,6 @@ Depth: 55m
 Height: 10m
 Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/blue_doors/Cargo_full_os1
 Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/blue_doors/Cargo_full_cs1
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light brick cargo terminal building with grey and blue roofs and blue cargo doors.

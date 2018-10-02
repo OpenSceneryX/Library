@@ -7,7 +7,6 @@ Depth: 9m
 Height: 5m
 Export External RE_Library: RE_Library/Fire_station/1_bay/closed/Fire_shed_sm_c_r
 Export External RE_Library: RE_Library/Fire_station/1_bay/closed/Fire_shed_sm_c_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A single bay fire station with a closed door.

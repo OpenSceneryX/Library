@@ -6,7 +6,6 @@ Width: 35m
 Depth: 54m
 Height: 14m
 Export External RE_Library: RE_Library/Hangars/54x34m/open/Hangar_crv_54x34_o_blue
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A large blue hangar with a curved roof and open doors.

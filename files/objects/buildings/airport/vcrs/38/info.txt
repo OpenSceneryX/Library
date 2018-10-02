@@ -17,7 +17,6 @@ Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wdb
 Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wdg
 Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wgb
 Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wgg
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white, hexagonal visual control room with a rail around the top.

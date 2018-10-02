@@ -17,7 +17,6 @@ Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wdb
 Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wdg
 Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wgb
 Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wgg
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white, rectangular visual control room with a rail around the top, variant 8.

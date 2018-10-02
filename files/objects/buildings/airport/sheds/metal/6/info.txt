@@ -6,7 +6,6 @@ Width: 10m
 Depth: 20m
 Height: 7.5m
 Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/closed/yellow/Cargo_shed_c5
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Grey metal cargo shed with yellow roof and yellow closed doors.

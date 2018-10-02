@@ -7,7 +7,6 @@ Depth: 30m
 Height: 8m
 Export External RE_Library: RE_Library/Fire_station/4_bay/closed/red_doors/metal/FS_4bay_crm
 Export External RE_Library: RE_Library/Fire_station/4_bay/closed/white_doors/metal/FS_4bay_cwm
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay metal fire station with red doors.

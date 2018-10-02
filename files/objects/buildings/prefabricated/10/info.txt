@@ -7,7 +7,6 @@ Depth: 42m
 Height: 3.6m
 Export External RE_Library: RE_Library/Prefabs/42m/type_a/Prefab42m_a_brn
 Export External RE_Library: RE_Library/Prefabs/42m/type_b/Prefab42m_b_brn
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 42m long brown prefabricated building.

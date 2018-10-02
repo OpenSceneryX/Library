@@ -6,7 +6,6 @@ Width: 8.6m
 Depth: 8.6m
 Height: 5.8m
 Export External RE_Library: RE_Library/VCRs/Type_b/b3/VCRb3_gbg
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green, octagonal visual control room, variant 4.

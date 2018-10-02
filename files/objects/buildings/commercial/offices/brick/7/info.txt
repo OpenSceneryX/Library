@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Admin/4floor_60x20/red_brick/red_tile/Adm
 Export External RE_Library: RE_Library/GA_Terminal/Grey_slate/Brick/GA_terminal_3
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/hex_VCR/Control_admin2_1s_hex
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/oct_VCR/Control_admin2_1s_oct
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Red brick 4 storey office building with grey roof.

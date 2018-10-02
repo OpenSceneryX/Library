@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/hex_tower/open/red_doors/blo
 Export External RE_Library: RE_Library/Fire_station/hex_tower/closed/red_doors/block/FS_4bay_off_hex_crc
 Export External RE_Library: RE_Library/Fire_station/hex_tower/open/white_doors/block/FS_4bay_off_hex_owc
 Export External RE_Library: RE_Library/Fire_station/hex_tower/closed/white_doors/block/FS_4bay_off_hex_cwc
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay grey brick (breeze block) fire station with red doors and attached red brick office block and hexagonal observation tower.

@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/hex_tower/open/red_doors/met
 Export External RE_Library: RE_Library/Fire_station/hex_tower/closed/red_doors/metal/FS_4bay_off_hex_crm
 Export External RE_Library: RE_Library/Fire_station/hex_tower/open/white_doors/metal/FS_4bay_off_hex_owm
 Export External RE_Library: RE_Library/Fire_station/hex_tower/closed/white_doors/metal/FS_4bay_off_hex_cwm
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay metal fire station with red doors and attached red brick office block and hexagonal observation tower.

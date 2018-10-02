@@ -7,7 +7,6 @@ Depth: 30m
 Height: 3.6m
 Export External RE_Library: RE_Library/Prefabs/30m/Prefab30m_grn
 Export External RE_Library: RE_Library/Prefabs/squadron/10AEF
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 30m long green prefabricated building.

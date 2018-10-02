@@ -6,7 +6,6 @@ Width: 30m
 Depth: 30m
 Height: 8.6m
 Export External RE_Library: RE_Library/Navaids/VORTACs/white/VORTAC_wcw
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white VOR array with red and white checkerboard hut and white antennae.

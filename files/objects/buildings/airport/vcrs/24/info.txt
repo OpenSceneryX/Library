@@ -11,7 +11,6 @@ Export External RE_Library: RE_Library/VCRs/Type_d/d1/VCRd1_wbg
 Export External RE_Library: RE_Library/VCRs/Type_d/d1/VCRd1_wdg
 Export External RE_Library: RE_Library/VCRs/Type_d/d1/VCRd1_wgb
 Export External RE_Library: RE_Library/VCRs/Type_d/d1/VCRd1_wgg
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white, rectangular visual control room, variant 4.

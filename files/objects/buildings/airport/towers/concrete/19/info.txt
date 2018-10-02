@@ -7,7 +7,6 @@ Depth: 13.4m
 Height: 53m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNX_52m/EGNX_52m_g_gry_w
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNX_52m/EGNX_52m_b_gry_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 53m modern concrete control tower, grey, based on East Midlands UK.

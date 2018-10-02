@@ -6,7 +6,6 @@ Width: 9m
 Depth: 9m
 Height: 9.35m
 Export External RE_Library: RE_Library/Control_Tower/VCRs/VCRb/VCR_ped_b
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white, octagonal visual control room on a pedestal.

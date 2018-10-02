@@ -7,7 +7,6 @@ Depth: 7.6m
 Height: 5.6m
 Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_ggg
 Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_ggb
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green, hexagonal visual control room with a rail around the top.

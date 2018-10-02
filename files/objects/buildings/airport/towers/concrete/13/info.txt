@@ -6,7 +6,6 @@ Width: 13.8m
 Depth: 13.8m
 Height: 39.7m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGJJ_39m/EGJJ_39m
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 40m modern concrete control tower, based on Jersey UK.

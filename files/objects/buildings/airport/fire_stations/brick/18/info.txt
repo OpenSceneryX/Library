@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/+office/open/red_doors/block
 Export External RE_Library: RE_Library/Fire_station/+office/closed/red_doors/block/FS_4bay_off_crc
 Export External RE_Library: RE_Library/Fire_station/+office/open/white_doors/block/FS_4bay_off_owc
 Export External RE_Library: RE_Library/Fire_station/+office/closed/white_doors/block/FS_4bay_off_cwc
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A four bay grey brick (breeze block) fire station with red doors and attached red brick office block.

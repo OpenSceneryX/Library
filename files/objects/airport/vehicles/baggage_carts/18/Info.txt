@@ -6,5 +6,6 @@ Email: larsfmdejonge@mail.com.
 Width: 1.8m
 Depth: 3m
 Height: 2.2m
+Since: 3.0.0
 =====================
 Description: A baggage cart tractor with working lights.
