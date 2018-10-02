@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../../shared_textures/barry_drake/Barrel_HeliStar_YKDI.dds
+TEXTURE		../../../../../shared_textures/barry_drake/Barrel_HeliStar_YKDI.dds
 POINT_COUNTS	28 0 0 42
 
 VT	   0.0250    1.2400    0.0500	 0.000  1.000 -0.000	 0.9950  0.1240

@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../../shared_textures/barry_drake/buildings.dds
+TEXTURE		../../../../../shared_textures/barry_drake/buildings.dds
 POINT_COUNTS	38 0 0 66
 
 VT	  -0.0250    1.3000   -0.0250	 0.000  0.000 -1.000	 0.4583  0.8924
