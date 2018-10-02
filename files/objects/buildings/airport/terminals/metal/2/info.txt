@@ -6,7 +6,6 @@ Width: 36m
 Depth: 27.5m
 Height: 8.5m
 Export External RE_Library: RE_Library/Terminals/Extensions/EGGP_term_ext_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Metal terminal block building. 

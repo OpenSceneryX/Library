@@ -7,7 +7,6 @@ Depth: 30m
 Height: 8.6m
 Export External RE_Library: RE_Library/Navaids/VORs/white/VOR_wco
 Export External RE_Library: RE_Library/Navaids/VORs/white/VOR_wcr
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white VOR array with red and white checked hut and red antennae.

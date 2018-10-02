@@ -6,7 +6,6 @@ Width: 205m
 Depth: 76.5m
 Height: 18m
 Export External RE_Library: RE_Library/Terminals/main_buiding/EGGP_type/EGGP_term_main_unnamed
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Glass terminal building with curved roof. 

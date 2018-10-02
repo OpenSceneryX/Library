@@ -6,7 +6,6 @@ Width: 36m
 Depth: 53m
 Height: 10m
 Export External RE_Library: RE_Library/Hangars/Bellman/open_one_end/Bellman_o1_blue
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A blue Bellman hangar with doors open at one end.

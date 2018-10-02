@@ -6,7 +6,6 @@ Width: 3.4m
 Depth: 12.6m
 Height: 3.8m
 Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_8x8/Panther_8x8_y-g
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A Rosenbauer Panther 8-wheel fire engine, in yellow and grey livery.

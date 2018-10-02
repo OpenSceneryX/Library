@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Prefabs/42m/type_a/Prefab42m_a_grn
 Export External RE_Library: RE_Library/Prefabs/42m/type_b/Prefab42m_b_grn
 Export External RE_Library: RE_Library/Prefabs/squadron/LUAS
 Export External RE_Library: RE_Library/Prefabs/squadron/MASUAS
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 42m long green prefabricated building.

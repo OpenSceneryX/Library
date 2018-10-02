@@ -6,7 +6,6 @@ Width: 14m
 Depth: 14m
 Height: 35m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGBB_34m/EGBB_34m
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A large modern concrete control tower, based on Birmingham UK.

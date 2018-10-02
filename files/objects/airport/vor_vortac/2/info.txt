@@ -6,7 +6,6 @@ Width: 30m
 Depth: 30m
 Height: 8.6m
 Export External RE_Library: RE_Library/Navaids/VORs/grey/VOR_ggw
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey VOR array with grey hut and white antennae.

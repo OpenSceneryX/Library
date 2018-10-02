@@ -6,7 +6,6 @@ Width: 3m
 Depth: 6m
 Height: 9.5m
 Export External RE_Library: RE_Library/Terminals/Gate_block/9.5m/Gateblock_9.5m_g
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, gate block, grey, 9.5m high. 

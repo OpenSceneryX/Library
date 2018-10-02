@@ -6,7 +6,6 @@ Width: 137m
 Depth: 89.5m
 Height: 21m
 Export External RE_Library: RE_Library/Terminals/main_buiding/new_style/RE_Terminal_main_8
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Glass and metal terminal building with curved roof. 

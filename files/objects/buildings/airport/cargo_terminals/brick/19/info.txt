@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Cargo_terminal/main/open/beige/red_doors/
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/beige/red_doors/Cargo_main_cs4
 Export External RE_Library: RE_Library/Cargo_terminal/main/open/beige/orange_doors/Cargo_main_os6
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/beige/orange_doors/Cargo_main_cs6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light brick cargo shed with three red doors.

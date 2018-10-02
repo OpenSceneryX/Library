@@ -6,7 +6,6 @@ Width: 13m
 Depth: 15m
 Height: 28m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGGD_28m/EGGD_28m
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 28m modern concrete control tower, grey, based on Bristol UK.

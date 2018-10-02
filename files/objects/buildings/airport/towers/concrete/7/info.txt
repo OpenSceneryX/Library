@@ -7,7 +7,6 @@ Depth: 18.5m
 Height: 61m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_g_gry_blk
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_b_gry_blk
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A large modern concrete control tower, grey, based on Manchester UK.

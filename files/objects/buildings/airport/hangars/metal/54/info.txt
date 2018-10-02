@@ -6,7 +6,6 @@ Width: 24.3m
 Depth: 27.6m
 Height: 7.6m
 Export External RE_Library: RE_Library/Hangars/Main_84ft/open/Main_84_o_blk
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A black metal hangar with open doors.

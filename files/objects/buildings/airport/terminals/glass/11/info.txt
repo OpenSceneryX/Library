@@ -6,7 +6,6 @@ Width: 135m
 Depth: 54m
 Height: 21m
 Export External RE_Library: RE_Library/Terminals/main_buiding/curved_roof/RE_Terminal_main_5
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Dark blue glass terminal building with curved roof. 

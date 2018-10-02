@@ -6,7 +6,6 @@ Width: 25m
 Depth: 16.7m
 Height: 10.25m
 Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/30_degree/7.25m_agl/Airbridge_7.25agl_29m_30L_g
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, air bridge, straight at 30 degree left hand angle, 7.25m above ground, 29m long.

@@ -6,7 +6,6 @@ Width: 2.5m
 Depth: 2.5m
 Height: 2.5m
 Export External RE_Library: RE_Library/Navaids/Cabin/Small/Navcabin_sm_sq_s
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A small, square, red and white navaid hut in vertical striped pattern.

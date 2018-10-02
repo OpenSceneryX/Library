@@ -7,7 +7,6 @@ Depth: 12.6m
 Height: 32.6m
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGMC_28m/Tower_only/EGMC_28m_tower
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGMC_28m/with_base/EGMC_28m_tower+base
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 33m modern concrete control tower, based on Southend UK.

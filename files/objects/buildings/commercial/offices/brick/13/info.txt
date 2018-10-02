@@ -17,7 +17,6 @@ Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/yellow_doors/Car
 Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/yellow_doors/Cargo_off2_b5
 Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/orange_doors/Cargo_off2_b6
 Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/orange_doors/Cargo_off2_b6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A red brick single storey office building with flat grey roof.

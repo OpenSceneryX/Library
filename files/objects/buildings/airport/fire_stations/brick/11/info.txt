@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/6_bay/open/
 Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/6_bay/closed/Firestation2_L_6_ccr
 Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/6_bay/open/Firestation2_R_6_ocr
 Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/6_bay/closed/Firestation2_R_6_ccr
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A six bay grey brick (breeze block) fire station with red doors and control tower.

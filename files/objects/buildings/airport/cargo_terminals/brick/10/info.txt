@@ -7,7 +7,6 @@ Depth: 55m
 Height: 10m
 Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/yellow_doors/Cargo_full_os5
 Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/yellow_doors/Cargo_full_cs5
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light brick cargo terminal building with grey and yellow roofs and yellow cargo doors.

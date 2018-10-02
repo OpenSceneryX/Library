@@ -10,7 +10,6 @@ Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_a4
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_b4
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_b4
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: White stucco 5 storey office building with grey roof.

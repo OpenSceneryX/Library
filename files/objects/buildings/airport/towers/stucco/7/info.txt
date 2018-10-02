@@ -6,7 +6,6 @@ Width: 11m
 Depth: 14.7m
 Height: 12.2m
 Export External RE_Library: RE_Library/Control_Tower/ex_RAF/Valley/Valley_white
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Former RAF stucco 2 storey control tower building with octagonal visual control room.

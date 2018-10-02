@@ -6,7 +6,6 @@ Width: 25.8m
 Depth: 23.4m
 Height: 7.6m
 Export External RE_Library: RE_Library/Hangars/Main_70ft/closed/Main_c_grey
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey metal hangar with closed doors.

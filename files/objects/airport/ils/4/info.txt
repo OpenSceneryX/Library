@@ -7,7 +7,6 @@ Depth: 28.7m
 Height: 4m
 Export External RE_Library: RE_Library/Navaids/Localiser/Type_C/LOC_C_o
 Export External RE_Library: RE_Library/Navaids/Localiser/Type_C/LOC_C_r
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: ILS localiser, large, red.

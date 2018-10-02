@@ -6,7 +6,6 @@ Width: 38.8m
 Depth: 56.6m
 Height: 10.8m
 Export External RE_Library: RE_Library/Hangars/Callender/open_one_end/Callender_o1_grn
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green Callender hangar with doors open at one end.

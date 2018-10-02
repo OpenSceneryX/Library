@@ -7,7 +7,6 @@ Depth: 36m
 Height: 10m
 Export External RE_Library: RE_Library/Cargo_terminal/main/open/beige/green_doors/Cargo_main_os3
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/beige/green_doors/Cargo_main_cs3
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light brick cargo shed with three green doors.

@@ -6,7 +6,6 @@ Width: 5m
 Depth: 20m
 Height: 10.25m
 Export External RE_Library: RE_Library/Terminals/Airbridges/Wide/7.25m_agl/20m_length/Airbridge_W_7.25agl_20m_g
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, air bridge, straight, 7.25m above ground, 20m long, extra wide.

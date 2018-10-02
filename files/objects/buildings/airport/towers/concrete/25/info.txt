@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_b_blu_blu
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_blu_w
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_b_blu_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 61m modern concrete control tower, blue, based on Stansted UK.

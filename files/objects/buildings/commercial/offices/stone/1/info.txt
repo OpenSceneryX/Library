@@ -6,7 +6,6 @@ Width: 20m
 Depth: 60m
 Height: 14m
 Export External RE_Library: RE_Library/GA_Terminal/Grey_slate/Lakeland_stone/GA_terminal_1
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Stone 4 storey office building with grey roof.

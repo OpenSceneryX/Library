@@ -7,7 +7,6 @@ Depth: 7.1m
 Height: 4.5m
 Export External RE_Library: RE_Library/VCRs/Type_a/rail/VCRa_r_lgb
 Export External RE_Library: RE_Library/VCRs/Type_a/no_rail/VCRa_lbb
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey, octagonal visual control room with a rail around the top, variant 1.

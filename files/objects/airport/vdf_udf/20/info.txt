@@ -6,7 +6,6 @@ Width: 2m
 Depth: 2m
 Height: 6.4m
 Export External RE_Library: RE_Library/Navaids/VDF_UDF/VDF_UDF_r_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A 6.4m combined VDF and UDF antenna with a red pole and white antennae.

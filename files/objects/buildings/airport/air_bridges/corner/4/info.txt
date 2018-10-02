@@ -6,7 +6,6 @@ Width: 14m
 Depth: 20m
 Height: 9m
 Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/45_degree/5m_agl/Airbridge_5agl_8+17m_45R_g
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, air bridge, 45 degree right hand bend, 5m above ground, sections 8 and 17m long.

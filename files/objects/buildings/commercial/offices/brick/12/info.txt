@@ -17,7 +17,6 @@ Export External RE_Library: RE_Library/Admin/2floor_15x10/block/yellow_doors/Car
 Export External RE_Library: RE_Library/Cargo_terminal/office/2floor_15x10/block/yellow_doors/Cargo_off1_s5
 Export External RE_Library: RE_Library/Admin/2floor_15x10/block/orange_doors/Cargo_off1_s6
 Export External RE_Library: RE_Library/Cargo_terminal/office/2floor_15x10/block/orange_doors/Cargo_off1_s6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A grey brick (breeze block) 2 storey office building with flat grey roof.

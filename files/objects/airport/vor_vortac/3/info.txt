@@ -6,7 +6,6 @@ Width: 30m
 Depth: 30m
 Height: 8.6m
 Export External RE_Library: RE_Library/Navaids/VORs/red/VOR_rsw
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A red and white striped VOR array with red and white striped hut and white antennae.

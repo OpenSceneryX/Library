@@ -6,7 +6,6 @@ Width: 12m
 Depth: 40m
 Height: 15m
 Export External RE_Library: RE_Library/Admin/3floor_15x40/red_brick/Admin_long_1
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Red brick 3 storey office building with grey roof.

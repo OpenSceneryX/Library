@@ -6,7 +6,6 @@ Width: 55.7m
 Depth: 112.2m
 Height: 15.9m
 Export External RE_Library: RE_Library/Hangars/Ballykelly_112x48m/closed/BKC_brown_c
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A brown Ballykelly Cantilever hangar with closed doors.

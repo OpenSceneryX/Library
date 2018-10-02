@@ -6,7 +6,6 @@ Width: 135m
 Depth: 54m
 Height: 25m
 Export External RE_Library: RE_Library/Terminals/main_buiding/pointed_roof/RE_Terminal_main_1
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light blue glass terminal building with pitched roof. 

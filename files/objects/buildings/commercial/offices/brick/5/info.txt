@@ -10,7 +10,6 @@ Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_a2
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_b2
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_b2
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Grey brick (breeze-block) 5 storey office building with grey roof.

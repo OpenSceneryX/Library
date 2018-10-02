@@ -11,7 +11,6 @@ Export External RE_Library: RE_Library/VCRs/Type_e/e2/VCRe2_wbg
 Export External RE_Library: RE_Library/VCRs/Type_e/e2/VCRe2_wdg
 Export External RE_Library: RE_Library/VCRs/Type_e/e2/VCRe2_wgb
 Export External RE_Library: RE_Library/VCRs/Type_e/e2/VCRe2_wgg
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A white, rectangular visual control room, variant 7.

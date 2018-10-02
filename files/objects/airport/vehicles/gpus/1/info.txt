@@ -1,4 +1,4 @@
-Title: GPU
+Title: GPU, GSE
 =====================
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/

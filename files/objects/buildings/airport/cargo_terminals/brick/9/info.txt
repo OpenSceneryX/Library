@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/red_do
 Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/red_doors/Cargo_full_cs4
 Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/orange_doors/Cargo_full_os6
 Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/orange_doors/Cargo_full_cs6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Light brick cargo terminal building with grey and red roofs and red cargo doors.

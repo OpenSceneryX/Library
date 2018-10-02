@@ -7,7 +7,6 @@ Depth: 21.4m
 Height: 7.3m
 Export External RE_Library: RE_Library/Hangars/Robin/profiled/open/Robin_p_o_blk
 Export External RE_Library: RE_Library/Hangars/Robin/squared/open/Robin_s_o_blk
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A black Robin hangar with open doors.

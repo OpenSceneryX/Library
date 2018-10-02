@@ -9,7 +9,6 @@ Export External RE_Library: RE_Library/Cargo_terminal/main/open/grey/red_doors/C
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/grey/red_doors/Cargo_main_cl4
 Export External RE_Library: RE_Library/Cargo_terminal/main/open/grey/orange_doors/Cargo_main_ol6
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/grey/orange_doors/Cargo_main_cl6
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Grey brick (breeze-block) cargo shed with three red doors.

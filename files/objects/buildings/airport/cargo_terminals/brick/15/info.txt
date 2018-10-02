@@ -7,7 +7,6 @@ Depth: 36m
 Height: 10m
 Export External RE_Library: RE_Library/Cargo_terminal/main/open/grey/yellow_doors/Cargo_main_ol5
 Export External RE_Library: RE_Library/Cargo_terminal/main/closed/grey/yellow_doors/Cargo_main_cl5
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Grey brick (breeze-block) cargo shed with three yellow doors.

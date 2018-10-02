@@ -5,7 +5,6 @@ URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
 Width: 12.4m
 Depth: 30m
 Height: 21m
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A traditional British style church constructed in green grey stone with a tower. 

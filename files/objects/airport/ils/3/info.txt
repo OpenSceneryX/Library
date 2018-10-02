@@ -6,7 +6,6 @@ Width: 1.1m
 Depth: 31.2m
 Height: 3m
 Export External RE_Library: RE_Library/Navaids/Localiser/Type_B/LOC_B_w
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: ILS localiser, white.

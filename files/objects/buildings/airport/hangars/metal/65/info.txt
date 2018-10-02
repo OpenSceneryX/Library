@@ -6,7 +6,6 @@ Width: 25.8m
 Depth: 23.4m
 Height: 7.6m
 Export External RE_Library: RE_Library/Hangars/Main_70ft/open/Main_o_grn
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: A green metal hangar with open doors.

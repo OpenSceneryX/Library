@@ -6,7 +6,6 @@ Width: 10m
 Depth: 90m
 Height: 8m
 Export External RE_Library: RE_Library/Terminals/pier/90m/EGGP_type/EGGP_pier
-Revision: $Revision$
-Date: $Date$
+Since: 3.0.0
 =====================
 Description: Standard terminal building block component, pier, concrete, 90m long, finger. 
