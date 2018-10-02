@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=124558
 Width: 30ft
 Depth: 30ft
 Height: 100ft
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A fairly generic 30ft by 30ft by 100ft cellphone tower from fictional carrier "Cel Tel."  Not animated, but does include a light on top for collision avoidance at night.

@@ -2,7 +2,5 @@ Title: Gasometers
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A collection of three gasometers (large scale gas holders).

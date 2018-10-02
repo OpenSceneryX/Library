@@ -5,7 +5,5 @@ URL: http://marginal.org.uk/x-planescenery
 Email: x-plane@marginal.org.uk
 Export Deprecated v1.6.0: facades/fences/chainfence
 Export Deprecated v1.6.0: facades/fences/chainfence_small
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A chain-link fence using a closed facade so there are no gaps in the ring.

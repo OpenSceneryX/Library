@@ -5,7 +5,5 @@ URL: http://www.xpih.net
 Width: 1.2m
 Depth: 2.6m
 Height: 2.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A black steel pallisade-style gate in full open position. 1 metre wide, 2.5 metres high.

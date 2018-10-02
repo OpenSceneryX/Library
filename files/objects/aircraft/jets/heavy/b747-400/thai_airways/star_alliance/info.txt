@@ -8,7 +8,5 @@ Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/livery/thai_airways/star_alliance/b737-400
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in Thai Airways Star Alliance livery.

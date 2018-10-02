@@ -5,7 +5,5 @@ Email: aebrown1013@gmail.com
 Height: 12.9m
 Width: 9.3m
 Depth: 12.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description:	Air traffic control tower with stairs up the side, originally from Plymouth City Airport, UK but with insignia removed.

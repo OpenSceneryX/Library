@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=146200
 Width: 13m
 Depth: 38.6m
 Height: 10.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A set of three hangars with red roofs and painted red on one side, beige on the other three sides.

@@ -6,7 +6,5 @@ Email: xplanebaz@aapt.net.au
 Width: 21m
 Depth: 19.5m
 Height: 3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A pontoon that works correctly with <a href="../../jetties/1/">jetty</a> and <a href="../../jetties/2/">jetty with ramp</a> objects.

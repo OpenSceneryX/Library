@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=5515
 Width: 2.1m
 Depth: 11.4m
 Height: 11.3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Automated Surface Observing System for Weather

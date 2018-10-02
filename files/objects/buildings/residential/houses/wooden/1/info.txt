@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 9.2m
 Depth: 9.2m
 Height: 5.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A single-storey small blue wooden house.

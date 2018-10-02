@@ -2,7 +2,5 @@ Title: Hangar, brick, small, with windows
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small brick hangar with green doors and windows on the back.

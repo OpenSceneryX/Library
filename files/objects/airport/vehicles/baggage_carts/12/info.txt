@@ -6,7 +6,5 @@ Export Propagate: 2
 Width: 8m
 Height: 2.3m
 Depth: 18.9m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A 4 cargo cart train with boxes partially loaded for use in cargo areas.

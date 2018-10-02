@@ -6,7 +6,5 @@ Export Propagate: 1
 Width: 27.3m
 Height: 7.9m
 Depth: 26.6m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Dassault Falcon 7X in a blue stripe livery.

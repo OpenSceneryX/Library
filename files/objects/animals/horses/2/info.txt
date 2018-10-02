@@ -3,7 +3,5 @@ Title: Horse, brown
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A brown horse.

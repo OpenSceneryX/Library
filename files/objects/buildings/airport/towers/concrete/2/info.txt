@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=5515
 Width: 57m
 Depth: 99m
 Height: 100m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Air Traffic control main airport tower and offices for larger airports.

@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/japan_airlines/fokker-50
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Fokker 50 in Japan Airlines livery.

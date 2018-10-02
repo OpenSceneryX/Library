@@ -4,7 +4,5 @@ Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Piper Cheyenne II - Award winning livery of STMA's paint contest 2006.

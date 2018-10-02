@@ -8,7 +8,5 @@ Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/livery/united/a319
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 319 in United livery.

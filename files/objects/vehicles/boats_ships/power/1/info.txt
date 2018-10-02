@@ -10,7 +10,5 @@ Width: 5m
 Depth: 20m
 Height: 5m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large motor cruiser.

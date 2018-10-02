@@ -5,7 +5,5 @@ Email: aebrown1013@gmail.com
 Height: 26.6m
 Width: 27.7m
 Depth: 65.9m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Airfield building with built-on hangar for small aircraft.

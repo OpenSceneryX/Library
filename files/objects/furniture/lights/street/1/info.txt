@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2621
 Height: 2.6m
 Width: 0.4m
 Depth: 0.4m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small street / walkway lamp.

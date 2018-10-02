@@ -3,7 +3,5 @@ Title: Tug, Large, Goldhofer
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large Goldhofer tug.

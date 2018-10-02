@@ -8,7 +8,5 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/us_airways/b767-200
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 767-200 in US Airways Livery.

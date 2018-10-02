@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, 7
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow '7' character for use in location taxiway signs. 
 

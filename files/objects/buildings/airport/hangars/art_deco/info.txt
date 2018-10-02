@@ -6,7 +6,5 @@ Email: mapson@satx.rr.com
 Width: 82.5m
 Depth: 96.8m
 Height: 40m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large Art Deco hangar.

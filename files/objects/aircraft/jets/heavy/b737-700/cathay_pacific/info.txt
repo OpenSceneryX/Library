@@ -6,7 +6,5 @@ Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/cathay_pacific/b737-700
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 737-700 in Cathay Pacific livery.

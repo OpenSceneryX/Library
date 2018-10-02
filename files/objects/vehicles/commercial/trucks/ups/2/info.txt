@@ -7,7 +7,5 @@ Width: 3.4m
 Depth: 18.36m
 Height: 3.75m
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An articulated truck in UPS® markings with rear doors open, boxes inside.

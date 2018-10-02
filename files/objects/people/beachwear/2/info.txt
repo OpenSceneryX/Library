@@ -8,7 +8,5 @@ Width: 1m
 Depth: 2m
 Height: 1m
 Animated: no
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Woman lying down

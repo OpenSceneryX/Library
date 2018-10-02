@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Deprecated v1.5.1: objects/airport/vehicles/fuel/small_total_tanker
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A medium sized tanker with 'Total' logo.

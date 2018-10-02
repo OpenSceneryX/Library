@@ -6,7 +6,5 @@ Email: mapson@satx.rr.com
 Width: 23m
 Depth: 23m
 Height: 40m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Spherical water tower painted red and white for visibility.

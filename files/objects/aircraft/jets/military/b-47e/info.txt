@@ -4,7 +4,5 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A B-47 Stratojet in USAF livery.

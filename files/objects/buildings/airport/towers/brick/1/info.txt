@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2621
 Width: 14.5m
 Height: 8.8m
 Depth: 18.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A brick control tower with a rotating beacon.

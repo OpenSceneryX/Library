@@ -6,7 +6,5 @@ Email: sergey.dovnar@gmail.com
 Width: 18m
 Depth: 18m
 Height: 13m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A clubhouse building in Russian wooden architecture, also contains three radio masts.  This building was originally created to be placed at small airports in the Siberian region of the Russian Federation.

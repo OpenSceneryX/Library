@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, Comma
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white comma for use in mandatory taxiway signs. 
 

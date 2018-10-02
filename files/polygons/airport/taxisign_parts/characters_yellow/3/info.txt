@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, 3
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow '3' character for use in location taxiway signs. 
 

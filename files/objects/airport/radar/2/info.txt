@@ -10,7 +10,5 @@ Width: 10.5m
 Depth: 10.5m
 Height: 9m
 Animated: True
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A radar with two antennas rotating at different speeds.

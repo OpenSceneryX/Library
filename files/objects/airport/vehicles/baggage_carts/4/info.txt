@@ -3,7 +3,5 @@ Title: Baggage cart, short
 Author: mr 3D
 URL: http://forums.x-plane.org/index.php?showuser=9171
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A baggage cart with wheels containing luggage.

@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, G
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'G' character for use in location taxiway signs. 
 

@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=3031
 Width: 6m
 Depth: 6m
 Height: 220m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: 220m chimney emitting white smoke.

@@ -3,7 +3,5 @@ Title: A320 United (1993-2004 livery)
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export: objects/aircraft/livery/united/historical/1993-2004/a320
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 320 in United historical livery used from 1993-2004.

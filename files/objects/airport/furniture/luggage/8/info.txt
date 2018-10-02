@@ -7,7 +7,5 @@ Width: 0.26m
 Depth: 0.86m
 Height: 0.62m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A turqoise suitcase, upright.

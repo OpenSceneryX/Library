@@ -8,7 +8,5 @@ Width: 2m
 Depth: 4m
 Height: 2m
 Animated: no
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: small fishing boat

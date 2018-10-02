@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 13m
 Depth: 15m
 Height: 7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Small white metal hangar with red trim. Original at Melfort, Sask.

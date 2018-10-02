@@ -7,7 +7,5 @@ Depth: 14.5m
 Width: 4.9m
 Height: 6.7m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small primitive fishing boat.

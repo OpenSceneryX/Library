@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, Slash
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white forward slash/stroke for use in mandatory taxiway signs. 
 

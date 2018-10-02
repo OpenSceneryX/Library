@@ -3,8 +3,6 @@ Title: Curb, Concrete
 Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 0.375m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A concrete curb. Use for edges around or divisions within airport aprons.
 

@@ -8,7 +8,5 @@ Width: 2m
 Depth: 5m
 Height: 5m
 Animated: no
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Catamaran sailing with man and woman on board. Male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a>.

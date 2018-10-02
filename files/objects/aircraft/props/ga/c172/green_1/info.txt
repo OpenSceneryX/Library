@@ -3,7 +3,5 @@ Title: Cessna 172 Green Variant 1
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A green Cessna 172.

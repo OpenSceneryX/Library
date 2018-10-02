@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 8.7m
 Depth: 16.6m
 Height: 7.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A two storey large white wooden house with a garage.

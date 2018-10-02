@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, N
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white 'N' character for use in mandatory taxiway signs. 
 

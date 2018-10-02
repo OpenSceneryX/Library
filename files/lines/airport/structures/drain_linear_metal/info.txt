@@ -3,8 +3,6 @@ Title: Drain Channel, Metal
 Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 0.375m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A dark metal storm drain channel. 
 

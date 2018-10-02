@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, Dot
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow dot (and hyphen) for use in location taxiway signs. 
 

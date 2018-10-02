@@ -6,8 +6,6 @@ Width: 1.7m
 Depth: 5.6m
 Height: 2.7m
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Ford Transit box commercial truck in DHL® markings.
 This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

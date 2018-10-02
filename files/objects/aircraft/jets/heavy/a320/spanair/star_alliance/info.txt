@@ -6,7 +6,5 @@ Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/livery/spanair/star_alliance/a320
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 320 in Spanair livery, Star Alliance.

@@ -7,7 +7,5 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/el_al_israel/b757-200
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 757-200 in El Al Israel livery.

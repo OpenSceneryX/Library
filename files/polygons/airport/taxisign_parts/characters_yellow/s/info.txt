@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, S
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'S' character for use in location taxiway signs. 
 

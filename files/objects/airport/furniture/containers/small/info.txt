@@ -3,7 +3,5 @@ Title: Containers, Small, Servair
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A pair of small Servair containers.

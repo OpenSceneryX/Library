@@ -4,8 +4,6 @@ Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 4.5m
 Depth: 4.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow surface marking depicting an inline 'Bus Stop' traffic lane instruction/advisory on two rows.
 

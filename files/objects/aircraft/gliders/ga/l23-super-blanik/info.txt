@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2368
 Author, conversion: David Gluck
 URL, conversion: http://forums.x-plane.org/index.php?showuser=17288
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A LET L-23 Super Blanik glider.

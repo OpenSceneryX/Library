@@ -6,7 +6,5 @@ Author, texture: Ket
 URL, texture: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
 Export: objects/aircraft/livery/croatia_airlines/dornier-d328
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Dornier D328 in Croatia Airlines livery.

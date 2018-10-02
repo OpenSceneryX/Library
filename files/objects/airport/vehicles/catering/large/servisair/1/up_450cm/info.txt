@@ -5,8 +5,6 @@ URL: http://www.xpih.net
 Width: 2.25m
 Depth: 9.0m
 Height: 6.9m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large-sized airport catering truck with platform raised to 4.5m in Servisair markings.
 The vehicle is based on a Mercedes 3-axle chassis with a full size cab. The capacity and configuration is optimised for use with mid to large size airliners. Loader platform is raised to 4.5m, suitable for aircraft types B767, A330.

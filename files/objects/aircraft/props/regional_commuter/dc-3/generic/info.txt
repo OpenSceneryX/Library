@@ -3,8 +3,6 @@ Title: DC-3 Generic
 Author: amerrir
 URL: http://forums.x-plane.org/index.php?showuser=14498
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A DC-3 in generic metal and red livery.  This aircraft is decommissioned, with missing ailerons.
 

@@ -6,7 +6,5 @@ Author, texture: Cameron Jenkins
 URL, texture: http://forums.x-plane.org/index.php?showuser=249936
 Export Propagate: 1
 Export: objects/aircraft/livery/air_new_zealand/saab-340
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Saab 340 in Air New Zealand livery.

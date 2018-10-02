@@ -2,8 +2,6 @@ Title: Direction Taxiway Sign Glyph, B
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A black 'B' character for use in direction taxiway signs. 
 

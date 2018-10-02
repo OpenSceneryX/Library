@@ -2,8 +2,6 @@ Title: Taxiway Sign Background Yellow Square
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A square yellow background paint with black border for use in location and direction taxiway signs. This polygon uses the Texture_NoWrap command so that the sign background will assume the shape of the four-sided polygon you draw.
 

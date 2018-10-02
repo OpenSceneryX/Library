@@ -6,7 +6,5 @@ Width: 3.8m
 Depth: 8.9m
 Height: 2.9m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An empty cargo lift in lowered position.

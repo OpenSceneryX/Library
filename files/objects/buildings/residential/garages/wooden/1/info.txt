@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 8m
 Depth: 7.5m
 Height: 5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A two car garage.

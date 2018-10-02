@@ -4,7 +4,5 @@ Short Title: Sailboat, Sparse
 Author: Denmeul
 Email: xpo@denmeul.nl
 Export Deprecated v1.6.0: forests/boats/sparse
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A forest with sparsely-populated sailboat images to jazz up your fresh water lakes and coastal areas.

@@ -8,7 +8,5 @@ Width: 9m
 Depth: 10.8m
 Height: 4m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Aermacchi M-311 in black.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Alenia_Aermacchi_M-311' onclick='window.open(this.href);return false;'>Wikipedia</a>.

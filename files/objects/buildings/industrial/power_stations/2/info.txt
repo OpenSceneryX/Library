@@ -6,7 +6,5 @@ Email: darragh.hickey@gmail.com
 Width: 600m
 Depth: 200m
 Height: 207m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An oil fired power station based on the Poolbeg power station in Dublin, Ireland. Object includes all standard beacons and smoke.
