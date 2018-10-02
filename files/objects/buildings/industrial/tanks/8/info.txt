@@ -1,0 +1,11 @@
+Title: Tanks, fuel, underground
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Export: objects/buildings/airport/fuel/10
+Width: 4.9m
+Depth: 13.7m
+Height: 1.3m
+Since: 3.0.0
+=====================
+Description: The exposed upper section of a set of underground fuel tanks.
