@@ -5,7 +5,6 @@ URL: http://forums.x-plane.org/index.php?showuser=7280
 Height: 2.6m
 Width: 2.4m
 Depth: 16.2m
-Revision: $Revision$
-Date: $Date$
+Export Propagate: 3
 =====================
 Description: A 16m (53') shipping container.

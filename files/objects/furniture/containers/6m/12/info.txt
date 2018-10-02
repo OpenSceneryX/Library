@@ -1,0 +1,13 @@
+Title: Shipping container, 6m, orange
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 2.4m
+Depth: 6m
+Height: 2.6m
+Export Propagate: 3
+Since: 3.0.0
+=====================
+Description: A 6m orange shipping container.
