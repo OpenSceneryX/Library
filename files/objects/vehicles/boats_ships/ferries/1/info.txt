@@ -10,7 +10,5 @@ Width: 31m
 Depth: 152m
 Height: 32m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Mercedes del Mar is one of the ferries of ISCOMAR which travel between Mallorca and Valencia or Barcelona and also Ibiza and Menorca. It carries 400 cars and 635 passengers. It has two motors with 9000 hp each.

@@ -3,7 +3,5 @@ Title: Husky A-1A National Air Tour 2003 (floats)
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Aviat Husky A-1A with floats. National Air Tour 2003 skin.

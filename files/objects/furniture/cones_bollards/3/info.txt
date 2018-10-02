@@ -6,7 +6,5 @@ Email: davemorley_27@mac.com
 Width: 2.5m
 Height: 1.2m
 Depth: 1.3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A few cones stacked up.

@@ -6,7 +6,5 @@ Export Propagate: 2
 Width: 2.0m
 Height: 2.0m
 Depth: 15.7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An open, white, covered baggage cart with blue curtains.

@@ -7,7 +7,5 @@ Width: 0.56m
 Depth: 0.78m
 Height: 0.28m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A blue suitcase, flat on the ground.

@@ -13,7 +13,5 @@ Depth: 285m
 Width: 32m
 Height: 49m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Launched in 1998 as the third member of Princess' Sun-class of ships (following Sun Princess and Dawn Princess), the 1,950-passenger Sea Princess sailed for only five years before being transferred to P&amp;O Cruises, where it was renamed Adonia in May 2003. But after barely enough time to get into the groove of British cruising, the ship rejoined Princess in 2005, its original moniker restored. Speed: 21 knots, Tonnage: 77,441 gross register tons (GRT).

@@ -4,8 +4,6 @@ Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 5.5m
 Depth: 5.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white surface marking depicting a mini-roundabout.
 

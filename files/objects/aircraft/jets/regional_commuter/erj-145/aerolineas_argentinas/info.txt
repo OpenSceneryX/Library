@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/aerolineas_argentinas/erj-145
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Embraer ERJ 145 in Aerolineas Argentinas livery.

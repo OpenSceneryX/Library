@@ -6,7 +6,5 @@ Author, texture: Ket
 URL, texture: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
 Export: objects/aircraft/livery/croatia_airlines/atr-42
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An ATR 42 in Croatia Airlines livery.

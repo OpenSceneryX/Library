@@ -7,7 +7,5 @@ Width: 3.4m
 Depth: 12m
 Height: 12m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A medium sized sailing boat, sails up.

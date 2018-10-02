@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, P
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'P' character for use in location taxiway signs. 
 

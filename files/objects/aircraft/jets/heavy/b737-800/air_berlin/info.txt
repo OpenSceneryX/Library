@@ -7,7 +7,5 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/air_berlin/b737-800
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 737-800 in Air Berlin livery.

@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/aeroflot/a320
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 320 in Aeroflot livery.

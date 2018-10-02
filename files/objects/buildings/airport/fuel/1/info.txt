@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 12m
 Depth: 3m
 Height: 4m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Above ground JetA1 tank, 90,000 litres.

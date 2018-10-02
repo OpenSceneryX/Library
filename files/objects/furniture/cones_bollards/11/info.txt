@@ -5,7 +5,5 @@ URL: http://www.xpih.net
 Width: 0.4m
 Depth: 0.4m
 Height: 0.65m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small yellow traffic cone.

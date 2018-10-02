@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, B
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'B' character for use in location taxiway signs. 
 

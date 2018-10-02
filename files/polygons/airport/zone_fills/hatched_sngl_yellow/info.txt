@@ -2,8 +2,6 @@ Title: Keep Clear Area, Yellow, Single Hatch
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A repeating surface marking of yellow, single hatched (one set of parallel lines) painted lines typically used to fill in an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
 

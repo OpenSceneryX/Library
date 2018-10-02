@@ -5,7 +5,5 @@ Email: mr3d@talk21.com
 Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/dolphins
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A group of animated dolphins. Part of the Xsim collection of objects.

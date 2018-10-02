@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 14m
 Depth: 14m
 Height: 7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An old quonset (nissen) hut.

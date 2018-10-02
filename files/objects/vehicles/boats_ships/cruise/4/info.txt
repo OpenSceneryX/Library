@@ -10,7 +10,5 @@ Depth: 119m
 Width: 17m
 Height: 24m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Vistamar is a midrange Cruise Ship for 300 passengers. Speed: 16.5kts

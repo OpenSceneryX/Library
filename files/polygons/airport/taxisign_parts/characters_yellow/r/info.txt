@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, R
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'R' character for use in location taxiway signs. 
 

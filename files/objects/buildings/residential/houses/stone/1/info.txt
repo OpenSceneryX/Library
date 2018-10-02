@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=146200
 Width: 14.8m
 Depth: 13.1m
 Height: 9.4m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A two storey stone house with wood and plaster second floor, tiled roof and a porch area at the back.

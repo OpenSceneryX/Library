@@ -7,7 +7,5 @@ Width: 2.8m
 Depth: 7.8m
 Height: 3.0m
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white FedEx delivery van with purple and orange logo.

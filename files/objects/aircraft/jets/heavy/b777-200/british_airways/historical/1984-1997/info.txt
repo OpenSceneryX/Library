@@ -5,7 +5,5 @@ URL: http://www.xplanefreeware.net/
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export: objects/aircraft/livery/british_airways/historical/1984-1997/b777-200
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 777-200 in British Airways historical 'Landor' livery used from 1984-1997.

@@ -9,7 +9,5 @@ Export: objects/aircraft/livery/america_west/a320
 Width: 34.3m
 Depth: 37.9m
 Height: 12m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Airbus 320-200 with America West final livery. This airline was merged into US Airways in 2005, so this livery is now historical.

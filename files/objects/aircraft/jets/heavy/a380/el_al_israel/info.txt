@@ -6,7 +6,5 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/el_al_israel/a380
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 380 in El Al Israel livery.

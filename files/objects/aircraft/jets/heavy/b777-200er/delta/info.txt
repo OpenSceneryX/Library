@@ -11,7 +11,5 @@ Export: objects/aircraft/livery/delta/b777-200er
 Width: 60m
 Depth: 63m
 Height: 19.1m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 777-200ER in Delta livery.

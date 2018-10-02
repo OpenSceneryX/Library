@@ -10,7 +10,5 @@ Width: 10m
 Depth: 28m
 Height: 10.8m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A glass-bottomed catamaran.

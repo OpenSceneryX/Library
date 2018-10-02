@@ -4,8 +4,6 @@ Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 2.2m
 Depth: 4.4m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A surface marking depicting an inline '30' speed limit sign.
 

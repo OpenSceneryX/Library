@@ -10,7 +10,5 @@ Export Deprecated v2.1.0: objects/aircraft/jets/corporate/citation_x/unlit
 Width: 20.3m
 Height: 5.6m
 Depth: 22.57m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Cessna Citation X corporate jet.

@@ -4,8 +4,6 @@ Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 2m
 Depth: 4m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A surface marking depicting an inline 'Turn Right' traffic lane direction arrow.
 

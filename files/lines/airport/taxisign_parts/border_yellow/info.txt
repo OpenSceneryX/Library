@@ -3,8 +3,6 @@ Title: Location Taxiway Sign Border
 Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 0.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow, painted line (10cm wide) to provide the yellow border for the black background of a ground taxiway location sign. 
 

@@ -2,8 +2,6 @@ Title: Direction Taxiway Sign Glyph, 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A black '1' character for use in direction taxiway signs. 
 

@@ -6,7 +6,5 @@ Height: 4m
 Width: 1m
 Depth: 4m
 Animated: True
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An animated windsock that droops realistically as the windspeed drops.

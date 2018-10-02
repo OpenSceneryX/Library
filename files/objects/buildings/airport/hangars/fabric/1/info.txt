@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 20m
 Depth: 20m
 Height: 10m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Fabric-covered, metal-frame building. Blue & white. Original is at CYPA.

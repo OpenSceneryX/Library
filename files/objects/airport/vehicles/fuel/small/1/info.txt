@@ -6,7 +6,5 @@ Width: 3.5m
 Height: 4m
 Depth: 9.3m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small Mobil fuel tanker.

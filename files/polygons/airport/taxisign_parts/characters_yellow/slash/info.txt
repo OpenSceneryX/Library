@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, Slash
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow forward slash/stroke for use in location taxiway signs. 
 

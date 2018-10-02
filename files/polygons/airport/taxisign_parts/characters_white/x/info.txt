@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, X
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white 'X' character for use in mandatory taxiway signs. 
 

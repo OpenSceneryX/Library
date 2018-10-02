@@ -5,8 +5,6 @@ URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: After the Avro arrow was cancelled in 1960, Canada started to equip with Bomarc surface to air missiles. There were toughts in those days that missiles meant the end of the manned interceptor.
 

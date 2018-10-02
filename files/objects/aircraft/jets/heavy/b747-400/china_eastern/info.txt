@@ -7,7 +7,5 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/china_eastern/b747-400
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in China Eastern livery.

@@ -5,7 +5,5 @@ URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
 Export: objects/aircraft/livery/linjeflyg/cv440
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Convair CV-440 - Linjeflyg.

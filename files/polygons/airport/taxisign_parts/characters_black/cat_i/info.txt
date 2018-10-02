@@ -2,8 +2,6 @@ Title: Direction Taxiway Sign Glyph, I (serif)
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A black 'I' (serif) character for use in direction taxiway signs. 
 

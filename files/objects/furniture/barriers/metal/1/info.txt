@@ -6,7 +6,5 @@ Height: 0.8m
 Width: 1.4m
 Depth: 0.2m
 Export Deprecated v1.8.5: objects/furniture/barriers/portable
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A portable, self-supporting barrier, typically used to hold back crowds.

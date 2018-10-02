@@ -2,8 +2,6 @@ Title: Painted Surface, Red-Orange
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A repeating solid-coloured surface marking depicting a red-orange asphalt overlay. Typically used to indicate traffic lanes or other areas that are limited to a particular usage, e..g., a bus lane.
 

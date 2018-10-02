@@ -5,7 +5,5 @@ URL: http://www.xpih.net
 Width: 3.2m
 Depth: 2.6m
 Height: 2.5m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A red chainlink gate in full open position. 3 metres wide, 2.5 metres high.

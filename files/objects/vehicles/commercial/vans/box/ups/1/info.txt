@@ -7,7 +7,5 @@ Width: 2.8m
 Depth: 7m
 Height: 3.3m
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A box van in UPS® markings.

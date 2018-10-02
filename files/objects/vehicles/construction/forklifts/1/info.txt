@@ -6,7 +6,5 @@ Width: 2.5m
 Height: 3m
 Depth: 4.5m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Yellow fork lift truck.

@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/cathay_pacific/hong_kong/a340
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 340 in Cathay Pacific "Hong Kong" livery.

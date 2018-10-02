@@ -9,7 +9,5 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/delta/b747-400
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in Delta livery.

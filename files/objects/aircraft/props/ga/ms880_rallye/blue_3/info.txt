@@ -3,7 +3,5 @@ Title: Morane-Saulnier MS-880 Blue Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A blue Morane-Saulnier MS-880.

@@ -7,7 +7,5 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b777
 Export: objects/aircraft/livery/kuwait_airways/b777-200
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 777-200 in Kuwait Airways livery.

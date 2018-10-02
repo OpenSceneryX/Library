@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Arrow, Right
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow arrow pointing right for use in location taxiway signs. 
 

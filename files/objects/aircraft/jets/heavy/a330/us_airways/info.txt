@@ -6,7 +6,5 @@ Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/livery/us_airways/a330
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 330 in US Airways livery.

@@ -2,8 +2,6 @@ Title: Apron Fuel Hydrant Hatch
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An access hatch for an in-ground fuel hydrant with surrounding yellow warning marking.
 

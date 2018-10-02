@@ -4,8 +4,6 @@ Author: Cormac Shaw
 URL: http://www.xpih.net
 Export: lines/airport/zone_outlines/blue
 Width: 0.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A blue, painted line (20cm wide) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter. 
 

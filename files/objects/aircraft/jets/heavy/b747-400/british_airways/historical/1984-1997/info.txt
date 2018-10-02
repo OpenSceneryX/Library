@@ -7,7 +7,5 @@ Author, texture: David Hossack
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export: objects/aircraft/livery/british_airways/historical/1984-1997/b747-400
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in British Airways historical Landor livery used from 1984-1997.

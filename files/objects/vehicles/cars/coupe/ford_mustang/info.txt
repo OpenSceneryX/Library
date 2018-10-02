@@ -4,7 +4,5 @@ Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Yellow Ford Mustang car.

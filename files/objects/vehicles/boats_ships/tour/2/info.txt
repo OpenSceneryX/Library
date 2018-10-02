@@ -10,7 +10,5 @@ Width: 7.1m
 Depth: 31m
 Height: 9m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A glass-bottomed tour boat.

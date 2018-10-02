@@ -8,7 +8,5 @@ URL: http://afriqs.free.fr/xplane/index.php
 Width: 35m
 Depth: 35m
 Height: 60m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A conical camouflaged water tower, based on real artwork.

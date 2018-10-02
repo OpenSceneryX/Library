@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=7029
 Width: 18.4m
 Depth: 12.1m
 Height: 6.3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Wooden angular clubhouse with red roof.

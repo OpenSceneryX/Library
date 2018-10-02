@@ -5,7 +5,5 @@ Email: nward@sasktel.net
 Width: 2.4m
 Depth: 6m
 Height: 2.2m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Ford water tanker truck

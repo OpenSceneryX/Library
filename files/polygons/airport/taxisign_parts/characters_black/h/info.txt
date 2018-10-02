@@ -2,8 +2,6 @@ Title: Direction Taxiway Sign Glyph, H
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A black 'H' character for use in direction taxiway signs. 
 

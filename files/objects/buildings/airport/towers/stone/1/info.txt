@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 20.3m
 Height: 16.6m
 Depth: 27.3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A substantial stone airport control tower, 4 storey, with blue roof.

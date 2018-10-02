@@ -4,7 +4,5 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/jalways/beech-b1900
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Beech B1900 in JALways livery.

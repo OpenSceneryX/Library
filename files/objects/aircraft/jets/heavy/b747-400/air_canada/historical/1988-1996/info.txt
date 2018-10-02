@@ -5,7 +5,5 @@ URL: http://www.xplanefreeware.net/
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export: objects/aircraft/livery/air_canada/historical/1988-1996/b747-400
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in Air Canada historical livery used from 1988-1996.

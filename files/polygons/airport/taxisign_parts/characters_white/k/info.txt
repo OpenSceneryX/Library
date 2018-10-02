@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, K
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white 'K' character for use in mandatory taxiway signs. 
 

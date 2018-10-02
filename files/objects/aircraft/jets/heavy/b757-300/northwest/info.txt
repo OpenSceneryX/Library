@@ -9,7 +9,5 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/northwest/b757-300
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 757-300 in Northwest Airlines livery.

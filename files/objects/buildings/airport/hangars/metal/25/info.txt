@@ -6,7 +6,5 @@ Email: smithysvca@netspace.net.au
 Width: 16m
 Depth: 36m
 Height: 12m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Large metal hanger

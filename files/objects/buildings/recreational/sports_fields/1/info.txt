@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 178m
 Depth: 78m
 Height: 0m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Standard 400m running track with soccer pitch on the infield.
