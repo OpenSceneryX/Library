@@ -1,0 +1,12 @@
+Title: Garage, metal, side opening door
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 7.3m
+Depth: 12m
+Height: 3.3m
+Since: 3.0.0
+=====================
+Description: A green commercial garage with a sliding door at the side and 'waiting room' sign.
