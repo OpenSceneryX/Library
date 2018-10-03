@@ -1,0 +1,12 @@
+Title: Grandstand
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 18.75m
+Depth: 44m
+Height: 12.1m
+Since: 3.0.0
+=====================
+Description: A grandstand for a sports field, full of people.
