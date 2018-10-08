@@ -1258,7 +1258,7 @@ def osNotify(message = ""):
 def writePDFSectionHeading(title, newPageBefore = 0):
 	""" Write a section heading to the PDF """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 
@@ -1274,7 +1274,7 @@ def writePDFSectionHeading(title, newPageBefore = 0):
 def writePDFText(text):
 	""" Write some text to a PDF """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 	
 	pdf = classes.Configuration.developerPDF
 
@@ -1285,11 +1285,11 @@ def writePDFText(text):
 
 def writePDFEntry(sceneryObject):
 	""" Write an entry to a PDF """
-	
-	if (not classes.Configuration.buildPDF): return;
+
+	if (not classes.Configuration.buildPDF): return
 
 	# Check for PIL
-	if Image is None: return;
+	if Image is None: return
 	
 	pdf = classes.Configuration.developerPDF
 	
@@ -1327,13 +1327,13 @@ def writePDFEntry(sceneryObject):
 	startColumn = pdf.current_column
 	
 	# Image
-	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight)
+	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight, '', sceneryObject.getWebURL())
 
 	# Title
 	pdf.set_font("DejaVu", "B", fontSize)
 	pdf.set_text_color(0)
 	pdf.set_x(startX + imageMaxDimension)
-	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1)
+	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1, 'L', False, sceneryObject.getWebURL())
 	
 	# Virtual paths
 	pdf.set_font("DejaVu", "", fontSize)
@@ -1355,7 +1355,7 @@ def writePDFEntry(sceneryObject):
 def writePDFTOCEntry(title, depth):
 	""" Write a PDF TOC entry """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 	pdf.toc_entry(title, depth)
@@ -1364,7 +1364,7 @@ def writePDFTOCEntry(title, depth):
 def closePDF(path):
 	""" Close and save a PDF file """
 
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 	pdf.columns = 1
