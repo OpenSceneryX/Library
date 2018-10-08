@@ -145,6 +145,9 @@ class SceneryObject(object):
 		""" Get the filename of this SceneryObject's documentation file """
 		return self.title + ".html"
 
+	def getWebURL(self):
+		""" Get the website URL for this SceneryObject """
+		return "https://www.opensceneryx.com/" + self.filePathRoot + "/"
 
 #
 # Class to hold information about an X-Plane polygon
