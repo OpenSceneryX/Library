@@ -1,11 +1,13 @@
 Title: Box van, Ford Transit, white 
 =====================
-Author: Cormac Shaw
-URL: http://www.xpih.net
+Author: Stephen Legg
+URL: http://www.fs9world.741.com
+Author, conversion: Cormac Shaw
+URL, conversion: http://www.xpih.net
 Width: 1.7m
 Depth: 5.6m
 Height: 2.7m
 Export Propagate: 1
 =====================
 Description: A Ford Transit box commercial truck in white markings.
-This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
+This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simulator with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

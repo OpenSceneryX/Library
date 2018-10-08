@@ -1,10 +1,12 @@
 Title: Ford Transit box truck, white 
 =====================
-Author: Cormac Shaw
-URL: http://www.xpih.net
+Author: Stephen Legg
+URL: http://www.fs9world.741.com
+Author, conversion: Cormac Shaw
+URL, conversion: http://www.xpih.net
 Width: 1.7m
 Depth: 5.6m
 Height: 2.9m
 =====================
-Description: A Ford Transit box truck with airside vehcile beacon in white markings.
-This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
+Description: A Ford Transit box truck with airside vehicle beacon in white markings.
+This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simulator with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
