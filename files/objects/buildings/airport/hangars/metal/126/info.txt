@@ -1,0 +1,12 @@
+Title: Hangar, metal, grey, office and shed
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 26.5m
+Depth: 38m
+Height: 8.3m
+Since: 3.0.0
+=====================
+Description: A 26.5m x 38m grey metal hangar with office on one end and a shed attached to the side.
