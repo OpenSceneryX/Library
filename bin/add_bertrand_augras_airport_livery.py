@@ -68,7 +68,7 @@ try:
 
 		textureURL = ""
 		while textureURL == "":
-			textureURL = functions.getInput("Enter the texture author URL for use in the info.txt file (e.g. http://forums.x-plane.org/index.php?showuser=3814): ", 100)
+			textureURL = functions.getInput("Enter the texture author URL for use in the info.txt file (e.g. https://forums.x-plane.org/index.php?showuser=3814): ", 100)
 
 
 		aircraftPaths = ["objects/aircraft/jets/heavy/a310", "objects/aircraft/jets/heavy/a320", "objects/aircraft/jets/heavy/a340", "objects/aircraft/jets/heavy/a380", "objects/aircraft/jets/heavy/b737-700", "objects/aircraft/jets/heavy/b747-400", "objects/aircraft/jets/heavy/b757-200", "objects/aircraft/jets/heavy/md11", "objects/aircraft/jets/heavy/md90-50", "objects/aircraft/jets/regional_commuter/avro-rj70", "objects/aircraft/jets/regional_commuter/erj-145", "objects/aircraft/props/regional_commuter/atr-42", "objects/aircraft/props/regional_commuter/beech-b1900", "objects/aircraft/props/regional_commuter/dornier-d328", "objects/aircraft/props/regional_commuter/emb-120", "objects/aircraft/props/regional_commuter/fokker-50", "objects/aircraft/props/regional_commuter/saab-340"]
@@ -93,7 +93,7 @@ try:
 				fileContents = sourceFile.read()
 				fileContents = fileContents.replace("Aeroflot", liveryTitle)
 				fileContents = fileContents.replace("aeroflot", liveryFolderName)
-				fileContents = fileContents.replace("URL: http://forums.x-plane.org/index.php?showuser=3814\n", "URL: http://forums.x-plane.org/index.php?showuser=3814\nAuthor, texture: " + textureAuthor + "\nURL, texture: " + textureURL + "\n")
+				fileContents = fileContents.replace("URL: https://forums.x-plane.org/index.php?showuser=3814\n", "URL: https://forums.x-plane.org/index.php?showuser=3814\nAuthor, texture: " + textureAuthor + "\nURL, texture: " + textureURL + "\n")
 				sourceFile.close()
 				destinationFile.write(fileContents)
 				destinationFile.close()

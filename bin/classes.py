@@ -396,7 +396,7 @@ class OpenSceneryXPDF(TOC):
 		if (self.page_no() == 1): return;
 		
 		# Image
-		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "http://www.opensceneryx.com")
+		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "https://www.opensceneryx.com")
 
 		# Text
 		self.set_font("DejaVu", "B", 8)
