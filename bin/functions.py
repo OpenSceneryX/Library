@@ -89,7 +89,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		txtFileHandle.close()
 
 		# XML sitemap entry
-		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
+		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url + "/", str(1 - 0.1 * (sceneryCategory.depth - 1)))
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
@@ -1012,7 +1012,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
+		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/", "0.5")
 		writePDFEntry(sceneryObject)
 		
 	# Recurse
@@ -1033,7 +1033,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
 	""" Write an entry for the sceneryObject into the sitemap XML file """
 	xmlContent = "<url>"
-	xmlContent += "<loc>http://www.opensceneryx.com" + path + "</loc>"
+	xmlContent += "<loc>https://www.opensceneryx.com" + path + "</loc>"
 	#xmlContent += "<lastmod>2005-01-01</lastmod>"
 	#xmlContent += "<changefreq>monthly</changefreq>"
 	xmlContent += "<priority>" + priority + "</priority>"
@@ -1048,8 +1048,8 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	""" Get the standard header for all documentation files """
 	
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-	result += "					 \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-	result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
+	result += "					 \"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+	result += "<html xmlns=\"https://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
 	if titleSuffix != "":
 		result += " - " + titleSuffix
 	result += "</title>\n"
@@ -1058,7 +1058,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "<!--[if gt IE 6.5]>\n"
 	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
 	result += "<![endif]-->\n"
-	result += "<script type='text/javascript' src='http://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
+	result += "<script type='text/javascript' src='https://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "scripts.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
 
@@ -1081,7 +1081,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
 		result += "Search OpenSceneryx:<br />\n"
-		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
+		result += "<form action='https://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
 		result += "<input type='hidden' name='ie' value='UTF-8' />\n"
@@ -1089,7 +1089,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<input type='submit' name='sa' value='Search' />\n"
 		result += "</div>\n"
 		result += "</form>\n"
-		result += "<script type='text/javascript' src='http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
+		result += "<script type='text/javascript' src='https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
 	result += "<p id='version'>Latest version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
@@ -1113,8 +1113,8 @@ def getHTMLFooter(documentationPath):
 	result += "<div style='clear:both;'>&nbsp;</div>\n"
 	
 	result += "<div>"
-	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
-	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
+	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
+	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
 	result += "</div>"
 
 	result += "</div>"
@@ -1128,7 +1128,7 @@ def getXMLSitemapHeader():
 	""" Get the standard sitemap header """
 
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += "<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+	result += "<urlset xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\">\n"
 	return result
 
 
