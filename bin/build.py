@@ -93,7 +93,6 @@ try:
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/library-sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
-		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/doc/ReleaseNotes.html", "0.9")
 				
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
