@@ -89,7 +89,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		txtFileHandle.close()
 
 		# XML sitemap entry
-		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
+		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url + "/", str(1 - 0.1 * (sceneryCategory.depth - 1)))
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
@@ -1012,7 +1012,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
+		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/", "0.5")
 		writePDFEntry(sceneryObject)
 		
 	# Recurse
