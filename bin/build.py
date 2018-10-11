@@ -45,7 +45,7 @@ try:
 		
 		versionTag = ""
 		while versionTag == "":
-			versionTag = functions.getInput("Enter the release tag (e.g. 1.0.1): ", 10)
+			versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
 		
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
@@ -62,6 +62,7 @@ try:
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
+
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
@@ -71,7 +72,6 @@ try:
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "private"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
-	
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
@@ -93,7 +93,7 @@ try:
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/library-sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
-				
+		
 		latestItemsFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/latestitems.tsv", "w")
 
 		functions.displayMessage("------------------------\n")
@@ -184,8 +184,11 @@ try:
 		
 		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
 		toc = []
+
+		# latest contains an array of the new SceneryObjects in this version
+		latest = []
 		
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
 		
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -235,6 +238,9 @@ try:
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
 		
+		for item in latest:
+			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Finishing and closing files\n")
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
@@ -271,6 +277,7 @@ try:
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
+		latestItemsFileHandle.close()
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Writing Developer PDF\n")
