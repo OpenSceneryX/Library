@@ -52,6 +52,7 @@ exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
 exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
 logoPattern = re.compile("Logo:\s+(.*)")
 notePattern = re.compile("Note:\s+(.*)")
+sincePattern = re.compile("Since:\s+(.*)")
 # Texture patterns
 v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
@@ -98,7 +99,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -111,26 +112,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
 
 
 
@@ -144,7 +145,7 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
@@ -270,7 +271,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -295,7 +296,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	global v8TexturePattern
@@ -368,7 +369,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -393,7 +394,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 	
 	global v8TexturePattern
@@ -466,7 +467,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -490,7 +491,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
 	global v8TexturePattern
@@ -563,7 +564,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -586,7 +587,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
 	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
@@ -681,7 +682,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -766,13 +767,13 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	
 	
 	
-def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
 	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
 	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
 	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
-	global logoPattern, notePattern
+	global logoPattern, notePattern, sincePattern
 
 	file = open(sceneryObject.infoFilePath)
 	websiteInfoFileContents = file.read()
@@ -973,6 +974,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			sceneryObject.note = result.group(1)
 			continue
 		
+		# Since
+		result = sincePattern.match(line)
+		if result:
+			sceneryObject.since = result.group(1)
+			continue
+		
 		# Description
 		result = descriptionPattern.match(line)
 		if result:
@@ -1004,6 +1011,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		sceneryObject.tutorial = 1
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
 	
+	# Store in the latest if it was created for this version
+	if sceneryObject.since == classes.Configuration.versionTag:
+		latest.append(sceneryObject)
+
 	return 1
 
 
