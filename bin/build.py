@@ -94,6 +94,8 @@ try:
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
 				
+		latestItemsFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/latestitems.tsv", "w")
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
 		

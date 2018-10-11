@@ -114,6 +114,7 @@ class SceneryObject(object):
 		self.width = ""
 		self.depth = ""
 		self.note = ""
+		self.since = ""
 		self.description = ""
 		
 		self.virtualPaths = []
@@ -145,9 +146,12 @@ class SceneryObject(object):
 		""" Get the filename of this SceneryObject's documentation file """
 		return self.title + ".html"
 
-	def getWebURL(self):
+	def getWebURL(self, includeDomain = True):
 		""" Get the website URL for this SceneryObject """
-		return "https://www.opensceneryx.com/" + self.filePathRoot + "/"
+		if includeDomain:
+			return "https://www.opensceneryx.com/" + self.filePathRoot + "/"
+		else:
+			return self.filePathRoot + "/"
 
 #
 # Class to hold information about an X-Plane polygon
