@@ -1,0 +1,10 @@
+Title: Tank, galvanised, 8m
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 8m
+Depth: 8m
+Height: 2.3m
+Since: 3.0.0
+=====================
+Description: An 8m galvanised tank.

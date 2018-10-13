@@ -1,0 +1,10 @@
+Title: Tank, plastic, slimline, grey
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.6m
+Depth: 1.2m
+Height: 1.5m
+Since: 3.0.0
+=====================
+Description: A small, slimline grey plastic tank.
