@@ -1,0 +1,12 @@
+Title: Office, prefabricated, green, 21m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 9.8m
+Depth: 21m
+Height: 3.6m
+Export External RE_Library: RE_Library/Prefabs/21m/Prefab21m_grn
+Export External RE_Library: RE_Library/Prefabs/squadron/631VGS
+Since: 3.0.0
+=====================
+Description: A 21m long green prefabricated building.
