@@ -1,0 +1,10 @@
+Title: Wheelie bin, large, green, yellow lid
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.7m
+Depth: 0.6m
+Height: 1m
+Since: 3.0.0
+=====================
+Description: A large green wheelie bin with a yellow lid.
