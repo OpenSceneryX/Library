@@ -1,0 +1,10 @@
+Title: Restaurant, McDonalds®
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 19m
+Depth: 55.4m
+Height: 7.3m
+Since: 3.0.0
+=====================
+Description: A McDonalds® restaurant with a glass front.
