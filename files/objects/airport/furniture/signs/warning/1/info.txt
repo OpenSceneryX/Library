@@ -1,0 +1,10 @@
+Title: Sign, fuel, danger
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 1.6m
+Depth: 0.05m
+Height: 1.8m
+Since: 3.0.0
+=====================
+Description: A danger sign for a fuel installation.
