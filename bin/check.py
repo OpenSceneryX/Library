@@ -34,8 +34,6 @@ try:
 	showTraceback = 0
 	
 	try:
-		functions.growlRegister()
-
 		functions.displayMessage("========================\n")
 		functions.displayMessage("OpenSceneryX Check\n")
 		functions.displayMessage("========================\n")
@@ -77,7 +75,7 @@ try:
 		functions.displayMessage("Complete\n")
 		functions.displayMessage("========================\n")
 		
-		functions.growlNotify("OpenSceneryX check completed")
+		functions.osNotify("OpenSceneryX check completed")
 		
 	except classes.BuildError, e:
 		exceptionMessage = e.value
