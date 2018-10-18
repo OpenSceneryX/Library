@@ -1,0 +1,10 @@
+Title: Tank, plastic, 5m, red
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 5m
+Depth: 5m
+Height: 2.3m
+Since: 3.0.0
+=====================
+Description: A 5m red plastic tank.

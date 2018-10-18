@@ -1,0 +1,12 @@
+Title: Hangar, metal, grey, large
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 13.6m
+Depth: 66m
+Height: 3.6m
+Since: 3.0.0
+=====================
+Description: A large 13.6m x 66m grey metal hangar.

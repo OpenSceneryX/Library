@@ -1,0 +1,10 @@
+Title: Tank, plastic, 3m, brown
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 3m
+Depth: 3m
+Height: 2.3m
+Since: 3.0.0
+=====================
+Description: A 3m brown plastic tank.

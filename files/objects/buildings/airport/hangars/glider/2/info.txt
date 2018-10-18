@@ -1,0 +1,10 @@
+Title: Glider box, metal
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 7.5m
+Depth: 17.1m
+Height: 2.6m
+Since: 3.0.0
+=====================
+Description: A metal glider box with roller shutter front entrance.

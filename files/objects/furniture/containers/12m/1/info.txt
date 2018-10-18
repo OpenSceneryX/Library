@@ -1,0 +1,11 @@
+Title: Shipping container, 12m
+=====================
+Author: Nick Ward
+URL: http://forums.x-plane.org/index.php?showuser=2048
+Email: nward@sasktel.net
+Width: 12m
+Depth: 2.4m
+Height: 2.6m
+Export Propagate: 3
+=====================
+Description: A standard 12m (40') shipping container, blue.

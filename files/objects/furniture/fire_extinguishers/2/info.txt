@@ -1,0 +1,10 @@
+Title: Fire extinguisher, in cabinet
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.24m
+Depth: 0.18m
+Height: 0.7m
+Since: 3.0.0
+=====================
+Description: A fire extinguisher in a wooden cabinet.

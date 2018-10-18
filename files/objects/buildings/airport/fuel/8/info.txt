@@ -1,0 +1,10 @@
+Title: Refuelling installation, complete
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 17.4m
+Depth: 9.7m
+Height: 7.4m
+Since: 3.0.0
+=====================
+Description: A complete refuelling installation, including bowser, tanks, signs and lights.

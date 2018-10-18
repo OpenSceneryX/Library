@@ -1,0 +1,12 @@
+Title: Hangar, metal, grey, sliding doors
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 18.4m
+Depth: 9.9m
+Height: 5.2m
+Since: 3.0.0
+=====================
+Description: An 18.5m x 10m grey metal hangar with closed sliding doors.

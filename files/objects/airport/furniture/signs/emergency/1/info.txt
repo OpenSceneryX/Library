@@ -1,0 +1,10 @@
+Title: Sign, fuel, emergency
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 1.24m
+Depth: 0.2m
+Height: 2.4m
+Since: 3.0.0
+=====================
+Description: An emergency procedure sign for a fuel installation.

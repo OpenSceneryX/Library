@@ -1,0 +1,12 @@
+Title: Barrier, concrete
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 0.2m
+Depth: 1.8m
+Height: 0.1m
+Since: 3.0.0
+=====================
+Description: A concrete barrier, used for example for separating parking areas.
