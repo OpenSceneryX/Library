@@ -71,7 +71,7 @@ Release Howto
 
   $ mv wp/maintenance-disabled wp/.maintenance
 
-22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/ and /library-sitemap.xml into /old/
+22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/, /library-sitemap.xml and robots.txt into /old/
 
 23. Move /new/repository/ to /repository/
 
@@ -81,27 +81,25 @@ Release Howto
 
 26. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-27. Move old /downloads/OpenSceneryX-DeveloperPack-y.y.y.zip to /old/downloads/
+27. Ensure /versioninfo has the latest information about the installer in it.
 
-28. Ensure /versioninfo has the latest information about the installer in it.
-
-29. Correct ownership of folder structure
+28. Correct ownership of folder structure
 
   $ chown -R apache:apache public_html
 
-30. Take site out of maintenance mode
+29. Take site out of maintenance mode
 
   $ mv wp/.maintenance wp/maintenance-disabled
 
-31. Log into Cloudflare and clear all caches.
+30. Log into Cloudflare and clear all caches.
 
-32. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+31. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-33. Log in to Google Webmaster tools and resubmit library-sitemap.xml
+32. Log in to Google Webmaster tools and resubmit library-sitemap.xml
 
-34. Create new section in release note for next changes
+33. Create new section in release note for next changes
 
-35. Promotion:
+34. Promotion:
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
