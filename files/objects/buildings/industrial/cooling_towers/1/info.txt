@@ -2,7 +2,5 @@ Title: Cooling Towers
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A pair of cooling towers.

@@ -1,0 +1,10 @@
+Title: Church, stone, dark brown, tower, 30m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 12.4m
+Depth: 30m
+Height: 21m
+Since: 3.0.0
+=====================
+Description: A traditional British style church constructed in dark brown stone with a tower. 

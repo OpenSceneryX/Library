@@ -6,7 +6,5 @@ Width: 30m
 Depth: 30m
 Height: 30m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A single 3D tree, build with two vertical planes. Some parts are transparent due to PNG layering properties.  Use it to add obstacles or particular features of some airports or elsewhere.

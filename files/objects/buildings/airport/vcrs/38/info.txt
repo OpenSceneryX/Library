@@ -1,0 +1,22 @@
+Title: VCR, hexagonal, white
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 8.8m
+Depth: 7.6m
+Height: 5.6m
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wdb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wbb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wbg
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wdg
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wgb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_wgg
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wbb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wbg
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wdb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wdg
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wgb
+Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_wgg
+Since: 3.0.0
+=====================
+Description: A white, hexagonal visual control room with a rail around the top.

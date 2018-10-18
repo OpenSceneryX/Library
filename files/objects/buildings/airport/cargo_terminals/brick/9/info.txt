@@ -1,0 +1,14 @@
+Title: Cargo terminal, light brick, red features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 33m
+Depth: 55m
+Height: 10m
+Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/red_doors/Cargo_full_os4
+Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/red_doors/Cargo_full_cs4
+Export External RE_Library: RE_Library/Cargo_terminal/complete/open/beige/orange_doors/Cargo_full_os6
+Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/beige/orange_doors/Cargo_full_cs6
+Since: 3.0.0
+=====================
+Description: Light brick cargo terminal building with grey and red roofs and red cargo doors.

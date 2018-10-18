@@ -7,7 +7,5 @@ Export: objects/buildings/airport/fuel/5
 Width: 18.3m
 Depth: 18.3m
 Height: 9.1m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Fuel tank.

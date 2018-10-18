@@ -8,7 +8,5 @@ Width: 2m
 Depth: 3m
 Height: 2m
 Animated: yes
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Outrigger canoe, woman waving

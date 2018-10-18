@@ -1,0 +1,11 @@
+Title: Hangar, Bellman, black, closed
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 36m
+Depth: 53m
+Height: 10m
+Export External RE_Library: RE_Library/Hangars/Bellman/closed/Bellman_c_blk
+Since: 3.0.0
+=====================
+Description: A black Bellman hangar with closed doors.

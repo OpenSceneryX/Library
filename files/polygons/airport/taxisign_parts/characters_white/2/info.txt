@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, 2
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white '2' character for use in mandatory taxiway signs. 
 

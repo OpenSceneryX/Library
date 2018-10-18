@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, U
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow 'U' character for use in location taxiway signs. 
 

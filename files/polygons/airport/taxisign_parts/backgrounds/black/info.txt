@@ -2,8 +2,6 @@ Title: Taxiway Sign Background Black
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A repeating black background paint for use in stand ID, location and direction taxiway signs. 
 

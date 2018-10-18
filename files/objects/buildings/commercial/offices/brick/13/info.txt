@@ -1,0 +1,22 @@
+Title: Office, red brick, grey roof, 1 floor
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10m
+Depth: 20m
+Height: 4m
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/blue_doors/Cargo_off2_b1
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/blue_doors/Cargo_off2_b1
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/grey_doors/Cargo_off2_b2
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/grey_doors/Cargo_off2_b2
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/green_doors/Cargo_off2_b3
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/green_doors/Cargo_off2_b3
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/red_doors/Cargo_off2_b4
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/red_doors/Cargo_off2_b4
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/yellow_doors/Cargo_off2_b5
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/yellow_doors/Cargo_off2_b5
+Export External RE_Library: RE_Library/Admin/1floor_10x20/brick/orange_doors/Cargo_off2_b6
+Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/brick/orange_doors/Cargo_off2_b6
+Since: 3.0.0
+=====================
+Description: A red brick single storey office building with flat grey roof.

@@ -6,7 +6,5 @@ Email: xplanebaz@aapt.net.au
 Width: 43m
 Depth: 28m
 Height: 17m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Mid to large hangar with doors at each end.

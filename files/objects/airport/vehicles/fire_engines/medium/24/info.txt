@@ -1,0 +1,11 @@
+Title: Fire engine, Panther 6x6, yellow + grey
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 3.4m
+Depth: 11.7m
+Height: 3.8m
+Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_6x6/Panther_6x6_y-g
+Since: 3.0.0
+=====================
+Description: A Rosenbauer Panther 6-wheel fire engine, in yellow and grey livery.

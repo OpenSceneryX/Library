@@ -1,0 +1,12 @@
+Title: Hangar, metal, grey, sheds both sides
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 29m
+Depth: 29.7m
+Height: 8m
+Since: 3.0.0
+=====================
+Description: A 29m x 29.7m grey metal hangar with sheds attached to both sides.

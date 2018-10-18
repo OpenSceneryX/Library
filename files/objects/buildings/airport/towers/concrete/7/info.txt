@@ -1,0 +1,12 @@
+Title: Tower, concrete, modern, 61m, grey
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 18.5m
+Depth: 18.5m
+Height: 61m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_g_gry_blk
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_b_gry_blk
+Since: 3.0.0
+=====================
+Description: A large modern concrete control tower, grey, based on Manchester UK.

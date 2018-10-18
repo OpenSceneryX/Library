@@ -1,0 +1,12 @@
+Title: Fire station, red brick, four bays, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 30m
+Height: 8m
+Export External RE_Library: RE_Library/Fire_station/4_bay/open/red_doors/brick/FS_4bay_orb
+Export External RE_Library: RE_Library/Fire_station/4_bay/open/white_doors/brick/FS_4bay_cwb
+Since: 3.0.0
+=====================
+Description: A four bay red brick fire station with open red doors.

@@ -2,8 +2,6 @@ Title: Taxiway Sign Background Yellow
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A repeating yellow background paint for use in direction taxiway signs. 
 

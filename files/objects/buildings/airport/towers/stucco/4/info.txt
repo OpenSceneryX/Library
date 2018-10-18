@@ -1,0 +1,11 @@
+Title: Tower, stucco, 2 storey, octagonal control room
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 13.8m
+Depth: 17.4m
+Height: 11.6m
+Export External RE_Library: RE_Library/Control_Tower/ex_RAF/2548c/2458c_white
+Since: 3.0.0
+=====================
+Description: Former RAF stucco 2 storey control tower building with octagonal visual control room.

@@ -6,7 +6,5 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/meridiana/a310
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Airbus 310 in Meridiana livery.

@@ -1,0 +1,12 @@
+Title: Cargo shed, grey brick, 3 blue doors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 33m
+Depth: 36m
+Height: 10m
+Export External RE_Library: RE_Library/Cargo_terminal/main/open/grey/blue_doors/Cargo_main_ol1
+Export External RE_Library: RE_Library/Cargo_terminal/main/closed/grey/blue_doors/Cargo_main_cl1
+Since: 3.0.0
+=====================
+Description: Grey brick (breeze-block) cargo shed with three blue doors.

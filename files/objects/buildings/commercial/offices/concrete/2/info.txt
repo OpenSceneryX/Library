@@ -1,0 +1,11 @@
+Title: Office, concrete and glass
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 14m
+Depth: 45m
+Height: 40m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_old/Extension/EGCC_old_rear
+Since: 3.0.0
+=====================
+Description: A large concrete and glass office building.

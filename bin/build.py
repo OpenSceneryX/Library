@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 # Script to build a library release
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
@@ -34,8 +35,6 @@ try:
 	showTraceback = 0
 	
 	try:
-		functions.growlRegister()
-
 		functions.displayMessage("========================\n")
 		functions.displayMessage("OpenSceneryX Release\n")
 		functions.displayMessage("========================\n")
@@ -46,9 +45,7 @@ try:
 		
 		versionTag = ""
 		while versionTag == "":
-			versionTag = functions.getInput("Enter the release tag (e.g. 1.0.1): ", 10)
-		
-		os.chdir("..")
+			versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
 		
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
@@ -59,33 +56,35 @@ try:
 					
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
-		# print "svn mkdir tags/" + classes.Configuration.versionNumber
+
+		os.chdir("..")
 		classes.Configuration.makeFolders()
-		# status = os.system("svn mkdir tags/" + classes.Configuration.versionNumber)
-		
-		
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
+
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader(versionTag, False))
+		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
+		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
+		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
-		
+		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "private"))
+		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
 		
 		htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
-		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Object Library for X-Plane&reg;", "", False, False))
+		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX", "", False, False))
 		htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
-		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes for Latest Version", "", False, False))
+		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsVersionInfoFileHandle = open(classes.Configuration.osxFolder + "/doc/versionInfo.js", "w")
 
 		htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
 		htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", "", False, False))
 		htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
-		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX Object Library for X-Plane&reg; - Release Notes", "", False, False))
+		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
 		
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
@@ -94,8 +93,9 @@ try:
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/library-sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
-		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/doc/ReleaseNotes.html", "0.9")
-				
+		
+		latestItemsFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/latestitems.tsv", "w")
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
 		
@@ -103,20 +103,20 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxFolder + "/doc/x_banner_web.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxFolder + "/doc/twitter_follow.png")
 		
 		# Developer Pack Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxDeveloperPackFolder + "/doc/x_banner_web.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxDeveloperPackFolder + "/doc/twitter_follow.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/pdf.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/pdf.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
 		
 		# Website Folder
-		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxWebsiteFolder + "/doc/all.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxWebsiteFolder + "/doc/ie7.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.css", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.css")
-		shutil.copyfile(classes.Configuration.supportFolder + "/tabbo.js", classes.Configuration.osxWebsiteFolder + "/doc/tabbo.js")
-		shutil.copyfile(classes.Configuration.supportFolder + "/scripts.js", classes.Configuration.osxWebsiteFolder + "/doc/scripts.js")
+		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/bullet_object.gif", classes.Configuration.osxWebsiteFolder + "/doc/bullet_object.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxWebsiteFolder + "/doc/cc_logo.png")
@@ -129,8 +129,6 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_1.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_1.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_2.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_2.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/glass_numbers_3.png", classes.Configuration.osxWebsiteFolder + "/doc/glass_numbers_3.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/plus.png", classes.Configuration.osxWebsiteFolder + "/doc/plus.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/minus.png", classes.Configuration.osxWebsiteFolder + "/doc/minus.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/001_52.png", classes.Configuration.osxWebsiteFolder + "/doc/001_52.png")
 
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
@@ -186,8 +184,11 @@ try:
 		
 		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
 		toc = []
+
+		# latest contains an array of the new SceneryObjects in this version
+		latest = []
 		
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
 		
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -237,25 +238,50 @@ try:
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
 		
+		for item in latest:
+			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Finishing and closing files\n")
 		htmlIndexFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlDeveloperFileHandle.write(functions.getHTMLFooter("doc/"))
 		htmlReleaseNotesFileHandle.write(functions.getHTMLFooter(""))
-
-		functions.writeBackupLibraries(libraryFileHandle)
-
 		sitemapXMLFileHandle.write(functions.getXMLSitemapFooter())
 
 		htmlIndexFileHandle.close()
 		htmlDeveloperFileHandle.close()
+		libraryExternalFileHandle.close()
+		libraryDeprecatedFileHandle.close()
+
+		# Append the deprecated paths to the library
+		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
+		fileContents = file.read()
+		libraryFileHandle.write(fileContents)
+		file.close()
+		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
+
+		# Append the 3rd party paths to the library
+		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
+		fileContents = file.read()
+		libraryFileHandle.write(fileContents)
+		file.close()
+		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
+
+		# Append the backup paths to the library (note this relies on PRIVATE having alreadt been written as part of
+		# the external libraries above)
+		functions.writeBackupLibraries(libraryFileHandle)
+
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
+		latestItemsFileHandle.close()
 		
+		functions.displayMessage("------------------------\n")
+		functions.displayMessage("Writing Developer PDF\n")
+
 		functions.closePDF(classes.Configuration.osxDeveloperPackFolder + "/doc/Reference.pdf")
 
 		
@@ -263,7 +289,7 @@ try:
 		functions.displayMessage("Complete\n")
 		functions.displayMessage("========================\n")
 		
-		functions.growlNotify("OpenSceneryX build completed")
+		functions.osNotify("OpenSceneryX build completed")
 		
 	except classes.BuildError, e:
 		exceptionMessage = e.value

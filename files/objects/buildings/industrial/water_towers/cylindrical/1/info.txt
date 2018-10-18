@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=3031
 Width: 15m
 Depth: 15m
 Height: 60m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Cylindrical water tower, white.

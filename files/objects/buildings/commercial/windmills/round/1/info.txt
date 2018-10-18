@@ -11,7 +11,5 @@ Height: 23m
 Export Deprecated v1.3.0: objects/buildings/commercial/windmill
 Export Propagate: 3
 Animated: True
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An animated windmill which faces the local wind and rotates at constant speed.

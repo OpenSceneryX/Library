@@ -1,0 +1,10 @@
+Title: House, wooden, single story, cream
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 14m
+Depth: 23.6m
+Height: 5.9m
+Since: 3.0.0
+=====================
+Description: A cream coloured wooden bungalow.

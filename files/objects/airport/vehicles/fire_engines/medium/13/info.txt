@@ -1,0 +1,11 @@
+Title: Fire engine, Panther 4x4, red + grey
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 3.4m
+Depth: 10m
+Height: 3.7m
+Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_4x4/Panther_4x4_r-g
+Since: 3.0.0
+=====================
+Description: A Rosenbauer Panther 4-wheel fire engine, in red and grey livery.

@@ -1,0 +1,11 @@
+Title: Tower, brick, 2 storey, octagonal control room, type 2
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 13.8m
+Depth: 17.4m
+Height: 11.9m
+Export External RE_Library: RE_Library/Control_Tower/ex_RAF/V_bomber/V_bomber_brick
+Since: 3.0.0
+=====================
+Description: Former RAF brick 2 storey control tower building with octagonal visual control room.

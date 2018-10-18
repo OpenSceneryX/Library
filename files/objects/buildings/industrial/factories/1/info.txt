@@ -7,7 +7,5 @@ Depth: 66.3m
 Height: 63.3m
 Export Deprecated v1.3.0: objects/buildings/industrial/factory_smoky
 Export Deprecated v1.12.0: objects/buildings/industrial/factories/victorian
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Victorian-style smoky mill.

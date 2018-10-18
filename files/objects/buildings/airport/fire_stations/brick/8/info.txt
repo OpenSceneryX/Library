@@ -1,0 +1,14 @@
+Title: Fire station, light brick, four bays, yellow doors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 16m
+Depth: 45.4m
+Height: 10.7m
+Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/4_bay/open/Firestation2_L_4_oly
+Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/4_bay/closed/Firestation2_L_4_cly
+Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/4_bay/open/Firestation2_R_4_oly
+Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/4_bay/closed/Firestation2_R_4_cly
+Since: 3.0.0
+=====================
+Description: A four bay light brick fire station with yellow doors and control tower.

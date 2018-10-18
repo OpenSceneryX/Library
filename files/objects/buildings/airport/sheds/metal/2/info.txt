@@ -1,0 +1,11 @@
+Title: Shed, metal, closed, blue features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10m
+Depth: 20m
+Height: 7.5m
+Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/closed/blue/Cargo_shed_c1
+Since: 3.0.0
+=====================
+Description: Grey metal cargo shed with blue roof and blue closed doors.

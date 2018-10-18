@@ -1,5 +1,5 @@
 body {
-	font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding: 0;
 	margin: 0;
 	color: #333;
@@ -7,6 +7,7 @@ body {
 }
 
 h1 {
+	font-family: "Book Antiqua", Georgia, Palatino, Times, "Times New Roman", serif;
 	font-size: 2em;
 	display: inline;
 }
@@ -24,13 +25,13 @@ div#toc h2 {
 
 h3 {
 	padding: 0;
-	margin: 0 0 0.3em 0;
+	margin: 0.3em 0 0.5em 0;
 	font-size: 1.1em;
 }
 
 h4 {
 	padding: 0;
-	margin: 0 0 0.2em 0;
+	margin: 0.1em 0 0.3em 0;
 	font-size: 1em;
 }
 
@@ -47,6 +48,14 @@ img {
 	padding: 1px;
 	border: 1px solid black;
 	margin: 5px;
+}
+
+img.banner {
+	width:100%;
+	height: auto;
+	border: 0;
+	margin: 0;
+	padding: 0;
 }
 
 img.screenshot {
@@ -145,9 +154,9 @@ p#version {
 
 div#header {
 	display: block;
-	background-color: #33a;
 	color: #fff;
 	padding: 1em 1em 1em 2em;
+	margin-top: -100px;
 }
 
 div#content {
@@ -484,5 +493,6 @@ ul.downloads li {
 
 ol {
 	margin-top: 0;
-}
+	-webkit-margin-after:0;
+	padding-bottom: 1em;
 }

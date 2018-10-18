@@ -1,0 +1,10 @@
+Title: Bollard, yellow
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.2m
+Depth: 0.2m
+Height: 0.9m
+Since: 3.0.0
+=====================
+Description: A yellow bollard.

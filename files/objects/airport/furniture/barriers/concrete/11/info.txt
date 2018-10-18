@@ -1,0 +1,10 @@
+Title: Gable marker, 1.9m, white
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 1m
+Depth: 1.9m
+Height: 0.5m
+Since: 3.0.0
+=====================
+Description: A 1.9m long white gable marker.

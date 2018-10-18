@@ -1,0 +1,12 @@
+Title: Hangar, metal, blue, open, rear extension
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 44m
+Depth: 55m
+Height: 20m
+Export External RE_Library: RE_Library/Hangars/40x50m/pointed/open/rear_ext/blue/RE_hangar_40x50_oe1
+Export External RE_Library: RE_Library/Hangars/40x50m/pointed/open/blue/RE_hangar_40x50_o1
+Since: 3.0.0
+=====================
+Description: A blue metal hangar with open doors and rear extension.

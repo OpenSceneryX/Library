@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white '1' character for use in mandatory taxiway signs. 
 

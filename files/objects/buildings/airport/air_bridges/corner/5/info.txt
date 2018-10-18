@@ -1,0 +1,11 @@
+Title: Air bridge, 45 degree LH bend, 7.25m AGL, 8 + 17m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 14m
+Depth: 20m
+Height: 10.25m
+Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/45_degree/7.25m_agl/Airbridge_7.25agl_8+17m_45L_g
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, air bridge, 45 degree left hand bend, 7.25m above ground, sections 8 and 17m long.

@@ -1,0 +1,12 @@
+Title: Shed, metal, open, red features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10m
+Depth: 20m
+Height: 7.5m
+Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/open/red/Cargo_shed_o4
+Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/open/orange/Cargo_shed_o6
+Since: 3.0.0
+=====================
+Description: Grey metal cargo shed with red roof and red open doors.

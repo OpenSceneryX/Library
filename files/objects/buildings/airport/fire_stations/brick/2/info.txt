@@ -1,0 +1,12 @@
+Title: Fire station, single bay, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 6m
+Depth: 9m
+Height: 5m
+Export External RE_Library: RE_Library/Fire_station/1_bay/open/Fire_shed_sm_o_r
+Export External RE_Library: RE_Library/Fire_station/1_bay/open/Fire_shed_sm_o_w
+Since: 3.0.0
+=====================
+Description: A single bay fire station with an open door.

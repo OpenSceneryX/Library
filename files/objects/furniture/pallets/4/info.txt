@@ -6,7 +6,5 @@ Export Propagate: 2
 Width: 1.12m
 Height: 1m
 Depth: 1.63m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A partially stacked pallet with plain boxes of merchandise for cargo areas.

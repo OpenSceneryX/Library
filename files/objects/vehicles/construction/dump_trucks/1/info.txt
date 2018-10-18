@@ -6,7 +6,5 @@ Width: 2.4m
 Depth: 7m
 Height: 3m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Gravel dump truck

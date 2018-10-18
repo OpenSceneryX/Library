@@ -5,7 +5,5 @@ Email: nward@sasktel.net
 Width: 2.4m
 Depth: 8.5m
 Height: 3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: International oil tanker truck

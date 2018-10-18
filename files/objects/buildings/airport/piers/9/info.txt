@@ -1,0 +1,11 @@
+Title: Pier, metal, 90m, double sided
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 15m
+Depth: 90m
+Height: 10m
+Export External RE_Library: RE_Library/Terminals/pier/90m/dbl_sided/RE_Pier_90m_dbl_c
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, pier, metal, 90m long, double sided. 

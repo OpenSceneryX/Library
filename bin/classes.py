@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
 # If this script is used to generate a scenery library other than OpenSceneryX, recognition MUST be given
@@ -35,7 +36,7 @@ class Configuration(object):
 		self.osxPlaceholderFolder = self.osxDeveloperPackFolder + "/OpenSceneryX-Placeholder-" + self.versionNumber
 		self.osxWebsiteFolder = self.releaseFolder + "/OpenSceneryX-Website-" + self.versionNumber
 		self.supportFolder = "support"
-		self.buildPDF = buildPDF
+		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
 		
 	def makeFolders(self):
@@ -113,10 +114,12 @@ class SceneryObject(object):
 		self.width = ""
 		self.depth = ""
 		self.note = ""
+		self.since = ""
 		self.description = ""
 		
 		self.virtualPaths = []
 		self.deprecatedVirtualPaths = []
+		self.externalVirtualPaths = []
 		self.sceneryTextures = []
 		
 		self.tutorial = 0
@@ -143,6 +146,12 @@ class SceneryObject(object):
 		""" Get the filename of this SceneryObject's documentation file """
 		return self.title + ".html"
 
+	def getWebURL(self, includeDomain = True):
+		""" Get the website URL for this SceneryObject """
+		if includeDomain:
+			return "https://www.opensceneryx.com/" + self.filePathRoot + "/"
+		else:
+			return self.filePathRoot + "/"
 
 #
 # Class to hold information about an X-Plane polygon
@@ -300,6 +309,12 @@ class OpenSceneryXPDF(TOC):
 		self.title = title
 		self.version = "Version: " + version
 		self.columns = columns
+
+		if (not os.path.exists(os.getcwd() + '/font/DejaVuSansCondensed.ttf') or not os.path.exists(os.getcwd() + '/font/DejaVuSansCondensed-Bold.ttf')):
+			raise RuntimeError("TTF Font files 'DejaVuSansCondensed.ttf' and 'DejaVuSansCondensed-Bold.ttf' required at path : %s" % os.getcwd() + '/font')
+
+		self.add_font('DejaVu', '', os.getcwd() + '/font/DejaVuSansCondensed.ttf', uni=True)
+		self.add_font('DejaVu', 'B', os.getcwd() + '/font/DejaVuSansCondensed-Bold.ttf', uni=True)
 		
 		# Generate title page
 		self.add_page()
@@ -308,14 +323,14 @@ class OpenSceneryXPDF(TOC):
 		imagewidth = self.w
 		pagewidth = self.w - self.r_margin - self.x
 		xpos = (pagewidth - imagewidth) / 2.0 + self.l_margin
-		self.image(Configuration.supportFolder + "/x_banner_print.png", xpos, 100, imagewidth, 0, "PNG", "https://www.opensceneryx.com")
+		self.image("../" + Configuration.supportFolder + "/x_banner_print.png", xpos, 100, imagewidth, 0, "PNG", "https://www.opensceneryx.com")
 		
 		# Text
 		self.set_text_color(255, 255, 255)
 		self.set_y(113)
-		self.set_font("Arial", "B", 16)
+		self.set_font("DejaVu", "B", 16)
 		self.cell(0, 10, self.title, 0, 1, "C")
-		self.set_font("Arial", "B", 10)
+		self.set_font("DejaVu", "B", 10)
 		self.cell(0, 10, self.version, 0, 1, "C")
 		self.set_text_color(0)
 				
@@ -385,10 +400,10 @@ class OpenSceneryXPDF(TOC):
 		if (self.page_no() == 1): return;
 		
 		# Image
-		self.image(Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "http://www.opensceneryx.com")
+		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "https://www.opensceneryx.com")
 
 		# Text
-		self.set_font("Arial", "B", 8)
+		self.set_font("DejaVu", "B", 8)
 		self.set_y(self.t_margin + 2.3)
 		self.set_x(self.l_margin + 5)
 		self.cell(0, 0, self.title)
@@ -405,7 +420,7 @@ class OpenSceneryXPDF(TOC):
 		if (self.page_no() == 1): return;
 		if (self.in_toc == 1): return;
 		
-		self.set_font("Arial", "B", 8)
+		self.set_font("DejaVu", "B", 8)
 		self.set_y(-self.b_margin)
 		self.cell(0, 0, "Page %s" % self.num_page_no(), 0, 0, "R")
 

@@ -6,7 +6,5 @@ Width: 1.1m
 Height: 1.9m
 Depth: 3.1m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small green fork lift truck.

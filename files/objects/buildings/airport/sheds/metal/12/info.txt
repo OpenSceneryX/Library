@@ -1,0 +1,10 @@
+Title: Shed, brown metal, 10m
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 3.7m
+Depth: 10m
+Height: 3.7m
+Since: 3.0.0
+=====================
+Description: A small, brown metal admin shed.

@@ -1,0 +1,11 @@
+Title: Hangar, Ballykelly Cantilever, green, partly open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 55.7m
+Depth: 112.2m
+Height: 15.9m
+Export External RE_Library: RE_Library/Hangars/Ballykelly_112x48m/partly_open/BKC_green_po
+Since: 3.0.0
+=====================
+Description: A green Ballykelly Cantilever hangar with partly open doors.

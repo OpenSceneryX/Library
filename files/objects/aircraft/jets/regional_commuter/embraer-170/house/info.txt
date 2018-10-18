@@ -3,7 +3,5 @@ Title: Embraer 170 House
 Author: Christian Rivière
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An Embraer 170 in house colours.

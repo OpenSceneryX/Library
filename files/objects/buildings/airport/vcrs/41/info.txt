@@ -1,0 +1,11 @@
+Title: VCR, octagonal, white, variant 5 on pedestal
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 8.6m
+Depth: 8.6m
+Height: 12m
+Export External RE_Library: RE_Library/Control_Tower/VCRs/VCRa/VCR_ped_a
+Since: 3.0.0
+=====================
+Description: A white, octagonal visual control room on a pedestal.

@@ -7,7 +7,5 @@ Width: 18m
 Depth: 18m
 Animated: True
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A simple Dutch windmill with rotating blades

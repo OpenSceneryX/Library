@@ -3,7 +3,5 @@ Title: Van, Transit
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A transit van in Air France livery with the side door open.

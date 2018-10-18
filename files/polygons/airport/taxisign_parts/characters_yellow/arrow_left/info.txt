@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Arrow, Left
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow arrow pointing left for use in location taxiway signs. 
 

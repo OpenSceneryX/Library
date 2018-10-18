@@ -6,7 +6,5 @@ Email: joyfulsongster@hotmail.com
 Height: 14.5m
 Width: 2.7m
 Depth: 2.7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A straight street lamp with one light.

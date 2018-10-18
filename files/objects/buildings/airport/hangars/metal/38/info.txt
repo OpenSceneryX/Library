@@ -1,0 +1,11 @@
+Title: Hangar, large, curved roof, beige, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 35m
+Depth: 54m
+Height: 14m
+Export External RE_Library: RE_Library/Hangars/54x34m/open/Hangar_crv_54x34_o_beige
+Since: 3.0.0
+=====================
+Description: A large beige hangar with a curved roof and open doors.

@@ -7,7 +7,5 @@ Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 3
 Export: objects/aircraft/jets/military/b737
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 737-800 in USAF livery.

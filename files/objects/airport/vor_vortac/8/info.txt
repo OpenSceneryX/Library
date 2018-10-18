@@ -1,0 +1,12 @@
+Title: VOR, white hut, red antenna
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 30m
+Depth: 30m
+Height: 8.6m
+Export External RE_Library: RE_Library/Navaids/VORs/white/VOR_wwr
+Export External RE_Library: RE_Library/Navaids/VORs/white/VOR_wwo
+Since: 3.0.0
+=====================
+Description: A white VOR array with white hut and red antennae.

@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=7029
 Width: 17.9m
 Depth: 61.1m
 Height: 7.6m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Long modern hangar with metal sides, red roof, three aircraft doors and an office at one end.

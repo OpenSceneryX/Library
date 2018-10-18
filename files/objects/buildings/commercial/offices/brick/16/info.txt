@@ -1,0 +1,12 @@
+Title: Office, grey brick, grey roof, T shaped
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 40m
+Depth: 45m
+Height: 16.5m
+Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_a2
+Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_b2
+Since: 3.0.0
+=====================
+Description: A grey brick (breeze block) T shaped office building with grey roof.

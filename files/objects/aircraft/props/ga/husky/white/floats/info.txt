@@ -3,7 +3,5 @@ Title: Husky A-1A (white, floats)
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: Aviat Husky A-1A with floats. White/blue skin.

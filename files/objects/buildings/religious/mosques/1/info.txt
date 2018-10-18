@@ -7,7 +7,5 @@ URL, texture: http://www.openfootage.net
 Width: 10.6m
 Depth: 22.4m
 Height: 16.8m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A fictional, small western mosque.

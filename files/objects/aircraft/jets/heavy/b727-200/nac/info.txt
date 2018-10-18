@@ -8,7 +8,5 @@ Author, texture: Jeff Mueller
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b727
 Export: objects/aircraft/livery/nac/b727-200
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 727 aircraft with NAC livery.

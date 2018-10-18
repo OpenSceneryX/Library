@@ -1,0 +1,11 @@
+Title: Hangar, Bellman, grey, open both ends
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 36m
+Depth: 53m
+Height: 10m
+Export External RE_Library: RE_Library/Hangars/Bellman/open_both_ends/Bellman_o2_grey
+Since: 3.0.0
+=====================
+Description: A grey Bellman hangar with doors open at both ends.

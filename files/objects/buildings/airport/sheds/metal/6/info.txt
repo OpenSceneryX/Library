@@ -1,0 +1,11 @@
+Title: Shed, metal, closed, yellow features
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10m
+Depth: 20m
+Height: 7.5m
+Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/closed/yellow/Cargo_shed_c5
+Since: 3.0.0
+=====================
+Description: Grey metal cargo shed with yellow roof and yellow closed doors.

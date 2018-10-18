@@ -1,0 +1,10 @@
+Title: Mast, radio, 250m
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 12.9m
+Depth: 7m
+Height: 250.2m
+Since: 3.0.0
+=====================
+Description: A 250m radio mast.

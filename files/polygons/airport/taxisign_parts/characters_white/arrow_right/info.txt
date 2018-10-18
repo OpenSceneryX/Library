@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Arrow, Right
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white arrow pointing right for use in mandatory taxiway signs. 
 

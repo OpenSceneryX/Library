@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 16m
 Depth: 9m
 Height: 6m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A rusty-roofed old storage shed.

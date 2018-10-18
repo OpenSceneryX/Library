@@ -1,11 +1,10 @@
 Title: Cone, small, red and white
 =====================
-Author: Barry Roberts
-URL: http://forums.x-plane.org/index.php?showuser=3376
-Width: 0.5m
-Height: 0.3m
-Depth: 0.5m
-Revision: $Revision$
-Date: $Date$
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.8m
+Depth: 0.8m
+Height: 0.6m
+Since: 3.0.0
 =====================
 Description: A small red and white cone.

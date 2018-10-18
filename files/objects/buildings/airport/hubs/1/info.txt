@@ -1,0 +1,11 @@
+Title: Hub, aluminum, octagonal
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 36.2m
+Depth: 36.2m
+Height: 10m
+Export External RE_Library: RE_Library/Terminals/octagon/Octagon_a
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, hub, aluminium, octagonal. 

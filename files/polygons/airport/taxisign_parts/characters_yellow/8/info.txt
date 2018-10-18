@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, 8
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow '8' character for use in location taxiway signs. 
 

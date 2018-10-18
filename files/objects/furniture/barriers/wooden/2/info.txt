@@ -1,0 +1,12 @@
+Title: Barrier, wooden, 3.6m
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, texture: textures.com
+URL, texture: https://www.textures.com
+Width: 0.1m
+Depth: 3.6m
+Height: 0.6m
+Since: 3.0.0
+=====================
+Description: A wooden barrier typically used around parking areas.

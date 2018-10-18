@@ -6,7 +6,5 @@ Email: xplanebaz@aapt.net.au
 Width: 5.5m
 Depth: 24m
 Height: 3m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A wooden jetty on pilings with safety barriers.

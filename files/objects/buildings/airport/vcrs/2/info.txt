@@ -1,0 +1,12 @@
+Title: VCR, octagonal, grey, variant 1
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 6.6m
+Depth: 7.1m
+Height: 4.5m
+Export External RE_Library: RE_Library/VCRs/Type_a/rail/VCRa_r_lgb
+Export External RE_Library: RE_Library/VCRs/Type_a/no_rail/VCRa_lbb
+Since: 3.0.0
+=====================
+Description: A grey, octagonal visual control room with a rail around the top, variant 1.

@@ -1,0 +1,11 @@
+Title: Hangar, Callender, green, closed
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 38.8m
+Depth: 56.6m
+Height: 10.8m
+Export External RE_Library: RE_Library/Hangars/Callender/closed/Callender_c_grn
+Since: 3.0.0
+=====================
+Description: A green Callender hangar with closed doors.

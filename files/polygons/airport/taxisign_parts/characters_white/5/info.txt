@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, 5
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white '5' character for use in mandatory taxiway signs. 
 

@@ -7,7 +7,5 @@ Width: 0.45m
 Depth: 1m
 Height: 0.67m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A wide brown suitcase, upright.

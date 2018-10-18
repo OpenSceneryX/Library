@@ -5,8 +5,6 @@ URL: http://www.xpih.net
 Width: 2.25m
 Depth: 9.0m
 Height: 3.8m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large-sized airport catering truck in the stowed position in Servair markings.
 The vehicle is based on a Mercedes 3-axle chassis with a full size cab. The capacity and configuration is optimised for use with mid to large size airliners. Loader is in the lowered, stowed position.

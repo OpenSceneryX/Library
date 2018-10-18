@@ -3,7 +3,5 @@ Title: Robin DR221 Blue Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A blue Robin DR221.

@@ -1,0 +1,11 @@
+Title: Tower, concrete, modern, 27.5m, brown
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 11.6m
+Depth: 11.6m
+Height: 27.5m
+Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGSC_27.5m/EGSC_27.5m_4
+Since: 3.0.0
+=====================
+Description: A 27.5m modern concrete control tower, brown, based on Cambridge UK.

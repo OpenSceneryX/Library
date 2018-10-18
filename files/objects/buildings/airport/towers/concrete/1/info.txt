@@ -1,4 +1,4 @@
-Title: Tower, concrete, large modern
+Title: Tower, concrete, modern, 40m
 =====================
 Author: @lex
 Email: afriqs@yahoo.fr
@@ -12,7 +12,5 @@ Depth: 24.5m
 Height: 40m
 Export Deprecated v1.6.0: objects/buildings/airport/towers/large_modern
 Export Deprecated v1.6.0: objects/buildings/airport/towers/concrete/large_modern
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large round modern concrete and glass airport control tower, nicer than the default one.

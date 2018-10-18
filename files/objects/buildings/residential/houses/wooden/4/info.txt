@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 10m
 Depth: 12.2m
 Height: 6m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A single-storey medium-sized pink wooden house.

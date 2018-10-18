@@ -1,0 +1,10 @@
+Title: Fire trainer, blue
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 12m
+Depth: 20m
+Height: 6.4m
+Since: 3.0.0
+=====================
+Description: This model is based on the engineering drawings of a hybrid B737/757 aircraft fire training rig manufactured by Simulation FTS Ltd in the UK. The original is dual fuelled (kerosene and LPG) and can be set up to simulate a wide range of common aircraft fire scenarios. Similar models can be seen at several UK airports.

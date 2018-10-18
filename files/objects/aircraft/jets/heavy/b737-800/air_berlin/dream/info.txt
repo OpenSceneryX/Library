@@ -4,7 +4,5 @@ Author: Benedikt Stratmann
 URL: http://www.stratmann-web.net/
 Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 737-800 in Air Berlin (Boeing Dream) livery.

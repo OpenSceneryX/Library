@@ -3,8 +3,6 @@ Title: Drain Channel, Concrete
 Author: Cormac Shaw
 URL: http://www.xpih.net
 Width: 0.375m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A concret storm drain channel. 
 

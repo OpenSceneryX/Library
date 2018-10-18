@@ -1,0 +1,11 @@
+Title: Terminal, glass, dark blue, metal piers
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 315m
+Depth: 54m
+Height: 25m
+Export External RE_Library: RE_Library/Terminals/complete/pointed_roof/RE_Terminal_full_2
+Since: 3.0.0
+=====================
+Description: Dark blue glass terminal building with metal piers and pitched roof. 

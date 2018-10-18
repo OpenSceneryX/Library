@@ -4,7 +4,5 @@ Author: Bob Whitt
 Width: 8m
 Depth: 8m
 Height: 51m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A 100ft white lighthouse with a red top.

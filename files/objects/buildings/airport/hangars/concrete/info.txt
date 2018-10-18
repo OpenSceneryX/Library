@@ -6,7 +6,5 @@ Email: nward@sasktel.net
 Width: 19m
 Depth: 20m
 Height: 7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small old brown hangar, with windows & and office at the back.

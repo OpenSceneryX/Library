@@ -1,0 +1,22 @@
+Title: VCR, rectangular, white, variant 8
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 10.6m
+Depth: 9.1m
+Height: 7m
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wdb
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wbb
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wbg
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wdg
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wgb
+Export External RE_Library: RE_Library/VCRs/Type_f/rail/VCRf_r_wgg
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wbb
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wbg
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wdb
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wdg
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wgb
+Export External RE_Library: RE_Library/VCRs/Type_f/no_rail/VCRf_wgg
+Since: 3.0.0
+=====================
+Description: A white, rectangular visual control room with a rail around the top, variant 8.

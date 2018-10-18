@@ -1,0 +1,14 @@
+Title: Fire station, red brick, six bays, red doors
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 16m
+Depth: 60.4m
+Height: 10.7m
+Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/6_bay/open/Firestation2_L_6_obr
+Export External RE_Library: RE_Library/Fire_station/Type_2/left_hand/6_bay/closed/Firestation2_L_6_cbr
+Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/6_bay/open/Firestation2_R_6_obr
+Export External RE_Library: RE_Library/Fire_station/Type_2/right_hand/6_bay/closed/Firestation2_R_6_cbr
+Since: 3.0.0
+=====================
+Description: A six bay red brick fire station with red doors and control tower.

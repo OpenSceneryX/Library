@@ -2,8 +2,6 @@ Title: Mandatory Taxiway Sign Glyph, R
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A white 'R' character for use in mandatory taxiway signs. 
 

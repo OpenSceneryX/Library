@@ -1,0 +1,11 @@
+Title: Hut, high-vis, small rectangular, checked pattern
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2.5m
+Depth: 4.2m
+Height: 2.5m
+Export External RE_Library: RE_Library/Navaids/Cabin/Small/Navcabin_sm_rect_c
+Since: 3.0.0
+=====================
+Description: A small, rectangular, red and white navaid hut in checkerboard pattern.

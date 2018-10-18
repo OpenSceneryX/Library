@@ -1,0 +1,11 @@
+Title: VCR, octagonal, green, variant 3
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 8.6m
+Depth: 8.6m
+Height: 5.8m
+Export External RE_Library: RE_Library/VCRs/Type_b/b2/VCRb2_gbb
+Since: 3.0.0
+=====================
+Description: A green, octagonal visual control room, variant 3.

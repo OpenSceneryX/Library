@@ -5,7 +5,5 @@ URL: http://www.xplanefreeware.net/
 Author, texture: Reuben Horsley
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 747-400 in Boeing house colours.

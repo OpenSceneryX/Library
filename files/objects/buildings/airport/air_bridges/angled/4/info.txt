@@ -1,0 +1,11 @@
+Title: Air bridge, 30 degree RH angle, 5m AGL, 29m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 25m
+Depth: 16.7m
+Height: 8m
+Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/30_degree/5m_agl/Airbridge_5agl_29m_30R_g
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, air bridge, straight at 30 degree right hand angle, 5m above ground, 29m long.

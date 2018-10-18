@@ -3,7 +3,5 @@ Title: Truck, Small, With Trailer
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small truck with a trailer

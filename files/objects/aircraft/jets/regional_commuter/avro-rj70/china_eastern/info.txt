@@ -6,7 +6,5 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/china_eastern/avro-rj70
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A BAE Avro RJ70 in China Eastern livery.

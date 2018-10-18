@@ -1,0 +1,11 @@
+Title: Fire engine, Cobra 6x6, red
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 2.8m
+Depth: 10.8m
+Height: 3.4m
+Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_6x6/Cobra_6x6_red
+Since: 3.0.0
+=====================
+Description: A Carmichael Cobra 6-wheel fire engine, in red livery.

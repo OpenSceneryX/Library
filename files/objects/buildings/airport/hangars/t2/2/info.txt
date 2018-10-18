@@ -1,0 +1,11 @@
+Title: Hangar, T2, blue, closed
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 45.8m
+Depth: 73.5m
+Height: 11.9m
+Export External RE_Library: RE_Library/Hangars/T2/closed/T2_c_blue
+Since: 3.0.0
+=====================
+Description: A blue T2 hangar with closed doors.

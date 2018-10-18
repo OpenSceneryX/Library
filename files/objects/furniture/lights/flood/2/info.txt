@@ -7,7 +7,5 @@ Height: 21.1m
 Width: 3.2m
 Depth: 3.2m
 Export: objects/airport/furniture/lights/flood/2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A floodlight with 6 lamps.

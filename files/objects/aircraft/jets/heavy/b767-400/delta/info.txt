@@ -11,7 +11,5 @@ Export: objects/aircraft/livery/delta/b767-400
 Width: 51m
 Depth: 62m
 Height: 16.7m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Boeing 767-400 in Delta livery.

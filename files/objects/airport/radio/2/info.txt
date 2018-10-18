@@ -1,0 +1,10 @@
+Title: Tower, radio, 30m
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 4.8m
+Depth: 4.2m
+Height: 29.7m
+Since: 3.0.0
+=====================
+Description: A 30m radio tower with a triangular base.

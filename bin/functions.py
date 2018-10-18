@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
 # If this script is used to generate a scenery library other than OpenSceneryX, recognition MUST be given
@@ -23,6 +24,44 @@ try:
 
 except ImportError:
 	Image = None
+
+# Global regex patterns
+exportPattern = re.compile("Export:\s+(.*)")
+titlePattern = re.compile("Title:\s+(.*)")
+shortTitlePattern = re.compile("Short Title:\s+(.*)")
+authorPattern = re.compile("Author:\s+(.*)")
+textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
+conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
+modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
+emailPattern = re.compile("Email:\s+(.*)")
+textureEmailPattern = re.compile("Email, texture:\s+(.*)")
+conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
+modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
+urlPattern = re.compile("URL:\s+(.*)")
+textureUrlPattern = re.compile("URL, texture:\s+(.*)")
+conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
+modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
+widthPattern = re.compile("Width:\s+(.*)")
+heightPattern = re.compile("Height:\s+(.*)")
+depthPattern = re.compile("Depth:\s+(.*)")
+descriptionPattern = re.compile("Description:\s+(.*)")
+excludePattern = re.compile("Exclude:\s+(.*)")
+animatedPattern = re.compile("Animated:\s+(.*)")
+exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
+exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
+exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
+logoPattern = re.compile("Logo:\s+(.*)")
+notePattern = re.compile("Note:\s+(.*)")
+sincePattern = re.compile("Since:\s+(.*)")
+# Texture patterns
+v8TexturePattern = re.compile("TEXTURE\s+(.*)")
+v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
+v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
+v8PolygonTexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
+# Polygon patterns
+scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
+layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
+surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
 
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
@@ -51,7 +90,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		txtFileHandle.close()
 
 		# XML sitemap entry
-		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url, str(1 - 0.1 * (sceneryCategory.depth - 1)))
+		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url + "/", str(1 - 0.1 * (sceneryCategory.depth - 1)))
 		
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
@@ -60,7 +99,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 		
 		
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -73,26 +112,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 		
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, authors, textures, toc)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
 
 
 
@@ -106,9 +145,11 @@ def handleCategory(dirpath, currentCategory):
 	
 	
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 	
+	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -131,43 +172,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v7TexturePattern = re.compile("([^\s]*)\s+// Texture")
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
-	v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-	v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
 	textureFound = 0
+	lineNumber = 1
 	
 	for line in objectFileContents:
-		result = v7TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1) + ".png"))
-			litTextureFile = os.path.join(dirpath, result.group(1) + "LIT.png")
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Object (v7) specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
-			
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-				
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1) + ".png"))
-				if os.path.isfile(litTextureFile):
-					shutil.copyfile(litTextureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1) + "LIT.png"))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - object (v7) excluded (" + textureFile + ")\n", "error")
-				return
-			
-			# Break loop as soon as we find a v7 texture, need look no further
-			break
+		if lineNumber == 2 and line.startswith("7"):
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("Object v7 not supported\n", "error")
 
 		result = v8TexturePattern.match(line)
 		if result:
@@ -252,13 +263,15 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
 				return
 
+		lineNumber += 1
+
 	if textureFound == 0:
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -273,16 +286,20 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
+
+	global v8TexturePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
@@ -306,8 +323,6 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -354,7 +369,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -369,17 +384,21 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 	
+	global v8TexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -402,8 +421,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -450,7 +467,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -465,16 +482,20 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
 	
+	global v8TexturePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -497,8 +518,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("TEXTURE\s+(.*)")
 	textureFound = 0
 	
 	for line in objectFileContents:
@@ -545,7 +564,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -560,14 +579,19 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, currentCategory, authors, textures, toc):
+
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
 	
+	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
+
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -590,11 +614,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	objectFileContents = file.readlines()
 	file.close()
 
-	# Define the regex patterns:
-	v8TexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-	scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
-	layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
-	surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
 	textureFound = 0
 	scaleFound = 0
 	layerGroupFound = 0
@@ -602,7 +621,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	
 	for line in objectFileContents:
 		if not textureFound:
-			result = v8TexturePattern.match(line)
+			result = v8PolygonTexturePattern.match(line)
 			if result:
 				textureFound = 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
@@ -663,7 +682,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		return
 		
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors): return
+	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
 	
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
@@ -678,9 +697,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -746,40 +767,18 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	
 	
 	
-def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 	
+	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
+	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
+	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
+	global logoPattern, notePattern, sincePattern
+
 	file = open(sceneryObject.infoFilePath)
 	websiteInfoFileContents = file.read()
 	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
-	
-	# define the regex patterns:
-	exportPattern = re.compile("Export:\s+(.*)")
-	titlePattern = re.compile("Title:\s+(.*)")
-	shortTitlePattern = re.compile("Short Title:\s+(.*)")
-	authorPattern = re.compile("Author:\s+(.*)")
-	textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
-	conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
-	modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
-	emailPattern = re.compile("Email:\s+(.*)")
-	textureEmailPattern = re.compile("Email, texture:\s+(.*)")
-	conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
-	modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
-	urlPattern = re.compile("URL:\s+(.*)")
-	textureUrlPattern = re.compile("URL, texture:\s+(.*)")
-	conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
-	modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
-	widthPattern = re.compile("Width:\s+(.*)")
-	heightPattern = re.compile("Height:\s+(.*)")
-	depthPattern = re.compile("Depth:\s+(.*)")
-	descriptionPattern = re.compile("Description:\s+(.*)")
-	excludePattern = re.compile("Exclude:\s+(.*)")
-	animatedPattern = re.compile("Animated:\s+(.*)")
-	exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
-	exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
-	logoPattern = re.compile("Logo:\s+(.*)")
-	notePattern = re.compile("Note:\s+(.*)")
 	
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
@@ -956,7 +955,13 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if result:
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
-		
+
+		# Export to external library
+		result = exportExternalPattern.match(line)
+		if result:
+			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
+			continue
+
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
@@ -967,6 +972,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		result = notePattern.match(line)
 		if result:
 			sceneryObject.note = result.group(1)
+			continue
+		
+		# Since
+		result = sincePattern.match(line)
+		if result:
+			sceneryObject.since = result.group(1)
 			continue
 		
 		# Description
@@ -1000,6 +1011,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		sceneryObject.tutorial = 1
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
 	
+	# Store in the latest if it was created for this version
+	if sceneryObject.since == classes.Configuration.versionTag:
+		latest.append(sceneryObject)
+
 	return 1
 
 
@@ -1008,8 +1023,7 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
 	
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
-		#writeHTMLDocFile(sceneryObject)
-		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/index.html", "0.5")
+		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/", "0.5")
 		writePDFEntry(sceneryObject)
 		
 	# Recurse
@@ -1027,161 +1041,10 @@ def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 		buildDocumentation(sitemapXMLFileHandle, childCategory, depth + 1)
 
 
-
-def writeHTMLDocFile(sceneryObject):
-	""" Write a documentation file for the given SceneryObject to disk """
-	htmlFileContent = ""
-	
-	# Breadcrumbs
-	htmlFileContent += "<div id='breadcrumbs'>\n"
-	htmlFileContent += "<ul class='inline'>"
-	
-	sceneryCategoryAncestors = sceneryObject.sceneryCategory.getAncestors(1)
-	for sceneryCategoryAncestor in sceneryCategoryAncestors[::-1]:
-		if (sceneryCategoryAncestor.url != None):
-			htmlFileContent += "<li><a href='" + sceneryCategoryAncestor.url + "'>" + sceneryCategoryAncestor.title + "</a></li>\n"
-		else:
-			htmlFileContent += "<li>" + sceneryCategoryAncestor.title + "</li>\n"
-	htmlFileContent += "<li>" + sceneryObject.title + "</li>\n"
-	htmlFileContent += "</ul>\n"
-
-	htmlFileContent += "</div>\n"
-	htmlFileContent += "<div style='clear:both;'>&nbsp;</div>"
-	
-	# Content
-	htmlFileContent += "<div class='virtualPath'>\n"
-	htmlFileContent += "<h2>Virtual Paths</h2>\n"
-	
-	for virtualPath in sceneryObject.virtualPaths:
-		htmlFileContent += virtualPath + "<br />\n"
-		
-	htmlFileContent += "</div>\n"
-	
-	# Paths
-	if (not sceneryObject.deprecatedVirtualPaths == []):
-		htmlFileContent += "<div class='deprecatedVirtualPath'>\n"
-		htmlFileContent += "<h2>Deprecated Paths</h2>\n"
-		for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-			htmlFileContent += "<strong>From v" + virtualPathVersion + "</strong>: " + virtualPath + "<br />\n"
-		htmlFileContent += "</div>\n"
-	if (sceneryObject.screenshotFilePath != ""):
-		htmlFileContent += "<img class='screenshot' src='/" + sceneryObject.filePathRoot + "/screenshot.jpg" + "' alt='Screenshot of " + 			sceneryObject.shortTitle.replace("'", "&apos;") + "' />\n"
-	else:
-		htmlFileContent += "<img class='screenshot' src='/doc/screenshot_missing.png' alt='No Screenshot Available' />\n"
-
-	# Logo
-	if (sceneryObject.logoFileName != ""):
-		htmlFileContent += "<div class='objectlogocontainer'>\n"
-		htmlFileContent += "<img src='/doc/" + sceneryObject.logoFileName + "' alt='Object branding logo' />\n"
-		htmlFileContent += "</div>\n"
-
-	# Main information
-	htmlFileContent += "<ul class='mainItemDetails'>\n"
-	
-	# Author
-	if (not sceneryObject.author == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Original Author:</span> "
-		if (not sceneryObject.url == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.url + "' onclick='window.open(this.href);return false;'>" + sceneryObject.author + "</a></span>"
-			#if (not sceneryObject.email == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.email + "</a></span>"
-		#elif (not sceneryObject.email == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.email + "'>" + sceneryObject.author + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.author + "</span>"
-		htmlFileContent += "</li>\n"
-		
-	# Texture author
-	if (not sceneryObject.textureAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Original Texture Author:</span> "
-		if (not sceneryObject.textureUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.textureUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.textureAuthor + "</a></span>"
-			#if (not sceneryObject.textureEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureEmail + "</a></span>"
-		#elif (not sceneryObject.textureEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.textureEmail + "'>" + sceneryObject.textureAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.textureAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-		
-	# Conversion author
-	if (not sceneryObject.conversionAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Object Conversion By:</span> "
-		if (not sceneryObject.conversionUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.conversionUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.conversionAuthor + "</a></span>"
-			#if (not sceneryObject.conversionEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionEmail + "</a></span>"
-		#elif (not sceneryObject.conversionEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.conversionEmail + "'>" + sceneryObject.conversionAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.conversionAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-	
-	# Modification author
-	if (not sceneryObject.modificationAuthor == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Modified By:</span> "
-		if (not sceneryObject.modificationUrl == ""):
-			htmlFileContent += "<span class='fieldValue'><a href='" + sceneryObject.modificationUrl + "' onclick='window.open(this.href);return false;'>" + sceneryObject.modificationAuthor + "</a></span>"
-			#if (not sceneryObject.modificationEmail == ""):
-			#	htmlFileContent += ", <span class='fieldTitle'>email:</span> <span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationEmail + "</a></span>"
-		#elif (not sceneryObject.modificationEmail == ""):
-		#	htmlFileContent += "<span class='fieldValue'><a href='mailto:" + sceneryObject.modificationEmail + "'>" + sceneryObject.modificationAuthor + "</a></span>"
-		else:
-			htmlFileContent += "<span class='fieldValue'>" + sceneryObject.modificationAuthor + "</span>"
-		htmlFileContent += "</li>\n"
-	# Description
-	if (not sceneryObject.description == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Description:</span> <span class='fieldValue'>" + sceneryObject.description + "</span></li>\n"
-		
-	# Note
-	if (not sceneryObject.note == ""):
-		htmlFileContent += "<li class='note'><span class='fieldTitle'>Important Note:</span> <span class='fieldValue'>" + sceneryObject.note + "</span></li>\n"
-	
-	# Dimensions
-	if (not sceneryObject.width == "" and not sceneryObject.height == "" and not sceneryObject.depth == ""):
-		htmlFileContent += "<li><span class='fieldTitle'>Dimensions:</span>\n"
-		htmlFileContent += "<ul class='dimensions'>\n"
-		htmlFileContent += "<li id='width'><span class='fieldTitle'>w:</span> " + sceneryObject.width + "</li>\n"
-		htmlFileContent += "<li id='height'><span class='fieldTitle'>h:</span> " + sceneryObject.height + "</li>\n"
-		htmlFileContent += "<li id='depth'><span class='fieldTitle'>d:</span> " + sceneryObject.depth + "</li>\n"
-		htmlFileContent += "</ul>\n"
-		htmlFileContent += "</li>\n"
-
-	# Polygon Specific
-	if isinstance(sceneryObject, classes.Polygon):
-		htmlFileContent += "<li><span class='fieldTitle'>Texture Scale:</span> <span class='fieldValue'>h: " + sceneryObject.scaleH + "m, v: " + sceneryObject.scaleV + "m</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Layer Group:</span> <span class='fieldValue'>" + sceneryObject.layerGroupName + "</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Layer Offset:</span> <span class='fieldValue'>" + sceneryObject.layerGroupOffset + "</span></li>\n"
-		htmlFileContent += "<li><span class='fieldTitle'>Surface Type:</span> <span class='fieldValue'>" + sceneryObject.surfaceName + "</span></li>\n"
-		
-	# Tutorial
-	if (sceneryObject.tutorial):
-		htmlFileContent += "<li><span class='fieldTitle'>Tutorial:</span> <span class='fieldValue'><a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' class='nounderline' title='View Tutorial' onclick='window.open(this.href);return false;'><img src='../doc/pdf.gif' class='icon' alt='PDF File Icon' /></a>&nbsp;<a href='" + urllib.quote(sceneryObject.title + " Tutorial.pdf") + "' title='View Tutorial' onclick='window.open(this.href);return false;'>View Tutorial</a></span></li>\n"
-	
-	# Texture references
-	for texture in sceneryObject.sceneryTextures:
-		if len(texture.sceneryObjects) > 1:
-			# This scenery object shares a texture with other objects
-			htmlFileContent += "<li><span class='fieldTitle'>Texture '" + texture.fileName + "' shared with:</span>"
-			htmlFileContent += "<ul>"
-			for sharedTextureObject in texture.sceneryObjects:
-				htmlFileContent += "<li><span class='fieldValue'><a href='/" + sharedTextureObject.filePathRoot + "/index.html'>" + sharedTextureObject.title + "</a></span></li>"
-			htmlFileContent += "</ul></li>"
-		
-	htmlFileContent += "</ul>\n"
-
-	# Write the file contents
-	htmlFileHandle = open(classes.Configuration.osxWebsiteFolder + os.sep + sceneryObject.filePathRoot + os.sep + "index.html", "w")
-	htmlFileHandle.write(htmlFileContent)
-	htmlFileHandle.close()
-	
-	return 1
-
-
 def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
 	""" Write an entry for the sceneryObject into the sitemap XML file """
 	xmlContent = "<url>"
-	xmlContent += "<loc>http://www.opensceneryx.com" + path + "</loc>"
+	xmlContent += "<loc>https://www.opensceneryx.com" + path + "</loc>"
 	#xmlContent += "<lastmod>2005-01-01</lastmod>"
 	#xmlContent += "<changefreq>monthly</changefreq>"
 	xmlContent += "<priority>" + priority + "</priority>"
@@ -1196,8 +1059,8 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	""" Get the standard header for all documentation files """
 	
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-	result += "					 \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-	result += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
+	result += "					 \"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+	result += "<html xmlns=\"https://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
 	if titleSuffix != "":
 		result += " - " + titleSuffix
 	result += "</title>\n"
@@ -1206,7 +1069,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "<!--[if gt IE 6.5]>\n"
 	result += "<link rel='stylesheet' type='text/css' href='" + documentationPath + "ie7.css' media='all' />\n"
 	result += "<![endif]-->\n"
-	result += "<script type='text/javascript' src='http://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
+	result += "<script type='text/javascript' src='https://code.jquery.com/jquery-1.4.2.min.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "scripts.js'></script>\n"
 	result += "<script type='text/javascript' src='" + documentationPath + "versionInfo.js'></script>\n"
 
@@ -1224,11 +1087,12 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 	result += "</head>\n"
 	result += "<body>\n"
 	result += "<p class='hide'><a href='#content' accesskey='2'>Skip to main content</a></p>\n"
+	result += "<img src='" + documentationPath + "x_banner_web.png' class='banner' alt='OpenSceneryX'>\n"
 	result += "<div id='header'>\n"
 	if includeSearch:
 		result += "<div style='float:right;'>\n"
 		result += "Search OpenSceneryx:<br />\n"
-		result += "<form action='http://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
+		result += "<form action='https://www.google.co.uk/cse' id='cse-search-box' target='_blank'>\n"
 		result += "<div>\n"
 		result += "<input type='hidden' name='cx' value='partner-pub-5631233433203577:vypgar-6zdh' />\n"
 		result += "<input type='hidden' name='ie' value='UTF-8' />\n"
@@ -1236,7 +1100,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<input type='submit' name='sa' value='Search' />\n"
 		result += "</div>\n"
 		result += "</form>\n"
-		result += "<script type='text/javascript' src='http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
+		result += "<script type='text/javascript' src='https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
 	result += "<p id='version'>Latest version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
@@ -1260,8 +1124,8 @@ def getHTMLFooter(documentationPath):
 	result += "<div style='clear:both;'>&nbsp;</div>\n"
 	
 	result += "<div>"
-	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
-	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
+	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
+	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
 	result += "</div>"
 
 	result += "</div>"
@@ -1275,7 +1139,7 @@ def getXMLSitemapHeader():
 	""" Get the standard sitemap header """
 
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += "<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+	result += "<urlset xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\">\n"
 	return result
 
 
@@ -1286,18 +1150,23 @@ def getXMLSitemapFooter():
 	return result
 
 
-def getLibraryHeader(versionTag, private):
+def getLibraryHeader(versionTag, includeStandard = True, type = ""):
 	""" Get the standard library.txt header """
 	
-	result = "A\n"
-	result += "800\n"
-	result += "LIBRARY\n"
-	result += "\n"
-	result += "# Version: v" + versionTag + "\n"
-	result += "\n"
-	
-	if (private == True):
+	if (includeStandard == True):
+		result = "A\n"
+		result += "800\n"
+		result += "LIBRARY\n"
+		result += "\n"
+		result += "# Version: v" + versionTag + "\n"
+		result += "\n"
+	else:
+		result = "\n"
+
+	if (type == "private"):
 		result += "PRIVATE\n\n"
+	elif (type == "deprecated"):
+		result += "DEPRECATED\n\n"
 
 	return result
 
@@ -1364,7 +1233,7 @@ def displayMessage(message, type="message"):
 		pcrt.fg(pcrt.RED)
 		print "ERROR: " + message,
 		pcrt.fg(pcrt.WHITE)
-		growlNotify("Error: " + message)
+		osNotify("Error: " + message)
 	elif (type == "warning"):
 		pcrt.fg(pcrt.YELLOW)
 		print "WARNING: " + message,
@@ -1386,31 +1255,27 @@ def getInput(message, maxSize):
 	return raw_input(message)
 
 
-def growlRegister():
-	""" Register the application with Growl """
-	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so use growlnotify
-	# instead for the moment.  growlnotify doesn't need a separate registration call so do nothing
-	# here.
-
-
-def growlNotify(message = ""):
-	""" Send a growl notification """
-	# The Python Growl library hasn't been updated to support Growl 1.3 yet, so just make a system
-	# call to growlnotify for the moment.  Note that growlnotify (command line growl interface) must
-	# be installed.
-	os.system('growlnotify -name "OpenSceneryX Build Script" --image "' + os.path.join(classes.Configuration.supportFolder, "x_print.png") + '" --message "' + message + '"')
+def osNotify(message = ""):
+	""" Send an operating system notification """
+	# On Mac: Requires terminal-notifier to be installed:
+	# gem install terminal-notifier
+	t = '-title OpenSceneryX Build Script'
+	m = '-message {!r}'.format(message)
+	i = '-appIcon {!r}'.format(os.path.join(classes.Configuration.supportFolder, "x_print.png"))
+	ci = '-contentImage {!r}'.format(os.path.join(classes.Configuration.supportFolder, "x_print.png"))
+	os.system('terminal-notifier {}'.format(' '.join([m, t, i, ci])))
 
 
 def writePDFSectionHeading(title, newPageBefore = 0):
 	""" Write a section heading to the PDF """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 
 	if (newPageBefore): pdf.add_page()
 
-	pdf.set_font("Arial", "B", 16)
+	pdf.set_font("DejaVu", "B", 16)
 	pdf.set_text_color(0)
 	pdf.cell(0, 12, title, 0, 1)
 
@@ -1420,22 +1285,22 @@ def writePDFSectionHeading(title, newPageBefore = 0):
 def writePDFText(text):
 	""" Write some text to a PDF """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 	
 	pdf = classes.Configuration.developerPDF
 
 	pdf.columns = 1
-	pdf.set_font("Arial", "", 10)
+	pdf.set_font("DejaVu", "", 10)
 	pdf.multi_cell(0, 5, text, 0, 'J', 0, False)
 	
 
 def writePDFEntry(sceneryObject):
 	""" Write an entry to a PDF """
-	
-	if (not classes.Configuration.buildPDF): return;
+
+	if (not classes.Configuration.buildPDF): return
 
 	# Check for PIL
-	if Image is None: return;
+	if Image is None: return
 	
 	pdf = classes.Configuration.developerPDF
 	
@@ -1473,16 +1338,16 @@ def writePDFEntry(sceneryObject):
 	startColumn = pdf.current_column
 	
 	# Image
-	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight)
+	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight, '', sceneryObject.getWebURL())
 
 	# Title
-	pdf.set_font("Arial", "B", fontSize)
+	pdf.set_font("DejaVu", "B", fontSize)
 	pdf.set_text_color(0)
 	pdf.set_x(startX + imageMaxDimension)
-	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1)
+	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1, 'L', False, sceneryObject.getWebURL())
 	
 	# Virtual paths
-	pdf.set_font("Arial", "", fontSize)
+	pdf.set_font("DejaVu", "", fontSize)
 	virtualPathIndex = 1
 	for virtualPath in sceneryObject.virtualPaths:
 		if (virtualPathIndex == 2): pdf.set_text_color(128)
@@ -1501,7 +1366,7 @@ def writePDFEntry(sceneryObject):
 def writePDFTOCEntry(title, depth):
 	""" Write a PDF TOC entry """
 	
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 	pdf.toc_entry(title, depth)
@@ -1510,12 +1375,12 @@ def writePDFTOCEntry(title, depth):
 def closePDF(path):
 	""" Close and save a PDF file """
 
-	if (not classes.Configuration.buildPDF): return;
+	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
 	pdf.columns = 1
 	
 	pdf.set_text_color(0)
-	pdf.insert_toc(2, 16, 8, 'Arial', 'Table of Contents')
+	pdf.insert_toc(2, 16, 8, 'DejaVu', 'Table of Contents')
 	pdf.output(path, "F")
 	

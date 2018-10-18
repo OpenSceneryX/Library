@@ -1,0 +1,11 @@
+Title: Terminal, glass
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 124.6m
+Depth: 78m
+Height: 23.5m
+Export External RE_Library: RE_Library/Terminals/main_buiding/EGCN_type/EGCN_main_unnamed
+Since: 3.0.0
+=====================
+Description: Glass terminal building with curved roof. 

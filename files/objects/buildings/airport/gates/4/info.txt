@@ -1,0 +1,11 @@
+Title: Gate block, grey, 7.5m
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 3m
+Depth: 6m
+Height: 7.5m
+Export External RE_Library: RE_Library/Terminals/Gate_block/7.5m/Gateblock_7.5m_g
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, gate block, grey, 7.5m high. 

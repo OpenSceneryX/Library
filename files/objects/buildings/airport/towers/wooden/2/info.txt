@@ -6,7 +6,5 @@ URL: http://forums.x-plane.org/index.php?showuser=2048
 Width: 20m
 Height: 11m
 Depth: 10m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A small airport terminal, 2 floors + tower. Based on tower at CYBR Brandon.

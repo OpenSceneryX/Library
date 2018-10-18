@@ -1,0 +1,10 @@
+Title: Gable marker, 3.8m, yellow
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 1m
+Depth: 3.8m
+Height: 0.5m
+Since: 3.0.0
+=====================
+Description: A 3.8m long yellow gable marker.

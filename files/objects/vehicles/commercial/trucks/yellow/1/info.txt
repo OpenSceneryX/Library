@@ -7,7 +7,5 @@ Depth: 8.8m
 Height: 3.5m
 Export Propagate: 1
 Export Deprecated v1.12.0: objects/vehicles/commercial/trucks/3_axle/yellow/1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A large-sized commercial box truck with rear lift on a Mercedes 3-axle chassis in generic yellow colours.

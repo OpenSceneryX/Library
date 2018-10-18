@@ -1,0 +1,12 @@
+Title: ILS Localiser, large, red
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 4m
+Depth: 28.7m
+Height: 4m
+Export External RE_Library: RE_Library/Navaids/Localiser/Type_C/LOC_C_o
+Export External RE_Library: RE_Library/Navaids/Localiser/Type_C/LOC_C_r
+Since: 3.0.0
+=====================
+Description: ILS localiser, large, red.

@@ -6,7 +6,5 @@ Width: 1.5m
 Height: 0.9m
 Depth: 1.5m
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/tables/1
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A circular plastic table.

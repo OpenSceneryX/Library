@@ -1,0 +1,11 @@
+Title: Air bridge, 45 degree RH bend, 4m AGL, 8 + 17m long
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 14m
+Depth: 20m
+Height: 8m
+Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/45_degree/4m_agl/Airbridge_4agl_8+17m_45R_g
+Since: 3.0.0
+=====================
+Description: Standard terminal building block component, air bridge, 45 degree right hand bend, 4m above ground, sections 8 and 17m long.

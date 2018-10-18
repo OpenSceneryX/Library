@@ -2,8 +2,6 @@ Title: Taxiway Sign Background Black Disc
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A round black painted sign background. This polygon uses the Texture_NoWrap command so that the sign background will assume the shape of the four-sided polygon you draw.
 

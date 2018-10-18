@@ -1,0 +1,11 @@
+Title: Hangar, Bellman, green, open one end
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 36m
+Depth: 53m
+Height: 10m
+Export External RE_Library: RE_Library/Hangars/Bellman/open_one_end/Bellman_o1_grn
+Since: 3.0.0
+=====================
+Description: A green Bellman hangar with doors open at one end.

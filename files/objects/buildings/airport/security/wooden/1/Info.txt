@@ -1,0 +1,11 @@
+Title: Security building, wooden
+=====================
+Author: Lars de Jonge
+URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
+Email: larsfmdejonge@mail.com
+Width: 20m
+Depth: 10m
+Height: 8.9m
+Since: 3.0.0
+=====================
+Description: A wooden airport Security building 'old style' with 4 garage boxes.

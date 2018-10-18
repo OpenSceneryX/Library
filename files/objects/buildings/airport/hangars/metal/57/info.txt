@@ -1,0 +1,11 @@
+Title: Hangar, metal, green, open
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 24.3m
+Depth: 27.6m
+Height: 7.6m
+Export External RE_Library: RE_Library/Hangars/Main_84ft/open/Main_84_o_grn
+Since: 3.0.0
+=====================
+Description: A green metal hangar with open doors.

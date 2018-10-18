@@ -1,0 +1,11 @@
+Title: Hangar, Callender, grey, open one end
+=====================
+Author: Richard C Elliott
+URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
+Width: 38.8m
+Depth: 56.6m
+Height: 10.8m
+Export External RE_Library: RE_Library/Hangars/Callender/open_one_end/Callender_o1_grey
+Since: 3.0.0
+=====================
+Description: A grey Callender hangar with doors open at one end.

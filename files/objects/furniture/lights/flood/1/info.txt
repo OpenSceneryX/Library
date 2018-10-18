@@ -8,7 +8,5 @@ Depth: 2.04m
 Export: objects/airport/furniture/lights/flood/1
 Export: objects/furniture/lights/flood
 Export Deprecated v2.1.0: objects/furniture/lights
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A floodlight, 2 lamps at 70 degrees to one another.

@@ -2,8 +2,6 @@ Title: Location Taxiway Sign Glyph, 9
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A yellow '9' character for use in location taxiway signs. 
 

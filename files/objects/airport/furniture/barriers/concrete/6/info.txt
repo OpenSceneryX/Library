@@ -5,7 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=140438
 Width: 0.6m
 Depth: 22m
 Height: 1m
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A red and white concrete crash barrier, 22m long.

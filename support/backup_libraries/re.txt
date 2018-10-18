@@ -745,7 +745,7 @@ EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_blu_blu.
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_blu_w.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_grn_grn.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGSS_60m/EGSS_60m_g_grn_w.obj opensceneryx/placeholder.obj
-XPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGBB_34m/EGBB_34m.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGBB_34m/EGBB_34m.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGJJ_39m/EGJJ_39m.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGPH_57m/EGPH_57m.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP RE_Library/Control_Tower/UK_prototype/EGKK_43m/Gatwick_full.obj opensceneryx/placeholder.obj

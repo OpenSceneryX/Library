@@ -1,23 +1,23 @@
 <div id="content">
   <p>The OpenSceneryX project is a library of scenery objects for X-Plane&reg; 8.6 and above. X-Plane X-Plane&reg; 9, 10 and 11 are fully supported.  It is a collaborative effort by members of the <a href='http://www.x-plane.org' onclick='window.open(this.href);return false;'>X-Plane.org</a> community and the aim is to provide a good range of scenery components for authors to use in their scenery packages.</p>
-  <p>This is the Developer Pack, which is only to be used by scenery developers who want to use OpenSceneryX with their own projects. If you are not a scenery developer and have mistakenly downloaded this pack, you can <a href='http://www.opensceneryx.com' onclick='window.open(this.href);return false;'>download the full library from here</a>.</p>
+  <p>This is the Developer Pack, which is only to be used by scenery developers who want to use OpenSceneryX with their own projects. If you are not a scenery developer and have mistakenly downloaded this pack, you can <a href='https://www.opensceneryx.com' onclick='window.open(this.href);return false;'>download the full library from here</a>.</p>
 	<p>This developer pack contains a PDF reference manual for the whole library, which includes screenshots.  It's available here:</p>
 	
 	<p><a href='doc/Reference.pdf' class='nounderline' onclick='window.open(this.href);return false;'><img src='doc/pdf.gif' class='downloadicon'></a><a href='doc/Reference.pdf' onclick='window.open(this.href);return false;'>Reference Manual</a></p>
 	
-  <h2>Instructions for Scenery Developers</h2>
+  <h2>Building Scenery with OpenSceneryX</h2>
   <p>First, an important note regarding the licence:  Because you will be <strong>referencing</strong> rather than <strong>copying</strong> objects in the library, you do not need to contact anyone or get permission from anyone to use this library with your own sceneries, whether commercial or not.</p>
 
   <h3>An Incredibly Quick Tutorial Using WorldEditor (WED)</h3>
-  <p>This assumes you are already familiar with the basics of <a href='http://developer.x-plane.com/tools/worldeditor/' onclick='window.open(this.href);return false;'>WED, available here</a>.</p><ol>
-    <li>Download and install the <a href='http://www.opensceneryx.com' onclick='window.open(this.href);return false;'>OpenSceneryX library from here</a>.</li>
+  <p>This assumes you are already familiar with the basics of <a href='https://developer.x-plane.com/tools/worldeditor/' onclick='window.open(this.href);return false;'>WED, available here</a>.</p><ol>
+    <li>Download and install the <a href='https://www.opensceneryx.com' onclick='window.open(this.href);return false;'>OpenSceneryX library from here</a>.</li>
     <li>Once you have installed the library, 'opensceneryx' will appear in the 'Library' panel on the left hand side in WED.</li>
     <li>Click the arrow next to 'opensceneryx' to unfold the first level of contents.  You can continue to unfold deeper levels until you find the item you want.  Click to select it and then click on your airport layout to place it where you want.</li>
   </ol>
   
   <h3>An Incredibly Quick Tutorial Using OverlayEditor</h3>
-  <p>This assumes you are already familiar with the basics of <a href='http://marginal.org.uk/x-planescenery/' onclick='window.open(this.href);return false;'>OverlayEditor, available here</a>.</p><ol>
-    <li>Download and install the <a href='http://www.opensceneryx.com' onclick='window.open(this.href);return false;'>OpenSceneryX library from here</a>.</li>
+  <p>This assumes you are already familiar with the basics of <a href='https://marginal.org.uk/x-planescenery/' onclick='window.open(this.href);return false;'>OverlayEditor, available here</a>.</p><ol>
+    <li>Download and install the <a href='https://www.opensceneryx.com' onclick='window.open(this.href);return false;'>OpenSceneryX library from here</a>.</li>
     <li>Once you have installed the library, 'opensceneryx' will appear in the drop-down menu on the right hand side in OverlayEditor.</li>
     <li>Select 'opensceneryx' and all the objects in the library are listed. You can select one and click the '+' sign to add it to your scenery.</li>
   </ol>
@@ -27,29 +27,39 @@
   This is to help you when building scenery, if you know you want some Air Canada aircraft you can see all types listed together, but if you know you want a 747-400 you can see all the liveries listed together.  Don't worry about using the same object from different paths, X-Plane&reg; only loads the object once.</p>
   <p>Where multiple liveries are available for an aircraft, all appropriate liveries are also published to a generic aircraft path as well as the livery-specific path.  This allows you to pick a generic aircraft and X-Plane&reg; will automatically randomise between the available liveries.  For example, if you want a random 747-400, use <tt>objects/aircraft/jets/heavy/b747-400</tt> and you will get a different livery every time you load your scenery package.  Some liveries are not included in this: One-offs, house colours and historical colours.  </p>
 
-  <h3>What You Need To Do When Distributing Your Scenery</h3>
-  <p>The main problem you have is that if your users install your scenery package and your package references OpenSceneryX, then if a user doesn't have OpenSceneryX installed X-Plane&reg; will display an error on startup.  X-Plane 8.6 and earlier versions of X-Plane 9 would also immediately quit - hardly the ideal experience for your users.</p>
-  <p>To solve this problem, naturally you will want to instruct your users to install OpenSceneryX, and the best way to do this is to link to <a href='http://www.opensceneryx.com' onclick='window.open(this.href);return false;'>the OpenSceneryX website</a>.  You can let your users know that your package uses OpenSceneryX by including our logo in your documentation too:</p>
-  <p><a href="http://www.opensceneryx.com" class="nounderline"><!--<img src="OpenSceneryX-Placeholder-${version}/enhancedby_opensceneryx_logo.png" alt="Enhanced by OpensceneryX" class="icon" />--></a></p>
-  <p>The logo can be found in the <tt>OpenSceneryX-Placeholder-${version}</tt> folder and the HTML code to insert it is:
-  <pre>
-&lt;a href="http://www.opensceneryx.com"&gt;
-  &lt;img src="enhancedby_opensceneryx_logo.png" alt="Enhanced by OpenSceneryX" style="border: none;" /&gt;
-&lt;/a&gt;</pre></p>
-  <p>However, inevitably some users will forget to download it, misunderstand or simply ignore the instructions, so to avoid X-Plane&reg; throwing up errors, we have produced an empty version of the library, with invisible placeholder objects instead of the real objects.  This is called the <strong>Placeholder Library</strong>. The idea is that you include the placeholder library inside your scenery package, so X-Plane&reg; will not complain when it can't find OpenSceneryX.  Your scenery package will load correctly, but no OpenSceneryX objects will be seen.  Note that the placeholder library is very small so it will not noticeably increase the size of your scenery package.</p>
-  <p>To include the placeholder library in your package:</p>
+  <h2>What To Do when Distributing your Scenery</h2>
   <ol>
-    <li>Locate the folder titled <tt>OpenSceneryX-Placeholder-${version}</tt>, contained in this developer pack.</li>
-    <li>Copy the <strong>contents</strong> of this folder into your scenery package folder.</li>
+    <li><h3>Let your Users Know</h3>
+      <p>The main problem you have is that if your users install your scenery package and your package references OpenSceneryX, then if a user doesn't have OpenSceneryX installed X-Plane&reg; will display an error on startup.  X-Plane 8.6 and earlier versions of X-Plane 9 would also immediately quit - hardly the ideal experience for your users.</p>
+      <p>To solve this problem, naturally you will want to instruct your users to install OpenSceneryX, and the best way to do this is to link to <a href='https://www.opensceneryx.com' onclick='window.open(this.href);return false;'>the OpenSceneryX website</a>.  You can let your users know that your package uses OpenSceneryX by including our "Enhanced by…" logo in your documentation too:</p>
+      <p><a href="https://www.opensceneryx.com" class="nounderline"><img src="OpenSceneryX-Placeholder-${version}/enhancedby_opensceneryx_logo.png" alt="Enhanced by OpensceneryX" class="icon" style="width: 150px;" /></a></p>
+      <p>The logo can be found in the <tt>OpenSceneryX-Placeholder-${version}</tt> folder. You can embed this in various documentation formats including Word and PDF, but please try to make it clickable to take the user straight to <a href="https://www.opensceneryx.com">https://www.opensceneryx.com</a>. If you want to include it in a web page, the HTML code to insert it is:
+      <pre>
+&lt;a href="https://www.opensceneryx.com"&gt;
+  &lt;img src="https://opensceneryx.com/extras/enhancedby_opensceneryx_logo.png" alt="Enhanced by OpenSceneryX" style="border: none; width: 150px" /&gt;
+&lt;/a&gt;</pre></p>
+      <p>Feel free to change the <code>img src</code> path to the local path to the logo if you use an HTML file inside your scenery package.</p>
+    </li>
+    <li><h3>Include the Placeholder Library in your Package</h3>
+      <p>Even if you diligently include instructions with your package, inevitably some users will forget to download it, misunderstand or simply ignore the instructions, so to avoid X-Plane&reg; throwing up errors, we have produced an empty version of the library, with invisible placeholder objects instead of the real objects.  This is called the <strong>Placeholder Library</strong>. If you include the placeholder library inside your scenery package, X-Plane&reg; will not complain when it can't find OpenSceneryX.  Your scenery package will load correctly, but no OpenSceneryX objects will be seen.  Note that the placeholder library is very small so it will not noticeably increase the size of your scenery package.</p>
+      <p>To include the placeholder library in your package:</p>
+      <ol>
+        <li>Locate the folder titled <tt>OpenSceneryX-Placeholder-${version}</tt>, contained in this developer pack.</li>
+        <li>Copy the <strong>contents</strong> of this folder into your scenery package folder.</li>
+      </ol>
+      <p>It's as simple as that!  There are only two problems you may come across:  Firstly, please ensure that the version of the placeholder library you include with your scenery is the same as the version of the full library you built your scenery with, otherwise users may get 'unable to locate object definition' errors on X-Plane&reg; startup.  Secondly, if you are building a scenery package <strong>that is also a library</strong>, you will have produced your own <tt>library.txt</tt> file.  In this case, simply copy-and-paste the contents of the <tt>OpenSceneryX-Placeholder-${version}/library.txt</tt> file into yours, instead of copying the whole file.</p>
+    </li>
   </ol>
-  <p>It's as simple as that!  There are only two problems you may come across:  Firstly, please ensure that the version of the placeholder library you include with your scenery is the same as the version of the full library you built your scenery with, otherwise users may get 'unable to locate object definition' errors on X-Plane&reg; startup.  Secondly, if you are building a scenery package <strong>that is also a library</strong>, you will have produced your own <tt>library.txt</tt> file.  In this case, simply copy-and-paste the contents of the <tt>OpenSceneryX-Placeholder-${version}/library.txt</tt> file into yours, instead of copying the whole file.</p>
-
-  <h3>What You Need To Do if a New Version of OpenSceneryX is Released</h3>
+  <h2>What To Do if a New Version of OpenSceneryX is Released</h2>
   <p>So a new version of OpenSceneryX comes out and you want to upgrade your scenery package to use it?  Well, if you don't want to use any of the new objects in the new version, you don't need to do anything at all. <strong>We guarantee that any future version of OpenSceneryX will be backward-compatible</strong>, so new releases will not break your existing scenery package.  If you do want to use some of the new objects, just replace the <tt>library.txt</tt> file and <tt>opensceneryx</tt> folder inside your package with the new ones from the OpenSceneryX placeholder package and you're ready to go.
 
-  <h3>Important Notes</h3>
+  <h2>Important Notes</h2>
   <p class="warning">Note 1: Please do not distribute the full version of OpenSceneryX with your scenery package.  If scenery authors do this, users will end up with multiple different versions of OpenSceneryX on their machines, and it will become a nightmare to maintain and manage. Please only distribute the placeholder library (n.b. Additionally, if you are a commercial developer, you would be <strong>breaking the licence</strong> by including OpenSceneryX in your package). </p>
   <br />
   <p class="warning">Note 2: Please do not physically copy objects out of the library into your own packages, unless you specifically ask the authors of those objects for permission.  If you include individual objects without asking permission, you are <strong>breaking copyright law</strong>.</p>
   <br />
+
+  <h2>Follow what's Happening</h2>
+  <p>We post all the latest news and updates on Twitter:</p>
+  <p><a href="https://www.twitter.com/opensceneryx" target="_blank" class="nounderline"><img class="icon" alt="Follow @OpenSceneryX" src="doc/twitter_follow.png" width="200" height="31"></a></p>
 </div>

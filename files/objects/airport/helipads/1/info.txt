@@ -6,7 +6,5 @@ Height: 0.6m
 Width: 4m
 Depth: 5.56m
 Export: objects/airport/furniture/portable_helipad
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A helicopter pad to practice landing and take off, for light helos like the Jetranger.

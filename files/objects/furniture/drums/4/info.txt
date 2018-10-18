@@ -1,0 +1,10 @@
+Title: Drums, fuel
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Width: 0.9m
+Depth: 3m
+Height: 1.1m
+Since: 3.0.0
+=====================
+Description: A group of stacked fuel drums on their sides.

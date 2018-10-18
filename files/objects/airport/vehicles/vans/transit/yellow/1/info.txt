@@ -1,12 +1,12 @@
 Title: Ford Transit van, yellow 
 =====================
-Author: Cormac Shaw
-URL: http://www.xpih.net
+Author: Stephen Legg
+URL: http://www.fs9world.741.com
+Author, conversion: Cormac Shaw
+URL, conversion: http://www.xpih.net
 Width: 1.6m
 Depth: 4.6m
 Height: 2.35m
-Revision: $Revision$
-Date: $Date$
 =====================
-Description: A Ford Transit van with airside vehcile beacon in yellow markings.
-This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simualtor with the kind permission of its author, Stephen Legg (www.fs9world.741.com).
+Description: A Ford Transit van with airside vehicle beacon in yellow markings.
+This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simulator with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

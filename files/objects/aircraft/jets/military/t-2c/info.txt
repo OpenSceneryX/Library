@@ -8,7 +8,5 @@ Width: 11m
 Depth: 12m
 Height: 6m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A North American T-2c in US Navy colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/North_American_T-2_Buckeye' onclick='window.open(this.href);return false;'>Wikipedia</a>.

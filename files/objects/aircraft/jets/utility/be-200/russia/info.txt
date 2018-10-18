@@ -8,7 +8,5 @@ Width: 32m
 Depth: 32m
 Height: 12m
 Export Propagate: 3
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: A Beriev Be-200 in Russian Air Force colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Beriev_Be-200' onclick='window.open(this.href);return false;'>Wikipedia</a>.

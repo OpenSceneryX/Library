@@ -1,8 +1,9 @@
-Title: Barrier, wooden, low
+Title: Barrier, wooden, 4m
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
-Revision: $Revision$
-Date: $Date$
+Width: 0.2m
+Depth: 4m
+Height: 0.6m
 =====================
 Description: A low wooden barrier.

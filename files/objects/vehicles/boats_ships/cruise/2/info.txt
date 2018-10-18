@@ -13,7 +13,5 @@ Depth: 285m
 Width: 32m
 Height: 49m
 Export Propagate: 2
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: The Noordam cruise ship was launched February 22, 2006 and is the newest member of the Holland America Line Vista-class ships. Named for the Northern compass point, she embraces the latest industry and environmental technologies such as the use of a diesel-electric power plant for optimal energy efficiency and an Azipod propulsion system that maximizes maneuverability.
