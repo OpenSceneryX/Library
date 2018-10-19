@@ -8,8 +8,8 @@ Height: 15m
 Export External RE_Library: RE_Library/Admin/5floor_15x15/light_brick/Admin_sqr_3
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_a3
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_a3
-Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_b3
-Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_b3
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRb/pedestal/Control_tower_b3
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRb/flush/Control_tower_flush_b3
 Since: 3.0.0
 =====================
 Description: Light brick 5 storey office building with grey roof.

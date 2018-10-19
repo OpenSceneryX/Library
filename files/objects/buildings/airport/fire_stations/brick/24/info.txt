@@ -5,6 +5,8 @@ URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
 Width: 15m
 Depth: 30m
 Height: 8m
+Export External RE_Library: RE_Library/Fire_station/4_bay/open/red_doors/block/FS_4bay_crc
+Export External RE_Library: RE_Library/Fire_station/4_bay/open/white_doors/block/FS_4bay_cwc
 Since: 3.0.0
 =====================
 Description: A four bay grey brick (breeze block) fire station with open red doors.

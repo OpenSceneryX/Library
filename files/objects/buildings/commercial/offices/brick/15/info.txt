@@ -6,7 +6,7 @@ Width: 40m
 Depth: 45m
 Height: 16.5m
 Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_a1
-Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_b1
+Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRb/Control_admin_b1
 Since: 3.0.0
 =====================
 Description: A red brick T shaped office building with grey roof.
