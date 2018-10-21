@@ -9,7 +9,7 @@ Export External RE_Library: RE_Library/Admin/5floor_15x15/red_brick/Admin_sqr_1
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/pedestal/Control_tower_a1
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_a1
 Export External RE_Library: RE_Library/Control_Tower/alone/VCRb/pedestal/Control_tower_b1
-Export External RE_Library: RE_Library/Control_Tower/alone/VCRa/flush/Control_tower_flush_b1
+Export External RE_Library: RE_Library/Control_Tower/alone/VCRb/flush/Control_tower_flush_b1
 Since: 3.0.0
 =====================
 Description: Red brick 5 storey office building with grey roof.
