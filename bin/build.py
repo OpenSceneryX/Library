@@ -46,10 +46,15 @@ try:
 		versionTag = ""
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
-		
+
+		sinceVersionTag = ""
+		sinceVersionTag = functions.getInput("Version number to build latest objects from [" + versionTag + "]: ", 10)
+		if sinceVersionTag == "":
+			sinceVersionTag = versionTag
+	
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
-		classes.Configuration.init(versionTag, buildPDF)
+		classes.Configuration.init(versionTag, sinceVersionTag, buildPDF)
 		
 		if Image is None:
 			functions.displayMessage("This script depends on PIL and fpdf for building the developer documentation.  Please ensure they are installed ('pip install Pillow' and 'pip install fpdf').\n", "error")

@@ -19,6 +19,8 @@ import pcrt
 import sys
 import random
 
+from distutils.version import LooseVersion
+
 try:
 	from PIL import Image
 
@@ -1012,7 +1014,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
 	
 	# Store in the latest if it was created for this version
-	if sceneryObject.since == classes.Configuration.versionTag:
+	if LooseVersion(sceneryObject.since) >= LooseVersion(classes.Configuration.sinceVersionTag):
 		latest.append(sceneryObject)
 
 	return 1
