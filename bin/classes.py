@@ -23,12 +23,14 @@ from TOC import TOC
 class Configuration(object):
 	"""Generic container for shared variables."""
 	versionTag = ""
+	sinceVersionTag = ""
 	versionNumber = ""
 	versionDate = datetime.datetime.now().strftime("%a, %d %b %Y")
 	
-	def init(self, versionTag, buildPDF):
+	def init(self, versionTag, sinceVersionTag, buildPDF):
 		""" Set up the configuration """
 		self.versionTag = versionTag
+		self.sinceVersionTag = sinceVersionTag
 		self.versionNumber = string.replace(self.versionTag, "-", ".")
 		self.releaseFolder = "builds/" + self.versionNumber
 		self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
@@ -114,7 +116,7 @@ class SceneryObject(object):
 		self.width = ""
 		self.depth = ""
 		self.note = ""
-		self.since = ""
+		self.since = "0.0.0"
 		self.description = ""
 		
 		self.virtualPaths = []

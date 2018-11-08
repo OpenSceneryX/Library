@@ -46,10 +46,15 @@ try:
 		versionTag = ""
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
-		
+
+		sinceVersionTag = ""
+		sinceVersionTag = functions.getInput("Version number to build latest objects from [" + versionTag + "]: ", 10)
+		if sinceVersionTag == "":
+			sinceVersionTag = versionTag
+	
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
 		
-		classes.Configuration.init(versionTag, buildPDF)
+		classes.Configuration.init(versionTag, sinceVersionTag, buildPDF)
 		
 		if Image is None:
 			functions.displayMessage("This script depends on PIL and fpdf for building the developer documentation.  Please ensure they are installed ('pip install Pillow' and 'pip install fpdf').\n", "error")
@@ -134,6 +139,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/osx.gif", classes.Configuration.osxWebsiteFolder + "/extras/osx.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxWebsiteFolder + "/extras/enhancedby_opensceneryx_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxWebsiteFolder + "/extras/twitter_follow.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/x.png", classes.Configuration.osxWebsiteFolder + "/extras/x.png")
 		
 		# Placeholder items for main package
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.png")
