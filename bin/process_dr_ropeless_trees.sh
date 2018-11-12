@@ -71,6 +71,11 @@ do
 
         DESTINATIONCONTAINERPATH="${VEGETATIONROOTDIR}/${FILENAME}"
         DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${HEIGHT}m"
+        # Calculate depth of object path by counting number of "/" in path
+        DESTINATIONOBJECTPATHDEPTH=$(awk -F"/" '{print NF}' <<< "${FILENAME}")
+        # Build texture path by repeating "../" the same number of times as the depth
+        TEXTUREPATH="../../../$(seq -f '../' -s '' $DESTINATIONOBJECTPATHDEPTH)forests/trees/"
+
         echo "Processing file $F into folder $DESTINATIONOBJECTPATH"
 
         if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
@@ -85,9 +90,11 @@ do
 
         sed -i '' -E -e "s|Title:|Title: ${TITLE}, ${HEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
         sed -i '' -E -e "s|Description:|Description: An individual ${DESCRIPTION}, height ${HEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
-        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ../../../../forests/trees/\1|" $DESTINATIONOBJECTPATH/object.obj
+        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ${TEXTUREPATH}\1|" $DESTINATIONOBJECTPATH/object.obj
 
-        # $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
+        if [ ! -f "${DESTINATIONOBJECTPATH}/screenshot.jpg" ]; then
+            $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
+        fi
     else
         echo "Unable to parse string $FILENAME"
     fi
