@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 # NOTE THIS REQUIRES BASH 4. Hence the specific bash path above - use e.g. brew to install if required.
 #
-# This script traverses the set of trees supplied by Dr Ropeless (Barry Drake).  For each tree, it copies
+# This script traverses the set of vegetation supplied by Dr Ropeless (Barry Drake).  For each plant, it copies
 # and renames the object file, placing it in an appropriate folder.  It looks up the full species name
 # from the short name via a mapping file, and copies in a template info.txt file, filling in the details.
 # Finally a screenshot is created.
@@ -9,13 +9,13 @@
 # Setup and arguments
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MYDIR=$1
-TREEROOTDIR=$SCRIPTDIR/../files/objects/vegetation/trees
+VEGETATIONROOTDIR=$SCRIPTDIR/../files/objects/vegetation
 FORESTROOTDIR=$SCRIPTDIR/../files/forests/trees
 MAPPINGFILE=$SCRIPTDIR/tree_mappings.txt
 
 if [ -z "$MYDIR" ] || [[ ! -d "$MYDIR" ]]
 then
-    echo "Usage: process_dr_ropeless_trees.sh path_containing_individual_tree_objects"
+    echo "Usage: process_dr_ropeless_trees.sh path_containing_individual_vegetation_objects"
     exit
 elif [[ ! -f $MYDIR/info.txt ]]
 then
@@ -29,25 +29,25 @@ fi
 echo "========================"
 echo "Script dir: " $SCRIPTDIR
 echo "Working dir: " $MYDIR
-echo "Tree root dir: " $TREEROOTDIR
+echo "Vegetation root dir: " $VEGETATIONROOTDIR
 echo "Forest root dir: " $FORESTROOTDIR
 echo "========================"
 
 # Load mapping file
-declare -A TREECATEGORYMAPPINGS
-declare -A TREETITLEMAPPINGS
-declare -A TREEDESCRIPTIONMAPPINGS
-declare -A TREEFILENAMEMAPPINGS
+declare -A CATEGORYMAPPINGS
+declare -A TITLEMAPPINGS
+declare -A DESCRIPTIONMAPPINGS
+declare -A FILENAMEMAPPINGS
   
 while IFS=\| read key category title description filename
 do
     if [[ ${key} = [\#]* ]]; then continue; fi  # Comments
     if [[ ${key} = "" ]]; then continue; fi     # Empty lines
 
-    TREECATEGORYMAPPINGS[$key]=$category
-    TREETITLEMAPPINGS[$key]=$title
-    TREEDESCRIPTIONMAPPINGS[$key]=$description
-    TREEFILENAMEMAPPINGS[$key]=$filename
+    CATEGORYMAPPINGS[$key]=$category
+    TITLEMAPPINGS[$key]=$title
+    DESCRIPTIONMAPPINGS[$key]=$description
+    FILENAMEMAPPINGS[$key]=$filename
 done < $MAPPINGFILE
 
 for F in $(find . -name '*.obj')
@@ -57,35 +57,35 @@ do
     SUBPARTS=(${MAINPARTS//./ })
 
     if [[ $FILENAME =~ (.*)_([0-9.]*).obj ]]; then
-        TREECODE=${BASH_REMATCH[1]}
-        TREEHEIGHT=${BASH_REMATCH[2]}
-        TREECATEGORY=${TREECATEGORYMAPPINGS[${TREECODE}]}
-        TREETITLE=${TREETITLEMAPPINGS[${TREECODE}]}
-        TREEDESCRIPTION=${TREEDESCRIPTIONMAPPINGS[${TREECODE}]}
-        TREEFILENAME=${TREEFILENAMEMAPPINGS[${TREECODE}]}
+        CODE=${BASH_REMATCH[1]}
+        HEIGHT="$(printf "%g" ${BASH_REMATCH[2]})" # Parse the number as double, removing leading and trailing '0's
+        CATEGORY=${CATEGORYMAPPINGS[${CODE}]}
+        TITLE=${TITLEMAPPINGS[${CODE}]}
+        DESCRIPTION=${DESCRIPTIONMAPPINGS[${CODE}]}
+        FILENAME=${FILENAMEMAPPINGS[${CODE}]}
 
-        if [ -z "$TREETITLE" ]; then
+        if [ -z "$TITLE" ]; then
             #echo "Skipping $F - No mapping found"
             continue
         fi
 
-        DESTINATIONCONTAINERPATH="${TREEROOTDIR}/${TREEFILENAME}"
-        DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${TREEHEIGHT}m"
+        DESTINATIONCONTAINERPATH="${VEGETATIONROOTDIR}/${FILENAME}"
+        DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${HEIGHT}m"
         echo "Processing file $F into folder $DESTINATIONOBJECTPATH"
 
         if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
             mkdir -p "$DESTINATIONCONTAINERPATH"
             cp category.txt "$DESTINATIONCONTAINERPATH/category.txt"
-            sed -i '' -E -e "s|Title:|Title: ${TREECATEGORY}|" $DESTINATIONCONTAINERPATH/category.txt
+            sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCONTAINERPATH/category.txt
         fi
 
         mkdir -p "$DESTINATIONOBJECTPATH"
         cp info.txt "$DESTINATIONOBJECTPATH/info.txt"
         cp $F "$DESTINATIONOBJECTPATH/object.obj"
 
-        sed -i '' -E -e "s|Title:|Title: ${TREETITLE}, ${TREEHEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
-        sed -i '' -E -e "s|Description:|Description: An individual ${TREEDESCRIPTION}, height ${TREEHEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
-        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ../../../../../forests/trees/\1|" $DESTINATIONOBJECTPATH/object.obj
+        sed -i '' -E -e "s|Title:|Title: ${TITLE}, ${HEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
+        sed -i '' -E -e "s|Description:|Description: An individual ${DESCRIPTION}, height ${HEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
+        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ../../../../forests/trees/\1|" $DESTINATIONOBJECTPATH/object.obj
 
         # $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
     else

@@ -1,5 +1,14 @@
-# This mapping file is used by process_dr_ropeless_trees.sh to map filename prefixes to human readable tree names
+# This mapping file is used by process_dr_ropeless_trees.sh to map filename prefixes to human readable vegetation names
+# Format:
+#     Original filename prefix | Category title (category.txt) | Title (info.txt) | Description (info.txt) | Destination folder name (library path)
 
-ACERred|Acer|Tree, Acer|Acer tree|acer_red
-AESCUbuck|Aescu, Buck|Tree, Aescu, Buck|Buck Aescu tree|aescu_buck
-ASPENtrembl|Aspen, Trembling|Tree, Aspen, Trembling|Trembling Aspen tree|aspen_trembling
+ACERred|Acer|Tree, Acer|Acer (Maple) tree|acer
+AESCUbuck|Aesculus|Tree, Aesculus|Aesculus tree|aesculus
+AGAVE|Agave|Succulent, Agave|Agave succulent|agave
+AGAVE_l|Agave, flowering|Succulent, Agave, flowering|Flowering Agave succulent|agave_flowering
+ALDERred|Alder|Tree, Alder|Alder tree|alder
+ASHblack|Ash|Tree, Ash|Ash tree|ash
+ASPEN1|Aspen|Tree, Aspen|Aspen tree|aspen
+ASPENtrembl|Aspen, trembling|Tree, Aspen, trembling|Trembling (Quaking) Aspen tree|aspen_trembling
+ASPENtrembl_l|Aspen, trembling, long trunk|Tree, Aspen, trembling, long trunk|Trembling (Quaking) Aspen tree with long trunk|aspen_trembling_long_trunk
+BANYAN|Banyan|Tree, Banyan|Banyan (fig) tree|banyan
