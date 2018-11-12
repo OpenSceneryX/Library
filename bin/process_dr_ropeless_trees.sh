@@ -15,7 +15,7 @@ MAPPINGFILE=$SCRIPTDIR/tree_mappings.txt
 
 if [ -z "$MYDIR" ] || [[ ! -d "$MYDIR" ]]
 then
-    echo "Usage: process_dr_ropeless_treee.sh path"
+    echo "Usage: process_dr_ropeless_trees.sh path_containing_individual_tree_objects"
     exit
 elif [[ ! -f $MYDIR/info.txt ]]
 then
@@ -34,23 +34,21 @@ echo "Forest root dir: " $FORESTROOTDIR
 echo "========================"
 
 # Load mapping file
-declare -A TREEMAPPINGS
+declare -A TREECATEGORYMAPPINGS
+declare -A TREETITLEMAPPINGS
+declare -A TREEDESCRIPTIONMAPPINGS
+declare -A TREEFILENAMEMAPPINGS
   
-while IFS=\| read key value
+while IFS=\| read key category title description filename
 do
     if [[ ${key} = [\#]* ]]; then continue; fi  # Comments
     if [[ ${key} = "" ]]; then continue; fi     # Empty lines
 
-    TREEMAPPINGS[$key]=$value
+    TREECATEGORYMAPPINGS[$key]=$category
+    TREETITLEMAPPINGS[$key]=$title
+    TREEDESCRIPTIONMAPPINGS[$key]=$description
+    TREEFILENAMEMAPPINGS[$key]=$filename
 done < $MAPPINGFILE
-
-# Find the highest numbered subfolder that already exists in TREEROOTIR
-N=1
-while [[ -d "$TREEROOTDIR/$N" ]] ; do
-    N=$(($N+1))
-done
-
-# N is now the next incremental folder number
 
 for F in $(find . -name '*.obj')
 do
@@ -61,64 +59,38 @@ do
     if [[ $FILENAME =~ (.*)_([0-9.]*).obj ]]; then
         TREECODE=${BASH_REMATCH[1]}
         TREEHEIGHT=${BASH_REMATCH[2]}
+        TREECATEGORY=${TREECATEGORYMAPPINGS[${TREECODE}]}
+        TREETITLE=${TREETITLEMAPPINGS[${TREECODE}]}
+        TREEDESCRIPTION=${TREEDESCRIPTIONMAPPINGS[${TREECODE}]}
+        TREEFILENAME=${TREEFILENAMEMAPPINGS[${TREECODE}]}
 
-        echo "$FILENAME"
-        echo "  Full Name: ${TREEMAPPINGS[${TREECODE}]}"
-        echo "  Height   : $TREEHEIGHT"
+        if [ -z "$TREETITLE" ]; then
+            #echo "Skipping $F - No mapping found"
+            continue
+        fi
+
+        DESTINATIONCONTAINERPATH="${TREEROOTDIR}/${TREEFILENAME}"
+        DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${TREEHEIGHT}m"
+        echo "Processing file $F into folder $DESTINATIONOBJECTPATH"
+
+        if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
+            mkdir -p "$DESTINATIONCONTAINERPATH"
+            cp category.txt "$DESTINATIONCONTAINERPATH/category.txt"
+            sed -i '' -E -e "s|Title:|Title: ${TREECATEGORY}|" $DESTINATIONCONTAINERPATH/category.txt
+        fi
+
+        mkdir -p "$DESTINATIONOBJECTPATH"
+        cp info.txt "$DESTINATIONOBJECTPATH/info.txt"
+        cp $F "$DESTINATIONOBJECTPATH/object.obj"
+
+        sed -i '' -E -e "s|Title:|Title: ${TREETITLE}, ${TREEHEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
+        sed -i '' -E -e "s|Description:|Description: An individual ${TREEDESCRIPTION}, height ${TREEHEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
+        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ../../../../../forests/trees/\1|" $DESTINATIONOBJECTPATH/object.obj
+
+        # $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
     else
-        echo "unable to parse string $FILENAME"
+        echo "Unable to parse string $FILENAME"
     fi
-
-    #echo Processing file $F into folder $TREEROOTDIR/$N/
-
-    # This hunts for the location of this file in the forest dir.  Don't need to do this because 
-    # we're using a simple mapping file now
-    #echo Searching for ${PARTS[0]} in $FORESTROOTDIR
-    #G=$(grep -a -m 1 -r "${PARTS[0]}" $FORESTROOTDIR | head -1 )
-
-    #break;
-    # mkdir $N
-    # cp info.txt $N/info.txt
-
-    # case $F in
-    #     *fac)
-    #         NEWFILE=$N/facade.fac
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *for)
-    #         NEWFILE=$N/forest.for
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *lin)
-    #         NEWFILE=$N/line.lin
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *obj)
-    #         NEWFILE=$N/object.obj
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         # It's a .obj file, generate screenshot
-    #         $SCRIPTDIR/generate_screenshots.sh $MYDIR/$N/
-    #         ;;
-    #     *pol)
-    #         NEWFILE=$N/polygon.pol
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *)
-    # esac
-
-    # # Include original filename at beginning of Title line inside info.txt for reference
-    # sed -i '' -E -e "s|Title: (.*)|Title: ---$FILENAME--- \1|" $N/info.txt
-
-    N=$(($N+1))
-
 done
-
-
-echo "========================"
 
 echo "========================"

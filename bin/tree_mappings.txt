@@ -1,5 +1,5 @@
 # This mapping file is used by process_dr_ropeless_trees.sh to map filename prefixes to human readable tree names
 
-ACERred|Acer, red
-AESCUbuck|Aescu, buck
-ASPENtrembl|Aspen, trembling
+ACERred|Acer|Tree, Acer|Acer tree|acer_red
+AESCUbuck|Aescu, Buck|Tree, Aescu, Buck|Buck Aescu tree|aescu_buck
+ASPENtrembl|Aspen, Trembling|Tree, Aspen, Trembling|Trembling Aspen tree|aspen_trembling
