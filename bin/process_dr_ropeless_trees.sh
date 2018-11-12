@@ -37,9 +37,10 @@ echo "========================"
 declare -A CATEGORYMAPPINGS
 declare -A TITLEMAPPINGS
 declare -A DESCRIPTIONMAPPINGS
-declare -A FILENAMEMAPPINGS
+declare -A FILEPATHMAPPINGS
+declare -A CATEGORYPATHMAPPINGS
   
-while IFS=\| read key category title description filename
+while IFS=\| read key category title description filepath categorypath
 do
     if [[ ${key} = [\#]* ]]; then continue; fi  # Comments
     if [[ ${key} = "" ]]; then continue; fi     # Empty lines
@@ -47,7 +48,8 @@ do
     CATEGORYMAPPINGS[$key]=$category
     TITLEMAPPINGS[$key]=$title
     DESCRIPTIONMAPPINGS[$key]=$description
-    FILENAMEMAPPINGS[$key]=$filename
+    FILEPATHMAPPINGS[$key]=$filepath
+    CATEGORYPATHMAPPINGS[$key]=$categorypath
 done < $MAPPINGFILE
 
 for F in $(find . -name '*.obj')
@@ -62,17 +64,19 @@ do
         CATEGORY=${CATEGORYMAPPINGS[${CODE}]}
         TITLE=${TITLEMAPPINGS[${CODE}]}
         DESCRIPTION=${DESCRIPTIONMAPPINGS[${CODE}]}
-        FILENAME=${FILENAMEMAPPINGS[${CODE}]}
+        FILEPATH=${FILEPATHMAPPINGS[${CODE}]}
+        CATEGORYPATH=${CATEGORYPATHMAPPINGS[${CODE}]}
 
         if [ -z "$TITLE" ]; then
             #echo "Skipping $F - No mapping found"
             continue
         fi
 
-        DESTINATIONCONTAINERPATH="${VEGETATIONROOTDIR}/${FILENAME}"
+        DESTINATIONCONTAINERPATH="${VEGETATIONROOTDIR}/${FILEPATH}"
         DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${HEIGHT}m"
+        DESTINATIONCATEGORYPATH="${VEGETATIONROOTDIR}/${CATEGORYPATH}"
         # Calculate depth of object path by counting number of "/" in path
-        DESTINATIONOBJECTPATHDEPTH=$(awk -F"/" '{print NF}' <<< "${FILENAME}")
+        DESTINATIONOBJECTPATHDEPTH=$(awk -F"/" '{print NF}' <<< "${FILEPATH}")
         # Build texture path by repeating "../" the same number of times as the depth
         TEXTUREPATH="../../../$(seq -f '../' -s '' $DESTINATIONOBJECTPATHDEPTH)forests/trees/"
 
@@ -80,8 +84,10 @@ do
 
         if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
             mkdir -p "$DESTINATIONCONTAINERPATH"
-            cp category.txt "$DESTINATIONCONTAINERPATH/category.txt"
-            sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCONTAINERPATH/category.txt
+            if [ ! -f "$DESTINATIONCATEGORYPATH/category.txt" ]; then
+                cp category.txt "$DESTINATIONCATEGORYPATH/category.txt"
+                sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCATEGORYPATH/category.txt
+            fi
         fi
 
         mkdir -p "$DESTINATIONOBJECTPATH"
