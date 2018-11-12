@@ -74,7 +74,7 @@ try:
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
-		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "private"))
+		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
 		functions.displayMessage("------------------------\n")
@@ -273,8 +273,7 @@ try:
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
-		# Append the backup paths to the library (note this relies on PRIVATE having alreadt been written as part of
-		# the external libraries above)
+		# Append the backup paths to the library
 		functions.writeBackupLibraries(libraryFileHandle)
 
 		libraryFileHandle.close()
