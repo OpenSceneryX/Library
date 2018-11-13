@@ -7,20 +7,26 @@
 #     Destination folder name (library path) |
 #     Destination category folder name
 
-ACERred|Acer (Maple)|Tree, Acer|Acer (maple) tree|acer/1|acer
-AESCUbuck|Aesculus (Horse Chestnut / Buckeye)|Tree, Aesculus, Glabra|Aesculus (Ohio buckeye) tree|aesculus/1|aesculus
+ACERred|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/1|acer
+AESCUbuck|Aesculus (Horse Chestnut / Buckeye)|Tree, Aesculus, Glabra (Buckeye)|Aesculus (Buckeye) tree|aesculus/1|aesculus
 AGAVE|Agave|Succulent, Agave|Agave succulent|agave/1|agave
 AGAVE_l|Agave|Succulent, Agave, flowering|Flowering Agave succulent|agave/2|agave
-ALDERred|Alnus (Alder)|Tree, Alnus|Alnus (alder) tree|alnus/1|alnus
-ASHblack|Fraxinus (Ash)|Tree, Fraxinus, Nigra|Fraxinus Nigra (black ash) tree|fraxinus/1|fraxinus
-ASPEN1|Populus (Aspen)|Tree, Populus|Populus (aspen) tree|populus/1|populus
-ASPENtrembl|Populus (Aspen)|Tree, Populus, Tremuloides|Populus Tremuloides (quaking / trembling aspen) tree|populus/2|populus
-ASPENtrembl_l|Populus (Aspen)|Tree, Populus, Tremuloides, long trunk|Populus Tremuloides (quaking / trembling aspen) tree with long trunk|populus/3|populus
-BANYAN|Banyan (Fig)|Tree, Banyan|Banyan (fig) tree|banyan/1|banyan
-BRbetu1|Betula (Birch)|Tree, Betula, Pendula|Betula Pendula (silver birch) tree|betula/1|betula
-BRbetu2|Betula (Birch)|Tree, Betula, Pendula|Betula Pendula (silver birch) tree|betula/2|betula
-BRbetu3|Betula (Birch)|Tree, Betula, Pendula|Betula Pendula (silver birch) tree|betula/3|betula
-BRcarp|Carpinus (Hornbeam)|Tree, Carpinus|Carpinus (hornbeam) tree|carpinus/1|carpinus
-BRfagu1|Fagus (Beech)|Tree, Fagus|Fagus (beech) tree|fagus/1|fagus
-BRfagu2|Fagus (Beech)|Tree, Fagus|Fagus (beech) tree|fagus/2|fagus
-BRfagu3|Fagus (Beech)|Tree, Fagus|Fagus (beech) tree|fagus/3|fagus
+ALDERred|Alnus (Alder)|Tree, Alnus (Alder)|Alnus (Alder) tree|alnus/1|alnus
+ASHblack|Fraxinus (Ash)|Tree, Fraxinus, Nigra (Black Ash)|Fraxinus Nigra (Black Ash) tree|fraxinus/1|fraxinus
+ASPEN1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/1|populus
+ASPENtrembl|Populus (Aspen)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen)|Populus Tremuloides (Quaking / Trembling Aspen) tree|populus/2|populus
+ASPENtrembl_l|Populus (Aspen)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen), long trunk|Populus Tremuloides (Quaking / Trembling Aspen) tree with long trunk|populus/3|populus
+BANYAN|Banyan (Fig)|Tree, Banyan (Fig)|Banyan (Fig) tree|banyan/1|banyan
+BRacer|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/2|acer
+BRbetu1|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/1|betula
+BRbetu2|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/2|betula
+BRbetu3|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/3|betula
+BRcarp|Carpinus (Hornbeam)|Tree, Carpinus (Hornbeam)|Carpinus (Hornbeam) tree|carpinus/1|carpinus
+BRfagu1|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/1|fagus
+BRfagu2|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/2|fagus
+BRfagu3|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/3|fagus
+BRfrax|Fraxinus (Ash)|Tree, Fraxinus (Ash)|Fraxinus (Ash) tree|fraxinus/2|fraxinus
+BRpopu1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/4|populus
+BRpopu1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/5|populus
+BRquer1|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/1|quercus
+BRquer2|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/2|quercus
