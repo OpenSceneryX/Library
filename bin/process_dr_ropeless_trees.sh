@@ -84,19 +84,27 @@ do
 
         if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
             mkdir -p "$DESTINATIONCONTAINERPATH"
-            if [ ! -f "$DESTINATIONCATEGORYPATH/category.txt" ]; then
-                cp category.txt "$DESTINATIONCATEGORYPATH/category.txt"
-                sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCATEGORYPATH/category.txt
-            fi
         fi
 
-        mkdir -p "$DESTINATIONOBJECTPATH"
-        cp info.txt "$DESTINATIONOBJECTPATH/info.txt"
-        cp $F "$DESTINATIONOBJECTPATH/object.obj"
+        if [ ! -f "$DESTINATIONCATEGORYPATH/category.txt" ]; then
+            cp category.txt "$DESTINATIONCATEGORYPATH/category.txt"
+            sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCATEGORYPATH/category.txt
+        fi
 
-        sed -i '' -E -e "s|Title:|Title: ${TITLE}, ${HEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
-        sed -i '' -E -e "s|Description:|Description: An individual ${DESCRIPTION}, height ${HEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
-        sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ${TEXTUREPATH}\1|" $DESTINATIONOBJECTPATH/object.obj
+        if [ ! -d "$DESTINATIONOBJECTPATH" ]; then
+            mkdir -p "$DESTINATIONOBJECTPATH"
+        fi
+
+        if [ ! -f "$DESTINATIONOBJECTPATH/info.txt" ]; then
+            cp info.txt "$DESTINATIONOBJECTPATH/info.txt"
+            sed -i '' -E -e "s|Title:|Title: ${TITLE}, ${HEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
+            sed -i '' -E -e "s|Description:|Description: An individual ${DESCRIPTION}, height ${HEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
+        fi
+
+        if [ ! -f "$DESTINATIONOBJECTPATH/object.obj" ]; then
+            cp $F "$DESTINATIONOBJECTPATH/object.obj"
+            sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ${TEXTUREPATH}\1|" $DESTINATIONOBJECTPATH/object.obj
+        fi
 
         if [ ! -f "${DESTINATIONOBJECTPATH}/screenshot.jpg" ]; then
             $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
