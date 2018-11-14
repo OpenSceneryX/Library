@@ -7,17 +7,15 @@
 #     Destination folder name (library path) |
 #     Destination category folder name
 
-ACERred|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/1|acer
 AESCUbuck|Aesculus (Horse Chestnut / Buckeye)|Tree, Aesculus, Glabra (Buckeye)|Aesculus (Buckeye) tree|aesculus/1|aesculus
 AGAVE|Agave|Succulent, Agave|Agave succulent|agave/1|agave
 AGAVE_l|Agave|Succulent, Agave, flowering|Flowering Agave succulent|agave/2|agave
 ALDERred|Alnus (Alder)|Tree, Alnus (Alder)|Alnus (Alder) tree|alnus/1|alnus
-ASHblack|Fraxinus (Ash)|Tree, Fraxinus, Nigra (Black Ash)|Fraxinus Nigra (Black Ash) tree|fraxinus/1|fraxinus
 ASPEN1|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/1|populus
 ASPENtrembl|Populus (Aspen / Poplar)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen)|Populus Tremuloides (Quaking / Trembling Aspen) tree|populus/2|populus
 ASPENtrembl_l|Populus (Aspen / Poplar)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen), long trunk|Populus Tremuloides (Quaking / Trembling Aspen) tree with long trunk|populus/3|populus
-BANYAN|Banyan (Fig)|Tree, Banyan (Fig)|Banyan (Fig) tree|banyan/1|banyan
-BRacer|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/2|acer
+BANYAN|Ficus (Fig)|Tree, Ficus, Urostigma (Banyan Fig)|Ficus, Urostigma (Banyan Fig) tree|ficus/1|ficus
+BRacer|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/1|acer
 BRbetu1|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/1|betula
 BRbetu2|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/2|betula
 BRbetu3|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/3|betula
@@ -25,7 +23,7 @@ BRcarp|Carpinus (Hornbeam)|Tree, Carpinus (Hornbeam)|Carpinus (Hornbeam) tree|ca
 BRfagu1|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/1|fagus
 BRfagu2|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/2|fagus
 BRfagu3|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/3|fagus
-BRfrax|Fraxinus (Ash)|Tree, Fraxinus (Ash)|Fraxinus (Ash) tree|fraxinus/2|fraxinus
+BRfrax|Fraxinus (Ash)|Tree, Fraxinus (Ash)|Fraxinus (Ash) tree|fraxinus/1|fraxinus
 BRpopu1|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/4|populus
 BRpopu2|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/5|populus
 BRquer1|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/1|quercus
@@ -74,3 +72,35 @@ Dead_Tree|Dead|Tree, dead|Dead tree|dead/2|dead
 EUCAL|Eucalyptus|Tree, Eucalyptus|Eucalyptus tree|eucalyptus/1|eucalyptus
 EUCALyptus|Eucalyptus|Tree, Eucalyptus|Eucalyptus tree|eucalyptus/2|eucalyptus
 FAGUSameri_m|Fagus (Beech)|Tree, Fagus, Grandifolia (American Beech)|Fagus Grandifolia (American Beech) tree|fagus/4|fagus
+FERNtree|Cyatheales (Tree Fern)|Tree, Cyatheales (Tree Fern)|Cyatheales (Tree Fern) tree|cyatheales/1|cyatheales
+FICUSelast|Ficus (Fig)|Tree, Ficus, Elastica (Rubber Tree)|Ficus, Elastica (Rubber Tree)|ficus/2|ficus
+FRAXINblack|Fraxinus (Ash)|Tree, Fraxinus, Nigra (Black Ash)|Fraxinus Nigra (Black Ash) tree|fraxinus/2|fraxinus
+FRbana1|Musa (Banana / Plantain)|Tree, Musa (Banana)|Musa (Banana) tree|musa/1|musa
+FRbana2|Musa (Banana / Plantain)|Tree, Musa (Banana)|Musa (Banana) tree|musa/2|musa
+FRcitr|Citrus|Tree, Citrus|Citrus tree|citrus/1|citrus
+FRficu|Ficus (Fig)|Tree, Ficus (Fig)|Ficus (Fig) tree|ficus/3|ficus
+FRmalu1|Malus (Apple)|Tree, Malus (Apple)|Malus (Apple) tree|malus/1|malus
+FRmalu2|Malus (Apple)|Tree, Malus (Apple)|Malus (Apple) tree|malus/2|malus
+FRolea1|Olea (Olive)|Tree, Olea (Olive)|Olea (Olive) tree|olea/1|olea
+JUNIPcalifo1|Juniperus (Juniper)|Tree, Juniperus, Californica (California Juniper)|Juniperus Californica (California Juniper) tree|juniperus/2|juniperus
+JUNIPcalifo2|Juniperus (Juniper)|Tree, Juniperus, Californica (California Juniper)|Juniperus Californica (California Juniper) tree|juniperus/3|juniperus
+JUNIPcalifo3|Juniperus (Juniper)|Tree, Juniperus, Californica (California Juniper)|Juniperus Californica (California Juniper) tree|juniperus/4|juniperus
+JUNIPER_l|Juniperus (Juniper)|Tree, Juniperus (Juniper)|Juniperus (Juniper) tree|juniperus/5|juniperus
+JUNIPER1|Juniperus (Juniper)|Tree, Juniperus (Juniper)|Juniperus (Juniper) tree|juniperus/6|juniperus
+JUNIPER2|Juniperus (Juniper)|Tree, Juniperus (Juniper)|Juniperus (Juniper) tree|juniperus/7|juniperus
+JUNIPered1|Juniperus (Juniper)|Tree, Juniperus, Virginiana (Red Juniper)|Juniperus Virginiana (Red Juniper) tree|juniperus/8|juniperus
+JUNIPered2|Juniperus (Juniper)|Tree, Juniperus, Virginiana (Red Juniper)|Juniperus Virginiana (Red Juniper) tree|juniperus/9|juniperus
+JUNIPered3|Juniperus (Juniper)|Tree, Juniperus, Virginiana (Red Juniper)|Juniperus Virginiana (Red Juniper) tree|juniperus/10|juniperus
+LAUREL|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/1|laurus
+LAURELcalifo|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/2|laurus
+LAURUS|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/3|laurus
+LIQUIsweet|Liquidambar (Sweetgum)|Tree, Liquidambar (Sweetgum)|Liquidambar (Sweetgum) tree|liquidambar/1|liquidambar
+MADRONE|Arbutus (Madrone)|Tree, Arbutus (Madrone)|Arbutus (Madrone) tree|arbutus/1|arbutus
+MANZAnita_l|Arctostaphylos (Manzanita)|Tree, Arctostaphylos (Manzanita)|Arctostaphylos (Manzanita) tree|arctostaphylos/1|arctostaphylos
+MANZAnita_s|Arctostaphylos (Manzanita)|Tree, Arctostaphylos (Manzanita)|Arctostaphylos (Manzanita) tree|arctostaphylos/2|arctostaphylos
+MAPLEred|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/2|acer
+MESQUite_l|Prosopis (Mesquite)|Tree, Prosopis (Mesquite)|Prosopis (Mesquite) tree|prosopis/1|prosopis
+MESQUite_m|Prosopis (Mesquite)|Tree, Prosopis (Mesquite)|Prosopis (Mesquite) tree|prosopis/2|prosopis
+MESQUite_s|Prosopis (Mesquite)|Tree, Prosopis (Mesquite)|Prosopis (Mesquite) tree|prosopis/3|prosopis
+NYSSAblack|Nyssa (Tupelo)|Tree, Nyssa, Sylvatica (Black Gum)|Nyssa, Sylvatica (Black Gum) tree|nyssa/1|nyssa
+NYSSAwater|Nyssa (Tupelo)|Tree, Nyssa, Aquatica (Water Tupelo)|Nyssa, Aquatica (Water Tupelo) tree|nyssa/2|nyssa
