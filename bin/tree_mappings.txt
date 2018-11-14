@@ -13,9 +13,9 @@ AGAVE|Agave|Succulent, Agave|Agave succulent|agave/1|agave
 AGAVE_l|Agave|Succulent, Agave, flowering|Flowering Agave succulent|agave/2|agave
 ALDERred|Alnus (Alder)|Tree, Alnus (Alder)|Alnus (Alder) tree|alnus/1|alnus
 ASHblack|Fraxinus (Ash)|Tree, Fraxinus, Nigra (Black Ash)|Fraxinus Nigra (Black Ash) tree|fraxinus/1|fraxinus
-ASPEN1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/1|populus
-ASPENtrembl|Populus (Aspen)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen)|Populus Tremuloides (Quaking / Trembling Aspen) tree|populus/2|populus
-ASPENtrembl_l|Populus (Aspen)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen), long trunk|Populus Tremuloides (Quaking / Trembling Aspen) tree with long trunk|populus/3|populus
+ASPEN1|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/1|populus
+ASPENtrembl|Populus (Aspen / Poplar)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen)|Populus Tremuloides (Quaking / Trembling Aspen) tree|populus/2|populus
+ASPENtrembl_l|Populus (Aspen / Poplar)|Tree, Populus, Tremuloides (Quaking / Trembling Aspen), long trunk|Populus Tremuloides (Quaking / Trembling Aspen) tree with long trunk|populus/3|populus
 BANYAN|Banyan (Fig)|Tree, Banyan (Fig)|Banyan (Fig) tree|banyan/1|banyan
 BRacer|Acer (Maple)|Tree, Acer (Maple)|Acer (Maple) tree|acer/2|acer
 BRbetu1|Betula (Birch)|Tree, Betula, Pendula (Silver Birch)|Betula Pendula (Silver Birch) tree|betula/1|betula
@@ -26,7 +26,51 @@ BRfagu1|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/1|fagus
 BRfagu2|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/2|fagus
 BRfagu3|Fagus (Beech)|Tree, Fagus (Beech)|Fagus (Beech) tree|fagus/3|fagus
 BRfrax|Fraxinus (Ash)|Tree, Fraxinus (Ash)|Fraxinus (Ash) tree|fraxinus/2|fraxinus
-BRpopu1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/4|populus
-BRpopu1|Populus (Aspen)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/5|populus
+BRpopu1|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/4|populus
+BRpopu2|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/5|populus
 BRquer1|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/1|quercus
 BRquer2|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/2|quercus
+BUSHwillow|Salix (Willow)|Bush, Salix (Willow)|Salix (Willow) bush|salix/1|salix
+CACTUScholla1|Cylindropuntia (Cholla)|Cactus, Cylindropuntia (Cholla)|Cylindropuntia (Cholla) cactus|cylindropuntia/1|cylindropuntia
+CACTUScholla2|Cylindropuntia (Cholla)|Cactus, Cylindropuntia (Cholla)|Cylindropuntia (Cholla) cactus|cylindropuntia/2|cylindropuntia
+CACTUSpear|Opuntia (Prickly Pear)|Cactus, Opuntia (Prickly Pear)|Opuntia (Prickly Pear) cactus|opuntia/1|opuntia
+CACTUSpear_l|Opuntia (Prickly Pear)|Cactus, Opuntia (Prickly Pear)|Opuntia (Prickly Pear) cactus|opuntia/2|opuntia
+CACTUSspec2|Stenocereus (Organ Pipe Cactus)|Cactus, Stenocereus (Organ Pipe)|Stenocereus (Organ Pipe) cactus|stenocereus/1|stenocereus
+CARYAhickor|Carya (Hickory)|Tree, Carya (Hickory)|Carya (Hickory) tree|carya/1|carya
+CARYAhickor_l|Carya (Hickory)|Tree, Carya (Hickory)|Carya (Hickory) tree|carya/2|carya
+CARYApecan|Carya (Hickory)|Tree, Carya (Hickory)|Carya (Hickory) tree|carya/3|carya
+CELTISberry|Celtis (Hackberry)|Tree, Celtis (Hackberry)|Celtis (Hackberry) tree|celtis/1|celtis
+CO0|Dead|Tree, dead|Dead tree|dead/1|dead
+COabie1|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/1|abies
+COabie2|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/2|abies
+COabie3|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/3|abies
+COabie4|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/4|abies
+COabie5|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/5|abies
+COabie6|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/6|abies
+COabie7|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/7|abies
+COabiey|Abies (Fir)|Tree, Abies (Fir)|Abies (Fir) tree|abies/8|abies
+COcypr1|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/1|cupressus
+COcypr2|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/2|cupressus
+COcypr4|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/3|cupressus
+COcypr5|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/4|cupressus
+COjuni|Juniperus (Juniper)|Tree, Juniperus (Juniper)|Juniperus (Juniper) tree|juniperus/1|juniperus
+COlari|Larix (Larch)|Tree, Larix (Larch)|Larix (Larch) tree|larix/1|larix
+COpinu1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/1|pinus
+COpinu2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/2|pinus
+COpinu3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/3|pinus
+COpinu4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/4|pinus
+COpinu5|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/5|pinus
+COpinu6|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/6|pinus
+COpinu7|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/7|pinus
+COpinu8|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/8|pinus
+COpinu9|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/9|pinus
+COpinuy|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/10|pinus
+COTTONblack1|Populus (Aspen / Poplar)|Tree, Populus, Trichocarpa (Black Cottonwood)|Populus Trichocarpa (Black Cottonwood) tree|populus/6|populus
+COTTONblack2|Populus (Aspen / Poplar)|Tree, Populus, Trichocarpa (Black Cottonwood)|Populus Trichocarpa (Black Cottonwood) tree|populus/7|populus
+COTTONwood|Populus (Aspen / Poplar)|Tree, Populus, Fremontii (Cottonwood)|Populus Fremontii (Cottonwood) tree|populus/8|populus
+CUPRESspec|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/5|cupressus
+CYPRESSariz|Cupressus (Cypress)|Tree, Cupressus Arizonica (Arizona Cypress)|Cupressus Arizonica (Arizona Cypress) tree|cupressus/6|cupressus
+Dead_Tree|Dead|Tree, dead|Dead tree|dead/2|dead
+EUCAL|Eucalyptus|Tree, Eucalyptus|Eucalyptus tree|eucalyptus/1|eucalyptus
+EUCALyptus|Eucalyptus|Tree, Eucalyptus|Eucalyptus tree|eucalyptus/2|eucalyptus
+FAGUSameri_m|Fagus (Beech)|Tree, Fagus, Grandifolia (American Beech)|Fagus Grandifolia (American Beech) tree|fagus/4|fagus
