@@ -9,6 +9,7 @@
 
 import sys
 import traceback
+import random
 
 try:
 	import classes
@@ -244,6 +245,7 @@ try:
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
 		
+		random.shuffle(latest)
 		for item in latest:
 			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
 
