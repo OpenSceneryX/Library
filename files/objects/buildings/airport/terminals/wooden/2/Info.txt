@@ -1,6 +1,6 @@
 Title: Terminal, wooden, Canadian
 =====================
-Author: Lars de Jonge (alias: CCVA022).
+Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
 Width: 68m
