@@ -104,3 +104,47 @@ MESQUite_m|Prosopis (Mesquite)|Tree, Prosopis (Mesquite)|Prosopis (Mesquite) tre
 MESQUite_s|Prosopis (Mesquite)|Tree, Prosopis (Mesquite)|Prosopis (Mesquite) tree|prosopis/3|prosopis
 NYSSAblack|Nyssa (Tupelo)|Tree, Nyssa, Sylvatica (Black Gum)|Nyssa, Sylvatica (Black Gum) tree|nyssa/1|nyssa
 NYSSAwater|Nyssa (Tupelo)|Tree, Nyssa, Aquatica (Water Tupelo)|Nyssa, Aquatica (Water Tupelo) tree|nyssa/2|nyssa
+OAKblue|Quercus (Oak)|Tree, Quercus, Douglasii (Blue Oak)|Quercus Douglasii (Blue Oak) tree|quercus/3|quercus
+OAKbur|Quercus (Oak)|Tree, Quercus, Macrocarpa (Bur Oak)|Quercus Macrocarpa (Bur Oak) tree|quercus/4|quercus
+OAKlive|Quercus (Oak)|Tree, Quercus (Evergreen Oak)|Quercus (Evergreen Oak) tree|quercus/5|quercus
+OAKspec_m|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/6|quercus
+OAKspec_s|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/7|quercus
+PALM_s|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/1|arecaceae
+PALMcalifo|Arecaceae (Palm)|Tree, Arecaceae, Washingtonia Filifera (California Palm)|Arecaceae Washingtonia Filifera (California Palm) tree|arecaceae/2|arecaceae
+PALMcalifo_m|Arecaceae (Palm)|Tree, Arecaceae, Washingtonia Filifera (California Palm)|Arecaceae Washingtonia Filifera (California Palm) tree|arecaceae/3|arecaceae
+PALMpaurotis|Arecaceae (Palm)|Tree, Arecaceae, Acoelorrhaphe Wrightii (Paurotis Palm)|Arecaceae Acoelorrhaphe Wrightii (Paurotis Palm) tree|arecaceae/4|arecaceae
+PALMreal|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/5|arecaceae
+PALMsabal_l|Arecaceae (Palm)|Tree, Arecaceae, Sabaleae (Sabal Palm)|Arecaceae Sabaleae (Sabal Palm) tree|arecaceae/6|arecaceae
+PALMsabal_m|Arecaceae (Palm)|Tree, Arecaceae, Sabaleae (Sabal Palm)|Arecaceae Sabaleae (Sabal Palm) tree|arecaceae/7|arecaceae
+PALMspec1|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/8|arecaceae
+PALMspec2|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/9|arecaceae
+PALMspec2_m|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/10|arecaceae
+PALMwashi|Arecaceae (Palm)|Tree, Arecaceae, Washingtonia Filifera (California Palm)|Arecaceae Washingtonia Filifera (California Palm) tree|arecaceae/11|arecaceae
+PALOverde|Parkinsonia (Paloverde)|Tree, Parkinsonia (Paloverde)|Parkinsonia (Paloverde) tree|parkinsonia/1|parkinsonia
+PAspec1|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/12|arecaceae
+PAspec2|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/13|arecaceae
+COpinuy|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/10|pinus
+PINE_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/11|pinus
+PINEmonterey|Pinus (Pine)|Tree, Pinus, Radiata (Monterey Pine)|Pinus Radiata (Monterey Pine) tree|pinus/12|pinus
+PINEspec2_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/13|pinus
+PINEspec3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/14|pinus
+PINEspec4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/15|pinus
+PINEw-white|Pinus (Pine)|Tree, Pinus, Monticola (Western White Pine)|Pinus Monticola (Western White Pine) tree|pinus/16|pinus
+PINUS_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/17|pinus
+PINUSdry_m|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/18|pinus
+PINUSloblolly|Pinus (Pine)|Tree, Pinus Taeda (Loblolly Pine)|Pinus Taeda (Loblolly Pine) tree|pinus/19|pinus
+PINUSmed1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/20|pinus
+PINUSmed2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/21|pinus
+PINUSmed3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/22|pinus
+PINUSred_l|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/23|pinus
+PINUSred_m|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/24|pinus
+PINUSshort|Pinus (Pine)|Tree, Pinus, Echinata (Shortleaf Pine)|Pinus Echinata (Shortleaf Pine) tree|pinus/25|pinus
+PINUSslash|Pinus (Pine)|Tree, Pinus, Elliottii (Slash Pine)|Pinus Elliottii (Slash Pine) tree|pinus/26|pinus
+PINUSspec1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/27|pinus
+PINUSspec2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/28|pinus
+PINUSvirgin|Pinus (Pine)|Tree, Pinus, Virginiana (Virginia Pine)|Pinus Virginiana (Virginia Pine) tree|pinus/29|pinus
+PLATANsycam|Platanus (Plane / Sycamore)|Tree, Platanus (Sycamore)|Platanus (Sycamore) tree|platanus/1|platanus
+POPULcotton|Populus (Aspen / Poplar)|Tree, Populus, Fremontii (Cottonwood)|Populus Fremontii (Cottonwood) tree|populus/8|populus
+QUERCblack|Quercus (Oak)|Tree, Quercus, Velutina (Black Oak)|Quercus Velutina (Black Oak) tree|quercus/8|quercus
+QUERClive_w|Quercus (Oak)|Tree, Quercus (Evergreen Oak)|Quercus (Evergreen Oak) tree|quercus/9|quercus
+QUERCred|Quercus (Oak)|Tree, Quercus, Rubra (Red Oak)|Quercus Rubra (Red Oak) tree|quercus/10|quercus
