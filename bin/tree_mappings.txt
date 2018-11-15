@@ -28,7 +28,8 @@ BRpopu1|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|popu
 BRpopu2|Populus (Aspen / Poplar)|Tree, Populus (Aspen)|Populus (Aspen) tree|populus/5|populus
 BRquer1|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/1|quercus
 BRquer2|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/2|quercus
-BUSHwillow|Salix (Willow)|Bush, Salix (Willow)|Salix (Willow) bush|salix/1|salix
+BUSHiron|Olneya (Ironwood)|Shrub, Olneya (Ironwood)|Olneya (Ironwood) shrub|olneya/1|olneya
+BUSHwillow|Salix (Willow)|Shrub, Salix (Bush Willow)|Salix (Bush Willow) shrub|salix/1|salix
 CACTUScholla1|Cylindropuntia (Cholla)|Cactus, Cylindropuntia (Cholla)|Cylindropuntia (Cholla) cactus|cylindropuntia/1|cylindropuntia
 CACTUScholla2|Cylindropuntia (Cholla)|Cactus, Cylindropuntia (Cholla)|Cylindropuntia (Cholla) cactus|cylindropuntia/2|cylindropuntia
 CACTUSpear|Opuntia (Prickly Pear)|Cactus, Opuntia (Prickly Pear)|Opuntia (Prickly Pear) cactus|opuntia/1|opuntia
@@ -53,16 +54,17 @@ COcypr4|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|c
 COcypr5|Cupressus (Cypress)|Tree, Cupressus (Cypress)|Cupressus (Cypress) tree|cupressus/4|cupressus
 COjuni|Juniperus (Juniper)|Tree, Juniperus (Juniper)|Juniperus (Juniper) tree|juniperus/1|juniperus
 COlari|Larix (Larch)|Tree, Larix (Larch)|Larix (Larch) tree|larix/1|larix
-COpinu1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/1|pinus
-COpinu2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/2|pinus
-COpinu3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/3|pinus
-COpinu4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/4|pinus
-COpinu5|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/5|pinus
-COpinu6|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/6|pinus
-COpinu7|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/7|pinus
-COpinu8|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/8|pinus
-COpinu9|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/9|pinus
-COpinuy|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/10|pinus
+COpinc2s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/1|pinus
+COpinu1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/2|pinus
+COpinu2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/3|pinus
+COpinu3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/4|pinus
+COpinu4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/5|pinus
+COpinu5|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/6|pinus
+COpinu6|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/7|pinus
+COpinu7|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/8|pinus
+COpinu8|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/9|pinus
+COpinu9|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/10|pinus
+COpinuy|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/11|pinus
 COTTONblack1|Populus (Aspen / Poplar)|Tree, Populus, Trichocarpa (Black Cottonwood)|Populus Trichocarpa (Black Cottonwood) tree|populus/6|populus
 COTTONblack2|Populus (Aspen / Poplar)|Tree, Populus, Trichocarpa (Black Cottonwood)|Populus Trichocarpa (Black Cottonwood) tree|populus/7|populus
 COTTONwood|Populus (Aspen / Poplar)|Tree, Populus, Fremontii (Cottonwood)|Populus Fremontii (Cottonwood) tree|populus/8|populus
@@ -93,7 +95,6 @@ JUNIPered2|Juniperus (Juniper)|Tree, Juniperus, Virginiana (Red Juniper)|Juniper
 JUNIPered3|Juniperus (Juniper)|Tree, Juniperus, Virginiana (Red Juniper)|Juniperus Virginiana (Red Juniper) tree|juniperus/10|juniperus
 LAUREL|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/1|laurus
 LAURELcalifo|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/2|laurus
-LAURUS|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/3|laurus
 LIQUIsweet|Liquidambar (Sweetgum)|Tree, Liquidambar (Sweetgum)|Liquidambar (Sweetgum) tree|liquidambar/1|liquidambar
 MADRONE|Arbutus (Madrone)|Tree, Arbutus (Madrone)|Arbutus (Madrone) tree|arbutus/1|arbutus
 MANZAnita_l|Arctostaphylos (Manzanita)|Tree, Arctostaphylos (Manzanita)|Arctostaphylos (Manzanita) tree|arctostaphylos/1|arctostaphylos
@@ -123,28 +124,56 @@ PALMwashi|Arecaceae (Palm)|Tree, Arecaceae, Washingtonia Filifera (California Pa
 PALOverde|Parkinsonia (Paloverde)|Tree, Parkinsonia (Paloverde)|Parkinsonia (Paloverde) tree|parkinsonia/1|parkinsonia
 PAspec1|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/12|arecaceae
 PAspec2|Arecaceae (Palm)|Tree, Arecaceae (Palm)|Arecaceae (Palm) tree|arecaceae/13|arecaceae
-COpinuy|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/10|pinus
-PINE_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/11|pinus
-PINEmonterey|Pinus (Pine)|Tree, Pinus, Radiata (Monterey Pine)|Pinus Radiata (Monterey Pine) tree|pinus/12|pinus
-PINEspec2_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/13|pinus
-PINEspec3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/14|pinus
-PINEspec4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/15|pinus
-PINEw-white|Pinus (Pine)|Tree, Pinus, Monticola (Western White Pine)|Pinus Monticola (Western White Pine) tree|pinus/16|pinus
-PINUS_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/17|pinus
-PINUSdry_m|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/18|pinus
-PINUSloblolly|Pinus (Pine)|Tree, Pinus Taeda (Loblolly Pine)|Pinus Taeda (Loblolly Pine) tree|pinus/19|pinus
-PINUSmed1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/20|pinus
-PINUSmed2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/21|pinus
-PINUSmed3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/22|pinus
-PINUSred_l|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/23|pinus
-PINUSred_m|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/24|pinus
-PINUSshort|Pinus (Pine)|Tree, Pinus, Echinata (Shortleaf Pine)|Pinus Echinata (Shortleaf Pine) tree|pinus/25|pinus
-PINUSslash|Pinus (Pine)|Tree, Pinus, Elliottii (Slash Pine)|Pinus Elliottii (Slash Pine) tree|pinus/26|pinus
-PINUSspec1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/27|pinus
-PINUSspec2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/28|pinus
-PINUSvirgin|Pinus (Pine)|Tree, Pinus, Virginiana (Virginia Pine)|Pinus Virginiana (Virginia Pine) tree|pinus/29|pinus
+PINE_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/12|pinus
+PINEmonterey|Pinus (Pine)|Tree, Pinus, Radiata (Monterey Pine)|Pinus Radiata (Monterey Pine) tree|pinus/13|pinus
+PINEspec2_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/14|pinus
+PINEspec3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/15|pinus
+PINEspec4|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/16|pinus
+PINEw-white|Pinus (Pine)|Tree, Pinus, Monticola (Western White Pine)|Pinus Monticola (Western White Pine) tree|pinus/17|pinus
+PINUS_s|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/18|pinus
+PINUSdry_m|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/19|pinus
+PINUSloblolly|Pinus (Pine)|Tree, Pinus Taeda (Loblolly Pine)|Pinus Taeda (Loblolly Pine) tree|pinus/20|pinus
+PINUSmed1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/21|pinus
+PINUSmed2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/22|pinus
+PINUSmed3|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/23|pinus
+PINUSred_l|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/24|pinus
+PINUSred_m|Pinus (Pine)|Tree, Pinus, Resinosa (Red Pine)|Pinus Resinosa (Red Pine) tree|pinus/25|pinus
+PINUSshort|Pinus (Pine)|Tree, Pinus, Echinata (Shortleaf Pine)|Pinus Echinata (Shortleaf Pine) tree|pinus/26|pinus
+PINUSslash|Pinus (Pine)|Tree, Pinus, Elliottii (Slash Pine)|Pinus Elliottii (Slash Pine) tree|pinus/27|pinus
+PINUSspec1|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/28|pinus
+PINUSspec2|Pinus (Pine)|Tree, Pinus (Pine)|Pinus (Pine) tree|pinus/29|pinus
+PINUSvirgin|Pinus (Pine)|Tree, Pinus, Virginiana (Virginia Pine)|Pinus Virginiana (Virginia Pine) tree|pinus/30|pinus
 PLATANsycam|Platanus (Plane / Sycamore)|Tree, Platanus (Sycamore)|Platanus (Sycamore) tree|platanus/1|platanus
 POPULcotton|Populus (Aspen / Poplar)|Tree, Populus, Fremontii (Cottonwood)|Populus Fremontii (Cottonwood) tree|populus/8|populus
 QUERCblack|Quercus (Oak)|Tree, Quercus, Velutina (Black Oak)|Quercus Velutina (Black Oak) tree|quercus/8|quercus
 QUERClive_w|Quercus (Oak)|Tree, Quercus (Evergreen Oak)|Quercus (Evergreen Oak) tree|quercus/9|quercus
 QUERCred|Quercus (Oak)|Tree, Quercus, Rubra (Red Oak)|Quercus Rubra (Red Oak) tree|quercus/10|quercus
+QUERCwhite1|Quercus (Oak)|Tree, Quercus, Alba (White Oak)|Quercus Alba (White Oak) tree|quercus/11|quercus
+QUERCwhite2_w|Quercus (Oak)|Tree, Quercus, Alba (White Oak)|Quercus Alba (White Oak) tree|quercus/12|quercus
+SAGE1|Salvia (Sage)|Shrub, Salvia (Sage)|Salvia (Sage) shrub|salvia/1|salvia
+SAGE2|Salvia (Sage)|Shrub, Salvia (Sage)|Salvia (Sage) shrub|salvia/2|salvia
+SAGUARO1|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/1|carnegiea
+SAGUARO2|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/2|carnegiea
+SAGUARO3|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/3|carnegiea
+SAGUARO4|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/4|carnegiea
+SAGUARO5|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/5|carnegiea
+SALIXwhite|Salix (Willow)|Tree, Salix, Alba (White Willow)|Salix Alba (White Willow) tree|salix/2|salix
+SClaur2|Laurus (Laurel)|Tree, Laurus (Laurel)|Laurus (Laurel) tree|laurus/3|laurus
+SColea|Olea (Olive)|Tree, Olea (Olive)|Olea (Olive) tree|olea/2|olea
+SCquer3|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/13|quercus
+SCquery|Quercus (Oak)|Tree, Quercus (Oak)|Quercus (Oak) tree|quercus/14|quercus
+SHcact4|Agave|Succulent, Agave, flowering|Flowering Agave succulent|agave/2|agave
+SHRUBcreosote|Larrea (Creosote)|Shrub, Larrea (Creosote)|Larrea (Creosote) shrub|larrea/1|larrea
+SHRUBocotillo|Fouquieria (Ocotillo)|Shrub, Fouquieria (Ocotillo)|Fouquieria (Ocotillo) shrub|fouquieria/1|fouquieria
+TAMARACK|Larix (Larch)|Tree, Larix, Laricina (Tamarack)|Larix Laricina (Tamarack) tree|larix/2|larix
+TAXObaldcypr|Taxodium (Cypress)|Tree, Taxodium, Distichum (Bald Cypress)|Taxodium Distichum (Bald Cypress) tree|taxodium/1|taxodium
+Trunk|Dead|Tree, dead|Dead tree|dead/3|dead
+ULMUSameri|Ulmus (Elm)|Tree, Ulmus, Americana (American Elm)|Ulmus Americana (American Elm) tree|ulmus/1|ulmus
+WILLOW|Salix (Willow)|Tree, Salix (Willow)|Salix (Willow) tree|salix/3|salix
+WILLOW_m|Salix (Willow)|Tree, Salix (Willow)|Salix (Willow) tree|salix/4|salix
+YUCCA_s|Yucca|Shrub, Yucca|Yucca shrub|yucca/1|yucca
+YUCCA1|Yucca|Shrub, Yucca|Yucca shrub|yucca/2|yucca
+YUCCA2|Yucca|Shrub, Yucca|Yucca shrub|yucca/3|yucca
+YUCCA3|Yucca|Shrub, Yucca|Yucca shrub|yucca/4|yucca
+YUCCAjosh1|Yucca|Tree, Yucca, Brevifolia (Joshua Tree)|Yucca Brevifolia (Joshua Tree)|yucca/5|yucca
+YUCCAjosh2|Yucca|Tree, Yucca, Brevifolia (Joshua Tree)|Yucca Brevifolia (Joshua Tree)|yucca/6|yucca
