@@ -150,6 +150,7 @@ QUERClive_w|Quercus (Oak)|Tree, Quercus (Evergreen Oak)|Quercus (Evergreen Oak) 
 QUERCred|Quercus (Oak)|Tree, Quercus, Rubra (Red Oak)|Quercus Rubra (Red Oak) tree|quercus/10|quercus
 QUERCwhite1|Quercus (Oak)|Tree, Quercus, Alba (White Oak)|Quercus Alba (White Oak) tree|quercus/11|quercus
 QUERCwhite2_w|Quercus (Oak)|Tree, Quercus, Alba (White Oak)|Quercus Alba (White Oak) tree|quercus/12|quercus
+REED|Phragmites (Reed)|Reed, Phragmites|Phragmites (Reed)|phragmites/1|phragmites
 SAGE1|Salvia (Sage)|Shrub, Salvia (Sage)|Salvia (Sage) shrub|salvia/1|salvia
 SAGE2|Salvia (Sage)|Shrub, Salvia (Sage)|Salvia (Sage) shrub|salvia/2|salvia
 SAGUARO1|Carnegiea (Saguaro)|Cactus, Carnegiea (Saguaro)|Carnegiea (Saguaro) cactus|carnegiea/1|carnegiea
