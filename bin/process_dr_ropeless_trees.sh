@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 # NOTE THIS REQUIRES BASH 4. Hence the specific bash path above - use e.g. brew to install if required.
 #
-# This script traverses the set of trees supplied by Dr Ropeless (Barry Drake).  For each tree, it copies
+# This script traverses the set of vegetation supplied by Dr Ropeless (Barry Drake).  For each plant, it copies
 # and renames the object file, placing it in an appropriate folder.  It looks up the full species name
 # from the short name via a mapping file, and copies in a template info.txt file, filling in the details.
 # Finally a screenshot is created.
@@ -9,13 +9,13 @@
 # Setup and arguments
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MYDIR=$1
-TREEROOTDIR=$SCRIPTDIR/../files/objects/vegetation/trees
+VEGETATIONROOTDIR=$SCRIPTDIR/../files/objects/vegetation
 FORESTROOTDIR=$SCRIPTDIR/../files/forests/trees
 MAPPINGFILE=$SCRIPTDIR/tree_mappings.txt
 
 if [ -z "$MYDIR" ] || [[ ! -d "$MYDIR" ]]
 then
-    echo "Usage: process_dr_ropeless_treee.sh path"
+    echo "Usage: process_dr_ropeless_trees.sh path_containing_individual_vegetation_objects"
     exit
 elif [[ ! -f $MYDIR/info.txt ]]
 then
@@ -29,28 +29,28 @@ fi
 echo "========================"
 echo "Script dir: " $SCRIPTDIR
 echo "Working dir: " $MYDIR
-echo "Tree root dir: " $TREEROOTDIR
+echo "Vegetation root dir: " $VEGETATIONROOTDIR
 echo "Forest root dir: " $FORESTROOTDIR
 echo "========================"
 
 # Load mapping file
-declare -A TREEMAPPINGS
+declare -A CATEGORYMAPPINGS
+declare -A TITLEMAPPINGS
+declare -A DESCRIPTIONMAPPINGS
+declare -A FILEPATHMAPPINGS
+declare -A CATEGORYPATHMAPPINGS
   
-while IFS=\| read key value
+while IFS=\| read key category title description filepath categorypath
 do
     if [[ ${key} = [\#]* ]]; then continue; fi  # Comments
     if [[ ${key} = "" ]]; then continue; fi     # Empty lines
 
-    TREEMAPPINGS[$key]=$value
+    CATEGORYMAPPINGS[$key]=$category
+    TITLEMAPPINGS[$key]=$title
+    DESCRIPTIONMAPPINGS[$key]=$description
+    FILEPATHMAPPINGS[$key]=$filepath
+    CATEGORYPATHMAPPINGS[$key]=$categorypath
 done < $MAPPINGFILE
-
-# Find the highest numbered subfolder that already exists in TREEROOTIR
-N=1
-while [[ -d "$TREEROOTDIR/$N" ]] ; do
-    N=$(($N+1))
-done
-
-# N is now the next incremental folder number
 
 for F in $(find . -name '*.obj')
 do
@@ -59,66 +59,59 @@ do
     SUBPARTS=(${MAINPARTS//./ })
 
     if [[ $FILENAME =~ (.*)_([0-9.]*).obj ]]; then
-        TREECODE=${BASH_REMATCH[1]}
-        TREEHEIGHT=${BASH_REMATCH[2]}
+        CODE=${BASH_REMATCH[1]}
+        HEIGHT="$(printf "%g" ${BASH_REMATCH[2]})" # Parse the number as double, removing leading and trailing '0's
+        CATEGORY=${CATEGORYMAPPINGS[${CODE}]}
+        TITLE=${TITLEMAPPINGS[${CODE}]}
+        DESCRIPTION=${DESCRIPTIONMAPPINGS[${CODE}]}
+        FILEPATH=${FILEPATHMAPPINGS[${CODE}]}
+        CATEGORYPATH=${CATEGORYPATHMAPPINGS[${CODE}]}
 
-        echo "$FILENAME"
-        echo "  Full Name: ${TREEMAPPINGS[${TREECODE}]}"
-        echo "  Height   : $TREEHEIGHT"
+        if [ -z "$TITLE" ]; then
+            #echo "Skipping $F - No mapping found"
+            continue
+        fi
+
+        DESTINATIONCONTAINERPATH="${VEGETATIONROOTDIR}/${FILEPATH}"
+        DESTINATIONOBJECTPATH="${DESTINATIONCONTAINERPATH}/${HEIGHT}m"
+        DESTINATIONCATEGORYPATH="${VEGETATIONROOTDIR}/${CATEGORYPATH}"
+        # Calculate depth of object path by counting number of "/" in path
+        DESTINATIONOBJECTPATHDEPTH=$(awk -F"/" '{print NF}' <<< "${FILEPATH}")
+        # Build texture path by repeating "../" the same number of times as the depth
+        TEXTUREPATH="../../../$(seq -f '../' -s '' $DESTINATIONOBJECTPATHDEPTH)forests/trees/"
+
+        echo "Processing file $F into folder $DESTINATIONOBJECTPATH"
+
+        if [ ! -d "$DESTINATIONCONTAINERPATH" ]; then
+            mkdir -p "$DESTINATIONCONTAINERPATH"
+        fi
+
+        if [ ! -f "$DESTINATIONCATEGORYPATH/category.txt" ]; then
+            cp category.txt "$DESTINATIONCATEGORYPATH/category.txt"
+            sed -i '' -E -e "s|Title:|Title: ${CATEGORY}|" $DESTINATIONCATEGORYPATH/category.txt
+        fi
+
+        if [ ! -d "$DESTINATIONOBJECTPATH" ]; then
+            mkdir -p "$DESTINATIONOBJECTPATH"
+        fi
+
+        if [ ! -f "$DESTINATIONOBJECTPATH/info.txt" ]; then
+            cp info.txt "$DESTINATIONOBJECTPATH/info.txt"
+            sed -i '' -E -e "s|Title:|Title: ${TITLE}, ${HEIGHT}m|" $DESTINATIONOBJECTPATH/info.txt
+            sed -i '' -E -e "s|Description:|Description: An individual ${DESCRIPTION}, height ${HEIGHT}m.|" $DESTINATIONOBJECTPATH/info.txt
+        fi
+
+        if [ ! -f "$DESTINATIONOBJECTPATH/object.obj" ]; then
+            cp $F "$DESTINATIONOBJECTPATH/object.obj"
+            sed -i '' -E -e "s|TEXTURE ../(.*)|TEXTURE ${TEXTUREPATH}\1|" $DESTINATIONOBJECTPATH/object.obj
+        fi
+
+        if [ ! -f "${DESTINATIONOBJECTPATH}/screenshot.jpg" ]; then
+            $SCRIPTDIR/generate_screenshots.sh $DESTINATIONOBJECTPATH
+        fi
     else
-        echo "unable to parse string $FILENAME"
+        echo "Unable to parse string $FILENAME"
     fi
-
-    #echo Processing file $F into folder $TREEROOTDIR/$N/
-
-    # This hunts for the location of this file in the forest dir.  Don't need to do this because 
-    # we're using a simple mapping file now
-    #echo Searching for ${PARTS[0]} in $FORESTROOTDIR
-    #G=$(grep -a -m 1 -r "${PARTS[0]}" $FORESTROOTDIR | head -1 )
-
-    #break;
-    # mkdir $N
-    # cp info.txt $N/info.txt
-
-    # case $F in
-    #     *fac)
-    #         NEWFILE=$N/facade.fac
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *for)
-    #         NEWFILE=$N/forest.for
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *lin)
-    #         NEWFILE=$N/line.lin
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *obj)
-    #         NEWFILE=$N/object.obj
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         # It's a .obj file, generate screenshot
-    #         $SCRIPTDIR/generate_screenshots.sh $MYDIR/$N/
-    #         ;;
-    #     *pol)
-    #         NEWFILE=$N/polygon.pol
-    #         cp $F $NEWFILE
-    #         handle_textures
-    #         ;;
-    #     *)
-    # esac
-
-    # # Include original filename at beginning of Title line inside info.txt for reference
-    # sed -i '' -E -e "s|Title: (.*)|Title: ---$FILENAME--- \1|" $N/info.txt
-
-    N=$(($N+1))
-
 done
-
-
-echo "========================"
 
 echo "========================"
