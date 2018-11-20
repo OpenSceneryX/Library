@@ -51,7 +51,7 @@ try:
 		while previousVersionTag == "" or not os.path.isdir("builds/" + previousVersionTag + "/OpenSceneryX-" + previousVersionTag):
 			previousVersionTag = functions.getInput("Enter the previous release version (e.g. 1.0.0): ", 10)
 		
-		classes.Configuration.init(versionTag, 'n')
+		classes.Configuration.init(versionTag, "", 'n')
 		
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Checking for missing virtual paths\n")
