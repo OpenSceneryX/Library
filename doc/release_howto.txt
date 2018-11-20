@@ -47,59 +47,71 @@ Release Howto
 
 13. Clear /new and /old on the server
 
-14. Upload OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/
+14. Upload OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/:
+
+    $ scp OpenSceneryX-Website-x.x.x.tar.zip <server>:/var/www/austin/new/
+    $ scp OpenSceneryX-DeveloperPack-x.x.x.zip <server>:/var/www/austin/new/
 
 15. Upload manifest.xml.zip and manifest.xml into /new/
 
-16. Copy /downloads/ into /old/
+    $ scp manifest.xml.zip <server>:/var/www/austin/new/
 
-17. Make a copy of repository/ into new/ on the server
+16. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
 
-18. Use rsync to upload the new library:
+    $ scp OpenSceneryX.zip <server>:/var/www/austin/new/
+
+17. Copy /downloads/ into /old/
+
+18. Make a copy of repository/ into new/ on the server
+
+19. Use rsync to upload the new library:
 
     $ /usr/bin/rsync -arv --checksum OpenSceneryX-x.x.x/ <server>:/var/www/austin/new/repository/
     
 ----------------------------------------------
 
-19. Prepare blog post while uploads ongoing
+20. Prepare blog post while uploads ongoing
 
 ----------------------------------------------
 
-20. Extract website zip on site into /new/
+21. Extract website zip on site into /new/
 
-21. Put site into maintenance mode
+    $ unzip OpenSceneryX-Website-x.x.x.tar.zip
+    $ tar -xf OpenSceneryX-Website-x.x.x.tar
+
+22. Put site into maintenance mode
 
   $ mv wp/maintenance-disabled wp/.maintenance
 
-22. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/, /library-sitemap.xml and robots.txt into /old/
+23. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/, /library-sitemap.xml and robots.txt into /old/
 
-23. Move /new/repository/ to /repository/
+24. Move /new/repository/ to /repository/
 
-24. Move /new/OpenSceneryX-Website-x.x.x/* to /
+25. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-25. Move /new/manifest.xml.zip and /new/manifest.xml to /
+26. Move /new/manifest.xml.zip and /new/manifest.xml to /
 
-26. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
+27. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
 
-27. Ensure /versioninfo has the latest information about the installer in it.
+28. Move /new/OpenSceneryX.zip to /downloads/
 
-28. Correct ownership of folder structure
+29. Ensure /versioninfo has the latest information about the installer in it.
+
+30. Correct ownership of folder structure
 
   $ chown -R apache:apache public_html
 
-29. Take site out of maintenance mode
+31. Take site out of maintenance mode
 
   $ mv wp/.maintenance wp/maintenance-disabled
 
-30. Log into Cloudflare and clear all caches.
+32. Log into Cloudflare and clear all caches.
 
-31. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
+33. Log in to Google Webmaster tools and resubmit library-sitemap.xml
 
-32. Log in to Google Webmaster tools and resubmit library-sitemap.xml
+34. Create new section in release note for next changes
 
-33. Create new section in release note for next changes
-
-34. Promotion:
+35. Promotion:
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
