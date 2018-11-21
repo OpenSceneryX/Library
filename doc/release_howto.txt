@@ -109,9 +109,11 @@ Release Howto
 
 33. Log in to Google Webmaster tools and resubmit library-sitemap.xml
 
-34. Create new section in release note for next changes
+34. Log in to Bing Webmaster tools and resubmit library-sitemap.xml
 
-35. Promotion:
+35. Create new section in release note for next changes
+
+36. Promotion:
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
