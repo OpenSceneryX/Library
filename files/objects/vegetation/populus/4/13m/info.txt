@@ -1,0 +1,12 @@
+Title: Tree, Populus (Aspen), 13m
+=====================
+Author, conversion: Barry Drake
+URL, conversion: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author: Andras Fabian
+URL: http://www.alpilotx.de/
+Author, texture: Albert Laubi
+Author, texture: Sergio Santagada
+Export Propagate: 2
+Since: 3.1.0
+=====================
+Description: An individual Populus (Aspen) tree, height 13m.

@@ -1,0 +1,12 @@
+Title: Tree, Quercus (Oak), 30m
+=====================
+Author: Pedro MS Alves
+URL: http://forums.x-plane.org/index.php?showuser=15123
+Width: 30m
+Depth: 30m
+Height: 30m
+Export Propagate: 2
+Export Deprecated v3.1.0: objects/vegetation/trees/1
+Export Deprecated v3.1.0: objects/vegetation/trees
+=====================
+Description: A single 3D tree, build with two vertical planes. Some parts are transparent due to PNG layering properties.  Use it to add obstacles or particular features of some airports or elsewhere.
