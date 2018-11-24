@@ -292,9 +292,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -390,9 +388,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -488,8 +484,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -585,7 +580,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -703,7 +698,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 

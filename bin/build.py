@@ -75,7 +75,7 @@ try:
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
-		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
+		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
 		functions.displayMessage("------------------------\n")
