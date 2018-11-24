@@ -35,14 +35,6 @@ authorPattern = re.compile("Author:\s+(.*)")
 textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
 conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
 modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
-emailPattern = re.compile("Email:\s+(.*)")
-textureEmailPattern = re.compile("Email, texture:\s+(.*)")
-conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
-modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
-urlPattern = re.compile("URL:\s+(.*)")
-textureUrlPattern = re.compile("URL, texture:\s+(.*)")
-conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
-modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
 widthPattern = re.compile("Width:\s+(.*)")
 heightPattern = re.compile("Height:\s+(.*)")
 depthPattern = re.compile("Depth:\s+(.*)")
@@ -810,11 +802,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Main author
 		result = authorPattern.match(line)
 		if result:
-			if sceneryObject.author == "":
-				sceneryObject.author = result.group(1)
-			else:
-				sceneryObject.author = sceneryObject.author + " and " + result.group(1)
-				
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -822,11 +809,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Texture author
 		result = textureAuthorPattern.match(line)
 		if result:
-			if sceneryObject.textureAuthor == "":
-				sceneryObject.textureAuthor = result.group(1)
-			else:
-				sceneryObject.textureAuthor = sceneryObject.textureAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -834,11 +816,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Conversion author
 		result = conversionAuthorPattern.match(line)
 		if result:
-			if sceneryObject.conversionAuthor == "":
-				sceneryObject.conversionAuthor = result.group(1)
-			else:
-				sceneryObject.conversionAuthor = sceneryObject.conversionAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -846,63 +823,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Modification author
 		result = modificationAuthorPattern.match(line)
 		if result:
-			if sceneryObject.modificationAuthor == "":
-				sceneryObject.modificationAuthor = result.group(1)
-			else:
-				sceneryObject.modificationAuthor = sceneryObject.modificationAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-		
-		# Main author email
-		result = emailPattern.match(line)
-		if result:
-			sceneryObject.email = result.group(1)
-			continue
-		
-		# Texture author email
-		result = textureEmailPattern.match(line)
-		if result:
-			sceneryObject.textureEmail = result.group(1)
-			continue
-		
-		# Conversion author email
-		result = conversionEmailPattern.match(line)
-		if result:
-			sceneryObject.conversionEmail = result.group(1)
-			continue
-		
-		# Modification author email
-		result = modificationEmailPattern.match(line)
-		if result:
-			sceneryObject.modificationEmail = result.group(1)
-			continue
-		
-		# Main author URL
-		result = urlPattern.match(line)
-		if result:
-			sceneryObject.url = result.group(1)
-			continue
-		
-		# Texture author URL
-		result = textureUrlPattern.match(line)
-		if result:
-			sceneryObject.textureUrl = result.group(1)
-			continue
-		
-		# Conversion author URL
-		result = conversionUrlPattern.match(line)
-		if result:
-			sceneryObject.conversionUrl = result.group(1)
-			continue
-		
-		# Modification author URL
-		result = modificationUrlPattern.match(line)
-		if result:
-			sceneryObject.modificationUrl = result.group(1)
-			continue
-		
+				
 		# Width
 		result = widthPattern.match(line)
 		if result:
