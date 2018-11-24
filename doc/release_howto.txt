@@ -56,9 +56,7 @@ Release Howto
 
     $ scp manifest.xml.zip <server>:/var/www/austin/new/
 
-16. Upload the monolithic zip file 'OpenSceneryX.zip' into /downloads/
-
-    $ scp OpenSceneryX.zip <server>:/var/www/austin/new/
+16. Upload the monolithic zip file 'OpenSceneryX.zip' into AWS S3 bucket
 
 17. Copy /downloads/ into /old/
 
@@ -117,5 +115,6 @@ Release Howto
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
-	- Post an article in the blog
+	- Post an article on the site
 	- Tweet
+  - Reddit r/Xplane
