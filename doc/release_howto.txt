@@ -47,71 +47,68 @@ Release Howto
 
 13. Clear /new and /old on the server
 
-14. Upload OpenSceneryX-Website-x.x.x.tar.zip and OpenSceneryX-DeveloperPack-x.x.x.zip into /new/:
+14. Upload OpenSceneryX-Website-x.x.x.tar.zip into /new/:
 
-    $ scp OpenSceneryX-Website-x.x.x.tar.zip <server>:/var/www/austin/new/
-    $ scp OpenSceneryX-DeveloperPack-x.x.x.zip <server>:/var/www/austin/new/
+  $ scp OpenSceneryX-Website-x.x.x.tar.zip <server>:/var/www/austin/new/
+  $ scp OpenSceneryX-DeveloperPack-x.x.x.zip <server>:/var/www/austin/new/
 
-15. Upload manifest.xml.zip and manifest.xml into /new/
+15. Upload the following into AWS S3 Bucket:
 
-    $ scp manifest.xml.zip <server>:/var/www/austin/new/
+  - OpenSceneryX-DeveloperPack-x.x.x.zip
+  - Monolithic zip file 'OpenSceneryX.zip'
+  - manifest.xml.zip
 
-16. Upload the monolithic zip file 'OpenSceneryX.zip' into AWS S3 bucket
+16. Use AWS cli to sync the new repository:
 
-17. Copy /downloads/ into /old/
+  $ cd Library/builds/x.x.x/OpenSceneryX-x.x.x/
+  $ aws s3 sync . s3://opensceneryx/repository
 
-18. Make a copy of repository/ into new/ on the server
+17. Ensure AWS S3 permissions on the following are public:
 
-19. Use rsync to upload the new library:
-
-    $ /usr/bin/rsync -arv --checksum OpenSceneryX-x.x.x/ <server>:/var/www/austin/new/repository/
+  - OpenSceneryX-DeveloperPack-x.x.x.zip
+  - Monolithic zip file 'OpenSceneryX.zip'
+  - manifest.xml.zip
+  - /repository
     
-----------------------------------------------
+18. Extract website zip on site into /new/
 
-20. Prepare blog post while uploads ongoing
+  $ unzip OpenSceneryX-Website-x.x.x.tar.zip
+  $ tar -xf OpenSceneryX-Website-x.x.x.tar
 
-----------------------------------------------
-
-21. Extract website zip on site into /new/
-
-    $ unzip OpenSceneryX-Website-x.x.x.tar.zip
-    $ tar -xf OpenSceneryX-Website-x.x.x.tar
-
-22. Put site into maintenance mode
+19. Put site into maintenance mode
 
   $ mv wp/maintenance-disabled wp/.maintenance
 
-23. Move /doc/, /extras/, /facades/, /forests/, /lines/, /manifest.xml, /manifest.xml.zip, /objects/, /polygons/, /repository/, /library-sitemap.xml and robots.txt into /old/
+20. Move /doc/, /extras/, /facades/, /forests/, /lines/, /objects/, /polygons/, /library-sitemap.xml and robots.txt into /old/
 
-24. Move /new/repository/ to /repository/
+21. Move /new/OpenSceneryX-Website-x.x.x/* to /
 
-25. Move /new/OpenSceneryX-Website-x.x.x/* to /
+22. Ensure /versioninfo has the latest information about the installer in it.
 
-26. Move /new/manifest.xml.zip and /new/manifest.xml to /
-
-27. Move /new/OpenSceneryX-DeveloperPack-x.x.x.zip to /downloads/
-
-28. Move /new/OpenSceneryX.zip to /downloads/
-
-29. Ensure /versioninfo has the latest information about the installer in it.
-
-30. Correct ownership of folder structure
+23. Correct ownership of folder structure
 
   $ chown -R apache:apache public_html
 
-31. Take site out of maintenance mode
+24. Take site out of maintenance mode
 
   $ mv wp/.maintenance wp/maintenance-disabled
 
-32. Log into Cloudflare and clear all caches.
+25. In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com distribution for:
 
-33. Log in to Google Webmaster tools and resubmit library-sitemap.xml
+/repository/*
+/manifest.xml.zip
+/OpenSceneryX.zip
 
-34. Log in to Bing Webmaster tools and resubmit library-sitemap.xml
+26. Log into Cloudflare and clear all caches.
 
-35. Create new section in release note for next changes
+27. Log in to Google Webmaster tools and resubmit library-sitemap.xml
 
-36. Promotion:
+28. Log in to Bing Webmaster tools and resubmit library-sitemap.xml
+
+29. Create new section in release note for next changes
+
+30. Promotion:
+
 	- Update x-plane.org Download Manager entry
 	- Update first post in x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
