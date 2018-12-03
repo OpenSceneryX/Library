@@ -1,8 +1,0 @@
-Title: Asteraceae, Bellis (common daisy), medium (0.3-0.45m)
-=====================
-Author: FlyAgi
-URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
-Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Flowers/Flowers_02_medium
-Since: 3.2.0
-=====================
-Description: A forest of Asteraceae Bellis (common daisy) flowers, between 0.3m and 0.45m high. Ideal to use in combination with a grass forest with matching height, to make meadows.
