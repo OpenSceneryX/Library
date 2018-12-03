@@ -1,0 +1,8 @@
+Title: Laurus Nobilis (bay laurel), short (1-3m)
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Shrubs/Shrubs_01_low
+Since: 3.2.0
+=====================
+Description: A forest of short Laurus Nobilis (bay laurel) shrubs, between 1m and 3m high.
