@@ -1,0 +1,8 @@
+Title: Grass, fresh variant 6, 0.2-0.3m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Grass/Grass_fresh06_verylow
+Since: 3.2.0
+=====================
+Description: A forest of fresh grass, between 0.2m and 0.3m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae).
