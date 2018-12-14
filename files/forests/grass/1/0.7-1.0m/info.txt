@@ -5,4 +5,4 @@ URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Grass/Grass_dark01_medium
 Since: 3.2.0
 =====================
-Description: A forest of dark grass, between 0.7m and 1m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae).
+Description: A forest of dark grass, between 0.7m and 1m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae). This variant is similar to /forests/grass/2 but is more bluish in color tone, designed for matching the X-Plane® default forest ground polygons.
