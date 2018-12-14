@@ -1,0 +1,8 @@
+Title: Grass, dry variant 7, 0.2-0.7m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Grass/Grass_dry08_low
+Since: 3.2.0
+=====================
+Description: A forest of dry grass, between 0.2m and 0.7m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae).
