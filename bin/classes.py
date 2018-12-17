@@ -74,9 +74,12 @@ class Configuration(object):
 			os.unlink('builds/latest')
 		if os.path.lexists('builds/latest-website'):
 			os.unlink('builds/latest-website')
+		if os.path.lexists('builds/latest-library'):
+			os.unlink('builds/latest-library')
 			
 		os.symlink(self.versionNumber, 'builds/latest')
 		os.symlink(self.versionNumber + "/OpenSceneryX-Website-" + self.versionNumber, 'builds/latest-website')
+		os.symlink(self.versionNumber + "/OpenSceneryX-" + self.versionNumber, 'builds/latest-library')
 		
 	init = classmethod(init)
 	makeFolders = classmethod(makeFolders)

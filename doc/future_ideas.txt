@@ -39,12 +39,6 @@ o Split library into multiple, optional packages
 Website
 -------
 
-o Obfuscation of email addresses on site.
-
-o Add 'last modified' date handling to build script?
-
-o Promote latest objects, possibly with screenshots.
-
 o The sub-categories section of category landing pages should be better - Perhaps there should be a selection of random images for each category.
 
 o Handle formatted info.txt content better (e.g. Cormac's comments).
