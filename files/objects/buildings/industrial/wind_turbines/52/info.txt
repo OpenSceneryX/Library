@@ -1,0 +1,8 @@
+Title: Wind turbine, 3-bladed, 125m, lit
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Onshore/Wind_turbine_onshore_0125_white
+Since: 3.2.0
+=====================
+Description: A 3 bladed onshore wind turbine, 125m tall, lit.
