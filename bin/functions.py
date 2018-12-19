@@ -1100,6 +1100,9 @@ def writeBackupLibraries(libraryFileHandle):
 	contents.sort()
 
 	for item in contents:
+		if item[:1] == ".":
+			continue
+			
 		fullPath = os.path.join(dirPath, item)
 		
 		file = open(fullPath)
