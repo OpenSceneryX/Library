@@ -2,6 +2,7 @@ Title: Wind turbine, 3-bladed, 150m
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Animated: True
 Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Offshore/Wind_turbine_offshore_0150_white_nolights
 Since: 3.2.0
 =====================
