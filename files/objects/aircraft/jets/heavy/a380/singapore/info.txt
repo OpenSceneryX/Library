@@ -6,5 +6,7 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/singapore/a380
+Export Extended: lib/airport/aircraft/airliners/heavy_f_sia
+Export Extended: lib/airport/aircraft/airliners/heavy_f
 =====================
 Description: An Airbus 380 in Singapore livery.
