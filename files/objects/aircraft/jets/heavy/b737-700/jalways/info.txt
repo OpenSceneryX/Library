@@ -5,5 +5,7 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/jalways/b737-700
+Export Extended: lib/airport/aircraft/airliners/jet_c_jal
+Export Extended: lib/airport/aircraft/airliners/jet_c
 =====================
 Description: A Boeing 737-700 in JALways livery.

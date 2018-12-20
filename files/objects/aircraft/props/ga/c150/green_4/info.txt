@@ -3,5 +3,6 @@ Title: Cessna 150 Green Variant 4
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
+Export Extended: lib/airport/aircraft/general_aviation/prop_a
 =====================
 Description: A green Cessna 150.
