@@ -6,3 +6,6 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Grass/Grass_dry08_medium
 Since: 3.2.0
 =====================
 Description: A forest of dry grass, between 0.7m and 1m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae).
+For best visual results the grass colors chosen should match the ground colors. If this is done right the grass will almost seamlessly fade out into the terrain in the distance and from higher view angles when taking off or landing on your airfield.
+When using orthophotos use decals as well for a more natural grass effects.
+When using grass on larger scale airports make sure you're using WED and it's density options for the grass files. The grass can have an impact on GPU performance and on larger airports this impact can be massive if you place the grass with maximum density.
