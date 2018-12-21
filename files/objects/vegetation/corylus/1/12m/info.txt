@@ -1,0 +1,11 @@
+Title: Tree, Corylus (Hazel), 12m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_04_12m
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_04_Any
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_Any_01
+Export Propagate: 2
+Since: 3.2.0
+=====================
+Description: An individual Corylus (Hazel) tree, height 12m.
