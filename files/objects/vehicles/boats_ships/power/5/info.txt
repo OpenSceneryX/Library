@@ -7,5 +7,6 @@ Width: 2.5m
 Depth: 14.5m
 Height: 4.4m
 Export Propagate: 2
+Export External simHeaven: simheaven/power_boat8
 =====================
 Description: A medium sized motor cruiser.

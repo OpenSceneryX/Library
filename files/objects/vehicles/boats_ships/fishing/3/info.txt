@@ -7,5 +7,6 @@ Depth: 12.6m
 Width: 4.2m
 Height: 2.75m
 Export Propagate: 2
+Export External simHeaven: simheaven/power_boat1
 =====================
 Description: A small primitive fishing boat.

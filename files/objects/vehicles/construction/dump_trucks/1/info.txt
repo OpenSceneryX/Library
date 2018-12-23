@@ -7,5 +7,6 @@ Depth: 7m
 Height: 3m
 Export Propagate: 2
 Export External simHeaven: simheaven/quarry_area
+Export External simHeaven: simheaven/construction_area
 =====================
 Description: Gravel dump truck
