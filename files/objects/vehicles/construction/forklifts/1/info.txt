@@ -6,5 +6,7 @@ Width: 2.5m
 Height: 3m
 Depth: 4.5m
 Export Propagate: 2
+Export External simHeaven: simheaven/quarry_area
+Export External simHeaven: simheaven/construction_area
 =====================
 Description: Yellow fork lift truck.

@@ -8,6 +8,7 @@ URL: http://afriqs.free.fr/xplane/index.php
 Width: 19m
 Depth: 10m
 Height: 23m
+Export External simHeaven: simheaven/windmill
 Export Deprecated v1.3.0: objects/buildings/commercial/windmill
 Export Propagate: 3
 Animated: True

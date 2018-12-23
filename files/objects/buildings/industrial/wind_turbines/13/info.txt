@@ -6,5 +6,6 @@ Width: 86.5m
 Depth: 21.4m
 Height: 100m
 Animated: True
+Export External simHeaven: simheaven/wind_turbine_100m
 =====================
 Description: An animated 3-bladed wind turbine on a 100m high pedestal with blades equally spread.
