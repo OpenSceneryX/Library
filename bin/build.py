@@ -75,7 +75,7 @@ try:
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
-		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False))
+		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		
 		functions.displayMessage("------------------------\n")
