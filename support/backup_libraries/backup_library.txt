@@ -580,6 +580,52 @@ EXPORT_BACKUP BS2001_Objects/tr_sign_priroad_plus-02.obj opensceneryx/placeholde
 EXPORT_BACKUP BS2001_Objects/tr_sign_stop.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP BS2001_Objects/tr_sign_trlights.obj opensceneryx/placeholder.obj
 
+# CCVA Library
+# v1.9.0
+# By Lars de Jonge
+# https://forums.x-plane.org/index.php?/files/file/42673-ccva022_object_library/
+
+EXPORT_BACKUP CCVA022_Object_Library/Infra/Swisshut/Swisshut.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/HangarCCVA/HangarCCVA.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAHouse/CCVAHouse.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAComplex/CCVAComplex.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Green/Greengrass/Greengrass.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAFirestation/Firestation.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAStockerau1/CCVAStockerau1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAStockerau2/CCVAStockerau2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAFuerstenfeld1/CCVAFuerstenfeld1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall1Grey/CCVATinywall1Grey.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall1Red/CCVATinywall1Red.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall1Yellow/CCVATinywall1Yellow.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall2Grey/CCVATinywall2Grey.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABollardRed/CCVABollardRed.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABollardOrange/CCVABollardOrange.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall2Red/CCVATinywall2Red.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATinywall2Yellow/CCVATinywall2Yellow.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAClubhouse/CCVAClubhouse.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAWorkInProgress/CCVAWorkInProgress.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAPalletStone/CCVAPalletStone.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAFenceBlockedView/CCVAFenceBlockedView.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVADumpContainerGreen/CCVADumpContainerGreen.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVADumpContainerYellow/CCVADumpContainerYellow.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAOrnament/CCVAOrnament.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATug/CCVATug.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVATractor/CCVATractor.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABaggageCart1/CCVABaggageCart1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABaggageCart2/CCVABaggageCart2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABaggageCartTrainL/CCVABaggageCartTrainL.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABaggageCartTrainR/CCVABaggageCartTrainR.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVABaggageCartTrainS/CCVABaggageCartTrainS.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAGPU/CCVAGPU.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVASmallTerminal/CCVASmallTerminal.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAAirportSecurity/CCVAAirportSecurity.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAAuthority/CCVAAuthority.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVACorpHangar/CCVACorpHangar.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVARuralClinicAfrica/CCVARuralClinicAfrica.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAMedFac/CCVAMedFac.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVACargoGlassTerm/CCVACargoGlassTerm.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAATC/CCVAATC.obj opensceneryx/placeholder.obj
+
 # CDB Library
 # v2.6
 # By Cami de Bellis
@@ -5922,6 +5968,58 @@ EXPORT_BACKUP Fruitstand_Aircraft/A388_THA.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP Fruitstand_Aircraft/A388_AFR.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP Fruitstand_Aircraft/A388_AAR.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP Fruitstand_Aircraft/SF340_LIP.obj opensceneryx/placeholder.obj
+
+# Ground Services Taiwan Library
+# v0.15
+# By MWM
+# https://forums.x-plane.org/index.php?/files/file/39537-ground_services-twground-service-pack-for-taiwan/
+
+EXPORT_BACKUP Ground_Services-TW/ACU/Static/TAS.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Static/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Static/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Static/TAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Static/FAT/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Active/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Active/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Active/TAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Pushback/Active/FAT/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Static/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Static/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Static/EGAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Static/EGAS/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Active/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Active/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Active/EGAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Truck/Active/EGAS/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/TAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/TAS/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/FAT/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/FAT/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Static/FAT/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/TAS/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/TAS/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/FAT/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/FAT/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Baggage/Active/FAT/3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Aviation_Police/Static/Xray_car.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Static/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Static/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Static/TIAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Static/TIAS/1-1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Active/EGAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Active/TAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Active/TIAS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Tug/Active/TIAS/1-1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Static/EGSC/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Static/EGSC/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Static/KACS/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Active/EGSC/1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Active/EGSC/2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Ground_Services-TW/Catering/Active/KACS/1.obj opensceneryx/placeholder.obj
 
 # Ground Textures Library
 # v1.3
@@ -15790,7 +15888,20 @@ EXPORT_BACKUP Serviced_Aircraft_North_America_Part3/Star_Alliance_EMB120.obj ope
 EXPORT_BACKUP Serviced_Aircraft_North_America_Part3/United_EMB120.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP Serviced_Aircraft_North_America_Part3/UPS_EMB120.obj opensceneryx/placeholder.obj
 
-# Static GA Aircraft New Zealand
+# Shoreline Objects Library
+# 2016-03-10
+# By hawkeye124
+# https://forums.x-plane.org/index.php?/files/file/30792-shoreline-objects/
+
+EXPORT_BACKUP Shoreline_Objects/Concrete_Jacks/Concrete_Jacks_18_Meters.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Shoreline_Objects/Concrete_Jacks/Concrete_Jacks_36_Meters.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Shoreline_Objects/RipRap/RipRap.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Shoreline_Objects/RipRap/RipRap.str opensceneryx/placeholder.str
+EXPORT_BACKUP Shoreline_Objects/RockField/RockField.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Shoreline_Objects/Seawall/Seawall.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Shoreline_Objects/Seawall/Seawall.str opensceneryx/placeholder.str
+
+# Static GA Aircraft New Zealand Library
 # v1.1
 # By Nightflyer256
 # https://forums.x-plane.org/index.php?/files/file/27150-static-ga-aircraft-new-zealand/
@@ -15924,7 +16035,51 @@ EXPORT_BACKUP Static_GA_NZ/Socata_TB20/TB20_4green.obj opensceneryx/placeholder.
 EXPORT_BACKUP Static_GA_NZ/Socata_TB20/TB20_4red.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP Static_GA_NZ/Socata_TB20/TB20_4yellow.obj opensceneryx/placeholder.obj
 
-# TM Billboards
+# Swiss Creations Library
+# v1.1
+# By Alex Quanchi and Michele Ceresa
+# https://forums.x-plane.org/index.php?/files/file/26645-swisscreations-object-for-helicopters-operations/
+
+EXPORT_BACKUP swisscreations/helipad/piazzale_erba_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzale_erba_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzale_erba_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzale_erba_4.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzale_erba_5.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzale_metallo_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/strada_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/strada_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/strada_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/strada_4.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/ripida_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/helipad/piazzuola_tronchi_4.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_scenario/soletta.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_eli/benna_beton_fissa.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_eli/bacino_animato.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_eli/mucchio_alberi.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_eli/ceppa.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_eli/ceppa_con_motosega.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_scenario/furgone_htv_2b.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_scenario/furgone_htv_1b.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_scenario/furgone_htv_0b.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/oggetti_scenario/furgone_swisscreations.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/abete_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/abete_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/abete_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/betulla_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/betulla_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/betulla_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/faggio_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/faggio_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/faggio_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/faggio_4.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/pero_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/pero_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/platano_1.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/platano_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/platano_3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP swisscreations/alberi/platano_4.obj opensceneryx/placeholder.obj
+
+# TM Billboards Library
 # v1.0.0
 # By Teschmacher
 # https://forums.x-plane.org/index.php?/files/file/42416-tm-library-billboards-hd-vol-1-for-x-plane-11/
@@ -19593,6 +19748,26 @@ EXPORT_BACKUP uk/terraced15_8.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP uk/terraced15_8.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP uk/terraced7_8.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP uk/terraced7_8.obj opensceneryx/placeholder.obj
+
+# Wrecked Vehicles Library
+# 2016-03-11
+# By hawkeye124
+# https://forums.x-plane.org/index.php?/files/file/30807-wrecked-vehicles/
+
+EXPORT_BACKUP Wrecked_Vehicles/DumpTruckWreck.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Halftrack_Rusted.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck3.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck4.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck5.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck6.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck7.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck8_Landing_Craft.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/Shipwreck9_Landing_Craft_2.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/TankWreckRightSideup.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/TankWreckUpSideDown.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP Wrecked_Vehicles/WW2_Jeep_Rusted.obj opensceneryx/placeholder.obj
 
 # XAirportScenery Library
 # v1.1
