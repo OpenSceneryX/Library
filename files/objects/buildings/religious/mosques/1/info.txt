@@ -7,6 +7,6 @@ URL, texture: http://www.openfootage.net
 Width: 10.6m
 Depth: 22.4m
 Height: 16.8m
-Export External simHeaven: simheaven/mosque
+Export External simHeaven: simheaven/landmarks/mosque
 =====================
 Description: A fictional, small western mosque.

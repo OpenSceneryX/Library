@@ -7,6 +7,6 @@ Email: fasm@wanadoo.fr
 Width: 2m
 Depth: 5m
 Height: 5m
-Export External simHeaven: simheaven/sail_boat6
+Export External simHeaven: simheaven/landmarks/sail-boat
 =====================
 Description: Catamaran with sails down

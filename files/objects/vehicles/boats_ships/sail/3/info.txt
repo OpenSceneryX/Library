@@ -7,6 +7,6 @@ Width: 2.8m
 Depth: 12m
 Height: 12m
 Export Propagate: 2
-Export External simHeaven: simheaven/sail_boat4
+Export External simHeaven: simheaven/landmarks/sail-boat
 =====================
 Description: A medium sized sailing boat, sails down.

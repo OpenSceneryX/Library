@@ -5,6 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=3031
 Width: 15m
 Depth: 15m
 Height: 60m
-Export External simHeaven: simheaven/water_tower_40m
 =====================
 Description: Cylindrical water tower, white.

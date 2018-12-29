@@ -6,7 +6,7 @@ Width: 2.8m
 Depth: 10m
 Height: 3.5m
 Export Propagate: 2
-Export External simHeaven: simheaven/quarry_area
-Export External simHeaven: simheaven/construction_area
+Export External simHeaven: simheaven/landmarks/quarry_area
+Export External simHeaven: simheaven/landmarks/construction_area
 =====================
 Description: Road grader, Volvo® G970

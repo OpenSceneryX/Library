@@ -6,7 +6,7 @@ Width: 2.4m
 Depth: 6.5m
 Height: 3.7m
 Export Propagate: 2
-Export External simHeaven: simheaven/quarry_area
-Export External simHeaven: simheaven/construction_area
+Export External simHeaven: simheaven/landmarks/quarry_area
+Export External simHeaven: simheaven/landmarks/construction_area
 =====================
 Description: Road roller, Ingersoll-Rand® PT-240R
