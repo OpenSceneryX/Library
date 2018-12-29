@@ -1,4 +1,4 @@
-# Backup Library Version: v2.0.0b2
+# Backup Library Version: v2.0.0
 # https://github.com/aussig/X-Plane-Backup-Library
 
 # 3D People Library
