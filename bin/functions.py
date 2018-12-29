@@ -135,6 +135,9 @@ def handleCategory(dirpath, currentCategory):
 	sceneryCategory = classes.SceneryCategory(dirpath, currentCategory)
 	currentCategory.addSceneryCategory(sceneryCategory)
 	
+	parts = dirpath.split(os.sep, 1)
+	if not createPaths(parts): return
+
 	return sceneryCategory
 	
 	
@@ -156,7 +159,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -305,7 +308,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -401,7 +404,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -497,7 +500,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -593,7 +596,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -725,8 +728,8 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 
 
 
-def createPaths(objectSourcePath, dirpath, parts, sceneryObject):
-	""" Copy the support files from the source to the destination """
+def createPaths(parts):
+	""" Create paths in osx folder and website folder """
 	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[1]))
