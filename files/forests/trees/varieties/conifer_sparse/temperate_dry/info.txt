@@ -1,0 +1,8 @@
+Title: Conifer sparse, temperate, dry
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_tmp_dry
+Since: 3.2.0
+=====================
+Description: A sparse conifer forest for use in temperate, dry climates.
