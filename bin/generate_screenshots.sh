@@ -7,9 +7,10 @@
 #   - ImageOptim from here: https://github.com/ImageOptim/ImageOptim
 #   - ImageOptim-CLI from here: https://github.com/JamieMason/ImageOptim-CLI
 #
-# Usage: generate_screenshots [manual|auto] [PATH]
+# Usage: generate_screenshots [manual|auto|resize] [PATH]
 #   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
 #   - auto (default): Look for .obj files and create a screenshot for each, optimised
+#   - resize: Look for screenshot.jpg files and resize them proportionally to 500 pixels wide
 
 BASEDIR=$(dirname "$0")
 MODE=$1
@@ -42,14 +43,29 @@ then
         echo "PNG: $SCREENSHOT_PNG"
         echo "JPEG: $SCREENSHOT_JPEG"
 
-        # Convert to jpeg
-        sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
+        # Convert to jpeg and resize
+        sips -s format jpeg "$SCREENSHOT_PNG" --resampleWidth 500 --out "$SCREENSHOT_JPEG"
 
         # Optimise
         imageoptim -Q "$SCREENSHOT_JPEG"
 
         # Remove PNG
         rm "$SCREENSHOT_PNG"
+    done
+elif [ "$MODE" == "resize" ]
+then
+    echo "Resizing screenshots"
+    echo "--------------------"
+
+    find . -name "screenshot.jpg"|while read f
+    do
+        echo "SCREESHOT: $f"
+
+        # Convert to jpeg and resize
+        sips "$f" --resampleWidth 500
+
+        # Optimise
+        imageoptim -Q "$f"
     done
 else
     echo "Processing automatic screenshots"
