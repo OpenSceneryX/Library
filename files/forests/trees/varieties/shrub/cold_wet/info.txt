@@ -1,0 +1,8 @@
+Title: Shrub, cold, wet
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_cld_wet
+Since: 3.2.0
+=====================
+Description: A forest of shrubs for use in cold, wet climates.
