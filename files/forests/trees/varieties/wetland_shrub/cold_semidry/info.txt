@@ -1,0 +1,8 @@
+Title: Wetland Shrub, cold, semi-dry
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_cld_sdry
+Since: 3.2.0
+=====================
+Description: A forest of wetland shrubs for use in cold, semi-dry climates.
