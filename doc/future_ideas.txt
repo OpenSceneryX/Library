@@ -39,7 +39,10 @@ o Split library into multiple, optional packages
 Website
 -------
 
-o The sub-categories section of category landing pages should be better - Perhaps there should be a selection of random images for each category.
+o The sub-categories section of category landing pages should be better
+  - Perhaps there should be a selection of random images for each category
+  - Or create custom folder icons for each type of item e.g. cube on a folder for objects
+  - Or use the screenshot for the first item in the folder as the folder icon
 
 o Handle formatted info.txt content better (e.g. Cormac's comments).
 
@@ -48,3 +51,5 @@ o Mark whether an object has a lit texture.
 o 3D renderer for x-plane .obj files.
 
 o Add more info to facade, forest and line pages in the same way that the polygon and object pages show extended info.
+
+o Page listing which libraries are integrated with OSX: RE_Library, FlyAgi_Vegetation, FlyAgi_Wind_Turbines

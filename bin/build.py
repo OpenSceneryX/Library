@@ -86,6 +86,7 @@ try:
 		htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
 		htmlReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsVersionInfoFileHandle = open(classes.Configuration.osxFolder + "/doc/versionInfo.js", "w")
+		versionInfoFileHandle = open(classes.Configuration.osxFolder + "/version.txt", "w")
 
 		htmlDeveloperFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/ReadMe.html", "w")
 		htmlDeveloperFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX Developer Pack", "", False, False))
@@ -255,6 +256,7 @@ try:
 		jsVersionInfoFileHandle.write(fileContents)
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
+		versionInfoFileHandle.write(classes.Configuration.versionNumber + " " + classes.Configuration.versionDate)
 		
 		random.shuffle(latest)
 		for item in latest:
@@ -295,6 +297,7 @@ try:
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
+		versionInfoFileHandle.close()
 		latestItemsFileHandle.close()
 		
 		functions.displayMessage("------------------------\n")
