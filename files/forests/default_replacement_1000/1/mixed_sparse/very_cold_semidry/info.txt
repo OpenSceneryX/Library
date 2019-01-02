@@ -1,8 +1,0 @@
-Title: Mixed sparse, very cold, semi-dry
-=====================
-Author: FlyAgi
-URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
-Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_sp_vcld_sdry
-Since: 3.2.0
-=====================
-Description: A sparse mixed forest for use in very cold, semi-dry climates.
