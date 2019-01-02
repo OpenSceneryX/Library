@@ -15,7 +15,6 @@ RANDOM 7.00 7.00
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-
 TREE	0		2048	1024	1024	480	7	4	10	2	0	Tree1
 TREE	1024	2048	1024	1024	512	6	4	10	2	0	Tree2
 TREE	0		3072	1024	1024	535	6	4	10	2	0	Tree3
@@ -28,10 +27,5 @@ TREE 	0		0		512		512		288	13	2	6	2	0	Shrub1
 TREE 	512		0		512		512		311	13	2	6	2	0	Shrub2
 TREE 	0		512		512		512		256	12	2	6	2	0	Shrub3
 TREE 	512		512		512		512		256	12	2	6	2	0	Shrub4
-
-
-
-
-
 
 SKIP_SURFACE water

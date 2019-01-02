@@ -15,7 +15,6 @@ RANDOM 10.00 10.00
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
-
 TREE	1024	2048	1024	1024	512	20	8	12	2	0	Tree2
 TREE	3072	1024	1024	1024	494	20	8	12	2	0	Tree5
 TREE	1024	1024	512		1024	256	10	4	8	2	0	Juniper1
