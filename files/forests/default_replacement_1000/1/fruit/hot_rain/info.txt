@@ -1,8 +1,26 @@
-Title: Fruit, hot, rain
+Title: Fruit, hot and temperate, rain and wet
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/fruit/hot_wet
+Export: forests/default_replacement_1000/1/fruit/temperate_dry
+Export: forests/default_replacement_1000/1/fruit/temperate_rain
+Export: forests/default_replacement_1000/1/fruit/temperate_semidry
+Export: forests/default_replacement_1000/1/fruit/temperate_wet
+Export: forests/default_replacement_1000/1/fruit/very_hot_rain
+Export: forests/default_replacement_1000/1/fruit/very_hot_wet
+Export: forests/default_replacement_1000/1/fruit/warm_rain
+Export: forests/default_replacement_1000/1/fruit/warm_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_hot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_hot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_tmp_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_tmp_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_tmp_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_tmp_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_vhot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_vhot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_wrm_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/fruit_wrm_wet
 Since: 3.2.0
 =====================
-Description: A fruit forest for use in hot, rainy climates.
+Description: A fruit forest for use in hot and temperate, rainy and wet climates.
