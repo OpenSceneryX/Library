@@ -1,8 +1,12 @@
-Title: Mixed dense, very hot, dry
+Title: Mixed dense, very hot and warm, dry and semi-dry
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/mixed_dense/very_hot_semidry
+Export: forests/default_replacement_1000/1/mixed_dense/warm_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_vhot_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_vhot_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_wrm_dry
 Since: 3.2.0
 =====================
-Description: A dense mixed forest for use in very hot, dry climates.
+Description: A dense mixed forest for use in very hot and warm, dry and semi-dry climates.

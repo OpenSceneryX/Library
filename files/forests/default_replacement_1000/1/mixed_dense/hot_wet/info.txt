@@ -1,8 +1,0 @@
-Title: Mixed dense, hot, wet
-=====================
-Author: FlyAgi
-URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
-Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_hot_wet
-Since: 3.2.0
-=====================
-Description: A dense mixed forest for use in hot, wet climates.
