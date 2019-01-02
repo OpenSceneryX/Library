@@ -1,8 +1,22 @@
-Title: Broadleaf sparse, cold, dry
+Title: Broadleaf sparse, cold and temperate
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/broadleaf_sparse/cold_rain
+Export: forests/default_replacement_1000/1/broadleaf_sparse/cold_semidry
+Export: forests/default_replacement_1000/1/broadleaf_sparse/cold_wet
+Export: forests/default_replacement_1000/1/broadleaf_sparse/temperate_dry
+Export: forests/default_replacement_1000/1/broadleaf_sparse/temperate_rain
+Export: forests/default_replacement_1000/1/broadleaf_sparse/temperate_semidry
+Export: forests/default_replacement_1000/1/broadleaf_sparse/temperate_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_cld_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_cld_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_cld_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_cld_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_tmp_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_tmp_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_tmp_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_tmp_wet
 Since: 3.2.0
 =====================
-Description: A sparse broadleaf forest for use in cold, dry climates.
+Description: A sparse broadleaf forest for use in cold and temperate climates.
