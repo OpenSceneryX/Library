@@ -1,8 +1,14 @@
-Title: Wetland Woody, hot, dry
+Title: Wetland Woody, hot and very hot, dry and semi-dry
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/wetland_woody/hot_semidry
+Export: forests/default_replacement_1000/1/wetland_woody/very_hot_dry
+Export: forests/default_replacement_1000/1/wetland_woody/very_hot_semidry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_hot_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_hot_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_vhot_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_vhot_sdry
 Since: 3.2.0
 =====================
-Description: Woody wetland forest for use in hot, dry climates.
+Description: Woody wetland forest for use in hot and very hot, dry and semi-dry climates.

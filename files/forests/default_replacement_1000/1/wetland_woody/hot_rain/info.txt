@@ -1,8 +1,14 @@
-Title: Wetland Woody, hot, rain
+Title: Wetland Woody, hot and very hot, rain and wet
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/wetland_woody/hot_wet
+Export: forests/default_replacement_1000/1/wetland_woody/very_hot_rain
+Export: forests/default_replacement_1000/1/wetland_woody/very_hot_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_hot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_hot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_vhot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_vhot_wet
 Since: 3.2.0
 =====================
-Description: Woody wetland forest for use in hot, rainy climates.
+Description: Woody wetland forest for use in hot and very hot, rainy and wet climates.

@@ -1,8 +1,0 @@
-Title: Wetland Woody, warm, dry
-=====================
-Author: FlyAgi
-URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
-Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_wrm_dry
-Since: 3.2.0
-=====================
-Description: Woody wetland forest for use in warm, dry climates.
