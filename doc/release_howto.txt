@@ -113,5 +113,6 @@ Release Howto
 	- Update first post in x-plane.org main OpenSceneryX thread
   - Post a new reply to the x-plane.org main OpenSceneryX thread
 	- Create a new post in the x-plane.org 'News' forum
-	- Post an article in the blog
+	- Post an article on the site
 	- Tweet
+  - Reddit r/Xplane
