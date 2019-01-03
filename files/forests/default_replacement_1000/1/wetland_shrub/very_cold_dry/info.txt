@@ -1,8 +1,14 @@
-Title: Wetland Shrub, very cold, dry
+Title: Wetland Shrub, very cold
 =====================
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/wetland_shrub/very_cold_rain
+Export: forests/default_replacement_1000/1/wetland_shrub/very_cold_semidry
+Export: forests/default_replacement_1000/1/wetland_shrub/very_cold_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_vcld_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_vcld_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_vcld_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_vcld_wet
 Since: 3.2.0
 =====================
-Description: A forest of wetland shrubs for use in very cold, dry climates.
+Description: A forest of wetland shrubs for use in very cold climates.
