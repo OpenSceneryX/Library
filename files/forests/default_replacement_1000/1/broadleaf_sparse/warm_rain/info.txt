@@ -1,0 +1,8 @@
+Title: Broadleaf sparse, warm, rain
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_sp_wrm_rain
+Since: 3.2.0
+=====================
+Description: A sparse broadleaf forest for use in warm, rainy climates.

@@ -1,0 +1,8 @@
+Title: Asteraceae (daisies and dandelions), 0.1-0.4m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Flowers/Flowers_01_verylow
+Since: 3.2.0
+=====================
+Description: A forest of mixed Asteraceae (daisy and dandelion) flowers, between 0.1m and 0.4m high. Ideal to use in combination with a grass forest with matching height, to make meadows.
