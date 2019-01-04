@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/bertrand_augras/general_3red/texture.png
+TILTED
 POINT_COUNTS	5392 0 0 10491
 
 VT	  -1.0672    0.5970    6.3384	-1.000  0.000 -0.000	 0.6338  0.0597

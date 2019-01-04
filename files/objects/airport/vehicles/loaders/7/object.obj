@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../shared_textures/jeff_mueller/beltloader.png
+TILTED
 POINT_COUNTS	1758 0 0 2718
 
 VT	  -1.0534    1.1050    1.6840	-1.000  0.000  0.000	 0.2248  1.0016

@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../shared_textures/barry_drake/WheelieBin-darkgreen.dds
+TILTED
 POINT_COUNTS	1180 0 0 2583
 
 VT	   0.2346    0.8888   -0.2253	 0.251  0.711 -0.657	 0.9081  0.1215

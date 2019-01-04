@@ -4,6 +4,7 @@ OBJ
 
 TEXTURE		../../../../../shared_textures/jeff_mueller/UPS_tractor_trailer.PNG
 TEXTURE_LIT	../../../../../shared_textures/jeff_mueller/UPS_tractor_trailer_LIT.PNG
+TILTED
 POINT_COUNTS	32766 0 0 72093
 
 VT	   1.1983    0.1219   15.0637	 0.007 -0.791  0.611	 0.7750  0.1816
