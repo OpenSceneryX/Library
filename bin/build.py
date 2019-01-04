@@ -18,7 +18,7 @@ try:
 except:
 	traceback.print_exc()
 	sys.exit()
-	
+
 try:
 	from PIL import Image
 
@@ -31,19 +31,19 @@ try:
 	import shutil
 	import urllib
 	import pcrt
-	
+
 	exceptionMessage = ""
 	showTraceback = 0
-	
+
 	try:
 		functions.displayMessage("========================\n")
 		functions.displayMessage("OpenSceneryX Release\n")
 		functions.displayMessage("========================\n")
-		
+
 		if not os.path.isdir("../files") or not os.path.isdir("../builds"):
 			functions.displayMessage("This script must be run from the 'bin' directory inside a full checkout of the scenery library\n", "error")
 			sys.exit()
-		
+
 		versionTag = ""
 		while versionTag == "":
 			versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
@@ -52,20 +52,20 @@ try:
 		sinceVersionTag = functions.getInput("Version number to build latest objects from [" + versionTag + "]: ", 10)
 		if sinceVersionTag == "":
 			sinceVersionTag = versionTag
-	
+
 		buildPDF = functions.getInput("Build PDF? [y/N]: ", 1)
-		
+
 		classes.Configuration.init(versionTag, sinceVersionTag, buildPDF)
-		
+
 		if Image is None:
 			functions.displayMessage("This script depends on PIL and fpdf for building the developer documentation.  Please ensure they are installed ('pip install Pillow' and 'pip install fpdf').\n", "error")
-					
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating release paths\n")
 
 		os.chdir("..")
 		classes.Configuration.makeFolders()
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
 
@@ -77,10 +77,10 @@ try:
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
-		
+
 		htmlIndexFileHandle = open(classes.Configuration.osxFolder + "/ReadMe.html", "w")
 		htmlIndexFileHandle.write(functions.getHTMLHeader("doc/", "OpenSceneryX", "", False, False))
 		htmlReleaseNotesFileHandle = open(classes.Configuration.osxFolder + "/doc/ReleaseNotes.html", "w")
@@ -93,19 +93,19 @@ try:
 		htmlDeveloperReleaseNotesFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/ReleaseNotes.html", "w")
 		htmlDeveloperReleaseNotesFileHandle.write(functions.getHTMLHeader("", "OpenSceneryX - Release Notes", "", False, False))
 		jsDeveloperVersionInfoFileHandle = open(classes.Configuration.osxDeveloperPackFolder + "/doc/versionInfo.js", "w")
-		
+
 		htmlWebReleaseNotesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/ReleaseNotes.html", "w")
 		jsWebVersionInfoFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versionInfo.js", "w")
-		
+
 		sitemapXMLFileHandle = open(classes.Configuration.osxWebsiteFolder + "/library-sitemap.xml", "w")
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
-		
+
 		latestItemsFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/latestitems.tsv", "w")
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
-		
+
 		# Main OSX Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxFolder + "/doc/ie7.css")
@@ -113,7 +113,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxFolder + "/doc/x_banner_web.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxFolder + "/doc/twitter_follow.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxFolder + "/doc/yt_logo.png")
-		
+
 		# Developer Pack Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/all.css", classes.Configuration.osxDeveloperPackFolder + "/doc/all.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
@@ -123,7 +123,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxDeveloperPackFolder + "/doc/twitter_follow.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/pdf.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/pdf.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
-		
+
 		# Website Folder
 		shutil.copyfile(classes.Configuration.supportFolder + "/robots.txt", classes.Configuration.osxWebsiteFolder + "/robots.txt")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cube.gif", classes.Configuration.osxWebsiteFolder + "/doc/cube.gif")
@@ -145,7 +145,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxWebsiteFolder + "/extras/twitter_follow.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/x.png", classes.Configuration.osxWebsiteFolder + "/extras/x.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxWebsiteFolder + "/extras/yt_logo.png")
-		
+
 		# Placeholder items for main package
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.agp", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.agp")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.dcl", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.dcl")
@@ -157,6 +157,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.pol")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.str", classes.Configuration.osxFolder + "/placeholders/invisible/placeholder.str")
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder_decal.png", classes.Configuration.osxFolder + "/placeholders/visible/placeholder_decal.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.agp", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.agp")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.dcl", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.dcl")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.fac")
@@ -168,6 +169,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.pol", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.pol")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.str", classes.Configuration.osxFolder + "/placeholders/visible/placeholder.str")
 		# Need to copy them to the placeholder path so that the monolithic zip install works out of the box too
+		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder_decal.png", classes.Configuration.osxFolder + "/opensceneryx/placeholder_decal.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.agp", classes.Configuration.osxFolder + "/opensceneryx/placeholder.agp")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.dcl", classes.Configuration.osxFolder + "/opensceneryx/placeholder.dcl")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/visible/placeholder.fac", classes.Configuration.osxFolder + "/opensceneryx/placeholder.fac")
@@ -190,8 +192,8 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.png", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.pol", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.pol")
 		shutil.copyfile(classes.Configuration.supportFolder + "/placeholders/invisible/placeholder.str", classes.Configuration.osxPlaceholderFolder + "/opensceneryx/placeholder.str")
-		
-		
+
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Library\n")
 
@@ -200,31 +202,31 @@ try:
 		# 'textures' contains a dictionary where the key is the texture filepath
 		# and the value is a SceneryTexture object
 		textures = {}
-		
+
 		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
 		toc = []
 
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
-		
+
 		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
-		
+
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
-		
+
 		functions.displayMessage("\n------------------------\n")
 		functions.displayMessage("Building Category Landing Pages\n")
 		functions.buildCategoryLandingPages(sitemapXMLFileHandle, rootCategory)
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building Object Documentation\n")
 		functions.buildDocumentation(sitemapXMLFileHandle, rootCategory, 0)
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Building ancilliary files\n")
-		
+
 		authors = ", ".join(authors[:-1]) + " and " + authors[-1]
-		
+
 		file = open(classes.Configuration.supportFolder + "/_index.html", "r")
 		fileContents = file.read()
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
@@ -232,20 +234,20 @@ try:
 		fileContents = fileContents.replace("${objectCount}", str(rootCategory.getSceneryObjectCount(1)))
 		file.close()
 		htmlIndexFileHandle.write(fileContents)
-		
+
 		file = open(classes.Configuration.supportFolder + "/_developerinstructions.html", "r")
 		fileContents = file.read()
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
 		file.close()
 		htmlDeveloperFileHandle.write(fileContents)
-		
+
 		file = open(classes.Configuration.supportFolder + "/_releasenotes.html", "r")
 		fileContents = file.read()
 		file.close()
 		htmlReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
 		htmlDeveloperReleaseNotesFileHandle.write("<div id='content'><a name='content'></a>" + fileContents + "</div>")
 		htmlWebReleaseNotesFileHandle.write(fileContents)
-		
+
 		file = open(classes.Configuration.supportFolder + "/_versionInfo.js", "r")
 		fileContents = file.read()
 		fileContents = fileContents.replace("${version}", classes.Configuration.versionNumber)
@@ -257,7 +259,7 @@ try:
 		jsDeveloperVersionInfoFileHandle.write(fileContents)
 		jsWebVersionInfoFileHandle.write(fileContents)
 		versionInfoFileHandle.write(classes.Configuration.versionNumber + " " + classes.Configuration.versionDate)
-		
+
 		random.shuffle(latest)
 		for item in latest:
 			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
@@ -299,28 +301,28 @@ try:
 		jsWebVersionInfoFileHandle.close()
 		versionInfoFileHandle.close()
 		latestItemsFileHandle.close()
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Writing Developer PDF\n")
 
 		functions.closePDF(classes.Configuration.osxDeveloperPackFolder + "/doc/Reference.pdf")
 
-		
+
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")
 		functions.displayMessage("========================\n")
-		
+
 		functions.osNotify("OpenSceneryX build completed")
-		
+
 	except classes.BuildError, e:
 		exceptionMessage = e.value
 	else:
 		showTraceback = 1
-	
+
 finally:
 	pcrt.reset()
 	if (exceptionMessage != ""):
 		print exceptionMessage
-		
+
 	if (showTraceback == 1):
 		traceback.print_exc()
