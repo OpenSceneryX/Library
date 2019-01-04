@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../shared_textures/jeff_mueller/luggage.PNG
+TILTED
 POINT_COUNTS	1696 0 0 4314
 
 VT	  -0.4358    0.7238    0.0105	 0.000  1.000  0.000	 0.5477  0.5052

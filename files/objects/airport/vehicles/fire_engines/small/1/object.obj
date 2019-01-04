@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/richard_elliott/Fire_sm.png
+TILTED
 POINT_COUNTS	5081 0 0 9675
 
 VT	   1.0000    1.8300    4.7600	 1.000  0.000 -0.000	 0.0773  0.3404

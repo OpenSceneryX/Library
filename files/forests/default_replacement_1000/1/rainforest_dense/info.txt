@@ -1,0 +1,9 @@
+Title: Rainforest, Dense
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/rainforest_vhot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/rainforestm_vhot_rain
+Since: 3.2.0
+=====================
+Description: A dense rainforest.

@@ -1,0 +1,10 @@
+Title: Sparse, tropical, hot, semi-dry
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/sparse/tropical_very_hot_semidry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/sparse_tr_hot_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/sparse_tr_vhot_sdry
+Since: 3.2.0
+=====================
+Description: A sparse forest for use in tropical, hot, semi-dry climates.

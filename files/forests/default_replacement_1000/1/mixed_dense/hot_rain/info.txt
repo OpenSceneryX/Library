@@ -1,0 +1,10 @@
+Title: Mixed dense, hot, rain and wet
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/mixed_dense/hot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_hot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_hot_wet
+Since: 3.2.0
+=====================
+Description: A dense mixed forest for use in hot, rainy and wet climates.

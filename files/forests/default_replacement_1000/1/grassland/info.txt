@@ -1,0 +1,9 @@
+Title: Grassland, very hot, rain
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/grassland/very_hot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/grass_rainforest_vhot_rain
+Since: 3.2.0
+=====================
+Description: A grassland forest for use in very hot, rainy climates.
