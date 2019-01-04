@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../shared_textures/barry_drake/Patches.dds
+TILTED
 POINT_COUNTS	144 0 0 216
 
 VT	   0.0212    0.5650    0.0368	 0.414  0.561  0.717	 0.1824  0.8353

@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../lights/street/1/Lamp.png
+TILTED
 POINT_COUNTS	4206 0 0 4320
 
 VT	   0.0172    0.5828   -8.8104	 0.000  0.000 -1.000	0.9503 0.0561

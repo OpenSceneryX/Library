@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../shared_textures/barry_drake/Barrel_HeliStar_YKDI.dds
+TILTED
 POINT_COUNTS	3327 0 0 4329
 
 VT	   0.2522    1.1242   -0.4182	-0.385  0.923 -0.015	 0.2783  1.5098

@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/richard_elliott/Cobra2.png
+TILTED
 POINT_COUNTS	3065 0 0 5679
 
 VT	   1.4028    1.9123    0.5286	 1.000  0.000 -0.000	 0.8611  0.1702
