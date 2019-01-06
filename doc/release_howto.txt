@@ -13,54 +13,54 @@ Release Howto
 
 3. Update release notes to include version and date
 
-4. Update "Enhanced By" logo to correct version number
+4. Update "Enhanced By" logo to correct version number, export as PNG and run through ImageOptim
 
 5. Commit release changes, tag and merge release changes back into develop
 
 6. Clean target folder and build library
 
   $ python build.py
-  
+
   ENSURE 'y' is selected for 'Build PDF'
 
 7. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX'
 
-8. Zip this to create the monolithic zip file:
+8. Zip this to create the monolithic zip file, and rename the zip to OpenSceneryX-x.x.x.zip:
 
   $ export COPYFILE_DISABLE=true
   $ zip -r OpenSceneryX.zip OpenSceneryX
+  $ mv OpenSceneryX.zip OpenSceneryX-x.x.x.zip
 
 9. Run Manifester on built OpenSceneryX-x.x.x folder and save manifest.xml
 
-10. Run Packager
-
-  $ python package.py
-
-11. Zip OpenSceneryX-Website-x.x.x.tar and OpenSceneryX-DeveloperPack-x.x.x/
-
-	$ zip OpenSceneryX-Website-x.x.x.tar.zip OpenSceneryX-Website-x.x.x.tar
-	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
-
-12. Zip manifest.xml using the command line
+10. Zip manifest.xml using the command line
 
 	$ zip manifest.xml.zip manifest.xml
 
+11. Run Packager
+
+  $ python package.py
+
+12. Zip OpenSceneryX-Website-x.x.x/ and OpenSceneryX-DeveloperPack-x.x.x/
+
+	$ zip -r OpenSceneryX-Website-x.x.x.zip OpenSceneryX-Website-x.x.x
+	$ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
+
 13. Clear /new and /old on the server
 
-14. Upload OpenSceneryX-Website-x.x.x.tar.zip into /new/:
+14. Upload OpenSceneryX-Website-x.x.x.zip into /new/:
 
-  $ scp OpenSceneryX-Website-x.x.x.tar.zip <server>:/var/www/austin/new/
-  $ scp OpenSceneryX-DeveloperPack-x.x.x.zip <server>:/var/www/austin/new/
+  $ scp OpenSceneryX-Website-x.x.x.zip <server>:/var/www/austin/new/
 
 15. Upload the following into AWS S3 Bucket:
 
   - OpenSceneryX-DeveloperPack-x.x.x.zip
-  - Monolithic zip file 'OpenSceneryX.zip'
+  - Monolithic zip file 'OpenSceneryX-x.x.x.zip'
   - manifest.xml.zip
 
 16. Use AWS cli to sync the new repository:
 
-  $ cd Library/builds/x.x.x/OpenSceneryX-x.x.x/
+  $ cd OpenSceneryX-x.x.x/
   $ aws s3 sync . s3://opensceneryx/repository
 
 17. Ensure AWS S3 permissions on the following are public:
@@ -69,11 +69,10 @@ Release Howto
   - Monolithic zip file 'OpenSceneryX.zip'
   - manifest.xml.zip
   - /repository
-    
+
 18. Extract website zip on site into /new/
 
-  $ unzip OpenSceneryX-Website-x.x.x.tar.zip
-  $ tar -xf OpenSceneryX-Website-x.x.x.tar
+  $ unzip OpenSceneryX-Website-x.x.x.zip
 
 19. Put site into maintenance mode
 
@@ -97,11 +96,10 @@ Release Howto
 
 /repository/*
 /manifest.xml.zip
-/OpenSceneryX.zip
 
 26. Log into Cloudflare and clear all caches.
 
-27. Log in to Google Webmaster tools and resubmit library-sitemap.xml
+27. Log in to Google Search Console and resubmit library-sitemap.xml
 
 28. Log in to Bing Webmaster tools and resubmit library-sitemap.xml
 
