@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../shared_textures/barry_drake/log_parking_barrier.dds
+TILTED
 POINT_COUNTS	661 0 0 1350
 
 VT	   0.0000    0.0000   -0.8815	 0.131  0.000 -0.991	 0.1802  0.4001

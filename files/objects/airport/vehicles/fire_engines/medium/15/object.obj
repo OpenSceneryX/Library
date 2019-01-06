@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/richard_elliott/Panther1.png
+TILTED
 POINT_COUNTS	3656 0 0 6540
 
 VT	  -0.9000    1.7000    2.3002	 0.000 -0.373  0.928	 0.8030  0.3545

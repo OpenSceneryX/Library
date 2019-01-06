@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../shared_textures/cormac_shaw/xpih_cones01.png
+TILTED
 POINT_COUNTS	90 0 0 168
 
 VT	   0.1183    0.0403   -0.1183	 0.683  0.259 -0.683	0.2344 0.0313

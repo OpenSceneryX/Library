@@ -7,5 +7,6 @@ Width: 4.2m
 Depth: 20m
 Height: 4.7m
 Export Propagate: 2
+Export External simHeaven: simheaven/landmarks/power-boat
 =====================
 Description: A large sleek motor cruiser with black hull.

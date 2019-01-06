@@ -1,5 +1,42 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
+<h3>Version 3.2.0 6th January 2019</h3>
+<ul>
+	<li>New scenery objects in this version:
+		<ul>
+			<li>Incorporated <a href="https://flyagi.de/viewtopic.php?f=5&t=11"><em>FlyAgi Wind Turbine Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/543995-flyagi/">FlyAgi</a> into OpenSceneryX, which includes 40 animated wind turbines in a variety of heights and styles.</li>
+			<li>Incorporated <a href="https://forums.x-plane.org/index.php?/files/file/48047-flyagi-vegetation/"><em>FlyAgi Vegetation Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/543995-flyagi/">FlyAgi</a> into OpenSceneryX, including:
+				<ul>
+					<li>A set of 'forests' of volumentric grass, in a variety of shades.</li>
+					<li>A set of 'forests' of volumetric flowers, vines and shrubs.</li>
+					<li>A large set of 265 higher definition forests.</li>
+					<li>An additional Acer (Maple) tree, in a variety of heights, using the same high definition texture as the new forests.</li>
+					<li>An additional two Quercus (Oak) trees, in a variety of heights, using the same high definition texture as the new forests.</li>
+					<li>A Corylus (Hazel) tree, in a variety of heights, using the same high definition texture as the new forests.</li>
+				</ul>
+				Thank you Agi for offering this merge, it is really appreciated.
+			</li>
+		</ul>
+	</li>
+	<li>Modified scenery objects in this version:
+		<ul>
+			<li>The USA Hawaiian forests were empty and using a blank texture, which has been the case since they were first added. We now use <tt>pacific_lowland</tt> instead, as the closest match.</li>
+			<li>Added <tt>TILTED</tt> attribute to all appropriate objects so they follow sloped terrain. Affects aircraft, vehicles, some furniture and some people.</li>
+		</ul>
+	</li>
+	<li>Other changes:
+		<ul>
+			<li>Removed all unnecessary <tt>EXPORT_BACKUP</tt> lines for <em>RE_Library</em> backup library.</li>
+			<li>Third party libraries are now exported using <tt>EXPORT_BACKUP</tt> instead of <tt>DEPRECATED</tt> <tt>EXPORT</tt> entries. Means that if both OpenSceneryX and the source library are installed, the source library takes precedence, which is important when it is still being actively maintained and updated and may be ahead of OpenSceneryX.</li>
+			<li>Replaced the Backup Library with the latest v2.0.0 version.</li>
+			<li>Individual screenshots generated for all European forests.</li>
+			<li>Individual screenshots generated for all US forests.</li>
+			<li>Added a set of simHeaven export paths so they don't have to copy actual objects out of OpenSceneryX on installation of their packages. These new paths will be used in the next releases of VFR Landmarks and X-Europe.</li>
+			<li>Now write a <tt>version.txt</tt> file containing the version number and date into the library folder, for utilities such as xOrganiser to use.</li>
+		</ul>
+	</li>
+</ul>
+
 <h3>Version 3.1.0 20th November 2018</h3>
 <ul>
 	<li>New scenery objects in this version:

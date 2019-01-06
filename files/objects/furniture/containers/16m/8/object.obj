@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		container_40_yellow_general.dds
+TILTED
 POINT_COUNTS	20 0 0 30
 
 VT	  -1.2190    2.5910    6.0960	 0.000  0.000  1.000	 0.9995  0.9987

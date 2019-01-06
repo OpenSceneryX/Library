@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/geoffrey_hargreaves/black_yellow_barrier.png
+TILTED
 POINT_COUNTS	364 0 0 576
 
 VT	   0.0689    1.0668    3.4535	 0.000  1.000 -0.000	 0.1975  1.0000

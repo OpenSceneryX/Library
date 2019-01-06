@@ -35,14 +35,6 @@ authorPattern = re.compile("Author:\s+(.*)")
 textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
 conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
 modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
-emailPattern = re.compile("Email:\s+(.*)")
-textureEmailPattern = re.compile("Email, texture:\s+(.*)")
-conversionEmailPattern = re.compile("Email, conversion:\s+(.*)")
-modificationEmailPattern = re.compile("Email, modifications:\s+(.*)")
-urlPattern = re.compile("URL:\s+(.*)")
-textureUrlPattern = re.compile("URL, texture:\s+(.*)")
-conversionUrlPattern = re.compile("URL, conversion:\s+(.*)")
-modificationUrlPattern = re.compile("URL, modifications:\s+(.*)")
 widthPattern = re.compile("Width:\s+(.*)")
 heightPattern = re.compile("Height:\s+(.*)")
 depthPattern = re.compile("Depth:\s+(.*)")
@@ -143,6 +135,9 @@ def handleCategory(dirpath, currentCategory):
 	sceneryCategory = classes.SceneryCategory(dirpath, currentCategory)
 	currentCategory.addSceneryCategory(sceneryCategory)
 	
+	parts = dirpath.split(os.sep, 1)
+	if not createPaths(parts): return
+
 	return sceneryCategory
 	
 	
@@ -164,7 +159,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the object file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -292,9 +287,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -315,7 +308,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -390,9 +383,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -413,7 +404,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the forest file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -488,8 +479,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -510,7 +500,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -585,7 +575,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -606,7 +596,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
 	
 	# Set up paths
-	if not createPaths(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not createPaths(parts): return
 
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
@@ -703,7 +693,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -738,8 +728,8 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 
 
 
-def createPaths(objectSourcePath, dirpath, parts, sceneryObject):
-	""" Copy the support files from the source to the destination """
+def createPaths(parts):
+	""" Create paths in osx folder and website folder """
 	
 	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])): 
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[1]))
@@ -815,11 +805,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Main author
 		result = authorPattern.match(line)
 		if result:
-			if sceneryObject.author == "":
-				sceneryObject.author = result.group(1)
-			else:
-				sceneryObject.author = sceneryObject.author + " and " + result.group(1)
-				
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -827,11 +812,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Texture author
 		result = textureAuthorPattern.match(line)
 		if result:
-			if sceneryObject.textureAuthor == "":
-				sceneryObject.textureAuthor = result.group(1)
-			else:
-				sceneryObject.textureAuthor = sceneryObject.textureAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -839,11 +819,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Conversion author
 		result = conversionAuthorPattern.match(line)
 		if result:
-			if sceneryObject.conversionAuthor == "":
-				sceneryObject.conversionAuthor = result.group(1)
-			else:
-				sceneryObject.conversionAuthor = sceneryObject.conversionAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -851,63 +826,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Modification author
 		result = modificationAuthorPattern.match(line)
 		if result:
-			if sceneryObject.modificationAuthor == "":
-				sceneryObject.modificationAuthor = result.group(1)
-			else:
-				sceneryObject.modificationAuthor = sceneryObject.modificationAuthor + " and " + result.group(1)
-
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-		
-		# Main author email
-		result = emailPattern.match(line)
-		if result:
-			sceneryObject.email = result.group(1)
-			continue
-		
-		# Texture author email
-		result = textureEmailPattern.match(line)
-		if result:
-			sceneryObject.textureEmail = result.group(1)
-			continue
-		
-		# Conversion author email
-		result = conversionEmailPattern.match(line)
-		if result:
-			sceneryObject.conversionEmail = result.group(1)
-			continue
-		
-		# Modification author email
-		result = modificationEmailPattern.match(line)
-		if result:
-			sceneryObject.modificationEmail = result.group(1)
-			continue
-		
-		# Main author URL
-		result = urlPattern.match(line)
-		if result:
-			sceneryObject.url = result.group(1)
-			continue
-		
-		# Texture author URL
-		result = textureUrlPattern.match(line)
-		if result:
-			sceneryObject.textureUrl = result.group(1)
-			continue
-		
-		# Conversion author URL
-		result = conversionUrlPattern.match(line)
-		if result:
-			sceneryObject.conversionUrl = result.group(1)
-			continue
-		
-		# Modification author URL
-		result = modificationUrlPattern.match(line)
-		if result:
-			sceneryObject.modificationUrl = result.group(1)
-			continue
-		
+				
 		# Width
 		result = widthPattern.match(line)
 		if result:
@@ -1152,7 +1074,7 @@ def getXMLSitemapFooter():
 	return result
 
 
-def getLibraryHeader(versionTag, includeStandard = True, type = ""):
+def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""):
 	""" Get the standard library.txt header """
 	
 	if (includeStandard == True):
@@ -1165,6 +1087,10 @@ def getLibraryHeader(versionTag, includeStandard = True, type = ""):
 	else:
 		result = "\n"
 
+	if (comment != ""):
+		result += "# " + comment + "\n"
+		result += "\n"
+	
 	if (type == "private"):
 		result += "PRIVATE\n\n"
 	elif (type == "deprecated"):
@@ -1181,6 +1107,9 @@ def writeBackupLibraries(libraryFileHandle):
 	contents.sort()
 
 	for item in contents:
+		if item[:1] == ".":
+			continue
+			
 		fullPath = os.path.join(dirPath, item)
 		
 		file = open(fullPath)
