@@ -4,52 +4,52 @@ Future Ideas List
 Installer
 ---------
 
-o Handle both PNG and DDS textures when present.
+* Handle both PNG and DDS textures when present.
 
-o Detect which objects are used in the user's installed scenery packages, and only install those.
+* Detect which objects are used in the user's installed scenery packages, and only install those.
 
   - Get server manifest full list.
-  
+
   - Parse DSFs & build list of used files if option selected.
-  
+
   - Reduce server manifest list to just those files required.
-   
+
   - Compare with local manifest.
-  
+
   - Generate library.txt file.
-  
+
   - Add in standard files like Readme.
-  
+
   - Problem - DSF only contains references to .obj, .fac etc, not the textures they use.  Will need
     to build a more extended manifest file containing all referenced files.
-  
+
   - Check it works after changing X-Plane folders.
 
-o Split library into multiple, optional packages.
+* Split library into multiple, optional packages.
 
-o User agent should include platform.
+* User agent should include platform.
 
 
 Library
 -------
 
-o Split library into multiple, optional packages
+* Split library into multiple, optional packages
 
 
 Website
 -------
 
-o The sub-categories section of category landing pages should be better
+* The sub-categories section of category landing pages should be better
   - Perhaps there should be a selection of random images for each category
   - Or create custom folder icons for each type of item e.g. cube on a folder for objects
   - Or use the screenshot for the first item in the folder as the folder icon
 
-o Handle formatted info.txt content better (e.g. Cormac's comments).
+* Handle formatted info.txt content better (e.g. Cormac's comments).
 
-o Mark whether an object has a lit texture.
+* Mark whether an object has a lit texture.
 
-o 3D renderer for x-plane .obj files.
+* 3D renderer for x-plane .obj files.
 
-o Add more info to facade, forest and line pages in the same way that the polygon and object pages show extended info.
+* Add more info to facade, forest and line pages in the same way that the polygon and object pages show extended info.
 
-o Page listing which libraries are integrated with OSX: RE_Library, FlyAgi_Vegetation, FlyAgi_Wind_Turbines
+* Page listing which libraries are integrated with OSX: RE_Library, FlyAgi_Vegetation, FlyAgi_Wind_Turbines
