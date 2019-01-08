@@ -3,5 +3,6 @@ Title: Jodel D112 Blue Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
+Export Extended: lib/airport/aircraft/general_aviation/prop_a
 =====================
 Description: A blue Jodel D112.

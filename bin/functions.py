@@ -44,6 +44,7 @@ animatedPattern = re.compile("Animated:\s+(.*)")
 exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
 exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
 exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
+exportExtendedPattern = re.compile("Export Extended:\s+(.*)")
 logoPattern = re.compile("Logo:\s+(.*)")
 notePattern = re.compile("Note:\s+(.*)")
 sincePattern = re.compile("Since:\s+(.*)")
@@ -288,6 +289,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		libraryFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -384,6 +387,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		libraryFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -480,6 +485,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		libraryFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -576,6 +583,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		libraryFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -694,6 +703,8 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		libraryFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 
 
 
@@ -764,7 +775,8 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	
 	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
 	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
-	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
+	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern
+	global exportExtendedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
 	global logoPattern, notePattern, sincePattern
 
 	file = open(sceneryObject.infoFilePath)
@@ -884,6 +896,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		result = exportExternalPattern.match(line)
 		if result:
 			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
+			continue
+
+		# Export extend
+		result = exportExtendedPattern.match(line)
+		if result:
+			sceneryObject.extendedVirtualPaths.append(result.group(1) + suffix)
 			continue
 
 		# Branding logo

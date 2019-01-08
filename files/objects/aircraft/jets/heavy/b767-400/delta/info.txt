@@ -8,6 +8,8 @@ Email, conversion: joyfulsongster@hotmail.com
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/delta/b767-400
+Export Extended: lib/airport/aircraft/airliners/heavy_d_dal
+Export Extended: lib/airport/aircraft/airliners/heavy_d
 Width: 51m
 Depth: 62m
 Height: 16.7m
