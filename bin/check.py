@@ -28,7 +28,6 @@ try:
 	import os
 	import shutil
 	import urllib
-	import pcrt
 
 	exceptionMessage = ""
 	showTraceback = 0
@@ -69,7 +68,7 @@ try:
 				if line.startswith("EXPORT "):
 					parts = line.split(" ")
 					if parts[1] not in oldPaths:
-						print parts[1]
+						print(parts[1])
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")
@@ -77,15 +76,11 @@ try:
 
 		functions.osNotify("OpenSceneryX check completed")
 
-	except classes.BuildError, e:
+	except classes.BuildError as e:
 		exceptionMessage = e.value
-	else:
-		showTraceback = 1
+
 
 finally:
-	pcrt.reset()
 	if (exceptionMessage != ""):
-		print exceptionMessage
+		print(exceptionMessage)
 
-	if (showTraceback == 1):
-		traceback.print_exc()
