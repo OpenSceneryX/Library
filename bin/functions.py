@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
@@ -15,11 +14,11 @@ import re
 import urllib
 import classes
 import fnmatch
-import pcrt
 import sys
 import random
 
 from distutils.version import LooseVersion
+from colorama import Fore, Style
 
 try:
 	from PIL import Image
@@ -60,15 +59,15 @@ surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
-	
+
 	# Only build landing pages where depth >= 2
 	if sceneryCategory.depth >= 2:
 		txtFileContent = ""
 		txtFileContent += "Title: " + sceneryCategory.title + "\n"
 		txtFileContent += "===============\n"
-		
+
 		# Content
-		
+
 		# Sub-categories in this category
 		if len(sceneryCategory.childSceneryCategories) > 0:
 			for childSceneryCategory in sceneryCategory.childSceneryCategories:
@@ -85,26 +84,26 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 		# XML sitemap entry
 		writeXMLSitemapEntry(sitemapXMLFileHandle, sceneryCategory.url + "/", str(1 - 0.1 * (sceneryCategory.depth - 1)))
-		
+
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
 	for childCategory in children:
 		buildCategoryLandingPages(sitemapXMLFileHandle, childCategory)
-		
-		
+
+
 
 def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
-	
+
 	# Handle category descriptor first, if present
 	if "category.txt" in contents:
 		currentCategory = handleCategory(dirPath, currentCategory)
-	
+
 	for item in contents:
 		fullPath = os.path.join(dirPath, item)
-		
+
 		if (item == "object.obj"):
 			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
@@ -131,33 +130,33 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 
 def handleCategory(dirpath, currentCategory):
 	""" Create an instance of the SceneryCategory class """
-	
+
 	sceneryCategory = classes.SceneryCategory(dirpath, currentCategory)
 	currentCategory.addSceneryCategory(sceneryCategory)
-	
+
 	parts = dirpath.split(os.sep, 1)
 	if not createPaths(parts): return
 
 	return sceneryCategory
-	
-	
+
+
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
-	
+
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
-	
+
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
-	# Locate and check whether the support files exist 
+	# Locate and check whether the support files exist
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-	
+
 	# Set up paths
 	if not createPaths(parts): return
 
@@ -171,7 +170,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	textureFound = 0
 	lineNumber = 1
-	
+
 	for line in objectFileContents:
 		if lineNumber == 2 and line.startswith("7"):
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -185,22 +184,22 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
-				
+
 				lastSlash = result.group(1).rfind("/")
 				if (lastSlash > -1):
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
 				else:
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath): 
+				if not os.path.isdir(destinationTexturePath):
 					# Create destination texture path if it doesn't already exist
 					os.makedirs(destinationTexturePath)
 				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
@@ -210,7 +209,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
 				return
-				
+
 			# Break loop if we've found both v8 textures
 			if textureFound == 2:
 				break
@@ -220,13 +219,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			textureFound = textureFound + 1
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
@@ -244,13 +243,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		if result:
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
@@ -303,23 +302,23 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[1], filename)
-	
-	# Locate and check whether the support files exist 
+
+	# Locate and check whether the support files exist
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-	
+
 	# Set up paths
 	if not createPaths(parts): return
 
 	# Copy the facade file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-	
+
 	# Open the facade
 	file = open(objectSourcePath, "rU")
 	objectFileContents = file.readlines()
 	file.close()
 
 	textureFound = 0
-	
+
 	for line in objectFileContents:
 		result = v8TexturePattern.match(line)
 		if result:
@@ -329,13 +328,13 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
@@ -344,7 +343,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
 				else:
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath): 
+				if not os.path.isdir(destinationTexturePath):
 					# Create destination texture path if it doesn't already exist
 					os.makedirs(destinationTexturePath)
 				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
@@ -362,10 +361,10 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
-	
+
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
@@ -389,20 +388,20 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
-	
+
 	global v8TexturePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
-	
+
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
-	# Locate and check whether the support files exist 
+	# Locate and check whether the support files exist
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-	
+
 	# Set up paths
 	if not createPaths(parts): return
 
@@ -415,7 +414,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	file.close()
 
 	textureFound = 0
-	
+
 	for line in objectFileContents:
 		result = v8TexturePattern.match(line)
 		if result:
@@ -425,13 +424,13 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
 			elif os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
@@ -440,7 +439,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
 				else:
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath): 
+				if not os.path.isdir(destinationTexturePath):
 					# Create destination texture path if it doesn't already exist
 					os.makedirs(destinationTexturePath)
 				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
@@ -458,10 +457,10 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
-	
+
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
@@ -485,7 +484,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
-	
+
 	global v8TexturePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -495,23 +494,23 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.SceneryObject(parts[1], filename)
-	
-	# Locate and check whether the support files exist 
+
+	# Locate and check whether the support files exist
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-	
+
 	# Set up paths
 	if not createPaths(parts): return
 
 	# Copy the line file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-	
+
 	# Open the line
 	file = open(objectSourcePath, "rU")
 	objectFileContents = file.readlines()
 	file.close()
 
 	textureFound = 0
-	
+
 	for line in objectFileContents:
 		result = v8TexturePattern.match(line)
 		if result:
@@ -521,13 +520,13 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 				displayMessage("\n" + objectSourcePath + "\n")
 				displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
 			elif os.path.isfile(textureFile):
-			
+
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
 					texture = classes.SceneryTexture(textureFile)
 					textures[textureFile] = texture
-				
+
 				texture.sceneryObjects.append(sceneryObject)
 				sceneryObject.sceneryTextures.append(texture)
 
@@ -536,7 +535,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
 				else:
 					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath): 
+				if not os.path.isdir(destinationTexturePath):
 					# Create destination texture path if it doesn't already exist
 					os.makedirs(destinationTexturePath)
 				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
@@ -554,10 +553,10 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
-	
+
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
@@ -581,7 +580,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
-	
+
 	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
 
 	objectSourcePath = os.path.join(dirpath, filename)
@@ -591,16 +590,16 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 	# Create an instance of the SceneryObject class
 	sceneryObject = classes.Polygon(parts[1], filename)
-	
-	# Locate and check whether the support files exist 
+
+	# Locate and check whether the support files exist
 	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-	
+
 	# Set up paths
 	if not createPaths(parts): return
 
 	# Copy the polygon file
 	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-	
+
 	# Open the polygon
 	file = open(objectSourcePath, "rU")
 	objectFileContents = file.readlines()
@@ -610,7 +609,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	scaleFound = 0
 	layerGroupFound = 0
 	surfaceFound = 0
-	
+
 	for line in objectFileContents:
 		if not textureFound:
 			result = v8PolygonTexturePattern.match(line)
@@ -621,13 +620,13 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
 				elif os.path.isfile(textureFile):
-			
+
 					# Look for the texture in the texture Dictionary, create a new one if not found
 					texture = textures.get(textureFile)
 					if (texture == None):
 						texture = classes.SceneryTexture(textureFile)
 						textures[textureFile] = texture
-				
+
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
 
@@ -636,7 +635,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
 					else:
 						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath): 
+					if not os.path.isdir(destinationTexturePath):
 						# Create destination texture path if it doesn't already exist
 						os.makedirs(destinationTexturePath)
 					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
@@ -646,36 +645,36 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
 					return
-					
+
 		if not scaleFound:
 			result = scalePattern.match(line)
 			if result:
 				sceneryObject.scaleH = result.group(1)
 				sceneryObject.scaleV = result.group(2)
 				scaleFound = 1
-		
+
 		if not layerGroupFound:
 			result = layerGroupPattern.match(line)
 			if result:
 				sceneryObject.layerGroupName = result.group(1)
 				sceneryObject.layerGroupOffset = result.group(2)
 				layerGroupFound = 1
-		
+
 		if not surfaceFound:
 			result = surfacePattern.match(line)
 			if result:
 				sceneryObject.surfaceName = result.group(1)
 				surfaceFound = 1
-		
-			
+
+
 	if not textureFound:
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No texture line in file - this error must be corrected\n", "error")
 		return
-		
+
 	# Handle the info.txt file
 	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
-	
+
 	# Copy files
 	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
 
@@ -699,8 +698,8 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 	""" Check that the info file and screenshot files are present """
-	
-	# Locate the info file. If it isn't in the current directory, walk up the folder structure 
+
+	# Locate the info file. If it isn't in the current directory, walk up the folder structure
 	# looking for one in all parent folders
 	dirPathParts = dirpath.split(os.sep)
 	for i in range(len(dirPathParts), 0, -1):
@@ -712,7 +711,7 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 		displayMessage("\n" + objectSourcePath + "\n")
 		displayMessage("No info.txt file found - object excluded\n", "error")
 		return 0
-		
+
 	# Locate the screenshot file. If it isn't in the current directory, walk up the folder
 	# structure looking for one in all parent folders
 	for i in range(len(dirPathParts), 0, -1):
@@ -730,21 +729,21 @@ def checkSupportFiles(objectSourcePath, dirpath, sceneryObject):
 
 def createPaths(parts):
 	""" Create paths in osx folder and website folder """
-	
-	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])): 
+
+	if not os.path.isdir(os.path.join(classes.Configuration.osxFolder, parts[1])):
 		os.makedirs(os.path.join(classes.Configuration.osxFolder, parts[1]))
-	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1])): 
+	if not os.path.isdir(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1])):
 		os.makedirs(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1]))
-	
+
 	return 1
 
 
 def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
-	
+
 	if (sceneryObject.screenshotFilePath != ""):
 		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg"))
-	
+
 	# Copy the logo file.  Logos are used to 'brand' objects that are from a specific
 	# collection.  Therefore they are all stored in a single folder (in support) so they
 	# can be shared across all the objects in the collection.
@@ -756,12 +755,12 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 			shutil.copyfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName), os.path.join(classes.Configuration.osxWebsiteFolder, "doc", sceneryObject.logoFileName))
 
 	return 1
-	
-	
-	
+
+
+
 def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
-	
+
 	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
 	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
 	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
@@ -771,15 +770,15 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	websiteInfoFileContents = file.read()
 	infoFileContents = websiteInfoFileContents.splitlines()
 	file.close()
-	
+
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
-	
+
 	websiteInfoFileContents += "\n"
-	
+
 	for virtualPath in sceneryObject.virtualPaths:
-		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents	
-		
+		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents
+
 	# Begin parsing
 	for line in infoFileContents:
 		# Check for exclusion
@@ -788,7 +787,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			displayMessage("\n" + objectSourcePath + "\n")
 			displayMessage("EXCLUDED, reason: " + result.group(1) + "\n", "note")
 			return 0
-		
+
 		# Title
 		result = titlePattern.match(line)
 		if result:
@@ -808,58 +807,58 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-		
+
 		# Texture author
 		result = textureAuthorPattern.match(line)
 		if result:
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-			
+
 		# Conversion author
 		result = conversionAuthorPattern.match(line)
 		if result:
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-		
+
 		# Modification author
 		result = modificationAuthorPattern.match(line)
 		if result:
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
-				
+
 		# Width
 		result = widthPattern.match(line)
 		if result:
 			sceneryObject.width = result.group(1)
 			continue
-		
+
 		# Height
 		result = heightPattern.match(line)
 		if result:
 			sceneryObject.height = result.group(1)
 			continue
-		
+
 		# Depth
 		result = depthPattern.match(line)
 		if result:
 			sceneryObject.depth = result.group(1)
 			continue
-		
+
 		# Animated
 		result = animatedPattern.match(line)
 		if result:
 			sceneryObject.animated = (result.group(1) == "True" or result.group(1) == "Yes")
 			continue
-		
+
 		# Additional export path
 		result = exportPattern.match(line)
 		if result:
 			sceneryObject.virtualPaths.append(result.group(1) + suffix)
 			continue
-		
+
 		# Export propagation
 		result = exportPropagatePattern.match(line)
 		if result:
@@ -873,7 +872,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 					sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
 					websiteInfoFileContents = "Export: " + "/".join(virtualPathParts[0:i]) + suffix + "\n" + websiteInfoFileContents
 			continue
-		
+
 		# Export deprecation
 		result = exportDeprecatedPattern.match(line)
 		if result:
@@ -891,19 +890,19 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if result:
 			sceneryObject.logoFileName = result.group(1)
 			continue
-		
+
 		# Notes
 		result = notePattern.match(line)
 		if result:
 			sceneryObject.note = result.group(1)
 			continue
-		
+
 		# Since
 		result = sincePattern.match(line)
 		if result:
 			sceneryObject.since = result.group(1)
 			continue
-		
+
 		# Description
 		result = descriptionPattern.match(line)
 		if result:
@@ -911,11 +910,11 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			continue
 
 		# Default is to append to the description.  This handles any amount of extra text
-		# at the end of the file 
+		# at the end of the file
 		sceneryObject.description += line
-	
+
 	# All Exports go into the website info file
-	
+
 	# Polygon-specific data
 	if isinstance(sceneryObject, classes.Polygon):
 		websiteInfoFileContents = "Texture Scale H: " + sceneryObject.scaleH + "\n" + websiteInfoFileContents
@@ -923,7 +922,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
 		websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
 		websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
-	
+
 	# Copy the info file to the website folder
 	#shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
 	websiteInfoFile = open(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"), "w")
@@ -934,7 +933,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
 		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
-	
+
 	# Store in the latest if it was created for this version
 	if LooseVersion(sceneryObject.since) >= LooseVersion(classes.Configuration.sinceVersionTag):
 		latest.append(sceneryObject)
@@ -945,23 +944,23 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 def buildDocumentation(sitemapXMLFileHandle, sceneryCategory, depth):
 	""" Build the documentation for the library.  All folders will have been parsed by this point """
-	
+
 	for sceneryObject in sceneryCategory.getSceneryObjects(0):
 		writeXMLSitemapEntry(sitemapXMLFileHandle, "/" + sceneryObject.filePathRoot + "/", "0.5")
 		writePDFEntry(sceneryObject)
-		
+
 	# Recurse
 	children = sceneryCategory.childSceneryCategories
 
 	newPage = False
-	
+
 	for childCategory in children:
 		if (depth == 0):
 			writePDFSectionHeading(childCategory.title, newPage)
 			newPage = True
-		elif (depth > 0):	
+		elif (depth > 0):
 			writePDFTOCEntry(childCategory.title, depth)
-			
+
 		buildDocumentation(sitemapXMLFileHandle, childCategory, depth + 1)
 
 
@@ -975,13 +974,13 @@ def writeXMLSitemapEntry(sitemapXMLFileHandle, path, priority):
 	xmlContent += "</url>\n"
 
 	sitemapXMLFileHandle.write(xmlContent)
-	
+
 	return 1
 
 
 def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, includeTabbo):
 	""" Get the standard header for all documentation files """
-	
+
 	result = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
 	result += "					 \"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
 	result += "<html xmlns=\"https://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><head><title>" + mainTitle
@@ -1036,24 +1035,24 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 
 def getHTMLFooter(documentationPath):
 	""" Get the standard footer for all documentation files """
-	
+
 	result = "<div style='clear:both;'>&nbsp;</div>\n"
 	result += "<div id='footer'>"
-	
+
 	result += "<div style='margin-top:1em;'>"
 	result += "<div style='float:left; margin-right:1em;'><div style='margin:5px; padding: 1px; width: 88px; text-align: center;'><form action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='J3H6VKZD86BJN'><input type='image' src='https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online.' style=></form></div></div>"
 	result += "<div style='margin: 5px; padding: 1px;'>OpenSceneryX is free <strong>and will always remain free</strong> for everyone to use.  However, if you do use it, please consider giving a donation to offset the direct costs such as hosting and domain names.</div>"
 	result += "</div>"
 
 	result += "<div style='clear:both;'>&nbsp;</div>\n"
-	
+
 	result += "<div>"
 	result += "<div style='float:left; margin-right:1em;'><a rel='license' class='nounderline' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'><img alt='Creative Commons License' class='icon' src='" + documentationPath + "cc_logo.png' /></a></div>"
 	result += "<div style='margin: 5px; padding: 1px;'>The OpenSceneryX library is licensed under a <a rel='license' href='https://creativecommons.org/licenses/by-nc-nd/3.0/' onclick='window.open(this.href);return false;'>Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>. 'The Work' is defined as the library as a whole and by using the library you signify agreement to these terms. <strong>You must obtain the permission of the author(s) if you wish to distribute individual files from this library for any purpose</strong>, as this constitutes a derivative work, which is forbidden under the licence.</div>"
 	result += "</div>"
 
 	result += "</div>"
-	
+
 	result += "</body></html>"
 	return result
 
@@ -1076,7 +1075,7 @@ def getXMLSitemapFooter():
 
 def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""):
 	""" Get the standard library.txt header """
-	
+
 	if (includeStandard == True):
 		result = "A\n"
 		result += "800\n"
@@ -1090,7 +1089,7 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 	if (comment != ""):
 		result += "# " + comment + "\n"
 		result += "\n"
-	
+
 	if (type == "private"):
 		result += "PRIVATE\n\n"
 	elif (type == "deprecated"):
@@ -1101,7 +1100,7 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 
 def writeBackupLibraries(libraryFileHandle):
 	""" Read the contents of all the backup libraries and append them to the library file """
-	
+
 	dirPath = os.path.join(classes.Configuration.supportFolder, "backup_libraries")
 	contents = os.listdir(dirPath)
 	contents.sort()
@@ -1109,18 +1108,18 @@ def writeBackupLibraries(libraryFileHandle):
 	for item in contents:
 		if item[:1] == ".":
 			continue
-			
+
 		fullPath = os.path.join(dirPath, item)
-		
+
 		file = open(fullPath)
 		libraryFileHandle.write("\n")
 		libraryFileHandle.write(file.read())
 		file.close()
 
-		
+
 def matchesAny(name, tests):
 	""" Utility function to find whether a given string is found in a list """
-	
+
 	for test in tests:
 		if fnmatch.fnmatch(name, test):
 			return True
@@ -1130,7 +1129,7 @@ def matchesAny(name, tests):
 
 def caseinsensitiveSort(stringList):
 	""" Case-insensitive string comparison sort. usage: stringList = caseinsensitive_sort(stringList) """
-	
+
 	tupleList = [(x.lower(), x) for x in stringList]
 	tupleList.sort()
 	stringList[:] = [x[1] for x in tupleList]
@@ -1143,7 +1142,7 @@ def tryint(s):
         return int(s)
     except:
         return s
-     
+
 def alphanum_key(s):
     """ Turn a string into a list of string and number chunks.
         "z23a" -> ["z", 23, "a"]
@@ -1159,31 +1158,24 @@ def sort_nicely(l):
 
 def displayMessage(message, type="message"):
 	""" Display a message to the user of a given type (determines message colour) """
-	
+
 	if (type == "error"):
-		pcrt.fg(pcrt.RED)
-		print "ERROR: " + message,
-		pcrt.fg(pcrt.WHITE)
+		print(f'{Fore.RED}ERROR: {message}{Style.RESET_ALL}', end='')
 		osNotify("Error: " + message)
 	elif (type == "warning"):
-		pcrt.fg(pcrt.YELLOW)
-		print "WARNING: " + message,
-		pcrt.fg(pcrt.WHITE)
+		print(f'{Fore.YELLOW}WARNING: {message}{Style.RESET_ALL}', end='')
 	elif (type == "note"):
-		pcrt.fg(pcrt.CYAN)
-		print "NOTE: " + message,
-		pcrt.fg(pcrt.WHITE)
+		print(f'{Fore.CYAN}NOTE: {message}{Style.RESET_ALL}', end='')
 	elif (type == "message"):
-		pcrt.fg(pcrt.WHITE)
-		print message,
+		print(message, end='')
 
 	sys.stdout.flush()
 
 
 def getInput(message, maxSize):
 	""" Get some input from the user """
-	
-	return raw_input(message)
+
+	return input(message)
 
 
 def osNotify(message = ""):
@@ -1199,7 +1191,7 @@ def osNotify(message = ""):
 
 def writePDFSectionHeading(title, newPageBefore = 0):
 	""" Write a section heading to the PDF """
-	
+
 	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
@@ -1215,15 +1207,15 @@ def writePDFSectionHeading(title, newPageBefore = 0):
 
 def writePDFText(text):
 	""" Write some text to a PDF """
-	
+
 	if (not classes.Configuration.buildPDF): return
-	
+
 	pdf = classes.Configuration.developerPDF
 
 	pdf.columns = 1
 	pdf.set_font("DejaVu", "", 10)
 	pdf.multi_cell(0, 5, text, 0, 'J', 0, False)
-	
+
 
 def writePDFEntry(sceneryObject):
 	""" Write an entry to a PDF """
@@ -1232,14 +1224,14 @@ def writePDFEntry(sceneryObject):
 
 	# Check for PIL
 	if Image is None: return
-	
+
 	pdf = classes.Configuration.developerPDF
-	
+
 	pdf.columns = 2
 	imageMaxDimension = 20
 	fontSize = 7
 	lineHeight = 3
-	
+
 	# First check the image dimensions - we may need to force a new page if this image is too large
 	if (sceneryObject.screenshotFilePath == ""):
 		screenshotFilePath = "support/screenshot_missing.jpg"
@@ -1247,27 +1239,27 @@ def writePDFEntry(sceneryObject):
 		screenshotFilePath = sceneryObject.screenshotFilePath
 
 	image = Image.open(screenshotFilePath)
-	
+
 	imageOriginalWidth, imageOriginalHeight = image.size
-	
+
 	if (imageOriginalWidth > imageOriginalHeight):
 		imageScaleFactor = imageMaxDimension / float(imageOriginalWidth)
 	else:
 		imageScaleFactor = imageMaxDimension / float(imageOriginalHeight)
-		
+
 	imageFinalHeight = imageOriginalHeight * imageScaleFactor
 	imageFinalWidth = imageOriginalWidth * imageScaleFactor
-	
+
 	# Start a new column now if the image or the virtual path list are going to go beyond the page
 	# break trigger region
 	if (pdf.get_y() + max(imageFinalHeight, (len(sceneryObject.virtualPaths) + 1) * 2 * lineHeight) > pdf.page_break_trigger): pdf.new_column()
-	
+
 	# Store the starting location
 	startX = pdf.get_x()
 	startY = pdf.get_y()
 	startPage = pdf.page
 	startColumn = pdf.current_column
-	
+
 	# Image
 	pdf.image(screenshotFilePath, startX, startY, imageFinalWidth, imageFinalHeight, '', sceneryObject.getWebURL())
 
@@ -1276,7 +1268,7 @@ def writePDFEntry(sceneryObject):
 	pdf.set_text_color(0)
 	pdf.set_x(startX + imageMaxDimension)
 	pdf.cell(0, lineHeight, sceneryObject.title, 0, 1, 'L', False, sceneryObject.getWebURL())
-	
+
 	# Virtual paths
 	pdf.set_font("DejaVu", "", fontSize)
 	virtualPathIndex = 1
@@ -1296,7 +1288,7 @@ def writePDFEntry(sceneryObject):
 
 def writePDFTOCEntry(title, depth):
 	""" Write a PDF TOC entry """
-	
+
 	if (not classes.Configuration.buildPDF): return
 
 	pdf = classes.Configuration.developerPDF
@@ -1310,8 +1302,8 @@ def closePDF(path):
 
 	pdf = classes.Configuration.developerPDF
 	pdf.columns = 1
-	
+
 	pdf.set_text_color(0)
 	pdf.insert_toc(2, 16, 8, 'DejaVu', 'Table of Contents')
 	pdf.output(path, "F")
-	
+
