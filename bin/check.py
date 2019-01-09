@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 #
 # Script to perform some basic checks on a library release.
 #

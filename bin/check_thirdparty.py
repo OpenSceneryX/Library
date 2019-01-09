@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
 #
 # Script to check a library build against a third party library file to ensure every item has been incuded.
 #
