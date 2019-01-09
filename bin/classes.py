@@ -16,6 +16,8 @@ import traceback
 
 from TOC import TOC
 
+from fpdf.py3k import basestring
+
 #
 # Class to hold configuration values
 #
