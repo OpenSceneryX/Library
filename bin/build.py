@@ -314,12 +314,9 @@ try:
 
 	except classes.BuildError as e:
 		exceptionMessage = e.value
-	else:
-		showTraceback = 1
+
 
 finally:
 	if (exceptionMessage != ""):
 		print(exceptionMessage)
 
-	if (showTraceback == 1):
-		traceback.print_exc()
