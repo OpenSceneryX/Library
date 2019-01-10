@@ -11,8 +11,8 @@ class TOC(FPDF):
 		self.in_toc = 0
 		FPDF.__init__(self,orientation,unit,format)
 
-	def add_page(self,orientation=''):
-		FPDF.add_page(self,orientation)
+	def add_page(self, orientation = '', format = '', same = False):
+		FPDF.add_page(self,orientation, format, same)
 		if(self._numbering):
 			self._numPageNum+=1
 

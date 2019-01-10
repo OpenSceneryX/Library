@@ -437,13 +437,13 @@ class OpenSceneryXPDF(TOC):
 		TOC.cell(self, w, h, txt, border, ln, align, fill, link)
 
 
-	def add_page(self, orientation=''):
+	def add_page(self, orientation='', format = '', same = False):
 		""" Overridden to handle columns on new page """
 
 		self.current_column = 1
 		self.x=self.get_column_x()
 		self.y=self.t_margin + 15
-		TOC.add_page(self, orientation)
+		TOC.add_page(self, orientation, format, same)
 
 
 	def new_column(self):
