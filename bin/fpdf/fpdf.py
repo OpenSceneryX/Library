@@ -1207,10 +1207,10 @@ class FPDF(object):
                             self._textstring(pl[4]) + '>>>>'
                     else:
                         l = self.links[pl[4]]
-                        if l[0] in self.orientation_changes:
-                            h = w_pt
-                        else:
-                            h = h_pt
+                        #if l[0] in self.orientation_changes:
+                        #    h = w_pt
+                        #else:
+                        h = h_pt
                         annots += sprintf('/Dest [%d 0 R /XYZ 0 %.2f null]>>',
                             1 + 2 * l[0], h - l[1] * self.k)
                 self._out(annots + ']')
