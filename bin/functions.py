@@ -1099,10 +1099,10 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 
 
 def copyThirdParty():
-	""" Copy the contents of the thirdparty folder """
+	""" Copy the thirdparty folder into the optional folder """
 
 	sourcePath = os.path.join(classes.Configuration.supportFolder, "thirdparty")
-	destPath = os.path.join(classes.Configuration.osxFolder,  "thirdparty")
+	destPath = os.path.join(classes.Configuration.osxFolder,  "optional")
 	contents = os.listdir(sourcePath)
 
 	for item in contents:
