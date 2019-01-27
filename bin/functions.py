@@ -1098,23 +1098,19 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 	return result
 
 
-def writeBackupLibraries(libraryFileHandle):
-	""" Read the contents of all the backup libraries and append them to the library file """
+def copyThirdParty():
+	""" Copy the thirdparty folder into the optional folder """
 
-	dirPath = os.path.join(classes.Configuration.supportFolder, "backup_libraries")
-	contents = os.listdir(dirPath)
-	contents.sort()
+	sourcePath = os.path.join(classes.Configuration.supportFolder, "thirdparty")
+	destPath = os.path.join(classes.Configuration.osxFolder,  "optional")
+	contents = os.listdir(sourcePath)
 
 	for item in contents:
 		if item[:1] == ".":
 			continue
 
-		fullPath = os.path.join(dirPath, item)
-
-		file = open(fullPath)
-		libraryFileHandle.write("\n")
-		libraryFileHandle.write(file.read())
-		file.close()
+		fullSourcePath = os.path.join(sourcePath, item)
+		shutil.copy(fullSourcePath, destPath)
 
 
 def matchesAny(name, tests):

@@ -288,8 +288,8 @@ try:
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
-		# Append the backup paths to the library
-		functions.writeBackupLibraries(libraryFileHandle)
+		# Copy any third party files
+		functions.copyThirdParty()
 
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
