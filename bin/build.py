@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 # Script to build a library release
 # Copyright (c) 2007 Austin Goudge
@@ -30,7 +29,6 @@ try:
 	import os
 	import shutil
 	import urllib
-	import pcrt
 
 	exceptionMessage = ""
 	showTraceback = 0
@@ -290,8 +288,8 @@ try:
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
-		# Append the backup paths to the library
-		functions.writeBackupLibraries(libraryFileHandle)
+		# Copy any third party files
+		functions.copyThirdParty()
 
 		libraryFileHandle.close()
 		libraryPlaceholderFileHandle.close()
@@ -314,15 +312,11 @@ try:
 
 		functions.osNotify("OpenSceneryX build completed")
 
-	except classes.BuildError, e:
+	except classes.BuildError as e:
 		exceptionMessage = e.value
-	else:
-		showTraceback = 1
+
 
 finally:
-	pcrt.reset()
 	if (exceptionMessage != ""):
-		print exceptionMessage
+		print(exceptionMessage)
 
-	if (showTraceback == 1):
-		traceback.print_exc()

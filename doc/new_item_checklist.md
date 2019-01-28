@@ -21,11 +21,11 @@ Checklist for New Items
 
 9. Run textures through ImageOptim
 
-10. If info.txt has been supplied, check line endings are UNIX
+10. If `info.txt` has been supplied, check line endings are UNIX
 
 11. Create screenshot (automatically using script if desired)
 
-12. Run screenshot.jpg through 'Process Screenshot' if not using generation script
+12. Run `screenshot.jpg` through 'Process Screenshot' if not using generation script
 
 13. Build library
 
