@@ -71,10 +71,12 @@ try:
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
+		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/static_aircraft_extend.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
+		libraryExtendedSAFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane static aircraft"))
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
@@ -207,7 +209,7 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -273,6 +275,7 @@ try:
 		htmlDeveloperFileHandle.close()
 		libraryExternalFileHandle.close()
 		libraryDeprecatedFileHandle.close()
+		libraryExtendedSAFileHandle.close()
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
