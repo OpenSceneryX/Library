@@ -672,8 +672,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		if result:
 			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 			if os.path.isfile(textureFile):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Found TEXTURE_NORMAL in a polygon (" + textureFile + ")\n", "note")
 				# Look for the texture in the texture Dictionary, create a new one if not found
 				texture = textures.get(textureFile)
 				if (texture == None):
