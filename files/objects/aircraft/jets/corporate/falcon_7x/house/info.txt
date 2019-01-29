@@ -3,6 +3,7 @@ Title: Dassault Falcon 7X, house livery
 Author: Christian Riviere
 URL: http://forums.x-plane.org/index.php?showuser=6871
 Export Propagate: 1
+Export Extended: lib/airport/aircraft/general_aviation/jet_b
 Width: 27.3m
 Height: 7.9m
 Depth: 26.6m

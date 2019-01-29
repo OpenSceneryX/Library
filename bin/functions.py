@@ -43,6 +43,7 @@ animatedPattern = re.compile("Animated:\s+(.*)")
 exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
 exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
 exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
+exportExtendedPattern = re.compile("Export Extended:\s+(.*)")
 logoPattern = re.compile("Logo:\s+(.*)")
 notePattern = re.compile("Note:\s+(.*)")
 sincePattern = re.compile("Since:\s+(.*)")
@@ -92,7 +93,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -105,26 +106,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, authors, textures, toc, latest)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest)
 
 
 
@@ -141,7 +142,7 @@ def handleCategory(dirpath, currentCategory):
 
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
@@ -287,10 +288,15 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	global v8TexturePattern
@@ -383,10 +389,15 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 
 	global v8TexturePattern
@@ -479,10 +490,15 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
 
 	global v8TexturePattern
@@ -575,10 +591,15 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
 
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, currentCategory, authors, textures, toc, latest):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
 
 	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
@@ -693,6 +714,11 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
 
 
 
@@ -763,7 +789,8 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
 	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
-	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
+	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern
+	global exportExtendedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
 	global logoPattern, notePattern, sincePattern
 
 	file = open(sceneryObject.infoFilePath)
@@ -883,6 +910,12 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		result = exportExternalPattern.match(line)
 		if result:
 			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
+			continue
+
+		# Export extend
+		result = exportExtendedPattern.match(line)
+		if result:
+			sceneryObject.extendedVirtualPaths.append(result.group(1) + suffix)
 			continue
 
 		# Branding logo
