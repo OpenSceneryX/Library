@@ -1,0 +1,15 @@
+A
+
+850
+
+DRAPED_POLYGON
+
+LAYER_GROUP markings +1
+TEXTURE WhiteLargeDarker.png
+TEXTURE_NORMAL 1 ../../../../../shared_textures/darrell_thompson/WhiteLargeNML.png
+TEX_WIDTH is 2048
+SPECULAR 0.55
+MIRROR
+SCALE 2 8
+
+S_OFFSET 0 10 318 502
