@@ -143,3 +143,5 @@ Release Howto
     - Post an article on the site
     - Tweet
     - Reddit r/Xplane
+
+31. Drop library.txt into Backup Library
