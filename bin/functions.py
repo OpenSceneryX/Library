@@ -148,7 +148,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -157,122 +157,130 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the object file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
 
-	# Open the object
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
+	for season in classes.Configuration.seasons:
+		seasonFilename = "object_" + season + ".obj"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
 
-	textureFound = 0
-	lineNumber = 1
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the object file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
 
-	for line in objectFileContents:
-		if lineNumber == 2 and line.startswith("7"):
-			displayMessage("\n" + objectSourcePath + "\n")
-			displayMessage("Object v7 not supported\n", "error")
+		# Open the object
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
 
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = textureFound + 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
+		textureFound = 0
+		lineNumber = 1
 
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
+					return
+
+				# Break loop if we've found both v8 textures
+				if textureFound == 2:
+					break
+
+			result = v8LitTexturePattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
+
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
 					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
-				return
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
+					return
 
-			# Break loop if we've found both v8 textures
-			if textureFound == 2:
-				break
+				# Break loop if we've found both v8 textures
+				if textureFound == 2:
+					break
 
-		result = v8LitTexturePattern.match(line)
-		if result:
-			textureFound = textureFound + 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
+			result = v9NormalTexturePattern.match(line)
+			if result:
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
 
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
 
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
-				return
+					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
+					return
 
-			# Break loop if we've found both v8 textures
-			if textureFound == 2:
-				break
+			lineNumber += 1
 
-		result = v9NormalTexturePattern.match(line)
-		if result:
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
-				return
-
-		lineNumber += 1
-
-	if textureFound == 0:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+		if textureFound == 0:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
@@ -302,7 +310,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	global v8TexturePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -311,69 +319,81 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the facade file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
 
-	# Open the facade
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
+	for season in classes.Configuration.seasons:
+		seasonFilename = "facade_" + season + ".fac"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
 
-	textureFound = 0
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the facade file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
 
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
+		# Open the facade
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
 
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+		textureFound = 0
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
-				return
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
+					return
 
-			# Break loop as soon as we find a texture, need look no further
-			break
+				# Break loop as soon as we find a texture, need look no further
+				break
 
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
@@ -403,7 +423,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	global v8TexturePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -412,69 +432,76 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the forest file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
 
-	# Open the object
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
+	for season in classes.Configuration.seasons:
+		seasonFilename = "forest_" + season + ".for"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
 
-	textureFound = 0
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the forest file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
 
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
-			elif os.path.isfile(textureFile):
+		# Open the object
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
 
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+		textureFound = 0
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
+				elif os.path.isfile(textureFile):
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
-				return
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
+					return
 
-			# Break loop as soon as we find a texture, need look no further
-			break
-
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+				# Break loop as soon as we find a texture, need look no further
+				break
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
@@ -504,7 +531,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 	global v8TexturePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -513,69 +540,81 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the line file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
 
-	# Open the line
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
+	for season in classes.Configuration.seasons:
+		seasonFilename = "line_" + season + ".lin"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
 
-	textureFound = 0
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the line file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
 
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
+		# Open the line
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
 
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+		textureFound = 0
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
-				return
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
+					return
 
-			# Break loop as soon as we find a texture, need look no further
-			break
+				# Break loop as soon as we find a texture, need look no further
+				break
 
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
@@ -605,7 +644,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -614,35 +653,76 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	sceneryObject = classes.Polygon(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the polygon file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
 
-	# Open the polygon
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
+	for season in classes.Configuration.seasons:
+		seasonFilename = "polygon_" + season + ".pol"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
 
-	textureFound = 0
-	scaleFound = 0
-	layerGroupFound = 0
-	surfaceFound = 0
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the polygon file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
 
-	for line in objectFileContents:
-		if not textureFound:
-			result = v8PolygonTexturePattern.match(line)
+		# Open the polygon
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+		scaleFound = 0
+		layerGroupFound = 0
+		surfaceFound = 0
+
+		for line in objectFileContents:
+			if not textureFound:
+				result = v8PolygonTexturePattern.match(line)
+				if result:
+					textureFound = 1
+					textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+					if (result.group(1) == ""):
+						displayMessage("\n" + objectSourcePath + "\n")
+						displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
+					elif os.path.isfile(textureFile):
+
+						# Look for the texture in the texture Dictionary, create a new one if not found
+						texture = textures.get(textureFile)
+						if (texture == None):
+							texture = classes.SceneryTexture(textureFile)
+							textures[textureFile] = texture
+
+						texture.sceneryObjects.append(sceneryObject)
+						sceneryObject.sceneryTextures.append(texture)
+
+						lastSlash = result.group(1).rfind("/")
+						if (lastSlash > -1):
+							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+						else:
+							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+						if not os.path.isdir(destinationTexturePath):
+							# Create destination texture path if it doesn't already exist
+							os.makedirs(destinationTexturePath)
+						if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+							# Copy texture if it doesn't already exist
+							shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+					else:
+						displayMessage("\n" + objectSourcePath + "\n")
+						displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
+						return
+
+			result = polygonNormalTexturePattern.match(line)
 			if result:
-				textureFound = 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-				if (result.group(1) == ""):
-					displayMessage("\n" + objectSourcePath + "\n")
-					displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
-				elif os.path.isfile(textureFile):
-
+				if os.path.isfile(textureFile):
 					# Look for the texture in the texture Dictionary, create a new one if not found
 					texture = textures.get(textureFile)
 					if (texture == None):
@@ -665,69 +745,40 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
 					displayMessage("\n" + objectSourcePath + "\n")
-					displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
+					displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
 					return
 
-		result = polygonNormalTexturePattern.match(line)
-		if result:
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+			if not scaleFound:
+				result = scalePattern.match(line)
+				if result:
+					sceneryObject.scaleH = result.group(1)
+					sceneryObject.scaleV = result.group(2)
+					scaleFound = 1
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+			if not layerGroupFound:
+				result = layerGroupPattern.match(line)
+				if result:
+					sceneryObject.layerGroupName = result.group(1)
+					sceneryObject.layerGroupOffset = result.group(2)
+					layerGroupFound = 1
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
-				return
-
-		if not scaleFound:
-			result = scalePattern.match(line)
-			if result:
-				sceneryObject.scaleH = result.group(1)
-				sceneryObject.scaleV = result.group(2)
-				scaleFound = 1
-
-		if not layerGroupFound:
-			result = layerGroupPattern.match(line)
-			if result:
-				sceneryObject.layerGroupName = result.group(1)
-				sceneryObject.layerGroupOffset = result.group(2)
-				layerGroupFound = 1
-
-		if not surfaceFound:
-			result = surfacePattern.match(line)
-			if result:
-				sceneryObject.surfaceName = result.group(1)
-				surfaceFound = 1
+			if not surfaceFound:
+				result = surfacePattern.match(line)
+				if result:
+					sceneryObject.surfaceName = result.group(1)
+					surfaceFound = 1
 
 
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)

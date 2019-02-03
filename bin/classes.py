@@ -41,6 +41,7 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
+		self.seasons = ['spring', 'autumn', 'winter', 'winter_deep']
 
 	def makeFolders(self):
 		""" Create any folders that need creating """
