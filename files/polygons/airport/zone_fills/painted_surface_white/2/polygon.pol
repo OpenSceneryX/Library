@@ -4,7 +4,7 @@ A
 
 DRAPED_POLYGON
 
-LAYER_GROUP markings +2
+LAYER_GROUP markings +1
 TEXTURE WhiteDarker.png
 TEXTURE_NORMAL 1 ../../../../../shared_textures/darrell_thompson/WhiteNML.png
 TEX_WIDTH is 1024
