@@ -94,7 +94,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -107,26 +107,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
 
 
 
@@ -143,12 +143,12 @@ def handleCategory(dirpath, currentCategory):
 
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
 
-	objectSourcePath = os.path.join(dirpath, filename)
+	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
 	displayMessage(".")
@@ -157,490 +157,44 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	sceneryObject = classes.SceneryObject(parts[1], filename)
 
 	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
 
 	# Set up paths
 	if not createPaths(parts): return
 
-	# Copy the object file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-
-	# Open the object
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
-
-	textureFound = 0
-	lineNumber = 1
-
-	for line in objectFileContents:
-		if lineNumber == 2 and line.startswith("7"):
-			displayMessage("\n" + objectSourcePath + "\n")
-			displayMessage("Object v7 not supported\n", "error")
-
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = textureFound + 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop if we've found both v8 textures
-			if textureFound == 2:
-				break
-
-		result = v8LitTexturePattern.match(line)
-		if result:
-			textureFound = textureFound + 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop if we've found both v8 textures
-			if textureFound == 2:
-				break
-
-		result = v9NormalTexturePattern.match(line)
-		if result:
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
-				return
-
-		lineNumber += 1
-
-	if textureFound == 0:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
-
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
-
-	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
-
-	# Object is valid, append it to the current category
-	currentCategory.addSceneryObject(sceneryObject)
-
-	toc.append(sceneryObject)
-
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for virtualPath in sceneryObject.extendedVirtualPaths:
-		if (virtualPath.startswith("lib/airport/aircraft")):
-			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		else:
-			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
-
-
-
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
-	""" Create an instance of the SceneryObject class for a .fac """
-
-	global v8TexturePattern
-
-	objectSourcePath = os.path.join(dirpath, filename)
-	parts = dirpath.split(os.sep, 1)
-
-	displayMessage(".")
-
-	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
-
-	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-
-	# Set up paths
-	if not createPaths(parts): return
-
-	# Copy the facade file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-
-	# Open the facade
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
-
-	textureFound = 0
-
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop as soon as we find a texture, need look no further
-			break
-
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
-
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
-
-	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
-
-	# Facade is valid, append it to the current category
-	currentCategory.addSceneryObject(sceneryObject)
-
-	toc.append(sceneryObject)
-
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for virtualPath in sceneryObject.extendedVirtualPaths:
-		if (virtualPath.startswith("lib/airport/aircraft")):
-			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		else:
-			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
-
-
-
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
-	""" Create an instance of the SceneryObject class for a .for """
-
-	global v8TexturePattern
-
-	objectSourcePath = os.path.join(dirpath, filename)
-	parts = dirpath.split(os.sep, 1)
-
-	displayMessage(".")
-
-	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
-
-	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-
-	# Set up paths
-	if not createPaths(parts): return
-
-	# Copy the forest file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-
-	# Open the object
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
-
-	textureFound = 0
-
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
-			elif os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop as soon as we find a texture, need look no further
-			break
-
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
-
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
-
-	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
-
-	# Forest is valid, append it to the current category
-	currentCategory.addSceneryObject(sceneryObject)
-
-	toc.append(sceneryObject)
-
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for virtualPath in sceneryObject.extendedVirtualPaths:
-		if (virtualPath.startswith("lib/airport/aircraft")):
-			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		else:
-			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
-
-
-
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
-	""" Create an instance of the SceneryObject class for a .lin """
-
-	global v8TexturePattern
-
-	objectSourcePath = os.path.join(dirpath, filename)
-	parts = dirpath.split(os.sep, 1)
-
-	displayMessage(".")
-
-	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
-
-	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-
-	# Set up paths
-	if not createPaths(parts): return
-
-	# Copy the line file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-
-	# Open the line
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
-
-	textureFound = 0
-
-	for line in objectFileContents:
-		result = v8TexturePattern.match(line)
-		if result:
-			textureFound = 1
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if (result.group(1) == ""):
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
-			elif os.path.isfile(textureFile):
-
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
-
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
-
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
-				return
-
-			# Break loop as soon as we find a texture, need look no further
-			break
-
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
-
-	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
-
-	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
-
-	# Line is valid, append it to the current category
-	currentCategory.addSceneryObject(sceneryObject)
-
-	toc.append(sceneryObject)
-
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for virtualPath in sceneryObject.extendedVirtualPaths:
-		if (virtualPath.startswith("lib/airport/aircraft")):
-			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		else:
-			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
-
-
-
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
-	""" Create an instance of the SceneryObject class for a .pol """
-
-	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
-
-	objectSourcePath = os.path.join(dirpath, filename)
-	parts = dirpath.split(os.sep, 1)
-
-	displayMessage(".")
-
-	# Create an instance of the SceneryObject class
-	sceneryObject = classes.Polygon(parts[1], filename)
-
-	# Locate and check whether the support files exist
-	if not checkSupportFiles(objectSourcePath, dirpath, sceneryObject): return
-
-	# Set up paths
-	if not createPaths(parts): return
-
-	# Copy the polygon file
-	shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], filename))
-
-	# Open the polygon
-	file = open(objectSourcePath, "rU")
-	objectFileContents = file.readlines()
-	file.close()
-
-	textureFound = 0
-	scaleFound = 0
-	layerGroupFound = 0
-	surfaceFound = 0
-
-	for line in objectFileContents:
-		if not textureFound:
-			result = v8PolygonTexturePattern.match(line)
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "object_" + season + ".obj"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the object file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+
+		# Open the object
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+		lineNumber = 1
+
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
 			if result:
-				textureFound = 1
+				textureFound = textureFound + 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
-					displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
+					displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 				elif os.path.isfile(textureFile):
 
 					# Look for the texture in the texture Dictionary, create a new one if not found
@@ -665,69 +219,592 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
 				else:
 					displayMessage("\n" + objectSourcePath + "\n")
-					displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
+					displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
 
-		result = polygonNormalTexturePattern.match(line)
-		if result:
-			textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-			if os.path.isfile(textureFile):
-				# Look for the texture in the texture Dictionary, create a new one if not found
-				texture = textures.get(textureFile)
-				if (texture == None):
-					texture = classes.SceneryTexture(textureFile)
-					textures[textureFile] = texture
+				# Break loop if we've found both v8 textures
+				if textureFound == 2:
+					break
 
-				texture.sceneryObjects.append(sceneryObject)
-				sceneryObject.sceneryTextures.append(texture)
+			result = v8LitTexturePattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
 
-				lastSlash = result.group(1).rfind("/")
-				if (lastSlash > -1):
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-				else:
-					destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-				if not os.path.isdir(destinationTexturePath):
-					# Create destination texture path if it doesn't already exist
-					os.makedirs(destinationTexturePath)
-				if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-					# Copy texture if it doesn't already exist
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
 					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-			else:
-				displayMessage("\n" + objectSourcePath + "\n")
-				displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
-				return
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
+					return
 
-		if not scaleFound:
-			result = scalePattern.match(line)
+				# Break loop if we've found both v8 textures
+				if textureFound == 2:
+					break
+
+			result = v9NormalTexturePattern.match(line)
 			if result:
-				sceneryObject.scaleH = result.group(1)
-				sceneryObject.scaleV = result.group(2)
-				scaleFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
 
-		if not layerGroupFound:
-			result = layerGroupPattern.match(line)
-			if result:
-				sceneryObject.layerGroupName = result.group(1)
-				sceneryObject.layerGroupOffset = result.group(2)
-				layerGroupFound = 1
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
 
-		if not surfaceFound:
-			result = surfacePattern.match(line)
-			if result:
-				sceneryObject.surfaceName = result.group(1)
-				surfaceFound = 1
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
 
+					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
+					return
 
-	if not textureFound:
-		displayMessage("\n" + objectSourcePath + "\n")
-		displayMessage("No texture line in file - this error must be corrected\n", "error")
-		return
+			lineNumber += 1
+
+		if textureFound == 0:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(objectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
 
 	# Copy files
-	if not copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject): return
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Object is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	toc.append(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
+
+
+
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+	""" Create an instance of the SceneryObject class for a .fac """
+
+	global v8TexturePattern
+
+	mainobjectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 1)
+
+	displayMessage(".")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.SceneryObject(parts[1], filename)
+
+	# Locate and check whether the support files exist
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
+
+	# Set up paths
+	if not createPaths(parts): return
+
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "facade_" + season + ".fac"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the facade file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+
+		# Open the facade
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
+
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
+					return
+
+				# Break loop as soon as we find a texture, need look no further
+				break
+
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
+
+	# Handle the info.txt file
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
+
+	# Copy files
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Facade is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	toc.append(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
+
+
+
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+	""" Create an instance of the SceneryObject class for a .for """
+
+	global v8TexturePattern
+
+	mainobjectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 1)
+
+	displayMessage(".")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.SceneryObject(parts[1], filename)
+
+	# Locate and check whether the support files exist
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
+
+	# Set up paths
+	if not createPaths(parts): return
+
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "forest_" + season + ".for"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the forest file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+
+		# Open the object
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
+				elif os.path.isfile(textureFile):
+
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
+					return
+
+				# Break loop as soon as we find a texture, need look no further
+				break
+
+	# Handle the info.txt file
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
+
+	# Copy files
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Forest is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	toc.append(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
+
+
+
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+	""" Create an instance of the SceneryObject class for a .lin """
+
+	global v8TexturePattern
+
+	mainobjectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 1)
+
+	displayMessage(".")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.SceneryObject(parts[1], filename)
+
+	# Locate and check whether the support files exist
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
+
+	# Set up paths
+	if not createPaths(parts): return
+
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "line_" + season + ".lin"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the line file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+
+		# Open the line
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+
+		for line in objectFileContents:
+			result = v8TexturePattern.match(line)
+			if result:
+				textureFound = 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
+				elif os.path.isfile(textureFile):
+
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
+					return
+
+				# Break loop as soon as we find a texture, need look no further
+				break
+
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
+
+	# Handle the info.txt file
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
+
+	# Copy files
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Line is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	toc.append(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for virtualPath in sceneryObject.extendedVirtualPaths:
+		if (virtualPath.startswith("lib/airport/aircraft")):
+			libraryExtendedSAFileHandle.write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		else:
+			displayMessage("Unhandled EXPORT_EXTEND for " + virtualPath + "\n", "error")
+
+
+
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+	""" Create an instance of the SceneryObject class for a .pol """
+
+	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
+
+	mainobjectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 1)
+
+	displayMessage(".")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.Polygon(parts[1], filename)
+
+	# Locate and check whether the support files exist
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
+
+	# Set up paths
+	if not createPaths(parts): return
+
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "polygon_" + season + ".pol"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the polygon file
+		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+
+		# Open the polygon
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+		scaleFound = 0
+		layerGroupFound = 0
+		surfaceFound = 0
+
+		for line in objectFileContents:
+			if not textureFound:
+				result = v8PolygonTexturePattern.match(line)
+				if result:
+					textureFound = 1
+					textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+					if (result.group(1) == ""):
+						displayMessage("\n" + objectSourcePath + "\n")
+						displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
+					elif os.path.isfile(textureFile):
+
+						# Look for the texture in the texture Dictionary, create a new one if not found
+						texture = textures.get(textureFile)
+						if (texture == None):
+							texture = classes.SceneryTexture(textureFile)
+							textures[textureFile] = texture
+
+						texture.sceneryObjects.append(sceneryObject)
+						sceneryObject.sceneryTextures.append(texture)
+
+						lastSlash = result.group(1).rfind("/")
+						if (lastSlash > -1):
+							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+						else:
+							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+						if not os.path.isdir(destinationTexturePath):
+							# Create destination texture path if it doesn't already exist
+							os.makedirs(destinationTexturePath)
+						if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+							# Copy texture if it doesn't already exist
+							shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+					else:
+						displayMessage("\n" + objectSourcePath + "\n")
+						displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
+						return
+
+			result = polygonNormalTexturePattern.match(line)
+			if result:
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
+					return
+
+			if not scaleFound:
+				result = scalePattern.match(line)
+				if result:
+					sceneryObject.scaleH = result.group(1)
+					sceneryObject.scaleV = result.group(2)
+					scaleFound = 1
+
+			if not layerGroupFound:
+				result = layerGroupPattern.match(line)
+				if result:
+					sceneryObject.layerGroupName = result.group(1)
+					sceneryObject.layerGroupOffset = result.group(2)
+					layerGroupFound = 1
+
+			if not surfaceFound:
+				result = surfacePattern.match(line)
+				if result:
+					sceneryObject.surfaceName = result.group(1)
+					surfaceFound = 1
+
+
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
+
+	# Handle the info.txt file
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
+
+	# Copy files
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
 
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
@@ -738,6 +815,10 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -1157,6 +1238,108 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 		result += "PRIVATE\n\n"
 	elif (type == "deprecated"):
 		result += "DEPRECATED\n\n"
+
+	return result
+
+def getSeasonalLibraryContent(compatibility, content):
+	result = ""
+
+	if compatibility == "xplane":
+		result += "REGION_DEFINE opensceneryx_nh_autumn\n"
+		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
+		result += "REGION_DREF sim/time/local_date_days >= 280\n"
+		result += "REGION_DREF sim/time/local_date_days <= 339\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_nh_winter1\n"
+		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
+		result += "REGION_DREF sim/time/local_date_days < 60\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_nh_winter2\n"
+		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
+		result += "REGION_DREF sim/time/local_date_days > 339\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_sh_autumn\n"
+		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
+		result += "REGION_DREF sim/time/local_date_days >= 82\n"
+		result += "REGION_DREF sim/time/local_date_days <= 141\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_sh_winter\n"
+		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
+		result += "REGION_DREF sim/time/local_date_days >= 142\n"
+		result += "REGION_DREF sim/time/local_date_days <= 228\n"
+		result += "\n"
+		result += "REGION opensceneryx_nh_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_sh_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_nh_winter1\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_nh_winter2\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_sh_winter\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+
+	elif compatibility == "fourseasons":
+		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF nm/four_seasons/season == 10\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF nm/four_seasons/season == 30\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF nm/four_seasons/season >= 40\n"
+		result += "\n"
+		result += "REGION opensceneryx_spring\n"
+		result += "\n"
+		result += content["spring"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_winter\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+
+	elif compatibility == "terramaxx":
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF maxxxp/seasonsxp/is_autumn == 1\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF maxxxp/seasonsxp/is_winter == 1\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF maxxxp/seasonsxp/is_mid_winter == 1\n"
+		result += "\n"
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_winter\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION opensceneryx_winter_deep\n"
+		result += "\n"
+		result += content["winter_deep"] + "\n"
+		result += "\n"
 
 	return result
 

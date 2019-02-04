@@ -69,8 +69,14 @@ try:
 
 		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
+
+		# Temporary library fragments
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
+		librarySeasonFileHandles = {}
+		for season in classes.Configuration.seasons:
+			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
+
 		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/static_aircraft_extend.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
@@ -209,7 +215,7 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -276,6 +282,32 @@ try:
 		libraryExternalFileHandle.close()
 		libraryDeprecatedFileHandle.close()
 		libraryExtendedSAFileHandle.close()
+
+		# Create seasonal optionals
+		seasonalLibraryContent = {}
+
+		os.makedirs(classes.Configuration.osxFolder + "/shared_textures/regions/")
+		shutil.copyfile("files/shared_textures/regions/northern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/northern_hemisphere.png")
+		shutil.copyfile("files/shared_textures/regions/southern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/southern_hemisphere.png")
+
+		for season, librarySeasonFileHandle in librarySeasonFileHandles.items():
+			librarySeasonFileHandle.close()
+			file = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "r")
+			seasonalLibraryContent[season] = file.read()
+			file.close()
+			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
+
+		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/optional/seasonal_xplane.txt", "w")
+		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
+		seasonalXPlaneFile.close()
+
+		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/optional/seasonal_fourseasons.txt", "w")
+		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
+		seasonalFourSeasonsFile.close()
+
+		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/optional/seasonal_terramaxx.txt", "w")
+		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
+		seasonalTerraMaxxFile.close()
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
