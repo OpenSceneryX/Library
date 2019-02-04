@@ -142,9 +142,12 @@ class SceneryObject(object):
 		self.modificationDate = None
 
 
-	def getFilePath(self):
-		""" Get the full file path to this SceneryObject """
-		return os.path.join(self.filePathRoot, self.fileName)
+	def getFilePath(self, fileName = None):
+		""" Get the full file path to this SceneryObject, can override filename to get e.g. seasonal variants """
+		if fileName:
+			return os.path.join(self.filePathRoot, fileName)
+		else:
+			return os.path.join(self.filePathRoot, self.fileName)
 
 	def getDocumentationFileName(self):
 		""" Get the filename of this SceneryObject's documentation file """

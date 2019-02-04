@@ -94,7 +94,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -107,26 +107,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, authors, textures, toc, latest)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
 
 
 
@@ -143,7 +143,7 @@ def handleCategory(dirpath, currentCategory):
 
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 
 	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
@@ -165,11 +165,13 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "object_" + season + ".obj"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -291,6 +293,10 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -305,7 +311,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	global v8TexturePattern
@@ -327,11 +333,13 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "facade_" + season + ".fac"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -404,6 +412,10 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -418,7 +430,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 
 	global v8TexturePattern
@@ -440,11 +452,13 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "forest_" + season + ".for"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -512,6 +526,10 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -526,7 +544,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
 
 	global v8TexturePattern
@@ -548,11 +566,13 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "line_" + season + ".lin"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -625,6 +645,10 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -639,7 +663,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, currentCategory, authors, textures, toc, latest):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
 
 	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
@@ -661,11 +685,13 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
+	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "polygon_" + season + ".pol"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
+			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -789,6 +815,10 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+		for season in classes.Configuration.seasons:
+			if season in objectSeasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season])
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
