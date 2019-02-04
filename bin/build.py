@@ -283,8 +283,31 @@ try:
 		libraryDeprecatedFileHandle.close()
 		libraryExtendedSAFileHandle.close()
 
+		# Create seasonal optionals
+		seasonalLibraryContent = {}
+
+		os.makedirs(classes.Configuration.osxFolder + "/shared_textures/regions/")
+		shutil.copyfile("files/shared_textures/regions/northern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/northern_hemisphere.png")
+		shutil.copyfile("files/shared_textures/regions/southern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/southern_hemisphere.png")
+
 		for season, librarySeasonFileHandle in librarySeasonFileHandles.items():
 			librarySeasonFileHandle.close()
+			file = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "r")
+			seasonalLibraryContent[season] = file.read()
+			file.close()
+			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
+
+		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/optional/seasonal_xplane.txt", "w")
+		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
+		seasonalXPlaneFile.close()
+
+		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/optional/seasonal_fourseasons.txt", "w")
+		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
+		seasonalFourSeasonsFile.close()
+
+		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/optional/seasonal_terramaxx.txt", "w")
+		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
+		seasonalTerraMaxxFile.close()
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
