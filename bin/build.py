@@ -298,14 +298,17 @@ try:
 			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
 
 		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/optional/seasonal_xplane.txt", "w")
+		seasonalXPlaneFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for core X-Plane"))
 		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
 		seasonalXPlaneFile.close()
 
 		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/optional/seasonal_fourseasons.txt", "w")
+		seasonalFourSeasonsFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for Four Seasons plugin"))
 		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
 		seasonalFourSeasonsFile.close()
 
 		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/optional/seasonal_terramaxx.txt", "w")
+		seasonalTerraMaxxFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for TerraMaxx plugin"))
 		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
 		seasonalTerraMaxxFile.close()
 

@@ -279,7 +279,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest, objectSeasonPaths): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -398,7 +398,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest, objectSeasonPaths): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -512,7 +512,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				break
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest, objectSeasonPaths): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -631,7 +631,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest, objectSeasonPaths): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -801,7 +801,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest, objectSeasonPaths): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -895,7 +895,7 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 
 
 
-def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest, objectSeasonPaths):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 
 	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
@@ -1066,6 +1066,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
 		websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
 		websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
+
+	# Mark as seasonal
+	if len(objectSeasonPaths) > 0:
+		websiteInfoFileContents = "Seasonal: True\n" + websiteInfoFileContents
 
 	# Copy the info file to the website folder
 	#shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
