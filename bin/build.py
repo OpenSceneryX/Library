@@ -285,8 +285,8 @@ try:
 
 		# Create seasonal optionals
 		seasonalLibraryContent = {}
-
-		os.makedirs(classes.Configuration.osxFolder + "/shared_textures/regions/")
+		if not os.path.isdir(classes.Configuration.osxFolder + "/shared_textures/regions/"):
+			os.makedirs(classes.Configuration.osxFolder + "/shared_textures/regions/")
 		shutil.copyfile("files/shared_textures/regions/northern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/northern_hemisphere.png")
 		shutil.copyfile("files/shared_textures/regions/southern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/southern_hemisphere.png")
 
