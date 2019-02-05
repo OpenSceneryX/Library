@@ -296,7 +296,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		for season in classes.Configuration.seasons:
 			if season in objectSeasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -415,7 +415,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		for season in classes.Configuration.seasons:
 			if season in objectSeasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -529,7 +529,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		for season in classes.Configuration.seasons:
 			if season in objectSeasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -648,7 +648,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		for season in classes.Configuration.seasons:
 			if season in objectSeasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -818,7 +818,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		for season in classes.Configuration.seasons:
 			if season in objectSeasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
