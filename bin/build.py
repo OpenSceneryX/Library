@@ -71,7 +71,7 @@ try:
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
-		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/static_aircraft_extend.txt", "w")
+		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/extend_static_aircraft.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
