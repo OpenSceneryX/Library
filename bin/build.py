@@ -77,7 +77,7 @@ try:
 		for season in classes.Configuration.seasons:
 			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
 
-		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/static_aircraft_extend.txt", "w")
+		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/extend_static_aircraft.txt", "w")
 		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
