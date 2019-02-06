@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../../../../shared_textures/flyagi/Shrubs_01_winter_deep.png
+TEXTURE ../../../../shared_textures/flyagi/winter_deep/Shrubs_01.png
 
 LOD 1000
 
