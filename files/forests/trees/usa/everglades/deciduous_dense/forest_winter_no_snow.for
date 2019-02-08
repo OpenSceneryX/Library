@@ -1,0 +1,39 @@
+A
+800
+FOREST
+
+TEXTURE ../../../../../shared_textures/andras_fabian/winter_no_snow/USA_trees_East.png
+
+LOD 15000.000000
+
+SCALE_X 1024
+SCALE_Y 1024
+
+SPACING 22.0 22.0
+RANDOM 7.0 7.0
+
+#	low-left	tex size	center	percent	--height--
+# tree	s	t	w	y	offset	occur	min	max	quads	type	name
+#------------------------------------------------------------------------------------------
+TREE	240	640	118	128	59	7	22	30	2	0	ACERred
+TREE	7	512	112	127	56	8	16	22	2	0	CELTISberry
+TREE	701	513	148	113	75	2	17	23	2	0	QUERCbur
+TREE	847	640	174	113	87	3	16	21	2	0	QUERClive_w
+TREE	640	256	105	128	47	2	26	31	2	0	EUCAL_w
+TREE	918	864	107	96	55	10	10	14	2	0	FICUSelast
+TREE	452	0	88	128	44	8	17	22	2	0	LIQUIsweet
+TREE	628	384	76	128	40	4	32	38	2	0	CARYAhickor_l
+TREE	707	384	96	128	48	2	32	38	2	0	PLATANsycam
+TREE	763	864	154	97	86	2	15	18	2	0	BANYAN_w
+TREE	515	864	72	96	37	5	16	20	2	0	NYSSAblack
+TREE	380	0	67	128	33	5	15	19	2	0	TAXObaldcypr
+TREE	925	768	54	96	27	6	6	12	2	0	PALMsabal_m
+TREE	629	960	57	64	26	4	5	7	2	0	PALM_s
+TREE	321	896	62	55	33	5	4	6	2	0	SHRUBtrop1
+TREE	385	896	56	53	28	3	4	6	2	0	SHRUBtrop2
+TREE	444	896	68	62	36	4	5	7	2	0	FERNtree
+TREE	1	768	120	94	61	12	14	22	2	0	TROPICleaf_m
+TREE	750	256	66	127	33	4	20	26	2	0	TROPIC3_m
+TREE	802	128	84	126	51	4	24	30	2	0	TROPIC4_m
+
+SKIP_SURFACE water
