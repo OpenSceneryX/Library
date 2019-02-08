@@ -1251,6 +1251,8 @@ def getSeasonalLibraryContent(compatibility, content):
 
 	# Note there are no 'Summer' regions. This is because we consider the default objects in OpenScenery X to be summer.
 	if compatibility == "xplane":
+		# For standard X-Plane, we do not use snow covered textures in winter as it is unlikely the ground textures will be snow covered unless the user
+		# has manually swapped them
 		result += "REGION_DEFINE opensceneryx_nh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 60\n"
@@ -1273,6 +1275,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION opensceneryx_nh_winter1\n"
 		result += "\n"
 		result += content["winter"] + "\n"
+		result += content["winter_no_snow"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_nh_winter2\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
@@ -1280,6 +1283,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION opensceneryx_nh_winter2\n"
 		result += "\n"
 		result += content["winter"] + "\n"
+		result += content["winter_no_snow"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_sh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
@@ -1304,9 +1308,11 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION opensceneryx_sh_winter\n"
 		result += "\n"
 		result += content["winter"] + "\n"
+		result += content["winter_no_snow"] + "\n"
 		result += "\n"
 
 	elif compatibility == "fourseasons":
+		# Four Seasons always has snow covered winter textures, across both standard and deep winter
 		result += "REGION_DEFINE opensceneryx_spring\n"
 		result += "REGION_ALL\n"
 		result += "REGION_DREF nm/four_seasons/season == 10\n"
@@ -1327,17 +1333,20 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION opensceneryx_winter\n"
 		result += "\n"
 		result += content["winter"] + "\n"
+		result += content["winter_snow"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_deep\n"
 		result += "REGION_ALL\n"
 		result += "REGION_DREF nm/four_seasons/season >= 45\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter_deep"] + "\n"
+		result += content["winter"] + "\n"
+		result += content["winter_deep_snow"] + "\n"
 		result += "\n"
 
 
 	elif compatibility == "terramaxx":
+		# TerraMaxx always has snow covered winter textures, across both standard and deep winter
 		result += "REGION_DEFINE opensceneryx_autumn\n"
 		result += "REGION_ALL\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_autumn == 1\n"
@@ -1351,13 +1360,15 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION opensceneryx_winter\n"
 		result += "\n"
 		result += content["winter"] + "\n"
+		result += content["winter_snow"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_deep\n"
 		result += "REGION_ALL\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_mid_winter == 1\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter_deep"] + "\n"
+		result += content["winter"] + "\n"
+		result += content["winter_deep_snow"] + "\n"
 		result += "\n"
 
 	# Always end with an all-encompassing region

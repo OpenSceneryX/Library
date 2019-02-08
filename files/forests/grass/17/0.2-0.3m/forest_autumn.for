@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../../../shared_textures/flyagi/autumn/Grass_dry06.png
+TEXTURE ../../../../shared_textures/flyagi/autumn/Grass_dry06.png
 
 LOD 1000
 
