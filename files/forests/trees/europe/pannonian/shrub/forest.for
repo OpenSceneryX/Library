@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../../../Euro_trees.png
+TEXTURE ../../../../../shared_textures/andras_fabian/Euro_trees.png
 
 LOD 15000.000000
 
