@@ -2,11 +2,11 @@ A
 800
 FOREST
 
-TEXTURE ../../../shared_textures/flyagi/Grass_dry02.png
+TEXTURE ../../../../shared_textures/flyagi/Grass_dry02.png
 
 LOD 1000
 
-SCALE_X 1024				
+SCALE_X 1024
 SCALE_Y 1024
 
 SPACING 0.5 0.5

@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../../../USA_trees_East.png
+TEXTURE ../../../../../shared_textures/andras_fabian/USA_trees_East.png
 
 LOD 15000.000000
 

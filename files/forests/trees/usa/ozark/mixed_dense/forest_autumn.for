@@ -1,0 +1,39 @@
+A
+800
+FOREST
+
+TEXTURE ../../../../../shared_textures/andras_fabian/autumn/USA_trees_East.png
+
+LOD 15000.000000
+
+SCALE_X 1024
+SCALE_Y 1024
+
+SPACING 17.0 17.0
+RANDOM 5.0 5.0
+
+#	low-left	tex size	center	percent	--height--
+# tree	s	t	w	y	offset	occur	min	max	quads	type	name
+#------------------------------------------------------------------------------------------
+TREE	469	512	116	128	58	6	22	28	2	0	QUERCwhite2_w
+TREE	129	384	127	128	64	8	19	24	2	0	QUERCred
+TREE	123	512	106	128	53	9	24	30	2	0	ULMUSameri
+TREE	482	640	99	128	49	6	24	30	2	0	FAGUSameri_m
+TREE	804	384	94	128	45	8	26	32	2	0	CARYAhickor_m
+TREE	240	512	93	128	46	4	26	33	2	0	POPULcotton
+TREE	520	384	104	128	52	3	26	32	2	0	TILIAbass
+TREE	430	256	64	128	32	5	16	24	2	0	BETULAyello_l
+TREE	559	256	76	127	38	4	20	26	2	0	BETULApaper_l
+TREE	609	0	64	128	33	3	19	25	2	0	BETULAsilver_l
+TREE	586	960	41	64	20	2	10	12	2	0	DECID_s
+TREE	196	0	58	128	29	7	17	22	2	0	ABIESbalsam
+TREE	34	0	43	128	21	4	20	28	2	0	ABIESred_ml
+TREE	78	0	39	128	19	8	28	35	2	0	ABIESred_l
+TREE	54	128	56	128	28	8	27	34	2	0	PINUSewhite_l
+TREE	542	0	64	128	32	3	16	22	2	0	TSUGAhemlock
+TREE	112	128	57	128	28	5	16	20	2	0	PINUSvirgin
+TREE	34	896	38	64	19	2	9	15	2	0	PINUS_s
+TREE	798	768	62	96	31	3	13	18	2	0	JUNIPered2
+TREE	861	768	63	96	31	2	6	11	2	0	JUNIPered3
+
+SKIP_SURFACE water

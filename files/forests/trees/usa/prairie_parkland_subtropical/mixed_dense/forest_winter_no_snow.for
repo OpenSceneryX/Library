@@ -1,0 +1,39 @@
+A
+800
+FOREST
+
+TEXTURE ../../../../../shared_textures/andras_fabian/winter_no_snow/USA_trees_East.png
+
+LOD 15000.000000
+
+SCALE_X 1024
+SCALE_Y 1024
+
+SPACING 17.0 17.0
+RANDOM 5.0 5.0
+
+#	low-left	tex size	center	percent	--height--
+# tree	s	t	w	y	offset	occur	min	max	quads	type	name
+#------------------------------------------------------------------------------------------
+TREE	342	512	120	128	60	2	22	26	2	0	QUERCwhite1
+TREE	469	512	116	128	58	3	22	28	2	0	QUERCwhite2_w
+TREE	129	384	127	128	64	8	19	24	2	0	QUERCred
+TREE	452	0	88	128	44	6	17	22	2	0	LIQUIsweet
+TREE	240	640	118	128	59	5	22	30	2	0	ACERred
+TREE	482	640	99	128	49	2	24	30	2	0	FAGUSameri_m
+TREE	804	384	94	128	45	5	21	28	2	0	CARYAhickor_s
+TREE	257	384	127	128	64	7	16	24	2	0	QUERCblack
+TREE	590	864	96	97	47	5	8	12	2	0	BUSHdeci2_lw
+TREE	516	128	70	128	35	16	21	27	2	0	PINUSloblolly
+TREE	342	128	60	128	30	3	18	24	2	0	PINUSspec2
+TREE	405	128	45	128	22	9	24	30	2	0	PINUSshort
+TREE	112	128	57	128	28	5	16	20	2	0	PINUSvirgin
+TREE	352	768	94	95	47	5	7	10	2	0	PINUSdry_m
+TREE	34	896	38	64	19	2	9	15	2	0	PINUS_s
+TREE	98	256	120	128	55	4	18	24	2	0	PINUSmed2
+TREE	798	768	62	96	31	2	13	18	2	0	JUNIPered2
+TREE	861	768	63	96	31	4	6	11	2	0	JUNIPered3
+TREE	448	768	115	96	57	3	9	14	2	0	CUPRESspec_w
+TREE	2	864	60	32	30	4	4	6	2	0	SHRUBconi
+
+SKIP_SURFACE water
