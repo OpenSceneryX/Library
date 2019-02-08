@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		../../../../../shared_textures/flyagi/autumn/Forests_01.png
+TEXTURE ../../../../../shared_textures/flyagi/autumn/Forests_01.png
 GLOBAL_tint 0.3   0.0
 GLOBAL_no_blend 0.500000
 
