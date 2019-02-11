@@ -67,8 +67,15 @@ try:
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
 
-		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
+		# We build a full library and a partial (no header). If everyone used the installer, we could just
+		# build the partial and the installer would construct the full library based on user options.
+		# However, the library is also available as a big zip file which must be 'ready to go' - hence
+		# the full library
+		libraryFullFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
+		libraryPartialFileHandle = open(classes.Configuration.osxFolder + "/partials/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
+		libraryHeaderFileHandle = open(classes.Configuration.osxFolder + "/partials/header.txt", "w")
+		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/partials/extend_static_aircraft.txt", "w")
 
 		# Temporary library fragments
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
@@ -77,9 +84,11 @@ try:
 		for season in classes.Configuration.seasons:
 			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
 
-		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/extend_static_aircraft.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
+
+		libraryFullFileHandle.write(functions.getLibraryHeader(versionTag))
+		libraryPartialFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Main Library"))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
+		libraryHeaderFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		libraryExtendedSAFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane static aircraft"))
@@ -215,7 +224,7 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -283,7 +292,7 @@ try:
 		libraryDeprecatedFileHandle.close()
 		libraryExtendedSAFileHandle.close()
 
-		# Create seasonal optionals
+		# Create seasonal partials
 		seasonalLibraryContent = {}
 		if not os.path.isdir(classes.Configuration.osxFolder + "/shared_textures/regions/"):
 			os.makedirs(classes.Configuration.osxFolder + "/shared_textures/regions/")
@@ -297,17 +306,17 @@ try:
 			file.close()
 			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
 
-		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/optional/seasonal_xplane.txt", "w")
+		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xplane.txt", "w")
 		seasonalXPlaneFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for core X-Plane"))
 		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
 		seasonalXPlaneFile.close()
 
-		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/optional/seasonal_fourseasons.txt", "w")
+		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/partials/seasonal_fourseasons.txt", "w")
 		seasonalFourSeasonsFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for Four Seasons plugin"))
 		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
 		seasonalFourSeasonsFile.close()
 
-		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/optional/seasonal_terramaxx.txt", "w")
+		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/partials/seasonal_terramaxx.txt", "w")
 		seasonalTerraMaxxFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for TerraMaxx plugin"))
 		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
 		seasonalTerraMaxxFile.close()
@@ -315,22 +324,30 @@ try:
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
 		fileContents = file.read()
-		libraryFileHandle.write(fileContents)
+		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
 
 		# Append the 3rd party paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
 		fileContents = file.read()
-		libraryFileHandle.write(fileContents)
+		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
 		# Copy any third party files
 		functions.copyThirdParty()
 
-		libraryFileHandle.close()
+		# Write the full contents of the partial library into the full library
+		libraryPartialFileHandle.close()
+		file = open(classes.Configuration.osxFolder + "/partials/library.txt", "r")
+		fileContents = file.read()
+		file.close()
+		libraryFullFileHandle.write(fileContents)
+
+		libraryFullFileHandle.close()
 		libraryPlaceholderFileHandle.close()
+		libraryHeaderFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
