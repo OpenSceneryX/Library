@@ -1381,10 +1381,10 @@ def getSeasonalLibraryContent(compatibility, content):
 
 
 def copyThirdParty():
-	""" Copy the thirdparty folder into the optional folder """
+	""" Copy the thirdparty folder into the partials folder """
 
 	sourcePath = os.path.join(classes.Configuration.supportFolder, "thirdparty")
-	destPath = os.path.join(classes.Configuration.osxFolder,  "optional")
+	destPath = os.path.join(classes.Configuration.osxFolder,  "partials")
 	contents = os.listdir(sourcePath)
 
 	for item in contents:
