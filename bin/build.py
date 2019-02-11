@@ -67,8 +67,14 @@ try:
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating library.txt\n")
 
-		libraryFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
+		# We build a full library and a partial (no header). If everyone used the installer, we could just
+		# build the partial and the installer would construct the full library based on user options.
+		# However, the library is also available as a big zip file which must be 'ready to go' - hence
+		# the full library
+		libraryFullFileHandle = open(classes.Configuration.osxFolder + "/library.txt", "w")
+		libraryPartialFileHandle = open(classes.Configuration.osxFolder + "/optional/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
+		libraryHeaderFileHandle = open(classes.Configuration.osxFolder + "/optional/header.txt", "w")
 
 		# Temporary library fragments
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
@@ -78,8 +84,9 @@ try:
 			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
 
 		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/optional/extend_static_aircraft.txt", "w")
-		libraryFileHandle.write(functions.getLibraryHeader(versionTag))
+		libraryFullFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
+		libraryHeaderFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
 		libraryExtendedSAFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane static aircraft"))
@@ -215,7 +222,7 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -315,22 +322,30 @@ try:
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
 		fileContents = file.read()
-		libraryFileHandle.write(fileContents)
+		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
 
 		# Append the 3rd party paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
 		fileContents = file.read()
-		libraryFileHandle.write(fileContents)
+		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
 		# Copy any third party files
 		functions.copyThirdParty()
 
-		libraryFileHandle.close()
+		# Write the full contents of the partial library into the full library
+		libraryPartialFileHandle.close()
+		file = open(classes.Configuration.osxFolder + "/optional/library.txt", "r")
+		fileContents = file.read()
+		file.close()
+		libraryFullFileHandle.write(fileContents)
+
+		libraryFullFileHandle.close()
 		libraryPlaceholderFileHandle.close()
+		libraryHeaderFileHandle.close()
 		sitemapXMLFileHandle.close()
 		jsVersionInfoFileHandle.close()
 		jsDeveloperVersionInfoFileHandle.close()
