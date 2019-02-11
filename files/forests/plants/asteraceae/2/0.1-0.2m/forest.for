@@ -2,11 +2,11 @@ A
 800
 FOREST
 
-TEXTURE ../../../../shared_textures/flyagi/Flowers_01.png
+TEXTURE ../../../../../shared_textures/flyagi/Flowers_01.png
 
 LOD 1000
 
-SCALE_X 2048				
+SCALE_X 2048
 SCALE_Y 2048
 
 SPACING 1.0 1.0

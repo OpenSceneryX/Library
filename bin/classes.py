@@ -41,6 +41,7 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
+		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow']
 
 	def makeFolders(self):
 		""" Create any folders that need creating """
@@ -56,8 +57,8 @@ class Configuration(object):
 			os.makedirs(self.osxFolder + "/placeholders/visible")
 		if not os.path.isdir(self.osxFolder + "/opensceneryx"):
 			os.makedirs(self.osxFolder + "/opensceneryx")
-		if not os.path.isdir(self.osxFolder + "/optional"):
-			os.makedirs(self.osxFolder + "/optional")
+		if not os.path.isdir(self.osxFolder + "/partials"):
+			os.makedirs(self.osxFolder + "/partials")
 		if not os.path.isdir(self.osxDeveloperPackFolder):
 			os.mkdir(self.osxDeveloperPackFolder)
 		if not os.path.isdir(self.osxDeveloperPackFolder + "/doc"):
@@ -141,9 +142,12 @@ class SceneryObject(object):
 		self.modificationDate = None
 
 
-	def getFilePath(self):
-		""" Get the full file path to this SceneryObject """
-		return os.path.join(self.filePathRoot, self.fileName)
+	def getFilePath(self, fileName = None):
+		""" Get the full file path to this SceneryObject, can override filename to get e.g. seasonal variants """
+		if fileName:
+			return os.path.join(self.filePathRoot, fileName)
+		else:
+			return os.path.join(self.filePathRoot, self.fileName)
 
 	def getDocumentationFileName(self):
 		""" Get the filename of this SceneryObject's documentation file """
