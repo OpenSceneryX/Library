@@ -1,4 +1,4 @@
-# Backup Library Version: v2.1.0
+# Backup Library Version: v2.2.0
 # https://github.com/aussig/X-Plane-Backup-Library
 
 # 3D People Library
@@ -581,7 +581,7 @@ EXPORT_BACKUP BS2001_Objects/tr_sign_stop.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP BS2001_Objects/tr_sign_trlights.obj opensceneryx/placeholder.obj
 
 # CCVA Library
-# v1.9.0
+# v1.10.0
 # By Lars de Jonge
 # https://forums.x-plane.org/index.php?/files/file/42673-ccva022_object_library/
 
@@ -625,6 +625,8 @@ EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVARuralClinicAfrica/CCVARuralClinic
 EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAMedFac/CCVAMedFac.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVACargoGlassTerm/CCVACargoGlassTerm.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP CCVA022_Object_Library/Infra/CCVAATC/CCVAATC.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAMobileATC/CCVAMobileATC.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP CCVA022_Object_Library/Items/CCVAMobileATClow/CCVAMobileATClow.obj opensceneryx/placeholder.obj
 
 # CDB Library
 # v2.6
@@ -2727,10 +2729,13 @@ EXPORT_BACKUP cemetery/wood_cross.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP cemetery/marble_slab.obj opensceneryx/placeholder.obj
 
 # DT Library
-# v1.2
+# v1.3
 # By Darrell Thompson
 # https://forums.x-plane.org/index.php?/files/file/49646-dt-library/
 
+EXPORT_BACKUP DT_Library/Numbers/Large_White2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Numbers/Large_White2Dirty.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Numbers/Large_White2Dirty2.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP DT_Library/Numbers/White_0.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP DT_Library/Numbers/White_0Dirty1.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP DT_Library/Numbers/White_0Dirty2.pol opensceneryx/placeholder.pol
@@ -2933,6 +2938,29 @@ EXPORT_BACKUP DT_Library/Chevrons/YellowChevron3.pol opensceneryx/placeholder.po
 EXPORT_BACKUP DT_Library/Chevrons/YellowChevron3Dirty1.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP DT_Library/Chevrons/YellowChevron3Dirty2.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP DT_Library/Chevrons/YellowChevron3Dirty2Faded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/LWhite.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/LWhiteDirty.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/LWhiteDirty2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/LWhiteDirtyFaded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/RWhite.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/RWhiteDirty.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/RWhiteDirty2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Letters/RWhiteDirtyFaded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbWhite.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbWhiteDirty.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbWhiteDirty2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbWhiteDirtyFaded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbYellow1.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbYellow2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbYellow3.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXbYellow3Faded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXWhite.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXWhiteDirty.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXWhiteDirtyFaded.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXYellow1.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXYellow2.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXYellow3.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP DT_Library/Miscellaneous/ClosedXYellow3faded.pol opensceneryx/placeholder.pol
 
 # European Vehicles Library
 # v1.01
@@ -6312,7 +6340,7 @@ EXPORT_BACKUP gt_library/CoalsHot.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP gt_library/TilesPebble.pol opensceneryx/placeholder.pol
 
 # Handy Objects Library
-# v6.91
+# v7.0
 # By Scottish Wings
 # https://forums.x-plane.org/index.php?/files/file/24261-the-handy-objects-library/
 
@@ -6368,6 +6396,7 @@ EXPORT_BACKUP handyobjects/3Danimals/greylag_goose_III.obj opensceneryx/placehol
 EXPORT_BACKUP handyobjects/3Danimals/husky_lying.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/3Danimals/husky_running.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/3Danimals/husky_standing.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/3Danimals/brown_bear.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/flags/aberdeen_large_flag.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/flags/lion_rampant_large_flag.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/flags/shell_large_flag.obj opensceneryx/placeholder.obj
@@ -6686,6 +6715,7 @@ EXPORT_BACKUP handyobjects/storage/hold_all_black.obj opensceneryx/placeholder.o
 EXPORT_BACKUP handyobjects/storage/hold_all_blue.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/storage/hold_all_red.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/storage/hold_all_group.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/storage/fuel_tank.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/lighting/generator.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/lighting/generator_running.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/lighting/portable_light_tower_on.obj opensceneryx/placeholder.obj
@@ -7193,6 +7223,7 @@ EXPORT_BACKUP handyobjects/gatesandfences/white_brick_wall_II.obj opensceneryx/p
 EXPORT_BACKUP handyobjects/gatesandfences/metal_gate_with_cattle_grid_double.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/gatesandfences/triangular_gate.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/gatesandfences/triangular_gate_closed.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/gatesandfences/metal_gate_double_one_section.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/gatesandfences/0.10_x_0.10_post.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/gatesandfences/0.15_x_0.15_post.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/gatesandfences/0.10_x_0.10_post.str opensceneryx/placeholder.str
@@ -7385,6 +7416,8 @@ EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_trailer.obj opensceneryx/place
 EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_roller.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_snow_plough.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_grass_collector.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_with_grass_collector_and_operator_for_ground_routes.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/ride_on_mower_with_grass_collector_and_operator.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/segway.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tour_bus_lhd.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tour_bus_rhd.obj opensceneryx/placeholder.obj
@@ -7411,12 +7444,25 @@ EXPORT_BACKUP handyobjects/vehicles/atv_no_smoke.obj opensceneryx/placeholder.ob
 EXPORT_BACKUP handyobjects/vehicles/atv_bare_no_smoke.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/atv_no_rifle_no_smoke.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/atv_follow_me_no_smoke.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/ATV_follow_me_with_rider_for_ground_routes.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/ATV_Lower_Tow_Hook.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/atv_no_rifle_no_smoke_lower_tow_hook.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/atv_no_smoke_lower_tow_hook.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/atv_trailor.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/atv_trailor_tilted_backward.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/atv_trailor_tilted_forward.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/snow_mobile_red.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/snow_mobile_yellow.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tractor.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tractor_static.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tractor_with_roof.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/vehicles/tractor_with_roof_static.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/tractor_with_roof_for_ground_routes.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/articulated_lorry_and_white_box_trailor.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/articulated_lorry_tractor_unit.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/articulated_lorry_tractor_unit_static.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/articulated_lorry_trailor_black_Static.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/vehicles/articulated_lorry_trailor_blue_Static.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/portacabin.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/portacabin_dark_windows.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/portacabin_dark_windows_II.obj opensceneryx/placeholder.obj
@@ -7448,6 +7494,7 @@ EXPORT_BACKUP handyobjects/buildings/clubhouse_4.obj opensceneryx/placeholder.ob
 EXPORT_BACKUP handyobjects/buildings/clubhouse_5.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/clubhouse_6.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/clubhouse_7.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/clubhouse_8.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/hot_tub.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/the_garden_shed.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/the_garden_shed_double.obj opensceneryx/placeholder.obj
@@ -7502,6 +7549,7 @@ EXPORT_BACKUP handyobjects/buildings/glass_walkway.str opensceneryx/placeholder.
 EXPORT_BACKUP handyobjects/buildings/glass_walkway.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/lighthouse.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/lighthouse_II.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/lighthouse_III.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/lighthouse_with_helideck.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/lighthouse_with_helideck_no_rocks.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/lighthouse_with_helideck_II.obj opensceneryx/placeholder.obj
@@ -7574,12 +7622,19 @@ EXPORT_BACKUP handyobjects/buildings/reactor_dome_75m.obj opensceneryx/placehold
 EXPORT_BACKUP handyobjects/buildings/shed_7.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/shed_8_open.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/shed_8_closed.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/shed_9.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/warehouse_I.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/warehouse_II.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/security_office.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/visitor_centre.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/outhouse_closed.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/buildings/outhouse_open.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/outhouse_II.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/byre.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/byre_complete.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/farm_house.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/farm_house_complete.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/buildings/cottage.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/seaplane/sea_plane_dock.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/seaplane/sea_plane_dock_I.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/seaplane/sea_plane_dock_II.obj opensceneryx/placeholder.obj
@@ -7661,6 +7716,8 @@ EXPORT_BACKUP handyobjects/hangers/smhanger19.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/smhanger20.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/smhanger21.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/smhanger22.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/hangers/smhanger23.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/hangers/smhanger24.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/curved_green_hanger_14_x_20_closed.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/curved_green_hanger_14_x_20_closed_up_and_over.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/hangers/curved_green_hanger_14_x_20_no_front.obj opensceneryx/placeholder.obj
@@ -7719,7 +7776,8 @@ EXPORT_BACKUP handyobjects/helipads/helipad_marking_with_lights.obj opensceneryx
 EXPORT_BACKUP handyobjects/helipads/helipad_ground_square.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/helipads/hotspot_white_cross.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/helipads/hotspot_yellow.obj opensceneryx/placeholder.obj
-EXPORT_BACKUP handyobjects/helipads/helicopter_H.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/helipads/circular_contrete_helipad_raised.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/helipads/helipad.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/harbour/ferry_ramp_number_1.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/harbour/ferry_ramp_number_2.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/harbour/ferry_ramp_number_1_concrete_base.obj opensceneryx/placeholder.obj
@@ -7734,11 +7792,13 @@ EXPORT_BACKUP handyobjects/instruments/anemometer_no_base.obj opensceneryx/place
 EXPORT_BACKUP handyobjects/instruments/anemometer_with_weather_vane.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/anemometer_with_weather_vane_no_base.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/anemometer_II.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/instruments/anemometer_III.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/ariel_with_anemometer.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/radome.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/large_ground_radome.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/large_weather_vane.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/instruments/arial.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/instruments/radio_mast.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/floraandfauna/hanging_basket_2.0m.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/floraandfauna/hanging_basket_2.5m.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/floraandfauna/hanging_basket_3.0m.obj opensceneryx/placeholder.obj
@@ -7775,12 +7835,20 @@ EXPORT_BACKUP handyobjects/floraandfauna/poppy.for opensceneryx/placeholder.for
 EXPORT_BACKUP handyobjects/floraandfauna/fireweed_0.5m_spacing.for opensceneryx/placeholder.for
 EXPORT_BACKUP handyobjects/floraandfauna/fireweed_1.0m_spacing.for opensceneryx/placeholder.for
 EXPORT_BACKUP handyobjects/floraandfauna/bluebell.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/bush.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/bush_II.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/bush_III.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/bush_IV.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/bush_Tall.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/gorse.for opensceneryx/placeholder.for
+EXPORT_BACKUP handyobjects/floraandfauna/nettle.for opensceneryx/placeholder.for
 EXPORT_BACKUP handyobjects/groundtexutres/wheat_field_cut.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/groundtexutres/wheat_field.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/groundtexutres/ploughed_field.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/groundtexutres/grass_field.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/groundtexutres/grass_field_II.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/groundtexutres/chalk.pol opensceneryx/placeholder.pol
+EXPORT_BACKUP handyobjects/groundtexutres/rough_ground.pol opensceneryx/placeholder.pol
 EXPORT_BACKUP handyobjects/birds/pelican_I.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/birds/pelican_II.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/birds/pelican_III.obj opensceneryx/placeholder.obj
@@ -7809,6 +7877,7 @@ EXPORT_BACKUP handyobjects/sports/dugout_small_double.obj opensceneryx/placehold
 EXPORT_BACKUP handyobjects/sports/rugby_union_pitch.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/sports/softball_field.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/sports/softball_field_no_grass.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/sports/softball_field_snow.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/sports/tennis_court.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/sports/tennis_court_no_surround.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/sports/umpire_chair.obj opensceneryx/placeholder.obj
@@ -7995,6 +8064,8 @@ EXPORT_BACKUP handyobjects/signs/wet_floor_sign.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/signs/airfield_sign_1.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/signs/airfield_sign_2.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/signs/disabled_sign_ground.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/signs/fuel_sign_I.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/signs/fuel_sign_II.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/oilfield/life_boat.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/oilfield/life_raft_closed.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/oilfield/life_raft_open.obj opensceneryx/placeholder.obj
@@ -8011,6 +8082,27 @@ EXPORT_BACKUP handyobjects/oilfield/nui_mono_tower.obj opensceneryx/placeholder.
 EXPORT_BACKUP handyobjects/oilfield/nui_lite.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/oilfield/nui_spar.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/oilfield/remote_flare.obj opensceneryx/placeholder.obj
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_II.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_II_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_III.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_III_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_IV.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_IV_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_V.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_V_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_VI.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_path_VI_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road_II.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road_III.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road_IV.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road_V.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_road_VI.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_track.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/dirt_track_narrow.lin opensceneryx/placeholder.lin
+EXPORT_BACKUP handyobjects/pathsandroads/old_runway.lin opensceneryx/placeholder.lin
 EXPORT_BACKUP handyobjects/miscellaneous/fire_hydrant.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/fire_hydrant_with_barrier.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/fire_hydrant_yellow.obj opensceneryx/placeholder.obj
@@ -8275,6 +8367,7 @@ EXPORT_BACKUP handyobjects/miscellaneous/large_wind_turbine.obj opensceneryx/pla
 EXPORT_BACKUP handyobjects/miscellaneous/large_wind_turbine_yellow_base.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/helix_wind_turbine.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/helix_wind_turbine.str opensceneryx/placeholder.str
+EXPORT_BACKUP handyobjects/miscellaneous/offshore_wind_turbine_with_platform.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/fire_bucket.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/water_well_no_bucket.obj opensceneryx/placeholder.obj
 EXPORT_BACKUP handyobjects/miscellaneous/water_well_with_bucket.obj opensceneryx/placeholder.obj
