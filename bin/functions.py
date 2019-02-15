@@ -176,8 +176,9 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			displayMessage("S")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
-		# Copy the object file
-		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+		# Copy the object file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
 
 		# Open the object
 		file = open(objectSourcePath, "rU")
@@ -241,7 +242,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
 
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+					destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))
+					if not os.path.isfile(destinationFilePath): shutil.copyfile(textureFile, destinationFilePath)
 				else:
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
@@ -265,7 +267,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
 
-					shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+					destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))
+					if not os.path.isfile(destinationFilePath): shutil.copyfile(textureFile, destinationFilePath)
 				else:
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
@@ -344,8 +347,9 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			displayMessage("S")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
-		# Copy the facade file
-		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+		# Copy the facade file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
 
 		# Open the facade
 		file = open(objectSourcePath, "rU")
@@ -463,8 +467,9 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			displayMessage("S")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
-		# Copy the forest file
-		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+		# Copy the forest file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
 
 		# Open the object
 		file = open(objectSourcePath, "rU")
@@ -577,8 +582,9 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			displayMessage("S")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
-		# Copy the line file
-		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+		# Copy the line file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
 
 		# Open the line
 		file = open(objectSourcePath, "rU")
@@ -696,8 +702,9 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			displayMessage("S")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
-		# Copy the polygon file
-		shutil.copyfile(objectSourcePath, os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename))
+		# Copy the polygon file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
 
 		# Open the polygon
 		file = open(objectSourcePath, "rU")
@@ -879,7 +886,8 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 
 	if (sceneryObject.screenshotFilePath != ""):
-		shutil.copyfile(sceneryObject.screenshotFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg"))
+		destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg")
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(sceneryObject.screenshotFilePath, destinationFilePath)
 
 	# Copy the logo file.  Logos are used to 'brand' objects that are from a specific
 	# collection.  Therefore they are all stored in a single folder (in support) so they
@@ -889,7 +897,8 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 			displayMessage("\n" + objectSourcePath + "\n")
 			displayMessage("Logo file couldn't be found (" + sceneryObject.logoFileName + "), omitting\n", "warning")
 		else:
-			shutil.copyfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName), os.path.join(classes.Configuration.osxWebsiteFolder, "doc", sceneryObject.logoFileName))
+			destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, "doc", sceneryObject.logoFileName)
+			if not os.path.isfile(destinationFilePath): shutil.copyfile(os.path.join(classes.Configuration.supportFolder, "logos", sceneryObject.logoFileName), destinationFilePath)
 
 	return 1
 
@@ -1072,7 +1081,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		websiteInfoFileContents = "Seasonal: True\n" + websiteInfoFileContents
 
 	# Copy the info file to the website folder
-	#shutil.copyfile(sceneryObject.infoFilePath, os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"))
 	websiteInfoFile = open(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"), "w")
 	websiteInfoFile.write(websiteInfoFileContents)
 	websiteInfoFile.close()
@@ -1080,7 +1088,8 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	# Handle the tutorial if present
 	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
 		sceneryObject.tutorial = 1
-		shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf")
+		destinationFilePath = classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf"
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), destinationFilePath)
 
 	# Store in the latest if it was created for this version
 	if LooseVersion(sceneryObject.since) >= LooseVersion(classes.Configuration.sinceVersionTag):
