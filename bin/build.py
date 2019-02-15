@@ -321,6 +321,11 @@ try:
 		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
 		seasonalTerraMaxxFile.close()
 
+		seasonalXAmbienceFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xambience.txt", "w")
+		seasonalXAmbienceFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xAmbience plugin"))
+		seasonalXAmbienceFile.write(functions.getSeasonalLibraryContent("xambience", seasonalLibraryContent))
+		seasonalXAmbienceFile.close()
+
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
 		fileContents = file.read()

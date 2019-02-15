@@ -1344,7 +1344,6 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += content["winter_deep_snow"] + "\n"
 		result += "\n"
 
-
 	elif compatibility == "terramaxx":
 		# TerraMaxx always has snow covered winter textures, across both standard and deep winter
 		result += "REGION_DEFINE opensceneryx_autumn\n"
@@ -1369,6 +1368,31 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 		result += content["winter"] + "\n"
 		result += content["winter_deep_snow"] + "\n"
+		result += "\n"
+
+	elif compatibility == "xambience":
+		# xAmbience has snow covered winter textures, and no deep winter mode
+		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF xambience/custom/seasons/cur == 1\n"
+		result += "REGION opensceneryx_winter\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += content["winter_snow"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF xambience/custom/seasons/cur == 2\n"
+		result += "REGION opensceneryx_spring\n"
+		result += "\n"
+		result += content["spring"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_ALL\n"
+		result += "REGION_DREF xambience/custom/seasons/cur == 4\n"
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
 		result += "\n"
 
 	# Always end with an all-encompassing region
