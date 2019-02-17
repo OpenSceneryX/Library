@@ -1,0 +1,9 @@
+Title: Hold line, single, 1
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Hold/YellowSingleHold1
+Export Propagate: 3
+Since: 3.3.0
+=====================
+Description: A single hold line, variant 1.
