@@ -3,7 +3,6 @@ Title: Solid line, white on black, variant 1
 Author: Cormac Shaw
 URL: http://www.xpih.net
 Export: lines/airport/zone_outlines/white_on_black
-Width: 0.4m
 Export Deprecated v3.3.0: lines/solid_lines/white_on_black
 =====================
 Description: A white, painted line (20cm wide) with a black outline (40cm) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
