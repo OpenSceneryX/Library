@@ -53,11 +53,15 @@ v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 polygonNormalTexturePattern = re.compile("(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
-# Polygon patterns
+# Polygon amd Line patterns
 scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
 layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
+# Polygon patterns
 surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
-
+# Line patterns
+textureWidthPattern = re.compile("(?:TEX_WIDTH)\s+(.*)")
+linePattern = re.compile("(?:S_OFFSET)\s+(.*?)\s+(.*?)\s+(.*?)\s+(.*)")
+mirrorPattern = re.compile("(?:MIRROR)")
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
@@ -560,7 +564,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	displayMessage(".")
 
 	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
+	sceneryObject = classes.Line(parts[1], filename)
 
 	# Locate and check whether the support files exist
 	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
@@ -592,6 +596,10 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		file.close()
 
 		textureFound = 0
+		scaleFound = 0
+		layerGroupFound = 0
+		textureWidthFound = 0
+		mirrorFound = 0
 
 		for line in objectFileContents:
 			result = v8TexturePattern.match(line)
@@ -628,8 +636,35 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
 					return
 
-				# Break loop as soon as we find a texture, need look no further
-				break
+			result = linePattern.match(line)
+			if result:
+				sceneryObject.lines.append({"layer": int(result.group(1)), "left": int(result.group(2)), "middle": int(result.group(3)), "right": int(result.group(4))})
+
+			if not scaleFound:
+				result = scalePattern.match(line)
+				if result:
+					sceneryObject.scaleH = float(result.group(1))
+					sceneryObject.scaleV = float(result.group(2))
+					scaleFound = 1
+
+			if not layerGroupFound:
+				result = layerGroupPattern.match(line)
+				if result:
+					sceneryObject.layerGroupName = result.group(1)
+					sceneryObject.layerGroupOffset = result.group(2)
+					layerGroupFound = 1
+
+			if not textureWidthFound:
+				result = textureWidthPattern.match(line)
+				if result:
+					sceneryObject.textureWidth = int(result.group(1))
+					textureWidthFound = 1
+
+			if not mirrorFound:
+				result = mirrorPattern.match(line)
+				if result:
+					sceneryObject.mirror = True
+					mirrorFound = 1
 
 		if not textureFound:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -1070,11 +1105,19 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 	# Polygon-specific data
 	if isinstance(sceneryObject, classes.Polygon):
-		websiteInfoFileContents = "Texture Scale H: " + sceneryObject.scaleH + "\n" + websiteInfoFileContents
-		websiteInfoFileContents = "Texture Scale V: " + sceneryObject.scaleV + "\n" + websiteInfoFileContents
-		websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
-		websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
-		websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
+		if sceneryObject.scaleH != "": websiteInfoFileContents = "Texture Scale H: " + sceneryObject.scaleH + "\n" + websiteInfoFileContents
+		if sceneryObject.scaleV != "": websiteInfoFileContents = "Texture Scale V: " + sceneryObject.scaleV + "\n" + websiteInfoFileContents
+		if sceneryObject.layerGroupName != "": websiteInfoFileContents = "Layer Group: " + sceneryObject.layerGroupName + "\n" + websiteInfoFileContents
+		if sceneryObject.layerGroupOffset != "": websiteInfoFileContents = "Layer Offset: " + sceneryObject.layerGroupOffset + "\n" + websiteInfoFileContents
+		if sceneryObject.surfaceName != "": websiteInfoFileContents = "Surface Type: " + sceneryObject.surfaceName + "\n" + websiteInfoFileContents
+
+	# Line-specific data
+	if isinstance(sceneryObject, classes.Line):
+		if sceneryObject.layerGroupName != "": websiteInfoFileContents = "Layer Group: {}\n".format(sceneryObject.layerGroupName) + websiteInfoFileContents
+		if sceneryObject.layerGroupOffset != "": websiteInfoFileContents = "Layer Offset: {}\n".format(sceneryObject.layerGroupOffset) + websiteInfoFileContents
+		if sceneryObject.mirror: websiteInfoFileContents = "Mirror: True\n" + websiteInfoFileContents
+		lineWidth = sceneryObject.getLineWidth()
+		if lineWidth > 0: websiteInfoFileContents = "Line Width: {}\n".format(lineWidth) + websiteInfoFileContents
 
 	# Mark as seasonal
 	if len(objectSeasonPaths) > 0:
