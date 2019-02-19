@@ -211,6 +211,31 @@ class Polygon(SceneryObject):
 		self.layerGroupOffset = ""
 		self.surfaceName = ""
 
+#
+# Class to hold information about an X-Plane line
+#
+class Line(SceneryObject):
+	"""An X-Plane Line"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Line, self).__init__(filePathRoot, fileName)
+
+		self.lines = []
+		self.scaleH = ""
+		self.scaleV = ""
+		self.layerGroupName = ""
+		self.layerGroupOffset = ""
+		self.textureWidth = ""
+		self.mirror = False
+
+	def getLineWidth(self):
+		result = 0
+		if (self.scaleH != "" and self.textureWidth != "" and len(self.lines) > 0):
+			maxLineWidth = 0
+			for line in self.lines:
+				maxLineWidth = max(line["right"] - line["left"], maxLineWidth)
+			result = (self.scaleH / self.textureWidth) * maxLineWidth
+		return result
 
 #
 # Class to hold information about a category
