@@ -233,8 +233,10 @@ class Line(SceneryObject):
 		if (self.scaleH != "" and self.textureWidth != "" and len(self.lines) > 0):
 			maxLineWidth = 0
 			for line in self.lines:
+				# Each line definition is specified in virtual texture pixels as left, middle and right. We get the widest one.
 				maxLineWidth = max(line["right"] - line["left"], maxLineWidth)
-			result = (self.scaleH / self.textureWidth) * maxLineWidth
+			# scaleH is the width that the texture represents in meters, textureWidth is the number of virtual pixels in the texture.
+			result = round((self.scaleH / self.textureWidth) * maxLineWidth, 3)
 		return result
 
 #
