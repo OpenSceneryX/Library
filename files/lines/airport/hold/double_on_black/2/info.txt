@@ -1,9 +1,0 @@
-Title: Hold line, double on black, 2
-=====================
-Author: Darrell Thompson
-URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
-Export External DT_Library: DT_Library/Hold/YellowBlackHold2
-Export Propagate: 3
-Since: 3.3.0
-=====================
-Description: A double hold line on a black background, variant 2.

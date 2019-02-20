@@ -1,0 +1,15 @@
+A
+
+850
+
+LINE_PAINT
+
+LAYER_GROUP markings +1
+TEXTURE ../../../../shared_textures/darrell_thompson/Hold3.png
+TEXTURE_NORMAL 1 ../../../../shared_textures/darrell_thompson/Hold3NML.png
+TEX_WIDTH 4096
+LOD 10000
+SPECULAR 0.4
+SCALE 16 8
+
+S_OFFSET 0 2547 2620 2693

@@ -1,0 +1,9 @@
+Title: Hold line, double, narrow, 3
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Hold/YellowHoldNarrow3
+Export Propagate: 2
+Since: 3.3.0
+=====================
+Description: A narrow double hold line, variant 3.

@@ -2,7 +2,7 @@ Title: Solid line, yellow on black, variant 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export: lines/airport/zone_outlines/yellow_on_black
+Export Deprecated v3.3.0: lines/airport/zone_outlines/yellow_on_black
 Export Deprecated v3.3.0: lines/solid_lines/yellow_on_black
 =====================
 Description: A yellow, painted line (20cm wide) with a black outline (40cm) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.

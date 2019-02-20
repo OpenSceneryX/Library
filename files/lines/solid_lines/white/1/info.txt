@@ -2,7 +2,7 @@ Title: Solid line, white, variant 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export: lines/airport/zone_outlines/white
+Export Deprecated v3.3.0: lines/airport/zone_outlines/white
 Export Deprecated v3.3.0: lines/solid_lines/white
 =====================
 Description: A white, painted line (20cm wide) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
