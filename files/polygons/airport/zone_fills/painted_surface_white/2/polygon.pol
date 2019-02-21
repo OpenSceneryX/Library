@@ -4,12 +4,11 @@ A
 
 DRAPED_POLYGON
 
-LAYER_GROUP markings +1
+LAYER_GROUP markings +2	
 TEXTURE WhiteDarker.png
-TEXTURE_NORMAL 1 ../../../../../shared_textures/darrell_thompson/WhiteNML.png
 TEX_WIDTH is 1024
-SPECULAR 0.55
+SPECULAR 0.40
 MIRROR
-SCALE 2 8
+SCALE 2 8	
 
 S_OFFSET 0 10 318 502

@@ -4,13 +4,12 @@ A
 
 LINE_PAINT
 
-LAYER_GROUP markings +1
+LAYER_GROUP markings +1	
 TEXTURE ../../../../shared_textures/darrell_thompson/Lines7.png
-TEXTURE_NORMAL 1 ../../../../shared_textures/darrell_thompson/Lines7NML.png
-TEX_WIDTH 4096
-SPECULAR 0.45
+TEX_WIDTH 4096 
+SPECULAR 0.3
 LOD 10000
-SCALE 15 8
+SCALE 15 8		
 
 S_OFFSET 0 1078 1289 1498
 
