@@ -3,8 +3,7 @@ A
 DRAPED_POLYGON
 
 TEXTURE_NOWRAP RWhiteDirty2.png
-TEXTURE_NORMAL 1 ../../../../../../shared_textures/darrell_thompson/RDirtyNML.png
-SPECULAR 0.45
+SPECULAR 0.35
 SCALE 10 10
 LAYER_GROUP markings +1
 SURFACE asphalt
