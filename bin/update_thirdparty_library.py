@@ -81,8 +81,7 @@ try:
                 sourceFilePath = ".." + os.sep + "contributions" + os.sep + thirdPartyLibraryName + os.sep + match[1]
                 destinationFilePath = libraryFilesPath + os.sep + osxLookupDict[match[1]]
                 functions.displayMessage("Copying updated item {} to {}\n".format(match[1], osxLookupDict[match[1]]), "note")
-                # TODO: Enable this line
-                #shutil.copyfile(sourceFilePath, destinationFilePath)
+                shutil.copyfile(sourceFilePath, destinationFilePath)
             else:
                 functions.displayMessage("New item in this version: {}\n".format(match[1]), "warning")
 
