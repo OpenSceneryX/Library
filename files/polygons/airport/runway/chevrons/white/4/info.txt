@@ -1,0 +1,8 @@
+Title: Runway chevron marking, white, dirty, faded, variant 1
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Chevrons/WhiteChevronDirty2Fadedf
+Since: 3.3.0
+=====================
+Description: A dirty and faded white runway chevron marking, variant 1.

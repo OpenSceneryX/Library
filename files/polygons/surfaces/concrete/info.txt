@@ -1,6 +1,6 @@
-Title: Concrete surface
+Title: Surface, concrete
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 =====================
-Description: Concrete surface. 
+Description: A concrete surface.

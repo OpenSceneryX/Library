@@ -1,0 +1,8 @@
+Title: Runway closed 45º X, yellow
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Miscellaneous/ClosedXbYellow3
+Since: 3.3.0
+=====================
+Description: A yellow runway closed 'X' ground marking with X at 45º, variant 3.

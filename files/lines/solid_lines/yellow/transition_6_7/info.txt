@@ -1,0 +1,8 @@
+Title: Solid line, yellow, transition variant 6 to 7
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Lines/Yellow3faded2to3
+Since: 3.3.0
+=====================
+Description: A solid yellow line, fading from yellow line variant 6 to variant 7.

@@ -1,0 +1,8 @@
+Title: Runway closed 30º X, yellow
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Miscellaneous/ClosedXYellow2
+Since: 3.3.0
+=====================
+Description: A yellow runway closed 'X' ground marking with X at 30º, variant 2.

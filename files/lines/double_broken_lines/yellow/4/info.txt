@@ -1,0 +1,8 @@
+Title: Double Broken line, yellow, variant 4
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Lines/YellowDoubleBroken3Faded
+Since: 3.3.0
+=====================
+Description: A broken double yellow line, variant 4.
