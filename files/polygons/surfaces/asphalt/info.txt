@@ -1,6 +1,0 @@
-Title: Asphalt surface
-=====================
-Author: Sergio Català
-URL: http://forums.x-plane.org/index.php?showuser=146200
-=====================
-Description: Asphalt surface. 
