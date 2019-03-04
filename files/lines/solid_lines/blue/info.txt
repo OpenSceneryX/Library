@@ -2,7 +2,7 @@ Title: Solid line, blue
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/zone_outlines/blue
+Export Deprecated v4.0.0: lines/airport/zone_outlines/blue
 =====================
 Description: A blue, painted line (20cm wide) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
 

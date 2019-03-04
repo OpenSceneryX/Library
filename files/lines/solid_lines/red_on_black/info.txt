@@ -2,7 +2,7 @@ Title: Solid line, red with black outline
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/zone_outlines/red_on_black
+Export Deprecated v4.0.0: lines/airport/zone_outlines/red_on_black
 =====================
 Description: A red, painted line (20cm wide) with a black outline (40cm) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
 

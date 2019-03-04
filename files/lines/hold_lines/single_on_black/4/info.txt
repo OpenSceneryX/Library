@@ -4,6 +4,6 @@ Author: Darrell Thompson
 URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
 Export External DT_Library: DT_Library/Hold/YellowBlackSingleHoldNarrow1
 Export Propagate: 2
-Since: 3.3.0
+Since: 4.0.0
 =====================
 Description: A narrow single hold line on a black background, variant 1.

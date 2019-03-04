@@ -2,7 +2,7 @@ Title: Location Taxiway Sign Border
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/taxisign_parts/border_yellow
+Export Deprecated v4.0.0: lines/airport/taxisign_parts/border_yellow
 =====================
 Description: A yellow, painted line (10cm wide) to provide the yellow border for the black background of a ground taxiway location sign.
 
