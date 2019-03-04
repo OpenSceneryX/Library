@@ -29,9 +29,9 @@ Release Howto
 
     ENSURE 'y' is selected for 'Build PDF'
 
-7. Create a copy of the built OpenSceneryX-x.x.x folder, rename it to 'OpenSceneryX'
+7. Create a copy of the built `OpenSceneryX-x.x.x` folder, rename it to `OpenSceneryX`
 
-8. Zip this to create the monolithic zip file, and rename the zip to OpenSceneryX-x.x.x.zip:
+8. Zip this to create the monolithic zip file, and rename the zip to `OpenSceneryX-x.x.x.zip`:
 
     ```bash
     $ export COPYFILE_DISABLE=true
@@ -39,9 +39,9 @@ Release Howto
     $ mv OpenSceneryX.zip OpenSceneryX-x.x.x.zip
     ```
 
-9. Run Manifester on built OpenSceneryX-x.x.x folder and save manifest.xml
+9. Run Manifester on built `OpenSceneryX-x.x.x` folder and save `manifest.xml`
 
-10. Zip manifest.xml using the command line
+10. Zip `manifest.xml` using the command line
 
     ```bash
     $ zip manifest.xml.zip manifest.xml
@@ -53,16 +53,16 @@ Release Howto
     $ python package.py
     ```
 
-12. Zip OpenSceneryX-Website-x.x.x/ and OpenSceneryX-DeveloperPack-x.x.x/
+12. Zip `OpenSceneryX-Website-x.x.x/` and `OpenSceneryX-DeveloperPack-x.x.x/`
 
     ```bash
     $ zip -r OpenSceneryX-Website-x.x.x.zip OpenSceneryX-Website-x.x.x
     $ zip -r OpenSceneryX-DeveloperPack-x.x.x.zip OpenSceneryX-DeveloperPack-x.x.x
     ```
 
-13. Clear /new and /old on the server
+13. Clear `/new/` and `/old/` on the server
 
-14. Upload OpenSceneryX-Website-x.x.x.zip into /new/:
+14. Upload `OpenSceneryX-Website-x.x.x.zip` into `/new/`:
 
     ```bash
     $ scp OpenSceneryX-Website-x.x.x.zip <server>:/var/www/austin/new/
@@ -70,9 +70,9 @@ Release Howto
 
 15. Upload the following into AWS S3 Bucket:
 
-    - OpenSceneryX-DeveloperPack-x.x.x.zip
-    - Monolithic zip file 'OpenSceneryX-x.x.x.zip'
-    - manifest.xml.zip
+    - `OpenSceneryX-DeveloperPack-x.x.x.zip`
+    - Monolithic zip file `OpenSceneryX-x.x.x.zip`
+    - `manifest.xml.zip`
 
 16. Use AWS cli to sync the new repository:
 
@@ -83,12 +83,12 @@ Release Howto
 
 17. Ensure AWS S3 permissions on the following are public:
 
-    - OpenSceneryX-DeveloperPack-x.x.x.zip
-    - Monolithic zip file 'OpenSceneryX.zip'
-    - manifest.xml.zip
-    - /repository
+    - `OpenSceneryX-DeveloperPack-x.x.x.zip`
+    - Monolithic zip file `OpenSceneryX.zip`
+    - `manifest.xml.zip`
+    - `/repository`
 
-18. Extract website zip on site into /new/
+18. Extract website zip on site into `/new/`
 
     ```bash
     $ unzip OpenSceneryX-Website-x.x.x.zip
@@ -100,11 +100,11 @@ Release Howto
     $ mv wp/maintenance-disabled wp/.maintenance
     ```
 
-20. Move /doc/, /extras/, /facades/, /forests/, /lines/, /objects/, /polygons/, /library-sitemap.xml and robots.txt into /old/
+20. Move `/doc/`, `/extras/`, `/facades/`, `/forests/`, `/lines/`, `/objects/`, `/polygons/`, `/library-sitemap.xml` and `robots.txt` into `/old/`
 
-21. Move /new/OpenSceneryX-Website-x.x.x/* to /
+21. Move `/new/OpenSceneryX-Website-x.x.x/*` to `/`
 
-22. Ensure /versioninfo has the latest information about the installer in it.
+22. Ensure `/versioninfo` has the latest information about the installer in it.
 
 23. Correct ownership of folder structure
 
@@ -127,9 +127,9 @@ Release Howto
 
 26. Log into Cloudflare and clear all caches.
 
-27. Log in to Google Search Console and resubmit library-sitemap.xml
+27. Log in to Google Search Console and resubmit `library-sitemap.xml`
 
-28. Log in to Bing Webmaster tools and resubmit library-sitemap.xml
+28. Log in to Bing Webmaster tools and resubmit `library-sitemap.xml`
 
 29. Create new section in release note for next changes
 
@@ -139,9 +139,9 @@ Release Howto
     - Update first post in x-plane.org main OpenSceneryX thread
     - Post a new reply to the x-plane.org main OpenSceneryX thread
     - Create a new post in the x-plane.org 'News' forum
-    - Create a new post in the ThresholdX 'News by members' forum
-    - Post an article on the site
+    - Create a new post in the thresholdx.net 'News by members' forum
+    - Post an article on opensceneryx.com
     - Tweet
     - Reddit r/Xplane
 
-31. Drop library.txt into Backup Library
+31. Drop `library.txt` into Backup Library project
