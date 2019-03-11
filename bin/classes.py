@@ -282,7 +282,7 @@ class SceneryCategory(object):
 			file.close()
 
 			# define the regex patterns:
-			titlePattern = re.compile("Title:\s+(.*)")
+			titlePattern = re.compile(r"Title:\s+(.*)")
 
 			for line in fileContents:
 				result = titlePattern.match(line)
@@ -514,7 +514,7 @@ class OpenSceneryXPDF(TOC):
 		""" Custom header """
 
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
+		if (self.page_no() == 1): return
 
 		# Image
 		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "https://www.opensceneryx.com")
@@ -534,8 +534,8 @@ class OpenSceneryXPDF(TOC):
 		""" Custom footer """
 
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
-		if (self.in_toc == 1): return;
+		if (self.page_no() == 1): return
+		if (self.in_toc == 1): return
 
 		self.set_font("DejaVu", "B", 8)
 		self.set_y(-self.b_margin)

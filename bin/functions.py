@@ -27,49 +27,49 @@ except ImportError:
 	Image = None
 
 # Global regex patterns
-exportPattern = re.compile("Export:\s+(.*)")
-titlePattern = re.compile("Title:\s+(.*)")
-shortTitlePattern = re.compile("Short Title:\s+(.*)")
-authorPattern = re.compile("Author:\s+(.*)")
-textureAuthorPattern = re.compile("Author, texture:\s+(.*)")
-conversionAuthorPattern = re.compile("Author, conversion:\s+(.*)")
-modificationAuthorPattern = re.compile("Author, modifications:\s+(.*)")
-widthPattern = re.compile("Width:\s+(.*)")
-heightPattern = re.compile("Height:\s+(.*)")
-depthPattern = re.compile("Depth:\s+(.*)")
-descriptionPattern = re.compile("Description:\s+(.*)")
-excludePattern = re.compile("Exclude:\s+(.*)")
-animatedPattern = re.compile("Animated:\s+(.*)")
-exportPropagatePattern = re.compile("Export Propagate:\s+(.*)")
-exportDeprecatedPattern = re.compile("Export Deprecated v(.*):\s+(.*)")
-exportExternalPattern = re.compile("Export External (.*):\s+(.*)")
-exportExtendedPattern = re.compile("Export Extended:\s+(.*)")
-logoPattern = re.compile("Logo:\s+(.*)")
-notePattern = re.compile("Note:\s+(.*)")
-sincePattern = re.compile("Since:\s+(.*)")
+exportPattern = re.compile(r"Export:\s+(.*)")
+titlePattern = re.compile(r"Title:\s+(.*)")
+shortTitlePattern = re.compile(r"Short Title:\s+(.*)")
+authorPattern = re.compile(r"Author:\s+(.*)")
+textureAuthorPattern = re.compile(r"Author, texture:\s+(.*)")
+conversionAuthorPattern = re.compile(r"Author, conversion:\s+(.*)")
+modificationAuthorPattern = re.compile(r"Author, modifications:\s+(.*)")
+widthPattern = re.compile(r"Width:\s+(.*)")
+heightPattern = re.compile(r"Height:\s+(.*)")
+depthPattern = re.compile(r"Depth:\s+(.*)")
+descriptionPattern = re.compile(r"Description:\s+(.*)")
+excludePattern = re.compile(r"Exclude:\s+(.*)")
+animatedPattern = re.compile(r"Animated:\s+(.*)")
+exportPropagatePattern = re.compile(r"Export Propagate:\s+(.*)")
+exportDeprecatedPattern = re.compile(r"Export Deprecated v(.*):\s+(.*)")
+exportExternalPattern = re.compile(r"Export External (.*):\s+(.*)")
+exportExtendedPattern = re.compile(r"Export Extended:\s+(.*)")
+logoPattern = re.compile(r"Logo:\s+(.*)")
+notePattern = re.compile(r"Note:\s+(.*)")
+sincePattern = re.compile(r"Since:\s+(.*)")
 # Texture patterns
-v8TexturePattern = re.compile("TEXTURE\s+(.*)")
-v8LitTexturePattern = re.compile("TEXTURE_LIT\s+(.*)")
-v9NormalTexturePattern = re.compile("TEXTURE_NORMAL\s+(.*)")
-v8PolygonTexturePattern = re.compile("(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-polygonNormalTexturePattern = re.compile("(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
+v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
+v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
+v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
+v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
+polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
 # Polygon patterns
-surfacePattern = re.compile("(?:SURFACE)\s+(.*)")
+surfacePattern = re.compile(r"(?:SURFACE)\s+(.*)")
 # Line patterns
-textureWidthPattern = re.compile("(?:TEX_WIDTH)\s+(.*)")
-linePattern = re.compile("(?:S_OFFSET)\s+(.*?)\s+(.*?)\s+(.*?)\s+(.*)")
-mirrorPattern = re.compile("(?:MIRROR)")
+textureWidthPattern = re.compile(r"(?:TEX_WIDTH)\s+(.*)")
+linePattern = re.compile(r"(?:S_OFFSET)\s+(.*?)\s+(.*?)\s+(.*?)\s+(.*)")
+mirrorPattern = re.compile(r"(?:MIRROR)")
 # Forest patterns
-spacingPattern = re.compile("(?:SPACING)\s+(.*?)\s+(.*)")
-randomPattern = re.compile("(?:RANDOM)\s+(.*?)\s+(.*)")
-skipSurfacePattern = re.compile("(?:SKIP_SURFACE)\s+(.*)")
-groupPattern = re.compile("(?:GROUP)")
-perlinPattern = re.compile("(?:DENSITY_PARAMS|CHOICE_PARAMS|HEIGHT_PARAMS)")
+spacingPattern = re.compile(r"(?:SPACING)\s+(.*?)\s+(.*)")
+randomPattern = re.compile(r"(?:RANDOM)\s+(.*?)\s+(.*)")
+skipSurfacePattern = re.compile(r"(?:SKIP_SURFACE)\s+(.*)")
+groupPattern = re.compile(r"(?:GROUP)")
+perlinPattern = re.compile(r"(?:DENSITY_PARAMS|CHOICE_PARAMS|HEIGHT_PARAMS)")
 # Polygon amd Line patterns
-scalePattern = re.compile("(?:SCALE)\s+(.*?)\s+(.*)")
-layerGroupPattern = re.compile("(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
+scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
+layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
 # Facade and Forest patterns
-lodPattern = re.compile("(?:LOD)\s+(.*)")
+lodPattern = re.compile(r"(?:LOD)\s+(.*)")
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
@@ -157,8 +157,6 @@ def handleCategory(dirpath, currentCategory):
 
 def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
-
-	global v8TexturePattern, v8LitTexturePattern, v9NormalTexturePattern
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
@@ -329,8 +327,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
 
-	global v8TexturePattern
-
 	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -449,8 +445,6 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 
-	global v8TexturePattern
-
 	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
 
@@ -488,7 +482,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		objectFileContents = file.readlines()
 		file.close()
 
-		textureFound = 0
 		spacingFound = 0
 		randomFound = 0
 		groupFound = 0
@@ -498,7 +491,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		for line in objectFileContents:
 			result = v8TexturePattern.match(line)
 			if result:
-				textureFound = 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
@@ -601,8 +593,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
-
-	global v8TexturePattern
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
@@ -752,8 +742,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
-
-	global v8PolygonTexturePattern, scalePattern, layerGroupPattern, surfacePattern
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
 	parts = dirpath.split(os.sep, 1)
@@ -987,12 +975,6 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 
 def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest, objectSeasonPaths):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
-
-	global exportPattern, titlePattern, shortTitlePattern, authorPattern, textureAuthorPattern, conversionAuthorPattern, modificationAuthorPattern, emailPattern
-	global textureEmailPattern, conversionEmailPattern, modificationEmailPattern, urlPattern, textureUrlPattern, conversionUrlPattern, modificationUrlPattern
-	global widthPattern, heightPattern, depthPattern, descriptionPattern, excludePattern, animatedPattern
-	global exportExtendedPattern, exportPropagatePattern, exportDeprecatedPattern, exportExternalPattern
-	global logoPattern, notePattern, sincePattern
 
 	file = open(sceneryObject.infoFilePath)
 	websiteInfoFileContents = file.read()
