@@ -84,7 +84,7 @@ Release Howto
 17. Ensure AWS S3 permissions on the following are public:
 
     - `OpenSceneryX-DeveloperPack-x.x.x.zip`
-    - Monolithic zip file `OpenSceneryX.zip`
+    - Monolithic zip file `OpenSceneryX-x.x.x.zip`
     - `manifest.xml.zip`
     - `/repository`
 
