@@ -197,6 +197,24 @@ class SceneryObject(object):
 
 
 #
+# Class to hold information about an X-Plane object
+#
+class Object(SceneryObject):
+	"""An X-Plane Object"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Object, self).__init__(filePathRoot, fileName)
+
+		self.lods = []
+		self.lightsCustom = False
+		self.lightsNamed = False
+		self.lightsParameterised = False
+		self.lightsCustomSpill = False
+		self.tilted = False
+		self.smokeBlack = False
+		self.smokeWhite = False
+
+#
 # Class to hold information about an X-Plane polygon
 #
 class Polygon(SceneryObject):
@@ -207,9 +225,9 @@ class Polygon(SceneryObject):
 
 		self.scaleH = None
 		self.scaleV = None
-		self.layerGroupName = ""
-		self.layerGroupOffset = ""
-		self.surfaceName = ""
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.surfaceName = None
 
 #
 # Class to hold information about an X-Plane line
@@ -223,8 +241,8 @@ class Line(SceneryObject):
 		self.lines = []
 		self.scaleH = None
 		self.scaleV = None
-		self.layerGroupName = ""
-		self.layerGroupOffset = ""
+		self.layerGroupName = None
+		self.layerGroupOffset = None
 		self.textureWidth = None
 		self.mirror = False
 
@@ -256,7 +274,6 @@ class Forest(SceneryObject):
 		self.group = False
 		self.perlin = False
 		self.lod = None
-
 
 #
 # Class to hold information about a category

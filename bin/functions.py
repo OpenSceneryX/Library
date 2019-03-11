@@ -53,17 +53,33 @@ v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
+normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
+# Object patterns
+objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10)\s")
+attrLodPattern = re.compile(r"(?:ATTR_LOD)\s+(.*?)\s+(.*)")
+lightCustomPattern = re.compile(r"LIGHT_CUSTOM")
+lightNamedPattern = re.compile(r"LIGHT_NAMED")
+lightParameterisedPattern = re.compile(r"LIGHT_PARAM")
+lightSpillCustomPattern = re.compile(r"LIGHT_SPILL_CUSTOM")
+#particleSystemPattern = re.compile(r"PARTICLE_SYSTEM")
+#slopeLimitPattern = re.compile(r"SLOPE_LIMIT")
+tiltedPattern = re.compile(r"TILTED")
+#requireWetPattern = re.compile(r"REQUIRE_WET")
+#requireDryPattern = re.compile(r"REQUIRE_DRY")
+smokeBlackPattern = re.compile(r"(?:smoke_black)")
+smokeWhitePattern = re.compile(r"(?:smoke_white)")
+animPattern = re.compile(r"ANIM_BEGIN")
 # Polygon patterns
 surfacePattern = re.compile(r"(?:SURFACE)\s+(.*)")
 # Line patterns
 textureWidthPattern = re.compile(r"(?:TEX_WIDTH)\s+(.*)")
 linePattern = re.compile(r"(?:S_OFFSET)\s+(.*?)\s+(.*?)\s+(.*?)\s+(.*)")
-mirrorPattern = re.compile(r"(?:MIRROR)")
+mirrorPattern = re.compile(r"MIRROR")
 # Forest patterns
 spacingPattern = re.compile(r"(?:SPACING)\s+(.*?)\s+(.*)")
 randomPattern = re.compile(r"(?:RANDOM)\s+(.*?)\s+(.*)")
 skipSurfacePattern = re.compile(r"(?:SKIP_SURFACE)\s+(.*)")
-groupPattern = re.compile(r"(?:GROUP)")
+groupPattern = re.compile(r"GROUP")
 perlinPattern = re.compile(r"(?:DENSITY_PARAMS|CHOICE_PARAMS|HEIGHT_PARAMS)")
 # Polygon amd Line patterns
 scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
@@ -164,7 +180,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	displayMessage(".")
 
 	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
+	sceneryObject = classes.Object(parts[1], filename)
 
 	# Locate and check whether the support files exist
 	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
@@ -196,9 +212,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		file.close()
 
 		textureFound = 0
-		lineNumber = 1
 
 		for line in objectFileContents:
+			result = objectIgnores.match(line)
+			if result:
+				continue
+
 			result = v8TexturePattern.match(line)
 			if result:
 				textureFound = textureFound + 1
@@ -233,10 +252,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
 
-				# Break loop if we've found both v8 textures
-				if textureFound == 2:
-					break
-
 			result = v8LitTexturePattern.match(line)
 			if result:
 				textureFound = textureFound + 1
@@ -259,10 +274,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
 
-				# Break loop if we've found both v8 textures
-				if textureFound == 2:
-					break
-
 			result = v9NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
@@ -284,7 +295,52 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
 					return
 
-			lineNumber += 1
+			result = attrLodPattern.match(line)
+			if result:
+				sceneryObject.lods.append({"min": float(result.group(1)), "max": float(result.group(2))})
+				continue
+
+			if not sceneryObject.lightsCustom:
+				result = lightCustomPattern.match(line)
+				if result:
+					sceneryObject.lightsCustom = True
+					continue
+
+			if not sceneryObject.lightsNamed:
+				result = lightNamedPattern.match(line)
+				if result:
+					sceneryObject.lightsNamed = True
+					continue
+
+			if not sceneryObject.lightsParameterised:
+				result = lightParameterisedPattern.match(line)
+				if result:
+					sceneryObject.lightsParameterised = True
+					continue
+
+			if not sceneryObject.lightsCustomSpill:
+				result = lightSpillCustomPattern.match(line)
+				if result:
+					sceneryObject.lightsCustomSpill = True
+					continue
+
+			if not sceneryObject.tilted:
+				result = tiltedPattern.match(line)
+				if result:
+					sceneryObject.tilted = True
+					continue
+
+			if not sceneryObject.smokeBlack:
+				result = smokeBlackPattern.match(line)
+				if result:
+					sceneryObject.smokeBlack = True
+					continue
+
+			if not sceneryObject.smokeWhite:
+				result = smokeWhitePattern.match(line)
+				if result:
+					sceneryObject.smokeWhite = True
+					continue
 
 		if textureFound == 0:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -482,12 +538,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		objectFileContents = file.readlines()
 		file.close()
 
-		spacingFound = 0
-		randomFound = 0
-		groupFound = 0
-		perlinFound = 0
-		lodFound = 0
-
 		for line in objectFileContents:
 			result = v8TexturePattern.match(line)
 			if result:
@@ -522,41 +572,42 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
 					return
 
-			if not spacingFound:
+			if not sceneryObject.spacingX:
 				result = spacingPattern.match(line)
 				if result:
 					sceneryObject.spacingX = float(result.group(1))
 					sceneryObject.spacingZ = float(result.group(2))
-					spacingFound = 1
+					continue
 
-			if not randomFound:
+			if not sceneryObject.randomX:
 				result = randomPattern.match(line)
 				if result:
 					sceneryObject.randomX = float(result.group(1))
 					sceneryObject.randomZ = float(result.group(2))
-					randomFound = 1
+					continue
 
 			result = skipSurfacePattern.match(line)
 			if result and result.group(1) not in sceneryObject.skipSurfaces:
 				sceneryObject.skipSurfaces.append(result.group(1))
+				continue
 
-			if not groupFound:
+			if not sceneryObject.group:
 				result = groupPattern.match(line)
 				if result:
 					sceneryObject.group = True
-					groupFound = 1
+					continue
 
-			if not perlinFound:
+			if not sceneryObject.perlin:
 				result = perlinPattern.match(line)
 				if result:
 					sceneryObject.perlin = True
-					perlinFound = 1
+					continue
 
-			if not lodFound:
+			if not sceneryObject.lod:
 				result = lodPattern.match(line)
 				if result:
 					sceneryObject.lod = float(result.group(1))
-					lodFound = 1
+					continue
 
 	# Handle the info.txt file
 	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest, objectSeasonPaths): return
@@ -632,10 +683,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		file.close()
 
 		textureFound = 0
-		scaleFound = 0
-		layerGroupFound = 0
-		textureWidthFound = 0
-		mirrorFound = 0
 
 		for line in objectFileContents:
 			result = v8TexturePattern.match(line)
@@ -676,31 +723,31 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			if result:
 				sceneryObject.lines.append({"layer": int(result.group(1)), "left": int(result.group(2)), "middle": int(result.group(3)), "right": int(result.group(4))})
 
-			if not scaleFound:
+			if not sceneryObject.scaleH:
 				result = scalePattern.match(line)
 				if result:
 					sceneryObject.scaleH = float(result.group(1))
 					sceneryObject.scaleV = float(result.group(2))
-					scaleFound = 1
+					continue
 
-			if not layerGroupFound:
+			if not sceneryObject.layerGroupName:
 				result = layerGroupPattern.match(line)
 				if result:
 					sceneryObject.layerGroupName = result.group(1)
 					sceneryObject.layerGroupOffset = result.group(2)
-					layerGroupFound = 1
+					continue
 
-			if not textureWidthFound:
+			if not sceneryObject.textureWidth:
 				result = textureWidthPattern.match(line)
 				if result:
 					sceneryObject.textureWidth = int(result.group(1))
-					textureWidthFound = 1
+					continue
 
-			if not mirrorFound:
+			if not sceneryObject.mirror:
 				result = mirrorPattern.match(line)
 				if result:
 					sceneryObject.mirror = True
-					mirrorFound = 1
+					continue
 
 		if not textureFound:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -781,9 +828,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		file.close()
 
 		textureFound = 0
-		scaleFound = 0
-		layerGroupFound = 0
-		surfaceFound = 0
 
 		for line in objectFileContents:
 			if not textureFound:
@@ -850,26 +894,25 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 					displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
 					return
 
-			if not scaleFound:
+			if not sceneryObject.scaleH:
 				result = scalePattern.match(line)
 				if result:
 					sceneryObject.scaleH = float(result.group(1))
 					sceneryObject.scaleV = float(result.group(2))
-					scaleFound = 1
+					continue
 
-			if not layerGroupFound:
+			if not sceneryObject.layerGroupName:
 				result = layerGroupPattern.match(line)
 				if result:
 					sceneryObject.layerGroupName = result.group(1)
 					sceneryObject.layerGroupOffset = result.group(2)
-					layerGroupFound = 1
+					continue
 
-			if not surfaceFound:
+			if not sceneryObject.surfaceName:
 				result = surfacePattern.match(line)
 				if result:
 					sceneryObject.surfaceName = result.group(1)
-					surfaceFound = 1
-
+					continue
 
 		if not textureFound:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -1131,18 +1174,30 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 	# All Exports go into the website info file
 
+	# Object-specific data
+	if isinstance(sceneryObject, classes.Object):
+		for lod in sceneryObject.lods:
+			websiteInfoFileContents = f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n{websiteInfoFileContents}"
+		if sceneryObject.lightsCustom: websiteInfoFileContents = f"Custom Lights: True\n{websiteInfoFileContents}"
+		if sceneryObject.lightsNamed: websiteInfoFileContents = f"Named Lights: True\n{websiteInfoFileContents}"
+		if sceneryObject.lightsParameterised: websiteInfoFileContents = f"Parameterised Lights: True\n{websiteInfoFileContents}"
+		if sceneryObject.lightsCustomSpill: websiteInfoFileContents = f"Spill Lights: True\n{websiteInfoFileContents}"
+		if sceneryObject.tilted: websiteInfoFileContents = f"Tilted: True\n{websiteInfoFileContents}"
+		if sceneryObject.smokeBlack: websiteInfoFileContents = f"Black Smoke: True\n{websiteInfoFileContents}"
+		if sceneryObject.smokeWhite: websiteInfoFileContents = f"White Smoke: True\n{websiteInfoFileContents}"
+
 	# Polygon-specific data
 	if isinstance(sceneryObject, classes.Polygon):
 		if sceneryObject.scaleH: websiteInfoFileContents = f"Texture Scale H: {sceneryObject.scaleH:.1f}\n{websiteInfoFileContents}"
 		if sceneryObject.scaleV: websiteInfoFileContents = f"Texture Scale V: {sceneryObject.scaleV:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupName != "": websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupOffset != "": websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
-		if sceneryObject.surfaceName != "": websiteInfoFileContents = f"Surface Type: {sceneryObject.surfaceName}\n{websiteInfoFileContents}"
+		if sceneryObject.layerGroupName: websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
+		if sceneryObject.layerGroupOffset: websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
+		if sceneryObject.surfaceName: websiteInfoFileContents = f"Surface Type: {sceneryObject.surfaceName}\n{websiteInfoFileContents}"
 
 	# Line-specific data
 	if isinstance(sceneryObject, classes.Line):
-		if sceneryObject.layerGroupName != "": websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupOffset != "": websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
+		if sceneryObject.layerGroupName: websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
+		if sceneryObject.layerGroupOffset: websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
 		if sceneryObject.mirror: websiteInfoFileContents = f"Mirror: True\n{websiteInfoFileContents}"
 		lineWidth = sceneryObject.getLineWidth()
 		if lineWidth > 0: websiteInfoFileContents = f"Line Width: {lineWidth}\n{websiteInfoFileContents}"
