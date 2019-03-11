@@ -17,6 +17,11 @@ import fnmatch
 import sys
 import random
 
+# Markdown support. Also needs the markdown-headdown extension to automatically demote headings
+# $ pip3 install markdown
+# $ pip3 install markdown-headdown
+import markdown
+
 from distutils.version import LooseVersion
 from colorama import Fore, Style
 
@@ -55,7 +60,7 @@ v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
 normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
-objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10)\s")
+objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
 attrLodPattern = re.compile(r"(?:ATTR_LOD)\s+(.*?)\s+(.*)")
 lightCustomPattern = re.compile(r"LIGHT_CUSTOM")
 lightNamedPattern = re.compile(r"LIGHT_NAMED")
@@ -1020,17 +1025,16 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 
 	file = open(sceneryObject.infoFilePath)
-	websiteInfoFileContents = file.read()
-	infoFileContents = websiteInfoFileContents.splitlines()
+	infoFileContents = file.read().splitlines()
 	file.close()
+
+	websiteInfoFileContents = ""
 
 	# Add the file path to the virtual paths
 	sceneryObject.virtualPaths.append(parts[1] + suffix)
 
-	websiteInfoFileContents += "\n"
-
 	for virtualPath in sceneryObject.virtualPaths:
-		websiteInfoFileContents = "Export: " + virtualPath + "\n" + websiteInfoFileContents
+		websiteInfoFileContents += f"Export: {virtualPath}\n"
 
 	# Begin parsing
 	for line in infoFileContents:
@@ -1041,9 +1045,16 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			displayMessage("EXCLUDED, reason: " + result.group(1) + "\n", "note")
 			return 0
 
+		# If the description is already non-empty we have already reached the description area, so we don't
+		# need to parse anything else
+		if sceneryObject.description != "":
+			sceneryObject.description += line + "\n"
+			continue
+
 		# Title
 		result = titlePattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.title = result.group(1).replace("\"", "'")
 			if (sceneryObject.shortTitle == ""): sceneryObject.shortTitle = sceneryObject.title
 			continue
@@ -1057,6 +1068,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Main author
 		result = authorPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -1064,6 +1076,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Texture author
 		result = textureAuthorPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -1071,6 +1084,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Conversion author
 		result = conversionAuthorPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -1078,6 +1092,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Modification author
 		result = modificationAuthorPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			if not result.group(1) in authors:
 				authors.append(result.group(1))
 			continue
@@ -1085,36 +1100,42 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Width
 		result = widthPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.width = result.group(1)
 			continue
 
 		# Height
 		result = heightPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.height = result.group(1)
 			continue
 
 		# Depth
 		result = depthPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.depth = result.group(1)
 			continue
 
 		# Animated
 		result = animatedPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.animated = (result.group(1) == "True" or result.group(1) == "Yes")
 			continue
 
 		# Additional export path
 		result = exportPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.virtualPaths.append(result.group(1) + suffix)
 			continue
 
 		# Export propagation
 		result = exportPropagatePattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			# Work with the first virtual path only, this is the one generated from the file hierarchy
 			virtualPathParts = sceneryObject.virtualPaths[0].split("/")
 			sceneryObject.exportPropagate = int(result.group(1))
@@ -1123,99 +1144,105 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 				# Iterate from the value of exportPropagate up to the length of the path, publishing the object to every parent between
 				for i in range(sceneryObject.exportPropagate + 1, len(virtualPathParts)):
 					sceneryObject.virtualPaths.append("/".join(virtualPathParts[0:i]) + suffix)
-					websiteInfoFileContents = "Export: " + "/".join(virtualPathParts[0:i]) + suffix + "\n" + websiteInfoFileContents
+					websiteInfoFileContents += f"Export: {'/'.join(virtualPathParts[0:i])}\n"
 			continue
 
 		# Export deprecation
 		result = exportDeprecatedPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.deprecatedVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
 
 		# Export to external library
 		result = exportExternalPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.externalVirtualPaths.append([result.group(2) + suffix, result.group(1)])
 			continue
 
 		# Export extend
 		result = exportExtendedPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.extendedVirtualPaths.append(result.group(1) + suffix)
 			continue
 
 		# Branding logo
 		result = logoPattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.logoFileName = result.group(1)
 			continue
 
 		# Notes
 		result = notePattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.note = result.group(1)
 			continue
 
 		# Since
 		result = sincePattern.match(line)
 		if result:
+			websiteInfoFileContents += line + "\n"
 			sceneryObject.since = result.group(1)
 			continue
 
 		# Description
 		result = descriptionPattern.match(line)
 		if result:
-			sceneryObject.description = result.group(1)
+			sceneryObject.description = result.group(1) + "\n"
 			continue
 
-		# Default is to append to the description.  This handles any amount of extra text
-		# at the end of the file
-		sceneryObject.description += line
-
-	# All Exports go into the website info file
+		websiteInfoFileContents += line + "\n"
 
 	# Object-specific data
 	if isinstance(sceneryObject, classes.Object):
 		for lod in sceneryObject.lods:
-			websiteInfoFileContents = f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.lightsCustom: websiteInfoFileContents = f"Custom Lights: True\n{websiteInfoFileContents}"
-		if sceneryObject.lightsNamed: websiteInfoFileContents = f"Named Lights: True\n{websiteInfoFileContents}"
-		if sceneryObject.lightsParameterised: websiteInfoFileContents = f"Parameterised Lights: True\n{websiteInfoFileContents}"
-		if sceneryObject.lightsCustomSpill: websiteInfoFileContents = f"Spill Lights: True\n{websiteInfoFileContents}"
-		if sceneryObject.tilted: websiteInfoFileContents = f"Tilted: True\n{websiteInfoFileContents}"
-		if sceneryObject.smokeBlack: websiteInfoFileContents = f"Black Smoke: True\n{websiteInfoFileContents}"
-		if sceneryObject.smokeWhite: websiteInfoFileContents = f"White Smoke: True\n{websiteInfoFileContents}"
+			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
+		if sceneryObject.lightsCustom: websiteInfoFileContents += f"Custom Lights: True\n"
+		if sceneryObject.lightsNamed: websiteInfoFileContents += f"Named Lights: True\n"
+		if sceneryObject.lightsParameterised: websiteInfoFileContents += f"Parameterised Lights: True\n"
+		if sceneryObject.lightsCustomSpill: websiteInfoFileContents += f"Spill Lights: True\n"
+		if sceneryObject.tilted: websiteInfoFileContents += f"Tilted: True\n"
+		if sceneryObject.smokeBlack: websiteInfoFileContents += f"Black Smoke: True\n"
+		if sceneryObject.smokeWhite: websiteInfoFileContents += f"White Smoke: True\n"
 
 	# Polygon-specific data
 	if isinstance(sceneryObject, classes.Polygon):
-		if sceneryObject.scaleH: websiteInfoFileContents = f"Texture Scale H: {sceneryObject.scaleH:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.scaleV: websiteInfoFileContents = f"Texture Scale V: {sceneryObject.scaleV:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupName: websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupOffset: websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
-		if sceneryObject.surfaceName: websiteInfoFileContents = f"Surface Type: {sceneryObject.surfaceName}\n{websiteInfoFileContents}"
+		if sceneryObject.scaleH: websiteInfoFileContents += f"Texture Scale H: {sceneryObject.scaleH:.1f}\n"
+		if sceneryObject.scaleV: websiteInfoFileContents += f"Texture Scale V: {sceneryObject.scaleV:.1f}\n"
+		if sceneryObject.layerGroupName: websiteInfoFileContents += f"Layer Group: {sceneryObject.layerGroupName}\n"
+		if sceneryObject.layerGroupOffset: websiteInfoFileContents += f"Layer Offset: {sceneryObject.layerGroupOffset}\n"
+		if sceneryObject.surfaceName: websiteInfoFileContents += f"Surface Type: {sceneryObject.surfaceName}\n"
 
 	# Line-specific data
 	if isinstance(sceneryObject, classes.Line):
-		if sceneryObject.layerGroupName: websiteInfoFileContents = f"Layer Group: {sceneryObject.layerGroupName}\n{websiteInfoFileContents}"
-		if sceneryObject.layerGroupOffset: websiteInfoFileContents = f"Layer Offset: {sceneryObject.layerGroupOffset}\n{websiteInfoFileContents}"
-		if sceneryObject.mirror: websiteInfoFileContents = f"Mirror: True\n{websiteInfoFileContents}"
+		if sceneryObject.layerGroupName: websiteInfoFileContents += f"Layer Group: {sceneryObject.layerGroupName}\n"
+		if sceneryObject.layerGroupOffset: websiteInfoFileContents += f"Layer Offset: {sceneryObject.layerGroupOffset}\n"
+		if sceneryObject.mirror: websiteInfoFileContents += f"Mirror: True\n"
 		lineWidth = sceneryObject.getLineWidth()
-		if lineWidth > 0: websiteInfoFileContents = f"Line Width: {lineWidth}\n{websiteInfoFileContents}"
+		if lineWidth > 0: websiteInfoFileContents += f"Line Width: {lineWidth}\n"
 
 	# Forest-specific data
 	if isinstance(sceneryObject, classes.Forest):
-		if sceneryObject.spacingX: websiteInfoFileContents = f"Spacing X: {sceneryObject.spacingX:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.spacingZ: websiteInfoFileContents = f"Spacing Z: {sceneryObject.spacingZ:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.randomX: websiteInfoFileContents = f"Random X: {sceneryObject.randomX:.1f}\n{websiteInfoFileContents}"
-		if sceneryObject.randomZ: websiteInfoFileContents = f"Random Z: {sceneryObject.randomZ:.1f}\n{websiteInfoFileContents}"
-		if len(sceneryObject.skipSurfaces) > 0: websiteInfoFileContents = f"Skip Surfaces: {','.join(sceneryObject.skipSurfaces)}\n{websiteInfoFileContents}"
-		if sceneryObject.group: websiteInfoFileContents = f"Group: True\n{websiteInfoFileContents}"
-		if sceneryObject.perlin: websiteInfoFileContents = f"Perlin: True\n{websiteInfoFileContents}"
-		if sceneryObject.lod: websiteInfoFileContents = f"LOD: {sceneryObject.lod:.1f}\n{websiteInfoFileContents}"
+		if sceneryObject.spacingX: websiteInfoFileContents += f"Spacing X: {sceneryObject.spacingX:.1f}\n"
+		if sceneryObject.spacingZ: websiteInfoFileContents += f"Spacing Z: {sceneryObject.spacingZ:.1f}\n"
+		if sceneryObject.randomX: websiteInfoFileContents += f"Random X: {sceneryObject.randomX:.1f}\n"
+		if sceneryObject.randomZ: websiteInfoFileContents += f"Random Z: {sceneryObject.randomZ:.1f}\n"
+		if len(sceneryObject.skipSurfaces) > 0: websiteInfoFileContents += f"Skip Surfaces: {','.join(sceneryObject.skipSurfaces)}\n"
+		if sceneryObject.group: websiteInfoFileContents += f"Group: True\n"
+		if sceneryObject.perlin: websiteInfoFileContents += f"Perlin: True\n"
+		if sceneryObject.lod: websiteInfoFileContents += f"LOD: {sceneryObject.lod:.1f}\n"
 
 	# Mark as seasonal
 	if len(objectSeasonPaths) > 0:
-		websiteInfoFileContents = f"Seasonal: True\n{websiteInfoFileContents}"
+		websiteInfoFileContents += f"Seasonal: True\n"
+
+	# We have reached the end, convert the description to HTML and append.
+	# The `mdx_headdown` extension demotes all headings by a given number
+	websiteInfoFileContents += "Description: " + markdown.markdown(sceneryObject.description.strip(), extensions=['tables', 'mdx_headdown'], extension_configs = {'mdx_headdown': {'offset': '2'}})
 
 	# Copy the info file to the website folder
 	websiteInfoFile = open(os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "info.txt"), "w")

@@ -3,46 +3,35 @@ Title: Location Taxiway Sign Glyph, 8
 Author: Cormac Shaw
 URL: http://www.xpih.net
 =====================
-Description: A yellow '8' character for use in location taxiway signs. 
+Description: A yellow '8' character for use in location taxiway signs.
 
 This polygon is drawn at an appropriate level relative to other OpenSceneryX ground taxiway sign components according to the following hierarcy:
 
-Level Markings +3 : All Glyphs / Characters
-                    Taxisign Border Yellow (line)
-                    
-Level Markings +2 : Background Red, Background Yellow, 
-                    Background Yellow_Disc
-                    
-Level Markings +1 : Background Black, Background Black_Disc
-                    Background Black_Square, Background Yellow_Square
+Level             | Polygon Type
+----------------- | ------------
+Level Markings +3 | All Glyphs / Characters
+                  | Taxisign Border Yellow (line)
+                  |
+Level Markings +2 | Background Red, Background Yellow_Disc
+                  | Background Yellow_Disc
+                  |
+Level Markings +1 | Background Black, Background Black_Disc
+                  | Background Black_Square, Background Yellow_Square
+                  |
+Level Markings  0 | Taxiline Inline Arrow (line), Taxiline End Arrow (line)
 
-Level Markings  0 : Taxiline Inline Arrow (line), Taxiline End Arrow (line)
+# Suggested component combinations:
 
-
-Suggested component combinations:
-
-Mandatory Sign: White Glyphs/Characters + 
-                Background Red
-
-Direction Sign: Black Glyphs/Characters +
-                Background Yellow Square 
-                
-                OR 
-                
-                Black Glyphs/Characters +
-                Background Yellow +
-                Background Black
-
-
-Location Sign : Yellow Glyphs/Characters +
-                Background Black Square +
-                Background Yellow Square
-                
-                OR
-                
-                Yellow Glyphs/Characters +
-                Taxisign Border Yellow (line) +
-		Background Black
-		
-Stand ID Sign : Yellow Glyphs/Characters +
-                Background Black Square
+Sign Type         | Description
+----------------- | -----------
+Mandatory Sign    | White Glyphs/Characters + Background Red
+                  |
+Direction Sign    | Black Glyphs/Characters + Background Yellow Square
+                  | OR
+                  | Black Glyphs/Characters + Background Yellow + Background Black
+                  |
+Location Sign     | Yellow Glyphs/Characters + Background Black Square + Background Yellow Square
+                  | OR
+                  | Yellow Glyphs/Characters + Taxisign Border Yellow (line) + Background Black
+                  |
+Stand ID Sign     | Yellow Glyphs/Characters + Background Black Square
