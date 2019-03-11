@@ -197,6 +197,24 @@ class SceneryObject(object):
 
 
 #
+# Class to hold information about an X-Plane object
+#
+class Object(SceneryObject):
+	"""An X-Plane Object"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Object, self).__init__(filePathRoot, fileName)
+
+		self.lods = []
+		self.lightsCustom = False
+		self.lightsNamed = False
+		self.lightsParameterised = False
+		self.lightsCustomSpill = False
+		self.tilted = False
+		self.smokeBlack = False
+		self.smokeWhite = False
+
+#
 # Class to hold information about an X-Plane polygon
 #
 class Polygon(SceneryObject):
@@ -205,11 +223,11 @@ class Polygon(SceneryObject):
 	def __init__(self, filePathRoot, fileName):
 		super(Polygon, self).__init__(filePathRoot, fileName)
 
-		self.scaleH = ""
-		self.scaleV = ""
-		self.layerGroupName = ""
-		self.layerGroupOffset = ""
-		self.surfaceName = ""
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.surfaceName = None
 
 #
 # Class to hold information about an X-Plane line
@@ -221,16 +239,16 @@ class Line(SceneryObject):
 		super(Line, self).__init__(filePathRoot, fileName)
 
 		self.lines = []
-		self.scaleH = ""
-		self.scaleV = ""
-		self.layerGroupName = ""
-		self.layerGroupOffset = ""
-		self.textureWidth = ""
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.textureWidth = None
 		self.mirror = False
 
 	def getLineWidth(self):
 		result = 0
-		if (self.scaleH != "" and self.textureWidth != "" and len(self.lines) > 0):
+		if (self.scaleH and self.textureWidth and len(self.lines) > 0):
 			maxLineWidth = 0
 			for line in self.lines:
 				# Each line definition is specified in virtual texture pixels as left, middle and right. We get the widest one.
@@ -238,6 +256,24 @@ class Line(SceneryObject):
 			# scaleH is the width that the texture represents in meters, textureWidth is the number of virtual pixels in the texture.
 			result = round((self.scaleH / self.textureWidth) * maxLineWidth, 3)
 		return result
+
+#
+# Class to hold information about an X-Plane forest
+#
+class Forest(SceneryObject):
+	"""An X-Plane Forest"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Forest, self).__init__(filePathRoot, fileName)
+
+		self.spacingX = None
+		self.spacingZ = None
+		self.randomX = None
+		self.randomZ = None
+		self.skipSurfaces = []
+		self.group = False
+		self.perlin = False
+		self.lod = None
 
 #
 # Class to hold information about a category
@@ -263,7 +299,7 @@ class SceneryCategory(object):
 			file.close()
 
 			# define the regex patterns:
-			titlePattern = re.compile("Title:\s+(.*)")
+			titlePattern = re.compile(r"Title:\s+(.*)")
 
 			for line in fileContents:
 				result = titlePattern.match(line)
@@ -495,7 +531,7 @@ class OpenSceneryXPDF(TOC):
 		""" Custom header """
 
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
+		if (self.page_no() == 1): return
 
 		# Image
 		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "https://www.opensceneryx.com")
@@ -515,8 +551,8 @@ class OpenSceneryXPDF(TOC):
 		""" Custom footer """
 
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
-		if (self.in_toc == 1): return;
+		if (self.page_no() == 1): return
+		if (self.in_toc == 1): return
 
 		self.set_font("DejaVu", "B", 8)
 		self.set_y(-self.b_margin)
