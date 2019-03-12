@@ -119,9 +119,6 @@ class SceneryObject(object):
 		self.textureUrl = ""
 		self.conversionUrl = ""
 		self.modificationUrl = ""
-		self.height = ""
-		self.width = ""
-		self.depth = ""
 		self.note = ""
 		self.since = "0.0.0"
 		self.description = ""
@@ -133,13 +130,7 @@ class SceneryObject(object):
 
 		self.sceneryTextures = []
 
-		self.tutorial = 0
-		self.animated = 0
-
 		self.exportPropagate = -1
-
-		self.creationDate = None
-		self.modificationDate = None
 
 
 	def getFilePath(self, fileName = None):
@@ -205,6 +196,10 @@ class Object(SceneryObject):
 	def __init__(self, filePathRoot, fileName):
 		super(Object, self).__init__(filePathRoot, fileName)
 
+		self.height = ""
+		self.width = ""
+		self.depth = ""
+		self.animated = False
 		self.lods = []
 		self.lightsCustom = False
 		self.lightsNamed = False

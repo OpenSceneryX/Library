@@ -8,7 +8,6 @@ URL: http://afriqs.free.fr/xplane/index.php
 Width: 38m
 Depth: 18m
 Height: 60m
-Animated: True
 Export Deprecated v2.1.0: objects/buildings/industrial/wind_turbines/large
 Export Deprecated v1.3.0: objects/buildings/industrial/wind_turbine
 =====================

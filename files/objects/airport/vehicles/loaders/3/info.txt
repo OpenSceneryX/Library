@@ -3,7 +3,6 @@ Title: Loader, Blue - Xsim
 Author: mr 3D
 Author, texture: Jeff Mueller
 Email: mr3d@talk21.com
-Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/loader_blue
 Export Propagate: 2

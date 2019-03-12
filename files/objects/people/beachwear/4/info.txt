@@ -7,6 +7,5 @@ Email: fasm@wanadoo.fr
 Width: 1m
 Depth: 1m
 Height: 2m
-Animated: yes
 =====================
 Description: Woman waving
