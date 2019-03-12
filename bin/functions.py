@@ -1249,12 +1249,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	websiteInfoFile.write(websiteInfoFileContents)
 	websiteInfoFile.close()
 
-	# Handle the tutorial if present
-	if os.path.isfile(os.path.join(dirpath, "tutorial.pdf")):
-		sceneryObject.tutorial = 1
-		destinationFilePath = classes.Configuration.osxWebsiteFolder + os.sep + "doc/" + os.sep + sceneryObject.title + " Tutorial.pdf"
-		if not os.path.isfile(destinationFilePath): shutil.copyfile(os.path.join(dirpath, "tutorial.pdf"), destinationFilePath)
-
 	# Store in the latest if it was created for this version
 	if LooseVersion(sceneryObject.since) >= LooseVersion(classes.Configuration.sinceVersionTag):
 		latest.append(sceneryObject)

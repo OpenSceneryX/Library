@@ -133,7 +133,6 @@ class SceneryObject(object):
 
 		self.sceneryTextures = []
 
-		self.tutorial = 0
 		self.animated = 0
 
 		self.exportPropagate = -1
