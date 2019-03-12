@@ -5,7 +5,6 @@ Email: aebrown1013@gmail.com
 Height: 32m
 Width: 18m
 Depth: 18m
-Animated: True
 Export Propagate: 3
 =====================
 Description: A simple Dutch windmill with rotating blades

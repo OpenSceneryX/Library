@@ -44,7 +44,6 @@ heightPattern = re.compile(r"Height:\s+(.*)")
 depthPattern = re.compile(r"Depth:\s+(.*)")
 descriptionPattern = re.compile(r"Description:\s+(.*)")
 excludePattern = re.compile(r"Exclude:\s+(.*)")
-animatedPattern = re.compile(r"Animated:\s+(.*)")
 exportPropagatePattern = re.compile(r"Export Propagate:\s+(.*)")
 exportDeprecatedPattern = re.compile(r"Export Deprecated v(.*):\s+(.*)")
 exportExternalPattern = re.compile(r"Export External (.*):\s+(.*)")
@@ -58,7 +57,7 @@ v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
-normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
+#normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
 attrLodPattern = re.compile(r"(?:ATTR_LOD)\s+(.*?)\s+(.*)")
@@ -73,7 +72,7 @@ tiltedPattern = re.compile(r"TILTED")
 #requireDryPattern = re.compile(r"REQUIRE_DRY")
 smokeBlackPattern = re.compile(r"(?:smoke_black)")
 smokeWhitePattern = re.compile(r"(?:smoke_white)")
-animPattern = re.compile(r"ANIM_BEGIN")
+animPattern = re.compile(r"ANIM_begin")
 # Polygon patterns
 surfacePattern = re.compile(r"(?:SURFACE)\s+(.*)")
 # Line patterns
@@ -345,6 +344,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				result = smokeWhitePattern.match(line)
 				if result:
 					sceneryObject.smokeWhite = True
+					continue
+
+			if not sceneryObject.animated:
+				result = animPattern.match(line)
+				if result:
+					sceneryObject.animated = True
 					continue
 
 		if textureFound == 0:
@@ -1118,13 +1123,6 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			sceneryObject.depth = result.group(1)
 			continue
 
-		# Animated
-		result = animatedPattern.match(line)
-		if result:
-			websiteInfoFileContents += line + "\n"
-			sceneryObject.animated = (result.group(1) == "True" or result.group(1) == "Yes")
-			continue
-
 		# Additional export path
 		result = exportPattern.match(line)
 		if result:
@@ -1197,8 +1195,9 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 		websiteInfoFileContents += line + "\n"
 
-	# Object-specific data
+	# Object-specific auto-generated data
 	if isinstance(sceneryObject, classes.Object):
+		if sceneryObject.animated: websiteInfoFileContents += f"Animated: True\n"
 		for lod in sceneryObject.lods:
 			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
 		if sceneryObject.lightsCustom: websiteInfoFileContents += f"Custom Lights: True\n"
@@ -1209,7 +1208,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.smokeBlack: websiteInfoFileContents += f"Black Smoke: True\n"
 		if sceneryObject.smokeWhite: websiteInfoFileContents += f"White Smoke: True\n"
 
-	# Polygon-specific data
+	# Polygon-specific auto-generated data
 	if isinstance(sceneryObject, classes.Polygon):
 		if sceneryObject.scaleH: websiteInfoFileContents += f"Texture Scale H: {sceneryObject.scaleH:.1f}\n"
 		if sceneryObject.scaleV: websiteInfoFileContents += f"Texture Scale V: {sceneryObject.scaleV:.1f}\n"
@@ -1217,7 +1216,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.layerGroupOffset: websiteInfoFileContents += f"Layer Offset: {sceneryObject.layerGroupOffset}\n"
 		if sceneryObject.surfaceName: websiteInfoFileContents += f"Surface Type: {sceneryObject.surfaceName}\n"
 
-	# Line-specific data
+	# Line-specific auto-generated data
 	if isinstance(sceneryObject, classes.Line):
 		if sceneryObject.layerGroupName: websiteInfoFileContents += f"Layer Group: {sceneryObject.layerGroupName}\n"
 		if sceneryObject.layerGroupOffset: websiteInfoFileContents += f"Layer Offset: {sceneryObject.layerGroupOffset}\n"
@@ -1225,7 +1224,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		lineWidth = sceneryObject.getLineWidth()
 		if lineWidth > 0: websiteInfoFileContents += f"Line Width: {lineWidth}\n"
 
-	# Forest-specific data
+	# Forest-specific auto-generated data
 	if isinstance(sceneryObject, classes.Forest):
 		if sceneryObject.spacingX: websiteInfoFileContents += f"Spacing X: {sceneryObject.spacingX:.1f}\n"
 		if sceneryObject.spacingZ: websiteInfoFileContents += f"Spacing Z: {sceneryObject.spacingZ:.1f}\n"

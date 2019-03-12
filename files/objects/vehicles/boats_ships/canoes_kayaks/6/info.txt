@@ -7,6 +7,5 @@ Email: fasm@wanadoo.fr
 Width: 2m
 Depth: 3m
 Height: 2m
-Animated: yes
 =====================
 Description: Outrigger canoe, man and woman paddling. Male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a>.
