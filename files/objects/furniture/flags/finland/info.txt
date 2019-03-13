@@ -1,0 +1,7 @@
+Title: Flag, Finland
+=====================
+Author: mr 3D
+Email: mr3d@talk21.com
+Export Deprecated v4.1.0: objects/furniture/flags/finnish
+=====================
+Description: An animated Finland flag.
