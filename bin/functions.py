@@ -1193,6 +1193,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			sceneryObject.description = result.group(1) + "\n"
 			continue
 
+		# Just spit any other lines straight out
 		websiteInfoFileContents += line + "\n"
 
 	# Object-specific auto-generated data

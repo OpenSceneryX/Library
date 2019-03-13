@@ -1,7 +1,10 @@
 Title: Flag, United Kingdom
 =====================
 Author: mr 3D
-Email: mr3d@talk21.com
+URL: https://forums.x-plane.org/index.php?/profile/9171-mr-3d/
+Author, texture: Chris Noe
+URL, texture: https://forums.x-plane.org/index.php?/profile/59940-chris-noe/
+Since: 4.1.0
 Export Deprecated v4.1.0: objects/collections/xsim/flag/union
 Export Deprecated v4.1.0: objects/furniture/flags/union
 =====================
