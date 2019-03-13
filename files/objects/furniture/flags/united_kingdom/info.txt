@@ -1,0 +1,8 @@
+Title: Flag, United Kingdom
+=====================
+Author: mr 3D
+Email: mr3d@talk21.com
+Export Deprecated v4.1.0: objects/collections/xsim/flag/union
+Export Deprecated v4.1.0: objects/furniture/flags/union
+=====================
+Description: An animated United Kingdom flag.
