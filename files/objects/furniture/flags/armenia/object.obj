@@ -2,6 +2,9 @@ A
 800
 OBJ
 
+# Directive to tell WED to fix the rotation of this object
+#fixed_heading 0
+
 TEXTURE	armenia.png
 POINT_COUNTS 8939 0 0 29820
 VT 0.007919 0.005280 -0.000549 0.000000 -1.000000 0.000000 0.807526 0.846619
@@ -11929,7 +11932,7 @@ TRIS 0 252
 ATTR_no_cull
 ANIM_begin
 ANIM_trans 0.001006 5.300045 0.000729 0.001006 5.300045 0.000729 0.000000 0.000000 none
-ANIM_rotate 0.000000 -1.000000 0.000000 0.000000 90.000000 0.000000 90.000000 sim/graphics/animation/windsock_psi
+ANIM_rotate 0.000000 -1.000000 0.000000 90.000000 180.000000 0.000000 90.000000 sim/graphics/animation/windsock_psi
 ANIM_trans -0.001006 -5.300045 -0.000729 -0.001006 -5.300045 -0.000729 0.000000 0.000000 none
 ANIM_begin
 ANIM_hide 0.052000 4.000000 sim/time/total_running_time_sec
