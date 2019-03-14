@@ -9,28 +9,30 @@ Checklist for New Items
 
 3. Check orientation - pointing North - on all LOD layers for vehicles
 
-4. Convert to v8 format?
+4. If object rotates in the wind, check it is aligned with the wind (straight down in WED) when rotated 0° (default). Also ensure it has the new WED directive to lock rotation: `#fixed_heading <deg>`
 
-5. Remove any baked-in ground shadows
+5. Convert to v8 format?
 
-6. Check lit texture - new submissions shouldn't have baked in spill lighting effects, illuminated windows etc are ok
+6. Remove any baked-in ground shadows
 
-7. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transparent)
+7. Check lit texture - new submissions shouldn't have baked in spill lighting effects, illuminated windows etc are ok
 
-8. Check texture size and check powers of 2, scale down if appropriate
+8. Check any PNGs are RGB, not indexed (X-Plane has a problem rendering indexed PNGs with a background colour as transparent)
 
-9. Run textures through ImageOptim
+9. Check texture size and check powers of 2, scale down if appropriate
 
-10. If `info.txt` has been supplied, check line endings are UNIX
+10. Run textures through ImageOptim
 
-11. Create screenshot (automatically using script if desired)
+11. If `info.txt` has been supplied, check line endings are UNIX
 
-12. Run `screenshot.jpg` through 'Process Screenshot' if not using generation script
+12. Create screenshot (automatically using script if desired)
 
-13. Build library
+13. Run `screenshot.jpg` through 'Process Screenshot' if not using generation script
 
-14. Add to release notes
+14. Build library
 
-15. Tweet
+15. Add to release notes
 
-16. Commit
+16. Tweet
+
+17. Commit
