@@ -208,6 +208,7 @@ class Object(SceneryObject):
 		self.tilted = False
 		self.smokeBlack = False
 		self.smokeWhite = False
+		self.wedRotationLockAngle = None
 
 #
 # Class to hold information about an X-Plane polygon

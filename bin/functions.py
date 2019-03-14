@@ -90,6 +90,8 @@ scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
 layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
 # Facade and Forest patterns
 lodPattern = re.compile(r"(?:LOD)\s+(.*)")
+# WED-specific patterns
+wedRotationLockPattern = re.compile(r"#fixed_heading\s+(.*)")
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
@@ -350,6 +352,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				result = animPattern.match(line)
 				if result:
 					sceneryObject.animated = True
+					continue
+
+			if not sceneryObject.wedRotationLockAngle:
+				result = wedRotationLockPattern.match(line)
+				if result:
+					sceneryObject.wedRotationLockAngle = result.group(1)
 					continue
 
 		if textureFound == 0:
@@ -1208,6 +1216,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.tilted: websiteInfoFileContents += f"Tilted: True\n"
 		if sceneryObject.smokeBlack: websiteInfoFileContents += f"Black Smoke: True\n"
 		if sceneryObject.smokeWhite: websiteInfoFileContents += f"White Smoke: True\n"
+		if sceneryObject.wedRotationLockAngle: websiteInfoFileContents += f"Rotation Lock: {sceneryObject.wedRotationLockAngle}\n"
 
 	# Polygon-specific auto-generated data
 	if isinstance(sceneryObject, classes.Polygon):
