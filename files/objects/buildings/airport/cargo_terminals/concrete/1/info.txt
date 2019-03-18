@@ -2,8 +2,8 @@ Title: Cargo terminal, small concrete
 =====================
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
-Width: 27m
-Height: 7.0m
-Depth: 52m
+Width: 31.4
+Height: 7.8
+Depth: 100.3
 =====================
 Description: A small concrete cargo terminal with loading docks.

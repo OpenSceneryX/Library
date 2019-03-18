@@ -2,9 +2,9 @@ Title: Catering Loader Truck Large, yellow, 5.0m
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 2.25m
-Depth: 9.0m
-Height: 7.4m
+Width: 10.3
+Depth: 9.2
+Height: 7.5
 =====================
 Description: A large-sized airport catering truck with platform raised to 5.0m in yellow markings.
 The vehicle is based on a Mercedes 3-axle chassis with a full size cab. The capacity and configuration is optimised for use with mid to large size airliners. Loader platform is raised to 5.0m, suitable for aircraft types B747, B777, A380(lower).

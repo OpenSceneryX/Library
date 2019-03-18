@@ -2,8 +2,8 @@ Title: Gate, Red Steel Pallisade, Double 5m x 2.5m, Closed
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 5.2m
-Depth: 0.1m
-Height: 2.5m
+Width: 5.2
+Depth: 0.1
+Height: 2.5
 =====================
 Description: A red steel pallisade-style double gate in closed position. 5 metres wide, 2.5 metres high.

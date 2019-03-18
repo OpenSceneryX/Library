@@ -2,5 +2,8 @@ Title: Hangar, brick, small, end door
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 14.6
+Height: 7.5
+Depth: 27.6
 =====================
 Description: A small brick hangar with sliding door at end and side.

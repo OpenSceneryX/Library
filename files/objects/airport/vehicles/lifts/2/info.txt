@@ -2,9 +2,9 @@ Title: Cargo lift, lowered, empty
 =====================
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
-Width: 3.8m
-Depth: 8.9m
-Height: 2.9m
+Width: 3.7
+Depth: 8.9
+Height: 2.9
 Export Propagate: 2
 =====================
 Description: An empty cargo lift in lowered position.

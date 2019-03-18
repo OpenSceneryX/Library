@@ -2,9 +2,9 @@ Title: House, Wooden, Small, Tan, Grey Rusty Roof
 =====================
 Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
-Width: 4.2m
-Depth: 9.4m
-Height: 6.4m
+Width: 9.4
+Depth: 6.4
+Height: 4.2
 =====================
 Description: A tan-coloured small wooden house with a grey rusty roof.<br/><br/>
 There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>

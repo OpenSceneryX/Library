@@ -3,9 +3,9 @@ Title: Sailing boat, Medium, 3
 Author: Dieter Rosenkranz
 URL: http://www.helgo11335.de
 Email: d_rosenkranz@wanadoo.es
-Width: 2.8m
-Depth: 12m
-Height: 12m
+Width: 2.8
+Depth: 12.1
+Height: 11.7
 Export Propagate: 2
 Export External simHeaven: simheaven/landmarks/sail-boat
 =====================

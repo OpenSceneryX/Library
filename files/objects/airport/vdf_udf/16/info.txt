@@ -2,9 +2,9 @@ Title: VDF / UDF antenna, striped pole, white antennae
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 4m
-Depth: 4m
-Height: 14.4m
+Width: 4.0
+Depth: 4.0
+Height: 14.4
 Export External RE_Library: RE_Library/Navaids/VDF_UDF_12m/VDF_UDF_12_s_w
 Since: 3.0.0
 =====================

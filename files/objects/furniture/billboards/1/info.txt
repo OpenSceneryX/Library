@@ -5,6 +5,9 @@ Email: mr3d@talk21.com
 Logo: xsim.jpg
 Export: objects/collections/xsim/billboard
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/billboards/1
+Width: 14.9
+Height: 10.3
+Depth: 5.0
 =====================
 Note: Requires X-Plane 9 for the animation to work on this object
 =====================

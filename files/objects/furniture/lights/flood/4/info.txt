@@ -2,9 +2,9 @@ Title: Light, flood, single
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 0.6m
-Depth: 0.5m
-Height: 7.4m
+Width: 0.6
+Depth: 0.5
+Height: 7.4
 Since: 3.0.0
 Export: objects/airport/furniture/lights/flood/4
 =====================

@@ -3,8 +3,8 @@ Title: Baggage cart, covered, closed, single, blue
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
 Export Propagate: 2
-Width: 2.0m
-Height: 2.0m
-Depth: 4.2m
+Width: 1.5
+Height: 2.0
+Depth: 3.8
 =====================
 Description: A closed, single, blue, covered baggage cart with blue curtains.

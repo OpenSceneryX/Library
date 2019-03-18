@@ -2,9 +2,9 @@ Title: Cargo terminal, red and grey brick, grey features
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 33m
-Depth: 55m
-Height: 10m
+Width: 55.0
+Depth: 33.0
+Height: 10.1
 Export External RE_Library: RE_Library/Cargo_terminal/complete/open/grey/grey_doors/Cargo_full_olb2
 Export External RE_Library: RE_Library/Cargo_terminal/complete/closed/grey/grey_doors/Cargo_full_clb2
 Since: 3.0.0

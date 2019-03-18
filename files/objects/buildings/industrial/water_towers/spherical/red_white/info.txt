@@ -3,8 +3,8 @@ Title: Water Tower, Spherical, Red and White
 Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
-Width: 23m
-Depth: 23m
-Height: 40m
+Width: 23.4
+Depth: 22.8
+Height: 41.0
 =====================
 Description: Spherical water tower painted red and white for visibility.

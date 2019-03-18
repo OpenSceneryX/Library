@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/sas/erj-145
+Width: 20.9
+Height: 7.0
+Depth: 30.2
 =====================
 Description: An Embraer ERJ 145 in SAS livery.

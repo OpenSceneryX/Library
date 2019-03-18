@@ -2,9 +2,9 @@ Title: Tank, plastic, 4m, blue
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 4m
-Depth: 4m
-Height: 2.3m
+Width: 4.0
+Depth: 4.0
+Height: 2.3
 Since: 3.0.0
 =====================
 Description: A 4m blue plastic tank.

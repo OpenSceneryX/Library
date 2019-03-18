@@ -2,9 +2,9 @@ Title: Church, stone, dark grey, spire, 30m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 12.4m
-Depth: 30m
-Height: 21m
+Width: 12.4
+Depth: 30.0
+Height: 21.0
 Since: 3.0.0
 =====================
 Description: A traditional British style church constructed in dark grey stone with a spire. 

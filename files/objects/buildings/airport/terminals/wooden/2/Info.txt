@@ -3,9 +3,9 @@ Title: Terminal, wooden, Canadian
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 68m
-Depth: 10m
-Height: 19.80m
+Width: 64.9
+Depth: 15.1
+Height: 19.9
 Since: 3.0.0
 =====================
 Description: A small airport terminal 'old style' with ATC tower and adjacent office building.

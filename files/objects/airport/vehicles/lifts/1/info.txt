@@ -3,5 +3,8 @@ Title: Lift, With Servair Container
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
+Width: 7.4
+Height: 6.4
+Depth: 16.4
 =====================
 Description: A lift holding a Servair container.

@@ -3,5 +3,8 @@ Title: Husky A-1A (white, skis)
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
+Width: 10.8
+Height: 3.2
+Depth: 6.9
 =====================
 Description: Aviat Husky A-1A with skis. White/blue skin.

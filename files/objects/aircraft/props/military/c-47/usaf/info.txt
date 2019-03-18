@@ -3,5 +3,8 @@ Title: C-47 USAF
 Author: amerrir
 URL: http://forums.x-plane.org/index.php?showuser=14498
 Export Propagate: 3
+Width: 28.9
+Height: 5.1
+Depth: 19.7
 =====================
 Description: A C-47 in USAF livery.  The C-47 was a military version of the DC-3.

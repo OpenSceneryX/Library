@@ -3,9 +3,9 @@ Title: Baggage cart tractor
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 1.8m
-Depth: 3m
-Height: 2.2m
+Width: 1.8
+Depth: 3.0
+Height: 2.2
 Since: 3.0.0
 =====================
 Description: A baggage cart tractor with working lights.

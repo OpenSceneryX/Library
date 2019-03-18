@@ -2,5 +2,8 @@ Title: Dish, radio
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 4.2
+Height: 4.5
+Depth: 3.7
 =====================
 Description: A radio dish.

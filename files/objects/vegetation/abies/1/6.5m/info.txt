@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 1.4
+Height: 6.5
+Depth: 1.4
 =====================
 Description: An individual Abies (Fir) tree, height 6.5m.

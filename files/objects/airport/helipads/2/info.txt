@@ -2,9 +2,9 @@ Title: Helipad, Permanent
 =====================
 Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
-Width: 20m
-Depth: 20m
-Height: 2m
+Width: 20.0
+Depth: 20.0
+Height: 2.0
 =====================
 Description: A permanent, circular concrete helipad.<br/><br/>
 There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>

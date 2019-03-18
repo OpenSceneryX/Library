@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/germanwings/emb-120
+Width: 20.4
+Height: 5.6
+Depth: 20.0
 =====================
 Description: An Embraer EMB 120 in Germanwings livery.

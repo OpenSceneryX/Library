@@ -3,8 +3,8 @@ Title: Tower, stone, blue roof
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 20.3m
-Height: 16.6m
-Depth: 27.3m
+Width: 20.3
+Height: 16.7
+Depth: 27.3
 =====================
 Description: A substantial stone airport control tower, 4 storey, with blue roof.

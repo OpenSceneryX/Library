@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 10.1
+Height: 3.0
+Depth: 7.6
 =====================
 Description: A de Havilland DHC-1 Chipmunk in RAF livery.

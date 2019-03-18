@@ -2,9 +2,9 @@ Title: Hub, metal, octagonal
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 36.2m
-Depth: 36.2m
-Height: 10m
+Width: 36.2
+Depth: 36.2
+Height: 10.0
 Export External RE_Library: RE_Library/Terminals/octagon/Octagon_c
 Since: 3.0.0
 =====================

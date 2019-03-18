@@ -6,8 +6,8 @@ URL: http://wikxplane-fr.afriqs.org/index.php?title=Accueil
 URL: http://forums.x-plane.org/index.php?showuser=5732
 URL: http://afriqs.free.fr/xplane/index.php
 Export Deprecated v1.12.0: objects/airport/radar/small
-Width: 10.5m
-Depth: 10.5m
-Height: 9m
+Width: 10.4
+Depth: 10.3
+Height: 8.1
 =====================
 Description: A radar with two antennas rotating at different speeds.

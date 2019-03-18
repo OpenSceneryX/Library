@@ -3,9 +3,9 @@ Title: Luggage, blue, flat
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 0.56m
-Depth: 0.78m
-Height: 0.28m
+Width: 0.8
+Depth: 0.6
+Height: 0.3
 Export Propagate: 3
 =====================
 Description: A blue suitcase, flat on the ground.

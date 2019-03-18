@@ -2,9 +2,9 @@ Title: Hangar, metal, grey, open
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 24.3m
-Depth: 27.6m
-Height: 7.6m
+Width: 24.3
+Depth: 27.6
+Height: 7.6
 Export External RE_Library: RE_Library/Hangars/Main_84ft/open/Main_84_o_grey
 Since: 3.0.0
 =====================

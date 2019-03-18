@@ -2,9 +2,9 @@ Title: Fire engine, Cobra 8x8, red
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2.8m
-Depth: 12m
-Height: 3.3m
+Width: 2.8
+Depth: 12.0
+Height: 3.4
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_8x8/Cobra_8x8_red
 Since: 3.0.0
 =====================

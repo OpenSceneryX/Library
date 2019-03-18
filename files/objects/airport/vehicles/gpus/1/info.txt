@@ -3,5 +3,8 @@ Title: GPU, GSE
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 1.6
+Height: 2.1
+Depth: 4.1
 =====================
 Description: A ground power unit.

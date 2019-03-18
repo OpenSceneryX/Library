@@ -3,9 +3,9 @@ Title: Shipping container, 6m, blue
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 6m
-Depth: 2.4m
-Height: 2.6m
+Width: 2.4
+Depth: 6.1
+Height: 2.6
 Export Propagate: 3
 =====================
 Description: A standard 6m (20') shipping container, blue.

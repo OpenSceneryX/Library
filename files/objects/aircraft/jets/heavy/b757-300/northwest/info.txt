@@ -9,5 +9,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/northwest/b757-300
+Width: 38.2
+Height: 14.0
+Depth: 47.1
 =====================
 Description: A Boeing 757-300 in Northwest Airlines livery.

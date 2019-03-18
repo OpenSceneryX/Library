@@ -3,8 +3,8 @@ Title: Tower, wooden, flat roof with terminal
 Author: Nick Ward
 Email: nickward@telus.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 20m
-Height: 11m
-Depth: 10m
+Width: 20.3
+Height: 12.7
+Depth: 13.6
 =====================
 Description: A small airport terminal, 2 floors + tower. Based on tower at CYBR Brandon.

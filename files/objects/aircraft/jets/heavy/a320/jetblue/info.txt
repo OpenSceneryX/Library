@@ -9,8 +9,8 @@ Export Propagate: 1
 Export: objects/aircraft/livery/jetblue/a320
 Export Deprecated v2.1.0: objects/aircraft/jets/heavy/a320/jetblue/lit
 Export Deprecated v2.1.0: objects/aircraft/jets/heavy/a320/jetblue/unlit
-Width: 34m
-Depth: 37m
-Height: 11.6m
+Width: 34.0
+Depth: 37.6
+Height: 11.7
 =====================
 Description: An Airbus 320 in Jetblue livery.

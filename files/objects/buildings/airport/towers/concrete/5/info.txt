@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 61m, blue
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 18.5m
-Depth: 18.5m
-Height: 61m
+Width: 18.5
+Depth: 18.5
+Height: 61.0
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_g_blu_w
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGCC_60m/EGCC_60m_b_blu_w
 Since: 3.0.0

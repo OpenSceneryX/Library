@@ -4,9 +4,9 @@ Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Author, texture: textures.com
 URL, texture: https://www.textures.com
-Width: 27.2m
-Depth: 38.7m
-Height: 10m
+Width: 27.2
+Depth: 38.7
+Height: 10.1
 Since: 3.0.0
 =====================
 Description: A 27.2m x 38.7m grey metal hangar with workshop on one end and a shed attached to the side.

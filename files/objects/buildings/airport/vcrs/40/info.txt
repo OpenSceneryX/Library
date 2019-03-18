@@ -2,9 +2,9 @@ Title: VCR, octagonal, white, variant 6
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 9m
-Depth: 9m
-Height: 4.35m
+Width: 9.0
+Depth: 9.0
+Height: 4.3
 Export External RE_Library: RE_Library/Control_Tower/VCRs/VCRb/VCR_only_b
 Since: 3.0.0
 =====================

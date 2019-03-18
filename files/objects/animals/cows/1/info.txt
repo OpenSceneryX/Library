@@ -3,5 +3,8 @@ Title: Cow, Mainly Black
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 2.5
+Height: 1.7
+Depth: 0.0
 =====================
 Description: A mainly black cow.

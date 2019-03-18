@@ -6,5 +6,8 @@ Author, texture: Dhruv Kalra
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export: objects/aircraft/livery/northwest/historical/1989-2003/b747-400
+Width: 64.8
+Height: 19.0
+Depth: 70.3
 =====================
 Description: A Boeing 747-400 in Northwest Airlines historical livery used from 1989-2003.

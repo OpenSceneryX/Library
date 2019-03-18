@@ -3,9 +3,9 @@ Title: Truck, UPS®, rear doors open
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 3.4m
-Depth: 18.36m
-Height: 3.75m
+Width: 3.4
+Depth: 18.4
+Height: 3.8
 Export Propagate: 1
 =====================
 Description: An articulated truck in UPS® markings with rear doors open, boxes inside.

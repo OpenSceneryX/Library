@@ -4,5 +4,8 @@ Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Export Propagate: 1
+Width: 2.3
+Height: 1.5
+Depth: 4.7
 =====================
 Description: Yellow Ford Mustang car.

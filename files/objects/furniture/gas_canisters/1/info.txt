@@ -2,8 +2,8 @@ Title: Gas canister, propane
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 0.3m
-Depth: 0.3m
-Height: 0.7m
+Width: 0.3
+Depth: 0.3
+Height: 0.7
 =====================
 Description: An orange propane gas canister.

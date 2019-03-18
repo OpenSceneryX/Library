@@ -2,8 +2,8 @@ Title: Cabin, wooden
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 6.7m
-Depth: 5.3m
-Height: 7.2m
+Width: 6.7
+Depth: 5.3
+Height: 7.2
 =====================
 Description: A wooden cabin.

@@ -4,9 +4,9 @@ Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
 Author, texture: yewenyi
 URL, texture: http://flickr.com/photos/yewenyi/
-Width: 10m
-Depth: 14m
-Height: 9.1m
+Width: 14.0
+Depth: 10.0
+Height: 9.2
 =====================
 Description: A concrete office building.<br/><br/>
 There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>

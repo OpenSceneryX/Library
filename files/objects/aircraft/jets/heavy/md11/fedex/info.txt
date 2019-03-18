@@ -8,5 +8,8 @@ Export Propagate: 1
 Export: objects/aircraft/livery/fedex/md11
 Export Extended: lib/airport/aircraft/cargo/heavy_d_fdx
 Export Extended: lib/airport/aircraft/cargo/heavy_d
+Width: 51.8
+Height: 16.9
+Depth: 62.4
 =====================
 Description: An MD11 in FedEx livery.

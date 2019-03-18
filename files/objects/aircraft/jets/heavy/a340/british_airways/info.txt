@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/british_airways/a340
+Width: 61.1
+Height: 17.0
+Depth: 64.0
 =====================
 Description: An Airbus 340 in British Airways livery.

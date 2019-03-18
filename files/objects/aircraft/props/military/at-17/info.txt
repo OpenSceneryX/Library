@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 12.7
+Height: 2.9
+Depth: 10.0
 =====================
 Description: A Cessna AT-17 Bobcat in British Commonwealth Air Training Plan livery.

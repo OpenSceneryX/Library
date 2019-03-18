@@ -2,8 +2,8 @@ Title: Tanker, Water
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 2.4m
-Depth: 6m
-Height: 2.2m
+Width: 2.3
+Depth: 5.8
+Height: 2.2
 =====================
 Description: Ford water tanker truck

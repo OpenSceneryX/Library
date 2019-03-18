@@ -4,9 +4,9 @@ Author: fasm
 URL: http://www.fasm.name/
 http://forums.x-plane.org/index.php?showuser=2767
 Email: fasm@wanadoo.fr
-Width: 1m
-Depth: 1m
-Height: 2m
+Width: 0.5
+Depth: 0.4
+Height: 1.8
 Animated: no
 =====================
 Description: Woman walking

@@ -2,8 +2,8 @@ Title: Water Tower, Cylindrical, 60m
 =====================
 Author: Daniel Leygnat
 URL: http://forums.x-plane.org/index.php?showuser=3031
-Width: 15m
-Depth: 15m
-Height: 60m
+Width: 15.0
+Depth: 15.0
+Height: 60.3
 =====================
 Description: Cylindrical water tower, white.

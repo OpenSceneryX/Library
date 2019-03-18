@@ -3,5 +3,8 @@ Title: Tug, Small
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
+Width: 3.2
+Height: 2.0
+Depth: 6.1
 =====================
 Description: A lightweight tug, based on a van.

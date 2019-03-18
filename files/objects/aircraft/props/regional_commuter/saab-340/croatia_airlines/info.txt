@@ -6,5 +6,8 @@ Author, texture: Ket
 URL, texture: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
 Export: objects/aircraft/livery/croatia_airlines/saab-340
+Width: 21.5
+Height: 6.5
+Depth: 20.1
 =====================
 Description: A Saab 340 in Croatia Airlines livery.

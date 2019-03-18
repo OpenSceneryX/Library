@@ -8,5 +8,8 @@ Author, texture: Jeff Mueller
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b727
 Export: objects/aircraft/livery/nac/b727-200
+Width: 34.2
+Height: 10.3
+Depth: 53.5
 =====================
 Description: A Boeing 727 aircraft with NAC livery.

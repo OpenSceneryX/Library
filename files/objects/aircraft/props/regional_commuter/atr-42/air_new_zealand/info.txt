@@ -6,5 +6,8 @@ Author, texture: Cameron Jenkins
 URL, texture: http://forums.x-plane.org/index.php?showuser=249936
 Export Propagate: 1
 Export: objects/aircraft/livery/air_new_zealand/atr-42
+Width: 27.7
+Height: 7.1
+Depth: 22.6
 =====================
 Description: An ATR 42 in Air New Zealand livery.

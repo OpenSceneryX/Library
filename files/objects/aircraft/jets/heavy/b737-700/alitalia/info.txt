@@ -5,5 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/alitalia/b737-700
+Width: 34.0
+Height: 13.0
+Depth: 33.3
 =====================
 Description: A Boeing 737-700 in Alitalia livery.

@@ -2,9 +2,9 @@ Title: VDF / UDF antenna, red pole, red antennae
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2m
-Depth: 2m
-Height: 6.4m
+Width: 2.0
+Depth: 2.0
+Height: 6.4
 Export External RE_Library: RE_Library/Navaids/VDF_UDF/VDF_UDF_r_r
 Since: 3.0.0
 =====================

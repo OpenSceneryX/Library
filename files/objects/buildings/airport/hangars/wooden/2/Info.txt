@@ -3,9 +3,9 @@ Title: Hangar, wooden, with house
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 29.15m
-Depth: 22m
-Height: 8.45m
+Width: 28.6
+Depth: 20.4
+Height: 8.3
 Since: 3.0.0
 =====================
 Description: A wooden house with its own hangar.

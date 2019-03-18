@@ -2,9 +2,9 @@ Title: Hangar, Callender, grey, closed
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 38.8m
-Depth: 56.6m
-Height: 10.8m
+Width: 38.8
+Depth: 56.6
+Height: 10.8
 Export External RE_Library: RE_Library/Hangars/Callender/closed/Callender_c_grey
 Since: 3.0.0
 =====================

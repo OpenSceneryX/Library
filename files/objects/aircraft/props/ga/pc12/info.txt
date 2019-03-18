@@ -5,5 +5,8 @@ URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
 Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Width: 23.6
+Height: 5.4
+Depth: 14.2
 =====================
 Description: Pilatus PC12.

@@ -7,5 +7,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/westjet/b737-800
+Width: 35.8
+Height: 13.3
+Depth: 40.5
 =====================
 Description: A Boeing 737-800 in Westjet livery.

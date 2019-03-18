@@ -6,9 +6,9 @@ Email: d_rosenkranz@wanadoo.es
 Author, modifications: Florian (PilotFlo)
 Email, modifications: PilotFlo@gmx.net
 URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
-Width: 31m
-Depth: 152m
-Height: 32m
+Width: 31.2
+Depth: 152.1
+Height: 32.4
 Export Propagate: 2
 =====================
 Description: Mercedes del Mar is one of the ferries of ISCOMAR which travel between Mallorca and Valencia or Barcelona and also Ibiza and Menorca. It carries 400 cars and 635 passengers. It has two motors with 9000 hp each.

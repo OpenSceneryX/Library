@@ -4,9 +4,9 @@ Author: Davide De Marchi
 URL: http://forums.x-plane.org/index.php?showuser=55064
 Author, conversion: Robin Tannahill
 URL, conversion: http://forums.x-plane.org/index.php?showuser=99351
-Width: 13m
-Depth: 19m
-Height: 5m
+Width: 13.5
+Depth: 19.3
+Height: 5.0
 Export Propagate: 3
 =====================
 Description: A Buccanneer S2 in Royal Navy colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Blackburn_Buccaneer' onclick='window.open(this.href);return false;'>Wikipedia</a>.

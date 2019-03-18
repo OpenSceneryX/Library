@@ -4,5 +4,8 @@ Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Offshore/Wind_turbine_offshore_0075_red
 Since: 3.2.0
+Width: 10.2
+Height: 97.3
+Depth: 69.9
 =====================
 Description: A 3 bladed offshore wind turbine with red bands, 75m tall, lit.

@@ -2,5 +2,8 @@ Title: A300-600ST (Beluga) 3
 =====================
 Author: The Beluga Project
 URL: http://www.belugaproject.de
+Width: 44.7
+Height: 17.7
+Depth: 56.7
 =====================
 Description: The Beluga is an oversized cargo plane that flies parts between the Airbus facilities throughout Europe.  Airbus has a fleet of five.

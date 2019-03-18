@@ -3,8 +3,8 @@ Title: Garage, Wooden, Single Storey, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 8m
-Depth: 7.5m
-Height: 5m
+Width: 8.1
+Depth: 7.5
+Height: 5.0
 =====================
 Description: A two car garage.

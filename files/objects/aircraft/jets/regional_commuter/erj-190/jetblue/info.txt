@@ -6,5 +6,8 @@ Author, texture: Ron Somerville
 Author, texture: Jeff Mueller
 Export Propagate: 1
 Export: objects/aircraft/livery/jetblue/erj-190
+Width: 28.9
+Height: 9.9
+Depth: 36.3
 =====================
 Description: An Embraer ERJ 190 regional jet with jetBlue livery.

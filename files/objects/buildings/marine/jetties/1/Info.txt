@@ -3,8 +3,8 @@ Title: Jetty, wooden
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
 Email: xplanebaz@aapt.net.au
-Width: 5.5m
-Depth: 24m
-Height: 3m
+Width: 5.6
+Depth: 24.4
+Height: 3.5
 =====================
 Description: A wooden jetty on pilings with safety barriers.

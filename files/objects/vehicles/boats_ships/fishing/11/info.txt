@@ -4,9 +4,9 @@ Author: fasm
 URL: http://www.fasm.name/
 http://forums.x-plane.org/index.php?showuser=2767
 Email: fasm@wanadoo.fr
-Width: 2m
-Depth: 4m
-Height: 2m
+Width: 1.8
+Depth: 5.8
+Height: 2.2
 Animated: no
 =====================
 Description: Small fishing boat, man and woman on board. Male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a>.

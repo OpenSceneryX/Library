@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/ups/a380
+Width: 82.0
+Height: 25.5
+Depth: 74.7
 =====================
 Description: An Airbus 380 in UPS livery.

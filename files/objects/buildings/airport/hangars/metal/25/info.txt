@@ -3,8 +3,8 @@ Title: Hangar, metal, large, open
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
 Email: smithysvca@netspace.net.au
-Width: 16m
-Depth: 36m
-Height: 12m
+Width: 35.7
+Depth: 21.6
+Height: 11.6
 =====================
 Description: Large metal hanger

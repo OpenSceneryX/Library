@@ -3,9 +3,9 @@ Title: Tug, small, beige
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 1.9m
-Depth: 3.5m
-Height: 2.6m
+Width: 1.9
+Depth: 3.5
+Height: 2.6
 Since: 3.0.0
 =====================
 Description: Small tug with working lights.

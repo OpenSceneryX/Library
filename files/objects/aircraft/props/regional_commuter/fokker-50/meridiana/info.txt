@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/meridiana/fokker-50
+Width: 29.8
+Height: 8.3
+Depth: 25.5
 =====================
 Description: A Fokker 50 in Meridiana livery.

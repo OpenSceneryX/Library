@@ -8,5 +8,8 @@ Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/livery/air_canada/jazz_red/dash8
+Width: 30.8
+Height: 8.6
+Depth: 33.5
 =====================
 Description: A Dash 8 in Air Canada Jazz red livery.

@@ -2,9 +2,9 @@ Title: Fire engine, Commando, yellow
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2.1m
-Depth: 5.6m
-Height: 2.4m
+Width: 2.1
+Depth: 5.6
+Height: 2.4
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/small/CommandoFE_y
 Since: 3.0.0
 =====================

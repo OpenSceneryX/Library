@@ -5,5 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/livery/cathay_pacific/avro-rj70
+Width: 27.5
+Height: 8.9
+Depth: 28.5
 =====================
 Description: A BAE Avro RJ70 in Cathay Pacific livery.

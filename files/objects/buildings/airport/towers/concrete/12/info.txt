@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 55m, grey
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 19.5m
-Depth: 19.5m
-Height: 55.4m
+Width: 19.5
+Depth: 19.5
+Height: 55.4
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGGP_55m/EGGP_55m_g_gry_w
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGGP_55m/EGGP_55m_b_gry_w
 Since: 3.0.0

@@ -2,9 +2,9 @@ Title: Office, prefabricated, blue, 30m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 9.8m
-Depth: 30m
-Height: 3.6m
+Width: 30.0
+Depth: 9.8
+Height: 3.6
 Export External RE_Library: RE_Library/Prefabs/30m/Prefab30m_blue
 Since: 3.0.0
 =====================

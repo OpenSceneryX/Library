@@ -3,9 +3,9 @@ Title: Motor Cruiser, Medium, 2
 Author: Dieter Rosenkranz
 URL: http://www.helgo11335.de
 Email: d_rosenkranz@wanadoo.es
-Width: 2.5m
-Depth: 14.5m
-Height: 4.4m
+Width: 4.4
+Depth: 14.6
+Height: 2.5
 Export Propagate: 2
 Export External simHeaven: simheaven/landmarks/power-boat
 =====================

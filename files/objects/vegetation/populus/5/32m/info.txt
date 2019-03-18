@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 9.3
+Height: 32.0
+Depth: 9.3
 =====================
 Description: An individual Populus (Aspen) tree, height 32m.

@@ -4,9 +4,9 @@ Author: Stephen Legg
 URL: http://www.fs9world.741.com
 Author, conversion: Cormac Shaw
 URL, conversion: http://www.xpih.net
-Width: 1.7m
-Depth: 4.9m
-Height: 2.35m
+Width: 5.8
+Depth: 4.9
+Height: 2.1
 =====================
 Description: A Ford Transit pickup with airside vehicle beacon in Swissport markings.
 This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simulator with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

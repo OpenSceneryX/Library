@@ -3,5 +3,8 @@ Title: Sheep 4
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 1.3
+Height: 0.8
+Depth: 0.0
 =====================
 Description: A sheep.

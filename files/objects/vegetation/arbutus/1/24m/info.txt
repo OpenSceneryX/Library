@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 20.4
+Height: 24.0
+Depth: 20.4
 =====================
 Description: An individual Arbutus (Madrone) tree, height 24m.

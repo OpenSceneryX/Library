@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/klm/a310
+Width: 41.9
+Height: 14.0
+Depth: 47.8
 =====================
 Description: An Airbus 310 in KLM livery.

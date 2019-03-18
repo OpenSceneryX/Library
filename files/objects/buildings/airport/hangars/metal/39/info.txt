@@ -2,9 +2,9 @@ Title: Hangar, large, curved roof, blue, open
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 35m
-Depth: 54m
-Height: 14m
+Width: 54.0
+Depth: 35.0
+Height: 14.0
 Export External RE_Library: RE_Library/Hangars/54x34m/open/Hangar_crv_54x34_o_blue
 Since: 3.0.0
 =====================

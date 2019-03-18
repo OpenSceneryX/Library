@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 10.7
+Height: 5.0
+Depth: 18.0
 =====================
 Description: An F3H Demon in US Navy livery.

@@ -3,8 +3,8 @@ Title: Pallet, Plastic Containers
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.24m
-Height: 2.0m
-Depth: 1.67m
+Width: 1.2
+Height: 2.0
+Depth: 1.7
 =====================
 Description: A stacked pallet of plastic containers for cargo areas.

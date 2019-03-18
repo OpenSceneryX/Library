@@ -3,9 +3,9 @@ Title: Truck, UPS®
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 3.4m
-Depth: 20.3m
-Height: 4.1m
+Width: 3.4
+Depth: 20.2
+Height: 4.1
 Export Propagate: 1
 =====================
 Description: An articulated truck in UPS® markings.

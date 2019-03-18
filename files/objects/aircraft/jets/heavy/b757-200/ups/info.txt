@@ -9,5 +9,8 @@ Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/ups/b757-200
 Export Extended: lib/airport/aircraft/cargo/heavy_d_ups
 Export Extended: lib/airport/aircraft/cargo/heavy_d
+Width: 40.2
+Height: 13.6
+Depth: 47.2
 =====================
 Description: A Boeing 757-200 in UPS livery.
