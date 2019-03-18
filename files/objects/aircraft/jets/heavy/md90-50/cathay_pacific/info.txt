@@ -6,5 +6,8 @@ Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/md90
 Export: objects/aircraft/livery/cathay_pacific/md90-50
+Width: 36.8
+Height: 9.4
+Depth: 46.8
 =====================
 Description: An MD90-50 in Cathay Pacific livery.

@@ -2,8 +2,8 @@ Title: Hangar, metal, maintenance
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
-Width: 16.8m
-Depth: 43.6m
-Height: 9.7m
+Width: 16.9
+Depth: 43.7
+Height: 9.7
 =====================
 Description: Large modern maintenance hangar with metal sides, red roof, one large door and two smaller doors.

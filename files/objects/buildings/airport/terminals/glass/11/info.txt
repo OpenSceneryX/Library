@@ -2,9 +2,9 @@ Title: Terminal, glass, dark blue
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 135m
-Depth: 54m
-Height: 21m
+Width: 135.0
+Depth: 54.0
+Height: 21.0
 Export External RE_Library: RE_Library/Terminals/main_buiding/curved_roof/RE_Terminal_main_5
 Since: 3.0.0
 =====================

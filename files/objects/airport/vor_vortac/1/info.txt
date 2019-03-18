@@ -2,9 +2,9 @@ Title: VOR, grey, red antenna
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 30m
-Depth: 30m
-Height: 8.6m
+Width: 30.0
+Depth: 30.0
+Height: 8.6
 Export External RE_Library: RE_Library/Navaids/VORs/grey/VOR_ggo
 Export External RE_Library: RE_Library/Navaids/VORs/grey/VOR_ggr
 Since: 3.0.0

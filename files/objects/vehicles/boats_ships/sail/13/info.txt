@@ -4,9 +4,9 @@ Author: fasm
 URL: http://www.fasm.name/
 http://forums.x-plane.org/index.php?showuser=2767
 Email: fasm@wanadoo.fr
-Width: 2m
-Depth: 5m
-Height: 5m
+Width: 3.0
+Depth: 5.7
+Height: 7.2
 Animated: no
 =====================
 Description: Catamaran sailing with man on board. Male model is a conversion (with the author consent) of the famous Beber pilot, made by <a href="http://forums.x-plane.org/index.php?showuser=3814">Beber</a>.

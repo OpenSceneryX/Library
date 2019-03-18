@@ -9,5 +9,8 @@ Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/british_airways/b767-300
 Export Extended: lib/airport/aircraft/airliners/heavy_d_baw
 Export Extended: lib/airport/aircraft/airliners/heavy_d
+Width: 81.7
+Height: 16.2
+Depth: 58.7
 =====================
 Description: A Boeing 767-300 in British Airways livery.

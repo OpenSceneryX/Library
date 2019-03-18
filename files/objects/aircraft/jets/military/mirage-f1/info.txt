@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 8.8
+Height: 4.6
+Depth: 15.4
 =====================
 Description: A Mirage F1 in French Air Force livery.

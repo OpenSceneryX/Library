@@ -2,9 +2,9 @@ Title: Fork Lift, large, yellow
 =====================
 Author: Reuben Mowbray
 Email: reubenm@xplanefreeware.net
-Width: 2.5m
-Height: 3m
-Depth: 4.5m
+Width: 4.5
+Height: 2.5
+Depth: 4.4
 Export Propagate: 2
 =====================
 Description: Yellow fork lift truck.

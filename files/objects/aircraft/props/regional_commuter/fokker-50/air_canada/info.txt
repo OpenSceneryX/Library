@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/air_canada/fokker-50
+Width: 29.8
+Height: 8.3
+Depth: 25.5
 =====================
 Description: A Fokker 50 in Air Canada livery.

@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 7.2
+Height: 4.2
+Depth: 17.9
 =====================
 Description: An F-104A Starfighter in USAF livery.

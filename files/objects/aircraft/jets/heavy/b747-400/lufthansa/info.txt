@@ -7,5 +7,8 @@ Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/lufthansa/b747-400
 Export Extended: lib/airport/aircraft/airliners/heavy_e_dlh
 Export Extended: lib/airport/aircraft/airliners/heavy_e
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in Lufthansa livery.

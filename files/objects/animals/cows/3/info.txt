@@ -3,5 +3,8 @@ Title: Cow, Brown and white
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 2.8
+Height: 1.7
+Depth: 0.0
 =====================
 Description: A brown and white cow.

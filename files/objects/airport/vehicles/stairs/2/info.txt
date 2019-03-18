@@ -3,5 +3,8 @@ Title: Stairs, metal, open
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
 Export Propagate: 2
+Width: 1.0
+Height: 1.9
+Depth: 1.9
 =====================
 Description: A set of open metal stairs on wheels.

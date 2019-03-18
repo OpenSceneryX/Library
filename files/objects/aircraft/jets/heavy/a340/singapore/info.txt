@@ -8,5 +8,8 @@ Export Propagate: 1
 Export: objects/aircraft/livery/singapore/a340
 Export Extended: lib/airport/aircraft/airliners/heavy_e_sia
 Export Extended: lib/airport/aircraft/airliners/heavy_e
+Width: 61.1
+Height: 17.0
+Depth: 64.0
 =====================
 Description: An Airbus 340 in Singapore livery.

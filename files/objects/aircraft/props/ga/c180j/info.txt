@@ -5,5 +5,8 @@ URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
 Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Width: 11.9
+Height: 2.8
+Depth: 8.0
 =====================
 Description: Cessna Skywagon 180J with wheels.

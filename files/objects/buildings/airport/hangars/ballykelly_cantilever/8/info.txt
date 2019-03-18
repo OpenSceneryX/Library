@@ -2,9 +2,9 @@ Title: Hangar, Ballykelly Cantilever, brown, open
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 55.7m
-Depth: 112.2m
-Height: 15.9m
+Width: 112.2
+Depth: 55.7
+Height: 15.9
 Export External RE_Library: RE_Library/Hangars/Ballykelly_112x48m/fully_open/BKC_brown_fo
 Since: 3.0.0
 =====================

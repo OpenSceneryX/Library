@@ -2,9 +2,9 @@ Title: Office, light brick, grey roof, 4 floors
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 15m
-Depth: 60m
-Height: 20m
+Width: 60.0
+Depth: 20.0
+Height: 15.0
 Export External RE_Library: RE_Library/Admin/4floor_60x20/light_brick/red_tile/Admin2_3s
 Export External RE_Library: RE_Library/GA_Terminal/Grey_slate/Grey_stone/GA_terminal_2
 Export External RE_Library: RE_Library/GA_Terminal/Grey_slate/Block/GA_terminal_4

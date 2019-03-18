@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 12.2
+Height: 28.0
+Depth: 12.2
 =====================
 Description: An individual Pinus Resinosa (Red Pine) tree, height 28m.

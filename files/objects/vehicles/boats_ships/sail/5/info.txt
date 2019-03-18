@@ -4,9 +4,9 @@ Author: fasm
 URL: http://www.fasm.name/
 http://forums.x-plane.org/index.php?showuser=2767
 Email: fasm@wanadoo.fr
-Width: 2m
-Depth: 5m
-Height: 5m
+Width: 3.3
+Depth: 5.7
+Height: 7.2
 Export External simHeaven: simheaven/landmarks/sail-boat
 =====================
 Description: Catamaran sailing with woman on board

@@ -3,8 +3,8 @@ Title: Pontoon, concrete
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
 Email: xplanebaz@aapt.net.au
-Width: 21m
-Depth: 19.5m
-Height: 3m
+Width: 20.7
+Depth: 19.4
+Height: 1.7
 =====================
 Description: A pontoon that works correctly with <a href="../../jetties/1/">jetty</a> and <a href="../../jetties/2/">jetty with ramp</a> objects.

@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 9.6
+Height: 3.9
+Depth: 14.3
 =====================
 Description: A Super Étendard in Aviation Navale livery.

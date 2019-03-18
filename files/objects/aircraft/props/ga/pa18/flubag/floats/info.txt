@@ -3,5 +3,8 @@ Title: Piper PA18 Super Cub (FluBag, floats)
 Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
+Width: 10.5
+Height: 2.9
+Depth: 7.0
 =====================
 Description: Piper Super Cub with floats. FluBag skin of a swiss flight school.

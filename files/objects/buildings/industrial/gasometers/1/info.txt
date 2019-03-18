@@ -2,5 +2,8 @@ Title: Gasometers
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
+Width: 56.5
+Height: 28.4
+Depth: 77.8
 =====================
 Description: A collection of three gasometers (large scale gas holders).

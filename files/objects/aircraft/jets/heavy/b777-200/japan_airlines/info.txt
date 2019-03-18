@@ -9,5 +9,8 @@ Export: objects/aircraft/jets/heavy/b777
 Export: objects/aircraft/livery/japan_airlines/b777-200
 Export Extended: lib/airport/aircraft/airliners/heavy_e_jal
 Export Extended: lib/airport/aircraft/airliners/heavy_e
+Width: 98.4
+Height: 18.5
+Depth: 68.4
 =====================
 Description: A Boeing 777-200 in Japan Airlines livery.

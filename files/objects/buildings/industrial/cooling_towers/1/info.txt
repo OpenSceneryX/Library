@@ -2,5 +2,8 @@ Title: Cooling Towers
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
+Width: 36.9
+Height: 28.4
+Depth: 51.9
 =====================
 Description: A pair of cooling towers.

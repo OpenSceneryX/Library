@@ -2,8 +2,8 @@ Title: House, stone, two storey
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 14.8m
-Depth: 13.1m
-Height: 9.4m
+Width: 14.8
+Depth: 13.1
+Height: 9.4
 =====================
 Description: A two storey stone house with wood and plaster second floor, tiled roof and a porch area at the back.

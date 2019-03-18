@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 21.5
+Height: 26.0
+Depth: 21.5
 =====================
 Description: An individual Ulmus Americana (American Elm) tree, height 26m.

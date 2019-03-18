@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 9.9
+Height: 15.0
+Depth: 9.9
 =====================
 Description: An individual Pinus Radiata (Monterey Pine) tree, height 15m.

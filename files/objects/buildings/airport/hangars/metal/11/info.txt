@@ -4,5 +4,8 @@ Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 30.0
+Height: 13.5
+Depth: 15.4
 =====================
 Description: A modern double metal hangar.

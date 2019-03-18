@@ -3,8 +3,8 @@ Title: Pallet, Trees
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.35m
-Height: 1.73m
-Depth: 1.55m
+Width: 1.7
+Height: 1.6
+Depth: 1.4
 =====================
 Description: A stacked pallet with boxes of merchandise for cargo areas.

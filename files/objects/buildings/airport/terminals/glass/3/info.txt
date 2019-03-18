@@ -2,9 +2,9 @@ Title: Terminal, glass, dark blue, brick piers
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 315m
-Depth: 54m
-Height: 25m
+Width: 315.0
+Depth: 54.0
+Height: 25.0
 Export External RE_Library: RE_Library/Terminals/complete/pointed_roof/RE_Terminal_full_3
 Since: 3.0.0
 =====================

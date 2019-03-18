@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Width: 10.2
+Height: 2.5
+Depth: 7.2
 =====================
 Description: A green Cessna 150.

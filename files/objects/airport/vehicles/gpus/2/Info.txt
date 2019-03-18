@@ -3,9 +3,9 @@ Title: GPU, CCVA
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 6.10m
-Depth: 1.70m
-Height: 1.70m
+Width: 1.5
+Depth: 4.5
+Height: 1.6
 Since: 3.0.0
 =====================
 Description: A GPU trailer with working taillights.

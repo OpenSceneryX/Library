@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 27m
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 14.9m
-Depth: 13.3m
-Height: 26.6m
+Width: 14.9
+Depth: 13.3
+Height: 26.6
 Since: 3.0.0
 =====================
 Description: A 27m modern concrete control tower.

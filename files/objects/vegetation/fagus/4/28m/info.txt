@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 21.7
+Height: 28.0
+Depth: 21.7
 =====================
 Description: An individual Fagus Grandifolia (American Beech) tree, height 28m.

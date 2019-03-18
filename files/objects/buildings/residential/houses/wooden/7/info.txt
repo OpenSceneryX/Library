@@ -3,8 +3,8 @@ Title: House, Wooden, Single Storey, Large, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 8.6m
-Depth: 12m
-Height: 5.6m
+Width: 12.0
+Depth: 8.7
+Height: 5.7
 =====================
 Description: A single-storey large white wooden house.

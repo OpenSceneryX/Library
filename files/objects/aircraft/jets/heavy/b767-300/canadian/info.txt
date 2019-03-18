@@ -7,5 +7,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/canadian/b767-300
+Width: 81.7
+Height: 16.2
+Depth: 58.7
 =====================
 Description: A Boeing 767-300 in Canadian livery.

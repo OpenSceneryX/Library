@@ -6,5 +6,8 @@ Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/livery/united/embraer-170
+Width: 26.0
+Height: 9.5
+Depth: 30.6
 =====================
 Description: An Embraer 170 in United Express livery.

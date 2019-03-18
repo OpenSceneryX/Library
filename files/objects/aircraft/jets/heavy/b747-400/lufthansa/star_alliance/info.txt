@@ -8,5 +8,8 @@ Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/livery/lufthansa/star_alliance/b737-400
+Width: 104.7
+Height: 19.2
+Depth: 71.3
 =====================
 Description: A Boeing 747-400 in Lufthansa Star Alliance livery.

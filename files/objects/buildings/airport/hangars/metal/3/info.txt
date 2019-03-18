@@ -2,8 +2,8 @@ Title: Hangar, metal, long with office
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
-Width: 17.9m
-Depth: 61.1m
-Height: 7.6m
+Width: 17.9
+Depth: 61.1
+Height: 7.6
 =====================
 Description: Long modern hangar with metal sides, red roof, three aircraft doors and an office at one end.

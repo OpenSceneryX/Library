@@ -3,8 +3,8 @@ Title: House, Wooden, Two Storey, Medium, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 9m
-Depth: 16.3m
-Height: 8.8m
+Width: 16.4
+Depth: 9.0
+Height: 8.8
 =====================
 Description: A two storey medium-sized white wooden house.

@@ -2,9 +2,9 @@ Title: VCR, rectangular, grey, variant 5
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 5.3m
-Depth: 6.8m
-Height: 3.9m
+Width: 5.3
+Depth: 6.8
+Height: 3.9
 Export External RE_Library: RE_Library/VCRs/Type_d/d2/VCRd2_ldg
 Export External RE_Library: RE_Library/VCRs/Type_d/d2/VCRd2_lbb
 Since: 3.0.0

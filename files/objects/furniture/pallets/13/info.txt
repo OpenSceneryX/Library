@@ -2,8 +2,8 @@ Title: Pallet, concrete blocks
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 1.2m
-Depth: 1.2m
-Height: 0.9m
+Width: 1.2
+Depth: 1.3
+Height: 0.9
 =====================
 Description: A wooden palette stacked with concrete curb blocks.

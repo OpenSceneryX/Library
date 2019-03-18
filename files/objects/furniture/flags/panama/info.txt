@@ -4,9 +4,9 @@ Author: mr 3D
 URL: https://forums.x-plane.org/index.php?/profile/9171-mr-3d/
 Author, texture: Chris Noe
 URL, texture: https://forums.x-plane.org/index.php?/profile/59940-chris-noe/
-Width: 4.4m
-Height: 13.8m
-Depth: 2m
+Width: 4.4
+Height: 13.8
+Depth: 2.1
 Since: 4.1.0
 =====================
 Description: An animated Panama flag.

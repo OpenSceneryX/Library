@@ -3,8 +3,8 @@ Title: Pallet, Ryobi®
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.21m
-Height: 1.67m
-Depth: 1.64m
+Width: 1.2
+Height: 1.7
+Depth: 1.6
 =====================
 Description: A stacked pallet with boxes of merchandise for cargo areas.

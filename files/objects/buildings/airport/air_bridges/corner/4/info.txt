@@ -2,9 +2,9 @@ Title: Air bridge, 45 degree RH bend, 5m AGL, 8 + 17m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 14m
-Depth: 20m
-Height: 9m
+Width: 14.0
+Depth: 20.0
+Height: 9.0
 Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/45_degree/5m_agl/Airbridge_5agl_8+17m_45R_g
 Since: 3.0.0
 =====================

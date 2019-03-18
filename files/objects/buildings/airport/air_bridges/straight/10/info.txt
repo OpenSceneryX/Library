@@ -2,9 +2,9 @@ Title: Air bridge section, straight, 5m AGL, 20m long, wide
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 5m
-Depth: 20m
-Height: 8m
+Width: 5.0
+Depth: 20.0
+Height: 8.0
 Export External RE_Library: RE_Library/Terminals/Airbridges/Wide/5m_agl/20m_length/Airbridge_W_5agl_20m_g
 Since: 3.0.0
 =====================

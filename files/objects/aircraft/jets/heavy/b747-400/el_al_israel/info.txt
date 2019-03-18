@@ -9,5 +9,8 @@ Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/el_al_israel/b747-400
 Export Extended: lib/airport/aircraft/airliners/heavy_e_ely
 Export Extended: lib/airport/aircraft/airliners/heavy_e
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in El Al Israel livery.

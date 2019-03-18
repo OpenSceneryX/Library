@@ -3,8 +3,8 @@ Title: Terminal, brick
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 18m
-Depth: 12m
-Height: 4m
+Width: 18.1
+Depth: 12.3
+Height: 4.0
 =====================
 Description: A small terminal (or office) building, 1 storey, red brick, flat roof.

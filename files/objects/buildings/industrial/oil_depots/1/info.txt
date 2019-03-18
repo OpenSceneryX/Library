@@ -2,8 +2,8 @@ Title: Oil Depot
 =====================
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
-Width: 99.3m
-Depth: 163.3m
-Height: 13.3m
+Width: 99.3
+Depth: 163.3
+Height: 13.3
 =====================
 Description: An oil depot / fuel farm.

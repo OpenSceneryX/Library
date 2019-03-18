@@ -9,8 +9,8 @@ Email, conversion: joyfulsongster@hotmail.com
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/delta/b737-800
-Width: 34m
-Depth: 39m
-Height: 12.2m
+Width: 33.1
+Depth: 39.5
+Height: 12.2
 =====================
 Description: A Boeing 737-800 in Delta livery.

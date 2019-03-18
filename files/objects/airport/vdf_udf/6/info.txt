@@ -2,9 +2,9 @@ Title: VDF antenna, white pole, white antennae
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 4m
-Depth: 4m
-Height: 12.7m
+Width: 4.0
+Depth: 4.0
+Height: 12.7
 Export External RE_Library: RE_Library/Navaids/VDF_12m/VDF_12_w_w
 Since: 3.0.0
 =====================

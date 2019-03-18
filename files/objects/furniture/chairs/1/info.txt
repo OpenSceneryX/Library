@@ -2,9 +2,9 @@ Title: Chair, plastic, white
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
-Width: 0.7m
-Height: 1.2m
-Depth: 0.7m
+Width: 0.7
+Height: 1.2
+Depth: 0.7
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/chairs/1
 =====================
 Description: A white plastic chair.

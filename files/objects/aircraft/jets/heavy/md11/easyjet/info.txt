@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/easyjet/md11
+Width: 51.8
+Height: 16.9
+Depth: 62.4
 =====================
 Description: An MD11 in easyJet livery.

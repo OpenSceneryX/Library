@@ -8,5 +8,8 @@ Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/livery/united/a319
+Width: 34.3
+Height: 11.9
+Depth: 33.9
 =====================
 Description: An Airbus 319 in United livery.

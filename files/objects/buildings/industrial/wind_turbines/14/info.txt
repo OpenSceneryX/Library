@@ -2,8 +2,8 @@ Title: Wind turbine, 6-bladed, 30m
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 28.7m
-Depth: 7.7m
-Height: 30m
+Width: 28.7
+Depth: 7.7
+Height: 45.0
 =====================
 Description: An animated 6-bladed wind turbine on a 30m high metal lattice pedestal with blades in 3 pairs of 2.

@@ -2,9 +2,9 @@ Title: Tank, plastic, 7m, red
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 7m
-Depth: 7m
-Height: 2.3m
+Width: 7.0
+Depth: 7.0
+Height: 2.3
 Since: 3.0.0
 =====================
 Description: A 7m red plastic tank.

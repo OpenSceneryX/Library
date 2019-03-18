@@ -2,9 +2,9 @@ Title: Dump Truck
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 2.4m
-Depth: 7m
-Height: 3m
+Width: 2.4
+Depth: 7.0
+Height: 2.9
 Export Propagate: 2
 Export External simHeaven: simheaven/landmarks/quarry_area
 Export External simHeaven: simheaven/landmarks/construction_area

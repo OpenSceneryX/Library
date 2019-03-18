@@ -3,8 +3,8 @@ Title: Tower, stucco, with terminal
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 23.1m
-Height: 10.2m
-Depth: 16.5m
+Width: 16.5
+Height: 10.2
+Depth: 23.2
 =====================
 Description: An orange stucco airport control tower, 3 storey, with attached small stucco terminal building.

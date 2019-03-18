@@ -3,8 +3,8 @@ Title: Tower, stucco, old
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 6.7m
-Height: 8.8m
-Depth: 14m
+Width: 6.7
+Height: 8.8
+Depth: 14.0
 =====================
 Description: An old stucco airport control tower, 3 storey, with attached small building.

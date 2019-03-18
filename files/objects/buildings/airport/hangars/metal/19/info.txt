@@ -3,8 +3,8 @@ Title: Hangar, metal, white, sliding doors closed
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 15m
-Depth: 15m
-Height: 6.5m
+Width: 19.5
+Depth: 14.8
+Height: 6.9
 =====================
 Description: Small white metal hangar with closed sliding doors.

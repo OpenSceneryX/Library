@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 47m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 22.4m
-Depth: 16.9m
-Height: 46.7m
+Width: 22.4
+Depth: 16.9
+Height: 46.7
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGKK_43m/Gatwick_full
 Since: 3.0.0
 =====================

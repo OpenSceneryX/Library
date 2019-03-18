@@ -7,5 +7,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/aer_lingus/aerlingus.com/b737-548
+Width: 28.7
+Height: 11.3
+Depth: 30.1
 =====================
 Description: A Boeing 737-548 in promotional aerlingus.com livery.

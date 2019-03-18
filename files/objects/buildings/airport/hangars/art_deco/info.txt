@@ -3,8 +3,8 @@ Title: Hangar, Art Deco
 Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
-Width: 82.5m
-Depth: 96.8m
-Height: 40m
+Width: 89.6
+Depth: 96.8
+Height: 40.0
 =====================
 Description: A large Art Deco hangar.

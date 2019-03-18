@@ -4,9 +4,9 @@ Author: Stephen Legg
 URL: http://www.fs9world.741.com
 Author, conversion: Cormac Shaw
 URL, conversion: http://www.xpih.net
-Width: 1.6m
-Depth: 4.6m
-Height: 2.2m
+Width: 5.6
+Depth: 4.7
+Height: 2.2
 =====================
 Description: A Ford Transit minibus in green markings.
 This object is a derivative work of the "Ford Transit Collection" scenery library for MS Flight Simulator with the kind permission of its author, Stephen Legg (www.fs9world.741.com).

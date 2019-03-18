@@ -4,9 +4,9 @@ Author: Davide De Marchi
 URL: http://forums.x-plane.org/index.php?showuser=55064
 Author, conversion: Robin Tannahill
 URL, conversion: http://forums.x-plane.org/index.php?showuser=99351
-Width: 32m
-Depth: 32m
-Height: 12m
+Width: 32.8
+Depth: 32.5
+Height: 11.8
 Export Propagate: 3
 =====================
 Description: A Beriev Be-200 in Russian Air Force colours.  Real life data on this aircraft on <a href='http://en.wikipedia.org/wiki/Beriev_Be-200' onclick='window.open(this.href);return false;'>Wikipedia</a>.

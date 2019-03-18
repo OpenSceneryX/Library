@@ -5,5 +5,8 @@ URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
 Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Width: 16.6
+Height: 4.7
+Depth: 10.7
 =====================
 Description: Piper Cheyenne II - "Med Aero" livery.

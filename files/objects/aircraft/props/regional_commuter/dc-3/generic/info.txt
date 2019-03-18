@@ -3,6 +3,9 @@ Title: DC-3 Generic
 Author: amerrir
 URL: http://forums.x-plane.org/index.php?showuser=14498
 Export Propagate: 1
+Width: 28.9
+Height: 5.1
+Depth: 19.7
 =====================
 Description: A DC-3 in generic metal and red livery.  This aircraft is decommissioned, with missing ailerons.
 

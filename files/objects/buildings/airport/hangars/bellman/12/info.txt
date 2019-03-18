@@ -2,9 +2,9 @@ Title: Hangar, Bellman, blue, open both ends
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 36m
-Depth: 53m
-Height: 10m
+Width: 36.0
+Depth: 53.5
+Height: 10.0
 Export External RE_Library: RE_Library/Hangars/Bellman/open_both_ends/Bellman_o2_blue
 Since: 3.0.0
 =====================

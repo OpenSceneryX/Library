@@ -6,5 +6,8 @@ Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Width: 16.7
+Height: 4.6
+Depth: 13.6
 =====================
 Description: A Hawker Beechcraft King Air B200.

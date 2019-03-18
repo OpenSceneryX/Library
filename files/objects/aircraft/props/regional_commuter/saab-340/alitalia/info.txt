@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/alitalia/saab-340
+Width: 21.5
+Height: 6.5
+Depth: 20.1
 =====================
 Description: A Saab 340 in Alitalia livery.

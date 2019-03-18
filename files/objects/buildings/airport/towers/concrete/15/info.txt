@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 48m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 31m
-Depth: 32m
-Height: 48m
+Width: 31.1
+Depth: 32.0
+Height: 48.0
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGNT_34m/EGNT_46m_plain
 Since: 3.0.0
 =====================

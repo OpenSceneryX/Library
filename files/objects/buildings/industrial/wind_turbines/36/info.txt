@@ -4,5 +4,8 @@ Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Offshore/Wind_turbine_offshore_0150_white
 Since: 3.2.0
+Width: 20.4
+Height: 195.0
+Depth: 140.4
 =====================
 Description: A 3 bladed offshore wind turbine, 150m tall, lit.

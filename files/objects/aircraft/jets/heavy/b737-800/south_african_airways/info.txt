@@ -7,5 +7,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/south_african_airways/b737-800
+Width: 60.5
+Height: 12.8
+Depth: 43.4
 =====================
 Description: A Boeing 737-800 in South African Airways livery.

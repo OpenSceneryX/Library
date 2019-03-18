@@ -3,8 +3,8 @@ Title: Tower, stucco, new
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 7.34m
-Height: 10.52m
-Depth: 11.2m
+Width: 11.2
+Height: 10.5
+Depth: 7.3
 =====================
 Description: A new stucco airport control tower, 3 storey.

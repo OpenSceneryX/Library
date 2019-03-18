@@ -7,5 +7,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/md90
 Export: objects/aircraft/livery/american_airlines/md90-50
+Width: 37.2
+Height: 8.6
+Depth: 46.6
 =====================
 Description: An MD90-50 in American Airlines Livery.

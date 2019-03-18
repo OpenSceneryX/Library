@@ -3,5 +3,8 @@ Title: Tug, Large
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
+Width: 6.0
+Height: 1.8
+Depth: 8.6
 =====================
 Description: A large tug suitable for pulling heavies.

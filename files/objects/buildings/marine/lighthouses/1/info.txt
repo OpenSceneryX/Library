@@ -1,9 +1,9 @@
 Title: Lighthouse
 =====================
 Author: Bob Whitt
-Width: 8m
-Depth: 8m
-Height: 51m
+Width: 8.0
+Depth: 8.0
+Height: 51.9
 Export External simHeaven: simheaven/landmarks/light-house_40m
 =====================
 Description: A 100ft white lighthouse with a red top.

@@ -3,8 +3,8 @@ Title: Hangar, metal, white, bi-fold doors open
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 15m
-Depth: 15m
-Height: 6.5m
+Width: 15.2
+Depth: 15.8
+Height: 6.9
 =====================
 Description: Small white metal hangar with open bi-fold door. Original at Richter Field, Sask.

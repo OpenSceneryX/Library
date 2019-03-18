@@ -2,9 +2,9 @@ Title: Tower, concrete, modern, 33m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 12.6m
-Depth: 12.6m
-Height: 32.6m
+Width: 12.6
+Depth: 12.6
+Height: 32.6
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGMC_28m/Tower_only/EGMC_28m_tower
 Export External RE_Library: RE_Library/Control_Tower/UK_prototype/EGMC_28m/with_base/EGMC_28m_tower+base
 Since: 3.0.0

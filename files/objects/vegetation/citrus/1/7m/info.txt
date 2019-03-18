@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 6.8
+Height: 7.0
+Depth: 6.8
 =====================
 Description: An individual Citrus tree, height 7m.

@@ -2,9 +2,9 @@ Title: Tanker, Small, Mobil
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
-Width: 3.5m
-Height: 4m
-Depth: 9.3m
+Width: 3.5
+Height: 4.1
+Depth: 9.3
 Export Propagate: 2
 =====================
 Description: A small Mobil fuel tanker.

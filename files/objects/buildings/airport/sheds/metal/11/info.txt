@@ -2,9 +2,9 @@ Title: Shed, metal, open, yellow features
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 10m
-Depth: 20m
-Height: 7.5m
+Width: 10.0
+Depth: 20.0
+Height: 7.5
 Export External RE_Library: RE_Library/Cargo_terminal/shed_10x20m/open/yellow/Cargo_shed_o5
 Since: 3.0.0
 =====================

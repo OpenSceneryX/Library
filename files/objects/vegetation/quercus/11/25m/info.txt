@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 23.4
+Height: 25.0
+Depth: 23.4
 =====================
 Description: An individual Quercus Alba (White Oak) tree, height 25m.

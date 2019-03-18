@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 5.6
+Height: 8.5
+Depth: 5.6
 =====================
 Description: An individual Juniperus Virginiana (Red Juniper) tree, height 8.5m.

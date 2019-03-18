@@ -2,9 +2,9 @@ Title: Cargo lift, partially raised, two containers
 =====================
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
-Width: 3.7m
-Depth: 8.9m
-Height: 5.2m
+Width: 3.7
+Depth: 8.9
+Height: 5.2
 Export Propagate: 2
 =====================
 Description: A partially raised cargo lift with two containers on board.

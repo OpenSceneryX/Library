@@ -3,9 +3,9 @@ Title: Baggage cart, open side, with baggage
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.6m
-Height: 1.9m
-Depth: 4m
+Width: 1.6
+Height: 1.9
+Depth: 4.0
 Revision: $Revision: 792 $
 Date: $Date: 2012-02-23 19:44:55 +0000 (Thu, 23 Feb 2012) $
 =====================

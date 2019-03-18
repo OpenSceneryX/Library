@@ -2,9 +2,9 @@ Title: Gate block, grey, 10.75m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 3m
-Depth: 6m
-Height: 10.75m
+Width: 3.0
+Depth: 6.0
+Height: 10.8
 Export External RE_Library: RE_Library/Terminals/Gate_block/10.75m/Gateblock_10.75m_g
 Since: 3.0.0
 =====================

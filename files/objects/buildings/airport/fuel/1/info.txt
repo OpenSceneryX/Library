@@ -3,8 +3,8 @@ Title: Fuel Tank, Jet A1
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 12m
-Depth: 3m
-Height: 4m
+Width: 15.3
+Depth: 4.3
+Height: 4.3
 =====================
 Description: Above ground JetA1 tank, 90,000 litres.

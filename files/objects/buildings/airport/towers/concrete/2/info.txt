@@ -2,8 +2,8 @@ Title: Tower, concrete, modern, 100m with offices
 =====================
 Author: Ron Somerville
 URL: http://forums.x-plane.org/index.php?showuser=5515
-Width: 57m
-Depth: 99m
-Height: 100m
+Width: 57.1
+Depth: 99.2
+Height: 100.0
 =====================
 Description: Air Traffic control main airport tower and offices for larger airports.
