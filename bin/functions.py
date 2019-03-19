@@ -1010,9 +1010,14 @@ def createPaths(parts):
 def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 
+	# Copy the screenshot files. Screenshots are optional, and can include a shot for each seasonal variant.
 	if (sceneryObject.screenshotFilePath != ""):
 		destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg")
 		if not os.path.isfile(destinationFilePath): shutil.copyfile(sceneryObject.screenshotFilePath, destinationFilePath)
+	for season in sceneryObject.seasonPaths:
+		sourceFilePath = os.path.join(dirpath, f"screenshot_{season}.jpg")
+		destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], f"screenshot_{season}.jpg")
+		if os.path.isfile(sourceFilePath) and not os.path.isfile(destinationFilePath): shutil.copyfile(sourceFilePath, destinationFilePath)
 
 	# Copy the logo file.  Logos are used to 'brand' objects that are from a specific
 	# collection.  Therefore they are all stored in a single folder (in support) so they
