@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script walks through every object in the library and re-generates its screenshot.
-# 
+#
 # Prerequisites:
 #   - Must be run on a Mac
 #   - Marginal's quick previewer for X-Plane .obj files from here: https://github.com/Marginal/QLXPlaneObj
@@ -74,8 +74,21 @@ else
     find . -name "*.obj"|while read f
     do
         DIR=$(dirname "$f")
-        SCREENSHOT_PNG=$DIR"/object.obj.png"
-        SCREENSHOT_JPEG=$DIR"/screenshot.jpg"
+        FILE=$(basename "$f")
+        FILEBASE=${FILE%.*}
+
+        sep='_'
+        case $FILEBASE in
+        (*"$sep"*)
+            LEFT=${FILEBASE%%"$sep"*}
+            RIGHT=${FILEBASE#*"$sep"}
+            SCREENSHOT_JPEG=$DIR"/screenshot_"$RIGHT".jpg"
+            ;;
+        (*)
+            SCREENSHOT_JPEG=$DIR"/screenshot.jpg"
+            ;;
+        esac
+        SCREENSHOT_PNG=$DIR"/"$FILE".png"
 
         echo "PNG: $SCREENSHOT_PNG"
         echo "JPEG: $SCREENSHOT_JPEG"
