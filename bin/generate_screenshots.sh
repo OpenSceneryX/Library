@@ -1,5 +1,6 @@
 #!/bin/bash
-# This script walks through every object in the library and re-generates its screenshot.
+# This script walks through every object in the library and re-generates its screenshot(s). This includes seasonal
+# screenshots where seasonal variants are present.
 #
 # Prerequisites:
 #   - Must be run on a Mac
@@ -9,7 +10,7 @@
 #
 # Usage: generate_screenshots [manual|auto|resize] [PATH]
 #   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
-#   - auto (default): Look for .obj files and create a screenshot for each, optimised
+#   - auto: Look for .obj files and create a screenshot for each, optimised
 #   - resize: Look for screenshot.jpg files and resize them proportionally to 500 pixels wide
 
 BASEDIR=$(dirname "$0")
