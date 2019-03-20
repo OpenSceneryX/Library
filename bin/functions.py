@@ -1488,7 +1488,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 	elif compatibility == "fourseasons":
-		# Four Seasons always has snow covered winter textures, across both standard and deep winter
+		# Four Seasons has winter support for no snow, patchy snow, snow and deep snow. We don't have our own patchy snow, so just use snow variant.
 		result += "REGION_DEFINE opensceneryx_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 10\n"
@@ -1503,17 +1503,26 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
-		result += "REGION_DREF nm/four_seasons/season == 40\n"
-		result += "REGION opensceneryx_winter\n"
+		result += "REGION_DREF nm/four_seasons/season >= 40\n" # No ground snow
+		result += "REGION_DREF nm/four_seasons/season <= 45\n" # Patchy ground snow
+		result += "REGION opensceneryx_winter_no_snow\n"
+		result += "\n"
+		result += content["winter"] + "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF nm/four_seasons/season == 50\n"
+		result += "REGION opensceneryx_winter_snow\n"
 		result += "\n"
 		result += content["winter"] + "\n"
 		result += content["winter_snow"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_deep\n"
 		result += "REGION_RECT -180 -90 179 89\n"
-		result += "REGION_DREF nm/four_seasons/season >= 45\n"
+		result += "REGION_DREF nm/four_seasons/season == 60\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
 		result += content["winter"] + "\n"
@@ -1521,7 +1530,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 	elif compatibility == "terramaxx":
-		# TerraMaxx always has snow covered winter textures, across both standard and deep winter
+		# TerraMaxx always has snow covered winter textures, and has different snow and deep snow modes.
 		result += "REGION_DEFINE opensceneryx_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_autumn == 1\n"
@@ -1547,7 +1556,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 	elif compatibility == "xambience":
-		# xAmbience has snow covered winter textures, and no deep winter mode
+		# xAmbience has snow covered winter textures, but no deep winter mode
 		result += "REGION_DEFINE opensceneryx_winter\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF xambience/custom/seasons/cur == 1\n"
@@ -1571,7 +1580,7 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += content["autumn"] + "\n"
 		result += "\n"
 
-	# Always end with an all-encompassing region
+	# Always end with an all-encompassing region for the main body of the library
 	result += "REGION_DEFINE all\n"
 	result += "REGION_RECT -180 -90 179 89\n"
 	result += "REGION all\n"

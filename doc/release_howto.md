@@ -4,13 +4,13 @@ Release Howto
 0. Pre-build the library
 
     ```bash
-    $ python build.py
+    $ python3 build.py
     ```
 
 1. Check the build for missing virtual paths
 
     ```bash
-    $ python check.py
+    $ python3 check.py
     ```
 
 2. Create release branch
@@ -24,7 +24,7 @@ Release Howto
 6. Clean target folder and build library
 
     ```bash
-    $ python build.py
+    $ python3 build.py
     ```
 
     ENSURE 'y' is selected for 'Build PDF'
@@ -50,7 +50,7 @@ Release Howto
 11. Run Packager
 
     ```bash
-    $ python package.py
+    $ python3 package.py
     ```
 
 12. Zip `OpenSceneryX-Website-x.x.x/` and `OpenSceneryX-DeveloperPack-x.x.x/`
@@ -84,7 +84,7 @@ Release Howto
 17. Ensure AWS S3 permissions on the following are public:
 
     - `OpenSceneryX-DeveloperPack-x.x.x.zip`
-    - Monolithic zip file `OpenSceneryX.zip`
+    - Monolithic zip file `OpenSceneryX-x.x.x.zip`
     - `manifest.xml.zip`
     - `/repository`
 

@@ -2,6 +2,6 @@ Title: Runway Closed
 =====================
 Author: Sevo
 URL: http://forums.x-plane.org/index.php?showuser=52068
-Export Deprecated v3.3.0: lines/airport/runway_closed
+Export Deprecated v4.0.0: lines/airport/runway_closed
 =====================
 Description: Runway closed markings.

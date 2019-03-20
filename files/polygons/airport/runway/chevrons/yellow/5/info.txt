@@ -3,6 +3,6 @@ Title: Runway chevron marking, yellow, dirty, variant 2
 Author: Darrell Thompson
 URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
 Export External DT_Library: DT_Library/Chevrons/YellowChevron3Dirty2
-Since: 3.3.0
+Since: 4.0.0
 =====================
 Description: A dirty yellow runway chevron marking.

@@ -2,7 +2,7 @@ Title: Curb, Concrete
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/structures/curb_concrete
+Export Deprecated v4.0.0: lines/airport/structures/curb_concrete
 =====================
 Description: A concrete curb. Use for edges around or divisions within airport aprons.
 
