@@ -301,7 +301,9 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 			result = attrLodPattern.match(line)
 			if result:
-				sceneryObject.lods.append({"min": float(result.group(1)), "max": float(result.group(2))})
+				newLOD = {"min": float(result.group(1)), "max": float(result.group(2))}
+				if not newLOD in sceneryObject.lods:
+					sceneryObject.lods.append(newLOD)
 				continue
 
 			if not sceneryObject.lightsCustom:
