@@ -30,18 +30,13 @@ classes.Configuration.init(versionTag, "", False)
 os.chdir("..")
 os.chdir(classes.Configuration.releaseFolder)
 
-tar = tarfile.TarFile('OpenSceneryX-' + classes.Configuration.versionNumber + ".tar", "w")
-
 for (dirpath, dirnames, filenames) in os.walk("OpenSceneryX-" + classes.Configuration.versionNumber):
   for filename in filenames:
     path = os.path.join(dirpath, filename)
     zip = zipfile.ZipFile(path + '.zip', 'w', zipfile.ZIP_DEFLATED)
     zip.write(path, filename)
     zip.close()
-    tar.add(path + '.zip')
     os.remove(path)
-
-tar.close()
 
 print("------------------------")
 print("Complete")

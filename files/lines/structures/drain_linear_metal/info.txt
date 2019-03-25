@@ -2,7 +2,7 @@ Title: Drain Channel, Metal
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/structures/drain_linear_metal
+Export Deprecated v4.0.0: lines/airport/structures/drain_linear_metal
 =====================
 Description: A dark metal storm drain channel.
 

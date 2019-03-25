@@ -1,6 +1,6 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
-<h3>Version x.x.x xxxx xxxxx xxxx</h3>
+<h3>Version 4.0.0 4th March 2019</h3>
 <ul>
 	<li>New scenery objects in this version:
 		<ul>
@@ -17,6 +17,7 @@
 		<ul>
 			<li>Support upcoming feature of WED to lock the rotation of an object to a specific angle (e.g. for objects that rotate in the wind). All existing objects in OpenSceneryX that rotate in the wind have had this attibute added, to lock them to 0° rotation.</li>
 			<li>Object dimensions are now interrogated directly from the model, automatically. All objects in the library have had their dimensions injected into the documentation.</li>
+			<li>All items with seasonal variants can now have individual seasonal screenshots in the documentation. All objects have had seasonal screenshots generated, but forests may take time as screenshots have to be created by hand for those.</li>
 		</ul>
 	</li>
 </ul>
@@ -40,8 +41,8 @@
 	</li>
 	<li>Other changes:
 		<ul>
-			<li><strong>Major new feature</strong>: Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen on install. Note that we only support seasons for library contributions that have seasonal alternatives - only FlyAgi's forests currently have these variants - but this opens up season support to any contributor.</li>
-			<li><strong>Major new feature</strong>: Support for injecting OpenSceneryX items into X-Plane® built-in libraries. This can be used to enhance the X-Plane automatic object placement and autogen. This is optional and can be selected on install. Currently some of the OpenSceneryX aircraft are exported to be used for static aircraft around airports.</li>
+			<li><strong>Major new feature</strong>: Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen on install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
+			<li><strong>Major new feature</strong>: Support for injecting OpenSceneryX items into X-Plane® built-in libraries. This can be used to enhance the X-Plane® automatic object placement and autogen. This is optional and can be selected on install. Currently some of the OpenSceneryX aircraft are exported to be used for static aircraft around airports.</li>
 			<li>Updated the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> to v2.2.0</li>
 			<li>The library still includes the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> but it is now separate and the installer gives the choice of using or not using it.</li>
 			<li>The website now provides more information about <tt>line</tt>s in the library - layer group, layer offset, line width and whether the line is mirrored.</li>
@@ -180,7 +181,7 @@
 		<ul>
 			<li>Two invalid lines were fixed in the backup libraries (<em>RE_Library</em> and <em>world2xplane library</em>).</li>
 			<li>Added support to include external libraries within OpenSceneryX, which provides the ability for libraries to be merged. Items in external libraries are published to their original paths as well as new OpenSceneryX paths.</li>
-			<li>All deprecated paths are now exported into a DEPRECATED section of the library file, so they no longer show up in WED.</li>
+			<li>All deprecated paths are now exported into a <tt>DEPRECATED</tt> section of the library file, so they no longer show up in WED.</li>
 			<li>Refreshed design and branding in library docs and developer pack docs.</li>
 			<li>All processing for legacy X-Plane® v7 format object files has been removed. The v7 format is no longer supported by OpenSceneryX.</li>
 			<li>Re-compressed a bunch of the PNG textures that gave the best saving in file size.</li>
@@ -289,7 +290,7 @@
 		<ul>
 			<li>All textures that contained any kind of night 'glow' have been deleted. In a couple of cases, where it was possible, the texture has been edited to remove the glow.</li>
 			<li>Airport small truck 2 replaced with more optimised version.</li>
-			<li>Rescaled the fire engine texture - 2048 is too big for X-Plane 8.</li>
+			<li>Rescaled the fire engine texture - 2048 is too big for X-Plane® 8.</li>
 			<li>All Cessna C150s were re-exported to remove 'normals of the wrong length' errors.</li>
 			<li>The tree object has been replaced with an improved version to remove the 'halo' effect.</li>
 		</ul>
@@ -297,10 +298,10 @@
 	<li>Other changes:
 		<ul>
 			<li>The developer pack now contains brief instructions on how to use OpenSceneryX with World Editor (WED).</li>
-			<li>Increased X-Plane required version from 8.5 to 8.6 and removed mention of X-Plane 8.6 support being required for the placeholder library, as we're on X-Plane® 10 now.</li>
-			<li>Previous versions published a floodlight at objects/furniture/lights/flood, but this was inadvertantly removed in 2.0.0. This has been fixed.</li>
+			<li>Increased X-Plane® required version from 8.5 to 8.6 and removed mention of X-Plane® 8.6 support being required for the placeholder library, as we're on X-Plane® 10 now.</li>
+			<li>Previous versions published a floodlight at <tt>objects/furniture/lights/flood</tt>, but this was inadvertantly removed in 2.0.0. This has been fixed.</li>
 			<li>More information is provided about each polygon in the docs: The horizontal and vertical texture scale, the layer group name, the layer offset and the surface type.</li>
-			<li>Moved the lines in lines/airport/zone_boundaries to a more general lines/solid_lines folder. They are still published to the old path too, for backward compatibility.</li>
+			<li>Moved the lines in <tt>lines/airport/zone_boundaries</tt> to a more general <tt>lines/solid_lines</tt> folder. They are still published to the old path too, for backward compatibility.</li>
 		</ul>
 	</li>
 </ul>
@@ -374,8 +375,8 @@
 			<li>Fixed some XHTML (strict) validation errors on website.</li>
 			<li>Removed the info.txt files from the distribution - the authors names are still listed in the readme file. For this version, this reduces the number of files by 2087 and size by 8.6Mb.</li>
 			<li>Fixed bug in placeholder library - the placeholder for polygons was set to be a .lin file, causing X-Plane® to fall over if the placeholder library is used and OpenSceneryX is not installed.</li>
-			<li>Fixed another bug in placeholder library - neither the line or polygon placeholders were working because the contents of minimal .lin and .pol files need a bit more defined than for the other scenery object types.</li>
-			<li>Floodlights are now published to both airport/furniture/lights/flood and furniture/lights/flood</li>
+			<li>Fixed another bug in placeholder library - neither the line or polygon placeholders were working because the contents of minimal <tt>.lin</tt> and <tt></tt>.pol files need a bit more defined than for the other scenery object types.</li>
+			<li>Floodlights are now published to both <tt>airport/furniture/lights/flood</tt> and <tt>furniture/lights/flood</tt></li>
 			<li>Added sub-categories to airport vehicles in the docs.</li>
 			<li>Added breadcrumbs to release notes page.</li>
 			<li>Added share links to all doc pages.</li>

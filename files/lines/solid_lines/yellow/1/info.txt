@@ -2,8 +2,8 @@ Title: Solid line, yellow, variant 1
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/zone_outlines/yellow
-Export Deprecated v3.3.0: lines/solid_lines/yellow
+Export Deprecated v4.0.0: lines/airport/zone_outlines/yellow
+Export Deprecated v4.0.0: lines/solid_lines/yellow
 =====================
 Description: A yellow, painted line (20cm wide) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
 

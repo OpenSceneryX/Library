@@ -3,6 +3,6 @@ Title: Character, 5, white
 Author: Darrell Thompson
 URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
 Export External DT_Library: DT_Library/Numbers/White_5
-Since: 3.3.0
+Since: 4.0.0
 =====================
 Description: A white '5' character.

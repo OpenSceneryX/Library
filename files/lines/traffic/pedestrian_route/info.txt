@@ -2,7 +2,7 @@ Title: Pedestrian Only Route
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/traffic/pedestrian_route
+Export Deprecated v4.0.0: lines/airport/traffic/pedestrian_route
 =====================
 Description: A 'Pedestrians Only' ground marking repeating every 8m along the line path. Typically used to indicate a reserved path for passengers to take to/from aircraft on an apron.
 

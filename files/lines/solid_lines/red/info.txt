@@ -2,7 +2,7 @@ Title: Solid line, red
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Export Deprecated v3.3.0: lines/airport/zone_outlines/red
+Export Deprecated v4.0.0: lines/airport/zone_outlines/red
 =====================
 Description: A red, painted line (20cm wide) surface marking typically used to outline an area on the airport apron (or elsewhere) where ground vehicles and aircraft should not enter.
 

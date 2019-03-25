@@ -1,6 +1,7 @@
 #!/bin/bash
-# This script walks through every object in the library and re-generates its screenshot.
-# 
+# This script walks through every object in the library and re-generates its screenshot(s). This includes seasonal
+# screenshots where seasonal variants are present.
+#
 # Prerequisites:
 #   - Must be run on a Mac
 #   - Marginal's quick previewer for X-Plane .obj files from here: https://github.com/Marginal/QLXPlaneObj
@@ -9,7 +10,7 @@
 #
 # Usage: generate_screenshots [manual|auto|resize] [PATH]
 #   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
-#   - auto (default): Look for .obj files and create a screenshot for each, optimised
+#   - auto: Look for .obj files and create a screenshot for each, optimised
 #   - resize: Look for screenshot.jpg files and resize them proportionally to 500 pixels wide
 
 BASEDIR=$(dirname "$0")
@@ -74,8 +75,21 @@ else
     find . -name "*.obj"|while read f
     do
         DIR=$(dirname "$f")
-        SCREENSHOT_PNG=$DIR"/object.obj.png"
-        SCREENSHOT_JPEG=$DIR"/screenshot.jpg"
+        FILE=$(basename "$f")
+        FILEBASE=${FILE%.*}
+
+        sep='_'
+        case $FILEBASE in
+        (*"$sep"*)
+            LEFT=${FILEBASE%%"$sep"*}
+            RIGHT=${FILEBASE#*"$sep"}
+            SCREENSHOT_JPEG=$DIR"/screenshot_"$RIGHT".jpg"
+            ;;
+        (*)
+            SCREENSHOT_JPEG=$DIR"/screenshot.jpg"
+            ;;
+        esac
+        SCREENSHOT_PNG=$DIR"/"$FILE".png"
 
         echo "PNG: $SCREENSHOT_PNG"
         echo "JPEG: $SCREENSHOT_JPEG"
