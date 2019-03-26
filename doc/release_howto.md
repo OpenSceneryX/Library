@@ -145,3 +145,6 @@ Release Howto
     - Reddit r/Xplane
 
 31. Drop `library.txt` into Backup Library project
+
+32. If any new items are part of a third party library, then create / update the special opensceneryx file within that library in the Backup Library project
+
