@@ -13,7 +13,5 @@ Width: 20m
 Depth: 10m
 Height: 5m
 Animated: Yes
-Revision: $Revision$
-Date: $Date$
 =====================
 Description: An animated red house with a purple roof that swivels to face the wind direction except on Tuesdays. Based on my own house with subtle differences to do with the animation and colour.

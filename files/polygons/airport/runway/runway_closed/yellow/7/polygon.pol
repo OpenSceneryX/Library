@@ -1,0 +1,12 @@
+A
+850
+DRAPED_POLYGON
+
+TEXTURE_NOWRAP ClosedXYellow3.png
+TEXTURE_NORMAL 1 ../../../../../../shared_textures/darrell_thompson/ClosedXNML.png
+SPECULAR 0.5
+SCALE 10 10
+LAYER_GROUP markings +1
+SURFACE asphalt
+
+

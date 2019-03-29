@@ -1,5 +1,35 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
+<h3>Version 4.0.0 29th March 2019</h3>
+<ul>
+	<li>New scenery objects in this version:
+		<ul>
+			<li>Incorporated <a href="https://forums.x-plane.org/index.php?/files/file/49646-dt-library/"><em>DT Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/613332-tbolt47/">Darrell Thompson</a> into OpenSceneryX, which includes a large set of markings suitable for small to medium airports.</li>
+			<li><a href="https://forums.x-plane.org/index.php?/profile/389608-einstein/">einstein</a> has contributed seasonal variants (autumn and winter without snow) for the original OpenSceneryX tree forests. This enables autumn and winter (without snow) for any sceneries that use originl OpenSceneryX forests, as well as most of the individual plant and tree objects.</li>
+			<li><a href="https://forums.x-plane.org/index.php?/profile/499928-madmaxland/">madmaxland</a> has contributed a spring seasonal variant for the original OpenSceneryX tree forests. This enables springtime for any sceneries that use original OpenSceneryX forests, as well as most of the individual plant and tree objects.</li>
+			<li>FlyAgi has contributed seasonal variants (autumn, winter mild and winter deep) for all his vegetation forests.</li>
+		</ul>
+	</li>
+	<li>Modified scenery objects in this version:
+		<ul>
+			<li>The runway closed 'X' marking has been replaced by an improved version from DT Library which includes normals.</li>
+			<li>Some aircraft, both jets and props, are now incorporated into the X-Plane® static aircraft system.</li>
+			<li>Fixed missing <tt>TEXTURE_NORMAL</tt> in oil fired power station.</li>
+		</ul>
+	</li>
+	<li>Other changes:
+		<ul>
+			<li><strong>Major new feature</strong>: Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen on install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
+			<li><strong>Major new feature</strong>: Support for injecting OpenSceneryX items into X-Plane® built-in libraries. This can be used to enhance the X-Plane® automatic object placement and autogen. This is optional and can be selected on install. Currently some of the OpenSceneryX aircraft are exported to be used for static aircraft around airports.</li>
+			<li>Updated the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> to v2.2.0</li>
+			<li>The library still includes the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> but it is now separate and the installer gives the choice of using or not using it.</li>
+			<li>The website now provides more information about <tt>line</tt>s in the library - layer group, layer offset, line width and whether the line is mirrored.</li>
+			<li>The website now provides more information about <tt>object</tt>s in the library - whether they have multiple LODs, custom lights, named lights, parameterised lights, spill lighting, whether the object tilts on uneven ground and whether it emits black or white smoke. Also, objects are marked as 'animated' automatically now, by directly examining the .obj file for animation commands.</li>
+			<li>Markdown is now supported for all descriptions of items. This is automatically converted to HTML for publishing on the website. Many descriptions that were being squashed down to a single paragraph have been rewritten using Markdown and tables, e.g. many of the polygons, making them far more readable.</li>
+		</ul>
+	</li>
+</ul>
+
 <h3>Version 3.2.0 6th January 2019</h3>
 <ul>
 	<li>New scenery objects in this version:
@@ -20,6 +50,7 @@
 	</li>
 	<li>Modified scenery objects in this version:
 		<ul>
+			<li>Some aircraft, both jets and props, are now incorporated into the X-Plane® static aircraft system.</li>
 			<li>The USA Hawaiian forests were empty and using a blank texture, which has been the case since they were first added. We now use <tt>pacific_lowland</tt> instead, as the closest match.</li>
 			<li>Added <tt>TILTED</tt> attribute to all appropriate objects so they follow sloped terrain. Affects aircraft, vehicles, some furniture and some people.</li>
 		</ul>
@@ -29,6 +60,7 @@
 			<li>Removed all unnecessary <tt>EXPORT_BACKUP</tt> lines for <em>RE_Library</em> backup library.</li>
 			<li>Third party libraries are now exported using <tt>EXPORT_BACKUP</tt> instead of <tt>DEPRECATED</tt> <tt>EXPORT</tt> entries. Means that if both OpenSceneryX and the source library are installed, the source library takes precedence, which is important when it is still being actively maintained and updated and may be ahead of OpenSceneryX.</li>
 			<li>Replaced the Backup Library with the latest v2.0.0 version.</li>
+			<li>We now export all appropriate aircraft into the X-Plane® static aircraft system as <tt>EXPORT_EXTEND</tt> entries. Means that X-Plane® will now automatically incorporate OpenSceneryX aircraft when populating static aircraft on the ground. Thank you to triplemon, xibo and Galileu for their assistance with this.</li>
 			<li>Individual screenshots generated for all European forests.</li>
 			<li>Individual screenshots generated for all US forests.</li>
 			<li>Added a set of simHeaven export paths so they don't have to copy actual objects out of OpenSceneryX on installation of their packages. These new paths will be used in the next releases of VFR Landmarks and X-Europe.</li>
@@ -116,7 +148,7 @@
 	</li>
 	<li>Modified scenery objects in this version:
 		<ul>
-			<li>All legacy X-Plane v7 objects have been converted to v8. The only objects affected were the animals.</li>
+			<li>All legacy X-Plane® v7 objects have been converted to v8. The only objects affected were the animals.</li>
 			<li>Fishing boats 1, 2, 3 and 4 were not pointing North. These have been rotated 90 degrees to conform with the OpenSceneryX standard. Apologies for any problems this may cause with existing scenery packs.</li>
 			<li>None of the Robin DR221 aircraft were pointing North. These have been rotated 90 degrees to conform with the OpenSceneryX standard. Apologies for any problems this may cause with existing scenery packs.</li>
 			<li>The small yellow, white and red/white cones have been replaced with improved models.</li>
@@ -127,9 +159,9 @@
 		<ul>
 			<li>Two invalid lines were fixed in the backup libraries (<em>RE_Library</em> and <em>world2xplane library</em>).</li>
 			<li>Added support to include external libraries within OpenSceneryX, which provides the ability for libraries to be merged. Items in external libraries are published to their original paths as well as new OpenSceneryX paths.</li>
-			<li>All deprecated paths are now exported into a DEPRECATED section of the library file, so they no longer show up in WED.</li>
+			<li>All deprecated paths are now exported into a <tt>DEPRECATED</tt> section of the library file, so they no longer show up in WED.</li>
 			<li>Refreshed design and branding in library docs and developer pack docs.</li>
-			<li>All processing for legacy X-Plane v7 format object files has been removed. The v7 format is no longer supported by OpenSceneryX.</li>
+			<li>All processing for legacy X-Plane® v7 format object files has been removed. The v7 format is no longer supported by OpenSceneryX.</li>
 			<li>Re-compressed a bunch of the PNG textures that gave the best saving in file size.</li>
 			<li>Developer documentation PDF now contains clickable screenshots and titles to take you to the online docs for the item.</li>
 			<li>Website now shows a carousel of the latest additions to the library, with screenshots and links.</li>
@@ -163,7 +195,7 @@
 	<li>Other changes:
 		<ul>
 			<li>The library now includes the excellent <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/"><em>backup library</em></a> originally by <a href="https://forums.x-plane.org/index.php?/profile/45106-chris-k/">chris k</a> and now maintained by <a href="https://forums.x-plane.org/index.php?/profile/389608-einstein/">einstein</a>, to help reduce problems with missing scenery packages. The installer has a setting to show visible or invisible placeholders - visible if you want to see that you are missing some libraries, invisible if you prefer not to know.</li>
-			<li>The installer now supports the default Steam X-Plane folder on Mac (which is normally beneath the invisible 'Library' folder). Click the 'Use Steam' button to set your X-Plane path to this, if the folder exists.</li>
+			<li>The installer now supports the default Steam X-Plane® folder on Mac (which is normally beneath the invisible 'Library' folder). Click the 'Use Steam' button to set your X-Plane® path to this, if the folder exists.</li>
 			<li>The placeholder library (for developers to include in their scenery packages) is now marked as PRIVATE so that scenery editing programs don't show the contents.</li>
 		</ul>
 	</li>
@@ -236,7 +268,7 @@
 		<ul>
 			<li>All textures that contained any kind of night 'glow' have been deleted. In a couple of cases, where it was possible, the texture has been edited to remove the glow.</li>
 			<li>Airport small truck 2 replaced with more optimised version.</li>
-			<li>Rescaled the fire engine texture - 2048 is too big for X-Plane 8.</li>
+			<li>Rescaled the fire engine texture - 2048 is too big for X-Plane® 8.</li>
 			<li>All Cessna C150s were re-exported to remove 'normals of the wrong length' errors.</li>
 			<li>The tree object has been replaced with an improved version to remove the 'halo' effect.</li>
 		</ul>
@@ -244,10 +276,10 @@
 	<li>Other changes:
 		<ul>
 			<li>The developer pack now contains brief instructions on how to use OpenSceneryX with World Editor (WED).</li>
-			<li>Increased X-Plane required version from 8.5 to 8.6 and removed mention of X-Plane 8.6 support being required for the placeholder library, as we're on X-Plane 10 now.</li>
-			<li>Previous versions published a floodlight at objects/furniture/lights/flood, but this was inadvertantly removed in 2.0.0. This has been fixed.</li>
+			<li>Increased X-Plane® required version from 8.5 to 8.6 and removed mention of X-Plane® 8.6 support being required for the placeholder library, as we're on X-Plane® 10 now.</li>
+			<li>Previous versions published a floodlight at <tt>objects/furniture/lights/flood</tt>, but this was inadvertantly removed in 2.0.0. This has been fixed.</li>
 			<li>More information is provided about each polygon in the docs: The horizontal and vertical texture scale, the layer group name, the layer offset and the surface type.</li>
-			<li>Moved the lines in lines/airport/zone_boundaries to a more general lines/solid_lines folder. They are still published to the old path too, for backward compatibility.</li>
+			<li>Moved the lines in <tt>lines/airport/zone_boundaries</tt> to a more general <tt>lines/solid_lines</tt> folder. They are still published to the old path too, for backward compatibility.</li>
 		</ul>
 	</li>
 </ul>
@@ -320,9 +352,9 @@
 			<li>Now automatically build sitemap.xml file for website SEO.</li>
 			<li>Fixed some XHTML (strict) validation errors on website.</li>
 			<li>Removed the info.txt files from the distribution - the authors names are still listed in the readme file. For this version, this reduces the number of files by 2087 and size by 8.6Mb.</li>
-			<li>Fixed bug in placeholder library - the placeholder for polygons was set to be a .lin file, causing X-Plane to fall over if the placeholder library is used and OpenSceneryX is not installed.</li>
-			<li>Fixed another bug in placeholder library - neither the line or polygon placeholders were working because the contents of minimal .lin and .pol files need a bit more defined than for the other scenery object types.</li>
-			<li>Floodlights are now published to both airport/furniture/lights/flood and furniture/lights/flood</li>
+			<li>Fixed bug in placeholder library - the placeholder for polygons was set to be a .lin file, causing X-Plane® to fall over if the placeholder library is used and OpenSceneryX is not installed.</li>
+			<li>Fixed another bug in placeholder library - neither the line or polygon placeholders were working because the contents of minimal <tt>.lin</tt> and <tt></tt>.pol files need a bit more defined than for the other scenery object types.</li>
+			<li>Floodlights are now published to both <tt>airport/furniture/lights/flood</tt> and <tt>furniture/lights/flood</tt></li>
 			<li>Added sub-categories to airport vehicles in the docs.</li>
 			<li>Added breadcrumbs to release notes page.</li>
 			<li>Added share links to all doc pages.</li>
@@ -355,8 +387,8 @@
 		<ul>
 			<li>Replaced the Cathay Pacific livery for all Bertrand's aircraft with a standard Cathay one - the previous one was a special "Hong Kong" livery, so a new "Cathay Pacific Hong Kong" variant of all aircraft has been created.</li>
 			<li>Updated alpilotx's USA forests to v9.1.4 (textures v9.1.3).</li>
-			<li>Wooden clubhouse #2 had a texture that was too big to load in X-Plane 8.6.</li>
-			<li>Re-exported a bunch of objects to attempt to fix "normals of the wrong length" errors reported by X-Plane.</li>
+			<li>Wooden clubhouse #2 had a texture that was too big to load in X-Plane® 8.6.</li>
+			<li>Re-exported a bunch of objects to attempt to fix "normals of the wrong length" errors reported by X-Plane®.</li>
 		</ul>
 	</li>
 	<li>Other changes:
@@ -566,7 +598,7 @@
 	</li>
 	<li>Modified scenery objects in this version:
 		<ul>
-			<li>All of alpilotx's forests have been updated to his v9.1.0 versions. This provides the library's first DDS texture, but a PNG texture is also included for backward compatibility with X-Plane 8.5/8.6</li>
+			<li>All of alpilotx's forests have been updated to his v9.1.0 versions. This provides the library's first DDS texture, but a PNG texture is also included for backward compatibility with X-Plane® 8.5/8.6</li>
 			<li>The small tug 1 has been modified so half the object is no longer invisible.</li>
 			<li>The medium sized truck has been modified so half the object is no longer invisible.</li>
 			<li>The fuel tanker has been modified so half the object is no longer invisible. Additionally, this object has had it's origin changed so that it is at the front of the object like other vehicles.</li>
@@ -658,7 +690,7 @@
 	<li>Updated scenery objects in this version:
 		<ul>
 			<li>All of Bertrand's aircraft have been updated to his latest versions, improving the aircraft models, textures and fixing some issues.</li>
-			<li>All alpilotx's forests have been updated from his v1.0 files to his v2.1 files. See <a href="http://www.alpilotx.de" onclick='window.open(this.href);return false;'>his site</a> for details of the changes. This update fixes the error that X-Plane 8.61 and above shows when launching with OpenSceneryX installed.</li>
+			<li>All alpilotx's forests have been updated from his v1.0 files to his v2.1 files. See <a href="http://www.alpilotx.de" onclick='window.open(this.href);return false;'>his site</a> for details of the changes. This update fixes the error that X-Plane® 8.61 and above shows when launching with OpenSceneryX installed.</li>
 		</ul>
 	</li>
 </ul>
@@ -666,7 +698,7 @@
 
 <h3>Version 1.4.0 3rd September 2007</h3>
 <ul>
-	<li>Complete re-vamp of documentation system, the index was becoming confusing and unuseable: Objects are now categorised (note that this is purely for the documentation, it doesn't affect the use of the library in X-Plane). The display is much more compact and is now tabbed to reduce screen space used. Objects with multiple variants (e.g. aircraft with several liveries) now each have their own page showing the variants. For objects with multiple variants, only a single entry is shown in the table of contents now, further reducing the size of the list.</li>
+	<li>Complete re-vamp of documentation system, the index was becoming confusing and unuseable: Objects are now categorised (note that this is purely for the documentation, it doesn't affect the use of the library in X-Plane®). The display is much more compact and is now tabbed to reduce screen space used. Objects with multiple variants (e.g. aircraft with several liveries) now each have their own page showing the variants. For objects with multiple variants, only a single entry is shown in the table of contents now, further reducing the size of the list.</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>A huge collection of high-quality aircraft contributed by Bertrand Augras, 17 aircraft types in 11 liveries. The types are: A310, A320, A340, A380, ATR42, B737, B747, B757, Beech B1900, Dornier D328, Embaer EMB120, Embraer ERJ145, Fokker 50, MD11, MD90, BAE RJ70, Saab 340. The liveries are: Aeroflot, Aerolineas Argentinas, Air Canada, Air France, Alitalia, British Airways, Emirates, JAL, KLM, Lufthansa and Swiss. Bertrand has very cleverly shared a single texture (per livery) across all his aircraft, so reducing the load on the graphics card for these aircraft.</li>
@@ -727,7 +759,7 @@
 <ul>
 	<li>From this version onwards, the library is now distributed using an installer. The installer only downloads new or modified files, so reducing the size and time taken.</li>
 	<li>Animated objects are now marked with an icon in the documentation</li>
-	<li>Where multiple liveries are available for an aircraft, all appropriate liveries are all now published to the same generic virtual path as well as the livery-specific path. This allows authors to pick a generic aircraft and X-Plane&reg; will automatically randomise between the available liveries. Some liveries are not included in this - one-offs, house colours and historical colours.</li>
+	<li>Where multiple liveries are available for an aircraft, all appropriate liveries are all now published to the same generic virtual path as well as the livery-specific path. This allows authors to pick a generic aircraft and X-Plane® will automatically randomise between the available liveries. Some liveries are not included in this - one-offs, house colours and historical colours.</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>B747-400 (Multiple liveries)</li>

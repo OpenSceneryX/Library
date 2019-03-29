@@ -5,5 +5,6 @@ URL: http://www.x-plane.org/home/arerecich/
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
+Export Extended: lib/airport/aircraft/general_aviation/jet_a
 =====================
 Description: A Learjet 60 in plain white livery.

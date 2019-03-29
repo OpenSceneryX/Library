@@ -1,0 +1,37 @@
+A
+800
+FOREST
+
+TEXTURE ../../../../../shared_textures/andras_fabian/spring/USA_trees_East.png
+
+LOD 15000.000000
+
+SCALE_X 1024
+SCALE_Y 1024
+
+SPACING 17.0 17.0
+RANDOM 5.0 5.0
+
+#	low-left	tex size	center	percent	--height--
+# tree	s	t	w	y	offset	occur	min	max	quads	type	name
+#------------------------------------------------------------------------------------------
+TREE	452	0	88	128	44	7	17	22	2	0	LIQUIsweet
+TREE	515	864	72	96	37	2	16	20	2	0	NYSSAblack
+TREE	257	384	127	128	64	5	16	24	2	0	QUERCblack
+TREE	129	384	127	128	64	7	19	24	2	0	QUERCred
+TREE	688	864	73	94	35	4	10	16	2	0	BUSHdeci1_l
+TREE	64	864	64	32	32	3	3	4	2	0	SHRUBdeci1
+TREE	240	640	118	128	59	5	22	30	2	0	ACERred
+TREE	628	384	76	128	40	8	32	38	2	0	CARYAhickor_l
+TREE	123	512	106	128	53	3	24	30	2	0	ULMUSameri
+TREE	586	960	41	64	20	4	10	12	2	0	DECID_s
+TREE	112	128	57	128	28	5	16	20	2	0	PINUSvirgin
+TREE	405	128	45	128	22	15	24	30	2	0	PINUSshort
+TREE	516	128	70	128	35	15	21	27	2	0	PINUSloblolly
+TREE	342	128	60	128	30	3	18	24	2	0	PINUSspec2
+TREE	234	128	56	128	28	6	24	29	2	0	PINUSred_l
+TREE	798	768	62	96	31	2	13	18	2	0	JUNIPered2
+TREE	861	768	63	96	31	3	6	11	2	0	JUNIPered3
+TREE	34	896	38	64	19	3	9	15	2	0	PINUS_s
+
+SKIP_SURFACE water

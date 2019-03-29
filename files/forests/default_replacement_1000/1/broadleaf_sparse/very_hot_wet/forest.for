@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE ../../../../../objects/shared_textures/flyagi/Forests_01.png
+TEXTURE ../../../../../shared_textures/flyagi/Forests_01.png
 
 LOD 15000.000000
 

@@ -1,0 +1,14 @@
+A
+
+850
+
+LINE_PAINT
+
+LAYER_GROUP markings +1
+TEXTURE ../../../../shared_textures/darrell_thompson/Lines7.png
+TEX_WIDTH 4096
+SPECULAR 0.4
+LOD 10000
+SCALE 14 10
+
+S_OFFSET 0 2867 3479 4076

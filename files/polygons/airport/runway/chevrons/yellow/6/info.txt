@@ -1,0 +1,8 @@
+Title: Runway chevron marking, yellow, dirty, faded
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Chevrons/YellowChevron3Dirty2Faded
+Since: 4.0.0
+=====================
+Description: A dirty faded yellow runway chevron marking.

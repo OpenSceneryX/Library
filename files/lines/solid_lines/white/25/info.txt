@@ -1,0 +1,8 @@
+Title: Solid line, white, variant 25
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Lines/WhiteWiderDirty3
+Since: 4.0.0
+=====================
+Description: A solid white line, variant 25.

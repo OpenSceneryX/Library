@@ -2,11 +2,11 @@ A
 800
 FOREST
 
-TEXTURE ../../../../shared_textures/flyagi/Shrubs_01.png
+TEXTURE ../../../../../shared_textures/flyagi/Shrubs_01.png
 
 LOD 1000
 
-SCALE_X 4096				
+SCALE_X 4096
 SCALE_Y 4096
 
 SPACING 3 3

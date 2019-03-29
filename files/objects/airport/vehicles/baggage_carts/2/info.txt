@@ -2,7 +2,6 @@ Title: Baggage cart and loader - Xsim
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
-Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/baggage_cart
 Export Propagate: 2

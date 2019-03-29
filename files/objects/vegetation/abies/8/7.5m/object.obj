@@ -1,7 +1,7 @@
 A
 800
 OBJ
-TEXTURE ../../../../../forests/trees/Euro_trees.dds
+TEXTURE ../../../../../shared_textures/andras_fabian/Euro_trees.dds
 GLOBAL_shadow_blend 0.5
 GLOBAL_no_blend 0.5
 POINT_COUNTS 8 0 0 24

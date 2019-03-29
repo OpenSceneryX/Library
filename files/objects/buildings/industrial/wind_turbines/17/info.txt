@@ -5,6 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=146200
 Width: 2m
 Depth: 1.4m
 Height: 12.2m
-Animated: True
 =====================
 Description: An animated 3-bladed small wind turbine on a 12m high metal lattice pedestal with blades equally spread.

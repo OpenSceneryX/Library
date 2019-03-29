@@ -4,5 +4,7 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/iberia/a340
+Export Extended: lib/airport/aircraft/airliners/heavy_e_ibe
+Export Extended: lib/airport/aircraft/airliners/heavy_e
 =====================
 Description: An Airbus 340 in Iberia livery.
