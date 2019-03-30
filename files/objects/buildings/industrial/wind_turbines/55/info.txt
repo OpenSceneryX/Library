@@ -3,6 +3,7 @@ Title: Wind turbine, 3-bladed, 150m, red bands
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Onshore/Wind_turbine_onshore_0150_red_nolights
+Export External simHeaven: simheaven/landmarks/wind-turbine_150m
 Since: 3.2.0
 Width: 20.4
 Height: 195.0
