@@ -1,4 +1,4 @@
-Title: Supermarine Spitfire, RAF
+Title: Hawker Sea Fury, Royal Navy
 =====================
 Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
@@ -8,4 +8,4 @@ Width: 11.7
 Height: 4.4
 Depth: 10.8
 =====================
-Description: A Supermarine Spitfire in RAF livery.
+Description: A Hawker Sea Fury in Royal Navy livery.
