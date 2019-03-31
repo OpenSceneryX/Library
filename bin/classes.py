@@ -414,8 +414,8 @@ class SceneryCategory(object):
 class SceneryTexture(object):
 	"""A scenery texture"""
 
-	def __init__(self, filePath):
-		self.fileName = os.path.basename(filePath)
+	def __init__(self, filePathRoot):
+		self.filePathRoot = filePathRoot
 		self.sceneryObjects = []
 
 

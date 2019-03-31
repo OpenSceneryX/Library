@@ -226,17 +226,17 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			result = v8TexturePattern.match(line)
 			if result:
 				textureFound = textureFound + 1
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
 				elif os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -260,14 +260,14 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			result = v8LitTexturePattern.match(line)
 			if result:
 				textureFound = textureFound + 1
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -281,14 +281,14 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 			result = v9NormalTexturePattern.match(line)
 			if result:
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -444,17 +444,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			result = v8TexturePattern.match(line)
 			if result:
 				textureFound = 1
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
 				elif os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -558,17 +558,17 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		for line in objectFileContents:
 			result = v8TexturePattern.match(line)
 			if result:
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
 				elif os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -704,17 +704,17 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			result = v8TexturePattern.match(line)
 			if result:
 				textureFound = 1
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
 				elif os.path.isfile(textureFile):
-
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -849,17 +849,17 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 				result = v8PolygonTexturePattern.match(line)
 				if result:
 					textureFound = 1
-					textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+					textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 					if (result.group(1) == ""):
 						displayMessage("\n" + objectSourcePath + "\n")
 						displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
 					elif os.path.isfile(textureFile):
-
 						# Look for the texture in the texture Dictionary, create a new one if not found
-						texture = textures.get(textureFile)
+						texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+						texture = textures.get(texturePathRoot)
 						if (texture == None):
-							texture = classes.SceneryTexture(textureFile)
-							textures[textureFile] = texture
+							texture = classes.SceneryTexture(texturePathRoot)
+							textures[texturePathRoot] = texture
 
 						texture.sceneryObjects.append(sceneryObject)
 						sceneryObject.sceneryTextures.append(texture)
@@ -882,13 +882,14 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 			result = polygonNormalTexturePattern.match(line)
 			if result:
-				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				textureFile = os.path.normpath(os.path.join(dirpath, result.group(1)))
 				if os.path.isfile(textureFile):
 					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
+					texturePathRoot = os.path.normpath(os.path.join(parts[1], result.group(1)))
+					texture = textures.get(texturePathRoot)
 					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
+						texture = classes.SceneryTexture(texturePathRoot)
+						textures[texturePathRoot] = texture
 
 					texture.sceneryObjects.append(sceneryObject)
 					sceneryObject.sceneryTextures.append(texture)
@@ -1250,6 +1251,14 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	# Mark as seasonal
 	if len(sceneryObject.seasonPaths) > 0:
 		websiteInfoFileContents += f"Seasonal: True\n"
+
+	# Texture references
+	for texture in sceneryObject.sceneryTextures:
+		websiteInfoFileContents += f"Texture: {texture.filePathRoot}\n"
+
+		if len(texture.sceneryObjects) > 1:
+			for sharedTextureObject in texture.sceneryObjects:
+				websiteInfoFileContents += f"Texture Shared With: \"{sharedTextureObject.title}\" \"{sharedTextureObject.filePathRoot}\"\n"
 
 	# We have reached the end, convert the description to HTML and append.
 	# The `mdx_headdown` extension demotes all headings by a given number
