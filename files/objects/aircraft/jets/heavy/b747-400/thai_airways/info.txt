@@ -9,8 +9,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/thai_airways/b747-400
-Export Extended: lib/airport/aircraft/airliners/heavy_e_tha
-Export Extended: lib/airport/aircraft/airliners/heavy_e
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e_tha
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e
 Width: 104.7
 Height: 19.2
 Depth: 71.3

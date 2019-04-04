@@ -4,7 +4,7 @@ Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
-Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
 Width: 10.5
 Height: 2.5
 Depth: 6.8

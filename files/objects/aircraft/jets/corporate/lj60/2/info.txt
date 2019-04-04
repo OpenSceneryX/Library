@@ -11,7 +11,7 @@ Author, conversion: Jeff Mueller
 URL, conversion: http://forums.x-plane.org/index.php?showuser=92790
 Email, conversion: joyfulsongster@hotmail.com
 Export Propagate: 1
-Export Extended: lib/airport/aircraft/general_aviation/jet_a
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/jet_a
 Width: 13.3
 Height: 4.7
 Depth: 18.2
