@@ -13,6 +13,10 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_cld_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_cld_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_cld_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_cld_wet
+Export Core Export forests: lib/g8/coni_cld_dry
+Export Core Export forests: lib/g8/coni_cld_rain
+Export Core Export forests: lib/g8/coni_cld_sdry
+Export Core Export forests: lib/g8/coni_cld_wet
 Since: 3.2.0
 =====================
 Description: A dense conifer forest for use in cold and temperate climates.

@@ -7,6 +7,9 @@ Export: forests/default_replacement_1000/1/conifer_dense/very_cold_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_vcld_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_vcld_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_vcld_wet
+Export Core Export forests: lib/g8/coni_vcld_rain
+Export Core Export forests: lib/g8/coni_vcld_sdry
+Export Core Export forests: lib/g8/coni_vcld_wet
 Since: 3.2.0
 =====================
 Description: A dense conifer forest for use in very cold, rain, semi-dry and wet climates.
