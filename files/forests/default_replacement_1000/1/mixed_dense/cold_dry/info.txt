@@ -17,6 +17,14 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_wet
+Export Core Export forests: lib/g8/mixed_cld_dry
+Export Core Export forests: lib/g8/mixed_cld_rain
+Export Core Export forests: lib/g8/mixed_cld_sdry
+Export Core Export forests: lib/g8/mixed_cld_wet
+Export Core Export forests: lib/g8/mixed_tmp_dry
+Export Core Export forests: lib/g8/mixed_tmp_rain
+Export Core Export forests: lib/g8/mixed_tmp_sdry
+Export Core Export forests: lib/g8/mixed_tmp_wet
 Since: 3.2.0
 =====================
 Description: A dense mixed forest for use in cold and temperate climates.
