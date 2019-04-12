@@ -56,7 +56,7 @@ v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
+v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
 #normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
@@ -735,6 +735,36 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
 					return
 
+			result = v10NormalTexturePattern.match(line)
+			if result:
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find NORMAL texture - line excluded (" + textureFile + ")\n", "error")
+					return
+
+
 			result = linePattern.match(line)
 			if result:
 				sceneryObject.lines.append({"layer": int(result.group(1)), "left": int(result.group(2)), "middle": int(result.group(3)), "right": int(result.group(4))})
@@ -880,7 +910,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 						displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
 						return
 
-			result = polygonNormalTexturePattern.match(line)
+			result = v10NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 				if os.path.isfile(textureFile):
