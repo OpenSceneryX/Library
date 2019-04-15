@@ -5,6 +5,8 @@ URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export: forests/default_replacement_1000/1/conifer_dense/warm_semidry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_wrm_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_wrm_sdry
+Export Core Export forests: lib/g8/coni_wrm_dry
+Export Core Export forests: lib/g8/coni_wrm_sdry
 Since: 3.2.0
 =====================
 Description: A dense conifer forest for use in warm, dry and semi-dry climates.

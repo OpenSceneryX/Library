@@ -9,6 +9,10 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_tmp_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_tmp_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_wrm_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_wrm_sdry
+Export Core Export forests: lib/g8/wetl_wdy_tmp_dry
+Export Core Export forests: lib/g8/wetl_wdy_tmp_sdry
+Export Core Export forests: lib/g8/wetl_wdy_wrm_dry
+Export Core Export forests: lib/g8/wetl_wdy_wrm_sdry
 Since: 3.2.0
 =====================
 Description: Woody wetland forest for use in temperate and warm, dry and semi-dry climates.

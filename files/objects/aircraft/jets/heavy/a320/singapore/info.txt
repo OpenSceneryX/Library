@@ -6,8 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/singapore/a320
-Export Extended: lib/airport/aircraft/airliners/jet_c_sia
-Export Extended: lib/airport/aircraft/airliners/jet_c
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/jet_c_sia
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/jet_c
 Width: 34.3
 Height: 11.7
 Depth: 37.6

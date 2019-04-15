@@ -7,8 +7,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b777
 Export: objects/aircraft/livery/air_france/b777-200
-Export Extended: lib/airport/aircraft/airliners/heavy_e_afr
-Export Extended: lib/airport/aircraft/airliners/heavy_e
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e_afr
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e
 Width: 98.4
 Height: 18.5
 Depth: 68.4

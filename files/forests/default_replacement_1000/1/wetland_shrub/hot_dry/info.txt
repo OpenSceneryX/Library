@@ -3,6 +3,7 @@ Title: Wetland Shrub, hot, dry
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_hot_dry
+Export Core Export forests: lib/g8/wetl_shrb_hot_dry
 Since: 3.2.0
 =====================
 Description: A forest of wetland shrubs for use in hot, dry climates.

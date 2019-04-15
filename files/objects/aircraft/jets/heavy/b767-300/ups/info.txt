@@ -7,8 +7,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/ups/b767-300
-Export Extended: lib/airport/aircraft/cargo/heavy_d_ups
-Export Extended: lib/airport/aircraft/cargo/heavy_d
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_d_ups
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_d
 Width: 81.7
 Height: 16.2
 Depth: 58.7

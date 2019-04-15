@@ -9,6 +9,10 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vcld_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vcld_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vcld_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vcld_wet
+Export Core Export forests: lib/g8/shrb_vcld_dry
+Export Core Export forests: lib/g8/shrb_vcld_rain
+Export Core Export forests: lib/g8/shrb_vcld_sdry
+Export Core Export forests: lib/g8/shrb_vcld_wet
 Since: 3.2.0
 =====================
 Description: A forest of shrubs for use in very cold climates.

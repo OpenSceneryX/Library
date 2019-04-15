@@ -19,6 +19,23 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_wet
+Export Core Export forests: lib/g8/olive_wrm_sdry
+Export Core Export forests: lib/g8/orch_hot_dry
+Export Core Export forests: lib/g8/orch_hot_rain
+Export Core Export forests: lib/g8/orch_hot_sdry
+Export Core Export forests: lib/g8/orch_hot_wet
+Export Core Export forests: lib/g8/orch_tmp_dry
+Export Core Export forests: lib/g8/orch_tmp_rain
+Export Core Export forests: lib/g8/orch_tmp_sdry
+Export Core Export forests: lib/g8/orch_tmp_wet
+Export Core Export forests: lib/g8/orch_vhot_dry
+Export Core Export forests: lib/g8/orch_vhot_rain
+Export Core Export forests: lib/g8/orch_vhot_sdry
+Export Core Export forests: lib/g8/orch_vhot_wet
+Export Core Export forests: lib/g8/orch_wrm_dry
+Export Core Export forests: lib/g8/orch_wrm_rain
+Export Core Export forests: lib/g8/orch_wrm_sdry
+Export Core Export forests: lib/g8/orch_wrm_wet
 Since: 3.2.0
 =====================
 Description: An orchard.

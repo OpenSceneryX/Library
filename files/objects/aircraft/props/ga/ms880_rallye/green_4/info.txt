@@ -3,7 +3,7 @@ Title: Morane-Saulnier MS-880 Green Variant 4
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
-Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
 Width: 9.7
 Height: 2.8
 Depth: 7.4
