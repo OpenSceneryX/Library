@@ -85,11 +85,26 @@ randomPattern = re.compile(r"(?:RANDOM)\s+(.*?)\s+(.*)")
 skipSurfacePattern = re.compile(r"(?:SKIP_SURFACE)\s+(.*)")
 groupPattern = re.compile(r"GROUP")
 perlinPattern = re.compile(r"(?:DENSITY_PARAMS|CHOICE_PARAMS|HEIGHT_PARAMS)")
-# Polygon amd Line patterns
-scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
+lod1ParamPattern = re.compile(r"(?:LOD)\s+(.*)")
+# Facade patterns
+facadeType1Pattern = re.compile(r"800")
+facadeType2Pattern = re.compile(r"1000")
+gradedPattern = re.compile(r"GRADED")
+ringPattern = re.compile(r"(?:RING)\s+(.*)")
+# Facade type 1 patterns
+textureSizePattern = re.compile(r"(?:TEX_SIZE)\s+(.*?)\s+(.*)")
+wallSurfacePattern = re.compile(r"(?:HARD_WALL)\s+(.*)")
+roofSurfacePattern = re.compile(r"(?:HARD_ROOF)\s+(.*)")
+doubledPattern = re.compile(r"DOUBLED")
+floorsMinPattern = re.compile(r"(?:FLOORS_MIN)\s+(.*)")
+floorsMaxPattern = re.compile(r"(?:FLOORS_MAX)\s+(.*)")
+lod2ParamPattern = re.compile(r"(?:LOD)\s+(.*?)\s+(.*)")
+basementDepthPattern = re.compile(r"(?:BASEMENT_DEPTH)\s+(.*)")
+# Polygon, Line and Facade patterns
 layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
-# Facade and Forest patterns
-lodPattern = re.compile(r"(?:LOD)\s+(.*)")
+# Polygon, Line and type 1 Facade patterns
+scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
+# Forest patterns
 # WED-specific patterns
 wedRotationLockPattern = re.compile(r"#fixed_heading\s+(.*)")
 
@@ -412,8 +427,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 	displayMessage(".")
 
-	# Create an instance of the SceneryObject class
-	sceneryObject = classes.SceneryObject(parts[1], filename)
+	# Create an instance of the Facade class
+	sceneryObject = classes.Facade(parts[1], filename)
 
 	# Locate and check whether the support files exist
 	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
@@ -446,6 +461,17 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		textureFound = 0
 
 		for line in objectFileContents:
+			result = facadeType1Pattern.match(line)
+			if result:
+				sceneryObject.type = 1
+				continue
+
+			result = facadeType2Pattern.match(line)
+			if result:
+				sceneryObject.type = 2
+				displayMessage("Type 2 facade found, it's time to implement type 2 documentation\n", "warning")
+				continue
+
 			result = v8TexturePattern.match(line)
 			if result:
 				textureFound = 1
@@ -480,8 +506,87 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
 					return
 
-				# Break loop as soon as we find a texture, need look no further
-				break
+
+			# Commands common to type 1 and type 2
+
+			if not sceneryObject.layerGroupName:
+				result = layerGroupPattern.match(line)
+				if result:
+					sceneryObject.layerGroupName = result.group(1)
+					sceneryObject.layerGroupOffset = result.group(2)
+					continue
+
+			if sceneryObject.graded == None:
+				result = gradedPattern.match(line)
+				if result:
+					sceneryObject.graded = True
+					continue
+
+			if sceneryObject.ring == None:
+				result = ringPattern.match(line)
+				if result:
+					sceneryObject.ring = (result.group(1) == "1")
+					continue
+
+			# Type 1 specific commands
+
+			if sceneryObject.type == 1 and not sceneryObject.scaleH:
+				result = scalePattern.match(line)
+				if result:
+					sceneryObject.scaleH = float(result.group(1))
+					sceneryObject.scaleV = float(result.group(2))
+					continue
+
+			if sceneryObject.type == 1 and not sceneryObject.textureWidth:
+				result = textureSizePattern.match(line)
+				if result:
+					sceneryObject.textureWidth = result.group(1)
+					sceneryObject.textureHeight = result.group(2)
+					continue
+
+			if sceneryObject.wallSurface == None:
+				result = wallSurfacePattern.match(line)
+				if result:
+					sceneryObject.wallSurface = result.group(1)
+					continue
+
+			if sceneryObject.roofSurface == None:
+				result = roofSurfacePattern.match(line)
+				if result:
+					sceneryObject.roofSurface = result.group(1)
+					continue
+
+			if sceneryObject.doubled == None:
+				result = doubledPattern.match(line)
+				if result:
+					sceneryObject.doubled = (result.group(1) == "1")
+					continue
+
+			if sceneryObject.floorsMin == None:
+				result = floorsMinPattern.match(line)
+				if result:
+					sceneryObject.floorsMin = result.group(1)
+					continue
+
+			if sceneryObject.floorsMax == None:
+				result = floorsMaxPattern.match(line)
+				if result:
+					sceneryObject.floorsMax = result.group(1)
+					continue
+
+			if sceneryObject.basementDepth == None:
+				result = basementDepthPattern.match(line)
+				if result:
+					sceneryObject.basementDepth = result.group(1)
+					continue
+
+			result = lod2ParamPattern.match(line)
+			if result:
+				newLOD = {"min": float(result.group(1)), "max": float(result.group(2))}
+				if not newLOD in sceneryObject.lods:
+					sceneryObject.lods.append(newLOD)
+				continue
+
 
 		if not textureFound:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -631,7 +736,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					continue
 
 			if not sceneryObject.lod:
-				result = lodPattern.match(line)
+				result = lod1ParamPattern.match(line)
 				if result:
 					sceneryObject.lod = float(result.group(1))
 					continue
@@ -1301,6 +1406,26 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.group: websiteInfoFileContents += f"Group: True\n"
 		if sceneryObject.perlin: websiteInfoFileContents += f"Perlin: True\n"
 		if sceneryObject.lod: websiteInfoFileContents += f"LOD: {sceneryObject.lod:.1f}\n"
+
+	# Facade-specific auto-generated data
+	if isinstance(sceneryObject, classes.Facade):
+		if sceneryObject.type: websiteInfoFileContents += f"Type: {sceneryObject.type}\n"
+		if sceneryObject.scaleH: websiteInfoFileContents += f"Texture Scale H: {sceneryObject.scaleH}\n"
+		if sceneryObject.scaleV: websiteInfoFileContents += f"Texture Scale V: {sceneryObject.scaleV}\n"
+		if sceneryObject.layerGroupName: websiteInfoFileContents += f"Layer Group: {sceneryObject.layerGroupName}\n"
+		if sceneryObject.layerGroupOffset: websiteInfoFileContents += f"Layer Offset: {sceneryObject.layerGroupOffset}\n"
+		websiteInfoFileContents += f"Graded: {'True' if sceneryObject.graded else 'False'}\n"
+		websiteInfoFileContents += f"Ring: {'False' if sceneryObject.ring == 0 else 'True'}\n" # Rings default to True
+		if sceneryObject.textureWidth: websiteInfoFileContents += f"Texture Width: {sceneryObject.textureWidth}\n"
+		if sceneryObject.textureHeight: websiteInfoFileContents += f"Texture Height: {sceneryObject.textureHeight}\n"
+		if sceneryObject.wallSurface: websiteInfoFileContents += f"Wall Surface Type: {sceneryObject.wallSurface}\n"
+		if sceneryObject.roofSurface: websiteInfoFileContents += f"Roof Surface Type: {sceneryObject.roofSurface}\n"
+		websiteInfoFileContents += f"Doubled: {'True' if sceneryObject.doubled else 'False'}\n"
+		if sceneryObject.floorsMin: websiteInfoFileContents += f"Floors Min: {sceneryObject.floorsMin}\n"
+		if sceneryObject.floorsMax: websiteInfoFileContents += f"Floors Max: {sceneryObject.floorsMax}\n"
+		for lod in sceneryObject.lods:
+			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
+		if sceneryObject.basementDepth: websiteInfoFileContents += f"Basement Depth: {sceneryObject.basementDepth}\n"
 
 	# Mark as seasonal
 	if len(sceneryObject.seasonPaths) > 0:

@@ -274,6 +274,32 @@ class Forest(SceneryObject):
 		self.lod = None
 
 #
+# Class to hold information about an X-Plane facade
+#
+class Facade(SceneryObject):
+	"""An X-Plane Facade"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Facade, self).__init__(filePathRoot, fileName)
+
+		self.type = None
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.graded = None
+		self.ring = None
+		self.textureWidth = None
+		self.textureHeight = None
+		self.wallSurface = None
+		self.roofSurface = None
+		self.doubled = None
+		self.floorsMin = None
+		self.floorsMax = None
+		self.lods = []
+		self.basementDepth = None
+
+#
 # Class to hold information about a category
 #
 class SceneryCategory(object):
