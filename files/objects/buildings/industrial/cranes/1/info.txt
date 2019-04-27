@@ -2,5 +2,8 @@ Title: Crane
 =====================
 Author: Luke173
 URL: http://forums.x-plane.org/index.php?showuser=7280
+Width: 77.5
+Height: 56.8
+Depth: 4.0
 =====================
 Description: A large construction crane.

@@ -7,5 +7,8 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_03_Any
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_Any_01
 Export Propagate: 2
 Since: 3.2.0
+Width: 13.9
+Height: 13.9
+Depth: 13.9
 =====================
 Description: An individual Quercus (Oak) tree, height 14m.

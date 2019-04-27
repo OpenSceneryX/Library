@@ -2,8 +2,8 @@ Title: Hangar, metal, red, sliding doors closed
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 28m
-Depth: 17m
-Height: 8.3m
+Width: 27.7
+Depth: 16.9
+Height: 8.3
 =====================
 Description: A red hangar with red and white roof, and closed sliding doors.

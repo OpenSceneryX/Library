@@ -1,8 +1,11 @@
-Title: B17 Superfortress, USAAF
+Title: B29 Superfortress, USAAF
 =====================
 Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 43.0
+Height: 9.2
+Depth: 29.9
 =====================
 Description: A B29 Superfortress in USAAF livery.

@@ -4,8 +4,8 @@ Author: Barry Roberts
 URL: http://web.me.com/broberts03/Scenery/Scenery/Scenery.html
 Email: smithysvca@netspace.net.au
 Author, texture: Barry Roberts
-Width: 23m
-Depth: 14m
-Height: 4m
+Width: 13.6
+Depth: 23.5
+Height: 4.4
 =====================
 Description: A medium to large brick modern Australian house.

@@ -2,8 +2,8 @@ Title: Hangar, metal, open all sides
 =====================
 Author: Omer
 URL: http://forums.x-plane.org/index.php?showuser=4840
-Width: 15.1m
-Height: 7.0m
-Depth: 20.1m
+Width: 15.1
+Height: 7.0
+Depth: 20.1
 =====================
 Description: A metal hangar, open on all sides (i.e. a shade).

@@ -7,5 +7,8 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/ltu/b747-400
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in LTU livery.

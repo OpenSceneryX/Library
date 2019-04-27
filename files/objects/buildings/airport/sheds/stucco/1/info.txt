@@ -3,8 +3,8 @@ Title: Shed, stucco
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 16m
-Depth: 9m
-Height: 6m
+Width: 9.1
+Depth: 16.0
+Height: 5.4
 =====================
 Description: A rusty-roofed old storage shed.

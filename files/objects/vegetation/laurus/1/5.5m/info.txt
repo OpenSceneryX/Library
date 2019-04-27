@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 5.7
+Height: 5.5
+Depth: 5.7
 =====================
 Description: An individual Laurus (Laurel) tree, height 5.5m.

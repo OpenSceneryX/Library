@@ -4,9 +4,9 @@ Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Author, texture: textures.com
 URL, texture: https://www.textures.com
-Width: 9.4m
-Depth: 7mm
-Height: 3.5mm
+Width: 9.4
+Depth: 7.0
+Height: 3.5
 Since: 3.0.0
 =====================
 Description: A prefabricated toilet block with male, female and disabled toilets.

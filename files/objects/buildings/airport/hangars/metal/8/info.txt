@@ -2,8 +2,8 @@ Title: Hangar, metal, small, striped door
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
-Width: 12m
-Depth: 12.4m
-Height: 6.1m
+Width: 12.0
+Depth: 12.5
+Height: 6.2
 =====================
 Description: Small modern hangar with metal sides, red roof and one striped aircraft door.

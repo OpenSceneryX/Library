@@ -4,5 +4,8 @@ Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
+Width: 12.4
+Height: 3.2
+Depth: 6.9
 =====================
 Description: Aviat Husky A-1A with wheels. National Air Tour 2003 skin.

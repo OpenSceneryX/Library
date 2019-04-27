@@ -12,5 +12,8 @@ Export Extended: lib/airport/aircraft/airliners/heavy_e_kal
 Export Extended: lib/airport/aircraft/airliners/heavy_e
 Export Extended: lib/airport/aircraft/cargo/heavy_e_kal
 Export Extended: lib/airport/aircraft/cargo/heavy_e
+Width: 64.8
+Height: 19.0
+Depth: 70.3
 =====================
 Description: A Boeing 747-400 in Korean Air livery.

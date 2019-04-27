@@ -3,8 +3,8 @@ Title: Clubhouse, wooden
 Author: Sergey Dovnar aka Slyder
 URL: http://forums.x-plane.org/index.php?showuser=48361
 Email: sergey.dovnar@gmail.com
-Width: 18m
-Depth: 18m
-Height: 13m
+Width: 19.0
+Depth: 17.8
+Height: 13.0
 =====================
 Description: A clubhouse building in Russian wooden architecture, also contains three radio masts.  This building was originally created to be placed at small airports in the Siberian region of the Russian Federation.

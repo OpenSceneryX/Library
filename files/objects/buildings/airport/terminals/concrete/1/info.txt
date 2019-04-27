@@ -3,8 +3,8 @@ Title: Terminal, concrete
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 20m
-Depth: 16m
-Height: 4.5m
+Width: 19.7
+Depth: 16.7
+Height: 4.6
 =====================
 Description: A small terminal (or office) building, 1 storey, white with grey fascia, flat roof. Original is at CYPA.

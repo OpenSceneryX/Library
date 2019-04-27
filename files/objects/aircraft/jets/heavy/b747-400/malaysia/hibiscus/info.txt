@@ -10,5 +10,8 @@ Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/malaysia/hibiscus/b747-400
 Export Extended: lib/airport/aircraft/airliners/heavy_e_mas
 Export Extended: lib/airport/aircraft/airliners/heavy_e
+Width: 64.8
+Height: 19.0
+Depth: 70.3
 =====================
 Description: A Boeing 747-400 in Malaysia Hibiscus livery.

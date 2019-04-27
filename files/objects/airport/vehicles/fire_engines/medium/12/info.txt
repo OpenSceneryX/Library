@@ -2,9 +2,9 @@ Title: Fire engine, Cobra 6x6, yellow
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2.8m
-Depth: 10.8m
-Height: 3.4m
+Width: 2.8
+Depth: 10.8
+Height: 3.4
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_6x6/Cobra_6x6_yellow
 Since: 3.0.0
 =====================

@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 17.4
+Height: 9.6
+Depth: 31.4
 =====================
 Description: A B-58 Hustler in USAF livery.

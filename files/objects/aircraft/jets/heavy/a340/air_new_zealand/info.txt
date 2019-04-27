@@ -6,5 +6,8 @@ Author, texture: Cameron Jenkins
 URL, texture: http://forums.x-plane.org/index.php?showuser=249936
 Export Propagate: 1
 Export: objects/aircraft/livery/air_new_zealand/a340
+Width: 61.1
+Height: 17.0
+Depth: 64.0
 =====================
 Description: An Airbus 340 in Air New Zealand livery.

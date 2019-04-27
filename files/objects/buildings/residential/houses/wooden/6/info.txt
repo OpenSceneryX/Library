@@ -3,8 +3,8 @@ Title: House, Wooden, Single Storey, Large, Pink
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 8.9m
-Depth: 14.5m
-Height: 6.2m
+Width: 14.5
+Depth: 8.9
+Height: 6.2
 =====================
 Description: A single-storey large pink wooden house.

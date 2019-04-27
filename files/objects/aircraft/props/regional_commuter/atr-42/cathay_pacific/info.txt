@@ -5,5 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/livery/cathay_pacific/atr-42
+Width: 27.7
+Height: 7.1
+Depth: 22.6
 =====================
 Description: An ATR 42 in Cathay Pacific livery.

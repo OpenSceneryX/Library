@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 16.9
+Height: 17.0
+Depth: 16.9
 =====================
 Description: An individual Quercus Velutina (Black Oak) tree, height 17m.

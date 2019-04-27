@@ -2,8 +2,8 @@ Title: Street lamp, curved
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
-Height: 9.3m
-Width: 3.7m
-Depth: 3.6m
+Height: 9.3
+Width: 3.7
+Depth: 3.6
 =====================
 Description: A curved street lamp.

@@ -2,9 +2,9 @@ Title: Office, light brick, grey roof, T shaped
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 40m
-Depth: 45m
-Height: 16.5m
+Width: 40.0
+Depth: 45.0
+Height: 16.5
 Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRa/Control_admin_a3
 Export External RE_Library: RE_Library/Control_Tower/with_admin/VCRb/Control_admin_b3
 Since: 3.0.0

@@ -8,5 +8,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/air_pacific/fiji/b747-400
+Width: 64.8
+Height: 19.0
+Depth: 70.3
 =====================
 Description: A Boeing 747-400 in Air Pacific livery (Fiji variant).

@@ -2,9 +2,9 @@ Title: Tower, brick + green, 2 storey, octagonal control room
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 11m
-Depth: 14.7m
-Height: 12.2m
+Width: 11.0
+Depth: 14.7
+Height: 12.2
 Export External RE_Library: RE_Library/Control_Tower/ex_RAF/Valley/Valley_brick_green
 Since: 3.0.0
 =====================

@@ -2,9 +2,9 @@ Title: Hut, high-vis, large, check pattern
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 6m
-Depth: 10m
-Height: 4m
+Width: 6.0
+Depth: 10.0
+Height: 4.0
 Export External RE_Library: RE_Library/Navaids/Cabin/Large/Navcabin_lge_rect_c
 Since: 3.0.0
 =====================

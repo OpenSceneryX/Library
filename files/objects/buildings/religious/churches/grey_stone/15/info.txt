@@ -2,9 +2,9 @@ Title: Church, stone, green grey, spire, 40m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 18.8m
-Depth: 40m
-Height: 31m
+Width: 18.8
+Depth: 40.4
+Height: 31.0
 Since: 3.0.0
 =====================
 Description: A traditional British style church constructed in green grey stone with a spire. 

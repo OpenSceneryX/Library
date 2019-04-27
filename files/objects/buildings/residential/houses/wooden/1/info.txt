@@ -3,8 +3,8 @@ Title: House, Wooden, Single Storey, Small, Blue
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 9.2m
-Depth: 9.2m
-Height: 5.2m
+Width: 9.2
+Depth: 9.2
+Height: 5.3
 =====================
 Description: A single-storey small blue wooden house.

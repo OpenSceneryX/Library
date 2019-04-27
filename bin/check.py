@@ -55,20 +55,27 @@ try:
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Checking for missing virtual paths\n")
 
-		oldPaths = []
+		newPaths = []
 
 		with open("builds/" + versionTag + "/OpenSceneryX-" + versionTag + "/library.txt", "r") as file:
 			for line in file:
 				if line.startswith("EXPORT ") or line.startswith("EXPORT_BACKUP "):
 					parts = line.split(" ")
-					oldPaths.append(parts[1])
+					newPaths.append(parts[1])
+
+		functions.displayMessage(f"Processing {len(newPaths)} items in latest build\n")
+
+		previousPathCount = 0
 
 		with open("builds/" + previousVersionTag + "/OpenSceneryX-" + previousVersionTag + "/library.txt") as file:
 			for line in file:
 				if line.startswith("EXPORT "):
+					previousPathCount += 1
 					parts = line.split(" ")
-					if parts[1] not in oldPaths:
+					if parts[1] not in newPaths:
 						print(parts[1])
+
+		functions.displayMessage(f"Checked against {previousPathCount} items in previous build\n")
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")

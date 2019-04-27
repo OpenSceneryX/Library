@@ -2,9 +2,9 @@ Title: House, Wooden, Small, Yellow, Grey Roof
 =====================
 Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
-Width: 4.2m
-Depth: 9.1m
-Height: 6.3m
+Width: 9.1
+Depth: 6.1
+Height: 4.2
 =====================
 Description: A small yellow wooden house with a grey roof.<br/><br/>
 There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>

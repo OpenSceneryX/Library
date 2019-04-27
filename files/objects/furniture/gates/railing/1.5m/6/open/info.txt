@@ -2,8 +2,8 @@ Title: Gate, Green Steel Railing, 1m x 2.5m, Open
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 1.2m
-Depth: 2.6m
-Height: 2.5m
+Width: 1.6
+Depth: 1.6
+Height: 1.5
 =====================
 Description: A green steel railing gate in full open position. 1 metre wide, 2.5 metres high.

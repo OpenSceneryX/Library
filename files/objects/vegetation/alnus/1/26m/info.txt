@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 12.2
+Height: 26.0
+Depth: 12.2
 =====================
 Description: An individual Alnus (Alder) tree, height 26m.

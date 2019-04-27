@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 11.9
+Height: 3.4
+Depth: 8.9
 =====================
 Description: An A6M 'Zero' in Imperial Japanese Navy Air Service livery.

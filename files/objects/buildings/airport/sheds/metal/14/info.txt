@@ -2,9 +2,9 @@ Title: Shed, green metal, 15.7m
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 6.2m
-Depth: 15.7m
-Height: 3.3m
+Width: 6.2
+Depth: 15.7
+Height: 3.3
 Since: 3.0.0
 =====================
 Description: A green metal 15.7m shed.

@@ -2,9 +2,9 @@ Title: Office, prefabricated, brown, 21m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 9.8m
-Depth: 21m
-Height: 3.6m
+Width: 21.0
+Depth: 9.8
+Height: 3.6
 Export External RE_Library: RE_Library/Prefabs/21m/Prefab21m_brn
 Since: 3.0.0
 =====================

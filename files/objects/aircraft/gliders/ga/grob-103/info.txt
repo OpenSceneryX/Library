@@ -5,5 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=2368
 Author, conversion: David Gluck
 URL, conversion: http://forums.x-plane.org/index.php?showuser=17288
 Export Propagate: 1
+Width: 17.0
+Height: 2.2
+Depth: 8.3
 =====================
 Description: Grob 103 glider.

@@ -6,9 +6,9 @@ Email: d_rosenkranz@wanadoo.es
 Author, modifications: Florian (PilotFlo)
 Email, modifications: PilotFlo@gmx.net
 URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
-Width: 26m
-Depth: 190m
-Height: 42m
+Width: 33.9
+Depth: 193.4
+Height: 42.4
 Export Propagate: 2
 =====================
 Description: Containerships Group is a door-to-door short sea carrier providing regular services linking key industrial and retail customers in Finland, Russia, Scandinavia, Eastern Europe, the Baltic States and Western Europe via ports in the Baltic, North Sea and UK areas.  This version has deck cranes.

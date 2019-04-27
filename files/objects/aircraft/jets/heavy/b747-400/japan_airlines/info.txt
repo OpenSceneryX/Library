@@ -9,5 +9,8 @@ Export Extended: lib/airport/aircraft/airliners/heavy_e_ana
 Export Extended: lib/airport/aircraft/airliners/heavy_e
 Export Extended: lib/airport/aircraft/cargo/heavy_e_ana
 Export Extended: lib/airport/aircraft/cargo/heavy_e
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in Japan Airlines livery.

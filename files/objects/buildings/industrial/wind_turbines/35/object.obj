@@ -2,6 +2,9 @@ I
 800
 OBJ
 
+# Directive to tell WED to fix the rotation of this object
+#fixed_heading 0
+
 TEXTURE ../../../../shared_textures/flyagi/Wind_turbine_texture.png
 TEXTURE_LIT ../../../../shared_textures/flyagi/Wind_turbine_texture_LIT.png
 POINT_COUNTS	3511 0 0 6456

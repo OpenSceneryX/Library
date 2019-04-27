@@ -2,8 +2,8 @@ Title: Traffic Cone, Large, Black and Yellow
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 0.6m
-Depth: 0.6m
-Height: 0.85m
+Width: 0.6
+Depth: 0.6
+Height: 0.9
 =====================
 Description: A large black and yellow traffic cone.

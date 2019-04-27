@@ -2,9 +2,9 @@ Title: Fire engine, Panther 4x4, red
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 3.4m
-Depth: 10m
-Height: 3.7m
+Width: 3.4
+Depth: 10.1
+Height: 3.7
 Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_4x4/Panther_4x4_red
 Since: 3.0.0
 =====================

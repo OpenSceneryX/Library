@@ -2,8 +2,8 @@ Title: Tower, brick, with rotating beacon
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
-Width: 14.5m
-Height: 8.8m
-Depth: 18.2m
+Width: 18.2
+Height: 8.8
+Depth: 14.5
 =====================
 Description: A brick control tower with a rotating beacon.

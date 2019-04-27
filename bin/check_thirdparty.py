@@ -65,7 +65,7 @@ try:
 				if line.startswith("EXPORT "):
 					parts = line.split(" ")
 					if parts[1] not in osxPaths:
-						print(parts[1])
+						functions.displayMessage(parts[1] + "\n", "warning")
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")

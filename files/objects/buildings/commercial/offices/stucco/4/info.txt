@@ -2,9 +2,9 @@ Title: Office, stucco, red roof, 4 floors
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 15m
-Depth: 60m
-Height: 20m
+Width: 60.0
+Depth: 20.0
+Height: 15.0
 Export External RE_Library: RE_Library/Admin/4floor_60x20/white_stucco/grey_slate/Admin2_4t
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/hex_VCR/Control_admin2_4t_hex
 Export External RE_Library: RE_Library/Control_Tower/small_terminal/oct_VCR/Control_admin2_4t_oct

@@ -3,5 +3,8 @@ Title: Horse and foal, brown
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 3.0
+Height: 2.8
+Depth: 0.0
 =====================
 Description: A brown horse with foal.

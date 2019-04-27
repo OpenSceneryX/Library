@@ -2,9 +2,9 @@ Title: Office, prefabricated, green, 42m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 9.8m
-Depth: 42m
-Height: 3.6m
+Width: 42.0
+Depth: 9.8
+Height: 3.6
 Export External RE_Library: RE_Library/Prefabs/42m/type_a/Prefab42m_a_grn
 Export External RE_Library: RE_Library/Prefabs/42m/type_b/Prefab42m_b_grn
 Export External RE_Library: RE_Library/Prefabs/squadron/LUAS

@@ -3,8 +3,8 @@ Title: Office, wooden, derelict, 2-storey
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 16m
-Depth: 8m
-Height: 9m
+Width: 17.2
+Depth: 9.2
+Height: 9.9
 =====================
 Description: Small old white wood-built 2-storey office building in poor condition.

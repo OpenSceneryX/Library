@@ -2,9 +2,9 @@ Title: Code, small, orange
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 0.8m
-Depth: 0.8m
-Height: 0.6m
+Width: 0.8
+Depth: 0.8
+Height: 0.6
 Since: 3.0.0
 =====================
 Description: A small orange cone.

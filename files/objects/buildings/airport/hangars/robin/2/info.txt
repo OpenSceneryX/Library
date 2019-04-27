@@ -2,9 +2,9 @@ Title: Hangar, Robin, blue, closed
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 19.1m
-Depth: 21.4m
-Height: 7.3m
+Width: 21.4
+Depth: 19.1
+Height: 7.3
 Export External RE_Library: RE_Library/Hangars/Robin/profiled/closed/Robin_p_c_blue
 Export External RE_Library: RE_Library/Hangars/Robin/squared/closed/Robin_s_c_blue
 Since: 3.0.0

@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 5.1
+Height: 6.0
+Depth: 5.1
 =====================
 Description: An individual Arecaceae Acoelorrhaphe Wrightii (Paurotis Palm) tree, height 6m.

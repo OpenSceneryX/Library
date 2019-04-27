@@ -3,8 +3,8 @@ Title: Cones, orange and white
 Author: Dave Morley
 URL: http://www.xplanelanguedoc.com
 Email: davemorley_27@mac.com
-Width: 2.5m
-Height: 1.2m
-Depth: 1.3m
+Width: 2.5
+Height: 1.3
+Depth: 1.2
 =====================
 Description: A few cones stacked up.

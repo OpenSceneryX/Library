@@ -2,8 +2,8 @@ Title: Recycling bin
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 1.5m
-Depth: 0.9m
-Height: 1.4m
+Width: 1.5
+Depth: 0.9
+Height: 1.4
 =====================
 Description: A green recycling bin on wheels.

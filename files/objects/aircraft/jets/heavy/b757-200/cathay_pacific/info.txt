@@ -6,5 +6,8 @@ Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/cathay_pacific/b757-200
+Width: 40.2
+Height: 13.6
+Depth: 47.2
 =====================
 Description: A Boeing 757-200 in Cathay Pacific livery.

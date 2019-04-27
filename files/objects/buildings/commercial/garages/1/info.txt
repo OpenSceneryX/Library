@@ -3,8 +3,8 @@ Title: Garage, 5-bay commercial
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 28m
-Depth: 18m
-Height: 10m
+Width: 28.2
+Depth: 18.0
+Height: 10.4
 =====================
 Description: Garage for 5 trucks. Tan colour, white doors. Original is at CYPA.

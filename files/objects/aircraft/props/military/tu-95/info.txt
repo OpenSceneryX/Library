@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 50.4
+Height: 12.6
+Depth: 49.1
 =====================
 Description: A Tupolev Tu-95 in Soviet livery.

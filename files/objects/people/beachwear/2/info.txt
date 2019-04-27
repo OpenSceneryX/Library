@@ -4,9 +4,9 @@ Author: fasm
 URL: http://www.fasm.name/
 http://forums.x-plane.org/index.php?showuser=2767
 Email: fasm@wanadoo.fr
-Width: 1m
-Depth: 2m
-Height: 1m
+Width: 0.5
+Depth: 1.8
+Height: 0.3
 Animated: no
 =====================
 Description: Woman lying down

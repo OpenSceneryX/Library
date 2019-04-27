@@ -6,5 +6,8 @@ Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/livery/us_airways/a330
+Width: 62.6
+Height: 16.7
+Depth: 63.6
 =====================
 Description: An Airbus 330 in US Airways livery.

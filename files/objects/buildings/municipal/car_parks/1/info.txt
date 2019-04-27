@@ -3,8 +3,8 @@ Title: Multi-storey Car Park
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 228m
-Depth: 241m
-Height: 18.5m
+Width: 228.9
+Depth: 241.2
+Height: 18.4
 =====================
 Description: A large, quarter-circular multi-storey car park.

@@ -127,6 +127,7 @@ class SceneryObject(object):
 		self.deprecatedVirtualPaths = []
 		self.externalVirtualPaths = []
 		self.extendedVirtualPaths = []
+		self.seasonPaths = {}
 
 		self.sceneryTextures = []
 
@@ -208,6 +209,7 @@ class Object(SceneryObject):
 		self.tilted = False
 		self.smokeBlack = False
 		self.smokeWhite = False
+		self.wedRotationLockAngle = None
 
 #
 # Class to hold information about an X-Plane polygon

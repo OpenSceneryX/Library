@@ -2,9 +2,9 @@ Title: Windmill, Dutch
 =====================
 Author:	Tony Brown
 Email: aebrown1013@gmail.com
-Height: 32m
-Width: 18m
-Depth: 18m
+Height: 25.0
+Width: 23.8
+Depth: 10.2
 Export Propagate: 3
 =====================
 Description: A simple Dutch windmill with rotating blades

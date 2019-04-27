@@ -7,5 +7,8 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=4112
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export: objects/aircraft/livery/northwest/historical/1989-2003/dc-9-10
+Width: 27.5
+Height: 8.6
+Depth: 34.3
 =====================
 Description: A DC-9-10 in Northwest Airlines historical livery used from 1989-2003.

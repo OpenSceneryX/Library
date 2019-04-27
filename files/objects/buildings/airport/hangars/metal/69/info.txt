@@ -2,9 +2,9 @@ Title: Hangar, metal, red, closed, rear extension
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 44m
-Depth: 55m
-Height: 20m
+Width: 44.0
+Depth: 55.0
+Height: 20.0
 Export External RE_Library: RE_Library/Hangars/40x50m/pointed/closed/rear_ext/red/RE_hangar_40x50_ce4
 Export External RE_Library: RE_Library/Hangars/40x50m/pointed/closed/red/RE_hangar_40x50_c4
 Since: 3.0.0

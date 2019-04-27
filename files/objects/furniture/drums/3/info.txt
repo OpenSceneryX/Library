@@ -2,9 +2,9 @@ Title: Drum, fuel
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 0.6m
-Depth: 0.9m
-Height: 0.6m
+Width: 0.9
+Depth: 0.6
+Height: 0.6
 Since: 3.0.0
 =====================
 Description: A single fuel drum lying on its side.

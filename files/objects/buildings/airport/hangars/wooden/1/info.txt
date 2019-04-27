@@ -2,8 +2,8 @@ Title: Hangar, wooden with office
 =====================
 Author: Tony Brown
 Email: aebrown1013@gmail.com
-Height: 26.6m
-Width: 27.7m
-Depth: 65.9m
+Height: 10.3
+Width: 30.0
+Depth: 13.1
 =====================
 Description: Airfield building with built-on hangar for small aircraft.

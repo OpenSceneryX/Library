@@ -3,5 +3,8 @@ Title: Tug, Large, Yellow Flashes
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 3.8
+Height: 2.1
+Depth: 6.3
 =====================
 Description: A large tug with yellow flashes down the sides.

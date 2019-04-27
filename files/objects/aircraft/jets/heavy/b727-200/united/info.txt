@@ -7,5 +7,8 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b727
 Export: objects/aircraft/livery/united/b727-200
+Width: 65.7
+Height: 10.2
+Depth: 49.5
 =====================
 Description: A Boeing 727-200 in United livery.

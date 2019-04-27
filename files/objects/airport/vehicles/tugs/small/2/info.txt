@@ -3,5 +3,8 @@ Title: Tug, Small, Yellow
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 1.4
+Height: 2.2
+Depth: 4.8
 =====================
 Description: A small yellow tug.

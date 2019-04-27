@@ -4,9 +4,9 @@ Author: shilova
 URL: http://forums.x-plane.org/index.php?showuser=68419
 Author, texture: openfootage.net
 URL, texture: http://www.openfootage.net
-Width: 10.6m
-Depth: 22.4m
-Height: 16.8m
+Width: 14.8
+Depth: 22.1
+Height: 18.5
 Export External simHeaven: simheaven/landmarks/mosque
 =====================
 Description: A fictional, small western mosque.

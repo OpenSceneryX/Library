@@ -2,9 +2,9 @@ Title: Fire engine, Panther 8x8, yellow + grey, HRET
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 3.4m
-Depth: 12.6m
-Height: 3.8m
+Width: 3.4
+Depth: 12.6
+Height: 3.8
 Export External RE_Library: RE_Library/Fire_engines/Rosenbauer/Panther_8x8_hret/Panther_8x8_hret_y-g
 Since: 3.0.0
 =====================

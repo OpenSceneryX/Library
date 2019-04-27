@@ -2,9 +2,9 @@ Title: Box truck, 3-Axle Mercedes, DHL®
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 2.4m
-Depth: 8.8m
-Height: 3.5m
+Width: 10.0
+Depth: 8.8
+Height: 3.5
 Export Propagate: 1
 Export Deprecated v1.12.0: objects/vehicles/commercial/trucks/3_axle/dhl/1
 =====================

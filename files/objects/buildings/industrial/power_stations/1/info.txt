@@ -2,5 +2,8 @@ Title: Power Station
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
+Width: 132.1
+Height: 107.7
+Depth: 313.5
 =====================
 Description: A power station.

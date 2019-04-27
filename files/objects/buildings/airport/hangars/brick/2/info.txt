@@ -2,5 +2,8 @@ Title: Hangar, brick, small
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 5.5
+Height: 3.6
+Depth: 8.5
 =====================
 Description: A small brick hangar with green doors.

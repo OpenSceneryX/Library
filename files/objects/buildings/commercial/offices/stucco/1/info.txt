@@ -2,9 +2,9 @@ Title: Office, stucco, grey roof, 3 floors
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 12m
-Depth: 40m
-Height: 15m
+Width: 40.0
+Depth: 15.0
+Height: 12.0
 Export External RE_Library: RE_Library/Admin/3floor_15x40/white_stucco/Admin_long_4
 Since: 3.0.0
 =====================

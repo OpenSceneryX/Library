@@ -3,8 +3,8 @@ Title: House, Wooden, Two Storey, Large, White
 Author: Nick Ward
 Email: nward@sasktel.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 8.7m
-Depth: 16.6m
-Height: 7.5m
+Width: 16.6
+Depth: 8.7
+Height: 7.5
 =====================
 Description: A two storey large white wooden house with a garage.

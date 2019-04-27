@@ -2,9 +2,9 @@ Title: School, wooden, cream
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 42.3m
-Depth: 29.9m
-Height: 7.5m
+Width: 42.3
+Depth: 29.9
+Height: 7.5
 Since: 3.0.0
 =====================
 Description: A cream coloured primary school or play centre.

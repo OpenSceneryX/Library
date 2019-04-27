@@ -3,5 +3,8 @@ Title: Horse, brown
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 2.6
+Height: 2.7
+Depth: 0.0
 =====================
 Description: A brown horse.

@@ -2,9 +2,9 @@ Title: Office, grey brick, grey roof, 1 floor
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 10m
-Depth: 20m
-Height: 4m
+Width: 10.0
+Depth: 20.0
+Height: 4.0
 Export External RE_Library: RE_Library/Admin/1floor_10x20/block/blue_doors/Cargo_off2_s1
 Export External RE_Library: RE_Library/Cargo_terminal/office/1floor_10x20/block/blue_doors/Cargo_off2_s1
 Export External RE_Library: RE_Library/Admin/1floor_10x20/block/grey_doors/Cargo_off2_s2

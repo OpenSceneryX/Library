@@ -5,5 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/md90
 Export: objects/aircraft/livery/british_airways/md90-50
+Width: 36.8
+Height: 9.4
+Depth: 46.8
 =====================
 Description: An MD90-50 in British Airways livery.

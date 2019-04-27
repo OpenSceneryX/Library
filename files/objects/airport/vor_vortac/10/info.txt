@@ -2,9 +2,9 @@ Title: VORTAC, checked hut, red antenna
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 30m
-Depth: 30m
-Height: 8.6m
+Width: 30.0
+Depth: 30.0
+Height: 11.2
 Export External RE_Library: RE_Library/Navaids/VORTACs/white/VORTAC_wcr
 Export External RE_Library: RE_Library/Navaids/VORTACs/white/VORTAC_wgo
 Since: 3.0.0

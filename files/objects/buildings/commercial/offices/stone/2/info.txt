@@ -2,9 +2,9 @@ Title: Office, stone, red roof, 4 floors
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 20m
-Depth: 60m
-Height: 14m
+Width: 60.0
+Depth: 20.0
+Height: 14.0
 Export External RE_Library: RE_Library/GA_Terminal/Red_tile/Lakeland_stone/GA_terminal_1b
 Since: 3.0.0
 =====================

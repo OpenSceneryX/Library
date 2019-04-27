@@ -3,8 +3,8 @@ Title: Tower, wooden, peaked roof with terminal
 Author: Nick Ward
 Email: nickward@telus.net
 URL: http://forums.x-plane.org/index.php?showuser=2048
-Width: 26m
-Height: 12m
-Depth: 18m
+Width: 18.1
+Height: 14.9
+Depth: 26.4
 =====================
 Description: A small airport terminal, 2 storey + tower. Based on tower at EGHE St.Mary's.

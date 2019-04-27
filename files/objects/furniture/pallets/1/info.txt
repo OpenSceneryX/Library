@@ -3,8 +3,8 @@ Title: Pallet, Antec®
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.6m
-Height: 1.6m
-Depth: 1.2m
+Width: 1.2
+Height: 1.7
+Depth: 1.6
 =====================
 Description: A stacked pallet with boxes of merchandise for cargo areas.

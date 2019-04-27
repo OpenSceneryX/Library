@@ -2,8 +2,8 @@ Title: Tanker, Medium, AvFuel
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 2.25m
-Depth: 9.3m
-Height: 3.2m
+Width: 10.7
+Depth: 9.4
+Height: 3.3
 =====================
 Description: An airport tanker/refueller on a Mercedes 3-axle truck chassis. AvFuel markings.

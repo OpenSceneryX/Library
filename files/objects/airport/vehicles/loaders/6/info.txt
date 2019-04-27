@@ -5,5 +5,8 @@ Author, texture: Ron Somerville
 Author, texture: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=5515
 Export Propagate: 2
+Width: 2.5
+Height: 2.1
+Depth: 8.7
 =====================
 Description: Airport 'Groundforce' branded beltloader/conveyor for loading baggage. Belt in horizontal (parked) position.

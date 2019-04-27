@@ -3,5 +3,8 @@ Title: Tug, Large, Goldhofer
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 3.6
+Height: 2.3
+Depth: 9.1
 =====================
 Description: A large Goldhofer tug.

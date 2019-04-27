@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 5.2
+Height: 12.0
+Depth: 5.2
 =====================
 Description: An individual Arecaceae (Palm) tree, height 12m.

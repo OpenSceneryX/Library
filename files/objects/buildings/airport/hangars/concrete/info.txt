@@ -3,8 +3,8 @@ Title: Hangar, concrete, old brown
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 19m
-Depth: 20m
-Height: 7m
+Width: 19.2
+Depth: 20.3
+Height: 7.5
 =====================
 Description: A small old brown hangar, with windows & and office at the back.

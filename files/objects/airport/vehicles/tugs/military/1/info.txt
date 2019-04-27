@@ -3,5 +3,8 @@ Title: Tug, Military
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 2.1
+Height: 2.9
+Depth: 11.1
 =====================
 Description: A military tug.

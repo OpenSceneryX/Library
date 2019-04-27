@@ -56,7 +56,7 @@ v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
 v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-polygonNormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
+v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
 #normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
@@ -90,6 +90,8 @@ scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
 layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
 # Facade and Forest patterns
 lodPattern = re.compile(r"(?:LOD)\s+(.*)")
+# WED-specific patterns
+wedRotationLockPattern = re.compile(r"#fixed_heading\s+(.*)")
 
 def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 	""" Build all the documentation landing pages for SceneryCategories """
@@ -195,13 +197,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
-	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "object_" + season + ".obj"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
-			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -354,13 +355,19 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					sceneryObject.animated = True
 					continue
 
+			if not sceneryObject.wedRotationLockAngle:
+				result = wedRotationLockPattern.match(line)
+				if result:
+					sceneryObject.wedRotationLockAngle = result.group(1)
+					continue
+
 		if textureFound == 0:
 			displayMessage("\n" + objectSourcePath + "\n")
 			displayMessage("No texture line in file - this error must be corrected\n", "error")
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest, objectSeasonPaths): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -375,9 +382,9 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
 		for season in classes.Configuration.seasons:
-			if season in objectSeasonPaths:
+			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -412,13 +419,12 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
-	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "facade_" + season + ".fac"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
-			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -478,7 +484,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest, objectSeasonPaths): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -493,9 +499,9 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
 		for season in classes.Configuration.seasons:
-			if season in objectSeasonPaths:
+			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -530,13 +536,12 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
-	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "forest_" + season + ".for"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
-			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -622,7 +627,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					continue
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest, objectSeasonPaths): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -637,9 +642,9 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
 		for season in classes.Configuration.seasons:
-			if season in objectSeasonPaths:
+			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -674,13 +679,12 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
-	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "line_" + season + ".lin"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
-			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -731,6 +735,36 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
 					return
 
+			result = v10NormalTexturePattern.match(line)
+			if result:
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if os.path.isfile(textureFile):
+					# Look for the texture in the texture Dictionary, create a new one if not found
+					texture = textures.get(textureFile)
+					if (texture == None):
+						texture = classes.SceneryTexture(textureFile)
+						textures[textureFile] = texture
+
+					texture.sceneryObjects.append(sceneryObject)
+					sceneryObject.sceneryTextures.append(texture)
+
+					lastSlash = result.group(1).rfind("/")
+					if (lastSlash > -1):
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
+					else:
+						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
+					if not os.path.isdir(destinationTexturePath):
+						# Create destination texture path if it doesn't already exist
+						os.makedirs(destinationTexturePath)
+					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
+						# Copy texture if it doesn't already exist
+						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find NORMAL texture - line excluded (" + textureFile + ")\n", "error")
+					return
+
+
 			result = linePattern.match(line)
 			if result:
 				sceneryObject.lines.append({"layer": int(result.group(1)), "left": int(result.group(2)), "middle": int(result.group(3)), "right": int(result.group(4))})
@@ -767,7 +801,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest, objectSeasonPaths): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -782,9 +816,9 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
 		for season in classes.Configuration.seasons:
-			if season in objectSeasonPaths:
+			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -819,13 +853,12 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Build a list containing (filePath, filename) tuples, including seasonal variants
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
-	objectSeasonPaths = {}
 
 	for season in classes.Configuration.seasons:
 		seasonFilename = "polygon_" + season + ".pol"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
 		if os.path.isfile(seasonSourcePath):
-			objectSeasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
 
@@ -877,7 +910,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 						displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
 						return
 
-			result = polygonNormalTexturePattern.match(line)
+			result = v10NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 				if os.path.isfile(textureFile):
@@ -932,7 +965,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest, objectSeasonPaths): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -947,9 +980,9 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
 		for season in classes.Configuration.seasons:
-			if season in objectSeasonPaths:
+			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + objectSeasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -1009,9 +1042,14 @@ def createPaths(parts):
 def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 	""" Copy the support files from the source to the destination """
 
+	# Copy the screenshot files. Screenshots are optional, and can include a shot for each seasonal variant.
 	if (sceneryObject.screenshotFilePath != ""):
 		destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], "screenshot.jpg")
 		if not os.path.isfile(destinationFilePath): shutil.copyfile(sceneryObject.screenshotFilePath, destinationFilePath)
+	for season in sceneryObject.seasonPaths:
+		sourceFilePath = os.path.join(dirpath, f"screenshot_{season}.jpg")
+		destinationFilePath = os.path.join(classes.Configuration.osxWebsiteFolder, parts[1], f"screenshot_{season}.jpg")
+		if os.path.isfile(sourceFilePath) and not os.path.isfile(destinationFilePath): shutil.copyfile(sourceFilePath, destinationFilePath)
 
 	# Copy the logo file.  Logos are used to 'brand' objects that are from a specific
 	# collection.  Therefore they are all stored in a single folder (in support) so they
@@ -1028,7 +1066,7 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 
 
 
-def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest, objectSeasonPaths):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 
 	file = open(sceneryObject.infoFilePath)
@@ -1195,6 +1233,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			sceneryObject.description = result.group(1) + "\n"
 			continue
 
+		# Just spit any other lines straight out
 		websiteInfoFileContents += line + "\n"
 
 	# Object-specific auto-generated data
@@ -1209,6 +1248,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.tilted: websiteInfoFileContents += f"Tilted: True\n"
 		if sceneryObject.smokeBlack: websiteInfoFileContents += f"Black Smoke: True\n"
 		if sceneryObject.smokeWhite: websiteInfoFileContents += f"White Smoke: True\n"
+		if sceneryObject.wedRotationLockAngle: websiteInfoFileContents += f"Rotation Lock: {sceneryObject.wedRotationLockAngle}\n"
 
 	# Polygon-specific auto-generated data
 	if isinstance(sceneryObject, classes.Polygon):
@@ -1238,7 +1278,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.lod: websiteInfoFileContents += f"LOD: {sceneryObject.lod:.1f}\n"
 
 	# Mark as seasonal
-	if len(objectSeasonPaths) > 0:
+	if len(sceneryObject.seasonPaths) > 0:
 		websiteInfoFileContents += f"Seasonal: True\n"
 
 	# We have reached the end, convert the description to HTML and append.

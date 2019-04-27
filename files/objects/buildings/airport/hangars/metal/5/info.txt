@@ -2,8 +2,8 @@ Title: Hangar, metal, medium
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
-Width: 15.6m
-Depth: 15.5m
-Height: 5.8m
+Width: 15.6
+Depth: 15.6
+Height: 5.8
 =====================
 Description: Medium-sized modern hangar with metal sides, red roof and one aircraft door.

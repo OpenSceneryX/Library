@@ -2,9 +2,9 @@ Title: Air bridge section, straight, 7.25m AGL, 16m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2m
-Depth: 12m
-Height: 10.25m
+Width: 2.0
+Depth: 16.0
+Height: 10.2
 Export External RE_Library: RE_Library/Terminals/Airbridges/7.25m_agl/16m_length/Airbridge_7.25agl_16m_g
 Since: 3.0.0
 =====================
