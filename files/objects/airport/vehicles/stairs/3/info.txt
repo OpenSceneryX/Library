@@ -1,0 +1,12 @@
+Title: Boarding Bridge, Mobile
+=====================
+Author: Austin Goudge
+URL: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 5.4
+Height: 4.9
+Depth: 16.0
+Since: 4.2.0
+=====================
+Description: A mobile boarding bridge with sloped access ramp and blue covers. This bridge has two ramps for connecting to the aircraft, one is in the raised position and one is lowered. The height of these AGL at the aircraft is 1.8m, which is suitable for a regional jet such as the [ERJ 145](/objects/aircraft/jets/regional_commuter/erj-145/).
+
+This bridge is modelled on those found at KIAH Houston International.
