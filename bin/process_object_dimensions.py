@@ -47,8 +47,8 @@ def main(argv):
     for root, dirs, files in os.walk(startPath):
         for file in files:
             if file == "object.obj":
-                # ObjTool is a specially-written command-line tool, using Laminars xptools: https://github.com/aussig/xptools/tree/feature/objtool
-                output = subprocess.run(["./ObjTool", "--measure", os.path.join(root, file)], capture_output=True)
+                # CLITool is a specially-written command-line tool, using Laminars xptools: https://github.com/aussig/xptools/tree/feature/clitool
+                output = subprocess.run(["./CLITool", "--measure", os.path.join(root, file)], capture_output=True)
                 x, y, z = tuple(output.stdout.decode(encoding='UTF-8').split(","))
                 x = round(float(x), 1)
                 y = round(float(y), 1)
