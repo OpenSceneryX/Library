@@ -4,6 +4,18 @@
 # Copyright (c) 2019 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
 
+# Seasonal:
+#
+# 1. Remove all except default region at the bottom of the file
+# 2. Replace all EXPORT_EXCLUDE with EXPORT
+# 3. If library is organised under subfolders (e.g. FlyAgi_Vegetation), need to search and replace 'Summer/' with ''
+#    and move all content from the Summer/ folder up one level.
+# 4. Select all and sort lines unique ascending
+# 5. Run this script. Careful with this - where multiple items are published to the same path, it will always take the last so may
+#    overwrite the correct item with a different one. If an items content changes significantly, check by manually copying in the
+#    known correct item.
+# 6. Run seasonalise.sh on appropriate paths - where the items are identical between seasons, apart from textures
+
 import sys
 import traceback
 
