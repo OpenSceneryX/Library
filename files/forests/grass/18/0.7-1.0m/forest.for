@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE ../../../../shared_textures/flyagi/Grass_dry07.png
+NO_SHADOW
 
 LOD 1000
 

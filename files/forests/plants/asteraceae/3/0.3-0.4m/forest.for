@@ -3,6 +3,8 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/Flowers_01.png
+NO_SHADOW
+
 
 LOD 1000
 
