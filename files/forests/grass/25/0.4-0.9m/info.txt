@@ -1,0 +1,9 @@
+Title: Grass, cats tails, 0.4-0.9m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Flowers/Flowers_06_low
+Since: 4.2.0
+=====================
+Description: A forest of grass with cats tails, between 0.4m and 0.9m high. Ideal to use in combination with daisies and dandelions (/forests/plants/asteraceae).
+When using grass on larger scale airports make sure you're using WED and it's density options for the grass files. The grass can have an impact on GPU performance and on larger airports this impact can be massive if you place the grass with maximum density.

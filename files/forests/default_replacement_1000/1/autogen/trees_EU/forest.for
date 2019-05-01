@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/Forests_01.png
+NO_SHADOW
 
 LOD 15000
 
@@ -30,3 +31,4 @@ TREE 	0		512		512		512		256	5	4	10	2	0	Shrub3
 TREE 	512		512		512		512		256	5	4	10	2	0	Shrub4
 
 SKIP_SURFACE water
+

@@ -4,6 +4,18 @@
 # Copyright (c) 2019 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
 
+# Seasonal:
+#
+# 1. Remove all except default region at the bottom of the file
+# 2. Replace all EXPORT_EXCLUDE with EXPORT
+# 3. If library is organised under subfolders (e.g. FlyAgi_Vegetation), need to search and replace 'Summer/' with ''
+#    and move all content from the Summer/ folder up one level.
+# 4. Select all and sort lines unique ascending
+# 5. Run this script. Careful with this - where multiple items are published to the same path, it will always take the last so may
+#    overwrite the correct item with a different one. If an items content changes significantly, check by manually copying in the
+#    known correct item.
+# 6. Run seasonalise.sh on appropriate paths - where the items are identical between seasons, apart from textures
+
 import sys
 import traceback
 
@@ -30,25 +42,25 @@ try:
         functions.displayMessage("Update Third Party Library\n")
         functions.displayMessage("==========================\n")
 
-        libraryFilesPath = ".." + os.sep + "files"
+        libraryFilesPath = f"..{os.sep}files"
         if not os.path.isdir(libraryFilesPath):
             raise classes.BuildError("Error: This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library")
 
         versionTag = ""
         while versionTag == "":
             versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
-        buildLibraryPath = ".." + os.sep + "builds" + os.sep + versionTag + os.sep + "OpenSceneryX-" + versionTag + os.sep + "library.txt"
+        buildLibraryPath = f"..{os.sep}builds{os.sep}{versionTag}{os.sep}OpenSceneryX-{versionTag}{os.sep}library.txt"
 
         if not os.path.isfile(buildLibraryPath):
             raise classes.BuildError("Error: A library.txt file does not exist for that version")
 
         thirdPartyLibraryName = ""
         while thirdPartyLibraryName == "":
-            thirdPartyLibraryName = functions.getInput("Enter the name of the third party library (e.g. DT_Library): ", 20)
+            thirdPartyLibraryName = functions.getInput("Enter the name of the third party library (e.g. DT_Library). This is used both to locate the folder and to identify library entries in library.txt: ", 20)
 
-        thirdPartyLibraryPath = ".." + os.sep + "contributions" + os.sep + thirdPartyLibraryName + os.sep + "library.txt"
+        thirdPartyLibraryPath = f"..{os.sep}contributions{os.sep}{thirdPartyLibraryName}{os.sep}library.txt"
         if not os.path.isfile(thirdPartyLibraryPath):
-            raise classes.BuildError("Error: Cannot find " + thirdPartyLibraryName + "/library.txt in the contributions folder")
+            raise classes.BuildError(f"Error: Cannot find {thirdPartyLibraryName}/library.txt in the contributions folder")
 
         classes.Configuration.init(versionTag, "", 'n')
 
@@ -64,26 +76,26 @@ try:
         thirdPartyLibraryFileContents = file.read()
         file.close()
 
-        # Build a dict mapping the third party file path to the OpenSceneryX virtual library path
-        pattern = r"^EXPORT_BACKUP\s+{}/(.*?)\s+(.*?)$".format(thirdPartyLibraryName)
+        # Build a dict mapping the third party virtual library path to the OpenSceneryX file path
+        pattern = fr"^EXPORT_BACKUP\s+{thirdPartyLibraryName}/(.*?)\s+(.*?)$"
         matches = re.findall(pattern, libraryFileContents, re.MULTILINE)
         osxLookupDict = {a:b for a,b in matches}
 
         # Build a list of all exports in the third party library
-        pattern = r"^EXPORT\s+{}/(.*?)\s+(.*?)$".format(thirdPartyLibraryName)
+        pattern = fr"^EXPORT\s+{thirdPartyLibraryName}/(.*?)\s+(.*?)$"
         matches = re.findall(pattern, thirdPartyLibraryFileContents, re.MULTILINE)
 
         # Iterate every export in the third party library, looking for a matching OpenSceneryX export
         for match in matches:
             # TODO: Compare contents of new and old, ignoring texture lines, and only replace if they differ.
             #       Perhaps pay attention to texture filename, only ignore path.
-            if match[1] in osxLookupDict:
-                sourceFilePath = ".." + os.sep + "contributions" + os.sep + thirdPartyLibraryName + os.sep + match[1]
-                destinationFilePath = libraryFilesPath + os.sep + osxLookupDict[match[1]]
-                functions.displayMessage("Copying updated item {} to {}\n".format(match[1], osxLookupDict[match[1]]), "note")
+            if match[0] in osxLookupDict:
+                sourceFilePath = f"..{os.sep}contributions{os.sep}{thirdPartyLibraryName}{os.sep}{match[1]}"
+                destinationFilePath = f"{libraryFilesPath}{os.sep}{osxLookupDict[match[0]]}"
+                functions.displayMessage(f"Copying updated item {match[1]} to {osxLookupDict[match[0]]}\n", "note")
                 shutil.copyfile(sourceFilePath, destinationFilePath)
             else:
-                functions.displayMessage("New item in this version: {}\n".format(match[1]), "warning")
+                functions.displayMessage(f"New item in this version: {match[1]}\n", "warning")
 
 
         functions.displayMessage("------------------------\n")
