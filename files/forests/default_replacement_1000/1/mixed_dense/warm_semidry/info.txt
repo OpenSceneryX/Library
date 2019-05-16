@@ -3,6 +3,7 @@ Title: Mixed dense, warm, semi-dry
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_wrm_sdry
+Export Core Export forests: lib/g8/mixed_wrm_sdry
 Since: 3.2.0
 =====================
 Description: A dense mixed forest for use in warm, semi-dry climates.

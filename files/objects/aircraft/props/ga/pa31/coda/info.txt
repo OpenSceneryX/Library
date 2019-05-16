@@ -6,7 +6,7 @@ Email: snow@fischer-bayern.de
 Author, texture: Conan Davis (Vivar)
 URL, texture: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
-Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
 Width: 16.6
 Height: 4.7
 Depth: 10.7

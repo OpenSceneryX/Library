@@ -9,6 +9,10 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_tmp_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_tmp_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_tmp_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_tmp_wet
+Export Core Export forests: lib/g8/coni_tmp_dry
+Export Core Export forests: lib/g8/coni_tmp_rain
+Export Core Export forests: lib/g8/coni_tmp_sdry
+Export Core Export forests: lib/g8/coni_tmp_wet
 Since: 4.1.0
 =====================
 Description: A forest of conifers for use in temperate wet, dry and semi-dry climates.

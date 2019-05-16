@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/Forests_01.png
+NO_SHADOW
 
 LOD 15000.000000
 
@@ -15,6 +16,7 @@ RANDOM 9.00 9.00
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
 #------------------------------------------------------------------------------------------
+
 TREE	0		1024	1024	1024	478	25	4	12	2	0	Palm1
 TREE	2048	1024	1024	1024	512	25	4	12	2	0	Palm2
 TREE 	2048	0		512		386		256	12	2	8	2	0	Shrub5

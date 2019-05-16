@@ -60,6 +60,12 @@ try:
 					parts = line.split(" ")
 					osxPaths.append(parts[1])
 
+		with open("builds/" + versionTag + "/OpenSceneryX-" + versionTag + "/partials/extend_forests.txt", "r") as file:
+			for line in file:
+				if line.startswith("EXPORT "):
+					parts = line.split(" ")
+					osxPaths.append(parts[1])
+
 		with open(thirdPartyLibrary.replace("\ ", " ")) as file:
 			for line in file:
 				if line.startswith("EXPORT "):

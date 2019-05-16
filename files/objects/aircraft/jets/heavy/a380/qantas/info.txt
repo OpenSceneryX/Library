@@ -4,8 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/qantas/a380
-Export Extended: lib/airport/aircraft/airliners/heavy_f_qpa
-Export Extended: lib/airport/aircraft/airliners/heavy_f
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_f_qpa
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_f
 Width: 82.0
 Height: 25.5
 Depth: 74.7

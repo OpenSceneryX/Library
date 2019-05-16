@@ -3,17 +3,22 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/Forests_01.png
+NO_SHADOW	
 
 LOD 15000.000000
 
 SCALE_X 4096
 SCALE_Y 4096
 
+
+
 SPACING 30.0 30.0
 RANDOM 27.0 27.0
 
+	
 #tree	s	t	w	y	offset	%	h min	h max	quads	type	name	(Y_QUAD:)	s	t	w_s	w_t	ofst_s	ofst_t	w	y	psi
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 TREE	0		2048	1024	1024	480	5	18	28	2	0	Tree1
 TREE	1024	2048	1024	1024	512	5	18	28	2	0	Tree2
 TREE	0		3072	1024	1024	535	5	18	28	2	0	Tree3
@@ -28,4 +33,5 @@ TREE	2048	1024	1024	1024	512	13	20	34	2	0	Palm4
 TREE	1024	1024	512		1024	256	12	18	32	2	0	Zyp1
 TREE	1536	1024	512		1024	256	13	18	32	2	0	Zyp2
 
-SKIP_SURFACE water
+
+SKIP_SURFACE water		

@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE Sunflower.png
+NO_SHADOW
 
 LOD 1000
 

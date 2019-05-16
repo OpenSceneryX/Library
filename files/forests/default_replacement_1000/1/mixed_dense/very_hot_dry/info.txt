@@ -7,6 +7,9 @@ Export: forests/default_replacement_1000/1/mixed_dense/warm_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_vhot_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_vhot_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_wrm_dry
+Export Core Export forests: lib/g8/mixed_vhot_dry
+Export Core Export forests: lib/g8/mixed_vhot_sdry
+Export Core Export forests: lib/g8/mixed_wrm_dry
 Since: 3.2.0
 =====================
 Description: A dense mixed forest for use in very hot and warm, dry and semi-dry climates.

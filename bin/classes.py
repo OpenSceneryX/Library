@@ -41,7 +41,8 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
-		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow']
+		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
+		self.corePartials = ['static_aircraft', 'forests']
 
 	def makeFolders(self):
 		""" Create any folders that need creating """
@@ -126,7 +127,7 @@ class SceneryObject(object):
 		self.virtualPaths = []
 		self.deprecatedVirtualPaths = []
 		self.externalVirtualPaths = []
-		self.extendedVirtualPaths = []
+		self.coreVirtualPaths = []
 		self.seasonPaths = {}
 
 		self.sceneryTextures = []
@@ -271,6 +272,32 @@ class Forest(SceneryObject):
 		self.group = False
 		self.perlin = False
 		self.lod = None
+
+#
+# Class to hold information about an X-Plane facade
+#
+class Facade(SceneryObject):
+	"""An X-Plane Facade"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Facade, self).__init__(filePathRoot, fileName)
+
+		self.type = None
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.graded = None
+		self.ring = None
+		self.textureWidth = None
+		self.textureHeight = None
+		self.wallSurface = None
+		self.roofSurface = None
+		self.doubled = None
+		self.floorsMin = None
+		self.floorsMax = None
+		self.lods = []
+		self.basementDepth = None
 
 #
 # Class to hold information about a category
