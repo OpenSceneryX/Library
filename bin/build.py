@@ -336,14 +336,17 @@ try:
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
 
-		# Append the 3rd party paths to the library
+		# Append the external paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
 		fileContents = file.read()
 		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
-		# Copy any third party files
+		# Append any incorporated third party library files
+		functions.appendThirdPartyIncorporated(libraryPartialFileHandle)
+
+		# Copy any optional third party library files to the partials folder
 		functions.copyThirdParty()
 
 		# Write the full contents of the partial library into the full library

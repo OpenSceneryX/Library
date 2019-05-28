@@ -1786,6 +1786,22 @@ def copyThirdParty():
 		shutil.copy(fullSourcePath, destPath)
 
 
+def appendThirdPartyIncorporated(libraryFileHandle):
+	""" Append any incoporated third party content (typically covers items that were excluded when incorporating a third party library) """
+
+	sourcePath = os.path.join(classes.Configuration.supportFolder, "thirdparty_incorporate")
+	contents = os.listdir(sourcePath)
+
+	for item in contents:
+		if item[:1] == ".":
+			continue
+
+		fullSourcePath = os.path.join(sourcePath, item)
+		file = open(fullSourcePath, "r")
+		libraryFileHandle.write("\n" + file.read())
+		file.close()
+
+
 def matchesAny(name, tests):
 	""" Utility function to find whether a given string is found in a list """
 
