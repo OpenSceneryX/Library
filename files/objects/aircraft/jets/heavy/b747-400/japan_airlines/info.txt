@@ -5,10 +5,10 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/japan_airlines/b747-400
-Export Extended: lib/airport/aircraft/airliners/heavy_e_ana
-Export Extended: lib/airport/aircraft/airliners/heavy_e
-Export Extended: lib/airport/aircraft/cargo/heavy_e_ana
-Export Extended: lib/airport/aircraft/cargo/heavy_e
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e_ana
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_e_ana
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_e
 Width: 67.5
 Height: 19.0
 Depth: 76.9

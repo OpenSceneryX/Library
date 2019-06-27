@@ -3,6 +3,7 @@ Title: Shrub, hot, rain
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_hot_rain
+Export Core Export forests: lib/g8/shrb_hot_rain
 Since: 3.2.0
 =====================
 Description: A forest of shrubs for use in hot, rainy climates.

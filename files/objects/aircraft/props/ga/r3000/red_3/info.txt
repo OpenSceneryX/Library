@@ -3,7 +3,7 @@ Title: Robin R3000 Red Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
-Export Extended: lib/airport/aircraft/general_aviation/prop_a
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
 Width: 9.9
 Height: 2.7
 Depth: 8.9

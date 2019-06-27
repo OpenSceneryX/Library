@@ -3,6 +3,7 @@ Title: Conifer sparse, warm, rain
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_wrm_rain
+Export Core Export forests: lib/g8/coni_sp_wrm_rain
 Since: 3.2.0
 =====================
 Description: A sparse conifer forest for use in warm, rainy climates.

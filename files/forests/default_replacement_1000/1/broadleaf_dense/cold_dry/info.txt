@@ -17,6 +17,14 @@ Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_tmp_dry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_tmp_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_tmp_sdry
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_tmp_wet
+Export Core Export forests: lib/g8/broad_cld_dry
+Export Core Export forests: lib/g8/broad_cld_rain
+Export Core Export forests: lib/g8/broad_cld_sdry
+Export Core Export forests: lib/g8/broad_cld_wet
+Export Core Export forests: lib/g8/broad_tmp_dry
+Export Core Export forests: lib/g8/broad_tmp_rain
+Export Core Export forests: lib/g8/broad_tmp_sdry
+Export Core Export forests: lib/g8/broad_tmp_wet
 Since: 3.2.0
 =====================
 Description: A dense broadleaf forest for use in cold or temperate climates.

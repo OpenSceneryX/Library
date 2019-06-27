@@ -6,8 +6,8 @@ Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/cathay_pacific/b747-400
-Export Extended: lib/airport/aircraft/cargo/heavy_e_cpa
-Export Extended: lib/airport/aircraft/cargo/heavy_e
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_e_cpa
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_e
 Width: 67.5
 Height: 19.0
 Depth: 76.9

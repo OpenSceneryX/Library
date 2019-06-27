@@ -6,8 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/china_eastern/a380
-Export Extended: lib/airport/aircraft/airliners/heavy_f_ces
-Export Extended: lib/airport/aircraft/airliners/heavy_f
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_f_ces
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_f
 Width: 82.0
 Height: 25.5
 Depth: 74.7

@@ -75,7 +75,9 @@ try:
 		libraryPartialFileHandle = open(classes.Configuration.osxFolder + "/partials/library.txt", "w")
 		libraryPlaceholderFileHandle = open(classes.Configuration.osxPlaceholderFolder + "/library.txt", "w")
 		libraryHeaderFileHandle = open(classes.Configuration.osxFolder + "/partials/header.txt", "w")
-		libraryExtendedSAFileHandle = open(classes.Configuration.osxFolder + "/partials/extend_static_aircraft.txt", "w")
+		libraryCorePartialFileHandles = {}
+		for partial in classes.Configuration.corePartials:
+			libraryCorePartialFileHandles[partial] = open(classes.Configuration.osxFolder + "/partials/extend_" + partial + ".txt", "w")
 
 		# Temporary library fragments
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
@@ -84,14 +86,14 @@ try:
 		for season in classes.Configuration.seasons:
 			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
 
-
 		libraryFullFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPartialFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Main Library"))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
 		libraryHeaderFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
-		libraryExtendedSAFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane static aircraft"))
+		for partial in classes.Configuration.corePartials:
+			libraryCorePartialFileHandles[partial].write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane: " + partial))
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
@@ -224,7 +226,7 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryExtendedSAFileHandle, librarySeasonFileHandles, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, toc, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -290,7 +292,8 @@ try:
 		htmlDeveloperFileHandle.close()
 		libraryExternalFileHandle.close()
 		libraryDeprecatedFileHandle.close()
-		libraryExtendedSAFileHandle.close()
+		for partial in classes.Configuration.corePartials:
+			libraryCorePartialFileHandles[partial].close()
 
 		# Create seasonal partials
 		seasonalLibraryContent = {}
@@ -333,14 +336,17 @@ try:
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-deprecated.txt")
 
-		# Append the 3rd party paths to the library
+		# Append the external paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "r")
 		fileContents = file.read()
 		libraryPartialFileHandle.write(fileContents)
 		file.close()
 		os.remove(classes.Configuration.osxFolder + "/TEMP-external.txt")
 
-		# Copy any third party files
+		# Append any incorporated third party library files
+		functions.appendThirdPartyIncorporated(libraryPartialFileHandle)
+
+		# Copy any optional third party library files to the partials folder
 		functions.copyThirdParty()
 
 		# Write the full contents of the partial library into the full library

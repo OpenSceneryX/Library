@@ -9,8 +9,8 @@
 #   - ImageOptim-CLI from here: https://github.com/JamieMason/ImageOptim-CLI
 #
 # Usage: generate_screenshots [manual|auto|resize] [PATH]
-#   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
 #   - auto: Look for .obj files and create a screenshot for each, optimised
+#   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
 #   - resize: Look for screenshot.jpg files and resize them proportionally to 500 pixels wide
 
 BASEDIR=$(dirname "$0")

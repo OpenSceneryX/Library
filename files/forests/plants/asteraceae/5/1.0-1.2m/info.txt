@@ -1,0 +1,8 @@
+Title: Asteraceae and grass, 1.0-1.2m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Flowers/Flowers_05_medium
+Since: 4.2.0
+=====================
+Description: A forest of Asteraceae Centaurea (knapweed) flowers mixed with grass, between 1.0m and 1.2m high. Ideal to use in combination with a grass forest with matching height, to make meadows.

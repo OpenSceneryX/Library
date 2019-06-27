@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE ../../../../shared_textures/flyagi/Grass_fresh03.png
+NO_SHADOW
 
 LOD 1000
 

@@ -1,0 +1,8 @@
+Title: Asteraceae, Centaurea (knapweed), 0.9-1.3m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Flowers/Flowers_04_high
+Since: 4.2.0
+=====================
+Description: A forest of Asteraceae Centaurea (knapweed) flowers, between 0.9m and 1.3m high. Ideal to use in combination with a grass forest with matching height, to make meadows.

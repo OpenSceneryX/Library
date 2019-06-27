@@ -5,6 +5,8 @@ URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export: forests/default_replacement_1000/1/shrub/very_hot_wet
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vhot_rain
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_vhot_wet
+Export Core Export forests: lib/g8/shrb_vhot_rain
+Export Core Export forests: lib/g8/shrb_vhot_wet
 Since: 3.2.0
 =====================
 Description: A forest of shrubs for use in very hot, rainy and wet climates.
