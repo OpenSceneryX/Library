@@ -62,7 +62,7 @@ Release Howto
 13. Upload `OpenSceneryX-Website-x.x.x.zip` into `/new/`:
 
     ```bash
-    $ scp OpenSceneryX-Website-x.x.x.zip <server>:/var/www/austin/new/
+    $ scp OpenSceneryX-Website-x.x.x.zip <server>:<path>/new/
     ```
 
 14. Upload the following into AWS S3 Bucket:
@@ -85,53 +85,45 @@ Release Howto
     - `manifest.xml.zip`
     - `/repository`
 
-17. Extract website zip on site into `/new/`
+17. In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com distribution for:
+
+    ```txt
+    /repository/*
+    /manifest.xml.zip
+    ```
+
+18. Extract website zip on site into `/new/`
 
     ```bash
     $ unzip OpenSceneryX-Website-x.x.x.zip
     ```
 
-18. Put site into maintenance mode
+19. Put site into maintenance mode
 
     ```bash
     $ mv wp/maintenance-disabled wp/.maintenance
     ```
 
-19. Move `/doc/`, `/extras/`, `/facades/`, `/forests/`, `/lines/`, `/objects/`, `/polygons/`, `/library-sitemap.xml` and `robots.txt` from webroot into `/old/`
+20. Move `/doc/`, `/extras/`, `/facades/`, `/forests/`, `/lines/`, `/objects/`, `/polygons/`, `/library-sitemap.xml` and `robots.txt` from webroot into `/old/`
 
     ```bash
-    $ mv doc ../old/
-    $ mv extras ../old/
-    $ mv facades ../old/
-    $ mv forests ../old/
-    $ mv lines ../old/
-    $ mv objects ../old/
-    $ mv polygons ../old/
-    $ mv library-sitemap.xml ../old/
-    $ mv robots.txt ../old/
+    $ mv doc ../old/ && mv extras ../old/ && mv facades ../old/ && mv forests ../old/ && mv lines ../old/ && mv objects ../old/ && mv polygons ../old/ && mv library-sitemap.xml ../old/ && mv robots.txt ../old/
     ```
 
-20. Move `/new/OpenSceneryX-Website-x.x.x/*` to webroot
+21. Move `/new/OpenSceneryX-Website-x.x.x/*` to webroot
 
-21. Ensure `/versioninfo` has the latest information about the installer in it.
+22. Ensure `/versioninfo` has the latest information about the installer in it.
 
-22. Correct ownership of folder structure
+23. Correct ownership of folder structure
 
     ```bash
     $ chown -R apache:apache public_html
     ```
 
-23. Take site out of maintenance mode
+24. Take site out of maintenance mode
 
     ```bash
     $ mv wp/.maintenance wp/maintenance-disabled
-    ```
-
-24. In AWS Cloudfront console, create invalidatation in downloads.opensceneryx.com distribution for:
-
-    ```txt
-    /repository/*
-    /manifest.xml.zip
     ```
 
 25. Log into Cloudflare and clear all caches.
