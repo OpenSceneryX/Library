@@ -136,9 +136,9 @@ Release Howto
 
 29. Promotion:
 
-    - Update x-plane.org [Download Manager entry](https://forums.x-plane.org/index.php?/files/file/2226-opensceneryx/)
-    - Update first post in x-plane.org [main OpenSceneryX thread](https://forums.x-plane.org/index.php?/forums/topic/25174-opensceneryx-v320-released/)
-    - Create a new post in the x-plane.org 'General' forum and request transfer to 'News' forum
+    - Update [x-plane.org Download Manager entry](https://forums.x-plane.org/index.php?/files/file/2226-opensceneryx/)
+    - Update first post in [x-plane.org main OpenSceneryX thread](https://forums.x-plane.org/index.php?/forums/topic/25174-opensceneryx-v320-released/)
+    - Create a new post in the [x-plane.org 'General' forum](https://forums.x-plane.org/index.php?/forums/forum/1-general-x-plane-forum/) and request transfer to 'News' forum
     - Create a new post in the thresholdx.net 'OpenSceneryX Announcements' forum
     - Post an article on opensceneryx.com
     - Tweet
