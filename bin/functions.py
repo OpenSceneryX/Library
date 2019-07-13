@@ -1427,6 +1427,9 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
 		if sceneryObject.basementDepth: websiteInfoFileContents += f"Basement Depth: {sceneryObject.basementDepth}\n"
 
+	# Insert the source file path
+	websiteInfoFileContents += f"File Path: {sceneryObject.getFilePath()}\n"
+
 	# Store seasonal variants
 	for season in classes.Configuration.seasons:
 		if season in sceneryObject.seasonPaths:
