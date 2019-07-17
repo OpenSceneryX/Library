@@ -4,4 +4,4 @@ Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 Export Deprecated v4.0.0: polygons/surfaces/asphalt
 =====================
-Description: An asphalt surface, variant 1.
+Description: An asphalt surface, with no transparency.
