@@ -129,6 +129,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxFolder + "/doc/x_banner_web.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxFolder + "/doc/twitter_follow.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/facebook_follow.svg", classes.Configuration.osxFolder + "/doc/facebook_follow.svg")
 		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxFolder + "/doc/yt_logo.png")
 
 		# Developer Pack Folder
