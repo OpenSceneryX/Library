@@ -1,0 +1,8 @@
+Title: Surface, asphalt, variant 5
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Ground/AsphaltDarker
+Since: 4.3.0
+=====================
+Description: A semi-transparent asphalt surface, suitable for draping over runways and taxiways to give a more faded appearance, which is more appropriate for older asphalt. This version gives a darker appearance than [/polygons/surfaces/asphalt/2/](/polygons/surfaces/asphalt/2/), [/polygons/surfaces/asphalt/3/](/polygons/surfaces/asphalt/3/) and [/polygons/surfaces/asphalt/4/](/polygons/surfaces/asphalt/4/).
