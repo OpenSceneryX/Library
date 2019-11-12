@@ -1397,7 +1397,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<script type='text/javascript' src='https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
-	result += "<p id='version'>Latest version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
+	result += "<p id='version'>Version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
 	result += "</div>\n"
 	result += "<div style='clear:both;'>&nbsp;</div>"
 
