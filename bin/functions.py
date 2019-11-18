@@ -1292,9 +1292,14 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
 		if sceneryObject.basementDepth: websiteInfoFileContents += f"Basement Depth: {sceneryObject.basementDepth}\n"
 
-	# Mark as seasonal
-	if len(sceneryObject.seasonPaths) > 0:
-		websiteInfoFileContents += f"Seasonal: True\n"
+	# Insert the source file path
+	websiteInfoFileContents += f"File Path: {sceneryObject.getFilePath()}\n"
+
+	# Store seasonal variants
+	for season in classes.Configuration.seasons:
+		if season in sceneryObject.seasonPaths:
+			# We have a seasonal virtual path for this season
+			websiteInfoFileContents += f"Season {season}: True\n"
 
 	# We have reached the end, convert the description to HTML and append.
 	# The `mdx_headdown` extension demotes all headings by a given number
