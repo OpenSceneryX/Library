@@ -221,13 +221,10 @@ try:
 		# and the value is a SceneryTexture object
 		textures = {}
 
-		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
-		toc = []
-
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
