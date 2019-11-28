@@ -317,6 +317,11 @@ try:
 		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
 		seasonalFourSeasonsFile.close()
 
+		seasonalSAMFile = open(classes.Configuration.osxFolder + "/partials/seasonal_sam.txt", "w")
+		seasonalSAMFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for SAM plugin"))
+		seasonalSAMFile.write(functions.getSeasonalLibraryContent("sam", seasonalLibraryContent))
+		seasonalSAMFile.close()
+
 		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/partials/seasonal_terramaxx.txt", "w")
 		seasonalTerraMaxxFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for TerraMaxx plugin"))
 		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))

@@ -1571,6 +1571,60 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += content["winter"] + "\n"
 		result += "\n"
 
+	elif compatibility == "sam":
+		# SAM has winter support for winter (no snow), deep winter (slightly snowy), and snowytrees (snow).
+		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/spring == 1\n"
+		result += "REGION opensceneryx_spring\n"
+		result += "\n"
+		result += content["spring"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/autumn == 1\n"
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn_sam"] + "\n" # FlyAgi Vegetation Library defines separate autumn textures for use with SAM
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/winter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_no_snow\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep_no_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/deepwinter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_deep_no_snow\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/winter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_snow\n"
+		result += "\n"
+		result += content["winter_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/deepwinter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_deep_snow\n"
+		result += "\n"
+		result += content["winter_deep_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+
 	elif compatibility == "terramaxx":
 		# TerraMaxx always has snow covered winter textures, and has different snow and special blue-tinged deep snow modes.
 		result += "REGION_DEFINE opensceneryx_autumn\n"
