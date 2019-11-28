@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE Vine_autumn.png
+TEXTURE ../../../../../shared_textures/flyagi/autumn/Vineyard.png
 
 LOD 1000
 
