@@ -16,13 +16,13 @@ handle_textures () {
 
 if [ -z SEASON ]
 then
-    echo "Usage: seasonalise spring|autumm|winter|winter_deep path"
+    echo "Usage: seasonalise [season] path"
     exit
 fi
 
 if [ -z $MYDIR ] || [[ ! -d $MYDIR ]]
 then
-    echo "Usage: seasonalise spring|autumm|winter|winter_deep path"
+    echo "Usage: seasonalise [season] path"
     exit
 else
     echo "Processing $MYDIR"
