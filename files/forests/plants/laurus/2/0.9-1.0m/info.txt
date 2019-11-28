@@ -1,0 +1,8 @@
+Title: Laurus Nobilis (bay laurel) Hedge, 0.9-1.0m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Hedges/Hedge_01_low
+Since: 4.3.0
+=====================
+Description: A forest of Laurus Nobilis (bay laurel) Hedge plants, between 0.9m and 1.0m high.
