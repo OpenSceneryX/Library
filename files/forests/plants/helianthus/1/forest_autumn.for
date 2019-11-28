@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE Sunflower_autumn.png
+TEXTURE ../../../../shared_textures/flyagi/autumn/Sunflower.png
 
 LOD 1000
 
