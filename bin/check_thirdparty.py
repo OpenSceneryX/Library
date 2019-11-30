@@ -53,25 +53,29 @@ try:
 		functions.displayMessage("Checking for missing virtual paths\n")
 
 		osxPaths = []
+		thirdPartyPaths = []
 
 		with open("builds/" + versionTag + "/OpenSceneryX-" + versionTag + "/library.txt", "r") as file:
 			for line in file:
 				if line.startswith("EXPORT_BACKUP "):
-					parts = line.split(" ")
+					parts = line.split()
 					osxPaths.append(parts[1])
 
 		with open("builds/" + versionTag + "/OpenSceneryX-" + versionTag + "/partials/extend_forests.txt", "r") as file:
 			for line in file:
 				if line.startswith("EXPORT "):
-					parts = line.split(" ")
+					parts = line.split()
 					osxPaths.append(parts[1])
 
+		lineNumber = 1
 		with open(thirdPartyLibrary.replace("\ ", " ")) as file:
 			for line in file:
-				if line.startswith("EXPORT "):
-					parts = line.split(" ")
-					if parts[1] not in osxPaths:
-						functions.displayMessage(parts[1] + "\n", "warning")
+				if line.startswith("EXPORT ") or line.startswith("EXPORT_EXCLUDE "):
+					parts = line.split()
+					if parts[1] not in osxPaths and parts[1] not in thirdPartyPaths:
+						functions.displayMessage(f'Line: {lineNumber} (first occurrence): {parts[1]}\n', "warning")
+						thirdPartyPaths.append(parts[1])
+				lineNumber += 1
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Complete\n")
