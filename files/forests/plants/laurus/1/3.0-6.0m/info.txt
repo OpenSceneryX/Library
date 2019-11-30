@@ -3,6 +3,7 @@ Title: Laurus Nobilis (bay laurel), 3-6m
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Shrubs/Shrubs_01_medium
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Shrubs/Shrubs_01_medium_2x
 Since: 3.2.0
 =====================
 Description: A forest of medium sized Laurus Nobilis (bay laurel) shrubs, between 3m and 6m high.
