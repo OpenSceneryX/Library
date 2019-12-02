@@ -1,0 +1,11 @@
+A
+
+850
+
+DRAPED_POLYGON
+
+LAYER_GROUP taxiways +1
+TEXTURE  GrassDry.png
+SURFACE grass
+SPECULAR 0.0
+SCALE 12 12

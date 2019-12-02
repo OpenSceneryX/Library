@@ -1,5 +1,30 @@
 <h2>OpenSceneryX Release Notes for Latest Version</h2>
 
+<h3>Version 4.3.0 2nd December 2019</h3>
+<ul>
+	<li>New scenery objects in this version:
+		<ul>
+			<li>Incorporated latest additions from <a href="https://forums.x-plane.org/index.php?/files/file/49646-dt-library/"><em>DT Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/613332-tbolt47/">Darrell Thompson</a> into OpenSceneryX, including more asphalt ground polygons and a dry grass ground polygon.</li>
+			<li>Incorporated latest updates from <a href="https://forums.x-plane.org/index.php?/files/file/48047-flyagi-vegetation/"><em>FlyAgi's Vegetation Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/543995-flyagi/">FlyAgi</a>, including specific seasonal textures when used with the new seasonal support in <a href="https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/">Scenery Animation Manager</a>.</li>
+		</ul>
+	</li>
+	<li>Modified scenery objects in this version:
+		<ul>
+			<li>The spring and winter (no snow) forests were showing with a white 'halo' around them, which has now been fixed.</li>
+			<li>Discovered that the build process wasn't always copying both DDS and PNG textures if they were both available. As a result, many more objects now have DDS textures.</li>
+			<li>Corrected a number of the polygons which contained invalid commands.</li>
+		</ul>
+	</li>
+	<li>Other changes:
+		<ul>
+			<li>Added support for season switching using the <a href="https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/">Scenery Animation Manager plugin (SAM)</a>.</li>
+			<li>When delivering winter seasonal variants, we now prioritise specific snow / non-snow variants over default winter variants. This ensures, for example, that you will always see a snowy variant if you are using a plugin that requests snowy assets (provided there is a snowy version available for that item, of course!).</li>
+			<li>Improved the documentation for the asphalt surface polygon variants which are designed to be used over the top of opaque asphalt to give a more weathered look.</li>
+			<li>3D previews of objects, lines, polygons and forests are now displayed on the website.</li>
+		</ul>
+	</li>
+</ul>
+
 <h3>Version 4.2.0 27th June 2019</h3>
 <ul>
 	<li>New scenery objects in this version:

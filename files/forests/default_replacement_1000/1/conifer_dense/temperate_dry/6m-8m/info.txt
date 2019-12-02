@@ -1,0 +1,8 @@
+Title: Conifer dense, temperate, 6-8m high
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_tmp_wet_low
+Since: 4.3.0
+=====================
+Description: A forest of conifers, 6-8m high, for use in temperate wet, dry and semi-dry climates.

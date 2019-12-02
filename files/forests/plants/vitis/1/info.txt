@@ -1,8 +1,0 @@
-Title: Vitis (Grape vines)
-=====================
-Author: FlyAgi
-URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
-Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Fruit/Vine
-Since: 3.2.0
-=====================
-Description: A forest of Vitis (grape vines), between 1.3m and 1.7m high.

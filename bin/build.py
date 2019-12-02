@@ -129,6 +129,7 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxFolder + "/doc/cc_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxFolder + "/doc/x_banner_web.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxFolder + "/doc/twitter_follow.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/facebook_follow.svg", classes.Configuration.osxFolder + "/doc/facebook_follow.svg")
 		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxFolder + "/doc/yt_logo.png")
 
 		# Developer Pack Folder
@@ -220,13 +221,10 @@ try:
 		# and the value is a SceneryTexture object
 		textures = {}
 
-		# toc contains a multi-dimensional dictionary of all library content in the virtual path structure
-		toc = []
-
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, toc, latest)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -318,6 +316,11 @@ try:
 		seasonalFourSeasonsFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for Four Seasons plugin"))
 		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
 		seasonalFourSeasonsFile.close()
+
+		seasonalSAMFile = open(classes.Configuration.osxFolder + "/partials/seasonal_sam.txt", "w")
+		seasonalSAMFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for SAM plugin"))
+		seasonalSAMFile.write(functions.getSeasonalLibraryContent("sam", seasonalLibraryContent))
+		seasonalSAMFile.close()
 
 		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/partials/seasonal_terramaxx.txt", "w")
 		seasonalTerraMaxxFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for TerraMaxx plugin"))

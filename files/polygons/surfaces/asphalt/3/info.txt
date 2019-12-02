@@ -5,4 +5,4 @@ URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
 Export External DT_Library: DT_Library/Ground/Asphalt2
 Since: 4.0.0
 =====================
-Description: An asphalt surface, variant 3.
+Description: A semi-transparent asphalt surface, suitable for draping over runways and taxiways to give a lighter, more faded appearance, which is more appropriate for older asphalt. This version gives a lighter appearance than [/polygons/surfaces/asphalt/2/](/polygons/surfaces/asphalt/2/) and darker than [/polygons/surfaces/asphalt/4/](/polygons/surfaces/asphalt/4/).

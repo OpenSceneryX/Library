@@ -143,7 +143,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, toc, latest):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -156,26 +156,26 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, toc, latest)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest)
 
 
 
@@ -192,7 +192,7 @@ def handleCategory(dirpath, currentCategory):
 
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
 	""" Create an instance of the SceneryObject class for a .obj """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -245,29 +245,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Object (v8) specifies a blank texture - valid but may not be as intended\n", "warning")
-				elif os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
@@ -276,20 +254,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			if result:
 				textureFound = textureFound + 1
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-				if os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))
-					if not os.path.isfile(destinationFilePath): shutil.copyfile(textureFile, destinationFilePath)
-				else:
+				if not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
@@ -297,20 +262,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			result = v9NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-				if os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))
-					if not os.path.isfile(destinationFilePath): shutil.copyfile(textureFile, destinationFilePath)
-				else:
+				if not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
 					return
@@ -390,8 +342,6 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	toc.append(sceneryObject)
-
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -419,7 +369,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -479,33 +429,10 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Facade specifies a blank texture - valid but may not be as intended\n", "warning")
-				elif os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find texture - facade excluded (" + textureFile + ")\n", "error")
 					return
-
 
 			# Commands common to type 1 and type 2
 
@@ -602,8 +529,6 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	toc.append(sceneryObject)
-
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -631,7 +556,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
 	""" Create an instance of the SceneryObject class for a .for """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -677,29 +602,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Forest specifies a blank texture - valid but may not be as intended\n")
-				elif os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find texture - forest excluded (" + textureFile + ")\n", "error")
 					return
@@ -750,8 +653,6 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	toc.append(sceneryObject)
-
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -779,7 +680,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
 	""" Create an instance of the SceneryObject class for a .lin """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -828,29 +729,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 				if (result.group(1) == ""):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Line specifies a blank texture - valid but may not be as intended\n", "warning")
-				elif os.path.isfile(textureFile):
-
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find texture - line excluded (" + textureFile + ")\n", "error")
 					return
@@ -858,32 +737,10 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			result = v10NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-				if os.path.isfile(textureFile):
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				if not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find NORMAL texture - line excluded (" + textureFile + ")\n", "error")
 					return
-
 
 			result = linePattern.match(line)
 			if result:
@@ -929,8 +786,6 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	toc.append(sceneryObject)
-
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
 		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
@@ -958,7 +813,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, toc, latest):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
 	""" Create an instance of the SceneryObject class for a .pol """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -1008,29 +863,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 					if (result.group(1) == ""):
 						displayMessage("\n" + objectSourcePath + "\n")
 						displayMessage("Polygon specifies a blank texture - valid but may not be as intended\n", "warning")
-					elif os.path.isfile(textureFile):
-
-						# Look for the texture in the texture Dictionary, create a new one if not found
-						texture = textures.get(textureFile)
-						if (texture == None):
-							texture = classes.SceneryTexture(textureFile)
-							textures[textureFile] = texture
-
-						texture.sceneryObjects.append(sceneryObject)
-						sceneryObject.sceneryTextures.append(texture)
-
-						lastSlash = result.group(1).rfind("/")
-						if (lastSlash > -1):
-							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-						else:
-							destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-						if not os.path.isdir(destinationTexturePath):
-							# Create destination texture path if it doesn't already exist
-							os.makedirs(destinationTexturePath)
-						if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-							# Copy texture if it doesn't already exist
-							shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-					else:
+					elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 						displayMessage("\n" + objectSourcePath + "\n")
 						displayMessage("Cannot find texture - polygon excluded (" + textureFile + ")\n", "error")
 						return
@@ -1038,28 +871,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			result = v10NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
-				if os.path.isfile(textureFile):
-					# Look for the texture in the texture Dictionary, create a new one if not found
-					texture = textures.get(textureFile)
-					if (texture == None):
-						texture = classes.SceneryTexture(textureFile)
-						textures[textureFile] = texture
-
-					texture.sceneryObjects.append(sceneryObject)
-					sceneryObject.sceneryTextures.append(texture)
-
-					lastSlash = result.group(1).rfind("/")
-					if (lastSlash > -1):
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)[0:lastSlash])
-					else:
-						destinationTexturePath = os.path.join(classes.Configuration.osxFolder, parts[1])
-					if not os.path.isdir(destinationTexturePath):
-						# Create destination texture path if it doesn't already exist
-						os.makedirs(destinationTexturePath)
-					if not os.path.isfile(os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1))):
-						# Copy texture if it doesn't already exist
-						shutil.copyfile(textureFile, os.path.join(classes.Configuration.osxFolder, parts[1], result.group(1)))
-				else:
+				if not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
 					displayMessage("Cannot find NORMAL texture - polygon excluded (" + textureFile + ")\n", "error")
 					return
@@ -1097,8 +909,6 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
-
-	toc.append(sceneryObject)
 
 	# Write to the library.txt file
 	for virtualPath in sceneryObject.virtualPaths:
@@ -1194,6 +1004,51 @@ def copySupportFiles(objectSourcePath, dirpath, parts, sceneryObject):
 
 	return 1
 
+
+def handleTextures(fullSceneryObjectPath, librarySceneryObjectPath, originalTexturePath, textures, sceneryObject):
+	""" Look for both DDS and PNG texture files and process each """
+
+	result = False
+	root, extension = os.path.splitext(originalTexturePath)
+	texturePaths = [root + ".dds", root + ".png"]
+
+	for texturePath in texturePaths:
+		result = handleTexture(fullSceneryObjectPath, librarySceneryObjectPath, texturePath, textures, sceneryObject) or result
+
+	# Return True if we found a texture
+	return result
+
+
+def handleTexture(fullSceneryObjectPath, librarySceneryObjectPath, texturePath, textures, sceneryObject):
+	""" Process a texture file. Copy it to the build folder and store a reference in the SceneryObject. Also
+	    create containing destination folder structure. """
+
+	absTextureSourcePath = os.path.abspath(os.path.join(fullSceneryObjectPath, texturePath))
+	if not os.path.isfile(absTextureSourcePath): return False
+
+	# Look for the texture in the texture Dictionary, create a new one if not found
+	texture = textures.get(absTextureSourcePath)
+	if (texture == None):
+		texture = classes.SceneryTexture(absTextureSourcePath)
+		textures[absTextureSourcePath] = texture
+
+	# Attach Texture to SceneryObject and v.v.
+	texture.sceneryObjects.append(sceneryObject)
+	sceneryObject.sceneryTextures.append(texture)
+
+	# Determine destination parent folder path and create if required
+	lastSlash = texturePath.rfind("/")
+	if (lastSlash > -1):
+		destinationTextureFolder = os.path.join(classes.Configuration.osxFolder, librarySceneryObjectPath, texturePath[0:lastSlash])
+	else:
+		destinationTextureFolder = os.path.join(classes.Configuration.osxFolder, librarySceneryObjectPath)
+	if not os.path.isdir(destinationTextureFolder): os.makedirs(destinationTextureFolder)
+
+	# Copy texture
+	destinationTexturePath = os.path.join(classes.Configuration.osxFolder, librarySceneryObjectPath, texturePath)
+	if not os.path.isfile(destinationTexturePath): shutil.copyfile(absTextureSourcePath, destinationTexturePath)
+
+	return True
 
 
 def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest):
@@ -1427,9 +1282,14 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
 		if sceneryObject.basementDepth: websiteInfoFileContents += f"Basement Depth: {sceneryObject.basementDepth}\n"
 
-	# Mark as seasonal
-	if len(sceneryObject.seasonPaths) > 0:
-		websiteInfoFileContents += f"Seasonal: True\n"
+	# Insert the source file path
+	websiteInfoFileContents += f"File Path: {sceneryObject.getFilePath()}\n"
+
+	# Store seasonal variants
+	for season in classes.Configuration.seasons:
+		if season in sceneryObject.seasonPaths:
+			# We have a seasonal virtual path for this season
+			websiteInfoFileContents += f"Season {season}: True\n"
 
 	# We have reached the end, convert the description to HTML and append.
 	# The `mdx_headdown` extension demotes all headings by a given number
@@ -1532,7 +1392,7 @@ def getHTMLHeader(documentationPath, mainTitle, titleSuffix, includeSearch, incl
 		result += "<script type='text/javascript' src='https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en'></script>\n"
 		result += "</div>"
 	result += "<h1>" + mainTitle + "</h1>\n"
-	result += "<p id='version'>Latest version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
+	result += "<p id='version'>Version <strong><a href='" + documentationPath + "ReleaseNotes.html'><script type='text/javascript'>document.write(osxVersion);</script></a></strong> created <strong><script type='text/javascript'>document.write(osxVersionDate);</script></strong></p>\n"
 	result += "</div>\n"
 	result += "<div style='clear:both;'>&nbsp;</div>"
 
@@ -1632,16 +1492,16 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF sim/time/local_date_days > 334\n"
 		result += "REGION opensceneryx_nh_winter1\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_nh_winter2\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days < 60\n"
 		result += "REGION opensceneryx_nh_winter2\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_sh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
@@ -1665,8 +1525,8 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF sim/time/local_date_days <= 243\n"
 		result += "REGION opensceneryx_sh_winter\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 
 	elif compatibility == "fourseasons":
@@ -1691,24 +1551,78 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF nm/four_seasons/season <= 45\n" # Patchy ground snow
 		result += "REGION opensceneryx_winter_no_snow\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 50\n"
 		result += "REGION opensceneryx_winter_snow\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_deep\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 60\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_deep_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+
+	elif compatibility == "sam":
+		# SAM has winter support for winter (no snow), deep winter (slightly snowy), and snowytrees (snow).
+		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/spring == 1\n"
+		result += "REGION opensceneryx_spring\n"
+		result += "\n"
+		result += content["spring"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/autumn == 1\n"
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn_sam"] + "\n" # FlyAgi Vegetation Library defines separate autumn textures for use with SAM
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/winter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_no_snow\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep_no_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/deepwinter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_deep_no_snow\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/winter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_snow\n"
+		result += "\n"
+		result += content["winter_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep_snow\n"
+		result += "REGION_RECT -180 -90 179 89\n"
+		result += "REGION_DREF sam/season/deepwinter == 1\n"
+		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
+		result += "REGION opensceneryx_winter_deep_snow\n"
+		result += "\n"
+		result += content["winter_deep_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 
 	elif compatibility == "terramaxx":
@@ -1725,16 +1639,16 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF maxxxp/seasonsxp/is_winter == 1\n"
 		result += "REGION opensceneryx_winter\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_deep\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_mid_winter == 1\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_terramaxx_deep_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 
 	elif compatibility == "xambience":
@@ -1744,8 +1658,8 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF xambience/custom/seasons/cur == 1\n"
 		result += "REGION opensceneryx_winter\n"
 		result += "\n"
-		result += content["winter"] + "\n"
 		result += content["winter_snow"] + "\n"
+		result += content["winter"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
