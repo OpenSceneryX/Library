@@ -170,6 +170,9 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		elif (item == "polygon.pol"):
 			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
 			continue
+		elif (item == "decal.dcl"):
+			handleDecal(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest)
+			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
@@ -922,6 +925,85 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
 		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
+	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
+		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
+		if partial in libraryCorePartialFileHandles:
+			if method == 'Extend':
+				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+			elif method == 'Export':
+				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+			else:
+				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
+		else:
+			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+
+
+def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest):
+	""" Create an instance of the SceneryObject class for a .dcl """
+
+	mainobjectSourcePath = os.path.join(dirpath, filename)
+	parts = dirpath.split(os.sep, 1)
+
+	displayMessage(".")
+
+	# Create an instance of the SceneryObject class
+	sceneryObject = classes.Decal(parts[1], filename)
+
+	# Locate and check whether the support files exist
+	if not checkSupportFiles(mainobjectSourcePath, dirpath, sceneryObject): return
+
+	# Set up paths
+	if not createPaths(parts): return
+
+	# Build a list containing (filePath, filename) tuples, including seasonal variants
+	objectSourcePaths = []
+	objectSourcePaths.append((mainobjectSourcePath, filename))
+
+	for season in classes.Configuration.seasons:
+		seasonFilename = "decal_" + season + ".dcl"
+		seasonSourcePath = os.path.join(dirpath, seasonFilename)
+		if os.path.isfile(seasonSourcePath):
+			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
+			objectSourcePaths.append((seasonSourcePath, seasonFilename))
+			displayMessage("S")
+
+	for objectSourcePath, objectFilename in objectSourcePaths:
+		# Copy the decal file if it doesn't already exist
+		destinationFilePath = os.path.join(classes.Configuration.osxFolder, parts[1], objectFilename)
+		if not os.path.isfile(destinationFilePath): shutil.copyfile(objectSourcePath, destinationFilePath)
+
+		# Open the decal
+		file = open(objectSourcePath, "rU")
+		objectFileContents = file.readlines()
+		file.close()
+
+		textureFound = 0
+
+		# for line in objectFileContents:
+
+
+	# Handle the info.txt file
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".dcl", sceneryObject, authors, latest): return
+
+	# Copy files
+	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
+
+	# Decal is valid, append it to the current category
+	currentCategory.addSceneryObject(sceneryObject)
+
+	# Write to the library.txt file
+	for virtualPath in sceneryObject.virtualPaths:
+		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
+		for season in classes.Configuration.seasons:
+			if season in sceneryObject.seasonPaths:
+				# We have a seasonal virtual path for this season
+				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
+	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
+		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
+		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
 		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
 	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:

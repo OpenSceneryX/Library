@@ -300,6 +300,16 @@ class Facade(SceneryObject):
 		self.basementDepth = None
 
 #
+# Class to hold information about an X-Plane decal
+#
+class Decal(SceneryObject):
+	"""An X-Plane Decal"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Decal, self).__init__(filePathRoot, fileName)
+
+
+#
 # Class to hold information about a category
 #
 class SceneryCategory(object):
