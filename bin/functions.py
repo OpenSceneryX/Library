@@ -54,9 +54,8 @@ sincePattern = re.compile(r"Since:\s+(.*)")
 # Texture patterns
 v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
-v9NormalTexturePattern = re.compile(r"TEXTURE_NORMAL\s+(.*)")
 v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
-v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.*?)\s+(.*)")
+v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.+\s+)?(.+)")
 #normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
@@ -262,12 +261,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					displayMessage("Cannot find LIT texture - object (v8) excluded (" + textureFile + ")\n", "error")
 					return
 
-			result = v9NormalTexturePattern.match(line)
+			result = v10NormalTexturePattern.match(line)
 			if result:
 				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
 				if not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
 					displayMessage("\n" + objectSourcePath + "\n")
-					displayMessage("Cannot find NORMAL texture - object (v9) excluded (" + textureFile + ")\n", "error")
+					displayMessage("Cannot find NORMAL texture - object (v10) excluded (" + textureFile + ")\n", "error")
 					return
 
 			result = attrLodPattern.match(line)
