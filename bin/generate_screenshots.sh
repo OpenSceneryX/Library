@@ -4,11 +4,12 @@
 #
 # Prerequisites:
 #   - Must be run on a Mac
-#   - Marginal's quick previewer for X-Plane .obj files from here: https://github.com/Marginal/QLXPlaneObj
+#   - For 'auto' mode, Marginal's quick previewer for X-Plane .obj files from here: https://github.com/Marginal/QLXPlaneObj
+#   - For 'auto3js' mode, a web server running the OpenSceneryX website (point SCREENSHOTURL to the URL for screenshot generation)
 #   - ImageOptim from here: https://github.com/ImageOptim/ImageOptim
 #   - ImageOptim-CLI from here: https://github.com/JamieMason/ImageOptim-CLI
 #
-# Usage: generate_screenshots [manual|auto|resize] [PATH]
+# Usage: generate_screenshots [manual|auto|auto3js|resize] [PATH]
 #   - auto3js: Look for .for, .fac, .lin, .obj and .pol files and create a screenshot for each using the 3js renderer, optimised
 #   - auto: Look for .obj files and create a screenshot for each, optimised
 #   - manual: Look for Mac-generated screenshots to process where filename starts with 'Screenshot ', just convert to jpg, rename and optimise
@@ -18,6 +19,7 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 BASEDIR=$(dirname "$0")
 MODE=$1
 MYDIR=$2
+SCREENSHOTURL=http://osx.local/three.js-screenshot/
 
 echo "========================"
 
@@ -109,7 +111,8 @@ then
         # Remove PNG
         rm "$SCREENSHOT_PNG"
     done
-else
+elif [ "$MODE" == "auto3js" ]
+then
     echo "Automatic screenshots, threejs"
     echo "------------------------------"
 
@@ -140,7 +143,7 @@ else
         echo "URLBASE: $URLBASE"
 
         # Generate screenshot
-        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "http://osx.local/three.js-screenshot/?path=$URLBASE/$f"
+        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE/$f"
 
         # Convert to jpeg
         sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
@@ -151,5 +154,6 @@ else
         # Remove PNG
         rm "$SCREENSHOT_PNG"
     done
-
+else
+    echo "Invalid mode: $MODE"
 fi
