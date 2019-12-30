@@ -1,0 +1,16 @@
+A
+850
+LINE_PAINT
+
+TEXTURE ../../../../shared_textures/flyagi/winter_snow/Ground_Snow_Edge_03_04.png
+TEXTURE_NORMAL 1 ../../../../shared_textures/flyagi/winter_snow/Ground_Snow_Edge_Normal.png
+
+SPECULAR 0.0
+
+TEX_WIDTH 1024
+
+SCALE 10 20
+S_OFFSET 0 0 512 1024
+
+MIRROR
+LAYER_GROUP airports +5
