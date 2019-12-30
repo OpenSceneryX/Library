@@ -139,8 +139,7 @@ then
 
         echo "PNG: $SCREENSHOT_PNG"
         echo "JPEG: $SCREENSHOT_JPEG"
-        echo "REPODIR: $REPODIR"
-        echo "URLBASE: $URLBASE"
+        echo "URL: $SCREENSHOTURL?path=$URLBASE/$f"
 
         # Generate screenshot
         /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE/$f"
