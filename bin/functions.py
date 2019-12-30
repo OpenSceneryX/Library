@@ -1648,8 +1648,9 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF nm/four_seasons/season == 60\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter_deep_snow"] + "\n"
-		result += content["winter"] + "\n"
+		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
+		result += content["winter_snow"] + "\n"       # Then standard snow variant
+		result += content["winter"] + "\n"            # Then common winter variant
 		result += "\n"
 
 	elif compatibility == "sam":
@@ -1702,8 +1703,9 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
 		result += "REGION opensceneryx_winter_deep_snow\n"
 		result += "\n"
-		result += content["winter_deep_snow"] + "\n"
-		result += content["winter"] + "\n"
+		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
+		result += content["winter_snow"] + "\n"       # Then standard snow variant
+		result += content["winter"] + "\n"            # Then common winter variant
 		result += "\n"
 
 	elif compatibility == "terramaxx":
@@ -1728,8 +1730,10 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF maxxxp/seasonsxp/is_mid_winter == 1\n"
 		result += "REGION opensceneryx_winter_deep\n"
 		result += "\n"
-		result += content["winter_terramaxx_deep_snow"] + "\n"
-		result += content["winter"] + "\n"
+		result += content["winter_terramaxx_deep_snow"] + "\n"  # Terramaxx deep snow variant first priority
+		result += content["winter_deep_snow"] + "\n"            # Then deep snow variant
+		result += content["winter_snow"] + "\n"                 # Then standard snow variant
+		result += content["winter"] + "\n"                      # Then common winter variant
 		result += "\n"
 
 	elif compatibility == "xambience":
