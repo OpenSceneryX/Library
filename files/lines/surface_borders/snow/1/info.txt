@@ -1,0 +1,7 @@
+Title: Snow border, variant 1
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Since: 4.4.0
+=====================
+Description: A snow border line, variant 1, only visible in snowy winter conditions.

@@ -1,0 +1,10 @@
+Title: Snow Pile, circular, 5m diameter
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Since: 4.4.0
+Width: 5.0
+Height: 0.8
+Depth: 5.0
+=====================
+Description: A 5m diameter, circular snow pile. This object is invisible in all seasons except snowy winter.

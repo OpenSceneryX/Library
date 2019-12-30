@@ -1,0 +1,10 @@
+Title: Snow Pile, curved, 34m x 10m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Since: 4.4.0
+Width: 10.5
+Height: 1.6
+Depth: 33.6
+=====================
+Description: A 34m x 10m curved snow pile. This object is invisible in all seasons except snowy winter.

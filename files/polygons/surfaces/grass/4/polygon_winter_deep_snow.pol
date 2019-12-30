@@ -1,0 +1,11 @@
+A
+850
+DRAPED_POLYGON
+
+TEXTURE winter_deep_snow/Ground_Grass_03.png
+SCALE 96 96
+NO_ALPHA
+
+LAYER_GROUP airports +1
+DECAL_LIB opensceneryx/decals/snow/1.dcl
+DECAL_LIB lib/g10/decals/low_freq_mod_1.dcl

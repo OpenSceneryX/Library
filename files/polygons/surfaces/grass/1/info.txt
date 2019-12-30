@@ -1,4 +1,4 @@
-Title: Surface, grass
+Title: Surface, grass, variant 1
 =====================
 Author: Darrell Thompson
 URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/

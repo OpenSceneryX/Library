@@ -1,0 +1,7 @@
+Title: Surface, snow cover, variant 1
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Since: 4.4.0
+=====================
+Description: A surface that shows full snow cover in snowy winter conditions and is invisible for other seasons.

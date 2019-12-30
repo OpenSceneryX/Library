@@ -1,0 +1,13 @@
+A
+850
+LINE_PAINT
+
+TEXTURE ../../../../shared_textures/placeholder.png
+
+TEX_WIDTH 1024
+
+SCALE 10 20
+S_OFFSET 0 0 512 1024
+
+MIRROR
+LAYER_GROUP airports +5
