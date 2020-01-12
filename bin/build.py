@@ -333,6 +333,11 @@ try:
 		seasonalXAmbienceFile.write(functions.getSeasonalLibraryContent("xambience", seasonalLibraryContent))
 		seasonalXAmbienceFile.close()
 
+		seasonalXEnviroFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xenviro.txt", "w")
+		seasonalXEnviroFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xEnviro plugin"))
+		seasonalXEnviroFile.write(functions.getSeasonalLibraryContent("xenviro", seasonalLibraryContent))
+		seasonalXEnviroFile.close()
+
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
 		fileContents = file.read()

@@ -1548,10 +1548,12 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 def getSeasonalLibraryContent(compatibility, content):
 	result = ""
 
-	# Note there are no 'Summer' regions. This is because we consider the default objects in OpenScenery X to be summer.
+	# Note there are no 'Summer' regions. This is because we consider the default objects in OpenScenery X to be
+	# summer and if no seasonal override is supplied, X-Plane will always fall back to the default.
+
 	if compatibility == "xplane":
-		# For standard X-Plane, we do not use snow covered textures in winter as it is unlikely the ground textures will be snow covered unless the user
-		# has manually swapped them
+		# For standard X-Plane, we do not use snow covered textures in winter as it is unlikely the ground textures
+		# will be snow covered unless the user has manually swapped them
 		result += "REGION_DEFINE opensceneryx_nh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 60\n"
@@ -1611,7 +1613,8 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 	elif compatibility == "fourseasons":
-		# Four Seasons has winter support for no snow, patchy snow, snow and deep snow. We don't have our own patchy snow, so just use no snow variant.
+		# Four Seasons has winter support for no snow, patchy snow, snow and deep snow. We don't have our own patchy
+		# snow, so just use no snow variant.
 		result += "REGION_DEFINE opensceneryx_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 10\n"
@@ -1709,7 +1712,8 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 	elif compatibility == "terramaxx":
-		# TerraMaxx always has snow covered winter textures, and has different snow and special blue-tinged deep snow modes.
+		# TerraMaxx always has snow covered winter textures, and has different snow and special blue-tinged deep
+		# snow modes.
 		result += "REGION_DEFINE opensceneryx_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_autumn == 1\n"
@@ -1760,6 +1764,41 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
+
+	elif compatibility == "xenviro":
+		# xEnviro uses a combination of a surface state dataref (dry / wet / wet snow / dry snow) and also
+		# dynamically generates seasonal PNG maps for summer, autumn, winter (no snow), winter (patchy snow) and
+		# winter (deep snow). We just use the coverage bitmap, no need for the dataref. We don't have our own patchy
+		# snow, so just use no snow variant.
+		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += "REGION_BITMAP ../../Resources/seasons/region_au.png\n" # Autumn coverage bitmap
+		result += "REGION opensceneryx_autumn\n"
+		result += "\n"
+		result += content["autumn"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_no_snow_1\n"
+		result += "REGION_BITMAP ../../Resources/seasons/region_wi.png\n" # Snowless winter coverage bitmap
+		result += "REGION opensceneryx_winter_no_snow_1\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_no_snow_2\n"
+		result += "REGION_BITMAP ../../Resources/seasons/region_dw.png\n" # Low or patchy snow coverage bitmap
+		result += "REGION opensceneryx_winter_no_snow_2\n"
+		result += "\n"
+		result += content["winter_no_snow"] + "\n"
+		result += content["winter"] + "\n"
+		result += "\n"
+		result += "REGION_DEFINE opensceneryx_winter_deep_snow\n"
+		result += "REGION_BITMAP ../../Resources/seasons/region_hw.png\n" # Full deep snow coverage bitmap
+		result += "REGION opensceneryx_winter_deep_snow\n"
+		result += "\n"
+		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
+		result += content["winter_snow"] + "\n"       # Then standard snow variant
+		result += content["winter"] + "\n"            # Then common winter variant
+		result += "\n"
+
 
 	# Always end with an all-encompassing region for the main body of the library
 	result += "REGION_DEFINE all\n"
