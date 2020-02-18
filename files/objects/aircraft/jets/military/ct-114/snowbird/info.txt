@@ -6,6 +6,7 @@ Author, texture: Conan Davis (Vivar)
 URL, texture: http://forums.x-plane.org/index.php?showuser=4112
 Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
+Export Propagate: 3
 Width: 10.8
 Height: 2.9
 Depth: 10.0
