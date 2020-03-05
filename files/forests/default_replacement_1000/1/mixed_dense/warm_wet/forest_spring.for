@@ -2,7 +2,7 @@ A
 800
 FOREST
 
-TEXTURE Forests_01.png
+TEXTURE ../../../../../shared_textures/flyagi/spring/Forests_01.png
 NO_SHADOW
 
 LOD 15000.000000
