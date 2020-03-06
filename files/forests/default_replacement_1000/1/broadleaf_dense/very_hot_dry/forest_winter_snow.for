@@ -3,6 +3,7 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/winter_snow/Forests_01.png
+NO_SHADOW
 
 LOD 15000.000000
 

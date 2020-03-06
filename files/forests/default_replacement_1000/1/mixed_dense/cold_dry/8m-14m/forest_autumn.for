@@ -10,8 +10,8 @@ LOD 15000.000000
 SCALE_X 4096
 SCALE_Y 4096
 
-SPACING 8.3 8.3
-RANDOM 8.00 8.00
+SPACING 6.20 6.20
+RANDOM 4.00 4.00
 
 #	low-left	tex size	center	percent	--height--
 # tree	s	t	w	y	offset	occur	min	max	quads	type	name
@@ -25,4 +25,4 @@ TREE	3072	2048	1024	1024	512	13	8	12	2	0	Coni2
 TREE	2048	3072	1024	1024	556	13	8	12	2	0	Coni3
 TREE	3072	3072	1024	1024	492	12	10	14	2	0	Coni4
 
-SKIP_SURFACE water
+
