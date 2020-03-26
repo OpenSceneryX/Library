@@ -4,7 +4,15 @@
 <ul>
 	<li>New scenery objects in this version:
 		<ul>
-			<li>Incorporated some items from the <a href="https://dev.stairport-sceneries.com/sam/sam_seasons_sdk"><em>SAM Seasons SDK Library</em></a> by the SAM team into OpenSceneryX, which includes a set of ground textures and OpenSceneryX's first decal! The decal is a snowy overlay to add detail to textures in snowy winter conditions.</li>
+			<li>Incorporated some items from the <a href="https://dev.stairport-sceneries.com/sam/sam_seasons_sdk"><em>SAM Seasons SDK Library</em></a> by the SAM team into OpenSceneryX, which includes:
+				<ul>
+					<li>A set of dirt and grass ground polygons.</li>
+					<li>A set of snowy lines and polygons.</li>
+					<li>A collection of snow pile objects (which only appear in snowy conditions).</li>
+					<li>OpenSceneryX's first decal! The decal is a snowy overlay to add detail to textures in snowy winter conditions.</li>
+				</ul>
+				Note that the SAM Seasons SDK library is not fully incorporated, because it contains a lot of content that is not relevant to OpenSceneryX such as the colour variations that are specific to SAM.
+			</li>
 		</ul>
 	</li>
 	<li>Modified scenery objects in this version:
@@ -47,6 +55,11 @@
 
 <h3>Version 4.3.0 2nd December 2019</h3>
 <ul>
+	<li><strong>Major new features in this version:</strong>
+		<ul>
+			<li><strong>3D previews of objects, lines, polygons and forests are now displayed on the website</strong>.</li>
+		</ul>
+	</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>Incorporated latest additions from <a href="https://forums.x-plane.org/index.php?/files/file/49646-dt-library/"><em>DT Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/613332-tbolt47/">Darrell Thompson</a> into OpenSceneryX, including more asphalt ground polygons and a dry grass ground polygon.</li>
@@ -65,13 +78,17 @@
 			<li>Added support for season switching using the <a href="https://forum.thresholdx.net/files/file/122-sam-scenery-animation-manager/">Scenery Animation Manager plugin (SAM)</a>.</li>
 			<li>When delivering winter seasonal variants, we now prioritise specific snow / non-snow variants over default winter variants. This ensures, for example, that you will always see a snowy variant if you are using a plugin that requests snowy assets (provided there is a snowy version available for that item, of course!).</li>
 			<li>Improved the documentation for the asphalt surface polygon variants which are designed to be used over the top of opaque asphalt to give a more weathered look.</li>
-			<li>3D previews of objects, lines, polygons and forests are now displayed on the website.</li>
 		</ul>
 	</li>
 </ul>
 
 <h3>Version 4.2.0 27th June 2019</h3>
 <ul>
+	<li><strong>Major new features in this version:</strong>
+		<ul>
+			<li><strong>Core X-Plane® forest overrides</strong>. OpenSceneryX now has the ability to replace all core X-Plane® autogen forests with FlyAgi's high definition versions, this is optional and can be chosen on install. This feature does most of what <a href="https://forums.x-plane.org/index.php?/files/file/48038-flyagi-vegetation-global-trees/">FlyAgi's Vegetation Global Trees</a> package does, except it does <strong>not</strong> replace any core X-Plane® textures in the 'Resources' folder.</li>
+		</ul>
+	</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>A mobile boarding bridge suitable for regional commuter aircraft.</li>
@@ -88,7 +105,6 @@
 	</li>
 	<li>Other changes:
 		<ul>
-			<li><strong>Major new feature</strong>: Core X-Plane® forest overrides. OpenSceneryX now has the ability to replace all core X-Plane® autogen forests with FlyAgi's high definition versions, this is optional and can be chosen on install. This feature does most of what <a href="https://forums.x-plane.org/index.php?/files/file/48038-flyagi-vegetation-global-trees/">FlyAgi's Vegetation Global Trees</a> package does, except it does <strong>not</strong> replace any core X-Plane® textures in the 'Reources' folder.</li>
 			<li>The website now provides more information about <tt>facade</tt>s in the library.</li>
 			<li>Fixed 'Missing object' errors for the 15 items excluded from RE Library.</li>
 		</ul>
@@ -127,6 +143,12 @@
 
 <h3>Version 4.0.0 29th March 2019</h3>
 <ul>
+	<li><strong>Major new features in this version:</strong>
+		<ul>
+			<li><strong>Support for seasons</strong>. OpenSceneryX now exports seasonal regions compatible with core X-Plane, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen on install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
+			<li><strong>Support for injecting OpenSceneryX items into X-Plane® built-in libraries</strong>. This can be used to enhance the X-Plane® automatic object placement and autogen. This is optional and can be selected on install. Currently some of the OpenSceneryX aircraft are exported to be used for static aircraft around airports.</li>
+		</ul>
+	</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>Incorporated <a href="https://forums.x-plane.org/index.php?/files/file/49646-dt-library/"><em>DT Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/613332-tbolt47/">Darrell Thompson</a> into OpenSceneryX, which includes a large set of markings suitable for small to medium airports.</li>
@@ -144,8 +166,6 @@
 	</li>
 	<li>Other changes:
 		<ul>
-			<li><strong>Major new feature</strong>: Support for seasons. OpenSceneryX now exports seasonal regions compatible with core X-Plane, the <a href="https://forums.x-plane.org/index.php?/files/file/44351-four-seasons/">Four Seasons plugin</a>, the <a href="http://maxx-xp.com/terramaxx">TerraMaxx plugin</a> and the <a href="https://forums.x-plane.org/index.php?/forums/topic/168048-xambience-arrives/">xAmbience plugin</a>. Seasonal support is optional and can be chosen on install. Note that we only support seasons for library contributions that have seasonal alternatives.</li>
-			<li><strong>Major new feature</strong>: Support for injecting OpenSceneryX items into X-Plane® built-in libraries. This can be used to enhance the X-Plane® automatic object placement and autogen. This is optional and can be selected on install. Currently some of the OpenSceneryX aircraft are exported to be used for static aircraft around airports.</li>
 			<li>Updated the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> to v2.2.0</li>
 			<li>The library still includes the <a href="https://forums.x-plane.org/index.php?/files/file/25033-backup-scenery-library/">Backup Library</a> but it is now separate and the installer gives the choice of using or not using it.</li>
 			<li>The website now provides more information about <tt>line</tt>s in the library - layer group, layer offset, line width and whether the line is mirrored.</li>
@@ -157,6 +177,11 @@
 
 <h3>Version 3.2.0 6th January 2019</h3>
 <ul>
+	<li><strong>Major new features in this version:</strong>
+		<ul>
+			<li><strong>All appropriate aircraft are now exported into the X-Plane® static aircraft system</strong>. These are done as <tt>EXPORT_EXTEND</tt> entries. Means that X-Plane® will now automatically incorporate OpenSceneryX aircraft when populating static aircraft on the ground. Thank you to triplemon, xibo and Galileu for their assistance with this.</li>
+		</ul>
+	</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>Incorporated <a href="https://flyagi.de/viewtopic.php?f=5&t=11"><em>FlyAgi Wind Turbine Library</em></a> by <a href="https://forums.x-plane.org/index.php?/profile/543995-flyagi/">FlyAgi</a> into OpenSceneryX, which includes 40 animated wind turbines in a variety of heights and styles.</li>
@@ -175,7 +200,6 @@
 	</li>
 	<li>Modified scenery objects in this version:
 		<ul>
-			<li>Some aircraft, both jets and props, are now incorporated into the X-Plane® static aircraft system.</li>
 			<li>The USA Hawaiian forests were empty and using a blank texture, which has been the case since they were first added. We now use <tt>pacific_lowland</tt> instead, as the closest match.</li>
 			<li>Added <tt>TILTED</tt> attribute to all appropriate objects so they follow sloped terrain. Affects aircraft, vehicles, some furniture and some people.</li>
 		</ul>
@@ -185,7 +209,6 @@
 			<li>Removed all unnecessary <tt>EXPORT_BACKUP</tt> lines for <em>RE_Library</em> backup library.</li>
 			<li>Third party libraries are now exported using <tt>EXPORT_BACKUP</tt> instead of <tt>DEPRECATED</tt> <tt>EXPORT</tt> entries. Means that if both OpenSceneryX and the source library are installed, the source library takes precedence, which is important when it is still being actively maintained and updated and may be ahead of OpenSceneryX.</li>
 			<li>Replaced the Backup Library with the latest v2.0.0 version.</li>
-			<li>We now export all appropriate aircraft into the X-Plane® static aircraft system as <tt>EXPORT_EXTEND</tt> entries. Means that X-Plane® will now automatically incorporate OpenSceneryX aircraft when populating static aircraft on the ground. Thank you to triplemon, xibo and Galileu for their assistance with this.</li>
 			<li>Individual screenshots generated for all European forests.</li>
 			<li>Individual screenshots generated for all US forests.</li>
 			<li>Added a set of simHeaven export paths so they don't have to copy actual objects out of OpenSceneryX on installation of their packages. These new paths will be used in the next releases of VFR Landmarks and X-Europe.</li>
@@ -411,6 +434,12 @@
 
 <h3>Version 2.0.0 1st February 2012</h3>
 <ul>
+	<li><strong>Major new features in this version:</strong>
+		<ul>
+			<li><strong>The Developer Pack now contains a large PDF reference book</strong>. This contains everything in the library with screenshots.</li>
+			<li><strong>A complete audit of all objects has been done for X-Plane® 10 compaitibility</strong>. This involved removing all ground shadows, either by removing the shadow from the texture or removing the ground plane from the model. Also, all objects with unnecessary lit textures (i.e. those that don't have internal illumination) have had those lit textures removed. A future change will be to remove all lit textures from the entire library, as all illumination should be modelled in future using real lights.</li>
+		</ul>
+	</li>
 	<li>New scenery objects in this version:
 		<ul>
 			<li>Some new vehicles - construction and tankers.</li>
@@ -459,7 +488,6 @@
 	</li>
 	<li>Modified scenery objects in this version:
 		<ul>
-			<li>A complete audit of all objects has been done for X-Plane® 10 compaitibility. This involved removing all ground shadows, either by removing the shadow from the texture or removing the ground plane from the model. Also, all objects with unnecessary lit textures (i.e. those that don't have internal illumination) have had those lit textures removed. A future change will be to remove all lit textures from the entire library, as all illumination should be modelled in future using real lights.</li>
 			<li>Fixed z-buffer thrashing (flickering) on shadows on most of the vans.</li>
 			<li>Fixed error with incorrectly named light on the ASR11 radar object.</li>
 			<li>Fixed problem with the texture on the spherical water tower.</li>
@@ -471,7 +499,6 @@
 	</li>
 	<li>Other changes:
 		<ul>
-			<li>Developer pack now contains a large PDF reference book, containing everything in the library with screenshots.</li>
 			<li>Improved home page of website by adding download icons, extended intro paragraph and added links to all items in the navigation menu.</li>
 			<li>Content of website homepage is now above the table of contents.</li>
 			<li>Now automatically build sitemap.xml file for website SEO.</li>
