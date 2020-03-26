@@ -3,8 +3,8 @@ Title: Sports field
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 178m
-Depth: 78m
-Height: 0m
+Width: 178.1
+Depth: 78.0
+Height: 0.0
 =====================
 Description: Standard 400m running track with soccer pitch on the infield.

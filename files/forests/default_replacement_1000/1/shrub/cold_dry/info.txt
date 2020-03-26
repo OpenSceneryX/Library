@@ -1,0 +1,18 @@
+Title: Shrub, cold
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/shrub/cold_rain
+Export: forests/default_replacement_1000/1/shrub/cold_semidry
+Export: forests/default_replacement_1000/1/shrub/cold_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_cld_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_cld_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_cld_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/shrb_cld_wet
+Export Core Export forests: lib/g8/shrb_cld_dry
+Export Core Export forests: lib/g8/shrb_cld_rain
+Export Core Export forests: lib/g8/shrb_cld_sdry
+Export Core Export forests: lib/g8/shrb_cld_wet
+Since: 3.2.0
+=====================
+Description: A forest of shrubs for use in cold climates.

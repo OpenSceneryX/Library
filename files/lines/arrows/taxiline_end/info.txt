@@ -1,0 +1,9 @@
+Title: Taxiway Direction Arrow, Line-End
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Export Deprecated v4.0.0: lines/airport/arrows/taxiline_end
+=====================
+Description: An arrow with pointer and root, approx 2m long, to be used as a stand-alone or end-of-centreline directional indicator. Typically used at the entrance point to an aircraft stand in association with a stand entrance identifier. When placing, ensure your custom line is between 2-6m long so that the whole arrow appears but is not repeated.
+
+This line is drawn at the 'Markings 0' level so that its black and yellow elements integrate correctly with the default taxiway centreline graphics.

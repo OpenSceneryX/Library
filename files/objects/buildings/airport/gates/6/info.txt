@@ -2,9 +2,9 @@ Title: Gate block, brick, 9.5m
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 3m
-Depth: 6m
-Height: 9.5m
+Width: 6.0
+Depth: 3.0
+Height: 9.5
 Export External RE_Library: RE_Library/Terminals/Gate_block/9.5m/Gateblock_9.5m_b
 Since: 3.0.0
 =====================

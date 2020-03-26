@@ -2,9 +2,11 @@ Title: Road roller, Ingersoll-Rand®
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 2.4m
-Depth: 6.5m
-Height: 3.7m
+Width: 2.3
+Depth: 6.5
+Height: 3.7
 Export Propagate: 2
+Export External simHeaven: simheaven/landmarks/quarry_area
+Export External simHeaven: simheaven/landmarks/construction_area
 =====================
 Description: Road roller, Ingersoll-Rand® PT-240R

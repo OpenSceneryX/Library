@@ -1,0 +1,9 @@
+Title: Drain Channel, Concrete
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Export Deprecated v4.0.0: lines/airport/structures/drain_linear_concrete
+=====================
+Description: A concret storm drain channel.
+
+This line is drawn at the 'Runways +5' level so should appear above all runway/taxiway surfaces but below any 'painted' markings.

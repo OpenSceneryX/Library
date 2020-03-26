@@ -5,5 +5,8 @@ Author, texture: Sergio Santagada
 Author, conversion: David Gluck
 URL, conversion: http://forums.x-plane.org/index.php?showuser=17288
 Export Propagate: 1
+Width: 19.3
+Height: 2.6
+Depth: 8.1
 =====================
 Description: A Schempp-Hirth Cirrus glider.

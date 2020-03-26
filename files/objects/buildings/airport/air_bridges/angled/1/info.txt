@@ -2,9 +2,9 @@ Title: Air bridge, 30 degree LH angle, 4m AGL, 29m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 25m
-Depth: 16.7m
-Height: 7m
+Width: 25.0
+Depth: 16.7
+Height: 7.0
 Export External RE_Library: RE_Library/Terminals/Airbridges/Angled/30_degree/4m_agl/Airbridge_4agl_29m_30L_g
 Since: 3.0.0
 =====================

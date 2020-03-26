@@ -2,9 +2,9 @@ Title: Fire engine, Cobra 4x4, red
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2.8m
-Depth: 9.9m
-Height: 3.4m
+Width: 2.8
+Depth: 9.9
+Height: 3.4
 Export External RE_Library: RE_Library/Fire_engines/Carmichael/Cobra_4x4/Cobra_4x4_red
 Since: 3.0.0
 =====================

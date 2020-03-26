@@ -2,9 +2,9 @@ Title: Barbecue, Brick
 =====================
 Author: David Gluck
 URL: http://forums.x-plane.org/index.php?showuser=17288
-Width: 0.6m
-Depth: 0.9m
-Height: 2.3m
+Width: 0.6
+Depth: 0.9
+Height: 2.3
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/barbecues/1
 =====================
 Description: A brick built churrasqueira barbecue.

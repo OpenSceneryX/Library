@@ -2,6 +2,9 @@ I
 800
 OBJ
 
+# Directive to tell WED to fix the rotation of this object
+#fixed_heading 0
+
 TEXTURE ../../../../shared_textures/sergio_catala/30m.png
 POINT_COUNTS 1740 0 0 7188
 

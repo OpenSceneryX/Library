@@ -5,5 +5,10 @@ URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/japan_airlines/b757-200
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d_ana
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d
+Width: 40.2
+Height: 13.6
+Depth: 47.2
 =====================
 Description: A Boeing 757-200 in Japan Airlines livery.

@@ -3,9 +3,9 @@ Title: Luggage, red, upright
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 0.26m
-Depth: 0.86m
-Height: 0.62m
+Width: 0.9
+Depth: 0.3
+Height: 0.6
 Export Propagate: 3
 =====================
 Description: A red suitcase, upright.

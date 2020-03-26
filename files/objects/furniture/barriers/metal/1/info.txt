@@ -2,9 +2,9 @@ Title: Barrier, metal, portable
 =====================
 Author: Luke173
 URL: http://forums.x-plane.org/index.php?showuser=7280
-Height: 0.8m
-Width: 1.4m
-Depth: 0.2m
+Height: 0.8
+Width: 0.2
+Depth: 1.4
 Export Deprecated v1.8.5: objects/furniture/barriers/portable
 =====================
 Description: A portable, self-supporting barrier, typically used to hold back crowds.

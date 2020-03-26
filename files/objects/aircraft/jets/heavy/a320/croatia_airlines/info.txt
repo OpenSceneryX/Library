@@ -6,5 +6,8 @@ Author, texture: Ket
 URL, texture: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
 Export: objects/aircraft/livery/croatia_airlines/a320
+Width: 34.3
+Height: 11.7
+Depth: 37.6
 =====================
 Description: An Airbus 320 in Croatia Airlines livery.

@@ -8,5 +8,8 @@ Author, texture: Hector Tanus
 URL, texture: http://forums.x-plane.org/index.php?showuser=6458
 Export Propagate: 1
 Export: objects/aircraft/livery/frontier/fox/a320
+Width: 56.3
+Height: 11.8
+Depth: 40.5
 =====================
 Description: An Airbus 320 in Frontier livery, Fox variant.

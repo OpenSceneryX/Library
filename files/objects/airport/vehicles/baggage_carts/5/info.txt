@@ -3,8 +3,8 @@ Title: Baggage cart, covered, closed, single, red/grey
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.9m
-Height: 1.9m
-Depth: 4m
+Width: 1.6
+Height: 1.9
+Depth: 4.0
 =====================
 Description: A closed, single, red, covered baggage cart with grey curtains.

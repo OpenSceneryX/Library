@@ -2,5 +2,8 @@ Title: Hut, metal, 2
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 7.0
+Height: 3.5
+Depth: 4.0
 =====================
 Description: A small metal hut.

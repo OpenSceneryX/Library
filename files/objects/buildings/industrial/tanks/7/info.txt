@@ -3,9 +3,9 @@ Title: Tank top, fuel, underground
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Export: objects/buildings/airport/fuel/10
-Width: 1.6m
-Depth: 1.6m
-Height: 0.6m
+Width: 1.6
+Depth: 1.6
+Height: 0.6
 Since: 3.0.0
 =====================
 Description: The top of an underground fuel tank.

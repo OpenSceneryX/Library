@@ -1,0 +1,15 @@
+Title: Wetland Woody, temperate and warm, rain and wet
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/wetland_woody/warm_rain
+Export: forests/default_replacement_1000/1/wetland_woody/warm_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_tmp_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_wrm_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_wdy_wrm_wet
+Export Core Export forests: lib/g8/wetl_wdy_tmp_rain
+Export Core Export forests: lib/g8/wetl_wdy_wrm_rain
+Export Core Export forests: lib/g8/wetl_wdy_wrm_wet
+Since: 3.2.0
+=====================
+Description: Woody wetland forest for use in temperate and warm, rainy and wet climates.

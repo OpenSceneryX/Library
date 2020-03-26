@@ -2,9 +2,9 @@ Title: Wind turbine, 3-bladed, 100m
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 86.5m
-Depth: 21.4m
-Height: 100m
-Animated: True
+Width: 86.5
+Depth: 21.4
+Height: 149.6
+Export External simHeaven: simheaven/landmarks/wind-turbine_100m
 =====================
 Description: An animated 3-bladed wind turbine on a 100m high pedestal with blades equally spread.

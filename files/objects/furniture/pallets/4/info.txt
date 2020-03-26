@@ -3,8 +3,8 @@ Title: Pallet, Boxes
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Export Propagate: 2
-Width: 1.12m
-Height: 1m
-Depth: 1.63m
+Width: 1.1
+Height: 1.0
+Depth: 1.6
 =====================
 Description: A partially stacked pallet with plain boxes of merchandise for cargo areas.

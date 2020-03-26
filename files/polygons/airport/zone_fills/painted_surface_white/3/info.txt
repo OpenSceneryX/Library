@@ -1,0 +1,8 @@
+Title: Painted surface, white, large
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Colours/WhiteLarge
+Since: 4.0.0
+=====================
+Description: A large white painted surface.

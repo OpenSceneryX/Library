@@ -2,9 +2,9 @@ Title: VCR, hexagonal, grey
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 8.8m
-Depth: 7.6m
-Height: 5.6m
+Width: 8.8
+Depth: 7.6
+Height: 5.6
 Export External RE_Library: RE_Library/VCRs/Hexagonal/rail/VCRhex_r_lgb
 Export External RE_Library: RE_Library/VCRs/Hexagonal/no_rail/VCRhex_ldb
 Since: 3.0.0

@@ -4,9 +4,9 @@ Author: Stephen Legg
 URL: http://www.fs9world.741.com
 Author, conversion: Cormac Shaw
 URL, conversion: http://www.xpih.net
-Width: 1.7m
-Depth: 5.6m
-Height: 2.7m
+Width: 6.5
+Depth: 5.6
+Height: 2.8
 Export Propagate: 1
 =====================
 Description: A Ford Transit box commercial truck in yellow markings.

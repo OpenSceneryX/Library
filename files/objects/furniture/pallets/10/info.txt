@@ -2,8 +2,8 @@ Title: Pallet, empty
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 1.2m
-Depth: 1.2m
-Height: 0.2m
+Width: 1.2
+Depth: 1.2
+Height: 0.2
 =====================
 Description: An empty wooden pallet.

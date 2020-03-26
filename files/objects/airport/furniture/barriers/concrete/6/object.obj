@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../../shared_textures/geoffrey_hargreaves/red_white_barrier.png
+TILTED
 POINT_COUNTS	1111 0 0 1728
 
 VT	   0.0366    1.0668   10.9738	 0.000  1.000 -0.000	 0.1975  0.0000

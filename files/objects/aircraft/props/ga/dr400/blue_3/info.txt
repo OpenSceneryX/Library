@@ -3,5 +3,9 @@ Title: Robin DR400 Blue Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
+Width: 9.1
+Height: 2.6
+Depth: 8.8
 =====================
 Description: A blue Robin DR400.

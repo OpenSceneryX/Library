@@ -4,5 +4,9 @@ Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 1
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
+Width: 15.0
+Height: 4.3
+Depth: 9.5
 =====================
 Description: Cessna 182M.

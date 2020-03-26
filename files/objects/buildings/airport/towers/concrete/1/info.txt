@@ -7,9 +7,9 @@ URL: http://forums.x-plane.org/index.php?showuser=5732
 URL: http://afriqs.free.fr/xplane/index.php
 Author, Texture: @lex
 Author, Texture: Jeff Mueller
-Width: 24.5m
-Depth: 24.5m
-Height: 40m
+Width: 24.5
+Depth: 24.5
+Height: 40.1
 Export Deprecated v1.6.0: objects/buildings/airport/towers/large_modern
 Export Deprecated v1.6.0: objects/buildings/airport/towers/concrete/large_modern
 =====================

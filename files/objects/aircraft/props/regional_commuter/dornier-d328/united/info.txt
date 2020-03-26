@@ -4,5 +4,8 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/united/dornier-d328
+Width: 20.5
+Height: 6.4
+Depth: 22.4
 =====================
 Description: A Dornier D328 in United livery.

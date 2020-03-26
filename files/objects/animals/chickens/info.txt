@@ -3,5 +3,8 @@ Title: Chicken
 Author: Ket
 URL: http://forums.x-plane.org/index.php?showuser=42104
 Export Propagate: 1
+Width: 0.3
+Height: 0.3
+Depth: 0.0
 =====================
 Description: A brown chicken!

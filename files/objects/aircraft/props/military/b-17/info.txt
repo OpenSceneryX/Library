@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 31.5
+Height: 6.3
+Depth: 22.7
 =====================
 Description: A B17 Flying Fortress in USAAF livery.

@@ -6,5 +6,8 @@ Author, texture: James Green
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b737
 Export: objects/aircraft/livery/cathay_pacific/b737-700
+Width: 34.0
+Height: 13.0
+Depth: 33.3
 =====================
 Description: A Boeing 737-700 in Cathay Pacific livery.

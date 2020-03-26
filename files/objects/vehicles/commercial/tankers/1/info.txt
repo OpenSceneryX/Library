@@ -2,8 +2,8 @@ Title: Tanker, Oil
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 2.4m
-Depth: 8.5m
-Height: 3m
+Width: 2.4
+Depth: 8.1
+Height: 3.0
 =====================
 Description: International oil tanker truck

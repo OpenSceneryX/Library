@@ -1,0 +1,17 @@
+A
+
+850
+
+LINE_PAINT
+
+LAYER_GROUP markings +1
+TEXTURE ../../../../shared_textures/darrell_thompson/Lines6.png
+TEXTURE_NORMAL 1 ../../../../shared_textures/darrell_thompson/Lines6NML.png
+TEX_WIDTH 4096
+SPECULAR 0.45
+LOD 10000
+SCALE 16 8
+
+S_OFFSET 0 334 365 395
+
+

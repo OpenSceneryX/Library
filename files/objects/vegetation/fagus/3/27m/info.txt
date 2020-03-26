@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 14.1
+Height: 27.0
+Depth: 14.1
 =====================
 Description: An individual Fagus (Beech) tree, height 27m.

@@ -3,8 +3,8 @@ Title: Jetty, wooden, with ramp
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
 Email: xplanebaz@aapt.net.au
-Width: 5.5m
-Depth: 32m
-Height: 3m
+Width: 5.5
+Depth: 31.8
+Height: 3.5
 =====================
 Description: A wooden jetty on pilings with safety barriers and a ramp down to sea level.

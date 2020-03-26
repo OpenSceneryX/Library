@@ -2,8 +2,8 @@ Title: Cargo terminal, concrete, USPS®
 =====================
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
-Width: 85m
-Height: 9m
-Depth: 94m
+Width: 94.4
+Height: 9.0
+Depth: 85.3
 =====================
 Description: A United States Postal Service concrete cargo building with loading docks and extra tented cargo area.

@@ -3,9 +3,9 @@ Title: Fishing boat, small, 1
 Author: Dieter Rosenkranz
 URL: http://www.helgo11335.de
 Email: d_rosenkranz@wanadoo.es
-Depth: 12m
-Width: 4.2m
-Height: 5.9m
+Depth: 12.6
+Width: 4.3
+Height: 5.9
 Export Propagate: 2
 =====================
 Description: A small primitive fishing boat.

@@ -3,5 +3,8 @@ Title: Tug, Large, Douglas, British Airways
 Author: XPushback Plugin Project
 URL: http://www.xpgoodwayteam.org/site_xpushback/
 Export Propagate: 2
+Width: 4.2
+Height: 2.4
+Depth: 7.7
 =====================
 Description: A large Douglas tug with British Airways insignia.

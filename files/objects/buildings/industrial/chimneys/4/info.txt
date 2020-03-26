@@ -2,8 +2,8 @@ Title: Chimney, 120m, white smoke
 =====================
 Author: Daniel Leygnat
 URL: http://forums.x-plane.org/index.php?showuser=3031
-Width: 6m
-Depth: 6m
-Height: 120m
+Width: 6.0
+Depth: 6.0
+Height: 120.1
 =====================
 Description: 120m chimney emitting white smoke.

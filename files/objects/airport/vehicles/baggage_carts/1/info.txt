@@ -3,5 +3,8 @@ Title: Baggage cart, Qantas Link
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
 Export Propagate: 2
+Width: 7.1
+Height: 1.3
+Depth: 9.4
 =====================
 Description: A baggage cart train with three trollies, Qantas Link insignia.

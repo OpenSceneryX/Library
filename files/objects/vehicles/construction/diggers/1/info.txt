@@ -2,9 +2,11 @@ Title: Bobcat® Skid Steer with Shovel
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 1.7m
-Depth: 4m
-Height: 2.4m
+Width: 1.7
+Depth: 4.2
+Height: 2.4
 Export Propagate: 2
+Export External simHeaven: simheaven/landmarks/quarry_area
+Export External simHeaven: simheaven/landmarks/construction_area
 =====================
 Description: Skid-steer Bobcat® S220 with shovel

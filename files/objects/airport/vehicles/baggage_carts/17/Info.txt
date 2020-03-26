@@ -3,9 +3,9 @@ Title: Baggage cart, covered, closed, beige
 Author: Lars de Jonge
 URL: https://forums.x-plane.org/index.php?/profile/526895-ccva022/
 Email: larsfmdejonge@mail.com.
-Width: 1.4m
-Depth: 3.7m
-Height: 1.8m
+Width: 1.4
+Depth: 3.7
+Height: 1.8
 Since: 3.0.0
 =====================
 Description: Single covered baggage cart, closed.

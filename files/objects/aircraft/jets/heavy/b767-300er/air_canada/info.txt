@@ -7,5 +7,8 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/air_canada/b767-300ER
+Width: 47.3
+Height: 16.1
+Depth: 55.0
 =====================
 Description: A Boeing 767-300ER in Air Canada Livery.

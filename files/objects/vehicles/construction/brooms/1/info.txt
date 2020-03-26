@@ -2,9 +2,11 @@ Title: CAT® Skid Steer with Broom
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 2.4m
-Depth: 4m
-Height: 2.2m
+Width: 2.4
+Depth: 3.9
+Height: 2.2
 Export Propagate: 2
+Export External simHeaven: simheaven/landmarks/quarry_area
+Export External simHeaven: simheaven/landmarks/construction_area
 =====================
 Description: Skid-steer CAT® 226B with rotary broom

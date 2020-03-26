@@ -4,9 +4,9 @@ Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Author, texture: textures.com
 URL, texture: https://www.textures.com
-Width: 3.4m
-Depth: 6.1m
-Height: 2.6m
+Width: 3.4
+Depth: 6.1
+Height: 2.6
 Since: 3.0.0
 =====================
 Description: A grey metal garage with a sliding door at the end.

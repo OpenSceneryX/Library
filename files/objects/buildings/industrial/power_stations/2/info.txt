@@ -3,8 +3,8 @@ Title: Power Station, Oil Fired
 Author: Darragh Hickey
 URL: http://forums.x-plane.org/index.php?showuser=1182
 Email: darragh.hickey@gmail.com
-Width: 600m
-Depth: 200m
-Height: 207m
+Width: 604.9
+Depth: 205.4
+Height: 206.9
 =====================
 Description: An oil fired power station based on the Poolbeg power station in Dublin, Ireland. Object includes all standard beacons and smoke.

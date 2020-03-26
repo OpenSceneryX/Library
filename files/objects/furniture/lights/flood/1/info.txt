@@ -2,9 +2,9 @@ Title: Floodlight, 2 lamps.
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
-Height: 16.3m
-Width: 1.6m
-Depth: 2.04m
+Height: 16.3
+Width: 1.6
+Depth: 2.0
 Export: objects/airport/furniture/lights/flood/1
 Export: objects/furniture/lights/flood
 Export Deprecated v2.1.0: objects/furniture/lights

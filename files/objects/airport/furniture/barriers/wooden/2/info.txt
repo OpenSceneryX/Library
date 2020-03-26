@@ -2,8 +2,8 @@ Title: Taxiway Closed Barricade, Wooden
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 2.0m
-Depth: 0.85m
-Height: 0.75m
+Width: 2.0
+Depth: 0.8
+Height: 0.8
 =====================
 Description: A red and white movable wooden barricade for closed taxiways and aprons areas.

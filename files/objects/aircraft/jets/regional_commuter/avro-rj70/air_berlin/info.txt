@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/air_berlin/avro-rj70
+Width: 27.5
+Height: 8.9
+Depth: 28.5
 =====================
 Description: A BAE Avro RJ70 in Air Berlin livery.

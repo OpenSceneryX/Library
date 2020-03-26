@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		container_20_green_DonFang.dds
+TILTED
 POINT_COUNTS	20 0 0 30
 
 VT	  -1.2190    2.5910    3.0290	-1.000  0.000 -0.000	 1.0004  0.6662

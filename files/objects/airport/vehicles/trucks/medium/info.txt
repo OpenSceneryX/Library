@@ -3,5 +3,8 @@ Title: Truck, Medium sized, Servair
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 2
+Width: 4.0
+Height: 2.8
+Depth: 8.8
 =====================
 Description: A medium sized Servair truck.

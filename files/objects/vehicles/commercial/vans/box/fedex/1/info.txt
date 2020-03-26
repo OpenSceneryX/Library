@@ -3,9 +3,9 @@ Title: Box van, FedEx® Ground
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 2.75m
-Depth: 7.9m
-Height: 3.2m
+Width: 2.8
+Depth: 7.9
+Height: 3.2
 Export Propagate: 1
 =====================
 Description: A FedEx® Ground delivery van with blue and green logo.

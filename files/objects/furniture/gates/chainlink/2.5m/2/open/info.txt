@@ -2,8 +2,8 @@ Title: Gate, Grey Chainlink, 1m x 2.5m, Open
 =====================
 Author: Cormac Shaw
 URL: http://www.xpih.net
-Width: 1.2m
-Depth: 2.6m
-Height: 2.5m
+Width: 1.2
+Depth: 1.1
+Height: 2.5
 =====================
 Description: A grey chainlink gate in full open position. 1 metre wide, 2.5 metres high.

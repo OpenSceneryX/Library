@@ -1,0 +1,9 @@
+Title: Wetland Shrub, warm, rain
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/wetl_shrb_wrm_rain
+Export Core Export forests: lib/g8/wetl_shrb_wrm_rain
+Since: 3.2.0
+=====================
+Description: A forest of wetland shrubs for use in warm, rainy climates.

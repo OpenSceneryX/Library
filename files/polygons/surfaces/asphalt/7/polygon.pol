@@ -1,0 +1,12 @@
+A
+
+850
+
+DRAPED_POLYGON
+
+LAYER_GROUP runways +1
+TEXTURE  AsphaltLight.png
+TEXTURE_NORMAL 1 ../../../../shared_textures/darrell_thompson/AsphaltNML.png
+SURFACE asphalt
+SPECULAR 0.0
+SCALE 8 8

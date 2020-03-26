@@ -4,9 +4,9 @@ Author: Stephen Legg
 URL: http://www.fs9world.741.com
 Author, conversion: Cormac Shaw
 URL, conversion: http://www.xpih.net
-Width: 1.6m
-Depth: 4.6m
-Height: 1.95m
+Width: 5.6
+Depth: 4.7
+Height: 2.0
 Export Propagate: 1
 =====================
 Description: A Ford Transit commercial van in TNT® markings.

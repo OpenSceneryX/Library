@@ -2,9 +2,9 @@ Title: Terminal block, metal
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 46.3m
-Depth: 19m
-Height: 10m
+Width: 46.3
+Depth: 19.0
+Height: 10.0
 Export External RE_Library: RE_Library/Terminals/Extensions/EGGP_term_ext_e
 Since: 3.0.0
 =====================

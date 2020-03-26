@@ -2,9 +2,9 @@ Title: Air bridge section, straight, 4m AGL, 28m long
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2m
-Depth: 28m
-Height: 7m
+Width: 28.0
+Depth: 2.0
+Height: 7.0
 Export External RE_Library: RE_Library/Terminals/Airbridges/4m_agl/28m_length/Airbridge_4agl_28m_g
 Since: 3.0.0
 =====================

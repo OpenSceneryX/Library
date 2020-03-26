@@ -3,9 +3,9 @@ Title: Luggage, brown, wide, upright
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 0.45m
-Depth: 1m
-Height: 0.67m
+Width: 1.0
+Depth: 0.5
+Height: 0.7
 Export Propagate: 3
 =====================
 Description: A wide brown suitcase, upright.

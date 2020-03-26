@@ -3,5 +3,8 @@ Title: Baggage cart, short
 Author: mr 3D
 URL: http://forums.x-plane.org/index.php?showuser=9171
 Export Propagate: 2
+Width: 1.5
+Height: 2.4
+Depth: 1.6
 =====================
 Description: A baggage cart with wheels containing luggage.

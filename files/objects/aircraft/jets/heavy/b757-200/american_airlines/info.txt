@@ -8,5 +8,10 @@ URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/american_airlines/b757-200
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d_aal
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d
+Width: 38.0
+Height: 13.7
+Depth: 47.2
 =====================
 Description: A Boeing 757-200 in American Airlines Livery.

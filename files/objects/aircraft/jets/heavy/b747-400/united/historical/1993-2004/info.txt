@@ -3,5 +3,8 @@ Title: B747-400 United (1993-2004 livery)
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export: objects/aircraft/livery/united/historical/1993-2004/b747-400
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in United historical livery used from 1993-2004.

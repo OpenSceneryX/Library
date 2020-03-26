@@ -2,9 +2,9 @@ Title: Hangar, metal, blue, closed
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 24.3m
-Depth: 27.6m
-Height: 7.6m
+Width: 24.3
+Depth: 27.6
+Height: 7.6
 Export External RE_Library: RE_Library/Hangars/Main_84ft/closed/Main_84_c_blue
 Since: 3.0.0
 =====================

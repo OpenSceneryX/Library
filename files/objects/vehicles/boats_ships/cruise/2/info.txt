@@ -9,9 +9,9 @@ Email, texture: erdbeerenberg@googlemail.com
 Author, modifications: Florian (PilotFlo)
 Email, modifications: PilotFlo@gmx.net
 URL, modifications: https://forums.x-plane.org/index.php?/profile/540456-pilotflo/
-Depth: 285m
-Width: 32m
-Height: 49m
+Depth: 285.4
+Width: 32.0
+Height: 49.0
 Export Propagate: 2
 =====================
 Description: The Noordam cruise ship was launched February 22, 2006 and is the newest member of the Holland America Line Vista-class ships. Named for the Northern compass point, she embraces the latest industry and environmental technologies such as the use of a diesel-electric power plant for optimal energy efficiency and an Azipod propulsion system that maximizes maneuverability.

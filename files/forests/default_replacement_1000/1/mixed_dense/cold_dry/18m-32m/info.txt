@@ -1,0 +1,31 @@
+Title: Mixed dense, cold and temperate, 18-32m high
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/mixed_dense/cold_dry
+Export: forests/default_replacement_1000/1/mixed_dense/cold_rain
+Export: forests/default_replacement_1000/1/mixed_dense/cold_semidry
+Export: forests/default_replacement_1000/1/mixed_dense/cold_wet
+Export: forests/default_replacement_1000/1/mixed_dense/temperate_dry
+Export: forests/default_replacement_1000/1/mixed_dense/temperate_rain
+Export: forests/default_replacement_1000/1/mixed_dense/temperate_semidry
+Export: forests/default_replacement_1000/1/mixed_dense/temperate_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_cld_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_cld_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_cld_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_cld_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_tmp_wet
+Export Core Export forests: lib/g8/mixed_cld_dry
+Export Core Export forests: lib/g8/mixed_cld_rain
+Export Core Export forests: lib/g8/mixed_cld_sdry
+Export Core Export forests: lib/g8/mixed_cld_wet
+Export Core Export forests: lib/g8/mixed_tmp_dry
+Export Core Export forests: lib/g8/mixed_tmp_rain
+Export Core Export forests: lib/g8/mixed_tmp_sdry
+Export Core Export forests: lib/g8/mixed_tmp_wet
+Since: 3.2.0
+=====================
+Description: A dense mixed forest, 18-32m high, for use in cold and temperate climates.

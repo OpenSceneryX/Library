@@ -6,5 +6,8 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/ups/a310
+Width: 41.9
+Height: 14.0
+Depth: 47.8
 =====================
 Description: An Airbus 310 in UPS livery.

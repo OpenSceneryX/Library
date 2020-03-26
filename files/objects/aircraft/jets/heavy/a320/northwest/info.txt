@@ -8,5 +8,8 @@ Author, conversion: Conan Davis (Vivar)
 URL, conversion: http://forums.x-plane.org/index.php?showuser=4112
 Export Propagate: 1
 Export: objects/aircraft/livery/northwest/a320
+Width: 32.9
+Height: 12.3
+Depth: 37.5
 =====================
 Description: An Airbus 320 in Northwest Airlines livery.

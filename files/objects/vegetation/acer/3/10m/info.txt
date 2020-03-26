@@ -1,0 +1,17 @@
+Title: Tree, Acer (Maple), 10m
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_02_10m
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_02_Any
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Trees/Tree_Any_01
+Export Core Export forests: lib/airport/Common_Elements/Miscellaneous/Tree
+Export Core Export forests: lib/g10/forests/autogen_tree3
+Export Core Export forests: lib/g10/forests/autogen_tree_any
+Export Propagate: 2
+Since: 3.2.0
+Width: 10.0
+Height: 10.0
+Depth: 10.0
+=====================
+Description: An individual Acer (Maple) tree, height 10m.

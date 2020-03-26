@@ -5,5 +5,9 @@ URL: http://forums.x-plane.org/index.php?showuser=1728
 Author, conversion: Planebuilder
 URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
 Export Propagate: 1
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
+Width: 10.5
+Height: 2.3
+Depth: 7.8
 =====================
 Description: A Beech Bonanza E-35.

@@ -5,8 +5,8 @@ URL: http://forums.x-plane.org/index.php?showuser=5515
 Author, texture: Ron Somerville
 Author, texture: Jeff Mueller
 Export Propagate: 2
-Width: 1.4m
-Depth: 3.1m
-Height: 1.75m
+Width: 1.4
+Depth: 3.1
+Height: 1.8
 =====================
 Description: A cargo cart tractor for cargo areas.  LIT textures for lighted gate areas.

@@ -2,9 +2,9 @@ Title: Hangar, metal, grey, bi-fold doors
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 13.8m
-Depth: 23.2m
-Height: 7.6m
+Width: 13.8
+Depth: 23.2
+Height: 7.6
 Since: 3.0.0
 =====================
 Description: A 13.8m x 23.2m grey metal hangar with closed bi-fold doors.

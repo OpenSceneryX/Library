@@ -1,0 +1,9 @@
+Title: Mixed sparse, hot, wet
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/mixed_sp_hot_wet
+Export Core Export forests: lib/g8/mixed_sp_hot_wet
+Since: 3.2.0
+=====================
+Description: A sparse mixed forest for use in hot, wet climates.

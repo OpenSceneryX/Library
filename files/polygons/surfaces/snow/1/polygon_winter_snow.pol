@@ -1,0 +1,10 @@
+A
+850
+DRAPED_POLYGON
+
+TEXTURE Ground_Snow_01.png
+#TEXTURE_NORMAL 10 Ground_Snow_Normal.png
+SCALE 96 96
+
+LAYER_GROUP airports +3
+DECAL_LIB opensceneryx/decals/snow/1.dcl

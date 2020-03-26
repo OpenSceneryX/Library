@@ -3,8 +3,8 @@ Title: Hangar, Nissen, short
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 14m
-Depth: 14m
-Height: 7m
+Width: 14.1
+Depth: 14.0
+Height: 6.7
 =====================
 Description: An old quonset (nissen) hut.

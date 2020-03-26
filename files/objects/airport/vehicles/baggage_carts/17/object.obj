@@ -3,6 +3,7 @@ I
 OBJ
 
 TEXTURE		../../../../shared_textures/lars_de_jonge/CCVABaggageCart.png
+TILTED
 POINT_COUNTS	18799 0 0 43086
 
 VT	   0.6032    0.5185    3.6997	-0.875  0.000  0.485	 0.8390  0.4433

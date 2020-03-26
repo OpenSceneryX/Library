@@ -3,9 +3,9 @@ Title: Floodlight, 6 lamps
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Height: 21.1m
-Width: 3.2m
-Depth: 3.2m
+Height: 21.1
+Width: 3.2
+Depth: 3.3
 Export: objects/airport/furniture/lights/flood/2
 =====================
 Description: A floodlight with 6 lamps.

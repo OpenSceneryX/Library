@@ -3,9 +3,9 @@ Title: Luggage, green, upright
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Width: 0.33m
-Depth: 1m
-Height: 0.75m
+Width: 1.0
+Depth: 0.3
+Height: 0.7
 Export Propagate: 3
 =====================
 Description: A green suitcase, upright.

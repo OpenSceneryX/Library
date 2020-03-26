@@ -3,8 +3,9 @@ Title: Wind turbine, 3-bladed, 100m
 Author: FlyAgi
 URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
 Export External FlyAgi_Wind_Turbines: FlyAgi_Wind_Turbines/Onshore/Wind_turbine_onshore_0100_white_nolights
-Export External simHeaven: simheaven/wind_turbine_100m
-Export External X-Europe: x-europe/landmarks/wind_turbine_60m
 Since: 3.2.0
+Width: 13.5
+Height: 129.0
+Depth: 93.3
 =====================
 Description: A 3 bladed onshore wind turbine, 100m tall.

@@ -8,8 +8,10 @@ Email, conversion: joyfulsongster@hotmail.com
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b767
 Export: objects/aircraft/livery/delta/b767-400
-Width: 51m
-Depth: 62m
-Height: 16.7m
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d_dal
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d
+Width: 50.5
+Depth: 61.7
+Height: 16.7
 =====================
 Description: A Boeing 767-400 in Delta livery.

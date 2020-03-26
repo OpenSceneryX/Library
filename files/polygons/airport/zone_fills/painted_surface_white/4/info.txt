@@ -1,0 +1,8 @@
+Title: Painted surface, white, large, darker
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Colours/WhiteLargeDarker
+Since: 4.0.0
+=====================
+Description: A large darker white painted surface.

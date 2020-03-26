@@ -2,8 +2,10 @@ Title: Dolphins - Xsim
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
-Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/dolphins
+Width: 12.0
+Height: 3.6
+Depth: 36.7
 =====================
 Description: A group of animated dolphins. Part of the Xsim collection of objects.

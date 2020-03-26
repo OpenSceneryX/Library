@@ -2,9 +2,9 @@ Title: Movie Screen, Drive-in
 =====================
 Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
-Width: 36.2m
-Depth: 6.2m
-Height: 29.3m
+Width: 36.2
+Depth: 6.3
+Height: 29.3
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/video_screens/1
 =====================
 Description: A drive-in movie theatre screen showing an image from "The Aviator".<br/><br/>

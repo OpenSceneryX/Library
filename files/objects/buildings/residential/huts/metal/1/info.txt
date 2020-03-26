@@ -2,9 +2,9 @@ Title: Hut, metal, 6m
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Width: 4.3m
-Depth: 6m
-Height: 3.2m
+Width: 6.0
+Depth: 4.3
+Height: 3.2
 Since: 3.0.0
 =====================
 Description: A small metal hut.

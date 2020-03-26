@@ -6,4 +6,4 @@ The OpenSceneryX project is a free to use library of scenery objects for the [X-
 
 The library contains many pre-built 3d models including buildings, aircraft and vehicles as well as a large collection of ground markings, ground furniture and vegetation.
 
-This repository contains the main library, with associated build and maintenance scripts written using a mixture of Python 2 and shell script.
+This repository contains the main library, with associated build and maintenance scripts written using a mixture of Python 3 and shell script.

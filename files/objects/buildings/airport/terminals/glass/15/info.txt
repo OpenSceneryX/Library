@@ -2,9 +2,9 @@ Title: Terminal, glass
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 184m
-Depth: 85m
-Height: 18.2m
+Width: 184.0
+Depth: 85.0
+Height: 18.2
 Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Complete/Cork_complete
 Export External RE_Library: RE_Library/Terminals/main_buiding/EICK_type/Outer_shell/Cork_shell
 Since: 3.0.0

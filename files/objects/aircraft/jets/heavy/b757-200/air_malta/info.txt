@@ -7,5 +7,8 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b757
 Export: objects/aircraft/livery/air_malta/b757-200
+Width: 40.2
+Height: 13.6
+Depth: 47.2
 =====================
 Description: A Boeing 757-200 in Air Malta livery.

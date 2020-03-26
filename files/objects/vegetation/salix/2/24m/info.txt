@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 24.0
+Height: 24.0
+Depth: 24.0
 =====================
 Description: An individual Salix Alba (White Willow) tree, height 24m.

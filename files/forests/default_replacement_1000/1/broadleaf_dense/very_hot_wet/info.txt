@@ -1,0 +1,9 @@
+Title: Broadleaf dense, very hot, wet
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/broad_vhot_wet
+Export Core Export forests: lib/g8/broad_vhot_wet
+Since: 3.2.0
+=====================
+Description: A dense broadleaf forest for use in very hot, wet climates.

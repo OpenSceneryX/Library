@@ -4,9 +4,9 @@ Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Author, texture: textures.com
 URL, texture: https://www.textures.com
-Width: 16.4m
-Depth: 10.1m
-Height: 4.4m
+Width: 16.4
+Depth: 10.2
+Height: 4.4
 Since: 3.0.0
 =====================
 Description: A 16m x 10m grey metal hangar with closed sliding doors.

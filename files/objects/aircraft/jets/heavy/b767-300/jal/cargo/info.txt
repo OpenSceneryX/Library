@@ -4,8 +4,8 @@ Author: X-Plane&reg; Freeware Project
 URL: http://www.xplanefreeware.net/
 Author, texture: cfm56
 URL, texture: http://forums.x-plane.org/index.php?showuser=3300
-Width: 50.5m
-Depth: 61.7m
-Height: 16.7m
+Width: 50.5
+Depth: 61.7
+Height: 16.7
 =====================
 Description: A Boeing 767-300 in JAL cargo livery.

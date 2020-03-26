@@ -4,5 +4,10 @@ Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
 Export: objects/aircraft/livery/cathay_pacific/hong_kong/a320
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/jet_c_cpa
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/jet_c
+Width: 34.3
+Height: 11.7
+Depth: 37.6
 =====================
 Description: An Airbus 320 in Cathay Pacific "Hong Kong" livery.

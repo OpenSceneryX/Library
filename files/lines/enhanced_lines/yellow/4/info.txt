@@ -1,0 +1,8 @@
+Title: Solid line, enhanced yellow, variant 4
+=====================
+Author: Darrell Thompson
+URL: https://forums.x-plane.org/index.php?/profile/613332-tbolt47/
+Export External DT_Library: DT_Library/Lines/YellowNarrow1Enhanced
+Since: 4.0.0
+=====================
+Description: A solid enhanced yellow line (solid centre line, dashed outer lines), variant 4.

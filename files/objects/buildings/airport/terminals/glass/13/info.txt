@@ -2,9 +2,9 @@ Title: Terminal, glass, aluminium
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 137m
-Depth: 89.5m
-Height: 21m
+Width: 137.0
+Depth: 89.5
+Height: 21.0
 Export External RE_Library: RE_Library/Terminals/main_buiding/new_style/RE_Terminal_main_7
 Since: 3.0.0
 =====================

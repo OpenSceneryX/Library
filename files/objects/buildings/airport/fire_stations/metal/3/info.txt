@@ -2,9 +2,9 @@ Title: Fire station, metal, four bays, office and hex tower
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 15m
-Depth: 40m
-Height: 13.8m
+Width: 15.0
+Depth: 40.0
+Height: 13.8
 Export External RE_Library: RE_Library/Fire_station/hex_tower/open/red_doors/metal/FS_4bay_off_hex_orm
 Export External RE_Library: RE_Library/Fire_station/hex_tower/closed/red_doors/metal/FS_4bay_off_hex_crm
 Export External RE_Library: RE_Library/Fire_station/hex_tower/open/white_doors/metal/FS_4bay_off_hex_owm

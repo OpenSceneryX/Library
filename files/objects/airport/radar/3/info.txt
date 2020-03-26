@@ -3,6 +3,8 @@ Title: Radar, TESLA
 Author: ROMELLA
 URL: http://forums.x-plane.org/index.php?showuser=37063
 Export Deprecated v1.12.0: objects/airport/radar/tesla
-Animated: True
+Width: 11.8
+Height: 6.3
+Depth: 17.7
 =====================
 Description: A TESLA radar installation.

@@ -1,0 +1,18 @@
+Title: Conifer sparse, very cold
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export: forests/default_replacement_1000/1/conifer_sparse/very_cold_rain
+Export: forests/default_replacement_1000/1/conifer_sparse/very_cold_semidry
+Export: forests/default_replacement_1000/1/conifer_sparse/very_cold_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_vcld_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_vcld_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_vcld_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/coni_sp_vcld_wet
+Export Core Export forests: lib/g8/coni_sp_vcld_dry
+Export Core Export forests: lib/g8/coni_sp_vcld_rain
+Export Core Export forests: lib/g8/coni_sp_vcld_sdry
+Export Core Export forests: lib/g8/coni_sp_vcld_wet
+Since: 3.2.0
+=====================
+Description: A sparse conifer forest for use in very cold climates.

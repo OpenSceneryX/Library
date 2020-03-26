@@ -6,5 +6,8 @@ Author, conversion: Jochen Haink
 URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/livery/lufthansa/star_alliance/a340
+Width: 95.8
+Height: 16.7
+Depth: 65.4
 =====================
 Description: An Airbus 340 in Lufthansa Star Alliance livery.

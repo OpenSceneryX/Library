@@ -7,8 +7,9 @@ Author, texture: Jeff Mueller
 Export Propagate: 1
 Export Deprecated v2.1.0: objects/aircraft/jets/corporate/citation_x/lit
 Export Deprecated v2.1.0: objects/aircraft/jets/corporate/citation_x/unlit
-Width: 20.3m
-Height: 5.6m
-Depth: 22.57m
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/jet_a
+Width: 19.3
+Height: 5.7
+Depth: 22.1
 =====================
 Description: Cessna Citation X corporate jet.

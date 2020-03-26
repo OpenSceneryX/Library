@@ -6,5 +6,8 @@ Author, texture: Cameron Jenkins
 URL, texture: http://forums.x-plane.org/index.php?showuser=249936
 Export Propagate: 1
 Export: objects/aircraft/livery/air_new_zealand/md11
+Width: 51.8
+Height: 16.9
+Depth: 62.4
 =====================
 Description: An MD11 in Air New Zealand livery.

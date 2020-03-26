@@ -2,9 +2,9 @@ Title: Hut, Wooden, Salmon, Grey Roof
 =====================
 Author: Daveduck
 URL: http://forums.x-plane.org/index.php?showuser=6024
-Width: 3.6m
-Depth: 5.7m
-Height: 3.1m
+Width: 5.8
+Depth: 3.1
+Height: 3.6
 =====================
 Description: A salmon-coloured wooden hut with a grey roof.<br/><br/>
 There are no restrictions of any kind placed on this object.  You are free to do as you please with it, including directly distributing it in your scenery package independent of OpenScenery X.  Crediting Daveduck at X-Plane.org would be polite.<br/><br/>

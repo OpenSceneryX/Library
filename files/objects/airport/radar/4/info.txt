@@ -2,8 +2,8 @@ Title: Radar, spherical
 =====================
 Author: Nick Ward
 Email: nward@sasktel.net
-Width: 14m
-Depth: 14m
-Height: 30m
+Width: 14.0
+Depth: 14.0
+Height: 30.0
 =====================
 Description: Typical spherical radar ball.

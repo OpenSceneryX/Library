@@ -3,8 +3,8 @@ Title: Hangar, metal, blue
 Author: Nick Ward
 URL: http://forums.x-plane.org/index.php?showuser=2048
 Email: nward@sasktel.net
-Width: 12m
-Depth: 14m
-Height: 6m
+Width: 12.2
+Depth: 14.0
+Height: 5.2
 =====================
 Description: Small blue metal hangar. Original in Melfort, Sask.

@@ -7,5 +7,10 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b777
 Export: objects/aircraft/livery/united/b777-200
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e_ual
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e
+Width: 98.4
+Height: 18.5
+Depth: 68.4
 =====================
 Description: A Boeing 777-200 in United livery.

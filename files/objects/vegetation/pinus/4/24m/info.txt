@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 12.1
+Height: 24.0
+Depth: 12.1
 =====================
 Description: An individual Pinus (Pine) tree, height 24m.

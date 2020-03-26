@@ -1,0 +1,9 @@
+Title: Curb, Concrete
+=====================
+Author: Cormac Shaw
+URL: http://www.xpih.net
+Export Deprecated v4.0.0: lines/airport/structures/curb_concrete
+=====================
+Description: A concrete curb. Use for edges around or divisions within airport aprons.
+
+This line is drawn at the 'Runways +5' level so should appear above all runway/taxiway surfaces but below any 'painted' markings.

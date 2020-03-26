@@ -7,5 +7,10 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/jets/heavy/b747
 Export: objects/aircraft/livery/china_eastern/b747-400
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e_ces
+Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_e
+Width: 67.5
+Height: 19.0
+Depth: 76.9
 =====================
 Description: A Boeing 747-400 in China Eastern livery.

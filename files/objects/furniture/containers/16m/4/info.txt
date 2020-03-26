@@ -4,9 +4,9 @@ Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
 Author, texture: textures.com
 URL, texture: https://www.textures.com
-Width: 2.4m
-Depth: 16.1m
-Height: 2.6m
+Width: 2.4
+Depth: 12.2
+Height: 2.6
 Export Propagate: 3
 Since: 3.0.0
 =====================

@@ -2,8 +2,9 @@ Title: Water Tower, Cylindrical, 15m
 =====================
 Author: Daniel Leygnat
 URL: http://forums.x-plane.org/index.php?showuser=3031
-Width: 8m
-Depth: 8m
-Height: 15m
+Width: 7.9
+Depth: 7.9
+Height: 15.0
+Export External simHeaven: simheaven/landmarks/water-tower_20m
 =====================
 Description: Cylindrical water tower, white.

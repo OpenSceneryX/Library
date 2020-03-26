@@ -3,8 +3,8 @@ Title: Street lamp, straight, single
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
-Height: 14.5m
-Width: 2.7m
-Depth: 2.7m
+Height: 14.5
+Width: 2.7
+Depth: 2.7
 =====================
 Description: A straight street lamp with one light.

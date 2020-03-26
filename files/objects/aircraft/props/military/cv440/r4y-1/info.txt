@@ -4,5 +4,8 @@ Author: Shadetreemicro.com
 URL: http://www.shadetreemicro.com
 Email: snow@fischer-bayern.de
 Export Propagate: 3
+Width: 31.4
+Height: 10.2
+Depth: 24.2
 =====================
 Description: Convair R4Y-1 - U.S. Navy.

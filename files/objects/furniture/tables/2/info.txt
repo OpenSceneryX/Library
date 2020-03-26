@@ -2,9 +2,9 @@ Title: Picnic Table
 =====================
 Author: Austin Goudge
 Email: austin@goudges.com
-Width: 1.5m
-Depth: 1.5m
-Height: 0.7m
+Width: 1.6
+Depth: 1.5
+Height: 0.8
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/picnic_table
 =====================
 Description: A wooden picnic table with classic 'X' shaped cross-section.

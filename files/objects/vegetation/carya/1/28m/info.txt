@@ -8,5 +8,8 @@ Author, texture: Albert Laubi
 Author, texture: Sergio Santagada
 Export Propagate: 2
 Since: 3.1.0
+Width: 20.6
+Height: 28.0
+Depth: 20.6
 =====================
 Description: An individual Carya (Hickory) tree, height 28m.

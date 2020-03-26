@@ -1,6 +1,0 @@
-Title: Runway Closed
-=====================
-Author: Sevo
-URL: http://forums.x-plane.org/index.php?showuser=52068
-=====================
-Description: Runway closed markings.

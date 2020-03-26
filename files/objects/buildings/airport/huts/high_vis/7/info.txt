@@ -2,9 +2,9 @@ Title: Hut, high-vis, small square, checked pattern
 =====================
 Author: Richard C Elliott
 URL: https://forums.x-plane.org/index.php?/profile/389608-einstein/
-Width: 2.5m
-Depth: 2.5m
-Height: 2.5m
+Width: 2.5
+Depth: 2.5
+Height: 2.5
 Export External RE_Library: RE_Library/Navaids/Cabin/Small/Navcabin_sm_sq_c
 Since: 3.0.0
 =====================

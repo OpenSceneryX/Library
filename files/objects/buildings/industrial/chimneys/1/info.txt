@@ -2,8 +2,9 @@ Title: Chimney, 50m, white smoke
 =====================
 Author: Daniel Leygnat
 URL: http://forums.x-plane.org/index.php?showuser=3031
-Width: 6m
-Depth: 6m
-Height: 50m
+Width: 6.0
+Depth: 6.0
+Height: 50.1
+Export External simHeaven: simheaven/landmarks/chimney_50m
 =====================
 Description: 50m chimney emitting white smoke.

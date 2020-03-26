@@ -2,8 +2,8 @@ Title: Hangar, metal, long, symmetrical Roof
 =====================
 Author: Bob Feaver
 URL: http://forums.x-plane.org/index.php?showuser=7029
-Width: 15.3m
-Depth: 34.4m
-Height: 5.9m
+Width: 15.3
+Depth: 34.4
+Height: 5.9
 =====================
 Description: Long modern hangar with metal sides, red symmetrical roof and four aircraft doors.

@@ -2,10 +2,12 @@ Title: Loader, FedEx - Xsim
 =====================
 Author: mr 3D
 Email: mr3d@talk21.com
-Animated: True
 Logo: xsim.jpg
 Export: objects/collections/xsim/fedex_loader
 Export Propagate: 2
+Width: 13.0
+Height: 3.9
+Depth: 5.4
 =====================
 Note: For the animation in this object to work, an additional plugin (Developed by Sandy Barbour) must be installed.  Please visit <a href='http://www.xpluginsdk.org/misc_plugins.htm' onclick='window.open(this.href);return false;'>this page on Sandy's Website</a> and download and install the 'CustomSBDatarefs004' plugin.
 =====================

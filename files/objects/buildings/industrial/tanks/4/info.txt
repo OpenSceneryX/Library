@@ -4,8 +4,8 @@ Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
 Email: joyfulsongster@hotmail.com
 Export: objects/buildings/airport/fuel/5
-Width: 18.3m
-Depth: 18.3m
-Height: 9.1m
+Width: 18.3
+Depth: 18.3
+Height: 9.2
 =====================
 Description: Fuel tank.

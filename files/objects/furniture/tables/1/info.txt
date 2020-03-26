@@ -2,9 +2,9 @@ Title: Table, plastic, circular
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
-Width: 1.5m
-Height: 0.9m
-Depth: 1.5m
+Width: 1.5
+Height: 0.9
+Depth: 1.5
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/tables/1
 =====================
 Description: A circular plastic table.

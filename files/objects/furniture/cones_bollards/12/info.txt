@@ -2,8 +2,8 @@ Title: Cones, Large, Red and White
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
-Width: 0.8m
-Depth: 0.8m
-Height: 1.5m
+Width: 0.8
+Depth: 0.8
+Height: 1.5
 =====================
 Description: A stack of large red and white traffic cones.

@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 # Copyright (c) 2007 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
@@ -17,6 +16,8 @@ import traceback
 
 from TOC import TOC
 
+from fpdf.py3k import basestring
+
 #
 # Class to hold configuration values
 #
@@ -26,12 +27,12 @@ class Configuration(object):
 	sinceVersionTag = ""
 	versionNumber = ""
 	versionDate = datetime.datetime.now().strftime("%a, %d %b %Y")
-	
+
 	def init(self, versionTag, sinceVersionTag, buildPDF):
 		""" Set up the configuration """
 		self.versionTag = versionTag
 		self.sinceVersionTag = sinceVersionTag
-		self.versionNumber = string.replace(self.versionTag, "-", ".")
+		self.versionNumber = self.versionTag.replace("-", ".")
 		self.releaseFolder = "builds/" + self.versionNumber
 		self.osxFolder = self.releaseFolder + "/OpenSceneryX-" + self.versionNumber
 		self.osxDeveloperPackFolder = self.releaseFolder + "/OpenSceneryX-DeveloperPack-" + self.versionNumber
@@ -40,7 +41,9 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
-		
+		self.seasons = ['spring', 'autumn', 'autumn_sam', 'winter', 'winter_no_snow', 'winter_sam_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
+		self.corePartials = ['static_aircraft', 'forests']
+
 	def makeFolders(self):
 		""" Create any folders that need creating """
 		if not os.path.isdir(self.releaseFolder):
@@ -55,6 +58,8 @@ class Configuration(object):
 			os.makedirs(self.osxFolder + "/placeholders/visible")
 		if not os.path.isdir(self.osxFolder + "/opensceneryx"):
 			os.makedirs(self.osxFolder + "/opensceneryx")
+		if not os.path.isdir(self.osxFolder + "/partials"):
+			os.makedirs(self.osxFolder + "/partials")
 		if not os.path.isdir(self.osxDeveloperPackFolder):
 			os.mkdir(self.osxDeveloperPackFolder)
 		if not os.path.isdir(self.osxDeveloperPackFolder + "/doc"):
@@ -69,21 +74,21 @@ class Configuration(object):
 			os.mkdir(self.osxWebsiteFolder + "/doc")
 		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
 			os.mkdir(self.osxWebsiteFolder + "/extras")
-		
+
 		if os.path.lexists('builds/latest'):
 			os.unlink('builds/latest')
 		if os.path.lexists('builds/latest-website'):
 			os.unlink('builds/latest-website')
 		if os.path.lexists('builds/latest-library'):
 			os.unlink('builds/latest-library')
-			
+
 		os.symlink(self.versionNumber, 'builds/latest')
 		os.symlink(self.versionNumber + "/OpenSceneryX-Website-" + self.versionNumber, 'builds/latest-website')
 		os.symlink(self.versionNumber + "/OpenSceneryX-" + self.versionNumber, 'builds/latest-library')
-		
+
 	init = classmethod(init)
 	makeFolders = classmethod(makeFolders)
-	
+
 
 
 #
@@ -91,7 +96,7 @@ class Configuration(object):
 #
 class SceneryObject(object):
 	"""An X-Plane scenery object"""
-	
+
 	def __init__(self, filePathRoot, fileName):
 		self.filePathRoot = filePathRoot
 		self.fileName = fileName
@@ -100,7 +105,7 @@ class SceneryObject(object):
 		self.logoFileName = ""
 
 		self.sceneryCategory = None
-		
+
 		self.title =""
 		self.shortTitle = ""
 		self.author = ""
@@ -115,38 +120,28 @@ class SceneryObject(object):
 		self.textureUrl = ""
 		self.conversionUrl = ""
 		self.modificationUrl = ""
-		self.height = ""
-		self.width = ""
-		self.depth = ""
 		self.note = ""
 		self.since = "0.0.0"
 		self.description = ""
-		
+
 		self.virtualPaths = []
 		self.deprecatedVirtualPaths = []
 		self.externalVirtualPaths = []
+		self.coreVirtualPaths = []
+		self.seasonPaths = {}
+
 		self.sceneryTextures = []
-		
-		self.tutorial = 0
-		self.animated = 0
-		
+
 		self.exportPropagate = -1
-		
-		self.creationDate = None
-		self.modificationDate = None
 
 
-	def getFilePath(self):
-		""" Get the full file path to this SceneryObject """
-		return os.path.join(self.filePathRoot, self.fileName)
-
-	def __cmp__(self, other):
-		""" Standard compare method for sorting - compare titles """
-		if (isinstance(other, SceneryObject)): 
-			return cmp(self.title, other.title)
+	def getFilePath(self, fileName = None):
+		""" Get the full file path to this SceneryObject, can override filename to get e.g. seasonal variants """
+		if fileName:
+			return os.path.join(self.filePathRoot, fileName)
 		else:
-			return cmp(self.title, other)
-	
+			return os.path.join(self.filePathRoot, self.fileName)
+
 	def getDocumentationFileName(self):
 		""" Get the filename of this SceneryObject's documentation file """
 		return self.title + ".html"
@@ -158,28 +153,168 @@ class SceneryObject(object):
 		else:
 			return self.filePathRoot + "/"
 
+	def __eq__(self, other):
+		""" Standard compare method for sorting - compare titles """
+		if (isinstance(other, SceneryObject)):
+			return self.title == other.title
+		else:
+			return self.title == other
+
+	def __lt__(self, other):
+		""" Standard compare method for sorting - compare titles """
+		if (isinstance(other, SceneryObject)):
+			return self.title < other.title
+		else:
+			return self.title < other
+
+	def __le__(self, other):
+		""" Standard compare method for sorting - compare titles """
+		if (isinstance(other, SceneryObject)):
+			return self.title <= other.title
+		else:
+			return self.title <= other
+
+	def __gt__(self, other):
+		""" Standard compare method for sorting - compare titles """
+		if (isinstance(other, SceneryObject)):
+			return self.title > other.title
+		else:
+			return self.title > other
+
+	def __ge__(self, other):
+		""" Standard compare method for sorting - compare titles """
+		if (isinstance(other, SceneryObject)):
+			return self.title >= other.title
+		else:
+			return self.title >= other
+
+
+#
+# Class to hold information about an X-Plane object
+#
+class Object(SceneryObject):
+	"""An X-Plane Object"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Object, self).__init__(filePathRoot, fileName)
+
+		self.height = ""
+		self.width = ""
+		self.depth = ""
+		self.animated = False
+		self.lods = []
+		self.lightsCustom = False
+		self.lightsNamed = False
+		self.lightsParameterised = False
+		self.lightsCustomSpill = False
+		self.tilted = False
+		self.smokeBlack = False
+		self.smokeWhite = False
+		self.wedRotationLockAngle = None
+
 #
 # Class to hold information about an X-Plane polygon
 #
 class Polygon(SceneryObject):
 	"""An X-Plane Polygon"""
-	
+
 	def __init__(self, filePathRoot, fileName):
 		super(Polygon, self).__init__(filePathRoot, fileName)
-		
-		self.scaleH = ""
-		self.scaleV = ""
-		self.layerGroupName = ""
-		self.layerGroupOffset = ""
-		self.surfaceName = ""
-		
+
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.surfaceName = None
+
+#
+# Class to hold information about an X-Plane line
+#
+class Line(SceneryObject):
+	"""An X-Plane Line"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Line, self).__init__(filePathRoot, fileName)
+
+		self.lines = []
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.textureWidth = None
+		self.mirror = False
+
+	def getLineWidth(self):
+		result = 0
+		if (self.scaleH and self.textureWidth and len(self.lines) > 0):
+			maxLineWidth = 0
+			for line in self.lines:
+				# Each line definition is specified in virtual texture pixels as left, middle and right. We get the widest one.
+				maxLineWidth = max(line["right"] - line["left"], maxLineWidth)
+			# scaleH is the width that the texture represents in meters, textureWidth is the number of virtual pixels in the texture.
+			result = round((self.scaleH / self.textureWidth) * maxLineWidth, 3)
+		return result
+
+#
+# Class to hold information about an X-Plane forest
+#
+class Forest(SceneryObject):
+	"""An X-Plane Forest"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Forest, self).__init__(filePathRoot, fileName)
+
+		self.spacingX = None
+		self.spacingZ = None
+		self.randomX = None
+		self.randomZ = None
+		self.skipSurfaces = []
+		self.group = False
+		self.perlin = False
+		self.lod = None
+
+#
+# Class to hold information about an X-Plane facade
+#
+class Facade(SceneryObject):
+	"""An X-Plane Facade"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Facade, self).__init__(filePathRoot, fileName)
+
+		self.type = None
+		self.scaleH = None
+		self.scaleV = None
+		self.layerGroupName = None
+		self.layerGroupOffset = None
+		self.graded = None
+		self.ring = None
+		self.textureWidth = None
+		self.textureHeight = None
+		self.wallSurface = None
+		self.roofSurface = None
+		self.doubled = None
+		self.floorsMin = None
+		self.floorsMax = None
+		self.lods = []
+		self.basementDepth = None
+
+#
+# Class to hold information about an X-Plane decal
+#
+class Decal(SceneryObject):
+	"""An X-Plane Decal"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Decal, self).__init__(filePathRoot, fileName)
+
 
 #
 # Class to hold information about a category
 #
 class SceneryCategory(object):
 	"""A scenery documentation category"""
-	
+
 	def __init__(self, filePathRoot, parentSceneryCategory):
 		self.filePathRoot = filePathRoot
 		self.title = ""
@@ -188,7 +323,7 @@ class SceneryCategory(object):
 		self.childSceneryObjects = []
 		self.parentSceneryCategory = parentSceneryCategory
 		self.calculateDepth()
-		
+
 		if parentSceneryCategory == None:
 			self.title = "Catalogue"
 			self.url = "/catalogue"
@@ -196,10 +331,10 @@ class SceneryCategory(object):
 			file = open(os.path.join(filePathRoot, "category.txt"))
 			fileContents = file.readlines()
 			file.close()
-		
+
 			# define the regex patterns:
-			titlePattern = re.compile("Title:\s+(.*)")
-			
+			titlePattern = re.compile(r"Title:\s+(.*)")
+
 			for line in fileContents:
 				result = titlePattern.match(line)
 				if result:
@@ -209,7 +344,7 @@ class SceneryCategory(object):
 			parts = filePathRoot.split(os.sep, 1)
 			self.url = os.path.join('/', parts[1])
 
-		
+
 	def addSceneryCategory(self, sceneryCategory):
 		""" Add a sub SceneryCategory to this category """
 		self.childSceneryCategories.append(sceneryCategory)
@@ -222,64 +357,92 @@ class SceneryCategory(object):
 
 	def getSceneryObjects(self, recursive):
 		""" Get our list of SceneryObjects, recursively if desired """
-		
+
 		# Clone our own list of objects
 		result = self.childSceneryObjects[:]
 		# Merge with objects from children
 		if recursive:
 			for sceneryCategory in self.childSceneryCategories:
 				result = map(None, result, sceneryCategory.getSceneryObjects(recursive))
-			
+
 		return result
-		
+
 	def getSceneryObjectCount(self, recursive):
 		""" Get the number of SceneryObjects in this category, recursively if desired """
 		result = len(self.childSceneryObjects)
-		
+
 		if recursive:
 			for sceneryCategory in self.childSceneryCategories:
 				result = result + sceneryCategory.getSceneryObjectCount(recursive)
-		
+
 		return result
-	
+
 	def getAncestors(self, includeSelf):
 		""" Get a list of our ancestors, with the root category at the end of the list """
 		result = []
-		
+
 		if (includeSelf):
 			currentSceneryCategory = self
 		else:
 			currentSceneryCategory = self.parentSceneryCategory
-		
+
 		while (currentSceneryCategory != None):
 			result.append(currentSceneryCategory)
 			currentSceneryCategory = currentSceneryCategory.parentSceneryCategory
-		
+
 		return result
-	
+
 	def calculateDepth(self):
 		""" Calculate our depth down the category tree """
 		self.depth = 0
 		currentSceneryCategory = self
-		
+
 		while (currentSceneryCategory != None):
 			self.depth = self.depth + 1
 			currentSceneryCategory = currentSceneryCategory.parentSceneryCategory
-	
+
 	def sort(self):
 		""" Sort our children, both SceneryCategories and SceneryObjects """
 		self.childSceneryCategories.sort()
 		self.childSceneryObjects.sort()
-		
+
 		for sceneryCategory in self.childSceneryCategories:
 			sceneryCategory.sort()
-			
-	def __cmp__(self, other):
+
+	def __eq__(self, other):
 		""" Standard compare method for sorting - compares titles """
-		if (isinstance(other, SceneryCategory)): 
-			return cmp(self.title, other.title)
+		if (isinstance(other, SceneryCategory)):
+			return self.title == other.title
 		else:
-			return cmp(self.title, other)
+			return self.title == other
+
+	def __lt__(self, other):
+		""" Standard compare method for sorting - compares titles """
+		if (isinstance(other, SceneryCategory)):
+			return self.title < other.title
+		else:
+			return self.title < other
+
+	def __le__(self, other):
+		""" Standard compare method for sorting - compares titles """
+		if (isinstance(other, SceneryCategory)):
+			return self.title <= other.title
+		else:
+			return self.title <= other
+
+	def __gt__(self, other):
+		""" Standard compare method for sorting - compares titles """
+		if (isinstance(other, SceneryCategory)):
+			return self.title > other.title
+		else:
+			return self.title > other
+
+	def __ge__(self, other):
+		""" Standard compare method for sorting - compares titles """
+		if (isinstance(other, SceneryCategory)):
+			return self.title >= other.title
+		else:
+			return self.title >= other
 
 
 #
@@ -287,7 +450,7 @@ class SceneryCategory(object):
 #
 class SceneryTexture(object):
 	"""A scenery texture"""
-	
+
 	def __init__(self, filePath):
 		self.fileName = os.path.basename(filePath)
 		self.sceneryObjects = []
@@ -301,13 +464,13 @@ class OpenSceneryXPDF(TOC):
 	columns = 2
 	current_column = 1
 	column_gutter = 3
-	
+
 	def __init__(self, orientation="P", unit="mm", format="A4", title="", version="", columns=2):
 		""" Custom constructor """
-		
+
 		# Call superclass constructor
 		TOC.__init__(self, orientation, unit, format)
-		
+
 		# Create an alias for the total number of pages in the document
 		self.alias_nb_pages()
 
@@ -320,16 +483,16 @@ class OpenSceneryXPDF(TOC):
 
 		self.add_font('DejaVu', '', os.getcwd() + '/font/DejaVuSansCondensed.ttf', uni=True)
 		self.add_font('DejaVu', 'B', os.getcwd() + '/font/DejaVuSansCondensed-Bold.ttf', uni=True)
-		
+
 		# Generate title page
 		self.add_page()
-		
+
 		# Image
 		imagewidth = self.w
 		pagewidth = self.w - self.r_margin - self.x
 		xpos = (pagewidth - imagewidth) / 2.0 + self.l_margin
 		self.image("../" + Configuration.supportFolder + "/x_banner_print.png", xpos, 100, imagewidth, 0, "PNG", "https://www.opensceneryx.com")
-		
+
 		# Text
 		self.set_text_color(255, 255, 255)
 		self.set_y(113)
@@ -338,7 +501,7 @@ class OpenSceneryXPDF(TOC):
 		self.set_font("DejaVu", "B", 10)
 		self.cell(0, 10, self.version, 0, 1, "C")
 		self.set_text_color(0)
-				
+
 		# Generate first normal page
 		self.add_page()
 
@@ -348,13 +511,13 @@ class OpenSceneryXPDF(TOC):
 	def get_column_x(self):
 		available_width = self.w - self.l_margin - self.r_margin - ((self.columns - 1) * self.column_gutter)
 		column_width = available_width / float(self.columns)
-		
+
 		return self.l_margin + ((self.current_column - 1) * (column_width + self.column_gutter))
 
-		
+
 	def ln(self, h=''):
 		""" Overridden to use column x rather than page x """
-		
+
 		self.x=self.get_column_x()
 		if(isinstance(h, basestring)):
 			self.y+=self.lasth
@@ -364,7 +527,7 @@ class OpenSceneryXPDF(TOC):
 
 	def cell(self, w, h=0, txt='', border=0, ln=0, align='', fill=0, link=''):
 		""" Overridden to start next column if appropriate """
-		
+
 		if (self.y + h > self.page_break_trigger and not self.in_footer):
 			if (self.current_column < self.columns):
 				# Column break
@@ -375,35 +538,35 @@ class OpenSceneryXPDF(TOC):
 				# Page break
 				self.current_column = 1
 				self.x=self.get_column_x()
-			
+
 		TOC.cell(self, w, h, txt, border, ln, align, fill, link)
-		
-		
-	def add_page(self, orientation=''):
+
+
+	def add_page(self, orientation='', format = '', same = False):
 		""" Overridden to handle columns on new page """
 
 		self.current_column = 1
 		self.x=self.get_column_x()
 		self.y=self.t_margin + 15
-		TOC.add_page(self, orientation)
-	
-	
+		TOC.add_page(self, orientation, format, same)
+
+
 	def new_column(self):
-	
+
 		if (self.current_column < self.columns):
 			self.current_column += 1
 			self.x=self.get_column_x()
 			self.y=self.t_margin + 15
 		else:
 			self.add_page()
-			
+
 
 	def header(self):
 		""" Custom header """
-		
+
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
-		
+		if (self.page_no() == 1): return
+
 		# Image
 		self.image("../" + Configuration.supportFolder + "/x_print.png", self.l_margin, self.t_margin, 5, 0, "PNG", "https://www.opensceneryx.com")
 
@@ -413,7 +576,7 @@ class OpenSceneryXPDF(TOC):
 		self.set_x(self.l_margin + 5)
 		self.cell(0, 0, self.title)
 		self.cell(0, 0, self.version, 0, 0, "R")
-		
+
 		# Line break, to ensure the page content starts in the correct place
 		self.ln(15)
 
@@ -422,9 +585,9 @@ class OpenSceneryXPDF(TOC):
 		""" Custom footer """
 
 		# Don't output on the first page
-		if (self.page_no() == 1): return;
-		if (self.in_toc == 1): return;
-		
+		if (self.page_no() == 1): return
+		if (self.in_toc == 1): return
+
 		self.set_font("DejaVu", "B", 8)
 		self.set_y(-self.b_margin)
 		self.cell(0, 0, "Page %s" % self.num_page_no(), 0, 0, "R")

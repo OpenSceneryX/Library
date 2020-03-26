@@ -1,0 +1,12 @@
+A
+850
+DRAPED_POLYGON
+
+TEXTURE_NOWRAP YellowChevron2.png
+TEXTURE_NORMAL 1 ../../../../../../shared_textures/darrell_thompson/YellowChevronNML.png
+SPECULAR 0.40
+SCALE 10 10
+LAYER_GROUP markings +1
+SURFACE asphalt
+
+

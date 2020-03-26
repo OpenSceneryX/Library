@@ -3,5 +3,9 @@ Title: Robin HR200 Green Variant 3
 Author: Bertrand Augras
 URL: http://forums.x-plane.org/index.php?showuser=3814
 Export Propagate: 1
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
+Width: 8.3
+Height: 2.7
+Depth: 8.5
 =====================
 Description: A green Robin HR200.

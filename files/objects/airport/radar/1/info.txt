@@ -4,9 +4,8 @@ Author: Tom Kyler
 URL: http://www.x-scenery.com
 Email: mapson@satx.rr.com
 Export Deprecated v1.12.0: objects/airport/radar/asr11
-Width: 17.0m
-Height: 20.0m
-Depth: 17.0m
-Animated: True
+Width: 17.4
+Height: 20.4
+Depth: 15.9
 =====================
 Description: ASR-11 Radar Tower with Rotating Antennae

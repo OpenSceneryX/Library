@@ -6,5 +6,10 @@ Author, texture: Falcon
 URL, texture: http://forums.x-plane.org/index.php?showuser=6523
 Export Propagate: 1
 Export: objects/aircraft/livery/ups/md11
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_d_ups
+Export Core Extend static_aircraft: lib/airport/aircraft/cargo/heavy_d
+Width: 51.8
+Height: 16.9
+Depth: 62.4
 =====================
 Description: An MD11 in UPS livery.

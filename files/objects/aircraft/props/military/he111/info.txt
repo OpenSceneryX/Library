@@ -4,5 +4,8 @@ Author: Jacques Brault
 URL: http://forums.x-plane.org/index.php?showuser=6528
 Author, conversion: Ralf Kutscher
 Export Propagate: 3
+Width: 22.4
+Height: 4.5
+Depth: 16.9
 =====================
 Description: A Heinkel He 111 in Luftwaffe livery.

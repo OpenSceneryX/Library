@@ -1,0 +1,41 @@
+Title: Orchard
+=====================
+Author: FlyAgi
+URL: https://forums.x-plane.org/index.php?/profile/543995-flyagi/
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/olive_wrm_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_hot_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_hot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_hot_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_hot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_tmp_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_tmp_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_tmp_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_tmp_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_vhot_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_vhot_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_vhot_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_vhot_wet
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_dry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_rain
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_sdry
+Export External FlyAgi_Vegetation: FlyAgi_Vegetation/Forests/orch_wrm_wet
+Export Core Export forests: lib/g8/olive_wrm_sdry
+Export Core Export forests: lib/g8/orch_hot_dry
+Export Core Export forests: lib/g8/orch_hot_rain
+Export Core Export forests: lib/g8/orch_hot_sdry
+Export Core Export forests: lib/g8/orch_hot_wet
+Export Core Export forests: lib/g8/orch_tmp_dry
+Export Core Export forests: lib/g8/orch_tmp_rain
+Export Core Export forests: lib/g8/orch_tmp_sdry
+Export Core Export forests: lib/g8/orch_tmp_wet
+Export Core Export forests: lib/g8/orch_vhot_dry
+Export Core Export forests: lib/g8/orch_vhot_rain
+Export Core Export forests: lib/g8/orch_vhot_sdry
+Export Core Export forests: lib/g8/orch_vhot_wet
+Export Core Export forests: lib/g8/orch_wrm_dry
+Export Core Export forests: lib/g8/orch_wrm_rain
+Export Core Export forests: lib/g8/orch_wrm_sdry
+Export Core Export forests: lib/g8/orch_wrm_wet
+Since: 3.2.0
+=====================
+Description: An orchard.
