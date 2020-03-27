@@ -1670,7 +1670,6 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "REGION_DREF sam/season/autumn == 1\n"
 		result += "REGION opensceneryx_autumn\n"
 		result += "\n"
-		result += content["autumn_sam"] + "\n" # FlyAgi Vegetation Library defines separate autumn textures for use with SAM
 		result += content["autumn"] + "\n"
 		result += "\n"
 		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
