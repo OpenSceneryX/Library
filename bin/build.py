@@ -137,8 +137,9 @@ try:
 		shutil.copyfile(classes.Configuration.supportFolder + "/ie7.css", classes.Configuration.osxDeveloperPackFolder + "/doc/ie7.css")
 		shutil.copyfile(classes.Configuration.supportFolder + "/cc_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/cc_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/x_banner_web.png", classes.Configuration.osxDeveloperPackFolder + "/doc/x_banner_web.png")
-		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/yt_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/twitter_follow.png", classes.Configuration.osxDeveloperPackFolder + "/doc/twitter_follow.png")
+		shutil.copyfile(classes.Configuration.supportFolder + "/facebook_follow.svg", classes.Configuration.osxDeveloperPackFolder + "/doc/facebook_follow.svg")
+		shutil.copyfile(classes.Configuration.supportFolder + "/yt_logo.png", classes.Configuration.osxDeveloperPackFolder + "/doc/yt_logo.png")
 		shutil.copyfile(classes.Configuration.supportFolder + "/pdf.gif", classes.Configuration.osxDeveloperPackFolder + "/doc/pdf.gif")
 		shutil.copyfile(classes.Configuration.supportFolder + "/enhancedby_opensceneryx_logo.png", classes.Configuration.osxPlaceholderFolder + "/enhancedby_opensceneryx_logo.png")
 
@@ -332,6 +333,11 @@ try:
 		seasonalXAmbienceFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xAmbience plugin"))
 		seasonalXAmbienceFile.write(functions.getSeasonalLibraryContent("xambience", seasonalLibraryContent))
 		seasonalXAmbienceFile.close()
+
+		seasonalXEnviroFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xenviro.txt", "w")
+		seasonalXEnviroFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xEnviro plugin"))
+		seasonalXEnviroFile.write(functions.getSeasonalLibraryContent("xenviro", seasonalLibraryContent))
+		seasonalXEnviroFile.close()
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")

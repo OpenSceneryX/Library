@@ -41,7 +41,7 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
-		self.seasons = ['spring', 'autumn', 'autumn_sam', 'winter', 'winter_no_snow', 'winter_sam_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
+		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
 		self.corePartials = ['static_aircraft', 'forests']
 
 	def makeFolders(self):
@@ -298,6 +298,16 @@ class Facade(SceneryObject):
 		self.floorsMax = None
 		self.lods = []
 		self.basementDepth = None
+
+#
+# Class to hold information about an X-Plane decal
+#
+class Decal(SceneryObject):
+	"""An X-Plane Decal"""
+
+	def __init__(self, filePathRoot, fileName):
+		super(Decal, self).__init__(filePathRoot, fileName)
+
 
 #
 # Class to hold information about a category

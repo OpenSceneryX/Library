@@ -3,13 +3,14 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/winter_deep_snow/Forests_01.png
+NO_SHADOW
 
 LOD 15000.000000
 
 SCALE_X 4096
 SCALE_Y 4096
 
-SPACING 22.00 22.00
+SPACING 17.00 17.00
 RANDOM 8.00 8.00
 
 #	low-left	tex size	center	percent	--height--

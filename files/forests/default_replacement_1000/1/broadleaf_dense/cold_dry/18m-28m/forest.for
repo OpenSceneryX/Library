@@ -10,7 +10,7 @@ LOD 15000.000000
 SCALE_X 4096
 SCALE_Y 4096
 
-SPACING 20.00 20.00
+SPACING 15.00 15.00
 RANDOM 9.00 9.00
 
 #	low-left	tex size	center	percent	--height--

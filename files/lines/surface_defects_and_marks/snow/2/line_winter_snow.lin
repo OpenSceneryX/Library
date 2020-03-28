@@ -1,0 +1,16 @@
+A
+850
+LINE_PAINT
+
+TEXTURE Ground_Snow_Marks_01_End.png
+TEXTURE_NORMAL 1 ../../../../shared_textures/flyagi/winter_snow/Ground_Snow_Marks_Normal.png
+
+SPECULAR 0
+
+TEX_WIDTH 2048
+
+SCALE 30 60
+S_OFFSET 0 0 1024 2048
+
+MIRROR
+LAYER_GROUP airports +5

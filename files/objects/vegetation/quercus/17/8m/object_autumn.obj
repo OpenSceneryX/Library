@@ -5,6 +5,7 @@ OBJ
 TEXTURE ../../../../../shared_textures/flyagi/autumn/Forests_01.png
 GLOBAL_tint 0.3   0.0
 GLOBAL_no_blend 0.500000
+GLOBAL_no_shadow
 
 POINT_COUNTS	24 0 0 48
 

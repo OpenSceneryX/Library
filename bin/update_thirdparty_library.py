@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
-# Script to update a third party library that is integrated with OpenSceneryX, when
-# the original author releases a new version of the library
+#
+# Script to update a third party library that is integrated with OpenSceneryX, when the original author releases a new version
+# of the library.
+# The script looks for all EXPORT lines in the 3rd party library and finds a matching EXPORT_BACKUP in the latest build of OpenSceneryX.
+# It then copies the new referenced file into the appropriate place. It alerts for any new library paths that are in the 3rd party
+# library but don't currently exist in OpenSceneryX (which will need adding manually).
+#
 # Copyright (c) 2019 Austin Goudge
 # This script is free to use or modify, provided this copyright message remains at the top of the file.
-
-# Seasonal:
 #
-# 1. Remove all except default region at the bottom of the file
+# If it's a Seasonal library, some additional manual steps are required:
+#
+# 1. Remove all except default region at the bottom of the library.txt file
 # 2. Replace all EXPORT_EXCLUDE with EXPORT
 # 3. If library is organised under subfolders (e.g. FlyAgi_Vegetation), need to search and replace 'Summer/' with ''
 #    and move all content from the Summer/ folder up one level.
@@ -14,7 +19,7 @@
 # 5. Run this script. Careful with this - where multiple items are published to the same path, it will always take the last so may
 #    overwrite the correct item with a different one. If an items content changes significantly, check by manually copying in the
 #    known correct item.
-# 6. Run seasonalise.sh on appropriate paths - where the items are identical between seasons, apart from textures
+# 6. Run seasonalise.sh on appropriate paths - i.e. where the items are identical between seasons, apart from textures
 
 import sys
 import traceback
@@ -44,11 +49,11 @@ try:
 
         libraryFilesPath = f"..{os.sep}files"
         if not os.path.isdir(libraryFilesPath):
-            raise classes.BuildError("Error: This script must be run from the 'trunk/bin' directory inside a full checkout of the scenery library")
+            raise classes.BuildError("Error: This script must be run from the 'bin' directory inside a full checkout of the scenery library")
 
         versionTag = ""
         while versionTag == "":
-            versionTag = functions.getInput("Enter the library version number (e.g. 1.0.1): ", 10)
+            versionTag = functions.getInput("Enter the latest OpenSceneryX built library version number (e.g. 1.0.1): ", 10)
         buildLibraryPath = f"..{os.sep}builds{os.sep}{versionTag}{os.sep}OpenSceneryX-{versionTag}{os.sep}library.txt"
 
         if not os.path.isfile(buildLibraryPath):
@@ -87,8 +92,6 @@ try:
 
         # Iterate every export in the third party library, looking for a matching OpenSceneryX export
         for match in matches:
-            # TODO: Compare contents of new and old, ignoring texture lines, and only replace if they differ.
-            #       Perhaps pay attention to texture filename, only ignore path.
             if match[0] in osxLookupDict:
                 sourceFilePath = f"..{os.sep}contributions{os.sep}{thirdPartyLibraryName}{os.sep}{match[1]}"
                 destinationFilePath = f"{libraryFilesPath}{os.sep}{osxLookupDict[match[0]]}"
