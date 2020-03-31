@@ -1338,7 +1338,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if sceneryObject.spacingZ: websiteInfoFileContents += f"Spacing Z: {sceneryObject.spacingZ:.1f}\n"
 		if sceneryObject.randomX: websiteInfoFileContents += f"Random X: {sceneryObject.randomX:.1f}\n"
 		if sceneryObject.randomZ: websiteInfoFileContents += f"Random Z: {sceneryObject.randomZ:.1f}\n"
-		if len(sceneryObject.skipSurfaces) > 0: websiteInfoFileContents += f"Skip Surfaces: {','.join(sceneryObject.skipSurfaces)}\n"
+		if len(sceneryObject.skipSurfaces) > 0: websiteInfoFileContents += f"Skip Surfaces: {', '.join(sceneryObject.skipSurfaces)}\n"
 		if sceneryObject.group: websiteInfoFileContents += f"Group: True\n"
 		if sceneryObject.perlin: websiteInfoFileContents += f"Perlin: True\n"
 		if sceneryObject.lod: websiteInfoFileContents += f"LOD: {sceneryObject.lod:.1f}\n"
