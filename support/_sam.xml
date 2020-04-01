@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<scenery name="OpenSceneryX" locked="true">
+  <datarefs />
+  <objects />
+  <jetwayDescriptions />
+  <jetways />
+  <docks />
+  <gui />
+  <static_aircrafts>
+    ${samStaticAircraft}
+  </static_aircrafts>
+</scenery>

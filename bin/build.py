@@ -86,6 +86,10 @@ try:
 		for season in classes.Configuration.seasons:
 			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
 
+		# SAM support
+		samFileHandle = open(classes.Configuration.osxFolder + "/sam.xml", "w")
+
+		# Write headers
 		libraryFullFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryPartialFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Main Library"))
 		libraryPlaceholderFileHandle.write(functions.getLibraryHeader(versionTag, True))
@@ -226,7 +230,10 @@ try:
 		# latest contains an array of the new SceneryObjects in this version
 		latest = []
 
-		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest)
+		# samStaticAircraft contains a dictionary of the SAM static aircraft door information where the key is the door ID
+		samStaticAircraft = {}
+
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest, samStaticAircraft)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -277,6 +284,12 @@ try:
 		jsWebVersionInfoFileHandle.write(fileContents)
 		versionInfoFileHandle.write(classes.Configuration.versionNumber + " " + classes.Configuration.versionDate)
 
+		file = open(classes.Configuration.supportFolder + "/_sam.xml", "r")
+		fileContents = file.read()
+		fileContents = fileContents.replace("${samStaticAircraft}", functions.getSAMXMLStaticAircraftEntries(samStaticAircraft))
+		file.close()
+		samFileHandle.write(fileContents)
+
 		random.shuffle(latest)
 		for item in latest:
 			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
@@ -294,6 +307,7 @@ try:
 		libraryDeprecatedFileHandle.close()
 		for partial in classes.Configuration.corePartials:
 			libraryCorePartialFileHandles[partial].close()
+		samFileHandle.close()
 
 		# Create seasonal partials
 		seasonalLibraryContent = {}
