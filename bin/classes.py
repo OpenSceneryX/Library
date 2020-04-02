@@ -42,7 +42,7 @@ class Configuration(object):
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
 		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
-		self.corePartials = ['static_aircraft', 'forests']
+		self.corePartials = ['static_aircraft', 'forests', 'forests_seasonal_fourseasons', 'forests_seasonal_sam', 'forests_seasonal_terramaxx', 'forests_seasonal_xambience', 'forests_seasonal_xenviro', 'forests_seasonal_xplane']
 
 	def makeFolders(self):
 		""" Create any folders that need creating """

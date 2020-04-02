@@ -316,6 +316,7 @@ try:
 		shutil.copyfile("files/shared_textures/regions/northern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/northern_hemisphere.png")
 		shutil.copyfile("files/shared_textures/regions/southern_hemisphere.png", classes.Configuration.osxFolder + "/shared_textures/regions/southern_hemisphere.png")
 
+		# Season-specific content is temporarily stored in a flat list containing every item for each season
 		for season, librarySeasonFileHandle in librarySeasonFileHandles.items():
 			librarySeasonFileHandle.close()
 			file = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "r")
@@ -323,6 +324,7 @@ try:
 			file.close()
 			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
 
+		# Season partials are built for each season mechanism from the seasonal flat lists
 		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xplane.txt", "w")
 		seasonalXPlaneFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for core X-Plane"))
 		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
