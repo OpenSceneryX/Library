@@ -52,7 +52,7 @@ logoPattern = re.compile(r"Logo:\s+(.*)")
 notePattern = re.compile(r"Note:\s+(.*)")
 sincePattern = re.compile(r"Since:\s+(.*)")
 # SAM patterns
-samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
+samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:\s+(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
 
 # Texture patterns
 v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
@@ -1302,7 +1302,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 			websiteInfoFileContents += line + "\n"
 			aircraft = {"x": result.group(2), "y": result.group(3), "z": result.group(4), "phi": result.group(5)}
 			existingAircraft = samStaticAircraft.get(result.group(1))
-			if existingAircraft == None:
+			if (existingAircraft == None):
 				samStaticAircraft[result.group(1)] = aircraft
 			elif (existingAircraft != aircraft):
 				displayMessage(f"Found multiple SAM Static aircraft with the same id '{result.group(1)}' but different values. This redefines the door location, which will cause problems for aircraft that share the same location\n", "error")
@@ -1542,7 +1542,7 @@ def getSAMXMLStaticAircraftEntries(samStaticAircraft):
 
 	for aircraftID in samStaticAircraft:
 		aircraft = samStaticAircraft[aircraftID]
-		result += f"<aircraft dataref=\"{aircraftID}\" x=\"{aircraft.x}\" y=\"{aircraft.y}\" z=\"{aircraft.z}\" phi=\"{aircraft.phi}\" />\n"
+		result += f"<aircraft dataref=\"{aircraftID}\" x=\"{aircraft['x']}\" y=\"{aircraft['y']}\" z=\"{aircraft['z']}\" phi=\"{aircraft['phi']}\" />\n"
 
 	return result
 
