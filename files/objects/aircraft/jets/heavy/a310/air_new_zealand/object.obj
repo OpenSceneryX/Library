@@ -3655,7 +3655,7 @@ TRIS	7167 612
 
 # for SAM jetway connection
 ANIM_begin
-ANIM_show 2.000000 2.000000 opensceneryx/a310/door/1
+ANIM_show 2.000000 2.000000 opensceneryx/a310/1/door/1
 LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
 ANIM_end
 
