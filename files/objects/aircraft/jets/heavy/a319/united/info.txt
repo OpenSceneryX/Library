@@ -11,6 +11,6 @@ Export: objects/aircraft/livery/united/a319
 Width: 34.3
 Height: 11.9
 Depth: 33.9
-SAM Static Aircraft: opensceneryx/319/door/1 -1.924 3.234 4.438 3.0
+SAM Static Aircraft: opensceneryx/319/1/door/1 -1.924 3.234 4.438 3.0
 =====================
 Description: An Airbus 319 in United livery.
