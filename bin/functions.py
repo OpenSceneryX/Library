@@ -1540,7 +1540,7 @@ def getSAMXMLStaticAircraftEntries(samStaticAircraft):
 
 	result = ""
 
-	for aircraftID in samStaticAircraft:
+	for aircraftID in sorted(samStaticAircraft):
 		aircraft = samStaticAircraft[aircraftID]
 		result += f"<aircraft dataref=\"{aircraftID}\" x=\"{aircraft['x']}\" y=\"{aircraft['y']}\" z=\"{aircraft['z']}\" phi=\"{aircraft['phi']}\" />\n"
 
