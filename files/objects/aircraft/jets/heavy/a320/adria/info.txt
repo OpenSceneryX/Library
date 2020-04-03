@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/adria/a320
 Width: 56.3
 Height: 11.8
 Depth: 40.5
+SAM Static Aircraft: opensceneryx/a320/1/door/1 -1.957 3.280 3.903 0
 =====================
 Description: An Airbus 320 in Adria livery.
