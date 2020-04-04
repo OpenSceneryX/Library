@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/lufthansa/b727-200
 Width: 65.7
 Height: 10.2
 Depth: 49.5
+SAM Static Aircraft: opensceneryx/b727-200/1/door/1 -2.051 2.586 4.864 0
 =====================
 Description: A Boeing 727-200 in Lufthansa livery.

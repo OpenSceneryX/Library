@@ -11,5 +11,6 @@ Export: objects/aircraft/livery/nac/b727-200
 Width: 34.2
 Height: 10.3
 Depth: 53.5
+SAM Static Aircraft: opensceneryx/b727-200/2/door/1 -1.630 2.820 4.521 10
 =====================
 Description: A Boeing 727 aircraft with NAC livery.
