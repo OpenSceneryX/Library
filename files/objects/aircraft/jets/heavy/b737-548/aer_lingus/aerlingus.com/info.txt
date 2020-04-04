@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/aer_lingus/aerlingus.com/b737-548
 Width: 28.7
 Height: 11.3
 Depth: 30.1
+SAM Static Aircraft: opensceneryx/b737-548/1/door/1 -1.655 2.755 4.389 5
 =====================
 Description: A Boeing 737-548 in promotional aerlingus.com livery.
