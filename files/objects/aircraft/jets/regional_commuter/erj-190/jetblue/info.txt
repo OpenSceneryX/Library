@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/jetblue/erj-190
 Width: 28.9
 Height: 9.9
 Depth: 36.3
+SAM Static Aircraft: opensceneryx/erj-190/1/door/1 -1.408 2.562 4.846 0
 =====================
 Description: An Embraer ERJ 190 regional jet with jetBlue livery.
