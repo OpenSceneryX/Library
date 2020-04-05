@@ -9,5 +9,7 @@ Export: objects/aircraft/livery/croatia_airlines/md11
 Width: 51.8
 Height: 16.9
 Depth: 62.4
+SAM Static Aircraft: opensceneryx/md11/1/door/1 -2.564 4.163 5.855 10
+SAM Static Aircraft: opensceneryx/md11/1/door/2 -2.973 4.176 15.641 0
 =====================
 Description: An MD11 in Croatia Airlines livery.
