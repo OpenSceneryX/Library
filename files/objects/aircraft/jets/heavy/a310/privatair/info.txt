@@ -9,6 +9,6 @@ Export: objects/aircraft/livery/privatair/a310
 Width: 41.9
 Height: 14.0
 Depth: 47.8
-SAM Static Aircraft: opensceneryx/a310/1/door/1 -2.144 3.563 5.704 5.0
+SAM Static Aircraft: opensceneryx/a310/1/door/1 -2.144 3.563 5.704 5
 =====================
 Description: An Airbus 310 in PrivatAir livery.
