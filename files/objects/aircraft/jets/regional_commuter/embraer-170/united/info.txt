@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/united/embraer-170
 Width: 26.0
 Height: 9.5
 Depth: 30.6
+SAM Static Aircraft: opensceneryx/embraer-170/1/door/1 -1.373 2.141 4.844 0
 =====================
 Description: An Embraer 170 in United Express livery.
