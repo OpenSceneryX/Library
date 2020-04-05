@@ -8,5 +8,6 @@ Export: objects/aircraft/livery/japan_airlines/md90-50
 Width: 36.8
 Height: 9.4
 Depth: 46.8
+SAM Static Aircraft: opensceneryx/md90-50/1/door/1 -1.665 2.512 3.724 5
 =====================
 Description: An MD90-50 in Japan Airlines livery.
