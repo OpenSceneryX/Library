@@ -3494,6 +3494,12 @@ TRIS	0 9453
 ATTR_no_cull
 TRIS	9453 3
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/b737-800/2/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.49. Exported with XPlane2Blender 10.4.28.
 
 # Wed Feb  8 18:37:43 2012

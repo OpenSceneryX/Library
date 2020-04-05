@@ -12,5 +12,6 @@ Export: objects/aircraft/livery/alaska_air_cargo/b737-800
 Width: 34.2
 Depth: 39.5
 Height: 12.2
+SAM Static Aircraft: opensceneryx/b737-800/2/door/1 -1.621 2.429 4.448 0
 =====================
 Description: A Boeing 737-800 in Alaska Air Cargo livery.

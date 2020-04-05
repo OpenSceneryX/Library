@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/hapag_lloyd/b737-800
 Width: 60.5
 Height: 12.8
 Depth: 43.4
+SAM Static Aircraft: opensceneryx/b737-800/1/door/1 -1.942 3.358 5.531 0
 =====================
 Description: A Boeing 737-800 in Hapag Lloyd livery.

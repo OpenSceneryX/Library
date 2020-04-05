@@ -12,5 +12,6 @@ Export: objects/aircraft/livery/delta/b737-800
 Width: 33.1
 Depth: 39.5
 Height: 12.2
+SAM Static Aircraft: opensceneryx/b737-800/4/door/1 -1.624 2.533 4.643 5
 =====================
 Description: A Boeing 737-800 in Delta livery.
