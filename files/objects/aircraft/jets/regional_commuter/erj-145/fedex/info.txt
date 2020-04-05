@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/fedex/erj-145
 Width: 20.9
 Height: 7.0
 Depth: 30.2
+SAM Static Aircraft: opensceneryx/erj-145/1/door/1 -1.271 1.751 4.031 0
 =====================
 Description: An Embraer ERJ 145 in FedEx livery.
