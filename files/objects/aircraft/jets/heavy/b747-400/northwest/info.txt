@@ -11,5 +11,8 @@ Export: objects/aircraft/livery/northwest/b747-400
 Width: 64.8
 Height: 19.0
 Depth: 70.3
+SAM Static Aircraft: opensceneryx/b747-400/2/door/1 -2.871 4.537 8.662 5
+SAM Static Aircraft: opensceneryx/b747-400/2/door/2 -3.231 4.537 18.053 0
+SAM Static Aircraft: opensceneryx/b747-400/2/door/3 -2.776 7.340 14.567 0
 =====================
 Description: A Boeing 747-400 in Northwest Airlines livery.

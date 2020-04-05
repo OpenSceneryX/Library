@@ -10,5 +10,7 @@ Export: objects/aircraft/livery/cathay_pacific/b777-200
 Width: 98.4
 Height: 18.5
 Depth: 68.4
+SAM Static Aircraft: opensceneryx/b777-200/1/door/1 -2.623 4.840 5.985 10
+SAM Static Aircraft: opensceneryx/b777-200/1/door/2 -3.023 4.929 16.777 0
 =====================
 Description: A Boeing 777-200 in Cathay Pacific livery.

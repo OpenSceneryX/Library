@@ -3057,3 +3057,9 @@ ATTR_poly_os 2.000000
 TRIS 0 6
 ATTR_poly_os 0.000000
 TRIS 6 6195
+
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/erj-145/1/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end

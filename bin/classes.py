@@ -134,6 +134,7 @@ class SceneryObject(object):
 
 		self.exportPropagate = -1
 
+		self.samStaticAircraftAnimIDs = []
 
 	def getFilePath(self, fileName = None):
 		""" Get the full file path to this SceneryObject, can override filename to get e.g. seasonal variants """

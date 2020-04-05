@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/westjet/b737-800
 Width: 35.8
 Height: 13.3
 Depth: 40.5
+SAM Static Aircraft: opensceneryx/b737-800/5/door/1 -1.920 2.956 4.707 3
 =====================
 Description: A Boeing 737-800 in Westjet livery.

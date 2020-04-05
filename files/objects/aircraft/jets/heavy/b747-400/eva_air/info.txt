@@ -11,5 +11,8 @@ Export: objects/aircraft/livery/eva_air/b747-400
 Width: 63.7
 Height: 19.3
 Depth: 70.6
+SAM Static Aircraft: opensceneryx/b747-400/4/door/1 -2.956 4.665 8.208 5
+SAM Static Aircraft: opensceneryx/b747-400/4/door/2 -3.220 4.750 17.707 0
+SAM Static Aircraft: opensceneryx/b747-400/4/door/3 -2.429 7.599 14.199 0
 =====================
 Description: A Boeing 747-400 in Eva Air Livery.
