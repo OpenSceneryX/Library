@@ -10,5 +10,7 @@ Export: objects/aircraft/livery/qantas/b767-300
 Width: 81.7
 Height: 16.2
 Depth: 58.7
+SAM Static Aircraft: opensceneryx/b767-300/1/door/1 -2.054 3.986 4.747 5
+SAM Static Aircraft: opensceneryx/b767-300/1/door/2 -2.458 4.064 15.270 0
 =====================
 Description: A Boeing 767-300 in Qantas livery.
