@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/air_berlin/b737-700
 Width: 34.0
 Height: 13.0
 Depth: 33.3
+SAM Static Aircraft: opensceneryx/b737-700/1/door/1 -1.029 2.441 5.747 5
 =====================
 Description: A Boeing 737-700 in Air Berlin livery.

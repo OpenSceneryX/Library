@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/us_airways/a330
 Width: 62.6
 Height: 16.7
 Depth: 63.6
+SAM Static Aircraft: opensceneryx/a330/1/door/1 -2.530 4.705 5.206 10
 =====================
 Description: An Airbus 330 in US Airways livery.

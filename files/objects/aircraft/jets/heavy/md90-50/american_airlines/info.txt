@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/american_airlines/md90-50
 Width: 37.2
 Height: 8.6
 Depth: 46.6
+SAM Static Aircraft: opensceneryx/md90-50/2/door/1 -1.866 2.737 4.907 3
 =====================
 Description: An MD90-50 in American Airlines Livery.

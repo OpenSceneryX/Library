@@ -12,5 +12,7 @@ Export: objects/aircraft/livery/northwest/b757-300
 Width: 38.2
 Height: 14.0
 Depth: 47.1
+SAM Static Aircraft: opensceneryx/b757-300/1/door/1 -2.047 3.189 5.299 0
+SAM Static Aircraft: opensceneryx/b757-300/1/door/2 -2.047 3.220 14.697 0
 =====================
 Description: A Boeing 757-300 in Northwest Airlines livery.

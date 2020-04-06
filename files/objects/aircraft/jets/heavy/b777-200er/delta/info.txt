@@ -11,5 +11,7 @@ Export: objects/aircraft/livery/delta/b777-200er
 Width: 60.8
 Depth: 63.9
 Height: 19.2
+SAM Static Aircraft: opensceneryx/b777-200er/1/door/1 -2.802 4.803 6.367 10
+SAM Static Aircraft: opensceneryx/b777-200er/1/door/2 -3.104 4.961 16.575 0
 =====================
 Description: A Boeing 777-200ER in Delta livery.

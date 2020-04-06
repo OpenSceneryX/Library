@@ -11,5 +11,6 @@ Export: objects/aircraft/livery/us_airways/b767-200
 Width: 47.3
 Height: 16.2
 Depth: 48.5
+SAM Static Aircraft: opensceneryx/b767-200/1/door/1 -2.167 3.778 4.631 10
 =====================
 Description: A Boeing 767-200 in US Airways Livery.

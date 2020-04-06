@@ -7,5 +7,6 @@ URL, conversion: http://www.xplanefreeware.net/forums/index.php?showuser=1001
 Width: 60.5
 Height: 12.8
 Depth: 43.4
+SAM Static Aircraft: opensceneryx/b737-800/1/door/1 -1.942 3.358 5.531 0
 =====================
 Description: A Boeing 737-800 in Air Berlin (Boeing Dream) livery.

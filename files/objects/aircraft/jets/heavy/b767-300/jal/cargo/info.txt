@@ -7,5 +7,6 @@ URL, texture: http://forums.x-plane.org/index.php?showuser=3300
 Width: 50.5
 Depth: 61.7
 Height: 16.7
+SAM Static Aircraft: opensceneryx/b767-300/2/door/1 -2.428 4.452 5.913 5
 =====================
 Description: A Boeing 767-300 in JAL cargo livery.

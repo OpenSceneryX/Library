@@ -3812,3 +3812,9 @@ IDX 3017
 IDX 3016
 ATTR_no_cull
 TRIS 0 7788
+
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/b767-300er/1/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end

@@ -2230,4 +2230,10 @@ TRIS	5712 498
 ATTR_LOD	4000 10000
 TRIS	6210 162
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/md90-50/2/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.43. Exported with XPlane2Blender 2.36.

@@ -3737,4 +3737,11 @@ TRIS	6 7341
 ####_group	transparent_Group
 TRIS	7347 756
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/b757-200/1/door/1
+ANIM_show 2.000000 2.000000 opensceneryx/b757-200/1/door/2
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.43. Exported with XPlane2Blender 2.40.

@@ -8,5 +8,7 @@ Export: objects/aircraft/livery/cathay_pacific/hong_kong/b757-200
 Width: 40.2
 Height: 13.6
 Depth: 47.2
+SAM Static Aircraft: opensceneryx/b757-200/1/door/1 -1.975 3.462 5.027 5
+SAM Static Aircraft: opensceneryx/b757-200/1/door/2 -2.056 3.465 13.020 0
 =====================
 Description: A Boeing 757-200 in Cathay Pacific "Hong Kong" livery.

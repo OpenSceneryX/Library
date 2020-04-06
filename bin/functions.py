@@ -52,7 +52,8 @@ logoPattern = re.compile(r"Logo:\s+(.*)")
 notePattern = re.compile(r"Note:\s+(.*)")
 sincePattern = re.compile(r"Since:\s+(.*)")
 # SAM patterns
-samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
+samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:\s+(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
+samStaticAircraftAnimPattern = re.compile(r"ANIM_show\s+.*?\s+.*?\s+(.*)")
 
 # Texture patterns
 v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
@@ -332,6 +333,15 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if result:
 					sceneryObject.wedRotationLockAngle = result.group(1)
 					continue
+
+			result = samStaticAircraftAnimPattern.match(line)
+			if result:
+				if result.group(1) not in sceneryObject.samStaticAircraftAnimIDs:
+					sceneryObject.samStaticAircraftAnimIDs.append(result.group(1))
+				else:
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage(f"Duplicate SAM static aircraft ID found in object: {result.group(1)}\n", "error")
+				continue
 
 		if textureFound == 0:
 			displayMessage("\n" + objectSourcePath + "\n")
@@ -1299,13 +1309,18 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# SAM Static Aircraft
 		result = samStaticAircraftPattern.match(line)
 		if result:
-			websiteInfoFileContents += line + "\n"
-			aircraft = {"x": result.group(2), "y": result.group(3), "z": result.group(4), "phi": result.group(5)}
-			existingAircraft = samStaticAircraft.get(result.group(1))
-			if existingAircraft == None:
-				samStaticAircraft[result.group(1)] = aircraft
-			elif (existingAircraft != aircraft):
-				displayMessage(f"Found multiple SAM Static aircraft with the same id '{result.group(1)}' but different values. This redefines the door location, which will cause problems for aircraft that share the same location\n", "error")
+			if result.group(1) not in sceneryObject.samStaticAircraftAnimIDs:
+				displayMessage("\n" + objectSourcePath + "\n")
+				displayMessage(f"Found SAM Static aircraft definition in info.txt but no matching ID ('{result.group(1)}') in the object\n", "error")
+			else:
+				websiteInfoFileContents += line + "\n"
+				aircraft = {"x": result.group(2), "y": result.group(3), "z": result.group(4), "phi": result.group(5)}
+				existingAircraft = samStaticAircraft.get(result.group(1))
+				if (existingAircraft == None):
+					samStaticAircraft[result.group(1)] = aircraft
+				elif (existingAircraft != aircraft):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage(f"Found multiple SAM Static aircraft with the same id '{result.group(1)}' but different values. This redefines the door location, which will cause problems for aircraft that share the same location\n", "error")
 			continue
 
 		# Description
@@ -1540,9 +1555,9 @@ def getSAMXMLStaticAircraftEntries(samStaticAircraft):
 
 	result = ""
 
-	for aircraftID in samStaticAircraft:
+	for aircraftID in sorted(samStaticAircraft):
 		aircraft = samStaticAircraft[aircraftID]
-		result += f"<aircraft dataref=\"{aircraftID}\" x=\"{aircraft.x}\" y=\"{aircraft.y}\" z=\"{aircraft.z}\" phi=\"{aircraft.phi}\" />\n"
+		result += f"<aircraft dataref=\"{aircraftID}\" x=\"{aircraft['x']}\" y=\"{aircraft['y']}\" z=\"{aircraft['z']}\" phi=\"{aircraft['phi']}\" />\n"
 
 	return result
 
