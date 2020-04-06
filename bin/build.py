@@ -328,7 +328,7 @@ try:
 		for seasonMechanism in classes.Configuration.seasonMechanisms:
 			seasonalFile = open(classes.Configuration.osxFolder + f"/partials/seasonal_{seasonMechanism}.txt", "w")
 			seasonalFile.write(functions.getLibraryHeader(versionTag, False, "", f"Seasonal support for {classes.Configuration.seasonMechanisms[seasonMechanism]}"))
-			seasonalFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
+			seasonalFile.write(functions.getSeasonalLibraryContent(seasonMechanism, seasonalLibraryContent, "core"))
 			seasonalFile.close()
 
 		# Append the deprecated paths to the library
