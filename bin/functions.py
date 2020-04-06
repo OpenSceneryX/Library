@@ -357,30 +357,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -544,30 +522,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -668,30 +624,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -801,30 +735,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -925,30 +837,9 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
+
 
 
 def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
@@ -993,6 +884,7 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 		textureFound = 0
 
 		# for line in objectFileContents:
+		# No decal content checking just yet
 
 
 	# Handle the info.txt file
@@ -1004,26 +896,52 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 	# Decal is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
+
+
+
+def writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles):
+	""" Write all the library paths """
+
+	# Main library and seasonal paths
 	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
+		libraryFileHandle.write(f"EXPORT opensceneryx/{virtualPath} {sceneryObject.getFilePath()}\n")
+		libraryPlaceholderFileHandle.write(f"EXPORT_BACKUP opensceneryx/{virtualPath} opensceneryx/placeholder.obj\n")
 		for season in classes.Configuration.seasons:
 			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write(f"EXPORT_EXCLUDE opensceneryx/{virtualPath} {sceneryObject.seasonPaths[season]}\n")
+
+	# Deprecated paths
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
+		libraryDeprecatedFileHandle.write(f"# Deprecated v{virtualPathVersion}\n")
+		libraryDeprecatedFileHandle.write(f"EXPORT opensceneryx/{virtualPath} {sceneryObject.getFilePath()}\n")
+		libraryPlaceholderFileHandle.write(f"EXPORT_BACKUP opensceneryx/{virtualPath} opensceneryx/placeholder.obj\n")
+
+	# External third party paths
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write(f"EXPORT_BACKUP {virtualPath} {sceneryObject.getFilePath()}\n")
+
+	# Core X-Plane override paths
 	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
 		if partial in libraryCorePartialFileHandles:
+			if (classes.Configuration.corePartials[partial] == True):
+				# Core partial is seasonal
+				for season in classes.Configuration.seasons:
+					if season in sceneryObject.seasonPaths:
+						# We have a seasonal virtual path for this season
+						if method == 'Extend':
+							libraryCorePartialFileHandles[partial][season].write(f"EXPORT_EXTEND {virtualPath} {sceneryObject.seasonPaths[season]}\n")
+						elif method == 'Export':
+							# Note use of EXPORT_EXCLUDE here, as it's a seasonal override
+							libraryCorePartialFileHandles[partial][season].write(f"EXPORT_EXCLUDE {virtualPath} {sceneryObject.seasonPaths[season]}\n")
+
+			# Always write to default core partial (seasonal core partials will override if they exist)
 			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+				libraryCorePartialFileHandles[partial]['default'].write(f"EXPORT_EXTEND {virtualPath} {sceneryObject.getFilePath()}\n")
 			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+				libraryCorePartialFileHandles[partial]['default'].write(f"EXPORT {virtualPath} {sceneryObject.getFilePath()}\n")
 			else:
 				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
 		else:

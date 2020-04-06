@@ -77,14 +77,22 @@ try:
 		libraryHeaderFileHandle = open(classes.Configuration.osxFolder + "/partials/header.txt", "w")
 		libraryCorePartialFileHandles = {}
 		for partial in classes.Configuration.corePartials:
-			libraryCorePartialFileHandles[partial] = open(classes.Configuration.osxFolder + "/partials/extend_" + partial + ".txt", "w")
+			libraryCorePartialFileHandles[partial] = {}
+
+			if (classes.Configuration.corePartials[partial] == True):
+				# Core partial is seasonal, create a file for each season
+				for season in classes.Configuration.seasons:
+					libraryCorePartialFileHandles[partial][season] = open(f"{classes.Configuration.osxFolder}/TEMP-{partial}-{season}.txt", "w")
+
+			# We always create a 'default' file for each core partial, for content that is non-seasonal
+			libraryCorePartialFileHandles[partial]['default'] = open(f"{classes.Configuration.osxFolder}/TEMP-{partial}-default.txt", "w")
 
 		# Temporary library fragments
 		libraryExternalFileHandle = open(classes.Configuration.osxFolder + "/TEMP-external.txt", "w")
 		libraryDeprecatedFileHandle = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "w")
 		librarySeasonFileHandles = {}
 		for season in classes.Configuration.seasons:
-			librarySeasonFileHandles[season] = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "w")
+			librarySeasonFileHandles[season] = open(f"{classes.Configuration.osxFolder}/TEMP-core-{season}.txt", "w")
 
 		# SAM support
 		samFileHandle = open(classes.Configuration.osxFolder + "/sam.xml", "w")
@@ -96,8 +104,6 @@ try:
 		libraryHeaderFileHandle.write(functions.getLibraryHeader(versionTag))
 		libraryExternalFileHandle.write(functions.getLibraryHeader(versionTag, False, "", "Third party libraries integrated with OpenSceneryX"))
 		libraryDeprecatedFileHandle.write(functions.getLibraryHeader(versionTag, False, "deprecated"))
-		for partial in classes.Configuration.corePartials:
-			libraryCorePartialFileHandles[partial].write(functions.getLibraryHeader(versionTag, False, "", "Paths extending X-Plane: " + partial))
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Creating HTML files and sitemap.xml \n")
@@ -305,8 +311,6 @@ try:
 		htmlDeveloperFileHandle.close()
 		libraryExternalFileHandle.close()
 		libraryDeprecatedFileHandle.close()
-		for partial in classes.Configuration.corePartials:
-			libraryCorePartialFileHandles[partial].close()
 		samFileHandle.close()
 
 		# Create seasonal partials
@@ -319,17 +323,48 @@ try:
 		# Season-specific content is temporarily stored in a flat list containing every item for each season
 		for season, librarySeasonFileHandle in librarySeasonFileHandles.items():
 			librarySeasonFileHandle.close()
-			file = open(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt", "r")
+			file = open(f"{classes.Configuration.osxFolder}/TEMP-core-{season}.txt", "r")
 			seasonalLibraryContent[season] = file.read()
 			file.close()
-			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
+			os.remove(f"{classes.Configuration.osxFolder}/TEMP-core-{season}.txt")
 
 		# Season partials are built for each season mechanism from the seasonal flat lists
 		for seasonMechanism in classes.Configuration.seasonMechanisms:
-			seasonalFile = open(classes.Configuration.osxFolder + f"/partials/seasonal_{seasonMechanism}.txt", "w")
+			seasonalFile = open(f"{classes.Configuration.osxFolder}/partials/seasonal_{seasonMechanism}.txt", "w")
 			seasonalFile.write(functions.getLibraryHeader(versionTag, False, "", f"Seasonal support for {classes.Configuration.seasonMechanisms[seasonMechanism]}"))
 			seasonalFile.write(functions.getSeasonalLibraryContent(seasonMechanism, seasonalLibraryContent, "core"))
 			seasonalFile.close()
+
+		# Core partials, both seasonal and non-seasonal
+		for partial in classes.Configuration.corePartials:
+			# Always write the default core partial. For a seasonal core partial, this just contains items that don't have seasonal variants.
+			libraryCorePartialFileHandles[partial]['default'].close()
+			file = open(f"{classes.Configuration.osxFolder}/TEMP-{partial}-default.txt", "r")
+			corePartialibraryContent = file.read()
+			file.close()
+			os.remove(f"{classes.Configuration.osxFolder}/TEMP-{partial}-default.txt")
+			del libraryCorePartialFileHandles[partial]['default'] # Need to delete this key otherwise the season code below tries to handle it
+
+			corePartialFile = open(f"{classes.Configuration.osxFolder}/partials/extend_{partial}.txt", "w")
+			corePartialFile.write(functions.getLibraryHeader(versionTag, False, "", f"Paths extending X-Plane for {partial}"))
+			corePartialFile.write(corePartialibraryContent)
+			corePartialFile.close()
+
+			if (classes.Configuration.corePartials[partial] == True):
+				# Core partial is seasonal, generate season-mechanism-specific files
+				for season, librarySeasonFileHandle in libraryCorePartialFileHandles[partial].items():
+					librarySeasonFileHandle.close()
+					file = open(f"{classes.Configuration.osxFolder}/TEMP-{partial}-{season}.txt", "r")
+					seasonalLibraryContent[season] = file.read()
+					file.close()
+					os.remove(f"{classes.Configuration.osxFolder}/TEMP-{partial}-{season}.txt")
+
+				for seasonMechanism in classes.Configuration.seasonMechanisms:
+					seasonalFile = open(f"{classes.Configuration.osxFolder}/partials/extend_{partial}_seasonal_{seasonMechanism}.txt", "w")
+					seasonalFile.write(functions.getLibraryHeader(versionTag, False, "", f"Paths extending X-Plane for {partial}, seasonal support for {classes.Configuration.seasonMechanisms[seasonMechanism]}"))
+					seasonalFile.write(functions.getSeasonalLibraryContent(seasonMechanism, seasonalLibraryContent, partial))
+					seasonalFile.close()
+
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
