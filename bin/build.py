@@ -325,35 +325,11 @@ try:
 			os.remove(classes.Configuration.osxFolder + "/TEMP-season-" + season + ".txt")
 
 		# Season partials are built for each season mechanism from the seasonal flat lists
-		seasonalXPlaneFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xplane.txt", "w")
-		seasonalXPlaneFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for core X-Plane"))
-		seasonalXPlaneFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
-		seasonalXPlaneFile.close()
-
-		seasonalFourSeasonsFile = open(classes.Configuration.osxFolder + "/partials/seasonal_fourseasons.txt", "w")
-		seasonalFourSeasonsFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for Four Seasons plugin"))
-		seasonalFourSeasonsFile.write(functions.getSeasonalLibraryContent("fourseasons", seasonalLibraryContent))
-		seasonalFourSeasonsFile.close()
-
-		seasonalSAMFile = open(classes.Configuration.osxFolder + "/partials/seasonal_sam.txt", "w")
-		seasonalSAMFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for SAM plugin"))
-		seasonalSAMFile.write(functions.getSeasonalLibraryContent("sam", seasonalLibraryContent))
-		seasonalSAMFile.close()
-
-		seasonalTerraMaxxFile = open(classes.Configuration.osxFolder + "/partials/seasonal_terramaxx.txt", "w")
-		seasonalTerraMaxxFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for TerraMaxx plugin"))
-		seasonalTerraMaxxFile.write(functions.getSeasonalLibraryContent("terramaxx", seasonalLibraryContent))
-		seasonalTerraMaxxFile.close()
-
-		seasonalXAmbienceFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xambience.txt", "w")
-		seasonalXAmbienceFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xAmbience plugin"))
-		seasonalXAmbienceFile.write(functions.getSeasonalLibraryContent("xambience", seasonalLibraryContent))
-		seasonalXAmbienceFile.close()
-
-		seasonalXEnviroFile = open(classes.Configuration.osxFolder + "/partials/seasonal_xenviro.txt", "w")
-		seasonalXEnviroFile.write(functions.getLibraryHeader(versionTag, False, "", "Seasonal support for xEnviro plugin"))
-		seasonalXEnviroFile.write(functions.getSeasonalLibraryContent("xenviro", seasonalLibraryContent))
-		seasonalXEnviroFile.close()
+		for seasonMechanism in classes.Configuration.seasonMechanisms:
+			seasonalFile = open(classes.Configuration.osxFolder + f"/partials/seasonal_{seasonMechanism}.txt", "w")
+			seasonalFile.write(functions.getLibraryHeader(versionTag, False, "", f"Seasonal support for {classes.Configuration.seasonMechanisms[seasonMechanism]}"))
+			seasonalFile.write(functions.getSeasonalLibraryContent("xplane", seasonalLibraryContent))
+			seasonalFile.close()
 
 		# Append the deprecated paths to the library
 		file = open(classes.Configuration.osxFolder + "/TEMP-deprecated.txt", "r")
