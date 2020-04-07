@@ -337,7 +337,7 @@ try:
 
 		# Core partials, both seasonal and non-seasonal
 		for partial in classes.Configuration.corePartials:
-			# Always write the default core partial. For a seasonal core partial, this just contains items that don't have seasonal variants.
+			# Always write the default core partial. This contains all items - used for summer, including items that are non-seasonal.
 			libraryCorePartialFileHandles[partial]['default'].close()
 			file = open(f"{classes.Configuration.osxFolder}/TEMP-{partial}-default.txt", "r")
 			corePartialibraryContent = file.read()

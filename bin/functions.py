@@ -1759,10 +1759,10 @@ def getSeasonalLibraryContent(compatibility, content, regionPrefix):
 		result += "\n"
 
 
-	# Always end with an all-encompassing region for the main body of the library
-	result += "REGION_DEFINE all\n"
+	# End with an all-encompassing region for the main body of the library
+	result += f"REGION_DEFINE opensceneryx_{regionPrefix}_reset_all\n"
 	result += "REGION_RECT -180 -90 179 89\n"
-	result += "REGION all\n"
+	result += f"REGION opensceneryx_{regionPrefix}_reset_all\n"
 	result += "\n"
 
 	return result
