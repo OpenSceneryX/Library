@@ -357,30 +357,8 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Object is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.obj\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -544,30 +522,8 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Facade is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.fac\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -668,30 +624,8 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	# Forest is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.for\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -801,30 +735,8 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	# Line is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.lin\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
 
 
 
@@ -925,30 +837,9 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	# Polygon is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
-	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
-		for season in classes.Configuration.seasons:
-			if season in sceneryObject.seasonPaths:
-				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
-	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.pol\n")
-	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
-		if partial in libraryCorePartialFileHandles:
-			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-			else:
-				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
-		else:
-			displayMessage(f"Unknown core partial '{partial}' for {virtualPath}\n", "error")
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
+
 
 
 def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
@@ -993,6 +884,7 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 		textureFound = 0
 
 		# for line in objectFileContents:
+		# No decal content checking just yet
 
 
 	# Handle the info.txt file
@@ -1004,26 +896,52 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 	# Decal is valid, append it to the current category
 	currentCategory.addSceneryObject(sceneryObject)
 
-	# Write to the library.txt file
+	# Write to the library files
+	writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles)
+
+
+
+def writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles):
+	""" Write all the library paths """
+
+	# Main library and seasonal paths
 	for virtualPath in sceneryObject.virtualPaths:
-		libraryFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
+		libraryFileHandle.write(f"EXPORT opensceneryx/{virtualPath} {sceneryObject.getFilePath()}\n")
+		libraryPlaceholderFileHandle.write(f"EXPORT_BACKUP opensceneryx/{virtualPath} opensceneryx/placeholder.obj\n")
 		for season in classes.Configuration.seasons:
 			if season in sceneryObject.seasonPaths:
 				# We have a seasonal virtual path for this season
-				librarySeasonFileHandles[season].write("EXPORT_EXCLUDE opensceneryx/" + virtualPath + " " + sceneryObject.seasonPaths[season] + "\n")
+				librarySeasonFileHandles[season].write(f"EXPORT_EXCLUDE opensceneryx/{virtualPath} {sceneryObject.seasonPaths[season]}\n")
+
+	# Deprecated paths
 	for (virtualPath, virtualPathVersion) in sceneryObject.deprecatedVirtualPaths:
-		libraryDeprecatedFileHandle.write("# Deprecated v" + virtualPathVersion + "\n")
-		libraryDeprecatedFileHandle.write("EXPORT opensceneryx/" + virtualPath + " " + sceneryObject.getFilePath() + "\n")
-		libraryPlaceholderFileHandle.write("EXPORT_BACKUP opensceneryx/" + virtualPath + " opensceneryx/placeholder.dcl\n")
+		libraryDeprecatedFileHandle.write(f"# Deprecated v{virtualPathVersion}\n")
+		libraryDeprecatedFileHandle.write(f"EXPORT opensceneryx/{virtualPath} {sceneryObject.getFilePath()}\n")
+		libraryPlaceholderFileHandle.write(f"EXPORT_BACKUP opensceneryx/{virtualPath} opensceneryx/placeholder.obj\n")
+
+	# External third party paths
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write("EXPORT_BACKUP " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+		libraryExternalFileHandle.write(f"EXPORT_BACKUP {virtualPath} {sceneryObject.getFilePath()}\n")
+
+	# Core X-Plane override paths
 	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
 		if partial in libraryCorePartialFileHandles:
+			if (classes.Configuration.corePartials[partial] == True):
+				# Core partial is seasonal
+				for season in classes.Configuration.seasons:
+					if season in sceneryObject.seasonPaths:
+						# We have a seasonal virtual path for this season
+						if method == 'Extend':
+							libraryCorePartialFileHandles[partial][season].write(f"EXPORT_EXTEND {virtualPath} {sceneryObject.seasonPaths[season]}\n")
+						elif method == 'Export':
+							# Note use of EXPORT_EXCLUDE here, as it's a seasonal override
+							libraryCorePartialFileHandles[partial][season].write(f"EXPORT_EXCLUDE {virtualPath} {sceneryObject.seasonPaths[season]}\n")
+
+			# Always write to default core partial (seasonal core partials will override if they exist)
 			if method == 'Extend':
-				libraryCorePartialFileHandles[partial].write("EXPORT_EXTEND " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+				libraryCorePartialFileHandles[partial]['default'].write(f"EXPORT_EXTEND {virtualPath} {sceneryObject.getFilePath()}\n")
 			elif method == 'Export':
-				libraryCorePartialFileHandles[partial].write("EXPORT " + virtualPath + " " + sceneryObject.getFilePath() + "\n")
+				libraryCorePartialFileHandles[partial]['default'].write(f"EXPORT {virtualPath} {sceneryObject.getFilePath()}\n")
 			else:
 				displayMessage(f"Unknown export method '{method}' for {virtualPath}\n", "error")
 		else:
@@ -1587,7 +1505,7 @@ def getLibraryHeader(versionTag, includeStandard = True, type = "", comment = ""
 	return result
 
 
-def getSeasonalLibraryContent(compatibility, content):
+def getSeasonalLibraryContent(compatibility, content, regionPrefix):
 	result = ""
 
 	# Note there are no 'Summer' regions. This is because we consider the default objects in OpenScenery X to be
@@ -1596,59 +1514,59 @@ def getSeasonalLibraryContent(compatibility, content):
 	if compatibility == "xplane":
 		# For standard X-Plane, we do not use snow covered textures in winter as it is unlikely the ground textures
 		# will be snow covered unless the user has manually swapped them
-		result += "REGION_DEFINE opensceneryx_nh_spring\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_nh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 60\n"
 		result += "REGION_DREF sim/time/local_date_days <= 151\n"
-		result += "REGION opensceneryx_nh_spring\n"
+		result += f"REGION opensceneryx_{regionPrefix}_nh_spring\n"
 		result += "\n"
 		result += content["spring"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_nh_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_nh_autumn\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 244\n"
 		result += "REGION_DREF sim/time/local_date_days <= 334\n"
-		result += "REGION opensceneryx_nh_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_nh_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_nh_winter1\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_nh_winter1\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days > 334\n"
-		result += "REGION opensceneryx_nh_winter1\n"
+		result += f"REGION opensceneryx_{regionPrefix}_nh_winter1\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_nh_winter2\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_nh_winter2\n"
 		result += "REGION_BITMAP shared_textures/regions/northern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days < 60\n"
-		result += "REGION opensceneryx_nh_winter2\n"
+		result += f"REGION opensceneryx_{regionPrefix}_nh_winter2\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_sh_spring\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_sh_spring\n"
 		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 244\n"
 		result += "REGION_DREF sim/time/local_date_days <= 334\n"
-		result += "REGION opensceneryx_sh_spring\n"
+		result += f"REGION opensceneryx_{regionPrefix}_sh_spring\n"
 		result += "\n"
 		result += content["spring"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_sh_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_sh_autumn\n"
 		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 60\n"
 		result += "REGION_DREF sim/time/local_date_days <= 151\n"
-		result += "REGION opensceneryx_sh_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_sh_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_sh_winter\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_sh_winter\n"
 		result += "REGION_BITMAP shared_textures/regions/southern_hemisphere.png\n"
 		result += "REGION_DREF sim/time/local_date_days >= 152\n"
 		result += "REGION_DREF sim/time/local_date_days <= 243\n"
-		result += "REGION opensceneryx_sh_winter\n"
+		result += f"REGION opensceneryx_{regionPrefix}_sh_winter\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
@@ -1657,41 +1575,41 @@ def getSeasonalLibraryContent(compatibility, content):
 	elif compatibility == "fourseasons":
 		# Four Seasons has winter support for no snow, patchy snow, snow and deep snow. We don't have our own patchy
 		# snow, so just use no snow variant.
-		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 10\n"
-		result += "REGION opensceneryx_spring\n"
+		result += f"REGION opensceneryx_{regionPrefix}_spring\n"
 		result += "\n"
 		result += content["spring"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 30\n"
-		result += "REGION opensceneryx_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_no_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season >= 40\n" # No ground snow
 		result += "REGION_DREF nm/four_seasons/season <= 45\n" # Patchy ground snow
-		result += "REGION opensceneryx_winter_no_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_no_snow\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 50\n"
-		result += "REGION opensceneryx_winter_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_snow\n"
 		result += "\n"
 		result += content["winter_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_deep\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_deep\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF nm/four_seasons/season == 60\n"
-		result += "REGION opensceneryx_winter_deep\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_deep\n"
 		result += "\n"
 		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
 		result += content["winter_snow"] + "\n"       # Then standard snow variant
@@ -1700,52 +1618,52 @@ def getSeasonalLibraryContent(compatibility, content):
 
 	elif compatibility == "sam":
 		# SAM has winter support for winter (no snow), deep winter (slightly snowy), and snowytrees (snow).
-		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/spring == 1\n"
-		result += "REGION opensceneryx_spring\n"
+		result += f"REGION opensceneryx_{regionPrefix}_spring\n"
 		result += "\n"
 		result += content["spring"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/autumn == 1\n"
-		result += "REGION opensceneryx_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_no_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_no_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/winter == 1\n"
 		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
-		result += "REGION opensceneryx_winter_no_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_no_snow\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_deep_no_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_deep_no_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/deepwinter == 1\n"
 		result += "REGION_DREF sam/season/snowytrees == 0\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
-		result += "REGION opensceneryx_winter_deep_no_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_deep_no_snow\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/winter == 1\n"
 		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
-		result += "REGION opensceneryx_winter_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_snow\n"
 		result += "\n"
 		result += content["winter_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_deep_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_deep_snow\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF sam/season/deepwinter == 1\n"
 		result += "REGION_DREF sam/season/snowytrees == 1\n" # sam/season/snowytrees can be '1' for either sam/season/winter or sam/season/deepwinter
-		result += "REGION opensceneryx_winter_deep_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_deep_snow\n"
 		result += "\n"
 		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
 		result += content["winter_snow"] + "\n"       # Then standard snow variant
@@ -1755,25 +1673,25 @@ def getSeasonalLibraryContent(compatibility, content):
 	elif compatibility == "terramaxx":
 		# TerraMaxx always has snow covered winter textures, and has different snow and special blue-tinged deep
 		# snow modes.
-		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_autumn == 1\n"
-		result += "REGION opensceneryx_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_winter == 1\n"
-		result += "REGION opensceneryx_winter\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter\n"
 		result += "\n"
 		result += content["winter_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_deep\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_deep\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF maxxxp/seasonsxp/is_mid_winter == 1\n"
-		result += "REGION opensceneryx_winter_deep\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_deep\n"
 		result += "\n"
 		result += content["winter_terramaxx_deep_snow"] + "\n"  # Terramaxx deep snow variant first priority
 		result += content["winter_deep_snow"] + "\n"            # Then deep snow variant
@@ -1783,25 +1701,25 @@ def getSeasonalLibraryContent(compatibility, content):
 
 	elif compatibility == "xambience":
 		# xAmbience has snow covered winter textures, but no deep winter mode
-		result += "REGION_DEFINE opensceneryx_winter\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF xambience/custom/seasons/cur == 1\n"
-		result += "REGION opensceneryx_winter\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter\n"
 		result += "\n"
 		result += content["winter_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_spring\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_spring\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF xambience/custom/seasons/cur == 2\n"
-		result += "REGION opensceneryx_spring\n"
+		result += f"REGION opensceneryx_{regionPrefix}_spring\n"
 		result += "\n"
 		result += content["spring"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_autumn\n"
 		result += "REGION_RECT -180 -90 179 89\n"
 		result += "REGION_DREF xambience/custom/seasons/cur == 4\n"
-		result += "REGION opensceneryx_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
@@ -1811,29 +1729,29 @@ def getSeasonalLibraryContent(compatibility, content):
 		# dynamically generates seasonal PNG maps for summer, autumn, winter (no snow), winter (patchy snow) and
 		# winter (deep snow). We just use the coverage bitmap, no need for the dataref. We don't have our own patchy
 		# snow, so just use no snow variant.
-		result += "REGION_DEFINE opensceneryx_autumn\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_autumn\n"
 		result += "REGION_BITMAP ../../Resources/seasons/region_au.png\n" # Autumn coverage bitmap
-		result += "REGION opensceneryx_autumn\n"
+		result += f"REGION opensceneryx_{regionPrefix}_autumn\n"
 		result += "\n"
 		result += content["autumn"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_no_snow_1\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_no_snow_1\n"
 		result += "REGION_BITMAP ../../Resources/seasons/region_wi.png\n" # Snowless winter coverage bitmap
-		result += "REGION opensceneryx_winter_no_snow_1\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_no_snow_1\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_no_snow_2\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_no_snow_2\n"
 		result += "REGION_BITMAP ../../Resources/seasons/region_dw.png\n" # Low or patchy snow coverage bitmap
-		result += "REGION opensceneryx_winter_no_snow_2\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_no_snow_2\n"
 		result += "\n"
 		result += content["winter_no_snow"] + "\n"
 		result += content["winter"] + "\n"
 		result += "\n"
-		result += "REGION_DEFINE opensceneryx_winter_deep_snow\n"
+		result += f"REGION_DEFINE opensceneryx_{regionPrefix}_winter_deep_snow\n"
 		result += "REGION_BITMAP ../../Resources/seasons/region_hw.png\n" # Full deep snow coverage bitmap
-		result += "REGION opensceneryx_winter_deep_snow\n"
+		result += f"REGION opensceneryx_{regionPrefix}_winter_deep_snow\n"
 		result += "\n"
 		result += content["winter_deep_snow"] + "\n"  # Deep snow variant first priority
 		result += content["winter_snow"] + "\n"       # Then standard snow variant
@@ -1841,10 +1759,10 @@ def getSeasonalLibraryContent(compatibility, content):
 		result += "\n"
 
 
-	# Always end with an all-encompassing region for the main body of the library
-	result += "REGION_DEFINE all\n"
+	# End with an all-encompassing region for the main body of the library
+	result += f"REGION_DEFINE opensceneryx_{regionPrefix}_reset_all\n"
 	result += "REGION_RECT -180 -90 179 89\n"
-	result += "REGION all\n"
+	result += f"REGION opensceneryx_{regionPrefix}_reset_all\n"
 	result += "\n"
 
 	return result
