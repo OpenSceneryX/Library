@@ -1,6 +1,6 @@
 # Introduction
 
-We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub outstanding issues list for tasks which you could help with.
+We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub [outstanding issues list](/OpenSceneryX/Library/issues) for tasks which you could help with.
 
 # Copyright on Contributions
 
@@ -9,7 +9,7 @@ If you want to become a contributor, you must agree that your work can be distri
 1. Where you have converted an X-Plane aircraft into a static object, you must get permission from the original author of the aircraft.
 1. Where someone else owns the copyright for the original photograph that a texture is based on, then they must give permission.
 
-Note that the Creative Commons license protects against people copying objects out of the library and distributing them as part of their own work.  However, there are no restrictions on who can reference objects from the library – so for example OpenSceneryX can legally be used by payware authors, as the payware author is not distributing your work to the end user, we are.
+Note that the Creative Commons license protects against people copying objects out of the library and _distributing_ them as part of their own work.  However, there are no restrictions on who can _reference_ objects from the library – so for example OpenSceneryX can legally be used by payware authors, as the payware author is not distributing your work to the end user, we are.
 
 You must also agree not to get upset if your submission is declined – Now that the library has reached a decent size, we are getting stricter on quality control so don’t be upset if we have some suggestions for improvements before your stuff is added.
 
@@ -30,7 +30,7 @@ There are a few standards and checks that you should do before submitting, other
 1. Please put every item in its own folder. Put any textures the object uses in the same folder as the object… unless…
 1. If any textures are shared between multiple objects, please put the textures in their own folder.
 1. Locate your content somewhere you think sensible in the library. Get in touch if you don't know where the best place would be.
-1. Please include in the pull request a list of all third parties that own copyright on any part of your contribution. You can also supply some background information about the object too if you wish. If you want to be really helpful, there is a standard format that we use for these read-me files. In this standard format, the file is named info.txt. Click here for a template file and click here to see an example of a completed file.
+1. Please include in the pull request a list of all third parties that own copyright on any part of your contribution. You can also supply some background information about the object too if you wish. If you want to be really helpful, there is a standard format that we use for these read-me files. In this standard format, the file is named info.txt. [here is a template](https://www.opensceneryx.com/custom/uploads/2008/10/info_template.txt) and [here is an example of a completed file](https://www.opensceneryx.com/custom/uploads/2008/10/info_sample.txt).
 
 ## If you are contributing anything else (code, other improvements, working on an issue)
 
