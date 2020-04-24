@@ -32,6 +32,8 @@ except ImportError:
 	Image = None
 
 # Global regex patterns
+
+# info.txt patterns
 exportPattern = re.compile(r"Export:\s+(.*)")
 titlePattern = re.compile(r"Title:\s+(.*)")
 shortTitlePattern = re.compile(r"Short Title:\s+(.*)")
@@ -51,8 +53,9 @@ exportCorePattern = re.compile(r"Export Core\s+(.*)\s+(.*):\s+(.*)")
 logoPattern = re.compile(r"Logo:\s+(.*)")
 notePattern = re.compile(r"Note:\s+(.*)")
 sincePattern = re.compile(r"Since:\s+(.*)")
-# SAM patterns
 samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:\s+(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
+
+# SAM patterns
 samStaticAircraftAnimPattern = re.compile(r"ANIM_show\s+.*?\s+.*?\s+(.*)")
 
 # Texture patterns
@@ -1213,8 +1216,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		# Notes
 		result = notePattern.match(line)
 		if result:
-			websiteInfoFileContents += line + "\n"
-			sceneryObject.note = result.group(1)
+			sceneryObject.note = result.group(1) + "\n"
 			continue
 
 		# Since
@@ -1319,6 +1321,9 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 		if season in sceneryObject.seasonPaths:
 			# We have a seasonal virtual path for this season
 			websiteInfoFileContents += f"Season {season}: True\n"
+
+	# Handle any important notes
+	if sceneryObject.note: websiteInfoFileContents += "Note: " + markdown.markdown(sceneryObject.note.strip(), extensions=['tables', 'mdx_headdown'], extension_configs = {'mdx_headdown': {'offset': '2'}}) + "\n"
 
 	# We have reached the end, convert the description to HTML and append.
 	# The `mdx_headdown` extension demotes all headings by a given number
