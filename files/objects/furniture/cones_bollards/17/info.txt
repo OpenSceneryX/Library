@@ -1,0 +1,10 @@
+Title: Warning bollard, red and white
+=====================
+Author: jeandiz
+URL: https://www.blendswap.com/profile/903124
+Width: 0.3
+Depth: 0.6
+Height: 1.0
+Since: 4.5.0
+=====================
+Description: A vertical warning bollard, with a red and white striped panel.
