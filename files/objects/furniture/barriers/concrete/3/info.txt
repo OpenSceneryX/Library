@@ -1,0 +1,10 @@
+Title: Barrier, concrete, tall, 1m
+=====================
+Author: jeandiz
+URL: https://www.blendswap.com/profile/903124
+Width: 0.7
+Depth: 2.1
+Height: 1.0
+Since: 4.5.0
+=====================
+Description: A 1m tall concrete barrier.

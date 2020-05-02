@@ -1,4 +1,4 @@
-Title: Barrier, concrete
+Title: Barrier, concrete, low
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
@@ -9,4 +9,4 @@ Depth: 1.8
 Height: 0.1
 Since: 3.0.0
 =====================
-Description: A concrete barrier, used for example for separating parking areas.
+Description: A low concrete barrier, used for example for separating parking areas.
