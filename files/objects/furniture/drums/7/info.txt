@@ -1,0 +1,9 @@
+Title: Drum, rusty green
+=====================
+Author: Jorge Camacho
+URL: https://www.artstation.com/jorgeandrespinedac
+Width: 0.6
+Depth: 0.6
+Height: 0.9
+=====================
+Description: A rusty steel barrel painted green.
