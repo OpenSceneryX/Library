@@ -5,6 +5,7 @@ URL: http://forums.x-plane.org/index.php?showuser=2621
 Width: 1.4
 Depth: 1.3
 Height: 2.4
+Export Propagate: 2
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/oil_drums/1
 Export Deprecated v3.0.0: objects/furniture/oil_drums/1
 =====================

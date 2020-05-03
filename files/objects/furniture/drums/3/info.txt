@@ -6,5 +6,6 @@ Width: 0.9
 Depth: 0.6
 Height: 0.6
 Since: 3.0.0
+Export Propagate: 2
 =====================
 Description: A single steel fuel drum lying on its side.

@@ -1,9 +1,11 @@
-Title: Drum, rusty grey
+Title: Drum, steel, rusty grey
 =====================
 Author: Jorge Camacho
 URL: https://www.artstation.com/jorgeandrespinedac
 Width: 0.6
 Depth: 0.6
 Height: 0.9
+Export Propagate: 2
+Since: 4.5.0
 =====================
 Description: A rusty steel drum painted grey, standing upright.
