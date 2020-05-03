@@ -2,6 +2,8 @@ Title: Drum, plastic, blue
 =====================
 Author: Jorge Camacho
 URL: https://www.artstation.com/jorgeandrespinedac
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 0.6
 Depth: 0.6
 Height: 0.9
