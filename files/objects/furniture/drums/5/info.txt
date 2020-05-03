@@ -1,4 +1,4 @@
-Title: Drum, radiation warning
+Title: Drum, steel, radiation warning
 =====================
 Author: Jorge Camacho
 URL: https://www.artstation.com/jorgeandrespinedac
@@ -6,4 +6,4 @@ Width: 0.6
 Depth: 0.6
 Height: 0.9
 =====================
-Description: A steel barrel painted yellow with radiation risk warning labels.
+Description: A steel drum painted yellow with radiation risk warning labels, standing upright.

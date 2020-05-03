@@ -1,4 +1,4 @@
-Title: Drums, oil
+Title: Drums, steel, oil
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
@@ -8,4 +8,4 @@ Height: 2.4
 Export Deprecated v2.1.0: objects/furniture/miscellaneous/oil_drums/1
 Export Deprecated v3.0.0: objects/furniture/oil_drums/1
 =====================
-Description: A stack of four oil drums.
+Description: A stack of four steel oil drums standing upright.

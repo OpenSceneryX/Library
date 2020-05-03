@@ -1,4 +1,4 @@
-Title: Drum, explosive warning
+Title: Drum, steel, explosive warning
 =====================
 Author: Jorge Camacho
 URL: https://www.artstation.com/jorgeandrespinedac
@@ -6,4 +6,4 @@ Width: 0.6
 Depth: 0.6
 Height: 0.9
 =====================
-Description: A steel barrel painted red with explosion risk warning labels.
+Description: A steel drum painted red with explosion risk warning labels, standing upright.

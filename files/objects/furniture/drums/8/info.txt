@@ -6,4 +6,4 @@ Width: 0.6
 Depth: 0.6
 Height: 0.9
 =====================
-Description: A rusty steel barrel painted grey.
+Description: A rusty steel drum painted grey, standing upright.
