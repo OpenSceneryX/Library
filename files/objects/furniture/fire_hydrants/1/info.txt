@@ -1,0 +1,12 @@
+Title: Fire hydrant, US
+=====================
+Author: b82160
+URL: https://www.blendswap.com/profile/625453
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.5
+Height: 1.0
+Depth: 0.5
+Since: 4.5.0
+=====================
+Description: A red fire hydrant as found in the United States.
