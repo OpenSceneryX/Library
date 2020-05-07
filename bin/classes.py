@@ -130,6 +130,7 @@ class SceneryObject(object):
 		self.externalVirtualPaths = []
 		self.coreVirtualPaths = []
 		self.seasonPaths = {}
+		self.legacyPath = None
 
 		self.sceneryTextures = []
 

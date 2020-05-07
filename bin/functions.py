@@ -222,6 +222,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "object_" + season + ".obj"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -229,6 +230,14 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "object_legacy.obj"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the object file if it doesn't already exist
@@ -386,6 +395,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "facade_" + season + ".fac"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -393,6 +403,14 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "facade_legacy.fac"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the facade file if it doesn't already exist
@@ -551,6 +569,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "forest_" + season + ".for"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -558,6 +577,14 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "forest_legacy.for"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the forest file if it doesn't already exist
@@ -653,6 +680,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "line_" + season + ".lin"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -660,6 +688,14 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "line_legacy.lin"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the line file if it doesn't already exist
@@ -764,6 +800,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "polygon_" + season + ".pol"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -771,6 +808,14 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "polygon_legacy.pol"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the polygon file if it doesn't already exist
@@ -866,6 +911,7 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 	objectSourcePaths = []
 	objectSourcePaths.append((mainobjectSourcePath, filename))
 
+	# Add seasons to source paths
 	for season in classes.Configuration.seasons:
 		seasonFilename = "decal_" + season + ".dcl"
 		seasonSourcePath = os.path.join(dirpath, seasonFilename)
@@ -873,6 +919,14 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 			sceneryObject.seasonPaths[season] = sceneryObject.getFilePath(seasonFilename)
 			objectSourcePaths.append((seasonSourcePath, seasonFilename))
 			displayMessage("S")
+
+	# Add legacy to source paths
+	legacyFilename = "decal_legacy.dcl"
+	legacySourcePath = os.path.join(dirpath, legacyFilename)
+	if os.path.isfile(legacySourcePath):
+		sceneryObject.legacyPath = sceneryObject.getFilePath(legacyFilename)
+		objectSourcePaths.append((legacySourcePath, legacyFilename))
+		displayMessage("L")
 
 	for objectSourcePath, objectFilename in objectSourcePaths:
 		# Copy the decal file if it doesn't already exist
@@ -924,7 +978,10 @@ def writeVirtualPaths(sceneryObject, libraryFileHandle, libraryPlaceholderFileHa
 
 	# External third party paths
 	for (virtualPath, externalLibrary) in sceneryObject.externalVirtualPaths:
-		libraryExternalFileHandle.write(f"EXPORT_BACKUP {virtualPath} {sceneryObject.getFilePath()}\n")
+		if (sceneryObject.legacyPath):
+			libraryExternalFileHandle.write(f"EXPORT_BACKUP {virtualPath} {sceneryObject.legacyPath}\n")
+		else:
+			libraryExternalFileHandle.write(f"EXPORT_BACKUP {virtualPath} {sceneryObject.getFilePath()}\n")
 
 	# Core X-Plane override paths
 	for (virtualPath, method, partial) in sceneryObject.coreVirtualPaths:
