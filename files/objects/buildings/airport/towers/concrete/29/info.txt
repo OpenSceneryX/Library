@@ -1,0 +1,13 @@
+Title: Tower, concrete, green
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 14.1
+Depth: 27.7
+Height: 34.7
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS1_Offices_B_Tower/EBFS_TourControle
+Since: 5.0.0
+=====================
+Description: A 34m high four storey green concrete control tower.

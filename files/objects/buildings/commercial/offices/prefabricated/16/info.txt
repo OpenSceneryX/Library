@@ -1,0 +1,12 @@
+Title: Office, prefabricated, green, s-shaped
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 46.5
+Depth: 44.0
+Height: 3.9
+Since: 5.0.0
+=====================
+Description: A 46m x 44m green prefabricated single storey office building in an 'S' shape.
