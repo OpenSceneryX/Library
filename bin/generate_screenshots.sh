@@ -139,10 +139,10 @@ then
 
         echo "PNG: $SCREENSHOT_PNG"
         echo "JPEG: $SCREENSHOT_JPEG"
-        echo "URL: $SCREENSHOTURL?path=$URLBASE/$f"
+        echo "URL: $SCREENSHOTURL?path=$URLBASE$f"
 
         # Generate screenshot
-        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE/$f"
+        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE$f"
 
         # Convert to jpeg
         sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
