@@ -2,10 +2,11 @@ Title: Office, white cladded, 2 storey
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
-Width: 21.5
-Depth: 37.0
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 26.5
+Depth: 17.8
 Height: 10.1
-Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS1_Offices_B_Tower/EBFS1_Offices_B2
 Since: 5.0.0
 =====================
-Description: An 40m long two storey white cladded office building with a flat roof.
+Description: A 26m long two storey white cladded office building with a flat roof.
