@@ -1,0 +1,13 @@
+Title: Barrier, barbed wire
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 1.0
+Depth: 2.5
+Height: 1.0
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_Barbed_Wire/BarbedWire
+Since: 5.0.0
+=====================
+Description: A 2.5m long barbed wire barrier.
