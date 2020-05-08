@@ -1,0 +1,11 @@
+Title: Office, stucco, grey/blue roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Width: 45.1
+Depth: 25.9
+Height: 5.5
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS_SecretivePlace/EBFS_SecretivePlace
+Since: 5.0.0
+=====================
+Description: A single storey stucco office building with a blue and grey roof.

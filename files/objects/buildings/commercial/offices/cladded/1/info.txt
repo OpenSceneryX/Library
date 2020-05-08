@@ -1,0 +1,11 @@
+Title: Office, white cladded, 3 storey
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Width: 62.4
+Depth: 54.7
+Height: 15.2
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS1_Offices_B_Tower/EBFS1_Offices_B1
+Since: 5.0.0
+=====================
+Description: A 60m long three storey white cladded office building with a flat roof.
