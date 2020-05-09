@@ -1,0 +1,13 @@
+Title: Barrier, concrete blast, 6m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 1.8
+Depth: 5.9
+Height: 2.4
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_concrete_Blast/NAPS_EBFS_Blast2
+Since: 5.0.0
+=====================
+Description: A 6m long concrete blast barrier.
