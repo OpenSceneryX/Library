@@ -1,9 +1,0 @@
-Title: Barrier, metal, long
-=====================
-Author: Dwight Gardam
-URL: http://forums.x-plane.org/index.php?showuser=2621
-Width: 0.0
-Height: 0.6
-Depth: 17.5
-=====================
-Description: A long metal barrier.

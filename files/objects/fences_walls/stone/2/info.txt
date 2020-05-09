@@ -1,0 +1,13 @@
+Title: Wall, stone, dark, 17.5 x 2m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.8
+Depth: 17.5
+Height: 2.0
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_StoneWallDark/StoneWall2
+Since: 5.0.0
+=====================
+Description: A 17.5m long, 2m high, dark grey stone wall.

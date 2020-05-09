@@ -1,0 +1,13 @@
+Title: Wall, stone, dark, 10m x 1m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 10.3
+Depth: 0.6
+Height: 1.2
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_PHKO_Walls/PHKO_Wall
+Since: 5.0.0
+=====================
+Description: A 10m long, 1m high, dark grey stone wall.

@@ -1,0 +1,13 @@
+Title: Wall, stone, light, 10 x 1.5m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.2
+Depth: 10.0
+Height: 1.5
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_StoneWallLight/StoneWall
+Since: 5.0.0
+=====================
+Description: A 10m long, 1.5m high, light stone wall.

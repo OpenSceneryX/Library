@@ -1,0 +1,13 @@
+Title: Wall, stone, dark, 17.5 x 3.3m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.8
+Depth: 17.5
+Height: 3.3
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_StoneWallDark/StoneWall3
+Since: 5.0.0
+=====================
+Description: A 17.5m long, 3.3m high, dark grey stone wall.

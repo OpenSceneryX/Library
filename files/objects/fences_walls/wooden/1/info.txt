@@ -1,0 +1,10 @@
+Title: Barrier, wooden, 4m
+=====================
+Author: Dwight Gardam
+URL: http://forums.x-plane.org/index.php?showuser=2621
+Width: 0.2
+Depth: 4.0
+Height: 0.6
+Export Deprecated v5.0.0: objects/furniture/barriers/wooden/1
+=====================
+Description: A low permanent wooden barrier.

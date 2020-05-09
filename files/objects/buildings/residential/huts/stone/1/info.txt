@@ -1,0 +1,13 @@
+Title: Hut, stone, no roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 6.1
+Depth: 6.1
+Height: 4.0
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_StoneWallDark/StoneWall2Cube
+Since: 5.0.0
+=====================
+Description: A 6m square dark grey stone hut with no doors or roof.
