@@ -1,0 +1,13 @@
+Title: Barrier, metal crash, 25m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.4
+Depth: 25.5
+Height: 1.1
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_Crash_Barrier/NAPSrail
+Since: 5.0.0
+=====================
+Description: A 25m long metal crash barrier.

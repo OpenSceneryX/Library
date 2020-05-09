@@ -1,4 +1,4 @@
-Title: Barrier, metal, portable
+Title: Barrier, metal, portable, 1
 =====================
 Author: Luke173
 URL: http://forums.x-plane.org/index.php?showuser=7280
@@ -7,4 +7,4 @@ Width: 0.2
 Depth: 1.4
 Export Deprecated v1.8.5: objects/furniture/barriers/portable
 =====================
-Description: A portable, self-supporting barrier, typically used to hold back crowds.
+Description: A portable, self-supporting barrier, typically used to hold back crowds, variant 1.
