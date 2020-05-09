@@ -1,0 +1,13 @@
+Title: Barrier, Concrete, Red and White, 10m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 10.0
+Depth: 0.9
+Height: 1.1
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_Red_White_Barrier/NAPS_R&W_barrier
+Since: 5.0.0
+=====================
+Description: A rd and white concrete crash barrier, 10m long.
