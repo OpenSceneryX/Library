@@ -3,7 +3,6 @@ I
 OBJ
 
 TEXTURE		R&Wbarrier.png
-TEXTURE_LIT	R&Wbarrier_LIT.png
 POINT_COUNTS	194 0 0 324
 
 VT	  -0.0042    0.3694   -2.4995	-1.000  0.000 -0.000	 0.7500  0.9286
