@@ -1,0 +1,15 @@
+Title: Cessna 172 SP, Goodwood
+=====================
+Author: Curt Boyll
+URL: http://forums.x-plane.org/index.php?showuser=1218
+Author, conversion: Planebuilder
+URL, conversion: http://forums.x-plane.org/index.php?showuser=2250
+Author, texture: jbnemo
+URL, texture: https://forums.x-plane.org/index.php?/profile/820353-jbnemo/
+Export Propagate: 1
+Export Core Extend static_aircraft: lib/airport/aircraft/general_aviation/prop_a
+Width: 11.1
+Height: 2.5
+Depth: 8.6
+=====================
+Description: A Cessna 172 SP in Goodwood livery with G-LOOC tail number.
