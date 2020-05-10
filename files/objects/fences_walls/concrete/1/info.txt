@@ -1,4 +1,4 @@
-Title: Barrier, concrete, spill
+Title: Wall, concrete, square
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
@@ -7,6 +7,7 @@ URL, texture: https://www.textures.com
 Width: 6.0
 Depth: 6.0
 Height: 1.0
+Export Deprecated v5.0.0: objects/furniture/barriers/concrete/2
 Since: 3.0.0
 =====================
-Description: A square concrete spill barrier.
+Description: A square concrete wall, typically used as a spill barrier.
