@@ -1,0 +1,7 @@
+Title: Fence, concrete, open
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_Concrete_Fence/PHNLconcretefence
+=====================
+Description: A concrete fence, using an open facade so a gap will be present between the last node and the first.

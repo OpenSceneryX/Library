@@ -1,0 +1,8 @@
+Title: Fence, concrete, closed
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+=====================
+Description: A concrete fence, using a closed facade so there are no gaps in the ring.

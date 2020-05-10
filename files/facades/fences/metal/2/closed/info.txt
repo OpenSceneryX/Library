@@ -1,0 +1,8 @@
+Title: Fence, iron, closed, variant 2
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+=====================
+Description: An iron fence, variant 2, using a closed facade so there are no gaps in the ring.
