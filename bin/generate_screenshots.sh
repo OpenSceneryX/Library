@@ -116,7 +116,7 @@ then
     echo "Automatic screenshots, threejs"
     echo "------------------------------"
 
-    find . -type f \( -iname \*.fac -o -iname \*.for -o -iname \*.lin -o -iname \*.obj -o -iname \*.pol \)|while read f
+    find . -type f \( ! -iname *_legacy.* -and \( -iname \*.fac -o -iname \*.for -o -iname \*.lin -o -iname \*.obj -o -iname \*.pol \) \)|while read f
     do
         DIR=$(dirname "$f")
         FILE=$(basename "$f")
