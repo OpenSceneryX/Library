@@ -1,0 +1,13 @@
+Title: Fence, PVC, 18.4m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.1
+Depth: 18.4
+Height: 1.9
+Export External NAPS_Library: NAPS_library/NAPS_WALLS_BARRIERS_FENCES/NAPS_Vinyl_Fences/NAPS_Vinyl_Fence8
+Since: 5.0.0
+=====================
+Description: An 18.4m long, 2m high PVC fence. Eight panels.
