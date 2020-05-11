@@ -1,0 +1,13 @@
+Title: Office, concrete, two storey, 66m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 18.1
+Depth: 66.2
+Height: 10.4
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS2_Offices_B/EBFS2_Offices_B4c
+Since: 5.0.0
+=====================
+Description: A 66m long two storey concrete office building with a flat roof.

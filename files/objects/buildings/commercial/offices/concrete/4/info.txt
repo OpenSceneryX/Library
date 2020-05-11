@@ -1,0 +1,13 @@
+Title: Office, concrete, single storey, 16m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 16.2
+Depth: 16.2
+Height: 6.7
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS2_Offices_B/EBFS2_Offices_B3a
+Since: 5.0.0
+=====================
+Description: A 16m long single storey concrete office building with a flat roof.

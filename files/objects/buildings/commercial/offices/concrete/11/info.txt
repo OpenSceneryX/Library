@@ -1,0 +1,12 @@
+Title: Office, concrete, two storey, 57m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 15.4
+Depth: 57.8
+Height: 10.8
+Since: 5.0.0
+=====================
+Description: A 57m long two storey concrete office building with a flat roof.
