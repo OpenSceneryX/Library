@@ -1,0 +1,13 @@
+Title: Office, concrete, single storey, 49m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 25.7
+Depth: 48.9
+Height: 5.9
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS3_C_Buildings/EBFS_C5_Offices
+=====================
+Description: A 49m long single storey concrete office building with a flat roof.

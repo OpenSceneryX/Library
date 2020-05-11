@@ -6,5 +6,6 @@ Email: nward@sasktel.net
 Width: 19.2
 Depth: 20.3
 Height: 7.5
+Export Deprecated v5.0.0: objects/buildings/airport/hangars/concrete
 =====================
 Description: A small old brown hangar, with windows & and office at the back.
