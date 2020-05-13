@@ -1,0 +1,12 @@
+Title: Office, brick, two storey, 45m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 41.6
+Depth: 45.5
+Height: 10.0
+Since: 5.0.0
+=====================
+Description: A 45m long two storey brick office building with a flat roof and central courtyard.

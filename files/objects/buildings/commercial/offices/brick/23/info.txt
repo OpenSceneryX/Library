@@ -1,0 +1,13 @@
+Title: Office, brick, three storey, 39m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 36.8
+Depth: 38.8
+Height: 12.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS8_Offices_E/NAPS_EBFS8_Offices_E6
+=====================
+Description: A 39m long three storey brick office building with a flat roof.
