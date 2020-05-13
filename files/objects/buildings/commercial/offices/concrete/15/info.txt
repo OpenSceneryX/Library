@@ -1,0 +1,13 @@
+Title: Office, concrete, two storey, 58m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 57.9
+Depth: 31.0
+Height: 12.2
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS6_Offices_Attics/EBFS6_AtticsA
+=====================
+Description: A 58m long two storey concrete office building with a pitched roof.

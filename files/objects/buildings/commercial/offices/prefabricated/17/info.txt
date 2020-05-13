@@ -1,0 +1,13 @@
+Title: Office, prefabricated, Portakabin®, 6.5m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 6.5
+Depth: 8.3
+Height: 4.5
+Export External RE_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS6_Offices_Attics/EBFS6_Temporary3
+Since: 5.0.0
+=====================
+Description: A small grey Portakabin® office.
