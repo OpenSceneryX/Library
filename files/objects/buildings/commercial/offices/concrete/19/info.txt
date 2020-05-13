@@ -1,0 +1,13 @@
+Title: Office, concrete, three storey, 80m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 75.0
+Depth: 79.9
+Height: 16.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS7_Offices_Arcades/EBFS7_Offices_D3
+=====================
+Description: A 80m long three storey L-shaped concrete office building with a flat roof.

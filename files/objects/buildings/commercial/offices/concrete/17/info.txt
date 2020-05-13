@@ -1,0 +1,13 @@
+Title: Office, concrete, three storey, 47m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 46.9
+Depth: 45.5
+Height: 14.3
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS7_Offices_Arcades/EBFS7_Offices_D1
+=====================
+Description: A 47m long three storey concrete office building on two levels with a flat roof.
