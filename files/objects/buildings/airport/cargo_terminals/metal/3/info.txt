@@ -1,0 +1,13 @@
+Title: Cargo terminal, metal, flat roof, TNT®
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 109.2
+Depth: 463.9
+Height: 10.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBLG_Buildings/EBLG_TNT
+=====================
+Description: A 464m long cargo terminal with TNT® branding.

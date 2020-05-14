@@ -1,0 +1,13 @@
+Title: Office, glass, 63m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 33.5
+Depth: 63.0
+Height: 20.1
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBLG_Buildings/EBLG_TNT_Airways_Office101
+=====================
+Description: A 63m long, predominantly glass fronted TNT® office building.

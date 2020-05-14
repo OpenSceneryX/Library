@@ -1,0 +1,13 @@
+Title: Terminal, concrete, two storey, 45m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 29.9
+Depth: 44.9
+Height: 13.8
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBLG_Buildings/EBLG_Douanes
+=====================
+Description: A 45m long two storey concrete airport terminal building with a pitched roof.
