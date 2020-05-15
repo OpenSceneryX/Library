@@ -10,4 +10,4 @@ Height: 22.5
 Since: 5.0.0
 Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBLG_Buildings/EBLG_Park_Inn_Hotel
 =====================
-Description: A 54m long, Park Inn hotel complex with grey and black concrete and glass walls.
+Description: A 54m long, Park Inn® hotel complex with grey and black concrete and glass walls.

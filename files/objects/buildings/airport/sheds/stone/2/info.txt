@@ -1,0 +1,13 @@
+Title: Shed, stone, dark roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 8.2
+Depth: 14.3
+Height: 4.8
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KBKV_Meteo/KBKVmeteodark
+=====================
+Description: A 14m long stone shed with a dark pitched roof.

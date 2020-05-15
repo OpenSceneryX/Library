@@ -1,4 +1,4 @@
-Title: Multi-storey Car Park
+Title: Car Park, Multi-storey, 4 floors
 =====================
 Author: Jeff Mueller
 URL: http://forums.x-plane.org/index.php?showuser=92790
@@ -7,4 +7,4 @@ Width: 228.9
 Depth: 241.2
 Height: 18.4
 =====================
-Description: A large, quarter-circular multi-storey car park.
+Description: A large, quarter-circular multi-storey car park with four floors.

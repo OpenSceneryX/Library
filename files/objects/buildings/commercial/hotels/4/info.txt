@@ -1,0 +1,13 @@
+Title: Hotel, Renaissance®
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 102.8
+Depth: 38.0
+Height: 32.8
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KATL_Renaissance_Hotel/KATL_Renaissance_Hotel
+=====================
+Description: A 103m long, Renaissance® hotel complex with stepped frontage.
