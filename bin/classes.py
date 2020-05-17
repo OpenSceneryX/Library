@@ -204,6 +204,7 @@ class Object(SceneryObject):
 		self.height = ""
 		self.width = ""
 		self.depth = ""
+		self.tris = None
 		self.animated = False
 		self.lods = []
 		self.lightsCustom = False
