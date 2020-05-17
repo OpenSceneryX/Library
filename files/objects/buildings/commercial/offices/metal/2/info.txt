@@ -1,0 +1,13 @@
+Title: Offices, metal, 66m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 66.2
+Depth: 51.7
+Height: 3.9
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KIAH_Wright_Offices/Wright2
+=====================
+Description: A 66m long metal T-shaped single storey office block.
