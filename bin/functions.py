@@ -55,9 +55,10 @@ notePattern = re.compile(r"Note:\s+(.*)")
 sincePattern = re.compile(r"Since:\s+(.*)")
 samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:\s+(.*)\s+(.*)\s+(.*)\s+(.*)\s+(.*)") # doorID, x, y, z, psi
 
+# Content Patterns
+
 # SAM patterns
 samStaticAircraftAnimPattern = re.compile(r"ANIM_show\s+.*?\s+.*?\s+(.*)")
-
 # Texture patterns
 v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
 v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
@@ -66,6 +67,7 @@ v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\
 #normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
+pointCountsPattern = re.compile(r"(?:POINT_COUNTS)\s+(.*?)\s+.*")
 attrLodPattern = re.compile(r"(?:ATTR_LOD)\s+(.*?)\s+(.*)")
 lightCustomPattern = re.compile(r"LIGHT_CUSTOM")
 lightNamedPattern = re.compile(r"LIGHT_NAMED")
@@ -110,7 +112,7 @@ basementDepthPattern = re.compile(r"(?:BASEMENT_DEPTH)\s+(.*)")
 layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
 # Polygon, Line and type 1 Facade patterns
 scalePattern = re.compile(r"(?:SCALE)\s+(.*?)\s+(.*)")
-# Forest patterns
+
 # WED-specific patterns
 wedRotationLockPattern = re.compile(r"#fixed_heading\s+(.*)")
 
@@ -291,6 +293,12 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 				if not newLOD in sceneryObject.lods:
 					sceneryObject.lods.append(newLOD)
 				continue
+
+			if not sceneryObject.tris:
+				result = pointCountsPattern.match(line)
+				if result:
+					sceneryObject.tris = result.group(1)
+					continue
 
 			if not sceneryObject.lightsCustom:
 				result = lightCustomPattern.match(line)
@@ -1311,6 +1319,7 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 
 	# Object-specific auto-generated data
 	if isinstance(sceneryObject, classes.Object):
+		if sceneryObject.tris: websiteInfoFileContents += f"Tris: {sceneryObject.tris}\n"
 		if sceneryObject.animated: websiteInfoFileContents += f"Animated: True\n"
 		for lod in sceneryObject.lods:
 			websiteInfoFileContents += f"LOD: {lod['min']:.1f} {lod['max']:.1f}\n"
