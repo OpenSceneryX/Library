@@ -1,0 +1,13 @@
+Title: Hotel, Marriott®, doughnut
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 96.3
+Depth: 106.3
+Height: 34.9
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KIAH_Marriott/CircleMarriott
+=====================
+Description: A large doughnut-shaped Marriott® hotel with raised circular central structure.

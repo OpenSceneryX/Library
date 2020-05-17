@@ -1,0 +1,13 @@
+Title: Sign, Marriott®
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 4.9
+Depth: 0.4
+Height: 1.1
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KIAH_Marriott/MarriottSign
+=====================
+Description: An illuminated block sign for a Marriott Hotel.
