@@ -8678,4 +8678,10 @@ ATTR_poly_os	0
 ####_no_alpha
 TRIS	6 21051
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/a320/3/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.49. Exported with XPlane2Blender 3.09.

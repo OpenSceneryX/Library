@@ -1,4 +1,4 @@
-Title: Jetty, wooden
+Title: Jetty, wooden, 24m
 =====================
 Author: Barry Roberts
 URL: http://forums.x-plane.org/index.php?showuser=3376
@@ -7,4 +7,4 @@ Width: 5.6
 Depth: 24.4
 Height: 3.5
 =====================
-Description: A wooden jetty on pilings with safety barriers.
+Description: A 24m long wooden jetty on pilings with safety barriers.

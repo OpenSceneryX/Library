@@ -4,3 +4,5 @@ Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 =====================
 Description: A concrete surface.
+
+To smooth the transition of this surface to other surfaces, after placing the polygon place [concrete border lines](/lines/surface_borders/concrete/) along the edge, using the same coordinates as the polygon.

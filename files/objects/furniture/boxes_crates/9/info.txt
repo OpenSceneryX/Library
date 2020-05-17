@@ -1,0 +1,13 @@
+Title: Crate, wooden, weapons
+=====================
+Author: Duion
+URL: https://www.blendswap.com/profile/99735
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 1.3
+Height: 0.6
+Depth: 0.7
+Export Propagate: 2
+Since: 4.5.0
+=====================
+Description: A green weathered wooden weapons crate.

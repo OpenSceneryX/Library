@@ -13,5 +13,7 @@ Export Core Extend static_aircraft: lib/airport/aircraft/airliners/heavy_d
 Width: 50.5
 Depth: 61.7
 Height: 16.7
+SAM Static Aircraft: opensceneryx/b767-400/1/door/1 -2.331 4.266 5.152 10
+SAM Static Aircraft: opensceneryx/b767-400/1/door/2 -2.512 4.598 18.638 0
 =====================
 Description: A Boeing 767-400 in Delta livery.

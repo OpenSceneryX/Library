@@ -1,4 +1,4 @@
-Title: Drums, fuel
+Title: Drums, steel, fuel, stacked
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
@@ -6,5 +6,6 @@ Width: 3.1
 Depth: 0.9
 Height: 1.1
 Since: 3.0.0
+Export Propagate: 2
 =====================
-Description: A group of stacked fuel drums on their sides.
+Description: A group of stacked steel fuel drums on their sides.

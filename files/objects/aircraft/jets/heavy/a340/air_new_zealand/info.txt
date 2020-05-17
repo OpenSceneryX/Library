@@ -9,5 +9,7 @@ Export: objects/aircraft/livery/air_new_zealand/a340
 Width: 61.1
 Height: 17.0
 Depth: 64.0
+SAM Static Aircraft: opensceneryx/a340/1/door/1 -2.579 4.395 5.490 5
+SAM Static Aircraft: opensceneryx/a340/1/door/2 -2.861 4.654 4.819 0
 =====================
 Description: An Airbus 340 in Air New Zealand livery.

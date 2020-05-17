@@ -1,7 +1,7 @@
-Title: Chain fence, open
+Title: Chain fence, open, variant 1
 =====================
 Author: Jonathan Harris
 URL: http://marginal.org.uk/x-planescenery
 Email: x-plane@marginal.org.uk
 =====================
-Description: A chain-link fence using an open facade so a gap will be present between the last node and the first.
+Description: A chain-link fence, variant 1, using an open facade so a gap will be present between the last node and the first.

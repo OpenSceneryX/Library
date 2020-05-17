@@ -11,5 +11,6 @@ Export: objects/aircraft/livery/northwest/a320
 Width: 32.9
 Height: 12.3
 Depth: 37.5
+SAM Static Aircraft: opensceneryx/a320/5/door/1 -1.913 2.613 4.149 3
 =====================
 Description: An Airbus 320 in Northwest Airlines livery.

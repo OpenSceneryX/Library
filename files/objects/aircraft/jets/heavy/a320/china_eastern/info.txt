@@ -11,5 +11,6 @@ Export Core Extend static_aircraft: lib/airport/aircraft/airliners/jet_c
 Width: 34.3
 Height: 11.7
 Depth: 37.6
+SAM Static Aircraft: opensceneryx/a320/2/door/1 -1.773 3.283 6.364 0
 =====================
 Description: An Airbus 320 in China Eastern livery.

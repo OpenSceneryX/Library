@@ -1,0 +1,12 @@
+Title: Ancient column, Ionic, 11m
+=====================
+Author: wildartworks
+URL: https://www.blendswap.com/profile/526858
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Depth: 1.5
+Height: 10.6
+Width: 2.1
+Since: 4.5.0
+=====================
+Description: Ancient Ionic column, 11m high.

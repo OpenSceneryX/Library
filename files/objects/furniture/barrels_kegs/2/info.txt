@@ -1,0 +1,12 @@
+Title: Barrel, wooden, variant 1
+=====================
+Author: Duion
+URL: https://www.blendswap.com/profile/99735
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.6
+Depth: 0.6
+Height: 0.8
+Since: 4.5.0
+=====================
+Description: A wooden barrel, variant 1.

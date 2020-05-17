@@ -3,4 +3,6 @@ Title: Concrete border
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 =====================
-Description: Rough concrete edge useful for making boundaries between concrete and other surfaces look more natural. 
+Description: Rough concrete edge useful for making boundaries between concrete and other surfaces look more natural.
+
+To use this border, place a polygon using the [concrete surface](/polygons/surfaces/concrete/), then place a line using the same coordinates as the edge of this surface.

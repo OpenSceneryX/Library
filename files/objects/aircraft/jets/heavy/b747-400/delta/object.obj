@@ -3673,4 +3673,11 @@ ATTR_poly_os	0
 TRIS	8712 108
 LIGHTS	6 3
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/b747-400/3/door/1
+ANIM_show 2.000000 2.000000 opensceneryx/b747-400/3/door/2
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.45. Exported with XPlane2Blender 3.07.

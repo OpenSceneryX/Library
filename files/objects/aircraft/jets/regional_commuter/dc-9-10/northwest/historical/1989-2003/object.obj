@@ -9969,3 +9969,9 @@ IDX 7759
 IDX 7761
 ATTR_no_cull
 TRIS 0 21936
+
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/dc-9-10/1/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end

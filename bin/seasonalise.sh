@@ -14,7 +14,7 @@ handle_textures () {
     sed -i '' -E -e "s~TEXTURE[[:space:]]+(.*\/|[[:space:]])([A-Za-z0-9_]+\.[A-Za-z]{3})~TEXTURE \1$SEASON/\2~" $FILEPATH/$NEWFILE
 }
 
-if [ -z SEASON ]
+if [ -z $SEASON ]
 then
     echo "Usage: seasonalise [season] path"
     exit

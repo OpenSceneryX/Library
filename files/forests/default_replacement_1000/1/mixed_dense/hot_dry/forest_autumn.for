@@ -3,13 +3,14 @@ A
 FOREST
 
 TEXTURE ../../../../../shared_textures/flyagi/autumn/Forests_01.png
+NO_SHADOW
 
 LOD 15000.000000
 
 SCALE_X 4096
 SCALE_Y 4096
 
-SPACING 15.00 15.00
+SPACING 10.00 10.00
 RANDOM 6.00 6.00
 
 #	low-left	tex size	center	percent	--height--

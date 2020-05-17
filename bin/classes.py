@@ -41,8 +41,9 @@ class Configuration(object):
 		self.supportFolder = "support"
 		self.buildPDF = (buildPDF == "Y" or buildPDF == "y")
 		if (self.buildPDF): self.developerPDF = OpenSceneryXPDF("P", "mm", "A4", "OpenSceneryX Developer Reference", self.versionNumber)
-		self.seasons = ['spring', 'autumn', 'autumn_sam', 'winter', 'winter_no_snow', 'winter_sam_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
-		self.corePartials = ['static_aircraft', 'forests']
+		self.seasons = ['spring', 'autumn', 'winter', 'winter_no_snow', 'winter_snow', 'winter_deep_snow', 'winter_terramaxx_deep_snow']
+		self.seasonMechanisms = {'xplane': 'core X-Plane', 'fourseasons': 'Four Seasons plugin', 'sam': 'SAM plugin', 'terramaxx': 'TerraMaxx plugin', 'xambience': 'xAmbience plugin', 'xenviro': 'xEnviro plugin'}
+		self.corePartials = {'static_aircraft': False, 'forests': True} # If True, generate seasonal variants for the core partial
 
 	def makeFolders(self):
 		""" Create any folders that need creating """
@@ -129,11 +130,13 @@ class SceneryObject(object):
 		self.externalVirtualPaths = []
 		self.coreVirtualPaths = []
 		self.seasonPaths = {}
+		self.legacyPath = None
 
 		self.sceneryTextures = []
 
 		self.exportPropagate = -1
 
+		self.samStaticAircraftAnimIDs = []
 
 	def getFilePath(self, fileName = None):
 		""" Get the full file path to this SceneryObject, can override filename to get e.g. seasonal variants """
@@ -201,6 +204,7 @@ class Object(SceneryObject):
 		self.height = ""
 		self.width = ""
 		self.depth = ""
+		self.tris = None
 		self.animated = False
 		self.lods = []
 		self.lightsCustom = False

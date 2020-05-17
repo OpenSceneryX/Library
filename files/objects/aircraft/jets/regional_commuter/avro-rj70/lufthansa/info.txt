@@ -7,5 +7,6 @@ Export: objects/aircraft/livery/lufthansa/avro-rj70
 Width: 27.5
 Height: 8.9
 Depth: 28.5
+SAM Static Aircraft: opensceneryx/avro-rj70/1/door/1 -1.617 1.856 6.726 5
 =====================
 Description: A BAE Avro RJ70 in Lufthansa livery.

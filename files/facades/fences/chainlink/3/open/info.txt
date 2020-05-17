@@ -1,6 +1,6 @@
-Title: Chain fence, open
+Title: Chain fence, open, variant 3
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 =====================
-Description:  A chain-link fence using an open facade so a gap will be present between the last node and the first.
+Description:  A chain-link fence, variant 3, using an open facade so a gap will be present between the last node and the first.

@@ -3225,4 +3225,10 @@ ATTR_diffuse_rgb	 0.800  0.800  0.800
 ATTR_shiny_rat	 0.500
 TRIS	9018 36
 
+# for SAM jetway connection
+ANIM_begin
+ANIM_show 2.000000 2.000000 opensceneryx/b737-300/1/door/1
+LIGHT_NAMED ship_nav_tail 0.000000 -2.386078 0.000000
+ANIM_end
+
 # Built with Blender 2.49. Exported with XPlane2Blender 3.09.

@@ -1,0 +1,13 @@
+Title: Boxes, cardboard, ready-to-eat meals
+=====================
+Author: SaphireSystrine
+URL: https://www.blendswap.com/profile/914249
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 3.7
+Height: 1.5
+Depth: 2.0
+Export Propagate: 2
+Since: 4.5.0
+=====================
+Description: A set of four boxes of military ready-to-eat meals.

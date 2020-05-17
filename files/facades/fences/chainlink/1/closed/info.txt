@@ -1,4 +1,4 @@
-Title: Chain fence, closed
+Title: Chain fence, closed, variant 1
 =====================
 Author: Jonathan Harris
 URL: http://marginal.org.uk/x-planescenery
@@ -6,4 +6,4 @@ Email: x-plane@marginal.org.uk
 Export Deprecated v1.6.0: facades/fences/chainfence
 Export Deprecated v1.6.0: facades/fences/chainfence_small
 =====================
-Description: A chain-link fence using a closed facade so there are no gaps in the ring.
+Description: A chain-link fence, variant 1, using a closed facade so there are no gaps in the ring.

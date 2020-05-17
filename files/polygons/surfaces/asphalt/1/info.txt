@@ -5,3 +5,5 @@ URL: http://forums.x-plane.org/index.php?showuser=146200
 Export Deprecated v4.0.0: polygons/surfaces/asphalt
 =====================
 Description: An asphalt surface, with no transparency.
+
+To smooth the transition of this surface to other surfaces, after placing the polygon place [asphalt border lines](/lines/surface_borders/asphalt/) along the edge, using the same coordinates as the polygon.

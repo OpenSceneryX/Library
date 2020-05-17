@@ -10,5 +10,6 @@ Export: objects/aircraft/livery/air_canada/b767-300ER
 Width: 47.3
 Height: 16.1
 Depth: 55.0
+SAM Static Aircraft: opensceneryx/b767-300er/1/door/1 -2.075 3.870 4.912 5
 =====================
 Description: A Boeing 767-300ER in Air Canada Livery.

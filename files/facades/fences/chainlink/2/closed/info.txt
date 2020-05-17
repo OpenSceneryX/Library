@@ -1,6 +1,6 @@
-Title: Chain fence, closed
+Title: Chain fence, closed, variant 2
 =====================
 Author: Sergio Català
 URL: http://forums.x-plane.org/index.php?showuser=146200
 =====================
-Description: A chain-link fence using a closed facade so there are no gaps in the ring.
+Description: A chain-link fence, variant 2, using a closed facade so there are no gaps in the ring.

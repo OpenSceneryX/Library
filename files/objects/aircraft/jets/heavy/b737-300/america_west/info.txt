@@ -9,5 +9,6 @@ Export: objects/aircraft/livery/america_west/b737-300
 Width: 31.1
 Depth: 34.5
 Height: 11.1
+SAM Static Aircraft: opensceneryx/b737-300/1/door/1 -1.643 2.210 4.666 5
 =====================
 Description: Boeing 737-300 with America West final livery. This airline was merged into US Airways in 2005, so this livery is now historical.

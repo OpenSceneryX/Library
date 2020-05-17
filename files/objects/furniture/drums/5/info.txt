@@ -1,0 +1,13 @@
+Title: Drum, steel, radiation warning
+=====================
+Author: Jorge Camacho
+URL: https://www.artstation.com/jorgeandrespinedac
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.6
+Depth: 0.6
+Height: 0.9
+Export Propagate: 2
+Since: 4.5.0
+=====================
+Description: A steel drum painted yellow with radiation risk warning labels, standing upright.
