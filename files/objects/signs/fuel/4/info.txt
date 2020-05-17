@@ -2,6 +2,8 @@ Title: Sign, fuel, emergency
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 1.24m
 Depth: 0.2m
 Height: 2.4m
