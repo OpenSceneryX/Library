@@ -7,6 +7,6 @@ URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 1.6m
 Depth: 0.05m
 Height: 1.8m
-Since: 3.0.0
+Since: 4.5.0
 =====================
 Description: A danger sign for a fuel installation.

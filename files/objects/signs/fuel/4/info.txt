@@ -7,6 +7,6 @@ URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 1.24m
 Depth: 0.2m
 Height: 2.4m
-Since: 3.0.0
+Since: 4.5.0
 =====================
 Description: An emergency procedure sign for a fuel installation.
