@@ -45,18 +45,24 @@ then
         SCREENSHOT_PNG="$f"
         SCREENSHOT_JPEG=$DIR"/screenshot.jpg"
 
-        echo "PNG: $SCREENSHOT_PNG"
-        echo "JPEG: $SCREENSHOT_JPEG"
+        if [[ ! -f $SCREENSHOT_JPEG ]]
+        then
+            echo "PNG: $SCREENSHOT_PNG"
+            echo "JPEG: $SCREENSHOT_JPEG"
 
-        # Convert to jpeg and resize
-        sips -s format jpeg "$SCREENSHOT_PNG" --resampleWidth 500 --out "$SCREENSHOT_JPEG"
+            # Convert to jpeg and resize
+            sips -s format jpeg "$SCREENSHOT_PNG" --resampleWidth 500 --out "$SCREENSHOT_JPEG"
 
-        # Optimise
-        imageoptim -Q "$SCREENSHOT_JPEG"
+            # Optimise
+            imageoptim -Q "$SCREENSHOT_JPEG"
 
-        # Remove PNG
-        rm "$SCREENSHOT_PNG"
+            # Remove PNG
+            rm "$SCREENSHOT_PNG"
+        else
+            echo Skipping $SCREENSHOT_JPEG, screenshot found
+        fi
     done
+
 elif [ "$MODE" == "resize" ]
 then
     echo "Resizing screenshots"
@@ -72,6 +78,7 @@ then
         # Optimise
         imageoptim -Q "$f"
     done
+
 elif [ "$MODE" == "auto" ]
 then
     echo "Automatic screenshots"
@@ -96,21 +103,27 @@ then
         esac
         SCREENSHOT_PNG=$DIR"/"$FILE".png"
 
-        echo "PNG: $SCREENSHOT_PNG"
-        echo "JPEG: $SCREENSHOT_JPEG"
+        if [[ ! -f $SCREENSHOT_JPEG ]]
+        then
+            echo "PNG: $SCREENSHOT_PNG"
+            echo "JPEG: $SCREENSHOT_JPEG"
 
-        # Generate thumbnail (as filename with png extension)
-        qlmanage -t "$f" -s 500 -o "$DIR"
+            # Generate thumbnail (as filename with png extension)
+            qlmanage -t "$f" -s 500 -o "$DIR"
 
-        # Convert to jpeg
-        sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
+            # Convert to jpeg
+            sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
 
-        # Optimise
-        imageoptim -Q "$SCREENSHOT_JPEG"
+            # Optimise
+            imageoptim -Q "$SCREENSHOT_JPEG"
 
-        # Remove PNG
-        rm "$SCREENSHOT_PNG"
+            # Remove PNG
+            rm "$SCREENSHOT_PNG"
+        else
+            echo Skipping $SCREENSHOT_JPEG, screenshot found
+        fi
     done
+
 elif [ "$MODE" == "auto3js" ]
 then
     echo "Automatic screenshots, threejs"
@@ -137,22 +150,28 @@ then
         esac
         SCREENSHOT_PNG=$DIR"/"$FILE".png"
 
-        echo "PNG: $SCREENSHOT_PNG"
-        echo "JPEG: $SCREENSHOT_JPEG"
-        echo "URL: $SCREENSHOTURL?path=$URLBASE$f"
+        if [[ ! -f $SCREENSHOT_JPEG ]]
+        then
+            echo "PNG: $SCREENSHOT_PNG"
+            echo "JPEG: $SCREENSHOT_JPEG"
+            echo "URL: $SCREENSHOTURL?path=$URLBASE$f"
 
-        # Generate screenshot
-        /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE$f"
+            # Generate screenshot
+            /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --screenshot="$MYDIR/$SCREENSHOT_PNG" --hide-scrollbars --window-size=500,500 --virtual-time-budget=10000 "$SCREENSHOTURL?path=$URLBASE$f"
 
-        # Convert to jpeg
-        sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
+            # Convert to jpeg
+            sips -s format jpeg "$SCREENSHOT_PNG" --out "$SCREENSHOT_JPEG"
 
-        # Optimise
-        imageoptim -Q "$SCREENSHOT_JPEG"
+            # Optimise
+            imageoptim -Q "$SCREENSHOT_JPEG"
 
-        # Remove PNG
-        rm "$SCREENSHOT_PNG"
+            # Remove PNG
+            rm "$SCREENSHOT_PNG"
+        else
+            echo Skipping $SCREENSHOT_JPEG, screenshot found
+        fi
     done
+
 else
     echo "Invalid mode: $MODE"
 fi

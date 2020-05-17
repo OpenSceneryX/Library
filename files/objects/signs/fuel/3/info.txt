@@ -1,0 +1,12 @@
+Title: Sign, fuel dump
+=====================
+Author: Barry Drake
+URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.5m
+Depth: 0.06m
+Height: 1.2m
+Since: 3.0.0
+=====================
+Description: A warning sign for a fuel dump.
