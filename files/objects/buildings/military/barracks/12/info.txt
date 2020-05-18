@@ -1,13 +1,13 @@
-Title: Office, stone, single storey, 53m
+Title: Barracks, stone, two storey, 65m
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
 Author, modifications: Austin Goudge
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
-Width: 53.1
-Depth: 36.3
-Height: 6.5
+Width: 41.0
+Depth: 64.8
+Height: 11.6
 Since: 5.0.0
-Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KHRT_BaseOps/KHRTbaseOps
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KHSA_Offices/KHSA_Offices4
 =====================
-Description: A 53m long, single storey stone office building with a grey pitched roof.
+Description: A 65m long, U-shaped two storey stone barracks building with a grey pitched roof.

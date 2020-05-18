@@ -1,0 +1,13 @@
+Title: Barracks, stone, two storey, 187m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 187.1
+Depth: 144.7
+Height: 17.3
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks/NAPS_complex_barracks
+=====================
+Description: A 187m long, complex two storey stone barracks building with a red pitched roof.
