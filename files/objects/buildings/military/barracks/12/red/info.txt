@@ -1,0 +1,12 @@
+Title: Barracks, stone, red roof, two storey, 65m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 41.0
+Depth: 64.8
+Height: 11.6
+Since: 5.0.0
+=====================
+Description: A 65m long, U-shaped two storey stone barracks building with a red pitched roof.

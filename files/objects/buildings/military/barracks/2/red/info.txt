@@ -1,0 +1,12 @@
+Title: Barracks, stone, red roof, single storey, 41m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 16.5
+Depth: 41.0
+Height: 8.0
+Since: 5.0.0
+=====================
+Description: A 41m long, single storey stone barracks building with a red pitched roof.

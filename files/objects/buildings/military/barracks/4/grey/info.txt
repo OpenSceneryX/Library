@@ -1,0 +1,12 @@
+Title: Barracks, stone, grey roof, single storey, 57m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 30.4
+Depth: 57.4
+Height: 13.0
+Since: 5.0.0
+=====================
+Description: A 57m long, single storey stone barracks building with a grey pitched roof.
