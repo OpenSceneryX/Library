@@ -1,0 +1,13 @@
+Title: Barracks, stone, grey roof, two storey, 90m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 90.0
+Depth: 73.3
+Height: 13.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks2/KMCFredbarrack3grey
+=====================
+Description: A 90m long, two storey stone barracks building with a grey pitched roof.
