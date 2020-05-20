@@ -1,0 +1,13 @@
+Title: Barracks, stone, red roof, three storey, 75m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 24.1
+Depth: 74.8
+Height: 8.4
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks2/KMCFredbarrack20
+=====================
+Description: A 75m long, three storey stone barracks building with a red pitched roof.
