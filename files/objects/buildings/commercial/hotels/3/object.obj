@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE	EBLG_Park_Inn_Hotel.png
-TEXTURE_LIT	EBLG_Park_Inn_Hotel_LIT.png
+TEXTURE	../../../../../shared_textures/freddy_de_pues/EBLG_Park_Inn_Hotel.png
+TEXTURE_LIT	../../../../../shared_textures/freddy_de_pues/EBLG_Park_Inn_Hotel_LIT.png
 POINT_COUNTS	430	0	0	816
 
 VT	14.4584341	17.56999779	21.81307793	-0.00000018	1	0.00000015	0.15062647	0.91928911

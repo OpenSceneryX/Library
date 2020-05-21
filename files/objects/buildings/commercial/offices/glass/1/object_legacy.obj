@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		EBLG_Office50.png
-TEXTURE_LIT	EBLG_Office50_LIT.png
+TEXTURE		../../../../../../shared_textures/freddy_de_pues/EBLG_Office50.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_Office50_LIT.png
 POINT_COUNTS	579 0 0 1107
 
 VT	  12.0552    0.0000    3.6088	 0.000 -1.000 -0.000	 0.5404  0.5267
@@ -704,15 +704,15 @@ IDX	576
 IDX	575
 IDX	578
 
-LIGHT_NAMED	amb_street_light3	 -21.4384    2.3495   -9.2209	
-LIGHT_NAMED	amb_street_light3	 -17.4133    2.3495  -13.6526	
-LIGHT_NAMED	amb_street_light3	 -14.4380    2.3495  -17.3033	
-LIGHT_NAMED	amb_street_light3	  12.4940    2.4582   21.6681	
-LIGHT_NAMED	amb_street_light3	  16.5285    2.4582   16.9621	
-LIGHT_NAMED	amb_street_light3	   5.5279    2.5334   -1.1407	
-LIGHT_NAMED	amb_street_light3	  -3.2941    2.5334    8.4032	
-LIGHT_NAMED	amb_street_light3	   1.2601    2.5334    3.4717	
-LIGHT_NAMED	amb_street_light3	  20.1432    2.4582   12.6543	
+LIGHT_NAMED	amb_street_light3	 -21.4384    2.3495   -9.2209
+LIGHT_NAMED	amb_street_light3	 -17.4133    2.3495  -13.6526
+LIGHT_NAMED	amb_street_light3	 -14.4380    2.3495  -17.3033
+LIGHT_NAMED	amb_street_light3	  12.4940    2.4582   21.6681
+LIGHT_NAMED	amb_street_light3	  16.5285    2.4582   16.9621
+LIGHT_NAMED	amb_street_light3	   5.5279    2.5334   -1.1407
+LIGHT_NAMED	amb_street_light3	  -3.2941    2.5334    8.4032
+LIGHT_NAMED	amb_street_light3	   1.2601    2.5334    3.4717
+LIGHT_NAMED	amb_street_light3	  20.1432    2.4582   12.6543
 TRIS	0 1107
 
 # Built with SketchUp 16.1.2418. Exported with SketchUp2XPlane 1.70.

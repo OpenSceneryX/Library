@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE	KATL_Renaissance_Hotel.dds
+TEXTURE	../../../../../shared_textures/freddy_de_pues/KATL_Renaissance_Hotel.dds
 POINT_COUNTS	194	0	0	318
 
 VT	51.40499878	24.62001419	8.00999546	0	1	0.00000127	0.16760001	0.52990001

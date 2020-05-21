@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE	EBLG_ASL.png
-TEXTURE_LIT	EBLG_ASL_LIT.png
+TEXTURE	../../../../../../shared_textures/freddy_de_pues/EBLG_ASL.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_ASL_LIT.png
 POINT_COUNTS	296	0	0	666
 
 VT	-18.84321213	11.04000092	2.55143261	0.99954945	0	0.03001641	0.41760001	0.0743

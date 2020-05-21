@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		EBLG_Park_Inn_Hotel.png
-TEXTURE_LIT	EBLG_Park_Inn_Hotel_LIT.png
+TEXTURE		../../../../../shared_textures/freddy_de_pues/EBLG_Park_Inn_Hotel.png
+TEXTURE_LIT	../../../../../shared_textures/freddy_de_pues/EBLG_Park_Inn_Hotel_LIT.png
 POINT_COUNTS	1252 0 0 2484
 
 VT	  -0.8284    0.0000   11.9249	 0.000 -1.000 -0.000	 0.0000  0.0000
@@ -1512,28 +1512,28 @@ IDX	1249
 IDX	1248
 IDX	1251
 
-LIGHT_NAMED	obs_red_day	 -10.1700   21.1700   -9.7556	
-LIGHT_NAMED	amb_street_light3	  -4.1905    4.3400   20.5568	
-LIGHT_NAMED	amb_street_light3	   5.9420    4.3400   31.4112	
-LIGHT_NAMED	amb_street_light3	   0.3700    4.3400   25.4414	
-LIGHT_NAMED	amb_street_light3	  -1.8804    4.3400   22.9662	
-LIGHT_NAMED	amb_street_light3	   3.1590    4.3400   28.5103	
-LIGHT_NAMED	amb_street_light3	 -13.0358    5.7765   15.2488	
-LIGHT_NAMED	amb_street_light3	 -14.7692    5.7765   13.1413	
-LIGHT_NAMED	amb_street_light3	 -11.0774    5.7765   17.5185	
-LIGHT_NAMED	amb_street_light3	 -12.0570    5.7765   16.3507	
-LIGHT_NAMED	amb_street_light3	 -13.8427    5.7765   14.2623	
-LIGHT_NAMED	amb_street_light3	 -11.4169    2.9691   16.4938	
-LIGHT_NAMED	amb_street_light3	 -13.6051    2.9691   13.8026	
-LIGHT_NAMED	amb_street_light3	 -13.3901    2.9691   14.0628	
-LIGHT_NAMED	amb_street_light3	 -13.1910    2.9691   14.3223	
-LIGHT_NAMED	amb_street_light3	 -12.9720    2.9691   14.6077	
-LIGHT_NAMED	amb_street_light3	 -12.7207    2.9691   14.8951	
-LIGHT_NAMED	amb_street_light3	 -12.4331    2.9691   15.2097	
-LIGHT_NAMED	amb_street_light3	 -12.1474    2.9691   15.5820	
-LIGHT_NAMED	amb_street_light3	 -11.9082    2.9691   15.8938	
-LIGHT_NAMED	amb_street_light3	 -11.6460    2.9691   16.2154	
-LIGHT_NAMED	amb_street_light3	 -13.8134    2.9691   13.5512	
+LIGHT_NAMED	obs_red_day	 -10.1700   21.1700   -9.7556
+LIGHT_NAMED	amb_street_light3	  -4.1905    4.3400   20.5568
+LIGHT_NAMED	amb_street_light3	   5.9420    4.3400   31.4112
+LIGHT_NAMED	amb_street_light3	   0.3700    4.3400   25.4414
+LIGHT_NAMED	amb_street_light3	  -1.8804    4.3400   22.9662
+LIGHT_NAMED	amb_street_light3	   3.1590    4.3400   28.5103
+LIGHT_NAMED	amb_street_light3	 -13.0358    5.7765   15.2488
+LIGHT_NAMED	amb_street_light3	 -14.7692    5.7765   13.1413
+LIGHT_NAMED	amb_street_light3	 -11.0774    5.7765   17.5185
+LIGHT_NAMED	amb_street_light3	 -12.0570    5.7765   16.3507
+LIGHT_NAMED	amb_street_light3	 -13.8427    5.7765   14.2623
+LIGHT_NAMED	amb_street_light3	 -11.4169    2.9691   16.4938
+LIGHT_NAMED	amb_street_light3	 -13.6051    2.9691   13.8026
+LIGHT_NAMED	amb_street_light3	 -13.3901    2.9691   14.0628
+LIGHT_NAMED	amb_street_light3	 -13.1910    2.9691   14.3223
+LIGHT_NAMED	amb_street_light3	 -12.9720    2.9691   14.6077
+LIGHT_NAMED	amb_street_light3	 -12.7207    2.9691   14.8951
+LIGHT_NAMED	amb_street_light3	 -12.4331    2.9691   15.2097
+LIGHT_NAMED	amb_street_light3	 -12.1474    2.9691   15.5820
+LIGHT_NAMED	amb_street_light3	 -11.9082    2.9691   15.8938
+LIGHT_NAMED	amb_street_light3	 -11.6460    2.9691   16.2154
+LIGHT_NAMED	amb_street_light3	 -13.8134    2.9691   13.5512
 TRIS	0 2484
 
 # Built with SketchUp 16.1.1451. Exported with SketchUp2XPlane 1.70.

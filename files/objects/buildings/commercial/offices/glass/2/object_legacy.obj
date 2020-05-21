@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		EBLG_SAPA44.png
-TEXTURE_LIT	EBLG_SAPA44_LIT.png
+TEXTURE		../../../../../../shared_textures/freddy_de_pues/EBLG_SAPA44.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_SAPA44_LIT.png
 POINT_COUNTS	2779 0 0 6537
 
 VT	  18.7736    0.0000   16.3255	 0.000 -1.000 -0.000	 0.0000  0.0000
@@ -3447,14 +3447,14 @@ IDX	2776
 IDX	2775
 IDX	2778
 
-LIGHT_NAMED	amb_street_light3	   5.7656    3.4946   -7.8840	
-LIGHT_NAMED	amb_street_light3	   1.6377    9.4400   -9.6456	
-LIGHT_NAMED	amb_street_light3	   8.3374    9.4400   -3.7434	
-LIGHT_NAMED	amb_street_light3	  20.6123    9.4400   20.4942	
-LIGHT_NAMED	amb_street_light3	  -5.6036    9.4400   12.0302	
-LIGHT_NAMED	amb_street_light3	  -7.8534    3.4941    7.9881	
-LIGHT_NAMED	amb_street_light3	 -12.2642    9.4400    6.1625	
-LIGHT_NAMED	amb_street_light3	 -23.9473    9.4400  -18.7858	
+LIGHT_NAMED	amb_street_light3	   5.7656    3.4946   -7.8840
+LIGHT_NAMED	amb_street_light3	   1.6377    9.4400   -9.6456
+LIGHT_NAMED	amb_street_light3	   8.3374    9.4400   -3.7434
+LIGHT_NAMED	amb_street_light3	  20.6123    9.4400   20.4942
+LIGHT_NAMED	amb_street_light3	  -5.6036    9.4400   12.0302
+LIGHT_NAMED	amb_street_light3	  -7.8534    3.4941    7.9881
+LIGHT_NAMED	amb_street_light3	 -12.2642    9.4400    6.1625
+LIGHT_NAMED	amb_street_light3	 -23.9473    9.4400  -18.7858
 TRIS	0 6537
 
 # Built with SketchUp 17.1.173. Exported with SketchUp2XPlane 1.70.

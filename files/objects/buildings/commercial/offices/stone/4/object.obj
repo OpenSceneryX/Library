@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE	KHRT.png
+TEXTURE	../../../../../../shared_textures/freddy_de_pues/KHRT.png
 POINT_COUNTS	163	0	0	267
 
 VT	-9.23900032	4.05000305	-18.14500046	1	0	0.00000005	0.8143	0.91420001

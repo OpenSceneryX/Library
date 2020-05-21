@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		KBKVadmin.png
+TEXTURE		../../../../../shared_textures/freddy_de_pues/KBKVadmin.png
 POINT_COUNTS	461 0 0 849
 
 VT	   9.1967    0.0000    4.2349	 0.000 -1.000 -0.000	 0.0000  0.0000

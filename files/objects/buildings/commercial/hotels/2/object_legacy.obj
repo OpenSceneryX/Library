@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		EBLG_NouvelHotel.png
-TEXTURE_LIT	EBLG_NouvelHotel_LIT.png
+TEXTURE		../../../../../shared_textures/freddy_de_pues/EBLG_NouvelHotel.png
+TEXTURE_LIT	../../../../../shared_textures/freddy_de_pues/EBLG_NouvelHotel_LIT.png
 POINT_COUNTS	346 0 0 732
 
 VT	  -8.3901    0.0000  -25.1929	 0.000 -1.000 -0.000	 0.0000  0.0000

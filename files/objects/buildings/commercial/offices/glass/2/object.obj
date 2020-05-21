@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE	EBLG_SAPA44.png
-TEXTURE_LIT	EBLG_SAPA44_LIT.png
+TEXTURE	../../../../../../shared_textures/freddy_de_pues/EBLG_SAPA44.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_SAPA44_LIT.png
 POINT_COUNTS	926	0	0	2139
 
 VT	2.35234284	9.44000244	-26.30320358	0.96662456	0.0000002	-0.25619709	0.4901	0.2075

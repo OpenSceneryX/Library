@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		KBCT_Textures2.png
-TEXTURE_LIT	KBCT_Textures2_LIT.png
+TEXTURE		../../../../../shared_textures/freddy_de_pues/KBCT_Textures2.png
+TEXTURE_LIT	../../../../../shared_textures/freddy_de_pues/KBCT_Textures2_LIT.png
 POINT_COUNTS	336 0 0 756
 
 VT	  -5.4177   15.0000   -5.5542	-0.000  1.000  0.000	 0.1795  0.9821
@@ -425,20 +425,20 @@ IDX	333
 IDX	332
 IDX	335
 
-smoke_white	  -2.2817   17.5600    3.5323.    1.000000	
-LIGHT_NAMED	airplane_landing	   2.7675   16.6682   11.9804	
-LIGHT_NAMED	airplane_landing	   4.9852   16.6849    9.1637	
-LIGHT_NAMED	airplane_landing	   7.3602   16.6656    6.1470	
-LIGHT_NAMED	airplane_landing	   8.0081   14.7289    5.3241	
-LIGHT_NAMED	airplane_landing	  11.7521   14.6807    0.5687	
-LIGHT_NAMED	airplane_landing	  15.9950   14.7133   -4.8205	
-LIGHT_NAMED	airplane_landing	   2.0481   14.5688   12.8942	
-LIGHT_NAMED	airplane_landing	  -1.7461   14.6164   17.7133	
-LIGHT_NAMED	airplane_landing	  -5.8556   14.5957   22.9330	
-LIGHT_NAMED	airplane_landing	  -6.0348   16.4888   -4.2617	
-LIGHT_NAMED	airplane_landing	  -7.8907   16.5530   -1.9046	
-LIGHT_NAMED	airplane_landing	  -9.9228   16.6082    0.6765	
-LIGHT_NAMED	obs_red_day	  -3.2614   17.5600    2.6268	
+smoke_white	  -2.2817   17.5600    3.5323.    1.000000
+LIGHT_NAMED	airplane_landing	   2.7675   16.6682   11.9804
+LIGHT_NAMED	airplane_landing	   4.9852   16.6849    9.1637
+LIGHT_NAMED	airplane_landing	   7.3602   16.6656    6.1470
+LIGHT_NAMED	airplane_landing	   8.0081   14.7289    5.3241
+LIGHT_NAMED	airplane_landing	  11.7521   14.6807    0.5687
+LIGHT_NAMED	airplane_landing	  15.9950   14.7133   -4.8205
+LIGHT_NAMED	airplane_landing	   2.0481   14.5688   12.8942
+LIGHT_NAMED	airplane_landing	  -1.7461   14.6164   17.7133
+LIGHT_NAMED	airplane_landing	  -5.8556   14.5957   22.9330
+LIGHT_NAMED	airplane_landing	  -6.0348   16.4888   -4.2617
+LIGHT_NAMED	airplane_landing	  -7.8907   16.5530   -1.9046
+LIGHT_NAMED	airplane_landing	  -9.9228   16.6082    0.6765
+LIGHT_NAMED	obs_red_day	  -3.2614   17.5600    2.6268
 LIGHT_SPILL_CUSTOM	  -7.0379    3.8277   -5.4062	1.0 0.85 0.3 0.4 100 0.0 -0.985 -0.174 0.707 none
 LIGHT_SPILL_CUSTOM	  11.7068    3.8389    9.3517	1.0 0.85 0.3 0.4 100 0.0 -0.985 -0.174 0.707 none
 LIGHT_SPILL_CUSTOM	  -9.8967    3.8277   -7.6570	1.0 0.85 0.3 0.4 100 0.0 -0.985 -0.174 0.707 none

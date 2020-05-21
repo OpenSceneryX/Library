@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE	EBFS6.png
-TEXTURE_LIT	EBFS6_LIT.png
+TEXTURE	../../../../../../shared_textures/freddy_de_pues/EBFS6b.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBFS6b_LIT.png
 POINT_COUNTS	208	0	0	324
 
 VT	17.27448273	-0.00000119	4.82437992	-0.00070301	0.00000006	-0.99999982	0.2049	0.147

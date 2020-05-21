@@ -2,7 +2,7 @@ I
 800
 OBJ
 
-TEXTURE		KLAL_textures.png
+TEXTURE		../../../../../../shared_textures/freddy_de_pues/KLAL_textures.png
 POINT_COUNTS	432 0 0 948
 
 VT	  -2.9901    0.0000  -15.6696	 0.000 -1.000 -0.000	 0.0000  0.0000
