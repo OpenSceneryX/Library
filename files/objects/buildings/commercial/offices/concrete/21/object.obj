@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE	EBLG_Office58.png
-TEXTURE_LIT	EBLG_Office58_LIT.png
+TEXTURE	../../../../../../shared_textures/freddy_de_pues/EBLG_Office58.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_Office58_LIT.png
 POINT_COUNTS	626	0	0	1365
 
 VT	25.18031311	5.96999645	5.09254599	0.92816395	0	0.37217164	0.22480001	0.5661

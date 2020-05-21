@@ -1,0 +1,13 @@
+Title: Car Park, Multi-storey, 3 floors
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 66.4
+Depth: 97.6
+Height: 20.2
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Garages/KMCF_Garages2
+=====================
+Description: A 98m long multi-storey car park with three floors.

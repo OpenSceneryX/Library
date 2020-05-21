@@ -2,8 +2,8 @@ I
 800
 OBJ
 
-TEXTURE		EBLG_Office58.png
-TEXTURE_LIT	EBLG_Office58_LIT.png
+TEXTURE		../../../../../../shared_textures/freddy_de_pues/EBLG_Office58.png
+TEXTURE_LIT	../../../../../../shared_textures/freddy_de_pues/EBLG_Office58_LIT.png
 POINT_COUNTS	1372 0 0 3132
 
 VT	   5.7794    0.0000   -4.9336	 0.000 -1.000 -0.000	 0.0000  0.0000
@@ -1695,10 +1695,10 @@ IDX10	1366 1365 1364 1367 1364 1365 1368 1369 1370 1369
 IDX	1368
 IDX	1371
 
-LIGHT_NAMED	amb_street_light3	  12.2912    4.9200  -13.2979	
-LIGHT_NAMED	amb_street_light3	 -19.5400    3.3400  -15.4785	
-LIGHT_NAMED	amb_street_light3	   9.5102   12.4000   -9.7538	
-LIGHT_NAMED	amb_street_light3	  17.9307    3.3700   17.8923	
+LIGHT_NAMED	amb_street_light3	  12.2912    4.9200  -13.2979
+LIGHT_NAMED	amb_street_light3	 -19.5400    3.3400  -15.4785
+LIGHT_NAMED	amb_street_light3	   9.5102   12.4000   -9.7538
+LIGHT_NAMED	amb_street_light3	  17.9307    3.3700   17.8923
 TRIS	0 3132
 
 # Built with SketchUp 16.1.2418. Exported with SketchUp2XPlane 1.70.

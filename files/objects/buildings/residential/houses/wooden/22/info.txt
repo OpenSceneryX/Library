@@ -1,0 +1,13 @@
+Title: House, wooden, single storey, grey
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 31.1
+Depth: 19.3
+Height: 9.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_House/KMCFhouse
+=====================
+Description: A 31m long, single storey grey wooden house with a grey tiled pitched roof.
