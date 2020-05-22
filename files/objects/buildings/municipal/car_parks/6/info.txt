@@ -1,0 +1,13 @@
+Title: Car Park, Multi-storey Rotunda left-hand, 7 floors
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 49.6
+Depth: 47.0
+Height: 37.2
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCO_Garages/KMCO_Rotunda_left
+=====================
+Description: A 50m long multi-storey car park curved left-handed rotunda with seven floors.
