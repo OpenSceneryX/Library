@@ -1,4 +1,4 @@
-Title: Car Hire
+Title: Car Hire, Avis® and Budget®
 =====================
 Author: Dwight Gardam
 URL: http://forums.x-plane.org/index.php?showuser=2621
@@ -6,4 +6,4 @@ Width: 23.4
 Depth: 15.0
 Height: 5.0
 =====================
-Description: A car hire building, with AVIS and Budget offices.
+Description: A car hire building, with AVIS® and Budget® offices.
