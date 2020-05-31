@@ -59,13 +59,12 @@ samStaticAircraftPattern = re.compile(r"SAM Static Aircraft:\s+(.*)\s+(.*)\s+(.*
 
 # SAM patterns
 samStaticAircraftAnimPattern = re.compile(r"ANIM_show\s+.*?\s+.*?\s+(.*)")
-# Texture patterns
+# Common texture patterns
 v8TexturePattern = re.compile(r"TEXTURE\s+(.*)")
-v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
-v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 v10NormalTexturePattern = re.compile(r"(?:TEXTURE_NORMAL|TEXTURE_NORMAL_NOWRAP)\s+(?:.+\s+)?(.+)")
 #normalMetalnessPattern = re.compile(r"NORMAL_METALNESS")
 # Object patterns
+v8LitTexturePattern = re.compile(r"TEXTURE_LIT\s+(.*)")
 objectIgnores = re.compile(r"^(VT|VLINE|VLIGHT|IDX|IDX10|TRIS|LINES)\s")
 pointCountsPattern = re.compile(r"(?:POINT_COUNTS)\s+(.*?)\s+.*")
 attrLodPattern = re.compile(r"(?:ATTR_LOD)\s+(.*?)\s+(.*)")
@@ -82,6 +81,7 @@ smokeBlackPattern = re.compile(r"(?:smoke_black)")
 smokeWhitePattern = re.compile(r"(?:smoke_white)")
 animPattern = re.compile(r"ANIM_begin")
 # Polygon patterns
+v8PolygonTexturePattern = re.compile(r"(?:TEXTURE|TEXTURE_NOWRAP)\s+(.*)")
 surfacePattern = re.compile(r"(?:SURFACE)\s+(.*)")
 # Line patterns
 textureWidthPattern = re.compile(r"(?:TEX_WIDTH)\s+(.*)")
@@ -108,6 +108,11 @@ floorsMinPattern = re.compile(r"(?:FLOORS_MIN)\s+(.*)")
 floorsMaxPattern = re.compile(r"(?:FLOORS_MAX)\s+(.*)")
 lod2ParamPattern = re.compile(r"(?:LOD)\s+(.*?)\s+(.*)")
 basementDepthPattern = re.compile(r"(?:BASEMENT_DEPTH)\s+(.*)")
+# Decal patterns
+decalPattern = re.compile(r"(?:DECAL|DECAL_RGBA)\s+(?:.*?)\s+(.*)")
+decalKeyedPattern = re.compile(r"(?:DECAL_KEYED)(?:\s+.*?){6}\s+(.*)")
+decalParamsPattern = re.compile(r"(?:DECAL_PARAMS)(?:\s+.*?){14}\s+(.*)")
+decalParamsProjPattern = re.compile(r"(?:DECAL_PARAMS_PROJ)(?:\s+.*?){15}\s+(.*)")
 # Polygon, Line and Facade patterns
 layerGroupPattern = re.compile(r"(?:LAYER_GROUP)\s+(.*?)\s+(.*)")
 # Polygon, Line and type 1 Facade patterns
@@ -948,9 +953,63 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 
 		textureFound = 0
 
-		# for line in objectFileContents:
-		# No decal content checking just yet
+		for line in objectFileContents:
+			result = decalPattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Decal specifies a blank texture - decal excluded\n", "error")
+					return
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - decal excluded (" + textureFile + ")\n", "error")
+					return
 
+			result = decalKeyedPattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Decal specifies a blank texture - decal excluded\n", "error")
+					return
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - decal excluded (" + textureFile + ")\n", "error")
+					return
+
+			result = decalParamsPattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Decal specifies a blank texture - decal excluded\n", "error")
+					return
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - decal excluded (" + textureFile + ")\n", "error")
+					return
+
+			result = decalParamsProjPattern.match(line)
+			if result:
+				textureFound = textureFound + 1
+				textureFile = os.path.abspath(os.path.join(dirpath, result.group(1)))
+				if (result.group(1) == ""):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Decal specifies a blank texture - decal excluded\n", "error")
+					return
+				elif not handleTextures(dirpath, parts[1], result.group(1), textures, sceneryObject):
+					displayMessage("\n" + objectSourcePath + "\n")
+					displayMessage("Cannot find texture - decal excluded (" + textureFile + ")\n", "error")
+					return
+
+		if not textureFound:
+			displayMessage("\n" + objectSourcePath + "\n")
+			displayMessage("No texture line in file - this error must be corrected\n", "error")
+			return
 
 	# Handle the info.txt file
 	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".dcl", sceneryObject, authors, latest, samStaticAircraft): return
