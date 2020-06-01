@@ -1,0 +1,13 @@
+Title: Fire station, red brick, three bays
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 107.0
+Depth: 57.3
+Height: 13.7
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KNPA_AF2_build/AF2
+=====================
+Description: A 107m long fire control building with three engine bays, doors each side.
