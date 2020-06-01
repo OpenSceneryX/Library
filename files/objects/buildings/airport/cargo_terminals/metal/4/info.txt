@@ -1,0 +1,13 @@
+Title: Cargo terminal, metal, flat and pitched roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 143.1
+Depth: 84.5
+Height: 8.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCO_USPS_South/NAPS_KMCO_USPS_South
+=====================
+Description: A 143m long cargo terminal with two buildings and a mixture of flat and pitched roofs.
