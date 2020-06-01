@@ -1,0 +1,13 @@
+Title: Shrub, Buxus (Box), 0.3m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 0.3
+Depth: 0.4
+Height: 0.3
+Export External NAPS_Library: NAPS_library/NAPS_GREEN/NAPS_Shrubs/shrubs2.obj
+Since: 5.0.0
+=====================
+Description: A 0.3m high spherical Buxus (Box) hedging plant.

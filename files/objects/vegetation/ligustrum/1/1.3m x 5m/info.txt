@@ -1,0 +1,13 @@
+Title: Hedge, Ligustrum (Privet), 5m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 5.0
+Depth: 0.5
+Height: 1.3
+Export External NAPS_Library: NAPS_library/NAPS_GREEN/NAPS_Ligustrum/NAPS_ligustrum5m
+Since: 5.0.0
+=====================
+Description: A 5m long, 1.3m high ligustrum (privet) hedge.
