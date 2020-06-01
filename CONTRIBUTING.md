@@ -1,6 +1,6 @@
 # Introduction
 
-We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub [outstanding issues list](/OpenSceneryX/Library/issues) for tasks which you could help with.
+We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub [outstanding issues list](https://github.com/OpenSceneryX/Library/issues) for tasks which you could help with.
 
 # Copyright on Contributions
 
