@@ -1,13 +1,13 @@
-Title: Barracks, stone, grey roof, covered area, 7m
+Title: Covered area, stone, grey roof, 14m
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
 Author, modifications: Austin Goudge
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
-Width: 6.4
-Depth: 6.6
+Width: 13.6
+Depth: 13.6
 Height: 4.9
 Since: 5.0.0
-Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks2/KMCFredbarrack17grey
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks2/KMCFredbarrack16grey
 =====================
-Description: A 7m long, single storey stone barracks covered area with a grey pitched roof.
+Description: A 14m long, stone covered area with a grey pitched roof.
