@@ -19,7 +19,7 @@ There are a few standards and checks that you should do before submitting, other
 
 1. Please ensure the scaling of the object is correct. For example, in [Blender](https://www.blender.org) 1 unit = 1 meter.
 1. If it’s an object with an identifiable ‘nose’ (like an aircraft, car, boat etc.) then please align the object pointing North with the tip of its nose at the origin (0, 0) – zoom in in your 3d editor to position it exactly.
-1. If the object doesn’t have an identifiable nose then please centre the object on the origin (0, 0). This includes buildings.
+1. If the object doesn't have an identifiable nose then please centre the object on the origin (0, 0) and rotate it so it is aligned with North, i.e. it's not at an angle. This includes buildings.
 1. If your contribution includes lighting, please use the lighting model which was introduced in X-Plane® 10, so do not include baked-in ground shadows and spill lighting effects in textures. You can still include illuminated internal elements, for example windows, but where it is possible to use a proper X-Plane® light source, please do so.
 1. Please spend some time optimising your object model and textures. Remember that everyone worldwide who uses OpenSceneryX will have to download your object, so the smaller and more efficient you can make it the better!
 
