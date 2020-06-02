@@ -156,7 +156,7 @@ def buildCategoryLandingPages(sitemapXMLFileHandle, sceneryCategory):
 
 
 
-def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest, samStaticAircraft):
+def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, versionChanges, samStaticAircraft):
 	""" Parse the contents of a library folder """
 
 	contents = os.listdir(dirPath)
@@ -169,29 +169,29 @@ def handleFolder(dirPath, currentCategory, libraryFileHandle, libraryPlaceholder
 		fullPath = os.path.join(dirPath, item)
 
 		if (item == "object.obj"):
-			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handleObject(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "facade.fac"):
-			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handleFacade(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "forest.for"):
-			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handleForest(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "line.lin"):
-			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handleLine(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "polygon.pol"):
-			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handlePolygon(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "decal.dcl"):
-			handleDecal(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft)
+			handleDecal(dirPath, item, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft)
 			continue
 		elif (item == "category.txt"):
 			# Do nothing
 			continue
 		elif os.path.isdir(fullPath):
 			if not item == ".svn":
-				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest, samStaticAircraft)
+				handleFolder(fullPath, currentCategory, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, versionChanges, samStaticAircraft)
 
 
 
@@ -208,7 +208,7 @@ def handleCategory(dirpath, currentCategory):
 
 
 
-def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .obj """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -374,7 +374,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".obj", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -387,7 +387,7 @@ def handleObject(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .fac """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -548,7 +548,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".fac", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -561,7 +561,7 @@ def handleFacade(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .for """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -659,7 +659,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 					continue
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".for", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -672,7 +672,7 @@ def handleForest(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHan
 
 
 
-def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .lin """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -779,7 +779,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".lin", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -792,7 +792,7 @@ def handleLine(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandl
 
 
 
-def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .pol """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -890,7 +890,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".pol", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -903,7 +903,7 @@ def handlePolygon(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHa
 
 
 
-def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, latest, samStaticAircraft):
+def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, currentCategory, authors, textures, versionChanges, samStaticAircraft):
 	""" Create an instance of the SceneryObject class for a .dcl """
 
 	mainobjectSourcePath = os.path.join(dirpath, filename)
@@ -1012,7 +1012,7 @@ def handleDecal(dirpath, filename, libraryFileHandle, libraryPlaceholderFileHand
 			return
 
 	# Handle the info.txt file
-	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".dcl", sceneryObject, authors, latest, samStaticAircraft): return
+	if not handleInfoFile(mainobjectSourcePath, dirpath, parts, ".dcl", sceneryObject, authors, versionChanges, samStaticAircraft): return
 
 	# Copy files
 	if not copySupportFiles(mainobjectSourcePath, dirpath, parts, sceneryObject): return
@@ -1190,7 +1190,7 @@ def handleTexture(fullSceneryObjectPath, librarySceneryObjectPath, texturePath, 
 	return True
 
 
-def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, latest, samStaticAircraft):
+def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, authors, versionChanges, samStaticAircraft):
 	""" Parse the contents of the info file, storing the results in the SceneryObject """
 
 	file = open(sceneryObject.infoFilePath)
@@ -1459,9 +1459,10 @@ def handleInfoFile(objectSourcePath, dirpath, parts, suffix, sceneryObject, auth
 	websiteInfoFile.write(websiteInfoFileContents)
 	websiteInfoFile.close()
 
-	# Store in the latest if it was created for this version
+	# Store in the versionChanges dict
 	if LooseVersion(sceneryObject.since) >= LooseVersion(classes.Configuration.sinceVersionTag):
-		latest.append(sceneryObject)
+		versionChanges.setdefault("latest", []).append(sceneryObject)
+	versionChanges.setdefault(sceneryObject.since, []).append(sceneryObject)
 
 	return 1
 
