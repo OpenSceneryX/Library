@@ -73,6 +73,8 @@ class Configuration(object):
 			os.mkdir(self.osxWebsiteFolder)
 		if not os.path.isdir(self.osxWebsiteFolder + "/doc"):
 			os.mkdir(self.osxWebsiteFolder + "/doc")
+		if not os.path.isdir(self.osxWebsiteFolder + "/doc/versions"):
+			os.mkdir(self.osxWebsiteFolder + "/doc/versions")
 		if not os.path.isdir(self.osxWebsiteFolder + "/extras"):
 			os.mkdir(self.osxWebsiteFolder + "/extras")
 

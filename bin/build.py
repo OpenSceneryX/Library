@@ -128,8 +128,6 @@ try:
 		sitemapXMLFileHandle.write(functions.getXMLSitemapHeader())
 		functions.writeXMLSitemapEntry(sitemapXMLFileHandle, "/", "1.0")
 
-		latestItemsFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/latestitems.tsv", "w")
-
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Copying files\n")
 
@@ -233,13 +231,13 @@ try:
 		# and the value is a SceneryTexture object
 		textures = {}
 
-		# latest contains an array of the new SceneryObjects in this version
-		latest = []
+		# versionChanges contains a dictionary of arrays, containing the new SceneryObjects for each version
+		versionChanges = {}
 
 		# samStaticAircraft contains a dictionary of the SAM static aircraft door information where the key is the door ID
 		samStaticAircraft = {}
 
-		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, latest, samStaticAircraft)
+		functions.handleFolder("files", rootCategory, libraryPartialFileHandle, libraryPlaceholderFileHandle, libraryExternalFileHandle, libraryDeprecatedFileHandle, libraryCorePartialFileHandles, librarySeasonFileHandles, authors, textures, versionChanges, samStaticAircraft)
 
 		functions.caseinsensitiveSort(authors)
 		rootCategory.sort()
@@ -296,9 +294,22 @@ try:
 		file.close()
 		samFileHandle.write(fileContents)
 
-		random.shuffle(latest)
-		for item in latest:
-			latestItemsFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
+		# Write a file for each version containing a list of the new items
+		for version in versionChanges:
+			items = versionChanges[version]
+
+			# Randomise the list of latest changes, sort all other lists of changes
+			if version == "latest":
+				random.shuffle(items)
+			else:
+				items.sort()
+
+			versionChangesFileHandle = open(classes.Configuration.osxWebsiteFolder + "/doc/versions/" + version + ".tsv", "w")
+
+			for item in items:
+				versionChangesFileHandle.write(item.title + "\t" + item.getWebURL(False) + "\n")
+
+			versionChangesFileHandle.close()
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Finishing and closing files\n")
@@ -401,7 +412,6 @@ try:
 		jsDeveloperVersionInfoFileHandle.close()
 		jsWebVersionInfoFileHandle.close()
 		versionInfoFileHandle.close()
-		latestItemsFileHandle.close()
 
 		functions.displayMessage("------------------------\n")
 		functions.displayMessage("Writing Developer PDF\n")
