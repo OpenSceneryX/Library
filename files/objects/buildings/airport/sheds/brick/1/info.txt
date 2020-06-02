@@ -1,0 +1,13 @@
+Title: Maintenance building, brick, 46m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 46.0
+Depth: 18.7
+Height: 8.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KNPA_Maintenance/Maintenance
+=====================
+Description: A 46m long, brick maintenance building.

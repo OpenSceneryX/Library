@@ -1,0 +1,13 @@
+Title: Shooting Range, concrete
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 48.4
+Depth: 45.6
+Height: 6.8
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KNPA_ShootingRange/ShootingRange
+=====================
+Description: A 48m long concrete shooting range with three ranges.

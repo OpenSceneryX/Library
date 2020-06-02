@@ -1,0 +1,13 @@
+Title: Tower, concrete, with admin block
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 77.4
+Depth: 48.1
+Height: 22.7
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KNPA_Flight_Academy/FlightAcademy
+=====================
+Description: A concrete control tower combined with a 77m long administration building.
