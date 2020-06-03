@@ -1,0 +1,13 @@
+Title: Terminal, glass, central circular
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 35.0
+Depth: 27.5
+Height: 12.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KPBI_FBO/KPBI_FBO
+=====================
+Description: A 35m long glass airport terminal with a circular central atrium and two wings.

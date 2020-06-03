@@ -1,0 +1,13 @@
+Title: Car park, multi-storey, 7 floors, 303m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 302.7
+Depth: 127.8
+Height: 49.1
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KPBI_Garages/KPBI_Garages
+=====================
+Description: A 303m long double-level 7 floor multi-storey car park.
