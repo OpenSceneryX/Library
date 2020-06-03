@@ -8,3 +8,4 @@ SCALE 96 96
 
 LAYER_GROUP airports +3
 DECAL_LIB opensceneryx/decals/snow/1.dcl
+SURFACE snow

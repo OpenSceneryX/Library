@@ -5,3 +5,4 @@ DRAPED_POLYGON
 TEXTURE_NOWRAP fuel_hydrant_pot_lid.dds
 SCALE 2 2
 LAYER_GROUP airports +1
+SURFACE concrete

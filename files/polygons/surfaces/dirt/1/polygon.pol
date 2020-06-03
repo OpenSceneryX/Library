@@ -9,3 +9,4 @@ NO_ALPHA
 LAYER_GROUP airports +1
 DECAL_LIB lib/g10/decals/grass_and_stony_dirt_1.dcl
 DECAL_LIB lib/g10/decals/low_freq_mod_1.dcl
+SURFACE dirt

@@ -1,6 +1,6 @@
 # Introduction
 
-We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub [outstanding issues list](https://github.com/OpenSceneryX/Library/issues) for tasks which you could help with.
+We are always looking for new contributions to the library – buildings, static aircraft, ground markings or anything else you would like to contribute. Also, check the GitHub [outstanding issues list](https://github.com/OpenSceneryX/Library/issues) for tasks which you could help with. Raise an issue for any bugs you find or feature requests.
 
 # Copyright on Contributions
 
@@ -24,6 +24,15 @@ There are a few standards and checks that you should do before submitting, other
 1. Please spend some time optimising your object model and textures. Remember that everyone worldwide who uses OpenSceneryX will have to download your object, so the smaller and more efficient you can make it the better!
 
 # How To Submit
+
+Generally, the standard GitHub workflow applies:
+
+1. Fork the repo and create your branch from `develop`.
+1. If you take a while to implement your change, keep pulling from develop and fix any conflicts and problems in your branch.
+1. If you've added code that needs documentation, document inline and in script headers as much as possible.
+1. Be sure to test your modifications.
+1. Write good commit messages.
+1. Issue that pull request!
 
 ## If you are contributing content (i.e. X-Plane® objects, facades etc.)
 
