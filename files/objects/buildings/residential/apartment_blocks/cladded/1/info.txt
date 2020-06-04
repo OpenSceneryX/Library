@@ -1,0 +1,13 @@
+Title: Apartment block, 3 storey, l-shaped left-hand
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 76.4
+Depth: 40.0
+Height: 15.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_Aparts/KSRQ_app1
+=====================
+Description: A 76m long 3-storey left-handed L-shaped cladded and glass apartment block with a flat roof.
