@@ -7,7 +7,7 @@ URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 35.8
 Depth: 46.8
 Height: 10.8
-Export External RE_Library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS6_Offices_Attics/EBFS6_Commercial
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_EBFS6_Offices_Attics/EBFS6_Commercial
 Since: 5.0.0
 =====================
 Description: A white stone L-shaped row of shops with flats above.
