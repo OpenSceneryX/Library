@@ -1,0 +1,13 @@
+Title: Theatre, semi-circular glass frontage
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 103.2
+Depth: 112.3
+Height: 24.0
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_KSPG_Mahaffey_Theatre/KSPG_Mahaffey_Theatre
+Since: 5.0.0
+=====================
+Description: A low-rise theatre building with a semi-circular glass frontage and a flat roof.

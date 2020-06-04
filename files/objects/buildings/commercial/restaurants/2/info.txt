@@ -1,0 +1,13 @@
+Title: Restaurant, three storey
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 47.1
+Depth: 43.7
+Height: 12.3
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_KSPG_Sheltair_FBO/KSPG_SHELTAIR_FBO
+Since: 5.0.0
+=====================
+Description: A three-storey glass-fronted restaurant with flat red roof and outside seating area.

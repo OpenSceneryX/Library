@@ -1,0 +1,13 @@
+Title: Shops, limestone, tiled and flat roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 70.7
+Depth: 39.3
+Height: 11.1
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_KPBI_JetAviation_FBO/KPBI_JetAviationFBO
+Since: 5.0.0
+=====================
+Description: A small shopping complex / mall constructed from limestone with a mixture of terracotta tiled and flat roofs.
