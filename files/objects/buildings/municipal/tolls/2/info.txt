@@ -1,0 +1,13 @@
+Title: Toll, 5 lane
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 27.3
+Depth: 8.5
+Height: 6.4
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_Parking_Toll/KSRQ_Parking_Toll
+=====================
+Description: A 5 lane toll station with attached admin block.

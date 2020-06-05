@@ -1,0 +1,13 @@
+Title: Hospital, 4 storey
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 201.1
+Depth: 147.9
+Height: 32.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_Manatee_Memorial/ManateeMemorial
+=====================
+Description: A 201m long multi-level 4 storey hospital with curved frontages.

@@ -1,0 +1,13 @@
+Title: Shed, concrete, 61m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 61.5
+Depth: 33.0
+Height: 9.4
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_North_Building/KSRQ_NorthBuilding
+=====================
+Description: A 61m long modern concrete shed with raised central entrance area.

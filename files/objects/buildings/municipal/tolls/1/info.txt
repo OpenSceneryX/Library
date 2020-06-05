@@ -1,0 +1,13 @@
+Title: Toll, 3 lane
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 17.3
+Depth: 35.4
+Height: 8.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KTLH_Parking_Toll/KTLHtoll
+=====================
+Description: A 3 lane toll station for a car park.
