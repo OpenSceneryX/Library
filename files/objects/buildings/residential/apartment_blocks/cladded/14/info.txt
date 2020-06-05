@@ -1,0 +1,12 @@
+Title: Apartment block, 2 storey, 25m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 24.6
+Depth: 6.2
+Height: 5.5
+Since: 5.0.0
+=====================
+Description: A 25m long 2-storey cladded apartment block with a flat roof.

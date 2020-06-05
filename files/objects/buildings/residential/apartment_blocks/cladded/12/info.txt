@@ -1,0 +1,13 @@
+Title: Apartment block, 11 storey, 78m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 78.4
+Depth: 24.1
+Height: 50.3
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_BayFront_Building/Bayfront
+=====================
+Description: A 78m long 11-storey cladded apartment block with a flat roof.

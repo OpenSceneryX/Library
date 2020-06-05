@@ -1,0 +1,12 @@
+Title: Apartment block, 6 storey, 26m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 26.3
+Depth: 23.4
+Height: 26.7
+Since: 5.0.0
+=====================
+Description: A 26m long 6-storey cladded apartment block with a flat roof.

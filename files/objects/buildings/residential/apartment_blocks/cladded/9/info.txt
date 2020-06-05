@@ -1,0 +1,13 @@
+Title: Apartment block, 2 storey, 68m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 53.0
+Depth: 68.4
+Height: 9.9
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KSRQ_Aparts/KSRQ_app9
+=====================
+Description: A 68m long 2-storey cladded and glass apartment block with a flat roof.

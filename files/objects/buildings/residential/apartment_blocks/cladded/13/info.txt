@@ -1,0 +1,12 @@
+Title: Apartment block, 10 storey, 41m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: Austin Goudge
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 19.5
+Depth: 41.4
+Height: 44.2
+Since: 5.0.0
+=====================
+Description: A 41m long 10-storey cladded apartment block with a flat roof.
