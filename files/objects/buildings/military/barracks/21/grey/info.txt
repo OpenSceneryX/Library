@@ -2,7 +2,7 @@ Title: Barracks, stone, grey roof, two storey, 90m
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 90.0
 Depth: 73.3

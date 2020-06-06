@@ -2,7 +2,7 @@ Title: Sign, fuel dump
 =====================
 Author: Barry Drake
 URL: https://forums.x-plane.org/index.php?/profile/108279-dr-ropeless/
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 0.5m
 Depth: 0.06m

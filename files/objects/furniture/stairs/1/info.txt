@@ -2,7 +2,7 @@ Title: Steps, wooden
 =====================
 Author: Fman
 URL: https://www.blendswap.com/profile/645926
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 3.4
 Height: 1.0

@@ -2,7 +2,7 @@ Title: Shops, stone, large covered entrance
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 47.1
 Depth: 43.7

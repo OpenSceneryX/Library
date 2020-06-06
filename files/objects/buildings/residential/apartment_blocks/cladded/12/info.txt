@@ -2,7 +2,7 @@ Title: Apartment block, 11 storey, 78m
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 78.4
 Depth: 24.1

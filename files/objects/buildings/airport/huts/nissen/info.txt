@@ -1,6 +1,6 @@
 Title: Hut, Nissen
 =====================
-Author: Austin Goudge
+Author: aussi
 Email: austin@goudges.com
 Width: 5.3
 Depth: 10.0

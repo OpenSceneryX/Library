@@ -2,7 +2,7 @@ Title: Barrier, concrete, tall, 1m
 =====================
 Author: jeandiz
 URL: https://www.blendswap.com/profile/903124
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 0.7
 Depth: 2.1

@@ -2,7 +2,7 @@ Title: Jetty, wooden, 13m
 =====================
 Author: LightBringer3D
 URL: https://www.blendswap.com/profile/975407
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 4.5
 Depth: 12.8

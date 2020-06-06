@@ -1,6 +1,6 @@
 Title: Boarding Bridge, Mobile
 =====================
-Author: Austin Goudge
+Author: aussi
 URL: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 5.4
 Height: 4.9

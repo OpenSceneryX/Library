@@ -2,7 +2,7 @@ Title: Warning bollard, red and white
 =====================
 Author: jeandiz
 URL: https://www.blendswap.com/profile/903124
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 0.3
 Depth: 0.6

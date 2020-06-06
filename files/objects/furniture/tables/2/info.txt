@@ -1,6 +1,6 @@
 Title: Picnic Table
 =====================
-Author: Austin Goudge
+Author: aussi
 Email: austin@goudges.com
 Width: 1.6
 Depth: 1.5

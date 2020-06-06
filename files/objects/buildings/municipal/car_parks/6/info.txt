@@ -2,7 +2,7 @@ Title: Car Park, Multi-storey Rotunda left-hand, 7 floors
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 49.6
 Depth: 47.0

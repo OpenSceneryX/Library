@@ -2,7 +2,7 @@ Title: Crate, wooden, 1m, variant 1
 =====================
 Author: Duion
 URL: https://www.blendswap.com/profile/99735
-Author, modifications: Austin Goudge
+Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 1.0
 Height: 1.0
