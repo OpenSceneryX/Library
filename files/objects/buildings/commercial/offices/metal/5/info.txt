@@ -1,0 +1,13 @@
+Title: Offices, metal, 40m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 38.6
+Depth: 40.2
+Height: 5.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_Modern_Office/NAPS_KMCO_Offices_West
+=====================
+Description: A 40m long metal single storey office block, partially shuttered, with a flat corrugated metal roof.

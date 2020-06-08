@@ -1,0 +1,13 @@
+Title: Cargo terminal, concrete, 90m, pitched roof
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 90.2
+Depth: 24.1
+Height: 7.8
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_PHOG_Cargo_North/T_cargo_North
+=====================
+Description: A 90m long concrete cargo terminal with a pitched roof.

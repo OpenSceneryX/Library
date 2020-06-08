@@ -1,0 +1,13 @@
+Title: Office, prefabricated, Portakabin®, 16m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 6.0
+Depth: 15.6
+Height: 3.6
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_Office_temporary/NAPS_OfficeTemporaryMil
+Since: 5.0.0
+=====================
+Description: A 16m long Portakabin® office painted military green.

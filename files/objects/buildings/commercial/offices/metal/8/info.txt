@@ -1,0 +1,13 @@
+Title: Offices, metal, 2 storey, 69m, variant 2
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 68.8
+Depth: 45.3
+Height: 9.3
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_Modern_Office/NAPS_Modern_OfficeSmaller
+=====================
+Description: A 69m long, 9.3m high, metal 2 storey office block, partially shuttered, variant 2, with a flat corrugated metal roof.

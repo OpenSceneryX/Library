@@ -1,0 +1,13 @@
+Title: Shops, covered walkway
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 18.3
+Depth: 15.0
+Height: 4.3
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_PHHN_FBO/PHHNfbo
+Since: 5.0.0
+=====================
+Description: A single storey shop with pitched tile roof and a covered walkway on three sides.
