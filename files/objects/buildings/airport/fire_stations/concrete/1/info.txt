@@ -1,0 +1,13 @@
+Title: Fire station, concrete, 91m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 91.0
+Depth: 16.7
+Height: 11.2
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_EBLG_FireRescue/EBLG_FireRescueCargoSouthWest
+=====================
+Description: A 91m long concrete fire station with 3 levels, a flat roof and an office block.

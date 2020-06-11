@@ -1,13 +1,13 @@
-Title: Car hire Depot, 82m
+Title: Sentry box
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
 Author, modifications: aussi
 URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
-Width: 82.3
-Depth: 52.8
-Height: 6.3
+Width: 3.5
+Depth: 5.5
+Height: 3.1
+Export External NAPS_library: NAPS_library/NAPS_BUILDINGS/NAPS_SentryBox/NAPS_SentryBox
 Since: 5.0.0
-Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCO_Rental_Center/KMCO_Rental_Centre
 =====================
-Description: An 82m long car hire depot with covered area and offices.
+Description: A 5.5m long grey and brown sentry box.
