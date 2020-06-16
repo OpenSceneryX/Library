@@ -1,0 +1,13 @@
+Title: Fire station, concrete, 93m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 35.6
+Depth: 93.1
+Height: 13.7
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KATL_Fire_Rescue_NW/KATL_Fire_NW
+=====================
+Description: A 93m long concrete fire command station with 3 levels, a flat roof and offices.
