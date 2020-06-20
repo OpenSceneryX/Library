@@ -1,0 +1,12 @@
+Title: Flag, Spain, Extremadura
+=====================
+Author: mr 3D
+URL: https://forums.x-plane.org/index.php?/profile/9171-mr-3d/
+Author, texture: Luis Garcia
+URL, texture: https://forums.x-plane.org/index.php?/profile/10061-luis-garcia/
+Width: 4.4
+Height: 13.8
+Depth: 2.1
+Since: 5.0.0
+=====================
+Description: An animated Spanish Extremadura flag.
