@@ -2,6 +2,8 @@ Title: Flag, Guatemala
 =====================
 Author: mr 3D
 URL: https://forums.x-plane.org/index.php?/profile/9171-mr-3d/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Author, texture: Chris Noe
 URL, texture: https://forums.x-plane.org/index.php?/profile/59940-chris-noe/
 Width: 4.4
