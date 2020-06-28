@@ -9,5 +9,6 @@ Depth: 48.6
 Height: 13.7
 Since: 5.0.0
 Export External NAPS_Library: NAPS_library/NAPS_BUILDINGS/NAPS_KMCF_Barracks/NAPS_KMPF_Fire
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KMPF_MIL_Fire_Rescue/NAPS_KMPF_Fire
 =====================
 Description: A 99m long, two storey stone barracks building with an attached covered area and a red pitched roof.

@@ -1,0 +1,13 @@
+Title: Fire station, metal, 35m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 35.1
+Depth: 28.4
+Height: 11.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_PHTO_Fire_Rescue/PHTOfire
+=====================
+Description: A 35m long metal fire station with 3 bays, a pitched roof and an attached office.

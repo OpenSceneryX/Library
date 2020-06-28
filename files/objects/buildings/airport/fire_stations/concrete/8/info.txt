@@ -1,0 +1,13 @@
+Title: Fire station, concrete, 32m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 32.3
+Depth: 27.4
+Height: 8.3
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KPGD_Fire/NAPS_PuntaGorda_FireStation
+=====================
+Description: A 32m long concrete fire station with a flat roof.

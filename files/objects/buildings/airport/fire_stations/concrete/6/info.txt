@@ -1,0 +1,13 @@
+Title: Fire station, concrete, 38m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 18.9
+Depth: 37.8
+Height: 9.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KMOB_Fire_Rescue/KMOBRescue
+=====================
+Description: A 38m long concrete and brick fire station with three garages and a control tower.

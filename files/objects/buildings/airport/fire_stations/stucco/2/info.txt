@@ -1,0 +1,13 @@
+Title: Fire station, stucco, 51m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 28.4
+Depth: 50.9
+Height: 7.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KNPA_MIL_Fire_Rescue/firestation
+=====================
+Description: A 51m long stucco fire station with a grey pitched roof and attached offices.

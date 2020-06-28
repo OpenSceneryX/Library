@@ -1,0 +1,14 @@
+Title: Fire station, concrete, 66m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 66.3
+Depth: 33.6
+Height: 7.4
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_PHNL_Fire_Rescue/PHNLFireStation
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_PHNL_MIL_Fire_Rescue/HHAFBFireStation
+=====================
+Description: A 66m long concrete fire station with 6 bays, a flat roof and a storage tank.

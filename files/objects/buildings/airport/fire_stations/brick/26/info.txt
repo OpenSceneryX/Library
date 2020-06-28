@@ -1,0 +1,13 @@
+Title: Fire station, red brick, 5 bays, 56m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 48.4
+Depth: 56.0
+Height: 13.5
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_PHOG_Fire_Rescue/firePHOG
+=====================
+Description: A 56m long fire station with five engine bays and attached offices.

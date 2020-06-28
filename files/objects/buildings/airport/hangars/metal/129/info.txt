@@ -1,0 +1,13 @@
+Title: Hangar, metal, with rotunda, 178m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 178.5
+Depth: 38.6
+Height: 14.7
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_FIRE_RESCUE/NAPS_KLAL_ACA_Fire/KLAL_ACA
+=====================
+Description: A 189m long metal hangar building with five doors on each side and a rotunda office block attached.
