@@ -1,0 +1,13 @@
+Title: Shrub, Laurus (Laurel), 1.8m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 1.2
+Depth: 1.4
+Height: 1.8
+Export External NAPS_Library: NAPS_library/NAPS_GREEN/NAPS_Shrubs/shrubs1
+Since: 5.0.0
+=====================
+Description: An individual Laurus (Laurel) shrub, height 1.8m.
