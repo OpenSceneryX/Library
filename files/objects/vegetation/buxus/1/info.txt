@@ -7,7 +7,7 @@ URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
 Width: 0.3
 Depth: 0.4
 Height: 0.3
-Export External NAPS_Library: NAPS_library/NAPS_GREEN/NAPS_Shrubs/shrubs2.obj
+Export External NAPS_Library: NAPS_library/NAPS_GREEN/NAPS_Shrubs/shrubs2
 Since: 5.0.0
 =====================
 Description: A 0.3m high spherical Buxus (Box) hedging plant.
