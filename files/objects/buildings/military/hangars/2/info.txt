@@ -1,0 +1,13 @@
+Title: Hangar, military camouflaged, canopy, 31m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 31.0
+Depth: 15.4
+Height: 9.7
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy/KNPA_CanopyCamo
+=====================
+Description: A 31m long metal military camouflaged canopy hangar, open at both ends.
