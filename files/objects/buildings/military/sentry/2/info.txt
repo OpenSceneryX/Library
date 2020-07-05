@@ -1,0 +1,12 @@
+Title: Sentry box, brick
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 3.5
+Depth: 5.5
+Height: 3.1
+Since: 5.0.0
+=====================
+Description: A 5.5m long brick sentry box with a tiled roof.

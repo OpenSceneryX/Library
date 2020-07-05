@@ -1,0 +1,13 @@
+Title: Covered area, military cream, 2.6m high
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 2.5
+Depth: 13.8
+Height: 2.6
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy_New/NAPS_New_Canopy_Cream
+=====================
+Description: A 2.6m high military cream coloured canvas covered area.

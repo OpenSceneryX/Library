@@ -1,0 +1,13 @@
+Title: Covered area angled left, metal roof, 189m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 188.9
+Depth: 19.9
+Height: 7.0
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy/NAPS_TyndallCanopy
+=====================
+Description: A 189m long, open sided covered area which is angled to the left, with a grey metal roof.

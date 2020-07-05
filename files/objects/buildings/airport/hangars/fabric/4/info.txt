@@ -1,0 +1,13 @@
+Title: Hangar, canvas, canopy, 30m
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 30.4
+Depth: 13.9
+Height: 9.1
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy/KNPA_DuncanEntr
+=====================
+Description: A 30m long blue canvas canopy hangar, open at both ends.

@@ -1,0 +1,13 @@
+Title: Covered area, military camouflaged, 4.4m high
+=====================
+Author: Freddy de Pues
+URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
+Author, modifications: aussi
+URL, modifications: https://forums.x-plane.org/index.php?/profile/2431-aussi/
+Width: 7.0
+Depth: 13.8
+Height: 4.4
+Since: 5.0.0
+Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy_New/NAPS_New_CanopyBig_Camo
+=====================
+Description: A 4.4m high, 14m long military camouflaged canvas covered area.
