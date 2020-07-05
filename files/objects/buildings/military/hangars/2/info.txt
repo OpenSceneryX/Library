@@ -10,4 +10,4 @@ Height: 9.7
 Since: 5.0.0
 Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy/KNPA_CanopyCamo
 =====================
-Description: A 31m long metal military camouflaged canopy hangar, open at both ends.
+Description: A 31m long military camouflaged canvas canopy hangar, open at both ends.

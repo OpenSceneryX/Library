@@ -1,4 +1,4 @@
-Title: Hangar, metal, canopy, 31m
+Title: Hangar, canvas, canopy, 31m
 =====================
 Author: Freddy de Pues
 URL: https://forums.x-plane.org/index.php?/profile/125076-freddy-de-pues/
@@ -10,4 +10,4 @@ Height: 9.7
 Since: 5.0.0
 Export External NAPS_Library: NAPS_library/NAPS_HANGARS/NAPS_Canopy/KNPA_Canopy
 =====================
-Description: A 31m long metal beige canopy hangar, open at both ends.
+Description: A 31m long beige canvas canopy hangar, open at both ends.
